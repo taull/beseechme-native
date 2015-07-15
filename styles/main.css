@@ -12,24 +12,30 @@
 
 /* Layout */
 body {
-  background: #263238; }
+  background: #37474F;
+  width: 404px;
+  margin: 0 auto;
+  overflow-x: hidden; }
 
 header {
   width: 100%;
   height: 85px;
-  position: absolute;
+  position: relative;
   background: #263238;
   left: 0;
   z-index: 10;
   padding-top: 30px; }
 
 .header-container {
-  width: 960px;
+  width: 404px;
   margin: 0 auto; }
 
 .header-logo {
   display: inline-block;
-  padding-top: 0px; }
+  padding-top: 0px;
+  width: 404px;
+  margin: 0 auto;
+  text-align: center; }
   .header-logo div {
     display: inline-block;
     width: 35px;
@@ -42,7 +48,7 @@ header {
     padding-top: 5px; }
   .header-logo img {
     display: inline-block;
-    height: 40px;
+    height: 30px;
     width: auto; }
   .header-logo span {
     display: inline-block;
@@ -52,10 +58,11 @@ header {
     margin-right: 25px; }
 
 .header-right {
-  float: right;
-  width: 360px;
-  margin-top: -15px;
-  text-align: right; }
+  position: absolute;
+  right: 10px;
+  width: 60px;
+  top: 15px;
+  transition: 250ms; }
   .header-right li {
     display: inline-block;
     vertical-align: top;
@@ -73,6 +80,24 @@ header {
     margin-top: 18px;
     display: inline-block;
     vertical-align: top; }
+
+.header-left {
+  position: absolute;
+  left: 5px;
+  top: 15px;
+  /*	span {
+  		display: inline-block;
+  		vertical-align: top;
+  		color: $text-color;
+  		font-size: 22px;
+  	}*/ }
+  .header-left p {
+    font-size: 18px;
+    color: #ECEFF1;
+    display: inline-block;
+    vertical-align: top;
+    font-weight: 300;
+    padding-left: 10px; }
 
 /* Login/Register */
 .home-container {
@@ -263,27 +288,22 @@ header {
 
 /* Profile Route */
 .profile-container {
-  width: 960px;
+  width: 404px;
   margin: 0 auto;
   position: relative;
-  top: 85px;
   padding-bottom: 50px;
   transition: 250ms; }
-
-.profile-left {
-  display: inline-block;
-  width: 575px;
-  margin-right: 25px;
-  vertical-align: top; }
 
 .profile-heading {
   width: 100%;
   background: #263238; }
 
 .profile-options {
-  width: 100%;
-  background: #37474F;
-  /*margin-bottom: 20px;*/ }
+  width: 404px;
+  background: #263238;
+  /*margin-bottom: 20px;*/
+  position: fixed;
+  bottom: 0; }
   .profile-options li {
     width: 25%;
     display: inline-block;
@@ -292,17 +312,20 @@ header {
     text-align: center;
     padding: 20px 0;
     font-weight: 300;
-    border-right: 1px solid #263238;
-    border-left: 1px solid #455A64;
+    border-right: 1px solid #000;
+    border-left: 1px solid #37474F;
     /*border-bottom: 1px solid $primary-color-dark;*/ }
   .profile-options li:last-child {
     border-right: 0; }
   .profile-options li:first-child {
     border-left: 0; }
   .profile-options span {
-    display: block;
-    font-size: 24px;
-    padding-bottom: 5px; }
+    width: 30px;
+    top: -25px;
+    color: #263238;
+    font-size: 48px;
+    text-align: center;
+    position: absolute; }
   .profile-options img {
     height: 30px;
     width: auto; }
@@ -348,11 +371,12 @@ header {
 .beer-search {
   width: 100%;
   background: #37474F;
-  border-bottom: 1px solid #263238; }
+  border-bottom: 1px solid #263238;
+  position: relative; }
   .beer-search span {
     display: inline-block;
     vertical-align: top;
-    width: 10%;
+    width: 15%;
     font-size: 18px;
     color: #ECEFF1;
     text-align: center;
@@ -362,7 +386,7 @@ header {
     color: #ECEFF1;
     vertical-align: top;
     height: 60px;
-    width: 90%;
+    width: 85%;
     border: 0;
     background: transparent;
     outline: 0;
@@ -372,10 +396,27 @@ header {
   .beer-search input::-webkit-input-placeholder {
     color: #B0BEC5; }
 
+.beer-plus {
+  font-size: 36px;
+  color: #8BC34A;
+  text-align: center;
+  padding-top: 11px;
+  height: 60px;
+  width: 60px;
+  transition: 250ms; }
+
+.rotate {
+  color: #B71C1C;
+  -ms-transform: rotate(45deg);
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(45deg); }
+
 .module-header {
   width: 100%;
   background: #37474F;
-  padding: 15px 15px;
+  padding: 18px 15px;
   border-bottom: 1px solid #263238; }
   .module-header img {
     height: 25px;
@@ -400,7 +441,7 @@ header {
 
 .profile-beer-list {
   width: 100%;
-  background: #37474F; }
+  background: #ECEFF1; }
   .profile-beer-list ul {
     list-style: none;
     padding-left: 0;
@@ -408,54 +449,74 @@ header {
   .profile-beer-list li {
     display: inline-block;
     width: 100%;
-    padding: 25px;
-    border-bottom: 1px solid #263238;
-    border-top: 1px solid #455A64; }
+    padding: 20px;
+    border-bottom: 1px solid #dfdfdf;
+    border-top: 1px solid #fff; }
   .profile-beer-list span {
     width: 5%;
     text-align: center;
     font-size: 16px;
     display: inline-block;
     vertical-align: top;
-    color: #ECEFF1; }
+    color: #37474F; }
 
 .beer-list-header {
   border-bottom: 1px solid #263238; }
 
-.beer-name {
-  width: 75%;
+.beer-avatar {
   display: inline-block;
   vertical-align: top;
-  padding-left: 5px; }
+  width: 15%; }
+  .beer-avatar img {
+    width: 100%;
+    height: auto; }
+
+.beer-name {
+  width: 65%;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 10px; }
   .beer-name h1 {
     font-size: 14px;
-    color: #03A9F4; }
-  .beer-name p {
+    color: #0277BD; }
+  .beer-name h2 {
     font-size: 12px;
     font-style: italic;
     display: block;
-    color: #ECEFF1; }
+    color: #37474F; }
+  .beer-name p {
+    font-size: 12px;
+    display: block;
+    color: #B71C1C; }
 
 .beer-abv {
   width: 20%;
   display: inline-block;
   vertical-align: top;
   text-align: right; }
-  .beer-abv p {
+  .beer-abv h1 {
+    display: block;
     font-size: 14px;
-    color: #ECEFF1; }
+    color: #37474F; }
+  .beer-abv p {
+    display: block;
+    font-size: 12px;
+    text-transform: lowercase;
+    font-weight: 300;
+    color: #37474F; }
 
 .beer-search-results {
   width: 100%;
   background: #37474F;
-  border-bottom: 1px solid #455A64; }
+  border-bottom: 1px solid #455A64;
+  position: relative; }
   .beer-search-results ul {
     list-style: none;
     padding-left: 0; }
   .beer-search-results li {
     display: inline-block;
     width: 100%;
-    padding: 25px;
+    padding: 20px;
     border-bottom: 1px solid #263238;
     border-top: 1px solid #455A64; }
   .beer-search-results span {
@@ -470,28 +531,59 @@ header {
   width: 70%;
   display: inline-block;
   vertical-align: top;
-  padding-left: 5px; }
+  padding-left: 10px; }
   .beer-results-name h1 {
     font-size: 14px;
     color: #03A9F4; }
-  .beer-results-name p {
+  .beer-results-name h2 {
     font-size: 12px;
     font-style: italic;
     display: block;
     color: #ECEFF1; }
+
+.beer-results-avatar {
+  display: inline-block;
+  vertical-align: top;
+  width: 10%; }
+  .beer-results-avatar img {
+    width: 100%;
+    height: auto; }
 
 .beer-results-abv {
   width: 20%;
   display: inline-block;
   vertical-align: top;
   text-align: right; }
-  .beer-results-abv p {
+  .beer-results-abv h1 {
+    display: block;
     font-size: 14px;
     color: #ECEFF1; }
+  .beer-results-abv p {
+    display: block;
+    font-size: 12px;
+    color: #ECEFF1;
+    text-transform: lowercase;
+    font-weight: 300; }
 
-.profile-right {
+.beer-results-add {
+  width: 20%;
   display: inline-block;
-  width: 360px;
+  vertical-align: top;
+  text-align: center; }
+  .beer-results-add span {
+    color: #8BC34A;
+    font-size: 28px; }
+
+.profile-column {
+  right: 0;
+  position: absolute;
+  display: inline-block;
+  padding-bottom: 50px;
+  width: 404px;
+  transition: 250ms; }
+
+.container-shift {
+  right: -100%;
   transition: 250ms; }
 
 .profile-right-shift {
@@ -551,7 +643,9 @@ header {
 
 .feed-name {
   width: 75%;
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 10px; }
   .feed-name p {
     font-size: 12px;
     font-style: italic;
@@ -560,6 +654,19 @@ header {
   .feed-name h1 {
     font-size: 16px;
     color: #37474F; }
+
+.feed-avatar {
+  width: 10%;
+  display: inline-block;
+  vertical-align: top; }
+  .feed-avatar img {
+    width: 100%;
+    height: auto; }
+
+.feed-post {
+  display: inline-block;
+  vertical-align: top;
+  width: 90%; }
 
 .feed-ago {
   width: 25%;
@@ -574,7 +681,8 @@ header {
 .feed-status {
   width: 100%;
   display: inline-block;
-  padding-top: 10px; }
+  padding-top: 10px;
+  padding-left: 10px; }
   .feed-status p {
     font-size: 16px;
     line-height: 24px;
@@ -664,22 +772,21 @@ header {
 /* Slideout Panel */
 .slideout {
   position: absolute;
-  width: 360px;
-  /* height: 100%; */
-  /* padding: 25px; */
-  right: 0;
-  top: -156px;
-  transition: 250ms; }
+  left: -100%;
+  height: 100%;
+  width: 404px;
+  transition: 250ms;
+  background: #37474F; }
 
 .toggle-slideout {
-  top: 0px; }
+  left: 0; }
 
 /* Animated Hamburger Toggle */
 /* Icon 1 */
 #nav-toggle {
   display: inline-block;
   vertical-align: top;
-  width: 15%;
+  width: 100%;
   height: 60px;
   cursor: pointer;
   padding-top: 19px;
@@ -754,94 +861,10 @@ header {
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg); }
 
-/* Media Queries */
-@media screen and (min-width: 320px) and (max-width: 500px) {
-  .header-logo {
-    padding-left: 15px; }
+.hidden {
+  display: none; }
 
-  .header-container,
-  .profile-container {
-    width: 100%;
-    margin: 0 auto; }
-
-  .posting-options {
-    width: 100%; }
-
-  .profile-left,
-  .profile-right {
-    width: 100%;
-    display: block; }
-
-  .view-all {
-    margin-bottom: 0; }
-
-  .home-container {
-    top: 60px; }
-
-  .login-container {
-    width: 100%; }
-    .login-container li {
-      margin-bottom: 15px; }
-    .login-container span {
-      color: #263238; }
-
-  .login-options {
-    width: 100%; }
-
-  .login-logo {
-    width: 100%; }
-
-  #nav-toggle {
-    width: 23%;
-    padding-left: 0; }
-
-  .header-right {
-    width: 200px;
-    margin-top: -10px;
-    padding-right: 15px; }
-    .header-right li {
-      width: 70%;
-      padding-right: 5px; }
-
-  .options-caret {
-    display: none; }
-
-  .profile-options li {
-    border-bottom: 1px solid #263238;
-    border-top: 1px solid #455A64; }
-
-  .search-container {
-    width: 100%;
-    margin: 0 auto;
-    border-bottom: 1px solid #263238; }
-    .search-container span {
-      width: 15%; }
-
-  .home-search {
-    width: 100%; }
-
-  .profile-info {
-    /*margin-bottom:-25px;*/ }
-
-  .slideout {
-    width: 100%;
-    top: -162px;
-    position: absolute;
-    padding-top: 0px; }
-
-  .beer-list-header {
-    border-top: 1px solid #455A64; }
-
-  .status-header {
-    border-top: 1px solid #455A64; }
-
-  .profile-container-shift {
-    top: 247px; }
-
-  .profile-left {
-    display: none; }
-
-  .profile-right-shift {
-    margin-top: 0; } }
+.active-tab {
+  background: #37474F; }
 
 /*# sourceMappingURL=main.css.map */
