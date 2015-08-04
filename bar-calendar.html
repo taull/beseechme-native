@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Beme</title>
+  <meta name="description" content="Beseech Me">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type='text/css' href="styles/main.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/jquery-timepicker-jt/jquery.timepicker.css" />
+</head>
+<body>
+
+<header>
+	<div class="header-container">
+
+<!-- 		<div class="header-left">
+			<span class="fa fa-plus-square-o beer-plus"></span>
+		</div> -->
+
+		<div class="header-logo">
+			<img src="images/beme-logo-text.png">
+		</div>
+
+<!-- 		<div class="header-right">
+			<div id="nav-toggle">
+				<div id="nav-icon1">
+				  <span></span>
+				  <span></span>
+				  <span></span>
+				</div>
+			</div>
+		</div> -->
+	</div>
+</header>
+
+
+
+
+
+<div class="main-container">
+
+<!-- 	<div class="left-slideout">
+	  	<div class="beer-search">
+	  		<span class="fa fa-search"></span>
+	  		<input type="text" placeholder="Search Brewery Database...">
+	  	</div>
+
+	  	<div class="beer-search-results">
+			<ul>
+				<li>
+					<div class="beer-results-avatar">
+						<img src="images/two-hearted-avatar.png">
+					</div>
+					<div class="beer-results-name">
+						<h1>Two Hearted Ale</h1>
+						<h2>Bell's Brewery, Inc.</h2>
+
+					</div>
+					<div class="beer-results-add">
+						<span class="fa fa-plus-square-o"></span>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div> --><!-- End Slideout -->
+
+	<div class="calendar-column">
+
+		<div class="module-header center-header">
+			<p>Weekly Calendar</p>
+		</div>
+		<div class="calendar-container">
+			<ul>
+				<li class="bar-sunday"><span class="fa fa-angle-right"></span><p>Sunday</p><i class="fa fa-ellipsis-h"></i></li>
+				<li class="bar-monday"><span class="fa fa-angle-right"></span><p>Monday</p><i class="fa fa-ellipsis-h"></i></li>
+				<li class="bar-tuesday"><span class="fa fa-angle-right"></span><p>Tuesday</p><i class="fa fa-ellipsis-h"></i></li>
+				<li class="bar-wednesday"><span class="fa fa-angle-right"></span><p>Wednesday</p><i class="fa fa-ellipsis-h"></i></li>
+				<li class="bar-thursday"><span class="fa fa-angle-right"></span><p>Thursday</p><i class="fa fa-ellipsis-h"></i></li>
+				<li class="bar-friday"><span class="fa fa-angle-right"></span><p>Friday</p><i class="fa fa-ellipsis-h"></i></li>
+				<li class="bar-saturday"><span class="fa fa-angle-right"></span><p>Saturday</p><i class="fa fa-ellipsis-h"></i></li>
+			</ul>	
+		</div>
+	</div>
+
+	<div class="right-slideout1">
+		<div class="module-header">
+			<p>Sunday</p>
+			<a class="bar-info-back"><span class="fa fa-angle-left"></span>Back</a>
+		</div>
+
+		<div class="calendar-sublist">
+			<form action="">
+				<ul>
+					<li><h1>Open</h1><input type="text" value="11:00 am" placeholder="Enter opening time..."></li>
+					<!-- <li><h1>Open</h1><input id="basicExample" type="text" class="time" data-scroll-default="6:00am" /> -->
+					</li>
+					<li><h1>Close</h1><input type="text" value="2:00 am" placeholder="Enter closing time..."></li>
+					<li><textarea placeholder="Additional information here..." maxlength="150"></textarea></li>
+
+					<li><button type="submit" class="save-button">Save</button></li>
+				</ul>
+			</form>
+		</div>
+	</div><!-- End Right Slideout 1-->
+
+	<div class="right-slideout2">
+		<div class="module-header">
+			<p>My Logo</p>
+			<a class="bar-avatar-back"><span class="fa fa-angle-left"></span>Back</a>
+		</div>
+
+		<div class="avatar-container">
+			<div class="avatar-preview">
+				<img src="images/henrys_avatar.jpg">
+			</div>
+		</div>
+
+		<div class="settings-avatar">
+			<form action="">
+				<ul>
+					<li><input type="file" name="file-input" id="file-input"></li>
+					<li><button type="submit" class="save-button">Upload</button></li>
+				</ul>
+			</form>
+		</div>
+	</div><!-- End Right Slideout 2-->
+
+</div><!-- End Main Container -->
+
+<div class="profile-options profile-options-mobile">
+  <ul>
+    <li><img src="images/icon-comments.png"></li>
+    <li><img src="images/icon-beer.png"></li>
+   	<li><img src="images/icon-open.png"></li>
+    <li><img src="images/icon-chart.png"></li>
+  </ul>
+</div>
+
+
+
+
+<script src='bower_components/jquery/dist/jquery.min.js'></script>
+<script src='bower_components/underscore/underscore-min.js'></script>
+<script src='bower_components/backbone/backbone-min.js'></script>
+<script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+<script  src="bower_components/jquery-timepicker-jt/jquery.timepicker.js"></script>
+<script src='scripts/main.js'></script>
+</body>
