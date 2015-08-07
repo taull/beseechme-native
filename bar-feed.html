@@ -41,6 +41,31 @@
 
 	<div class="main-container">
 
+<!-- 		<div class="left-slideout">
+			<div class="location-container">
+			  <div class="location-button">
+			    <span class="fa fa-location-arrow"></span>
+			    <p>Current Location</p>
+			  </div>
+			</div>
+
+
+			<div class="home-container">
+			  <div class="popular-locations">
+			    <h1>Popular Locations</h1>
+			    <p>Hoboken, NJ • Columbia, SC • Charleston, SC</p>
+			  </div>
+			  <div class="home-search">
+			   <div class="search-location">
+			      <form action="">
+			        <span class="fa fa-search"></span>
+			        <input type="text" placeholder="Enter City or Zip Code">
+			      </form>
+			    </div>
+			  </div>
+			</div>
+		</div> --><!-- End Slideout -->
+
 		<!-- <div class="left-slideout">
 		  	<div class="beer-search">
 		  		<span class="fa fa-search"></span>
@@ -74,13 +99,18 @@
 				<input type="text" placeholder="Search Bars...">
 			</div> -->
 
-			<div class="profile-options profile-options-mobile">
+			<!-- <div class="profile-options profile-options-mobile">
 			  <ul>
 			    <li><img src="images/icon-comments.png"></li>
 			    <li><img src="images/icon-beer.png"></li>
 			   	<li><img src="images/icon-open.png"></li>
 			    <li><img src="images/icon-chart.png"></li>
 			  </ul>
+			</div> -->
+
+			<div class="module-header beer-list-header">
+				<p>The Latest</p>
+				<a class="add-beer"></a>
 			</div>
 
 
@@ -105,33 +135,74 @@
 			<div class="profile-feed">
 				<ul>
 					<li>
-						<div class="feed-avatar"><img src="images/henrys_avatar.jpg"></div>
 						
 						<div class="feed-post">
+
+							<div class="feed-avatar"><img src="images/henrys_avatar.jpg"></div>
+
+							<div class="feed-name"><h1>Henry's Grill and Bar</h1><p>5553 Devine Street</p></div>
+
+							<div class="feed-ago"><p>5 hours ago</p></div>
+
+							<div class="feed-status"><p>Lorem option this is a test post to see what happens when there are a few lines of text in this status update</p></div>
+
+							<div class="feed-controls">
+								<div class="feed-remove">
+									<!-- <p>21</p> -->
+									<i class="fa fa-star"></i>
+									<i class="fa fa-thumb-tack"></i>
+									<i class="fa fa-trash"></i>
+								</div>
+							</div>
+						</div>
+
+	
+
+					</li>
+					<li>
+						
+						
+						<div class="feed-post">
+							<div class="feed-avatar"><img src="images/henrys_avatar.jpg"></div>
+							<div class="feed-name"><h1>Henry's Grill and Bar</h1><p>5553 Devine Street</p></div>
+							<div class="feed-ago"><p>5 hours ago</p></div>
+
+							<div class="feed-status">
+								<p>Lorem option this is a test post to see what happens. $2 Drinks until 9pm!</p>
+								<div><img src="images/henrysbar.jpg"></div>
+							</div>
+
+							<div class="feed-controls">
+								<div class="feed-remove">
+									<!-- <p>21</p> -->
+									<i class="fa fa-star"></i>
+									<i class="fa fa-thumb-tack"></i>
+									<i class="fa fa-trash"></i>
+								</div>
+							</div>
+
+						</div>
+					</li>
+					<li>
+						
+						<div class="feed-post">
+
+							<div class="feed-avatar"><img src="images/henrys_avatar.jpg"></div>
+
 							<div class="feed-name"><h1>Henry's Grill and Bar</h1><p>5553 Devine Street</p></div>
 							<div class="feed-ago"><p>5 hours ago</p></div>
 
 							<div class="feed-status"><p>Lorem option this is a test post to see what happens when there are a few lines of text in this status update</p></div>
-						</div>
-					</li>
-					<li>
-						<div class="feed-avatar"><img src="images/henrys_avatar.jpg"></div>
-						
-						<div class="feed-post">
-							<div class="feed-name"><h1>Henry's Grill and Bar</h1><p>5553 Devine Street</p></div>
-							<div class="feed-ago"><p>5 hours ago</p></div>
 
-							<div class="feed-status"><p>Lorem option this is a test post to see what happens.</p></div>
-						</div>
-					</li>
-					<li>
-						<div class="feed-avatar"><img src="images/henrys_avatar.jpg"></div>
-						
-						<div class="feed-post">
-							<div class="feed-name"><h1>Henry's Grill and Bar</h1><p>5553 Devine Street</p></div>
-							<div class="feed-ago"><p>5 hours ago</p></div>
+							<div class="feed-controls">
+								<div class="feed-remove">
+									<!-- <p>21</p> -->
+									<i class="fa fa-star"></i>
+									<i class="fa fa-thumb-tack"></i>
+									<i class="fa fa-trash"></i>
+								</div>
+							</div>
 
-							<div class="feed-status"><p>Lorem option this is a test post to see what happens when there are a few lines of text in this status update</p></div>
 						</div>
 					</li>
 				</ul>
@@ -141,109 +212,27 @@
 				<a>Load More</a>
 			</div>
 			<!-- END FEED TAB -->
-			<!-- START BEER TAB -->
-		    <div class="module-header beer-list-header">
-				<p>On Tap</p>
-				<a class="add-beer"></a>
-			</div>
-
-		  	<div class="profile-beer-list">
-				<ul>
-					<li>
-						<!-- <span class="fa fa-angle-right"></span> -->
-						<div class="beer-avatar">
-							<img src="images/two-hearted-avatar.png">
-						</div>
-						<div class="beer-name">
-							<h1>Two Hearted Ale</h1>
-							<h2>Bell's Brewery, Inc.</h2>
-							<!-- <p>Remove</p> -->
-
-						</div>
-						<div class="beer-abv">
-							<h1>7.0%</h1>
-							<p>Abv</p>
-
-						</div>
-					</li>
-
-					<li>
-						<!-- <span class="fa fa-angle-right"></span> -->
-						<div class="beer-avatar">
-							<img src="images/westbrook-avatar.png">
-						</div>
-						<div class="beer-name">
-							<h1>IPA</h1>
-							<h2>Westbrook Brewing</h2>
-							<!-- <p>Remove</p> -->
-
-						</div>
-						<div class="beer-abv">
-							<h1>6.8%</h1>
-							<p>Abv</p>
-
-						</div>
-					</li>
-
-					<li>
-						<!-- <span class="fa fa-angle-right"></span> -->
-						<div class="beer-avatar">
-							<img src="images/harpoon-avatar.png">
-						</div>
-						<div class="beer-name">
-							<h1>Rick and Dan's Rye IPA</h1>
-							<h2>Harpoon Brewing</h2>
-							<!-- <p>Remove</p> -->
-
-						</div>
-						<div class="beer-abv">
-							<h1>7.4%</h1>
-							<p>Abv</p>
-
-						</div>
-					</li>
-
-					<li>
-						<!-- <span class="fa fa-angle-right"></span> -->
-						<div class="beer-avatar">
-							<img src="images/coors-light-avatar.png">
-						</div>
-						<div class="beer-name">
-							<h1>Coors Light</h1>
-							<h2>Coors Brewing Co.</h2>
-							<!-- <p>Remove</p> -->
-
-						</div>
-						<div class="beer-abv">
-							<h1>4.2%</h1>
-							<p>Abv</p>
-						</div>
-					</li>
-				</ul>
-			</div>
-
-			<div class="view-all-dark">
-				<a>View All</a>
-			</div>
 
 		</div><!-- End Middle Column -->
 
-		<div class="settings-column">
+		<div class="settings-column" id="settings-col">
 
-	  		<div class="top-header">
-				<p>Settings</p>
-				<!-- <a class="bar-info-back"><i class="fa fa-angle-left"></i>Back</a> -->
-			</div>
+			<div class="settings-slideout">
 
-			<div class="settings-container">
-				<ul>
-					<li class="bar-info"><span class="fa fa-info-circle"></span><p>Basic Info</p><i class="fa fa-ellipsis-h"></i></li>
-					<li class="bar-avatar"><span class="fa fa-picture-o"></span><p>My Logo</p><i class="fa fa-ellipsis-h"></i></li>
-					<li class="bar-calendar"><span class="fa fa-user"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
-					<li><span class="fa fa-question"></span><p>Support</p><i class="fa fa-ellipsis-h"></i></li>
-					<li><span class="fa fa-power-off"></span><p>Log Out</p><i class="fa fa-ellipsis-h"></i></li>
-				</ul>	
-			</div><!-- END SETTINGS CONTAINER -->
+		  		<div class="top-header center-header">
+					<p>Settings</p>
+					<!-- <a class="bar-info-back"><i class="fa fa-angle-left"></i>Back</a> -->
+				</div>
+
+				<div class="settings-container">
+					<ul>
+						<li class="bar-info"><span class="fa fa-info-circle"></span><p>Basic Info</p><i class="fa fa-ellipsis-h"></i></li>
+						<li class="bar-avatar"><span class="fa fa-picture-o"></span><p>My Logo</p><i class="fa fa-ellipsis-h"></i></li>
+						<li><span class="fa fa-question"></span><p>Support</p><i class="fa fa-ellipsis-h"></i></li>
+						<li><span class="fa fa-power-off"></span><p>Log Out</p><i class="fa fa-ellipsis-h"></i></li>
+					</ul>	
+				</div><!-- END SETTINGS CONTAINER -->
+			</div><!-- END SETTINGS Slideout -->
 
 			<div class="info-slideout">
 
@@ -256,7 +245,7 @@
 					<form action="">
 						<ul>
 							<li><h1>Name</h1><input type="text" value="Henry's Grill and Bar"></li>
-							<li><h1>Username</h1><input type="text" value="henrysbar"></li>
+							<li><h1>User</h1><input type="text" value="henrysbar"></li>
 
 							<li><h1>Street</h1><input type="text" value="2828 Devine Street"></li>
 							<li><h1>City</h1><input type="text" value="Columbia"></li>
@@ -324,48 +313,7 @@
 						</ul>
 					</form>
 				</div>
-			</div><!-- End Right Slideout 1-->
-
-
-			<div class="calendar-slideout">
-
-				<div class="top-header">
-					<a class="bar-calendar-back"><i class="fa fa-angle-left"></i>Settings</a>
-					<p>Calendar</p>
-				</div>
-				<div class="calendar-container">
-					<ul>
-						<li class="bar-sunday"><span class="fa fa-angle-right"></span><p>Sunday</p><i class="fa fa-ellipsis-h"></i></li>
-						<li class="bar-monday"><span class="fa fa-angle-right"></span><p>Monday</p><i class="fa fa-ellipsis-h"></i></li>
-						<li class="bar-tuesday"><span class="fa fa-angle-right"></span><p>Tuesday</p><i class="fa fa-ellipsis-h"></i></li>
-						<li class="bar-wednesday"><span class="fa fa-angle-right"></span><p>Wednesday</p><i class="fa fa-ellipsis-h"></i></li>
-						<li class="bar-thursday"><span class="fa fa-angle-right"></span><p>Thursday</p><i class="fa fa-ellipsis-h"></i></li>
-						<li class="bar-friday"><span class="fa fa-angle-right"></span><p>Friday</p><i class="fa fa-ellipsis-h"></i></li>
-						<li class="bar-saturday"><span class="fa fa-angle-right"></span><p>Saturday</p><i class="fa fa-ellipsis-h"></i></li>
-					</ul>	
-				</div>
-			</div>
-
-			<div class="sunday-slideout">
-				<div class="top-header">					
-					<a class="bar-sunday-back"><i class="fa fa-angle-left"></i>Calendar</a>
-					<p>Sunday</p>
-				</div>
-
-				<div class="calendar-sublist">
-					<form action="">
-						<ul>
-							<li><h1>Open</h1><input type="text" value="11:00 am" placeholder="Enter opening time..."></li>
-							<!-- <li><h1>Open</h1><input id="basicExample" type="text" class="time" data-scroll-default="6:00am" /> -->
-							</li>
-							<li><h1>Close</h1><input type="text" value="2:00 am" placeholder="Enter closing time..."></li>
-							<li><textarea placeholder="Additional information here..." maxlength="150"></textarea></li>
-
-							<li><button type="submit" class="save-button">Save</button></li>
-						</ul>
-					</form>
-				</div>
-			</div><!-- End Sunday Slideout-->
+			</div><!-- End Info Slideout-->
 
 			<div class="right-slideout2">
 				<div class="top-header">
@@ -377,19 +325,31 @@
 					<div class="avatar-preview">
 						<img src="images/henrys_avatar.jpg">
 					</div>
+
+					<div class="avatar-options">
+						<form action="">
+							<button type="submit">Upload</button>
+							<label for="avatar-file">
+								<i class="fa fa-camera"></i>
+							</label>
+							<input type="file" id="avatar-file" />
+						</form>
+					</div>
+
 				</div>
 
-				<div class="settings-avatar">
+
+				<!-- <div class="settings-avatar">
 					<form action="">
 						<ul>
-							<li><!-- <label for="file-input">File upload</label> --><input type="file" name="file-input" id="file-input"></li>
+							<li><input type="file" name="file-input" id="file-input"></li>
 							<li><button type="submit" class="save-button">Upload</button></li>
 						</ul>
 					</form>
-				</div>
-			</div><!-- End Right Slideout 2-->
+				</div> -->
+			</div><!-- End Right Slideout 2 / Avatar-->
 
-		</div><!-- End Settings Column -->
+		</div><!-- End Settings Slideout -->
 
 
 	<!-- 	<div class="right-slideout">
