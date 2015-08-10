@@ -97,6 +97,12 @@ $('.header-left').click(function(){
 	$('.header-right').toggleClass('hidden');
 });
 
+// Backend Tabs Trigger
+
+$('.backend-tabs-trigger').click(function(){
+	$('.backend-tabs').toggleClass('hidden');
+});
+
 // $('.location-arrow').click(function(){
 // 	$('.left-slideout').toggleClass('toggle-left-slideout');
 // 	$('.middle-column').toggleClass('container-shift-right');
@@ -111,9 +117,9 @@ $('.header-left').click(function(){
 // 	$('.header-left').toggleClass('hidden');
 // });
 
-$(function() {
-    $('#basicExample').timepicker();
-});
+// $(function() {
+//     $('#basicExample').timepicker();
+// });
 
 // $(document).keydown(function(objEvent) {
 //     if (objEvent.keyCode == 9) {  //tab pressed
