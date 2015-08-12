@@ -22,7 +22,7 @@ $text-color: #ECEFF1;
 /* Global Variables */
 
 * {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Helvetica', sans-serif;
 	font-size: 0;
 	padding: 0;
 	margin: 0;
@@ -67,7 +67,7 @@ header {
 		font-size: 18px;
 		text-decoration: none;
 		float: right;
-		font-weight: 300;
+		font-weight: lighter;
 		height:60px;
 		padding-top: 18px;
 	    padding-right: 10px;
@@ -136,7 +136,7 @@ header {
 		color:$text-color;
 		display:inline-block;
 		vertical-align:top;
-		font-weight: 300;
+		font-weight: lighter;
 		padding-top:18px;
 	}
 
@@ -160,7 +160,7 @@ header {
 		color:$text-color;
 		display:inline-block;
 		vertical-align:top;
-		font-weight: 300;
+		font-weight: lighter;
 		padding-left: 10px;
 	}
 
@@ -203,7 +203,7 @@ header {
 		font-size: 14px;
 		color: $text-color;
 		font-style: italic;
-		font-weight: 300;
+		font-weight: lighter;
 		margin-top:-10px;
 	}
 }
@@ -244,7 +244,7 @@ header {
 		border: 0;
 		outline: 0;
 		background: transparent;
-		font-weight: 300;
+		font-weight: lighter;
 		text-indent: 0;
 	}
 
@@ -273,10 +273,10 @@ header {
 		font-size: 12px;
 		border: 0;
 		color: $primary-color-light;
-		font-weight: 300;
+		font-weight: lighter;
 		background: $secondary-color-dark;
 		outline: 0;
-		font-weight: 300;
+		font-weight: lighter;
 		border-radius: 3px;
 		float:right;
 	}
@@ -338,7 +338,7 @@ header {
 		border-radius:0;
 		width: 70%;
 		background: transparent;
-		font-weight: 300;
+		font-weight: lighter;
 		color: $text-color;
 	}
 
@@ -383,7 +383,7 @@ header {
 	p {
 		font-size: 16px;
 		color: $primary-color-light;
-		font-weight: 300;
+		font-weight: lighter;
 		padding-top: 20px;
 	}
 }
@@ -418,7 +418,7 @@ header {
 		vertical-align: top;
 		color: $primary-color-light;
 		font-size: 18px;
-		font-weight: 300;
+		font-weight: lighter;
 		padding-left: 10px;
 	}
 
@@ -433,7 +433,7 @@ header {
 		display: block;
 		font-size: 14px;
 		color: $secondary-color-light;
-		font-weight: 300;
+		font-weight: lighter;
 		padding-bottom: 10px;
 	}
 
@@ -442,7 +442,7 @@ header {
 		vertical-align: top;
 		font-size: 14px;
 		color: $primary-color-light;
-		font-weight: 300;
+		font-weight: lighter;
 	}
 }
 
@@ -537,7 +537,7 @@ header {
 		font-size: 12px;
 		text-align: center;
 		padding: 15px 0;
-		font-weight: 300;
+		font-weight: lighter;
 		border-right: 1px solid $primary-color-dark;
 		border-left: 1px solid #455A64;
 		/*border-top: 1px solid #455A64;*/
@@ -612,7 +612,7 @@ header {
 
 	p {
 		font-size: 12px;
-		font-weight: 300;
+		font-weight: lighter;
 		color: $primary-color-light;
 	}
 
@@ -634,7 +634,7 @@ header {
 		font-size: 12px;
 		text-align: center;
 		padding: 20px 0;
-		font-weight: 300;
+		font-weight: lighter;
 		border-right: 1px solid #000;
 		border-left: 1px solid $primary-color-medium;
 		/*border-bottom: 1px solid $primary-color-dark;*/
@@ -697,7 +697,7 @@ header {
 		outline: 0;
 		border-radius: 0;
 		font-size: 18px;
-		font-weight: 300;
+		font-weight: lighter;
 	}
 
 	input::-webkit-input-placeholder {
@@ -711,7 +711,7 @@ header {
 		color:$green-light;
 		font-size: 18px;
 		text-decoration: none;
-		font-weight: 300;
+		font-weight: lighter;
 		height:60px;
 		padding-top: 18px;
 	    padding-right: 20px;
@@ -777,7 +777,7 @@ header {
 	p {
 		color:$text-color;
 		font-size: 18px;
-		font-weight: 300;
+		font-weight: lighter;
 		display: inline-block;
 		vertical-align: top;
 		height: 60px;
@@ -789,7 +789,7 @@ header {
 		font-size: 18px;
 		text-decoration: none;
 		float: right;
-		font-weight: 300;
+		font-weight: lighter;
 		height:60px;
 		padding-top: 18px;
 	    padding-right: 20px;
@@ -823,7 +823,7 @@ header {
 	p {
 		color:$text-color;
 		font-size: 18px;
-		font-weight: 300;
+		font-weight: lighter;
 		display: inline-block;
 		vertical-align: top;
 		padding-right: 20px;
@@ -837,7 +837,7 @@ header {
 		color:$green-light;
 		font-size: 18px;
 		text-decoration: none;
-		font-weight: 300;
+		font-weight: lighter;
 		height:60px;
 	    padding-left: 20px;
 	    cursor: pointer;
@@ -886,7 +886,7 @@ header {
 	li {
 		display: inline-block;
 		font-size: 14px;
-		font-weight: 300;
+		font-weight: lighter;
 		color: $primary-color-light;
 		cursor:pointer;
 		border-right:1px solid $primary-color-dark;
@@ -1008,7 +1008,7 @@ header {
 	h2 {
 		font-size: 12px;
 		font-style: italic;
-		font-weight: 300;
+		font-weight: lighter;
 		display: block;
 		color: $primary-color-medium;
 	}
@@ -1036,7 +1036,7 @@ header {
 		display:block;
 		font-size: 12px;
 		text-transform: lowercase;
-		font-weight: 300;
+		font-weight: lighter;
 		color:#ccc;
 	}
 }
@@ -1094,7 +1094,7 @@ header {
 		font-style: italic;
 		display: block;
 		color: $primary-color-medium;
-		font-weight: 300;
+		font-weight: lighter;
 
 	}
 }
@@ -1128,7 +1128,7 @@ header {
 		font-size: 12px;
 		color:$text-color;
 		text-transform: lowercase;
-		font-weight: 300;
+		font-weight: lighter;
 	}
 }
 
@@ -1183,25 +1183,20 @@ header {
 	width: 100%;
 	background:$primary-color-light;
 	text-align: left;
-	padding: 20px;
-	border-bottom:1px solid #dfdfdf;
-
+	padding: 0px;
 }
 
 #business-status {
     width: 100%;
-    max-width: 100%;
-    border: 1px solid #dfdfdf;
-    border-radius: 4px;
+    border: 0;
     outline: none;
     background: #fff;
     font-size: 16px;
-    line-height: 18px;
+    line-height: 24px;
     resize: none;
-    padding: 20px 30px 5px 15px;
+    padding: 30px 30px 15px 30px;
     color: #000;
-    font-weight: 300;
-    margin: 0 auto;
+    font-weight: lighter;
 }
 
 .verified-container {
@@ -1209,6 +1204,7 @@ header {
 	vertical-align: top;
 	width: 50%;
 	text-align: right;
+	float:right;
 
 	span {
 		margin-top:16px;
@@ -1222,23 +1218,28 @@ header {
 		font-size:14px;
 		color:#689F38;
 		padding-left:5px;
-		font-weight: 300;
+		font-weight: lighter;
 		vertical-align:top;
 		margin-top:15px;
 	}
 }
 
 .posting-options {
-	background: transparent;
-	width: 50%;
-	display: inline-block;
-	vertical-align: top;
-	text-align: left;
+    background: transparent;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    padding: 0px 30px 5px 30px;
+    background: #f8f8f8;
+    border-top:1px solid #dfdfdf;
+	border-bottom:1px solid #dfdfdf;
+
 
 	button {
 		display: inline-block;
 		vertical-align: top;
-		width: 50%;
+		width: 20%;
 		font-size:14px;
 		background: $secondary-color-medium;
 		height: 30px;
@@ -1246,7 +1247,7 @@ header {
 		outline: 0;
 		border:0;
 		color:$text-color;
-		font-weight: 300;
+		font-weight: lighter;
 		margin-top:10px;
 		cursor: pointer;
 		position:relative;
@@ -1286,7 +1287,7 @@ header {
 
 	label {
 		display: inline-block;
-		background:$primary-color-light;
+		background: #f8f8f8;
 		position:relative;
 		z-index:1;
 	}
@@ -1304,20 +1305,16 @@ header {
 
 	li {
 		width: 100%;
-		border-top:1px solid #f5f5f5;
-		border-bottom: 1px solid #dfdfdf;
-			position: relative;
-		padding: 20px 25px;
-
-		span {
-			position:absolute;
-			font-size: 36px;
-			color:#dfdfdf;
-			bottom:-20px;
-			color:#fff;
-			padding-left:10px;
-		}
+/*		border-top:1px solid #f5f5f5;
+		border-bottom: 1px solid #dfdfdf;*/
+		position: relative;
+		padding: 15px 15px 0px;
 	}
+}
+
+.feed-info {
+	background: #fff;
+	padding:15px 15px 0px;
 }
 
 .feed-name {
@@ -1330,7 +1327,7 @@ header {
 		font-size: 12px;
 		font-style: italic;
 		color: $primary-color-medium;
-		font-weight: 300;
+		font-weight: lighter;
 		padding-top: 5px;
 	}
 
@@ -1355,41 +1352,13 @@ header {
 	display: inline-block;
 	vertical-align: top;
 	width: 100%;
+	border:1px solid #dfdfdf;
 }
 
-.feed-ago {
-	width: 20%;
-	display: inline-block;
-	text-align: right;
-	vertical-align: top;
-
-	p {
-		font-size: 12px;
-		color: $primary-color-medium;
-		font-weight: 300;
-	}
-}
-
-.feed-status {
+.feed-photo {
+	background:#fff;
+	padding-top: 15px;
 	width: 100%;
-	display: inline-block;
-	padding-top:15px;
-
-	p {
-		font-size: 14px;
-		line-height: 20px;
-		font-weight: 300;
-		color: $primary-color-medium;
-		padding-bottom: 10px;
-	}
-
-	div {
-		width: 100%;
-		background: #fff;
-		/*border-radius: 4px;*/
-		padding: 5px;
-		/*border: 1px solid #dfdfdf;*/
-	}
 
 	img {
 		width: 100%;
@@ -1397,21 +1366,74 @@ header {
 	}
 }
 
+.feed-ago {
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	vertical-align: bottom;
+
+	p {
+		font-size: 12px;
+		color: #999;
+		font-weight: lighter;
+		font-style: italic;
+		padding-bottom:3px;
+	}
+}
+
+.feed-status {
+	width: 100%;
+	display: inline-block;
+
+	p {
+		font-size: 14px;
+		line-height: 20px;
+		font-weight: lighter;
+		color: $primary-color-medium;
+		padding-bottom: 10px;
+	}
+
+
+
+	div {
+		width: 100%;
+		background: #fff;
+		/*border-radius: 4px;*/
+		padding: 15px ;
+
+		span {
+			font-size: 13px;
+			line-height: 20px;
+			font-weight: lighter;
+			/*font-style: italic;*/
+			padding-top:15px;
+			color: $primary-color-medium;
+		}
+	}
+
+
+}
+
+.photo-info {
+	padding-bottom: 0;
+}
+
 /* Feed Controls */
 
 .feed-controls {
 	width: 100%;
 	display: inline-block;
-	padding-left: 0px;
-	padding-top:5px;
+	padding:10px 15px 10px;
+	border-top:1px solid #dfdfdf;
+	background:#f8f8f8;
 	/*text-align: center;*/
 
 }
 
 .feed-remove {
-	width: 100%;
+	width: 50%;
+	display: inline-block;
 	/*border-right:1px solid #dfdfdf;*/
-	padding-top:5px;
 	/*text-align: center;*/
 
 	i {
@@ -1429,7 +1451,7 @@ header {
 		display: inline-block;
 		vertical-align: top;
 		font-size:12px;
-		font-weight: 300;
+		font-weight: lighter;
 		color: #ccc;
 		padding-right:5px;
 	}
@@ -1439,7 +1461,7 @@ header {
 
 .view-all {
 	width: 100%;
-	border-top:1px solid #fff;
+	border-top:1px solid #f8f8f8;
 	background:$primary-color-light;
 	text-align: center;
 	padding: 15px 0;
@@ -1448,8 +1470,7 @@ header {
 	a {
 		font-size: 16px; 
 		color: $secondary-color-dark;
-
-		font-weight: 300;
+		font-weight: lighter;
 		text-decoration: none;
 	}
 }
@@ -1466,7 +1487,7 @@ header {
 		font-size: 16px; 
 		color: $secondary-color-light;
 		text-decoration: none;
-		font-weight: 300;
+		font-weight: lighter;
 	}
 }
 
@@ -1766,7 +1787,7 @@ float:left;
 		font-size: 16px;
 		color: $primary-color-dark;
 		padding-left: 10px;
-		font-weight: 300;
+		font-weight: lighter;
 		width: 80%;
 	}
 
@@ -1817,7 +1838,7 @@ float:left;
 		vertical-align: top;
 		font-size: 16px;
 		text-indent: 10px;
-		font-weight: 300;
+		font-weight: lighter;
 		border: 0;
 		background: transparent;
 		outline: 0;
@@ -1847,7 +1868,7 @@ float:left;
 		border-radius: 4px;
 		font-size: 16px;
 		padding: 10px;
-		font-weight: 300;
+		font-weight: lighter;
 		resize: none;
 		border:1px solid #dfdfdf;
 
@@ -1863,7 +1884,7 @@ float:left;
     	-webkit-border-radius:0;
     	border:0;
     	background:transparent;
-    	font-weight:300;
+    	font-weight: lighter;
     	width:60%;
     	height: 28px;
 
@@ -1894,7 +1915,7 @@ float:left;
 		display: inline-block;
 		vertical-align: top;
 		font-size: 16px;
-		font-weight: 300;
+		font-weight: lighter;
 		border: 0;
 		background: transparent;
 		outline: 0;
@@ -1913,13 +1934,13 @@ float:left;
 		display: inline-block;
 		padding-right: 10px;
 		padding-top:5px;
-		font-weight: 300;
+		font-weight: lighter;
 		color: $secondary-color-dark;
 	}
 
 	input[type="file"] {
 		cursor: pointer !Important;
-		font-weight: 300;
+		font-weight: lighter;
 		width: 100%;
 		background: #fff;
 		height: 50px;
@@ -1936,7 +1957,7 @@ float:left;
 	    padding: 16px 15px 17px 25px;
 	    color: #fff;
 	    border-radius: 4px 0 0 4px;
-	    font-weight: 300;
+	    font-weight: lighter;
 	    font-size:14px;
 	    margin-left:-10px;
 
@@ -1954,7 +1975,7 @@ float:left;
 	    cursor: pointer;
 	    color: #fff;
 	    border-radius: 4px 0 0 4px;
-	    font-weight: 300;
+	    font-weight: lighter;
 	  }
 
 	}
@@ -1984,7 +2005,7 @@ float:left;
 	height: 55px;
 	background: $secondary-color-dark;
 	font-size: 16px;
-	font-weight: 300;
+	font-weight: lighter;
 	color: $text-color;
 	border-radius: 3px;
 	text-align: center;
@@ -2031,7 +2052,7 @@ float:left;
 		outline: 0;
 		border:0;
 		color:$text-color;
-		font-weight: 300;
+		font-weight: lighter;
 		margin-top:10px;
 		cursor: pointer;
 		position:relative;
@@ -2078,7 +2099,7 @@ float:left;
 }
 
 #file-input {
-	font-weight: 300;
+	font-weight: lighter;
 }
 
 #basicExample {

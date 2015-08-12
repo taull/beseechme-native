@@ -128,3 +128,7 @@ $('.backend-tabs-trigger').click(function(){
 // })
 
 // document.getElementById("settings-col").tabIndex = "-1";
+
+
+// from a jQuery collection
+autosize($('#business-status'));

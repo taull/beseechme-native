@@ -130,7 +130,7 @@
 
 			<div class="profile-tools">
 				<form action="">
-					<textarea id="business-status" value=status autoresize=true maxHeight=200 required=true placeholder="What's going on?"></textarea>
+					<textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea>
 
 					<div class="posting-options">
 						<button type="submit">Post</button>
@@ -138,52 +138,31 @@
 							<i class="fa fa-camera"></i>
 						</label>
 						<input type="file" id="camera-file" />
+
+						<div class="verified-container">
+							<span class="fa fa-check-circle"></span>
+							<p>Verified</p>
+						</div>
 					</div>
-					<div class="verified-container">
-						<span class="fa fa-check-circle"></span>
-						<p>Verified</p>
-					</div>
+
 				</form>
 			</div><!-- END PROFILE TOOLS -->
 
 			<div class="profile-feed">
 				<ul>
 					<li>
-						
 						<div class="feed-post">
 
-							<div class="feed-avatar"><img src="images/henrys_avatar.jpg"></div>
+							<div class="feed-info">
+								<div class="feed-avatar"><img src="images/henrys_avatar.jpg"></div>
 
-							<div class="feed-name"><h1>Henry's Grill and Bar</h1><p>5553 Devine Street</p></div>
-
-							<div class="feed-ago"><p>5 hours ago</p></div>
-
-							<div class="feed-status"><p>Lorem option this is a test post to see what happens when there are a few lines of text in this status update</p></div>
-
-							<div class="feed-controls">
-								<div class="feed-remove">
-									<!-- <p>21</p> -->
-									<i class="fa fa-star"></i>
-									<i class="fa fa-thumb-tack"></i>
-									<i class="fa fa-trash"></i>
-								</div>
+								<div class="feed-name"><h1>Henry's Grill and Bar</h1><p>5553 Devine Street</p></div>
 							</div>
-						</div>
-
-	
-
-					</li>
-					<li>
-						
-						
-						<div class="feed-post">
-							<div class="feed-avatar"><img src="images/henrys_avatar.jpg"></div>
-							<div class="feed-name"><h1>Henry's Grill and Bar</h1><p>5553 Devine Street</p></div>
-							<div class="feed-ago"><p>5 hours ago</p></div>
 
 							<div class="feed-status">
-								<p>Lorem option this is a test post to see what happens. $2 Drinks until 9pm!</p>
-								<div><img src="images/henrysbar.jpg"></div>
+								<div>
+									<span>Lorem option this is a test post to see what happens. option this is a test post to see what happens. $2 Drinks until 9pm!</span>
+								</div>
 							</div>
 
 							<div class="feed-controls">
@@ -193,20 +172,59 @@
 									<i class="fa fa-thumb-tack"></i>
 									<i class="fa fa-trash"></i>
 								</div>
+								<div class="feed-ago"><p>5 hours ago</p></div>
+
+							</div>
+						</div>
+					</li>
+
+					<li>	
+						<div class="feed-post">
+							<div class="feed-info">
+
+								<div class="feed-avatar"><img src="images/henrys_avatar.jpg"></div>
+
+								<div class="feed-name"><h1>Henry's Grill and Bar</h1><p>5553 Devine Street</p></div>
+
+							</div>
+
+							<div class="feed-photo">
+								<img src="images/peopleatbar.png">
+							</div>
+
+							<div class="feed-status">
+								<div>
+									<span>Lorem option this is a test post to see what happens. $2 Drinks until 9pm!</span>
+								</div>
+							</div>
+
+							<div class="feed-controls">
+								<div class="feed-remove">
+									<!-- <p>21</p> -->
+									<i class="fa fa-star"></i>
+									<i class="fa fa-thumb-tack"></i>
+									<i class="fa fa-trash"></i>
+								</div>
+								<div class="feed-ago"><p>5 hours ago</p></div>
+
 							</div>
 
 						</div>
 					</li>
 					<li>
-						
 						<div class="feed-post">
 
-							<div class="feed-avatar"><img src="images/henrys_avatar.jpg"></div>
+							<div class="feed-info">
+								<div class="feed-avatar"><img src="images/henrys_avatar.jpg"></div>
 
-							<div class="feed-name"><h1>Henry's Grill and Bar</h1><p>5553 Devine Street</p></div>
-							<div class="feed-ago"><p>5 hours ago</p></div>
+								<div class="feed-name"><h1>Henry's Grill and Bar</h1><p>5553 Devine Street</p></div>
+							</div>
 
-							<div class="feed-status"><p>Lorem option this is a test post to see what happens when there are a few lines of text in this status update</p></div>
+							<div class="feed-status">
+								<div>
+									<span>Lorem option this is a test post to see what happens. option this is a test post to see what happens. $2 Drinks until 9pm!</span>
+								</div>
+							</div>
 
 							<div class="feed-controls">
 								<div class="feed-remove">
@@ -215,8 +233,9 @@
 									<i class="fa fa-thumb-tack"></i>
 									<i class="fa fa-trash"></i>
 								</div>
-							</div>
+								<div class="feed-ago"><p>5 hours ago</p></div>
 
+							</div>
 						</div>
 					</li>
 				</ul>
@@ -405,6 +424,8 @@
 <script src='bower_components/underscore/underscore-min.js'></script>
 <script src='bower_components/backbone/backbone-min.js'></script>
 <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+<script src='bower_components/autosize/dist/autosize.min.js'></script>
+
 <script src='scripts/main.js'></script>
 </body>
 
