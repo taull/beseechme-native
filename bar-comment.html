@@ -26,9 +26,6 @@
 			<!-- <img src="images/beme-logodark.png"> -->
 		</div>
 
-
-
-
 	</div>
 </header>
 
@@ -54,14 +51,31 @@
 
 	<section id="only-one" data-accordion-group>
 
+      <!-- <section data-accordion>
+        <button data-control><p>Information</p><span class="fa fa-angle-down"></span></button>
+        <div data-content>
+          <article>
+			<div class="barback-info">
+				<ul>
+					<li><span class="fa fa-bookmark"></span><p>Henry's Grill and Bar</p></li>
+					<li><span class="fa fa-map-marker"></span><p>2862 Blossom St.</p></li>
+					<li><span class="fa fa-location-arrow"></span><p>Columbia, SC 29205</p></li>
+					<li><span class="fa fa-phone"></span><p>(803) 252-4898</p></li>
+					<li><span class="fa fa-globe"></span><p>www.henrysgrillandbar.com</p></li>
+				</ul>
+			</div>
+          </article>
+        </div>
+      </section> -->
+
       <section data-accordion>
-        <button data-control><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>Draft Beer</p></button>
+        <button data-control><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>Post to Feed</p></button>
         <div data-content>
           <article>
 			<div class="barback-tabs">
 		    	<ul>
-		    		<li><span class="fa fa-commenting"></span><p>Feed</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-commenting"></span><p class="active-tab">Feed</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-beer"></span><p>Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
 		    		<li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
 		    		<li><span class="fa fa-calendar-o"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
 		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
@@ -73,20 +87,6 @@
       </section>
 
     </section>
-<!-- 	<div class="module-header">
-		<span class="fa fa-commenting"></span>
-		<p>The Latest</p>
-	</div>
-
-	<div class="barback-info">
-		<ul>
-			<li><span class="fa fa-bookmark"></span><p>Henry's Grill and Bar</p></li>
-			<li><span class="fa fa-map-marker"></span><p>2862 Blossom St.</p></li>
-			<li><span class="fa fa-location-arrow"></span><p>Columbia, SC 29205</p></li>
-			<li><span class="fa fa-phone"></span><p>(803) 252-4898</p></li>
-			<li><span class="fa fa-globe"></span><p>www.henrysgrillandbar.com</p></li>
-		</ul>
-	</div> -->
 
     <div class="copyright-info">
     	<h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
@@ -102,7 +102,12 @@
 
 <div class="wide-container">
 
-	<!-- <div class="profile-tools profile-tools-desktop">
+	<div class="module-header">
+		<span class="fa fa-commenting"></span>
+		<p>Post to Feed</p>
+	</div>
+
+	<div class="profile-tools profile-tools-desktop">
 		<form action="">
 			<textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea>
 
@@ -115,88 +120,43 @@
 			</div>
 
 		</form>
-	</div> --><!-- END PROFILE TOOLS -->
-			<div class="module-header">
-				<span class="fa fa-beer"></span>
-				<p>Draft Beer</p>
-			</div>
+	</div><!-- End Profile Tools -->
 
 
-			<div class="profile-beer-list">
+
+
+
+
+
+
+			
+			<div class="backend-tabs backend-tabs-mobile">
 				<ul>
-					<li>
-						<div class="beer-avatar">
-							<img src="images/two-hearted-avatar.png">
-						</div>
-						<div class="beer-name">
-							<h1>Two Hearted Ale</h1>
-							<h2>Bell's Brewery, Inc.</h2>
-						</div>
-						<div class="beer-abv">
-							<h1>7.0%</h1>
-							<p>Abv</p>
-
-						</div>
-					</li>
-
-					<li>
-						<div class="beer-avatar">
-							<img src="images/westbrook-avatar.png">
-						</div>
-						<div class="beer-name">
-							<h1>IPA</h1>
-							<h2>Westbrook Brewing</h2>
-						</div>
-						<div class="beer-abv">
-							<h1>6.8%</h1>
-							<p>Abv</p>
-
-						</div>
-					</li>
-
-					<li>
-						<div class="beer-avatar">
-							<img src="images/harpoon-avatar.png">
-						</div>
-						<div class="beer-name">
-							<h1>Rick and Dan's Rye IPA</h1>
-							<h2>Harpoon Brewing</h2>
-						</div>
-						<div class="beer-abv">
-							<h1>7.4%</h1>
-							<p>Abv</p>
-
-						</div>
-					</li>
-
-					<li>
-						<div class="beer-avatar">
-							<img src="images/coors-light-avatar.png">
-						</div>
-						<div class="beer-name">
-							<h1>Coors Light</h1>
-							<h2>Coors Brewing Co.</h2>
-						</div>
-						<div class="beer-abv">
-							<h1>4.2%</h1>
-							<p>Abv</p>
-						</div>
-					</li>
+					<li><img src="images/icon-comments.png"></li>
+					<li><img src="images/icon-beer.png"></li>
+					<li><p>The Latest</p></li>
+					<li><img src="images/icon-chart.png"></li>
+					<li><img src="images/icon-restaurant.png"></li>
 				</ul>
 			</div>
 
-			<div class="view-all">
-				<a>View All Beer</a>
-			</div>
+
+
+
+
+
+
+	
+
 
 
 </div><!-- END WIDE CONTAINER -->
 
 
+
+
+
 </div><!-- END BODY CONTAINER -->
-
-
-
 
 
 <!-- Add Status Slideout -->
@@ -372,9 +332,8 @@
 <script src='bower_components/autosize/dist/autosize.min.js'></script>
 <script src="bower_components/lightbox2/dist/js/lightbox.js"></script>
 <script src="bower_components/remodal/dist/remodal.min.js"></script>
-<script src='jquery-accordion.js'></script>
-<!-- <script src='scripts/jquery-stickem.js'></script> -->
 
+<script src='jquery-accordion.js'></script>
 
 <script src='scripts/main.js'></script>
 </body>
