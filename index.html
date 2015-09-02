@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Beme</title>
+  <title>Beseech Me</title>
   <meta name="description" content="Beseech Me">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -10,59 +10,501 @@
 </head>
 <body>
 
-<header>
-  <div class="header-container">
 
-    <div class="header-left">
-      <span class="fa fa-location-arrow"></span>
+<!-- Index Route -->
+<script type='text/template' id='index-route'>
+  <div class="home-container">
+
+    <div class="login-container">
+      <form action="">
+        <li>
+          <span class="fa fa-angle-right"></span>
+          <input type="text" placeholder="Email Address">
+        </li>
+        <li>
+          <span class="fa fa-angle-right"></span>
+          <input type="password" placeholder="Password">
+        </li>
+
+        <input type="checkbox" value="Car"><p>Keep me signed in.</p>
+        <button>Sign In</button>
+      </form>
     </div>
 
-    <div class="header-logo">
-      <img src="images/beme-logo-text.png">
+    <div class="copyright-info">
+      <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
     </div>
+  </div>
+</script>
 
-    <div class="header-right">
-      <div id="nav-toggle">
-        <div id="nav-icon1">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+
+
+
+
+
+<!-- Bar Backend View -->
+
+<script type="text/template" id="barback-view">
+
+  <div class="body-container">
+
+    <div class="narrow-container">
+
+      <div class="barback-breadcrumbs">
+        <img src="images/shotglass-new.png"><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>Weekly Calendar</p>
+      </div>
+
+      <div class="barback-tabs">
+          <ul>
+            <li><span class="fa fa-commenting"></span><p>Feed</p><i class="fa fa-ellipsis-h"></i></li>
+            <li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
+            <li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
+            <li><span class="fa fa-calendar-o"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
+            <li><span class="fa fa-cog"></span><p>Settings</p><i class="fa fa-ellipsis-h"></i></li>
+            <li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
+          </ul>
+      </div>
+
+      <div class="copyright-info">
+        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+        <p>Beseech Me®, LLC</p>
       </div>
     </div>
 
-  </div>
-</header>
 
+    <div class="wide-container">
 
-<div class="home-container">
+    </div>
 
-  <div class="login-logo">
-    <img src="images/bar-logo.png">
   </div>
 
+</script>
 
-  <div class="login-container">
-    <form action="">
-      <li>
-        <span class="fa fa-angle-right"></span>
-        <input type="text" placeholder="Email Address">
-      </li>
-      <li>
-        <span class="fa fa-angle-right"></span>
-        <input type="password" placeholder="Password">
-      </li>
+<!-- Barback Feed View -->
 
-      <input type="checkbox" value="Car"><p>Keep me signed in.</p>
-      <button>Sign In</button>
-    </form>
+<script type="text/template" id="barback-feed-view">
+    <div class="module-header">
+      <span class="fa fa-commenting"></span>
+      <p>Post to Feed</p>
+    </div>
+
+    <div class="profile-tools profile-tools-desktop">
+      <form action="">
+        <textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea>
+
+        <div class="posting-options">
+          <button type="submit">Post</button>
+          <label for="camera-file">
+            <i class="fa fa-camera"></i>
+          </label>
+          <input type="file" id="camera-file" />
+        </div>
+
+      </form>
+    </div>
+
+
+
+      <div class="profile-feed">
+        <ul>
+          <li>
+            <div class="feed-avatar">
+              <div class="feed-logo">
+                <img src="images/bar-logo.png">
+              </div>
+            </div>
+            <div class="feed-post">
+
+              <div class="feed-info">
+
+                <div class="feed-name"><h1>Henrys Grill and Bar</h1><p>@henrysbar</p></div>
+                <div class="feed-ago"><p>1h</p></div>
+
+              </div>
+
+              <div class="feed-status">
+                <div>
+                  <span>Lorem option this is a test post to see what happens. option this is a test post to see what happens. $2 Drinks until 9pm!</span>
+                </div>
+              </div>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="feed-avatar">
+              <div class="feed-logo">
+                <img src="images/bar-logo.png">
+              </div>
+            </div>
+
+            <div class="feed-post">
+              <div class="feed-info">
+                <div class="feed-name"><h1>Henrys Grill and Bar</h1><p>@henrysbar</p></div>
+                <div class="feed-ago"><p>32m</p></div>
+              </div>
+
+              <div class="feed-status">
+                <div>
+                  <span>Lorem option this is a test post to see what happens. $2 Drinks until 9pm!</span>
+                </div>
+              </div>
+
+              <div class="feed-photo">
+                <a href="#photo">
+                  <img src="images/peopleatbar.png">
+                </a>
+              </div>
+
+            </div>
+          </li>
+
+        </ul>
+      </div><!-- END PROFILE FEED -->
+
+      <div class="view-all">
+        <a>Load More</a>
+      </div>
+</script>
+
+
+<!-- Barback Beer View -->
+
+<script type="text/template" id="barback-beer-view">
+      <div class="module-header">
+        <span class="fa fa-beer"></span>
+        <p>Draft Beer</p>
+      </div>
+
+
+      <div class="profile-beer-list">
+        <ul>
+          <li>
+            <div class="beer-avatar">
+              <img src="images/two-hearted-avatar.png">
+            </div>
+            <div class="beer-name">
+              <h1>Two Hearted Ale</h1>
+              <h2>Bells Brewery, Inc.</h2>
+            </div>
+            <div class="beer-abv">
+              <h1>7.0%</h1>
+              <p>Abv</p>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="beer-avatar">
+              <img src="images/westbrook-avatar.png">
+            </div>
+            <div class="beer-name">
+              <h1>IPA</h1>
+              <h2>Westbrook Brewing</h2>
+            </div>
+            <div class="beer-abv">
+              <h1>6.8%</h1>
+              <p>Abv</p>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="beer-avatar">
+              <img src="images/harpoon-avatar.png">
+            </div>
+            <div class="beer-name">
+              <h1>Rich and Dans Rye IPA</h1>
+              <h2>Harpoon Brewing</h2>
+            </div>
+            <div class="beer-abv">
+              <h1>7.4%</h1>
+              <p>Abv</p>
+            </div>
+          </li>
+
+          <li>
+            <div class="beer-avatar">
+              <img src="images/coors-light-avatar.png">
+            </div>
+            <div class="beer-name">
+              <h1>Coors Light</h1>
+              <h2>Coors Brewing Co.</h2>
+            </div>
+            <div class="beer-abv">
+              <h1>4.2%</h1>
+              <p>Abv</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="view-all">
+        <a>View All Beer</a>
+      </div>
+</script>
+
+<!-- Barback Calendar View -->
+
+<script type="text/template" id="barback-calendar-view">
+  <div class="module-header">
+    <span class="fa fa-calendar-o"></span>
+    <p>Weekly Calendar</p>
   </div>
-</div>
+
+  <section id="only-one" data-accordion-group>
+
+      <section data-accordion>
+        <button data-control><h1>13</h1><p>Sunday</p></button>
+        <div data-content>
+          <article>
+            <div class="calendar-sublist">
+              <form action="">
+                <ul>
+                  <li><textarea placeholder="Additional information here..." maxlength="150"></textarea></li>
+                  <li><div></div><button type="submit" class="save-button">Save</button></li>
+                </ul>
+              </form>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section data-accordion>
+        <button data-control><h1>14</h1><p>Monday</p></button>
+        <div data-content>
+          <article>
+
+          </article>
+        </div>
+      </section>
+
+      <section data-accordion>
+        <button data-control><h1>15</h1><p>Tuesday</p></button>
+        <div data-content>
+          <article>
+
+          </article>
+        </div>
+      </section>
+
+      <section data-accordion>
+        <button data-control><h1>16</h1><p>Wednesday</p></button>
+        <div data-content>
+          <article>
+
+          </article>
+        </div>
+      </section>
+
+       <section data-accordion>
+        <button data-control><h1>17</h1><p>Thursday</p></button>
+        <div data-content>
+          <article>
+
+          </article>
+        </div>
+      </section>
+      <section data-accordion>
+        <button data-control><h1>18</h1><p>Friday</p></button>
+        <div data-content>
+          <article>
+
+          </article>
+        </div>
+      </section>
+
+      <section data-accordion>
+        <button data-control><h1>19</h1><p>Saturday</p></button>
+        <div data-content>
+          <article>
+
+          </article>
+        </div>
+      </section>
+
+    </section>
+
+</script>
+
+
+<!-- Barback Settings View View -->
+
+<script type="text/template" id="barback-settings-view">
+
+  <div class="module-header">
+    <span class="fa fa-cog"></span>
+    <p>Settings</p>
+  </div>
+
+  <section id="only-one" data-accordion-group>
+
+      <section data-accordion>
+        <button data-control><p>Basic Information</p></button>
+        <div data-content>
+          <article>
+            <div class="settings-sublist">
+              <form action="">
+                <ul>
+                  <li><h1>Name</h1><input type="text" value="Henry's Grill and Bar"></li>
+                  <li><h1>User</h1><input type="text" value="henrysbar"></li>
+
+                  <li><h1>Street</h1><input type="text" value="2828 Devine Street"></li>
+                  <li><h1>City</h1><input type="text" value="Columbia"></li>
+                  <li>
+                    <h1>State</h1>
+                    <!-- <input type="text" value="South Carolina"> -->
+                    <select>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="CA">California</option>
+                      <option value="CO">Colorado</option>
+                      <option value="CT">Connecticut</option>
+                      <option value="DE">Delaware</option>
+                      <option value="DC">District Of Columbia</option>
+                      <option value="FL">Florida</option>
+                      <option value="GA">Georgia</option>
+                      <option value="HI">Hawaii</option>
+                      <option value="ID">Idaho</option>
+                      <option value="IL">Illinois</option>
+                      <option value="IN">Indiana</option>
+                      <option value="IA">Iowa</option>
+                      <option value="KS">Kansas</option>
+                      <option value="KY">Kentucky</option>
+                      <option value="LA">Louisiana</option>
+                      <option value="ME">Maine</option>
+                      <option value="MD">Maryland</option>
+                      <option value="MA">Massachusetts</option>
+                      <option value="MI">Michigan</option>
+                      <option value="MN">Minnesota</option>
+                      <option value="MS">Mississippi</option>
+                      <option value="MO">Missouri</option>
+                      <option value="MT">Montana</option>
+                      <option value="NE">Nebraska</option>
+                      <option value="NV">Nevada</option>
+                      <option value="NH">New Hampshire</option>
+                      <option value="NJ">New Jersey</option>
+                      <option value="NM">New Mexico</option>
+                      <option value="NY">New York</option>
+                      <option value="NC">North Carolina</option>
+                      <option value="ND">North Dakota</option>
+                      <option value="OH">Ohio</option>
+                      <option value="OK">Oklahoma</option>
+                      <option value="OR">Oregon</option>
+                      <option value="PA">Pennsylvania</option>
+                      <option value="RI">Rhode Island</option>
+                      <option value="SC">South Carolina</option>
+                      <option value="SD">South Dakota</option>
+                      <option value="TN">Tennessee</option>
+                      <option value="TX">Texas</option>
+                      <option value="UT">Utah</option>
+                      <option value="VT">Vermont</option>
+                      <option value="VA">Virginia</option>
+                      <option value="WA">Washington</option>
+                      <option value="WV">West Virginia</option>
+                      <option value="WI">Wisconsin</option>
+                      <option value="WY">Wyoming</option>
+                    </select>
+                  </li>
+                  <li><h1>Zip</h1><input type="text" value="29205"></li>
+                  <li><h1>Phone</h1><input type="text" value="(803) 555-2341"></li>
+                  <li><h1>Web</h1><input type="text" value="www.henrysgrillandbar.com"></li>
+                  <li><button type="submit" class="save-button">Save</button></li>
+                </ul>
+              </form>
+            </div>
+
+          </article>
+        </div>
+      </section>
+
+
+      <section data-accordion>
+        <button data-control><p>My Logo</p></button>
+        <div data-content>
+          <article>
+
+          </article>
+        </div>
+      </section>
+
+
+    </section>
+
+
+</script>
+
+
+<!-- Barback Competition View -->
+
+<script type="text/template" id="barback-competition-view">
+      <div class="listing-container">
+        <ul>
+          <li>
+            <div class="listing-avatar">
+              <img src="images/bar-logo.png">
+            </div>
+            <div class="listing-info">
+              <h1>Henrys Grill and Bar</h1>
+              <p>2855 Devine Street</p>
+            </div>
+            <div class="listing-link">
+              <span class="fa fa-ellipsis-h"></span>
+            </div>
+          </li>
+          <li>
+            <div class="listing-avatar">
+              <img src="images/bar-logo1.jpg">
+            </div>
+            <div class="listing-info">
+              <h1>Aviator Grill</h1>
+              <p>143 Airport Boulevard</p>
+            </div>
+            <div class="listing-link">
+              <span class="fa fa-ellipsis-h"></span>
+            </div>
+          </li>
+          <li>
+            <div class="listing-avatar">
+              <img src="images/bar-logo2.jpg">
+            </div>
+            <div class="listing-info">
+              <h1>Phils Beer Bar</h1>
+              <p>542 Lafeyette Avenue</p>
+            </div>
+            <div class="listing-link">
+              <span class="fa fa-ellipsis-h"></span>
+            </div>
+          </li>
+          <li>
+            <div class="listing-avatar">
+              <img src="images/bar-logo3.jpg">
+            </div>
+            <div class="listing-info">
+              <h1>The Menu Bar</h1>
+              <p>313 Main Street</p>
+            </div>
+            <div class="listing-link">
+              <span class="fa fa-ellipsis-h"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="view-all">
+        <a>View All</a>
+      </div>
+</script>
+
 
 
 <script src='bower_components/jquery/dist/jquery.min.js'></script>
 <script src='bower_components/underscore/underscore-min.js'></script>
 <script src='bower_components/backbone/backbone-min.js'></script>
 <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+<script src='jquery-accordion.js'></script>
+<script src='bower_components/autosize/dist/autosize.min.js'></script>
 <script src='scripts/main.js'></script>
 </body>

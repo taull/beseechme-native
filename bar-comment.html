@@ -18,12 +18,26 @@
 <header>
 	<div class="header-container">
 
-		<div class="header-left">
+		<!-- <div class="header-left">
 			<span class="fa fa-commenting beer-plus"></span>
-		</div>
+		</div> -->
 
 		<div class="header-logo">
 			<!-- <img src="images/beme-logodark.png"> -->
+		</div>
+
+		<div class="bar-search">
+	    	<i class="fa fa-search"></i>
+			<input placeholder="Search Bars..." type='text'>
+		</div>
+		<div class="header-right">
+			<div id="nav-toggle">
+				<div id="nav-icon1">
+				  <span></span>
+				  <span></span>
+				  <span></span>
+				</div>
+			</div>
 		</div>
 
 	</div>
@@ -35,58 +49,20 @@
 
 <div class="narrow-container">
 
-    <div class="bar-search">
-    	<i class="fa fa-search"></i>
-		<input placeholder="Search Bars..." type='text'>
-		<div class="header-right">
-			<div id="nav-toggle">
-				<div id="nav-icon1">
-				  <span></span>
-				  <span></span>
-				  <span></span>
-				</div>
-			</div>
-		</div>
+	<div class="barback-breadcrumbs">
+		<p>Bar Backend</p><span class="fa fa-angle-right"></span><p>Post Comment</p>
 	</div>
 
-	<section id="only-one" data-accordion-group>
+	<div class="barback-tabs">
+    	<ul>
+    		<li><span class="fa fa-commenting"></span><p class="active-tab">Feed</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-beer"></span><p>Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-calendar-o"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
+    	</ul>
+    </div>
 
-      <!-- <section data-accordion>
-        <button data-control><p>Information</p><span class="fa fa-angle-down"></span></button>
-        <div data-content>
-          <article>
-			<div class="barback-info">
-				<ul>
-					<li><span class="fa fa-bookmark"></span><p>Henry's Grill and Bar</p></li>
-					<li><span class="fa fa-map-marker"></span><p>2862 Blossom St.</p></li>
-					<li><span class="fa fa-location-arrow"></span><p>Columbia, SC 29205</p></li>
-					<li><span class="fa fa-phone"></span><p>(803) 252-4898</p></li>
-					<li><span class="fa fa-globe"></span><p>www.henrysgrillandbar.com</p></li>
-				</ul>
-			</div>
-          </article>
-        </div>
-      </section> -->
-
-      <section data-accordion>
-        <button data-control><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>Post to Feed</p></button>
-        <div data-content>
-          <article>
-			<div class="barback-tabs">
-		    	<ul>
-		    		<li><span class="fa fa-commenting"></span><p class="active-tab">Feed</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-beer"></span><p>Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-calendar-o"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
-		    	</ul>
-		    </div>
-
-          </article>
-        </div>
-      </section>
-
-    </section>
 
     <div class="copyright-info">
     	<h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
@@ -158,6 +134,16 @@
 
 </div><!-- END BODY CONTAINER -->
 
+
+<div class="barback-mobile-tabs">
+	<ul>
+		<li><span class="fa fa-commenting"></span></li>
+		<li><span class="fa fa-beer"></span></li>
+		<li><span class="fa fa-globe"></span></li>
+		<li><span class="fa fa-calendar-o"></span></li>
+		<li><span class="fa fa-power-off"></span></li>
+	</ul>
+</div>
 
 <!-- Add Status Slideout -->
 

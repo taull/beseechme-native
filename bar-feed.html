@@ -18,26 +18,18 @@
 <header>
 	<div class="header-container">
 
-		<div class="header-left">
+		<!-- <div class="header-left">
 			<span class="fa fa-commenting beer-plus"></span>
-		</div>
+		</div> -->
 
 		<div class="header-logo">
 			<!-- <img src="images/beme-logodark.png"> -->
 		</div>
 
-	</div>
-</header>
-
-
-
-<div class="body-container">
-
-<div class="narrow-container">
-
-    <div class="bar-search">
-    	<i class="fa fa-search"></i>
-		<input placeholder="Search Bars..." type='text'>
+		<div class="bar-search">
+	    	<i class="fa fa-search"></i>
+			<input placeholder="Search Bars..." type='text'>
+		</div>
 		<div class="header-right">
 			<div id="nav-toggle">
 				<div id="nav-icon1">
@@ -47,9 +39,15 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<section id="only-one" data-accordion-group>
+	</div>
+</header>
+
+
+<div class="body-container">
+
+<div class="narrow-container">
+
 
       <!-- <section data-accordion>
         <button data-control><p>Information</p><span class="fa fa-angle-down"></span></button>
@@ -68,20 +66,21 @@
         </div>
       </section> -->
 
-      <section data-accordion>
-        <button data-control><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>The Latest</p></button>
-        <div data-content>
-          <article>
-			<div class="barback-tabs">
-		    	<ul>
-		    		<li><span class="fa fa-commenting"></span><p class="active-tab">Feed</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-beer"></span><p>Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-calendar-o"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
-		    	</ul>
-		    </div>
 
+
+	<div class="barback-breadcrumbs">
+		<p>Bar Backend</p><span class="fa fa-angle-right"></span><p>My Feed</p>
+	</div>
+
+	<div class="barback-tabs">
+    	<ul>
+    		<li><span class="fa fa-commenting"></span><p>My Feed</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-calendar-o"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
+    	</ul>
+    </div>
 			<!-- <div class="listing-container">
 				<ul>
 					<li>
@@ -139,9 +138,7 @@
 				<a>View All</a>
 			</div> -->
 
-          </article>
-        </div>
-      </section>
+
 
       <!-- <section data-accordion>
         <button data-control>Draft Beer<span class="fa fa-angle-down"></span></button>
@@ -216,7 +213,6 @@
           </article>
         </div>
       </section> -->
-    </section>
 <!-- 	<div class="module-header">
 		<span class="fa fa-commenting"></span>
 		<p>The Latest</p>
@@ -263,8 +259,30 @@
 
 	<div class="module-header">
 		<span class="fa fa-commenting"></span>
-		<p>The Latest</p>
+		<p>Post to Feed</p>
 	</div>
+
+	<div class="profile-tools profile-tools-desktop">
+		<form action="">
+			<textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea>
+
+			<div class="posting-options">
+				<button type="submit">Post</button>
+				<label for="camera-file">
+					<i class="fa fa-camera"></i>
+				</label>
+				<input type="file" id="camera-file" />
+			</div>
+
+		</form>
+	</div><!-- End Profile Tools -->
+
+
+
+	<!-- <div class="module-header">
+		<span class="fa fa-commenting"></span>
+		<p>The Latest</p>
+	</div> -->
 
 
 <!-- 		<div class="left-slideout">
@@ -348,7 +366,44 @@
 
 			<div class="profile-feed">
 				<ul>
+					<li>
+						<div class="feed-avatar">
+							<div class="feed-logo">
+								<img src="images/bar-logo.png">
+							</div>
+						</div>
+						<div class="feed-post">
 
+							<div class="feed-info">
+
+								<div class="feed-name"><h1>Henry's Grill and Bar</h1><p>@henrysbar</p></div>
+								<div class="feed-ago"><p>1h</p></div>
+
+							</div>
+
+							<div class="feed-status">
+								<div>
+									<span>Lorem option this is a test post to see what happens. option this is a test post to see what happens. $2 Drinks until 9pm!</span>
+								</div>
+							</div>
+
+							<div class="feed-controls">
+
+								<!-- <i class="fa fa-star"></i> -->
+								<!-- <div class="shotglass-back">
+								</div> -->
+								<div class="shotglass">
+									<img src="images/shotglass.png">
+								</div>
+								<div class="shot-empty">
+								</div>
+								<i class="fa fa-thumb-tack"></i>
+
+								<a href="#delete-post"><i class="fa fa-trash"></i></a>
+							</div>
+
+						</div>
+					</li>
 					<li>
 						<div class="feed-avatar">
 							<div class="feed-logo">
@@ -566,6 +621,16 @@
 </div>
 
 
+<div class="barback-mobile-tabs">
+	<ul>
+		<li><span class="fa fa-commenting"></span></li>
+		<li><span class="fa fa-beer"></span></li>
+		<li><span class="fa fa-globe"></span></li>
+		<li><span class="fa fa-calendar-o"></span></li>
+		<li><span class="fa fa-power-off"></span></li>
+	</ul>
+</div>
+
 
 <!-- Add Status Slideout -->
 
@@ -728,7 +793,7 @@
 
 <div class="body-overlay hidden"></div>
 
-
+<div class="top-border"></div>
 
 
 <script src='bower_components/jquery/dist/jquery.min.js'></script>

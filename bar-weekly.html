@@ -20,8 +20,8 @@
 
 		<!-- <div class="header-left">
 			<span class="fa fa-commenting beer-plus"></span>
-		</div>
- -->
+		</div> -->
+
 		<div class="header-logo">
 			<!-- <img src="images/beme-logodark.png"> -->
 		</div>
@@ -30,7 +30,7 @@
 	    	<i class="fa fa-search"></i>
 			<input placeholder="Search Bars..." type='text'>
 		</div>
-		<div class="header-right">
+		<!-- <div class="header-right">
 			<div id="nav-toggle">
 				<div id="nav-icon1">
 				  <span></span>
@@ -38,7 +38,7 @@
 				  <span></span>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 	</div>
 </header>
@@ -49,9 +49,8 @@
 
 <div class="narrow-container">
 
-
 	<div class="barback-breadcrumbs">
-		<p>Bar Backend</p><span class="fa fa-angle-right"></span><p>Draft Beer</p>
+		<img src="images/shotglass-new.png"><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>Weekly Calendar</p>
 	</div>
 
 	<div class="barback-tabs">
@@ -60,31 +59,15 @@
     		<li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
     		<li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
     		<li><span class="fa fa-calendar-o"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-cog"></span><p>Settings</p><i class="fa fa-ellipsis-h"></i></li>
     		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
     	</ul>
     </div>
-
-
-<!-- 	<div class="module-header">
-		<span class="fa fa-commenting"></span>
-		<p>The Latest</p>
-	</div>
-
-	<div class="barback-info">
-		<ul>
-			<li><span class="fa fa-bookmark"></span><p>Henry's Grill and Bar</p></li>
-			<li><span class="fa fa-map-marker"></span><p>2862 Blossom St.</p></li>
-			<li><span class="fa fa-location-arrow"></span><p>Columbia, SC 29205</p></li>
-			<li><span class="fa fa-phone"></span><p>(803) 252-4898</p></li>
-			<li><span class="fa fa-globe"></span><p>www.henrysgrillandbar.com</p></li>
-		</ul>
-	</div> -->
 
     <div class="copyright-info">
     	<h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
     	<p>Beseech Me®, LLC</p>
     </div>
-
 
 </div><!-- END Narrow COntainer -->
 
@@ -94,92 +77,149 @@
 
 <div class="wide-container">
 
-	<!-- <div class="profile-tools profile-tools-desktop">
-		<form action="">
-			<textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea>
+	<div class="module-header">
+		<span class="fa fa-calendar-o"></span>
+		<p>Weekly Calendar</p>
+	</div>
 
-			<div class="posting-options">
-				<button type="submit">Post</button>
-				<label for="camera-file">
-					<i class="fa fa-camera"></i>
-				</label>
-				<input type="file" id="camera-file" />
+	<section id="only-one" data-accordion-group>
+
+      <section data-accordion>
+        <button data-control><h1>13</h1><p>Sunday</p></button>
+        <div data-content>
+          <article>
+			<div class="calendar-sublist">
+				<form action="">
+					<ul>
+						
+						<!-- <li><h1>Open</h1><input id="basicExample" type="text" class="time" data-scroll-default="6:00am" /> -->
+						<li><textarea placeholder="Additional information here..." maxlength="150"></textarea></li>
+						<li><div><!-- <input type="text" placeholder="Opening"> <i class="fa fa-circle-thin"></i> <input type="text" placeholder="Closing"> --></div><button type="submit" class="save-button">Save</button></li>
+					</ul>
+				</form>
 			</div>
 
-		</form>
-	</div> --><!-- END PROFILE TOOLS -->
-			<div class="module-header">
-				<span class="fa fa-beer"></span>
-				<p>Draft Beer</p>
-			</div>
+          </article>
+        </div>
+      </section>
 
 
-			<div class="profile-beer-list">
-				<ul>
-					<li>
-						<div class="beer-avatar">
-							<img src="images/two-hearted-avatar.png">
-						</div>
-						<div class="beer-name">
-							<h1>Two Hearted Ale</h1>
-							<h2>Bell's Brewery, Inc.</h2>
-						</div>
-						<div class="beer-abv">
-							<h1>7.0%</h1>
-							<p>Abv</p>
+      <section data-accordion>
+        <button data-control><h1>14</h1><p>Monday</p></button>
+        <div data-content>
+          <article>
+			<div class="barback-tabs">
+		    	<ul>
+		    		<li><span class="fa fa-commenting"></span><p>The Latest</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-star"></span><p>Favorites</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-tasks"></span><p>Bar Listing</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-location-arrow"></span><p>Map</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-user"></span><p>My Profile</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
+		    	</ul>
+		    </div>
 
-						</div>
-					</li>
+          </article>
+        </div>
+      </section>
 
-					<li>
-						<div class="beer-avatar">
-							<img src="images/westbrook-avatar.png">
-						</div>
-						<div class="beer-name">
-							<h1>IPA</h1>
-							<h2>Westbrook Brewing</h2>
-						</div>
-						<div class="beer-abv">
-							<h1>6.8%</h1>
-							<p>Abv</p>
+      <section data-accordion>
+        <button data-control><h1>15</h1><p>Tuesday</p></button>
+        <div data-content>
+          <article>
+			<div class="barback-tabs">
+		    	<ul>
+		    		<li><span class="fa fa-commenting"></span><p>The Latest</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-star"></span><p>Favorites</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-tasks"></span><p>Bar Listing</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-location-arrow"></span><p>Map</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-user"></span><p>My Profile</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
+		    	</ul>
+		    </div>
 
-						</div>
-					</li>
+          </article>
+        </div>
+      </section>
 
-					<li>
-						<div class="beer-avatar">
-							<img src="images/harpoon-avatar.png">
-						</div>
-						<div class="beer-name">
-							<h1>Rick and Dan's Rye IPA</h1>
-							<h2>Harpoon Brewing</h2>
-						</div>
-						<div class="beer-abv">
-							<h1>7.4%</h1>
-							<p>Abv</p>
+      <section data-accordion>
+        <button data-control><h1>16</h1><p>Wednesday</p></button>
+        <div data-content>
+          <article>
+			<div class="barback-tabs">
+		    	<ul>
+		    		<li><span class="fa fa-commenting"></span><p>The Latest</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-star"></span><p>Favorites</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-tasks"></span><p>Bar Listing</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-location-arrow"></span><p>Map</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-user"></span><p>My Profile</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
+		    	</ul>
+		    </div>
 
-						</div>
-					</li>
+          </article>
+        </div>
+      </section>
 
-					<li>
-						<div class="beer-avatar">
-							<img src="images/coors-light-avatar.png">
-						</div>
-						<div class="beer-name">
-							<h1>Coors Light</h1>
-							<h2>Coors Brewing Co.</h2>
-						</div>
-						<div class="beer-abv">
-							<h1>4.2%</h1>
-							<p>Abv</p>
-						</div>
-					</li>
-				</ul>
-			</div>
+       <section data-accordion>
+        <button data-control><h1>17</h1><p>Thursday</p></button>
+        <div data-content>
+          <article>
+			<div class="barback-tabs">
+		    	<ul>
+		    		<li><span class="fa fa-commenting"></span><p>The Latest</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-star"></span><p>Favorites</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-tasks"></span><p>Bar Listing</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-location-arrow"></span><p>Map</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-user"></span><p>My Profile</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
+		    	</ul>
+		    </div>
 
-			<div class="view-all">
-				<a>View All Beer</a>
-			</div>
+          </article>
+        </div>
+      </section>
+      <section data-accordion>
+        <button data-control><h1>18</h1><p>Friday</p></button>
+        <div data-content>
+          <article>
+			<div class="barback-tabs">
+		    	<ul>
+		    		<li><span class="fa fa-commenting"></span><p>The Latest</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-star"></span><p>Favorites</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-tasks"></span><p>Bar Listing</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-location-arrow"></span><p>Map</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-user"></span><p>My Profile</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
+		    	</ul>
+		    </div>
+
+          </article>
+        </div>
+      </section>
+
+      <section data-accordion>
+        <button data-control><h1>19</h1><p>Saturday</p></button>
+        <div data-content>
+          <article>
+			<div class="barback-tabs">
+		    	<ul>
+		    		<li><span class="fa fa-commenting"></span><p>The Latest</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-star"></span><p>Favorites</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-tasks"></span><p>Bar Listing</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-location-arrow"></span><p>Map</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-user"></span><p>My Profile</p><i class="fa fa-ellipsis-h"></i></li>
+		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
+		    	</ul>
+		    </div>
+
+          </article>
+        </div>
+      </section>
+
+
+    </section>
+
 
 
 </div><!-- END WIDE CONTAINER -->
@@ -188,11 +228,37 @@
 </div><!-- END BODY CONTAINER -->
 
 
+<!-- Photo Modal -->
+
+<div class="remodal" data-remodal-id="photo">
+ 	<button data-remodal-action="close" class="remodal-close"></button>
+
+	<img src="images/bartender_portrait.jpg">
+
+	<div class="feed-status">
+		<div>
+			<span>Lorem option this is a test post to see what happens. $2 Drinks until 9pm!</span>
+		</div>
+	</div>
+</div>
+
+<!-- Confirm Delete Modal -->
+
+<div class="remodal delete-modal" data-remodal-id="delete-post">
+
+	<button data-remodal-action="close" class="remodal-close"></button>
+	<p>
+		Delete Post?
+	</p>
+
+	<button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+	<button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+</div>
 
 <div class="barback-mobile-tabs">
 	<ul>
 		<li><span class="fa fa-commenting"></span></li>
-		<li class="active-mobile-tab"><span class="fa fa-beer"></span></li>
+		<li><span class="fa fa-beer"></span></li>
 		<li><span class="fa fa-globe"></span></li>
 		<li><span class="fa fa-calendar-o"></span></li>
 		<li><span class="fa fa-power-off"></span></li>
@@ -202,21 +268,27 @@
 <!-- Add Status Slideout -->
 
 <div class="bottom-slideout">
-	<div class="profile-tools">
-		<form action="">
-			<textarea id="business-status1" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea>
+	<div class="location-container">
 
-			<div class="posting-options">
-				<button type="submit">Post</button>
-				<label for="camera-file">
-					<i class="fa fa-camera"></i>
-				</label>
-				<input type="file" id="camera-file" />
-
+		<div class="current-location">
+		  <div class="location-button">
+		    <span class="fa fa-location-arrow"></span>
+		    <p>Current Location</p>
+		  </div>
+		</div>
+		<div class="popular-locations">
+			<h1>Popular Locations</h1>
+			<p>Hoboken, NJ • Columbia, SC • Charleston, SC</p>
+		</div>
+		<div class="home-search">
+			<div class="search-location">
+			  <form action="">
+			    <span class="fa fa-search"></span>
+			    <input type="text" placeholder="Enter City or Zip Code">
+			  </form>
 			</div>
-
-		</form>
-	</div><!-- END PROFILE TOOLS -->
+		</div>
+	</div>
 </div>
 
 <!-- SIDEBAR -->
@@ -373,9 +445,6 @@
 <script src="bower_components/lightbox2/dist/js/lightbox.js"></script>
 <script src="bower_components/remodal/dist/remodal.min.js"></script>
 <script src='jquery-accordion.js'></script>
-<!-- <script src='scripts/jquery-stickem.js'></script> -->
-
-
 <script src='scripts/main.js'></script>
 </body>
 
