@@ -15,36 +15,13 @@
 </head>
 <body>
 
-<header>
-	<div class="header-container">
 
-		<!-- <div class="header-left">
-			<span class="fa fa-commenting beer-plus"></span>
-		</div> -->
-
-		<div class="header-logo">
-			<!-- <img src="images/beme-logodark.png"> -->
-		</div>
-
-
-		<!-- <div class="header-right">
-			<div id="nav-toggle">
-				<div id="nav-icon1">
-				  <span></span>
-				  <span></span>
-				  <span></span>
-				</div>
-			</div>
-		</div> -->
-
-	</div>
-</header>
 
 
 
 <div class="body-container">
 
-<div class="narrow-container">
+<!-- <div class="narrow-container">
 
 	<div class="bar-search">
     	<i class="fa fa-search"></i>
@@ -71,7 +48,7 @@
     	<p>Beseech Me®, LLC</p>
     </div>
 
-</div><!-- END Narrow COntainer -->
+</div> --><!-- END Narrow COntainer -->
 
 
 
@@ -79,25 +56,57 @@
 
 <div class="wide-container">
 
-	<div class="module-header">
-		<span class="fa fa-calendar-o"></span>
+	<!-- <div class="bar-search">
+    	<i class="fa fa-search"></i>
+		<input placeholder="Search Bars..." type='text'>
+	</div> -->
+
+	<div class="barback-breadcrumbs">
+		<img src="images/shotglass-new.png"><p>Bar Backend</p><!-- <span class="fa fa-angle-down"></span> --><i class="fa fa-bars"></i>
+	</div>
+
+	<div class="barback-tabs">
+    	<ul>
+    		<li><span class="fa fa-commenting"></span><p>Feed</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-calendar-o"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-cog"></span><p>Settings</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
+    	</ul>
+    </div>
+
+    <div class="module-header">
+		<!-- <span class="fa fa-calendar-o"></span> -->
 		<p>Weekly Calendar</p>
 	</div>
 
 	<section id="only-one" data-accordion-group>
 
       <section data-accordion>
-        <button data-control><h1>13</h1><p>Sunday</p></button>
+        <button data-control>
+        	<h1>13</h1>
+        	<aside>
+        		<h2>Sunday</h2><h3>Closed</h3>
+        	</aside>
+	        <span class="fa fa-ellipsis-h"></span>
+
+        </button>
         <div data-content>
           <article>
+          	<div class="calendar-sublist-header">
+          		<p>Additional Info</p>
+          		<span></span>
+          	</div>
 			<div class="calendar-sublist">
 				<form action="">
 					<ul>
-						
-						<!-- <li><h1>Open</h1><input id="basicExample" type="text" class="time" data-scroll-default="6:00am" /> -->
-						<li><textarea placeholder="Additional information here..." maxlength="150"></textarea></li>
-						<li><div><!-- <input type="text" placeholder="Opening"> <i class="fa fa-circle-thin"></i> <input type="text" placeholder="Closing"> --></div><button type="submit" class="save-button">Save</button></li>
-					</ul>
+						<li><p>Wine Night! 50% off all bottles</p><i class="fa fa-arrows"></i></li>
+						<li><p>Band starting at 10pm</p><i class="fa fa-arrows"></i></li>
+						<li><p>Closed from 3pm – 5pm</p><i class="fa fa-arrows"></i></li>
+						<footer><input placeholder="Add comment..." maxlength="150"><span class="fa fa-send"></span></footer>
+<!-- 						<li><div></div><button type="submit" class="save-button">Save</button></li>
+ -->					</ul>
 				</form>
 			</div>
 
@@ -107,113 +116,94 @@
 
 
       <section data-accordion>
-        <button data-control><h1>14</h1><p>Monday</p></button>
+        <button data-control><h1>14</h1>
+            <aside>
+        		<h2>Monday</h2><h3>11:00 am – 2:00 am</h3>
+        	</aside>
+	        <span class="fa fa-ellipsis-h"></span>
+
+        </button>
         <div data-content>
           <article>
-			<div class="barback-tabs">
-		    	<ul>
-		    		<li><span class="fa fa-commenting"></span><p>The Latest</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-star"></span><p>Favorites</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-tasks"></span><p>Bar Listing</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-location-arrow"></span><p>Map</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-user"></span><p>My Profile</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
-		    	</ul>
-		    </div>
+
 
           </article>
         </div>
       </section>
 
       <section data-accordion>
-        <button data-control><h1>15</h1><p>Tuesday</p></button>
+        <button data-control><h1>15</h1>       	
+        	<aside>
+        		<h2>Tuesday</h2><h3>11:00 am – 2:00 am</h3>
+        	</aside>
+	        <span class="fa fa-ellipsis-h"></span>
+
+        </button>
         <div data-content>
           <article>
-			<div class="barback-tabs">
-		    	<ul>
-		    		<li><span class="fa fa-commenting"></span><p>The Latest</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-star"></span><p>Favorites</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-tasks"></span><p>Bar Listing</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-location-arrow"></span><p>Map</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-user"></span><p>My Profile</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
-		    	</ul>
-		    </div>
+
 
           </article>
         </div>
       </section>
 
       <section data-accordion>
-        <button data-control><h1>16</h1><p>Wednesday</p></button>
+        <button data-control><h1>16</h1>        	
+        	<aside>
+        		<h2>Wednesday</h2><h3>11:00 am – 2:00 am</h3>
+        	</aside>
+	        <span class="fa fa-ellipsis-h"></span>
+
+        </button>
         <div data-content>
           <article>
-			<div class="barback-tabs">
-		    	<ul>
-		    		<li><span class="fa fa-commenting"></span><p>The Latest</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-star"></span><p>Favorites</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-tasks"></span><p>Bar Listing</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-location-arrow"></span><p>Map</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-user"></span><p>My Profile</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
-		    	</ul>
-		    </div>
+
 
           </article>
         </div>
       </section>
 
        <section data-accordion>
-        <button data-control><h1>17</h1><p>Thursday</p></button>
+        <button data-control><h1>17</h1>        	
+        	<aside>
+        		<h2>Thursday</h2><h3>11:00 am – 2:00 am</h3>
+        	</aside>
+	        <span class="fa fa-ellipsis-h"></span>
+
+        </button>
         <div data-content>
           <article>
-			<div class="barback-tabs">
-		    	<ul>
-		    		<li><span class="fa fa-commenting"></span><p>The Latest</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-star"></span><p>Favorites</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-tasks"></span><p>Bar Listing</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-location-arrow"></span><p>Map</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-user"></span><p>My Profile</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
-		    	</ul>
-		    </div>
+
 
           </article>
         </div>
       </section>
       <section data-accordion>
-        <button data-control><h1>18</h1><p>Friday</p></button>
+        <button data-control><h1>18</h1>        	
+        	<aside>
+        		<h2>Friday</h2><h3>11:00 am – 2:00 am</h3>
+        	</aside>
+	        <span class="fa fa-ellipsis-h"></span>
+
+        </button>
         <div data-content>
           <article>
-			<div class="barback-tabs">
-		    	<ul>
-		    		<li><span class="fa fa-commenting"></span><p>The Latest</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-star"></span><p>Favorites</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-tasks"></span><p>Bar Listing</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-location-arrow"></span><p>Map</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-user"></span><p>My Profile</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
-		    	</ul>
-		    </div>
+
 
           </article>
         </div>
       </section>
 
       <section data-accordion>
-        <button data-control><h1>19</h1><p>Saturday</p></button>
+        <button data-control><h1>19</h1>        	
+        	<aside>
+        		<h2>Saturday</h2><h3>11:00 am – 2:00 am</h3>
+        	</aside>
+	        <span class="fa fa-ellipsis-h"></span>
+
+        </button>
         <div data-content>
           <article>
-			<div class="barback-tabs">
-		    	<ul>
-		    		<li><span class="fa fa-commenting"></span><p>The Latest</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-star"></span><p>Favorites</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-tasks"></span><p>Bar Listing</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-location-arrow"></span><p>Map</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-user"></span><p>My Profile</p><i class="fa fa-ellipsis-h"></i></li>
-		    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
-		    	</ul>
-		    </div>
 
           </article>
         </div>
@@ -222,7 +212,10 @@
 
     </section>
 
-
+	<div class="copyright-info">
+    	<h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+    	<p>Beseech Me®, LLC</p>
+    </div>
 
 </div><!-- END WIDE CONTAINER -->
 
@@ -257,7 +250,7 @@
 	<button data-remodal-action="confirm" class="remodal-confirm">OK</button>
 </div>
 
-<div class="barback-mobile-tabs">
+<!-- <div class="barback-mobile-tabs">
 	<ul>
 		<li><span class="fa fa-commenting"></span></li>
 		<li><span class="fa fa-beer"></span></li>
@@ -265,7 +258,7 @@
 		<li><span class="fa fa-calendar-o"></span></li>
 		<li><span class="fa fa-power-off"></span></li>
 	</ul>
-</div>
+</div> -->
 
 <!-- Add Status Slideout -->
 
