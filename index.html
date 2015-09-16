@@ -46,32 +46,47 @@
 
 <script type="text/template" id="barback-view">
 
+  <header>
+    <div class="header-container">
+      <div class="header-left">            
+      </div>
+
+      <div class="header-right">
+        <h1>Hello, Taylor</h1>
+        <img src="images/bar-logo.png">
+      </div>
+    </div>
+  </header>
+
   <div class="body-container">
 
-    <div class="narrow-container">
-      <div class="bar-search">
-          <i class="fa fa-search"></i>
-        <input placeholder="Search Bars..." type='text'>
-      </div>
-      <div class="barback-breadcrumbs">
-        <img src="images/shotglass-new.png"><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>Weekly Calendar</p>
-      </div>
+    <div class="top-container">
 
-      <div class="barback-tabs">
-          <ul>
-            <li><span class="fa fa-commenting"></span><p>Feed</p><i class="fa fa-ellipsis-h"></i></li>
-            <li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
-            <li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
-            <li><span class="fa fa-calendar-o"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
-            <li><span class="fa fa-cog"></span><p>Settings</p><i class="fa fa-ellipsis-h"></i></li>
-            <li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
-          </ul>
-      </div>
+      <section id="barback-menu" data-accordion-group>
 
-      <div class="copyright-info">
-        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-        <p>Beseech Me®, LLC</p>
-      </div>
+        <section data-accordion>
+          <button data-control>
+            <aside>
+              <p>Bar Backend</p><span class="fa fa-angle-right"></span><p>7 Days Out</p>         
+            </aside>
+          </button>
+
+          <div data-content>
+            <article>
+              <div class="barback-tabs">
+                  <ul>
+                    <li><span class="fa fa-commenting"></span></li>
+                    <li><span class="fa fa-beer"></li>
+                    <li><span class="fa fa-globe"></span></li>
+                    <li><span class="fa fa-calendar-o"></span></li>
+                    <li><span class="fa fa-cog"></span></li>
+                    <li><span class="fa fa-power-off"></span></li>
+                  </ul>
+                </div>
+            </article>
+          </div>
+        </section>
+      </section>
     </div>
 
 
@@ -250,83 +265,52 @@
 <!-- Barback Calendar View -->
 
 <script type="text/template" id="barback-calendar-view">
-  <div class="module-header">
-    <span class="fa fa-calendar-o"></span>
-    <p>Weekly Calendar</p>
-  </div>
+    
+      <div class="seven-day-nav">
+        <ul>
+          <li class="active-day"><div id="seven-day-1"></div><div id="seven-month-1"></div></li>
+          <li><div id="seven-day-2"></div><div id="seven-month-2"></div></li>
+          <li><div id="seven-day-3"></div><div id="seven-month-3"></div></li>
+          <li><div id="seven-day-4"></div><div id="seven-month-4"></div></li>
+          <li><div id="seven-day-5"></div><div id="seven-month-5"></div></li>
+          <li><div id="seven-day-6"></div><div id="seven-month-6"></div></li>
+          <li><div id="seven-day-7"></div><div id="seven-month-7"></div></li>
+        </ul>
+      </div>
 
-  <section id="only-one" data-accordion-group>
+      <div class="calendar-day">
 
-      <section data-accordion>
-        <button data-control><h1>13</h1><p>Sunday</p></button>
-        <div data-content>
-          <article>
-            <div class="calendar-sublist">
-              <form action="">
-                <ul>
-                  <li><textarea placeholder="Additional information here..." maxlength="150"></textarea></li>
-                  <li><div></div><button type="submit" class="save-button">Save</button></li>
-                </ul>
-              </form>
-            </div>
-          </article>
+        <div class="calendar-nav">
+          <ul>
+            <li>Permanent Specials</li>
+            <li>Business Hours</li>
+            <li>Today</li>
+          </ul>
         </div>
-      </section>
 
-      <section data-accordion>
-        <button data-control><h1>14</h1><p>Monday</p></button>
-        <div data-content>
-          <article>
-
-          </article>
+        <div class="calendar-day-heading">
+            <!-- <div id="current-day"></div> -->
+            <div id="weekly-zero"></div><h3>Closed</h3>
         </div>
-      </section>
 
-      <section data-accordion>
-        <button data-control><h1>15</h1><p>Tuesday</p></button>
-        <div data-content>
-          <article>
-
-          </article>
+        <div class="calendar-sublist">
+          <form action="">
+            <ul>
+              <li><i class="fa fa-arrows"></i><p>Wine Night! 50% off all bottles</p></li>
+              <li><i class="fa fa-arrows"></i><p>Band starting at 10pm</p></li>
+              <li><i class="fa fa-arrows"></i><p>Closed from 3pm – 5pm</p></li>
+            </ul>
+          </form>
         </div>
-      </section>
-
-      <section data-accordion>
-        <button data-control><h1>16</h1><p>Wednesday</p></button>
-        <div data-content>
-          <article>
-
-          </article>
+        <div class="calendar-comment">
+          <input placeholder="Add comment..." maxlength="150"><span class="fa fa-send"></span>
         </div>
-      </section>
 
-       <section data-accordion>
-        <button data-control><h1>17</h1><p>Thursday</p></button>
-        <div data-content>
-          <article>
+      </div>
 
-          </article>
-        </div>
-      </section>
-      <section data-accordion>
-        <button data-control><h1>18</h1><p>Friday</p></button>
-        <div data-content>
-          <article>
 
-          </article>
-        </div>
-      </section>
 
-      <section data-accordion>
-        <button data-control><h1>19</h1><p>Saturday</p></button>
-        <div data-content>
-          <article>
 
-          </article>
-        </div>
-      </section>
-
-    </section>
 
 </script>
 

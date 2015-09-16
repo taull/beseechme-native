@@ -10,34 +10,49 @@
   <link href="bower_components/lightbox2/dist/css/lightbox.css" rel="stylesheet">
   <link rel="stylesheet" href="bower_components/remodal/dist/remodal.css">
   <link rel="stylesheet" href="bower_components/remodal/dist/remodal-default-theme.css">
-  <link rel="stylesheet" type='text/css' href="styles/main.css">
+
+
+  <link rel="stylesheet" type='text/css' href="styles/style5.css">
+
+	<link rel="stylesheet" type='text/css' href="styles/main.css">
 
 </head>
 <body>
 
+<header>
+	<div class="header-container">
+		<div class="barback-breadcrumbs">
+			<img src="images/shotglass-new.png"><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>7 Days Out</p><!-- <i class="fa fa-bars"></i> -->
+		</div>
 
 
-
+	</div>
+</header>
 
 <div class="body-container">
 
-<!-- <div class="narrow-container">
 
-	<div class="bar-search">
+
+<div class="narrow-container">
+
+	<!-- <div class="bar-search">
     	<i class="fa fa-search"></i>
 		<input placeholder="Search Bars..." type='text'>
-	</div>
+	</div> -->
 
-	<div class="barback-breadcrumbs">
+	<!-- <div class="barback-breadcrumbs">
 		<img src="images/shotglass-new.png"><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>Weekly Calendar</p>
-	</div>
+	</div> -->
+	<!-- <div class="sublist-header">
+  		<p>Bar Backend</p>
+  	</div> -->
 
 	<div class="barback-tabs">
     	<ul>
     		<li><span class="fa fa-commenting"></span><p>Feed</p><i class="fa fa-ellipsis-h"></i></li>
     		<li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
     		<li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
-    		<li><span class="fa fa-calendar-o"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
+    		<li><span class="fa fa-calendar-o"></span><p>7 Days Out</p><i class="fa fa-ellipsis-h"></i></li>
     		<li><span class="fa fa-cog"></span><p>Settings</p><i class="fa fa-ellipsis-h"></i></li>
     		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
     	</ul>
@@ -48,7 +63,7 @@
     	<p>Beseech Me®, LLC</p>
     </div>
 
-</div> --><!-- END Narrow COntainer -->
+</div>
 
 
 
@@ -61,64 +76,101 @@
 		<input placeholder="Search Bars..." type='text'>
 	</div> -->
 
-	<div class="barback-breadcrumbs">
-		<img src="images/shotglass-new.png"><p>Bar Backend</p><!-- <span class="fa fa-angle-down"></span> --><i class="fa fa-bars"></i>
-	</div>
 
-	<div class="barback-tabs">
-    	<ul>
-    		<li><span class="fa fa-commenting"></span><p>Feed</p><i class="fa fa-ellipsis-h"></i></li>
-    		<li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
-    		<li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
-    		<li><span class="fa fa-calendar-o"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
-    		<li><span class="fa fa-cog"></span><p>Settings</p><i class="fa fa-ellipsis-h"></i></li>
-    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
-    	</ul>
-    </div>
 
-    <div class="module-header">
-		<!-- <span class="fa fa-calendar-o"></span> -->
+
+
+    <!-- <div class="module-header">
 		<p>Weekly Calendar</p>
+	</div> -->
+
+	<div class="add-weekly-comment">
+		<form>
+			<select id="cd-dropdown" class="cd-select">
+				<option value="-1" selected>Select a Day</option>
+				<option value="1" class="current-date"></option>
+				<option value="2" class="one-date-later"></option>
+				<option value="3" class="two-date-later"></option>
+				<option value="4" class="three-date-later"></option>
+				<option value="5" class="four-date-later"></option>
+				<option value="6" class="five-date-later"></option>
+				<option value="7" class="six-date-later"></option>
+			</select>
+			<!-- <input type="text" placeholder="Add comment..." maxlength="150"><span class="fa fa-send"></span>
+
+			<button type="submit">Comment</button> -->
+			<nav>
+				<ul>
+					<li>Permanent Specials</li>
+					<li>Business Hours</li>
+					<li>Today</li>
+
+				</ul>
+			</nav>
+			<!-- <input type="checkbox" checked><p>One-time Comment?</p> -->
+		</form>
 	</div>
+
+	<!-- <select id="cd-dropdown" class="cd-select">
+		<option value="-1" selected>Pick a day of the week</option>
+		<option value="1">Sunda></option>
+		<option value="2">Mac</option>
+		<option value="3">Windows</option>
+		<option value="4">Android</option>
+	</select> -->
+
+
+
+				<!-- <select class="cs-select cs-skin-elastic">
+					<option value="">Select a Country</option>
+					<option value="france">France</option>
+					<option value="brazil">Brazil</option>
+					<option value="argentina">Argentina</option>
+					<option value="south-africa">South Africa</option>
+				</select> -->
 
 	<section id="only-one" data-accordion-group>
 
       <section data-accordion>
         <button data-control>
-        	<h1>13</h1>
+        	<div id="current-day"></div>
+
         	<aside>
-        		<h2>Sunday</h2><h3>Closed</h3>
+        		<div id="weekly-zero"></div><h3>Closed</h3>
         	</aside>
 	        <span class="fa fa-ellipsis-h"></span>
 
         </button>
         <div data-content>
           <article>
-          	<div class="calendar-sublist-header">
-          		<p>Additional Info</p>
-          		<span></span>
-          	</div>
+			<!-- <div class="sublist-header">
+          		<p>More Info</p>
+          	</div> -->
 			<div class="calendar-sublist">
 				<form action="">
 					<ul>
-						<li><p>Wine Night! 50% off all bottles</p><i class="fa fa-arrows"></i></li>
-						<li><p>Band starting at 10pm</p><i class="fa fa-arrows"></i></li>
-						<li><p>Closed from 3pm – 5pm</p><i class="fa fa-arrows"></i></li>
-						<footer><input placeholder="Add comment..." maxlength="150"><span class="fa fa-send"></span></footer>
+						<li><i class="fa fa-arrows"></i><p>Wine Night! 50% off all bottles</p></li>
+						<li><i class="fa fa-arrows"></i><p>Band starting at 10pm</p></li>
+						<li><i class="fa fa-arrows"></i><p>Closed from 3pm – 5pm</p></li>
+						<!-- <footer><input placeholder="Add comment..." maxlength="150"><span class="fa fa-send"></span></footer> -->
 <!-- 						<li><div></div><button type="submit" class="save-button">Save</button></li>
  -->					</ul>
 				</form>
 			</div>
 
+
+
           </article>
         </div>
       </section>
 
 
       <section data-accordion>
-        <button data-control><h1>14</h1>
+        <button data-control>
+        	<div id="one-day-later"></div>
+
             <aside>
-        		<h2>Monday</h2><h3>11:00 am – 2:00 am</h3>
+        		<div id="weekly-one"></div><h3>11:00 am – 2:00 am</h3>
         	</aside>
 	        <span class="fa fa-ellipsis-h"></span>
 
@@ -132,9 +184,11 @@
       </section>
 
       <section data-accordion>
-        <button data-control><h1>15</h1>       	
+        <button data-control>
+            <div id="two-day-later"></div>
+      	
         	<aside>
-        		<h2>Tuesday</h2><h3>11:00 am – 2:00 am</h3>
+        		<div id="weekly-two"></div><h3>11:00 am – 2:00 am</h3>
         	</aside>
 	        <span class="fa fa-ellipsis-h"></span>
 
@@ -148,9 +202,11 @@
       </section>
 
       <section data-accordion>
-        <button data-control><h1>16</h1>        	
+        <button data-control>
+            <div id="three-day-later"></div>
+       	
         	<aside>
-        		<h2>Wednesday</h2><h3>11:00 am – 2:00 am</h3>
+        		<div id="weekly-three"></div><h3>11:00 am – 2:00 am</h3>
         	</aside>
 	        <span class="fa fa-ellipsis-h"></span>
 
@@ -164,9 +220,11 @@
       </section>
 
        <section data-accordion>
-        <button data-control><h1>17</h1>        	
+        <button data-control>
+            <div id="four-day-later"></div>
+       	
         	<aside>
-        		<h2>Thursday</h2><h3>11:00 am – 2:00 am</h3>
+        		<div id="weekly-four"></div><h3>11:00 am – 2:00 am</h3>
         	</aside>
 	        <span class="fa fa-ellipsis-h"></span>
 
@@ -179,9 +237,12 @@
         </div>
       </section>
       <section data-accordion>
-        <button data-control><h1>18</h1>        	
+        <button data-control>
+
+            <div id="five-day-later"></div>
+       	
         	<aside>
-        		<h2>Friday</h2><h3>11:00 am – 2:00 am</h3>
+        		<div id="weekly-five"></div><h3>11:00 am – 2:00 am</h3>
         	</aside>
 	        <span class="fa fa-ellipsis-h"></span>
 
@@ -195,9 +256,11 @@
       </section>
 
       <section data-accordion>
-        <button data-control><h1>19</h1>        	
+        <button data-control> 
+            <div id="six-day-later"></div>
+       	
         	<aside>
-        		<h2>Saturday</h2><h3>11:00 am – 2:00 am</h3>
+        		<div id="weekly-six"></div><h3>11:00 am – 2:00 am</h3>
         	</aside>
 	        <span class="fa fa-ellipsis-h"></span>
 
@@ -212,10 +275,12 @@
 
     </section>
 
-	<div class="copyright-info">
+
+
+<!-- 	<div class="copyright-info">
     	<h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
     	<p>Beseech Me®, LLC</p>
-    </div>
+    </div> -->
 
 </div><!-- END WIDE CONTAINER -->
 
@@ -433,6 +498,8 @@
 <script src='bower_components/jquery/dist/jquery.min.js'></script>
 <script src='bower_components/underscore/underscore-min.js'></script>
 <script src='bower_components/backbone/backbone-min.js'></script>
+<script src='bower_components/moment/min/moment.min.js'></script>
+
 <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 <script src="jQuery-modal/popModal.js"></script>
 
@@ -440,7 +507,13 @@
 <script src="bower_components/lightbox2/dist/js/lightbox.js"></script>
 <script src="bower_components/remodal/dist/remodal.min.js"></script>
 <script src='jquery-accordion.js'></script>
+<script src='scripts/jquery.dropdown.js'></script>
+<script src='scripts/modernizr.custom.63321.js'></script>
+<script src='SelectInspiration/js/classie.js'></script>
+<script src='SelectInspiration/js/selectFx.js'></script>
 <script src='scripts/main.js'></script>
+<script src='scripts/old.js'></script>
+
 </body>
 
 

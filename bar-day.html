@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Beseech Me</title>
+  <meta name="description" content="Beseech Me">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link type='text/css' rel='stylesheet' href='jQuery-modal/popModal.css'>
+  <link href="bower_components/lightbox2/dist/css/lightbox.css" rel="stylesheet">
+  <link rel="stylesheet" href="bower_components/remodal/dist/remodal.css">
+  <link rel="stylesheet" href="bower_components/remodal/dist/remodal-default-theme.css">
+
+
+  <link rel="stylesheet" type='text/css' href="styles/style5.css">
+
+	<link rel="stylesheet" type='text/css' href="styles/main.css">
+
+</head>
+<body>
+
+<header>
+	<div class="header-container">
+		<div class="header-left">
+			    
+			<!-- <img src="images/beme-logodark.png"> -->
+		</div>
+
+		<div class="header-right">
+			<h1>Hello, Taylor</h1>
+			<img src="images/bar-logo.png">
+		</div>
+	</div>
+</header>
+
+<div class="body-container">
+
+
+
+	<div class="top-container">
+
+		<!-- <div class="barback-breadcrumbs">
+			<img src="images/shotglass-new.png"><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>7 Days Out</p>
+		</div> -->
+
+
+
+
+	    <!-- <div class="copyright-info">
+	    	<h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+	    	<p>Beseech Me®, LLC</p>
+	    </div> -->
+		<section id="barback-menu" data-accordion-group>
+
+	      <section data-accordion>
+	        <button data-control>
+	        	<!-- <div id="current-day"></div> -->
+
+	        	<aside>
+					<!-- <img src="images/shotglass-new.png"> --><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>7 Days Out</p>  				
+				</aside>
+
+	        </button>
+	        <div data-content>
+	          <article>
+				<div class="barback-tabs">
+			    	<ul>
+			    		<li><span class="fa fa-commenting"></span></li>
+			    		<li><span class="fa fa-beer"></li>
+			    		<li><span class="fa fa-globe"></span></li>
+			    		<li><span class="fa fa-calendar-o"></span></li>
+			    		<li><span class="fa fa-cog"></span></li>
+			    		<li><span class="fa fa-power-off"></span></li>
+			    	</ul>
+			    </div>
+	          </article>
+	        </div>
+	      </section>
+	    </section>
+
+
+
+	</div>
+
+	<div class="wide-container">
+
+		<!-- <div class="add-weekly-comment">
+			<form>
+				<select id="cd-dropdown" class="cd-select">
+					<option value="-1" selected>Select a Day</option>
+					<option value="1" class="current-date"></option>
+					<option value="2" class="one-date-later"></option>
+					<option value="3" class="two-date-later"></option>
+					<option value="4" class="three-date-later"></option>
+					<option value="5" class="four-date-later"></option>
+					<option value="6" class="five-date-later"></option>
+					<option value="7" class="six-date-later"></option>
+				</select>
+
+				<nav>
+					<ul>
+						<li>Permanent Specials</li>
+						<li>Business Hours</li>
+						<li>Today</li>
+					</ul>
+				</nav>
+			</form>
+		</div> -->
+
+
+
+		<div class="seven-day-nav">
+			<ul>
+				<li class="active-day"><div id="seven-day-1"></div><div id="seven-month-1"></div></li>
+				<li><div id="seven-day-2"></div><div id="seven-month-2"></div></li>
+				<li><div id="seven-day-3"></div><div id="seven-month-3"></div></li>
+				<li><div id="seven-day-4"></div><div id="seven-month-4"></div></li>
+				<li><div id="seven-day-5"></div><div id="seven-month-5"></div></li>
+				<li><div id="seven-day-6"></div><div id="seven-month-6"></div></li>
+				<li><div id="seven-day-7"></div><div id="seven-month-7"></div></li>
+
+			</ul>
+		</div>
+
+
+
+
+
+	    <div class="calendar-day">
+
+	    	<div class="calendar-nav">
+				<ul>
+					<li>Permanent Specials</li>
+					<li>Business Hours</li>
+					<li>Today</li>
+				</ul>
+			</div>
+
+	    	<div class="calendar-day-heading">
+	        	<!-- <div id="current-day"></div> -->
+	        	<div id="weekly-zero"></div><h3>Closed</h3>
+	    	</div>
+
+
+
+
+			<div class="calendar-sublist">
+				<form action="">
+					<ul>
+						<li><i class="fa fa-arrows"></i><p>Wine Night! 50% off all bottles</p></li>
+						<li><i class="fa fa-arrows"></i><p>Band starting at 10pm</p></li>
+						<li><i class="fa fa-arrows"></i><p>Closed from 3pm – 5pm</p></li>
+					</ul>
+				</form>
+			</div>
+	    	<div class="calendar-comment">
+		    	<input placeholder="Add comment..." maxlength="150"><span class="fa fa-send"></span>
+			</div>
+
+
+
+	    </div>
+
+
+
+
+
+	</div><!-- END WIDE CONTAINER -->
+
+
+</div><!-- END BODY CONTAINER -->
+
+
+
+
+
+
+<script src='bower_components/jquery/dist/jquery.min.js'></script>
+<script src='bower_components/underscore/underscore-min.js'></script>
+<script src='bower_components/backbone/backbone-min.js'></script>
+<script src='bower_components/moment/min/moment.min.js'></script>
+
+<script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+<script src="jQuery-modal/popModal.js"></script>
+
+<script src='bower_components/autosize/dist/autosize.min.js'></script>
+<script src="bower_components/lightbox2/dist/js/lightbox.js"></script>
+<script src="bower_components/remodal/dist/remodal.min.js"></script>
+<script src='jquery-accordion.js'></script>
+<script src='scripts/jquery.dropdown.js'></script>
+<script src='scripts/modernizr.custom.63321.js'></script>
+<script src='SelectInspiration/js/classie.js'></script>
+<script src='SelectInspiration/js/selectFx.js'></script>
+<script src='scripts/main.js'></script>
+<script src='scripts/old.js'></script>
+
+</body>
+
+
+
+
+
+
+
