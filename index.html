@@ -46,37 +46,47 @@
 
 <script type="text/template" id="barback-view">
 
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+      </div>
+
+      <div class="header-right">
+        <h1>Hello, Taylor</h1>
+        <img src="images/bar-logo.png">
+      </div>
+
+    </div>
+  </header>
+
   <div class="body-container">
 
     <div class="narrow-container">
-      <div class="bar-search">
-          <i class="fa fa-search"></i>
-        <input placeholder="Search Bars..." type='text'>
-      </div>
+
       <div class="barback-breadcrumbs">
-        <img src="images/shotglass-new.png"><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>Weekly Calendar</p>
+        <p>Bar Backend</p><span class="fa fa-angle-right"></span><p>7 Days Out</p><span class="fa fa-angle-right"></span><p>Saturday</p>
       </div>
 
       <div class="barback-tabs">
-          <ul>
-            <li><span class="fa fa-commenting"></span><p>Feed</p><i class="fa fa-ellipsis-h"></i></li>
-            <li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
-            <li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
-            <li><span class="fa fa-calendar-o"></span><p>Calendar</p><i class="fa fa-ellipsis-h"></i></li>
-            <li><span class="fa fa-cog"></span><p>Settings</p><i class="fa fa-ellipsis-h"></i></li>
-            <li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
-          </ul>
+        <ul>
+          <li><span class="fa fa-commenting"></span><p>Feed</p><i class="fa fa-ellipsis-h"></i></li>
+          <li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
+          <li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
+          <li><span class="fa fa-calendar-o"></span><p>7 Days Out</p><i class="fa fa-ellipsis-h"></i></li>
+          <li><span class="fa fa-cog"></span><p>Settings</p><i class="fa fa-ellipsis-h"></i></li>
+          <li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
+        </ul>
       </div>
 
       <div class="copyright-info">
         <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
         <p>Beseech Me®, LLC</p>
       </div>
+
     </div>
 
 
     <div class="wide-container">
-
     </div>
 
   </div>
@@ -250,83 +260,51 @@
 <!-- Barback Calendar View -->
 
 <script type="text/template" id="barback-calendar-view">
-  <div class="module-header">
-    <span class="fa fa-calendar-o"></span>
-    <p>Weekly Calendar</p>
-  </div>
+    
+    <div class="seven-day-nav">
+      <ul>
+        <li>
+          <section><div id="seven-day-1"></div><div id="seven-month-1"></div></section>
+          <aside><span class="fa fa-comments"></span></aside>
+        </li>
 
-  <section id="only-one" data-accordion-group>
+        <li class="active-day">
+          <section><div id="seven-day-2"></div><div id="seven-month-2"></div></section>
+          <aside><span class="fa fa-comments"></span></aside>
+        </li>
 
-      <section data-accordion>
-        <button data-control><h1>13</h1><p>Sunday</p></button>
-        <div data-content>
-          <article>
-            <div class="calendar-sublist">
-              <form action="">
-                <ul>
-                  <li><textarea placeholder="Additional information here..." maxlength="150"></textarea></li>
-                  <li><div></div><button type="submit" class="save-button">Save</button></li>
-                </ul>
-              </form>
-            </div>
-          </article>
-        </div>
-      </section>
+        <li>
+          <section><div id="seven-day-3"></div><div id="seven-month-3"></div></section>
+          <aside><!-- <span class="fa fa-comments"></span> --></aside>
+        </li>
 
-      <section data-accordion>
-        <button data-control><h1>14</h1><p>Monday</p></button>
-        <div data-content>
-          <article>
+        <li>
+          <section><div id="seven-day-4"></div><div id="seven-month-4"></div></section>
+          <aside><span class="fa fa-comments"></span></aside>
+        </li>
 
-          </article>
-        </div>
-      </section>
+        <li>
+          <section><div id="seven-day-5"></div><div id="seven-month-5"></div></section>
+          <aside><!-- <span class="fa fa-comments"></span> --></aside>
+        </li>
 
-      <section data-accordion>
-        <button data-control><h1>15</h1><p>Tuesday</p></button>
-        <div data-content>
-          <article>
+        <li>
+          <section><div id="seven-day-6"></div><div id="seven-month-6"></div></section>
+          <aside><span class="fa fa-comments"></span></aside>
+        </li>
 
-          </article>
-        </div>
-      </section>
+        <li>
+          <section><div id="seven-day-7"></div><div id="seven-month-7"></div></section>
+          <aside><!-- <span class="fa fa-ellipsis-h"></span> --></aside>
+        </li>
 
-      <section data-accordion>
-        <button data-control><h1>16</h1><p>Wednesday</p></button>
-        <div data-content>
-          <article>
 
-          </article>
-        </div>
-      </section>
+      </ul>
+    </div>
 
-       <section data-accordion>
-        <button data-control><h1>17</h1><p>Thursday</p></button>
-        <div data-content>
-          <article>
 
-          </article>
-        </div>
-      </section>
-      <section data-accordion>
-        <button data-control><h1>18</h1><p>Friday</p></button>
-        <div data-content>
-          <article>
 
-          </article>
-        </div>
-      </section>
 
-      <section data-accordion>
-        <button data-control><h1>19</h1><p>Saturday</p></button>
-        <div data-content>
-          <article>
-
-          </article>
-        </div>
-      </section>
-
-    </section>
 
 </script>
 

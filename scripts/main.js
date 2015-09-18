@@ -1,9 +1,9 @@
 'use strict';
 
 
-$('.barback-breadcrumbs').click(function(){
-	$('.barback-tabs').toggleClass('barback-tabs-shift');
-});
+// $('.barback-breadcrumbs').click(function(){
+// 	$('.barback-tabs').toggleClass('barback-tabs-shift');
+// });
 
 // from a jQuery collection
 autosize($('#business-status'));
@@ -13,6 +13,8 @@ $('.accordion').accordion({
 });
 
 $('#only-one [data-accordion]').accordion();
+$('#barback-menu [data-accordion]').accordion();
+
 
 //Initialize Parse
 
