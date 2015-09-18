@@ -48,50 +48,45 @@
 
   <header>
     <div class="header-container">
-      <div class="header-left">            
+      <div class="header-left">
       </div>
 
       <div class="header-right">
         <h1>Hello, Taylor</h1>
         <img src="images/bar-logo.png">
       </div>
+
     </div>
   </header>
 
   <div class="body-container">
 
-    <div class="top-container">
+    <div class="narrow-container">
 
-      <section id="barback-menu" data-accordion-group>
+      <div class="barback-breadcrumbs">
+        <p>Bar Backend</p><span class="fa fa-angle-right"></span><p>7 Days Out</p><span class="fa fa-angle-right"></span><p>Saturday</p>
+      </div>
 
-        <section data-accordion>
-          <button data-control>
-            <aside>
-              <p>Bar Backend</p><span class="fa fa-angle-right"></span><p>7 Days Out</p>         
-            </aside>
-          </button>
+      <div class="barback-tabs">
+        <ul>
+          <li><span class="fa fa-commenting"></span><p>Feed</p><i class="fa fa-ellipsis-h"></i></li>
+          <li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
+          <li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
+          <li><span class="fa fa-calendar-o"></span><p>7 Days Out</p><i class="fa fa-ellipsis-h"></i></li>
+          <li><span class="fa fa-cog"></span><p>Settings</p><i class="fa fa-ellipsis-h"></i></li>
+          <li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
+        </ul>
+      </div>
 
-          <div data-content>
-            <article>
-              <div class="barback-tabs">
-                  <ul>
-                    <li><span class="fa fa-commenting"></span></li>
-                    <li><span class="fa fa-beer"></li>
-                    <li><span class="fa fa-globe"></span></li>
-                    <li><span class="fa fa-calendar-o"></span></li>
-                    <li><span class="fa fa-cog"></span></li>
-                    <li><span class="fa fa-power-off"></span></li>
-                  </ul>
-                </div>
-            </article>
-          </div>
-        </section>
-      </section>
+      <div class="copyright-info">
+        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+        <p>Beseech Me®, LLC</p>
+      </div>
+
     </div>
 
 
     <div class="wide-container">
-
     </div>
 
   </div>
@@ -266,47 +261,46 @@
 
 <script type="text/template" id="barback-calendar-view">
     
-      <div class="seven-day-nav">
-        <ul>
-          <li class="active-day"><div id="seven-day-1"></div><div id="seven-month-1"></div></li>
-          <li><div id="seven-day-2"></div><div id="seven-month-2"></div></li>
-          <li><div id="seven-day-3"></div><div id="seven-month-3"></div></li>
-          <li><div id="seven-day-4"></div><div id="seven-month-4"></div></li>
-          <li><div id="seven-day-5"></div><div id="seven-month-5"></div></li>
-          <li><div id="seven-day-6"></div><div id="seven-month-6"></div></li>
-          <li><div id="seven-day-7"></div><div id="seven-month-7"></div></li>
-        </ul>
-      </div>
+    <div class="seven-day-nav">
+      <ul>
+        <li>
+          <section><div id="seven-day-1"></div><div id="seven-month-1"></div></section>
+          <aside><span class="fa fa-comments"></span></aside>
+        </li>
 
-      <div class="calendar-day">
+        <li class="active-day">
+          <section><div id="seven-day-2"></div><div id="seven-month-2"></div></section>
+          <aside><span class="fa fa-comments"></span></aside>
+        </li>
 
-        <div class="calendar-nav">
-          <ul>
-            <li>Permanent Specials</li>
-            <li>Business Hours</li>
-            <li>Today</li>
-          </ul>
-        </div>
+        <li>
+          <section><div id="seven-day-3"></div><div id="seven-month-3"></div></section>
+          <aside><!-- <span class="fa fa-comments"></span> --></aside>
+        </li>
 
-        <div class="calendar-day-heading">
-            <!-- <div id="current-day"></div> -->
-            <div id="weekly-zero"></div><h3>Closed</h3>
-        </div>
+        <li>
+          <section><div id="seven-day-4"></div><div id="seven-month-4"></div></section>
+          <aside><span class="fa fa-comments"></span></aside>
+        </li>
 
-        <div class="calendar-sublist">
-          <form action="">
-            <ul>
-              <li><i class="fa fa-arrows"></i><p>Wine Night! 50% off all bottles</p></li>
-              <li><i class="fa fa-arrows"></i><p>Band starting at 10pm</p></li>
-              <li><i class="fa fa-arrows"></i><p>Closed from 3pm – 5pm</p></li>
-            </ul>
-          </form>
-        </div>
-        <div class="calendar-comment">
-          <input placeholder="Add comment..." maxlength="150"><span class="fa fa-send"></span>
-        </div>
+        <li>
+          <section><div id="seven-day-5"></div><div id="seven-month-5"></div></section>
+          <aside><!-- <span class="fa fa-comments"></span> --></aside>
+        </li>
 
-      </div>
+        <li>
+          <section><div id="seven-day-6"></div><div id="seven-month-6"></div></section>
+          <aside><span class="fa fa-comments"></span></aside>
+        </li>
+
+        <li>
+          <section><div id="seven-day-7"></div><div id="seven-month-7"></div></section>
+          <aside><!-- <span class="fa fa-ellipsis-h"></span> --></aside>
+        </li>
+
+
+      </ul>
+    </div>
 
 
 
