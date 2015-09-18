@@ -163,6 +163,10 @@ header {
     height: auto;
     margin-top: -70px; }
 
+.barback-controls {
+  width: 360px;
+  display: block; }
+
 .barback-tabs {
   width: 100%;
   position: relative;
