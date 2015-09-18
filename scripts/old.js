@@ -300,49 +300,58 @@ $(function() {
     var sevenDay1 = moment();
 
 	$('#seven-day-1').append([
-	  sevenDay1.format('ddd')
+	  sevenDay1.format('dddd')
 	].join('<br/>'));
+
+	// Current Day Heading
+    var currentDayHeading = moment();
+
+	$('#current-day-heading').append([
+	  currentDayHeading.format('dddd, MMM Do')
+	].join('<br/>'));
+
+
 
 	// 1 day
     var sevenDay2 = moment().add('days', 1);
 
 	$('#seven-day-2').append([
-	  sevenDay2.format('ddd')
+	  sevenDay2.format('dddd')
 	].join('<br/>'));
 
 	// 2 days
     var sevenDay3 = moment().add('days', 2);
 
 	$('#seven-day-3').append([
-	  sevenDay3.format('ddd')
+	  sevenDay3.format('dddd')
 	].join('<br/>'));
 
 	// 3 days
     var sevenDay4 = moment().add('days', 3);
 
 	$('#seven-day-4').append([
-	  sevenDay4.format('ddd')
+	  sevenDay4.format('dddd')
 	].join('<br/>'));
 
 	// 4 day
     var sevenDay5 = moment().add('days', 4);
 
 	$('#seven-day-5').append([
-	  sevenDay5.format('ddd')
+	  sevenDay5.format('dddd')
 	].join('<br/>'));
 
 	// 5 day
     var sevenDay6 = moment().add('days', 5);
 
 	$('#seven-day-6').append([
-	  sevenDay6.format('ddd')
+	  sevenDay6.format('dddd')
 	].join('<br/>'));
 
 	// 6 day
     var sevenDay7 = moment().add('days', 6);
 
 	$('#seven-day-7').append([
-	  sevenDay7.format('ddd')
+	  sevenDay7.format('dddd')
 	].join('<br/>'));
 
 
@@ -350,49 +359,49 @@ $(function() {
     var sevenMonth1 = moment();
 
 	$('#seven-month-1').append([
-	  sevenMonth1.format('MMM Do')
+	  sevenMonth1.format('MMMM Do')
 	].join('<br/>'));
 
 	// 1 day
     var sevenMonth2 = moment().add('days', 1);
 
 	$('#seven-month-2').append([
-	  sevenMonth2.format('MMM Do')
+	  sevenMonth2.format('MMMM Do')
 	].join('<br/>'));
 
 	// 2 days
     var sevenMonth3 = moment().add('days', 2);
 
 	$('#seven-month-3').append([
-	  sevenMonth3.format('MMM Do')
+	  sevenMonth3.format('MMMM Do')
 	].join('<br/>'));
 
 	// 3 days
     var sevenMonth4 = moment().add('days', 3);
 
 	$('#seven-month-4').append([
-	  sevenMonth4.format('MMM Do')
+	  sevenMonth4.format('MMMM Do')
 	].join('<br/>'));
 
 	// 4 day
     var sevenMonth5 = moment().add('days', 4);
 
 	$('#seven-month-5').append([
-	  sevenMonth5.format('MMM Do')
+	  sevenMonth5.format('MMMM Do')
 	].join('<br/>'));
 
 	// 5 day
     var sevenMonth6 = moment().add('days', 5);
 
 	$('#seven-month-6').append([
-	  sevenMonth6.format('MMM Do')
+	  sevenMonth6.format('MMMM Do')
 	].join('<br/>'));
 
 	// 6 day
     var sevenMonth7 = moment().add('days', 6);
 
 	$('#seven-month-7').append([
-	  sevenMonth7.format('MMM Do')
+	  sevenMonth7.format('MMMM Do')
 	].join('<br/>'));
 
 });
@@ -412,3 +421,13 @@ $( function() {
 		new SelectFx(el);
 	} );
 })();
+
+$('.barback-breadcrumbs').click(function(){
+	$('.barback-tabs').toggleClass('barback-tabs-shift');
+});
+
+
+// $("#barback-menu1").flip(
+// 	{speed: '300'},
+// 	{reverse: true}
+// 	);
