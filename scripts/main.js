@@ -37,14 +37,16 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
 
 BeMe.removeAllViews = function () {
   for (var i = BeMe.renderedViews.length - 1; i >= 0; i--) {
-    renderedViews[i].removeRenderedView();
+    if (!BeMe.renderedViews[i].isApplicationView) {
+			BeMe.renderedViews[i].removeRenderedView();
+		}
 	};
 };
 
 function removeViewFromRenderedViews (view) {
   var cid = view.cid;
-  var index = _.findIndex(renderedViews, function (n) {return n.cid === cid});
-  renderedViews.splice(index,1); //remove from the array
+  var index = _.findIndex(BeMe.renderedViews, function (n) {return n.cid === cid});
+  BeMe.renderedViews.splice(index,1); //remove from the array
   if (view.subViews) {
     _.each(view.subViews, function (i) { //remove the subViews
       i.remove();
@@ -76,6 +78,22 @@ Parse.View.prototype.removeRenderedView = _.wrap(
 	Begin Views Section
 */
 
+BeMe.Views.Application = Parse.View.extend({
+	initialize: function () {
+		this.render();
+		console.log("behold, an application view");
+		this.isApplicationView = true;
+	},
+
+	template: _.template($('#application-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('body').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+
 BeMe.Views.Index = Parse.View.extend({
 	initialize: function () {
 		this.render();
@@ -85,7 +103,8 @@ BeMe.Views.Index = Parse.View.extend({
 
 	render:function () {
 		this.$el.html(this.template(this.model));
-		$('.wide-container').append(this.el);
+		$('body').append(this.el);
+		BeMe.renderedViews.push(this);
 	}
 });
 
@@ -99,6 +118,7 @@ BeMe.Views.BarBack = Parse.View.extend({
 	render: function () {
 		this.$el.html(this.template(this.model));
 		$('body').append(this.el);
+		BeMe.renderedViews.push(this);
 	}
 });
 
@@ -118,18 +138,25 @@ BeMe.Collection = Parse.Collection.extend({
 	Begin Router Section
 */
 
-BeMe.Router = Parse.Router.extend({
+var Router = Backbone.Router.extend({
 	routes: {
 		'' : 'home',
-		'backend' : 'backend'
+		'barback' : 'barback'
+	},
+
+	initialize: function () {
+		new BeMe.Views.Application();
 	},
 
 	home: function () {
+		console.log('Index route fired');
 		BeMe.removeAllViews();
 	},
 
-	backend: function () {
+	barback: function () {
+		console.log('Barback route fired');
 		BeMe.removeAllViews();
+		new BeMe.Views.BarBack();
 	}
 });
 
@@ -140,7 +167,8 @@ BeMe.Router = Parse.Router.extend({
 */
 
 $(document).ready(function () {
-	new BeMe.Views.BarBack();
+	BeMe.Router = new Router();
+	Backbone.history.start();
 });
 
 /*
