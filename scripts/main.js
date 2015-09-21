@@ -161,6 +161,7 @@ var Router = Backbone.Router.extend({
 	home: function () {
 		console.log('Index route fired');
 		BeMe.removeAllViews();
+		new BeMe.Views.Index();
 	},
 
 	backend: function () {
