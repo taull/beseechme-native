@@ -15,8 +15,8 @@
 /* Layout */
 body {
   position: relative;
-  background: #f0f0f0;
-  width: 860px;
+  background: #f5f5f5;
+  width: 100%;
   margin: 0 auto;
   overflow-x: hidden;
   /*overflow: hidden;*/
@@ -35,10 +35,10 @@ body {
 
 header {
   width: 100%;
-  height: 56px;
+  height: 60px;
   margin: 0px auto 0;
   position: relative;
-  background: #f0f0f0;
+  background: #37474F;
   left: 0;
   z-index: 9999999; }
 
@@ -83,9 +83,8 @@ header {
   vertical-align: top; }
 
 .header-left {
-  width: 50%;
-  padding-top: 25px;
-  padding-left: 10px; }
+  width: 40%;
+  padding-top: 0px; }
   .header-left img {
     width: 100px;
     height: auto; }
@@ -105,7 +104,7 @@ header {
     padding-top: 0; }
 
 .header-right {
-  width: 50%;
+  width: 60%;
   text-align: right;
   padding-top: 20px;
   padding-right: 5px; }
@@ -117,12 +116,14 @@ header {
     margin-left: 10px; }
   .header-right h1 {
     font-size: 12px;
-    border-right: 1px solid #dfdfdf;
+    border-right: 1px solid #999;
     padding-right: 10px;
     display: inline-block;
     vertical-align: top;
     height: 25px;
-    padding-top: 5px; }
+    padding-top: 5px;
+    font-weight: 400;
+    color: #f0f0f0; }
 
 /* Login/Register */
 .location-container {
@@ -165,13 +166,19 @@ header {
 
 .barback-controls {
   width: 100%;
-  display: block; }
+  margin: 0 auto;
+  display: block;
+  /*margin-top: 15px;*/
+  background: #f8f8f8;
+  border-bottom: 1px solid #dfdfdf; }
 
 .barback-tabs {
-  width: 100%;
+  width: 860px;
+  margin: 0 auto;
   position: relative;
-  border: 1px solid #dfdfdf;
+  border: 1px solid #f0f0f0;
   border-top: 0;
+  border-bottom: 0;
   /*top:60px;*/
   transition: 250ms;
   z-index: 25; }
@@ -181,22 +188,23 @@ header {
   .barback-tabs li {
     padding: 21px;
     display: inline-block;
-    background: #f8f8f8;
-    border-right: 1px solid #f5f5f5;
+    /*background: $primary-color-light;*/
+    border-right: 1px solid #f0f0f0;
     width: 16.666667%;
-    cursor: pointer; }
-  .barback-tabs li:last-child {
+    cursor: pointer;
+    text-align: left; }
+  .barback-tabs a:last-child li {
     border-right: 0; }
   .barback-tabs li:hover {
-    /*background: #353535;*/ }
+    background: #fff; }
   .barback-tabs p {
     font-size: 13px !important;
     display: inline-block;
     vertical-align: top;
     font-weight: 300;
-    width: 80%;
+    width: 85%;
     color: #333;
-    padding-left: 10px; }
+    /*padding-left:10px;*/ }
   .barback-tabs span {
     font-size: 18px !important;
     display: inline-block;
@@ -209,9 +217,26 @@ header {
     vertical-align: top;
     font-size: 14px;
     color: #8BC34A;
-    width: 10%;
+    width: 15%;
     text-align: right;
-    display: none; }
+    /*display:none;*/ }
+  .barback-tabs ul li ul {
+    display: none;
+    width: 16.86666667%;
+    padding-left: 0;
+    position: absolute;
+    margin-left: -22px;
+    margin-top: 22px;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-top: 0; }
+  .barback-tabs ul li ul li {
+    width: 100%;
+    border-right: 0;
+    padding: 15px; }
+
+.barback-tabs ul li:hover > ul {
+  display: block; }
 
 .barback-mobile-tabs {
   width: 100%;
@@ -380,7 +405,7 @@ header {
     border: 0;
     color: #f8f8f8;
     font-weight: lighter;
-    background: #0277BD;
+    background: #37474F;
     outline: 0;
     font-weight: lighter;
     border-radius: 3px;
@@ -430,7 +455,7 @@ header {
   .listing-info h1 {
     font-size: 13px;
     font-weight: normal;
-    color: #0277BD; }
+    color: #37474F; }
   .listing-info p {
     font-size: 11px;
     font-weight: lighter;
@@ -493,7 +518,7 @@ header {
     display: inline-block;
     vertical-align: top;
     font-size: 12px;
-    background: #0277BD;
+    background: #37474F;
     color: #f8f8f8;
     height: 50px;
     margin-top: 5px;
@@ -517,7 +542,7 @@ header {
   display: inline-block;
   vertical-align: top;
   height: 60px;
-  background: #0277BD;
+  background: #37474F;
   text-align: center;
   margin: 0 auto; }
   .search-button p {
@@ -536,7 +561,7 @@ header {
   height: 60px;
   width: 100%;
   margin: 0 auto;
-  background: #0277BD;
+  background: #37474F;
   text-align: center;
   border-radius: 4px;
   padding-top: 20px; }
@@ -560,7 +585,7 @@ header {
   .popular-locations h1 {
     display: block;
     font-size: 13px;
-    color: #0277BD;
+    color: #37474F;
     font-weight: normal;
     padding-bottom: 10px; }
   .popular-locations p {
@@ -576,7 +601,7 @@ header {
   width: 100%; }
   .change-location a {
     font-size: 12px;
-    color: #0277BD;
+    color: #37474F;
     cursor: pointer; }
 
 .or-button {
@@ -885,7 +910,7 @@ header {
     text-align: right;
     display: inline-block;
     font-size: 14px;
-    color: #0277BD; }
+    color: #37474F; }
 
 .module-header:hover {
   /*background: #f0f0f0;*/ }
@@ -1048,7 +1073,7 @@ header {
   padding-left: 10px; }
   .beer-name h1 {
     font-size: 13px;
-    color: #0277BD;
+    color: #37474F;
     font-weight: 400; }
   .beer-name h2 {
     font-size: 11px;
@@ -1115,7 +1140,7 @@ header {
   .beer-results-name h1,
   .bar-results-name h1 {
     font-size: 14px;
-    color: #0277BD;
+    color: #37474F;
     font-weight: 400; }
   .beer-results-name h2,
   .bar-results-name h2 {
@@ -1218,7 +1243,7 @@ header {
     display: inline-block;
     width: 10%;
     text-align: right;
-    color: #0277BD; }
+    color: #37474F; }
 
 .competition-module {
   width: 100%;
@@ -1315,11 +1340,11 @@ header {
   .addcomment-container span {
     display: inline-block;
     font-size: 16px;
-    color: #0277BD; }
+    color: #37474F; }
   .addcomment-container p {
     display: inline-block;
     font-size: 14px;
-    color: #0277BD;
+    color: #37474F;
     padding-left: 5px;
     font-weight: normal;
     vertical-align: top; }
@@ -1518,7 +1543,7 @@ header {
   /*margin-bottom: 25px;*/ }
   .load-all a {
     font-size: 16px;
-    color: #0277BD;
+    color: #37474F;
     font-weight: lighter;
     text-decoration: none; }
 
@@ -1532,7 +1557,7 @@ header {
   /*margin-bottom: 25px;*/ }
   .view-all a {
     font-size: 14px;
-    color: #0277BD;
+    color: #37474F;
     font-weight: lighter;
     text-decoration: none; }
 
@@ -1584,10 +1609,10 @@ header {
 
 .bar-search {
   position: relative;
-  background: #fff;
-  border: 0px solid #dfdfdf;
-  border-bottom: 0;
-  border-top: 0;
+  background: #37474F;
+  /*border:1px solid #dfdfdf;*/
+  /*border-bottom:0;
+  border-top:0;*/
   width: 100%;
   display: inline-block;
   vertical-align: top;
@@ -1599,7 +1624,7 @@ header {
     text-align: right;
     font-size: 14px;
     padding-top: 22px;
-    color: #333;
+    color: #ccc;
     padding-right: 5px; }
   .bar-search input {
     display: inline-block;
@@ -1611,15 +1636,15 @@ header {
     background: transparent;
     width: 73%;
     border: 0;
-    color: #333; }
+    color: #f0f0f0; }
     .bar-search input:focus {
       outline: 0; }
   .bar-search input::-webkit-input-placeholder {
-    color: #333; }
+    color: #f0f0f0; }
   .bar-search button {
     width: 20%;
     height: 35px;
-    background: #0277BD;
+    background: #37474F;
     font-size: 14px;
     font-weight: 300;
     color: #f8f8f8;
@@ -1883,7 +1908,7 @@ header {
     vertical-align: top;
     font-size: 20px;
     padding: 10px 10px 0;
-    color: #0277BD;
+    color: #37474F;
     float: right; }
   #only-one button:last-child {
     border-bottom: 1px solid #dfdfdf; }
@@ -2068,7 +2093,7 @@ header {
     vertical-align: top;
     width: 20%;
     font-size: 12px;
-    background: #0277BD;
+    background: #37474F;
     border-radius: 4px;
     padding: 10px 0;
     border: 0;
@@ -2157,7 +2182,7 @@ header {
 /* Seven Day Nav */
 .seven-day-nav {
   border: 1px solid #dfdfdf;
-  margin-top: 15px;
+  /*margin-top:15px;*/
   /*border-right:0;*/
   /*border-bottom:0;*/ }
   .seven-day-nav ul {
@@ -2352,7 +2377,7 @@ article {
     vertical-align: top;
     font-size: 22px !important;
     background: #fff;
-    color: #0277BD !important;
+    color: #37474F !important;
     height: 60px;
     width: 15%;
     padding-top: 20px !important;
@@ -2414,7 +2439,7 @@ article {
     width: 20% !important;
     margin: 0 auto !important;
     height: 30px !important;
-    background: #0277BD !important;
+    background: #37474F !important;
     font-size: 12px !important;
     font-weight: lighter !important;
     color: #f0f0f0 !important;
@@ -2439,14 +2464,14 @@ article {
     vertical-align: top;
     font-size: 16px !important;
     background: #fff;
-    color: #0277BD !important;
+    color: #37474F !important;
     width: 15%;
     /*padding-top:20px !important;*/
     text-align: center; }
   .sublist-header p {
     color: #fff;
     font-size: 16px;
-    background: #0277BD;
+    background: #37474F;
     padding: 15px;
     /*margin-left: -5px;*/
     /*margin-bottom: -10px;*/
@@ -2501,7 +2526,7 @@ article {
     padding-right: 10px;
     padding-top: 5px;
     font-weight: lighter;
-    color: #0277BD; }
+    color: #37474F; }
   .settings-avatar input[type="file"] {
     cursor: pointer !Important;
     font-weight: lighter;
@@ -2513,7 +2538,7 @@ article {
     -webkit-border-radius: 0;
     border-radius: 4px; }
     .settings-avatar input[type="file"]::-webkit-file-upload-button {
-      background: #0277BD;
+      background: #37474F;
       border: 0;
       cursor: pointer;
       padding: 16px 15px 17px 25px;
@@ -2527,7 +2552,7 @@ article {
         box-shadow: none;
         border-color: transparent; }
     .settings-avatar input[type="file"]::-ms-browse {
-      background: #0277BD;
+      background: #37474F;
       border: 0;
       padding: 11px;
       cursor: pointer;
@@ -2712,7 +2737,7 @@ input[type="file"] {
 .remodal-confirm {
   background: #03A9F4; }
   .remodal-confirm:hover {
-    background: #0277BD; }
+    background: #37474F; }
 
 .remodal-cancel {
   background: #8BC34A; }
@@ -2776,6 +2801,29 @@ input[type="file"] {
     color: #f0f0f0;
     font-weight: 400;
     padding-top: 10px; }
+
+/*Loading Icon*/
+.loading-container {
+  text-align: center;
+  width: 100%;
+  margin-top: 100px; }
+
+.loader {
+  margin: 0 0 2em;
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top; }
+
+/*
+  Set the color of the icon
+*/
+svg path,
+svg rect {
+  fill: #37474F; }
 
 /*@media screen and (min-width : 700px) and (max-width : 860px) {
 	.body-container, 

@@ -19,22 +19,22 @@
 </head>
 <body>
 
-<header>
-	<div class="header-container">
-		<div class="header-left">
-			<!-- <i class="fa fa-bars"></i><p>Bar Backend</p><span class="fa fa-angle-right"></span><p>7 Days Out</p> -->
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <div class="bar-search">
+          <i class="fa fa-search"></i>
+          <input placeholder="Search Bars..." type='text'>
+        </div>
+      </div>
 
-			<!-- <img src="images/beme-logodark.png"> -->
-		</div>
+      <div class="header-right">
+        <h1>Hello, Taylor</h1>
+        <img src="images/bar-logo.png">
+      </div>
 
-		<div class="header-right">
-			<h1>Hello, Taylor</h1>
-			<img src="images/bar-logo.png">
-		</div>
-
-
-	</div>
-</header>
+    </div>
+  </header>
 
 <div id="barback-menu1">
 
@@ -64,7 +64,18 @@
 
 	</div>
 </div> -->
-
+  <div class="barback-controls">
+      <div class="barback-tabs">
+        <ul>
+          <a href="#barback/feed"><li><span class="fa fa-commenting"></span><p>My Feed</p><i class="fa fa-caret-down"></i></li></a>
+          <a href="#barback/beer"><li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-caret-down"></i></li></a>
+          <a href="#barback/competition"><li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-caret-down"></i></li></a>
+          <a href="#barback/calendar"><li><span class="fa fa-calendar-o"></span><p>7 Days Out</p><i class="fa fa-caret-down"></i></li></a>
+          <a href="#barback/settings"><li><span class="fa fa-cog"></span><p>Settings</p><i class="fa fa-caret-down"></i></li></a>
+          <a><li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-caret-down"></i></li></a>
+        </ul>
+      </div>
+  </div>
 
 <div class="body-container">
 
@@ -112,22 +123,13 @@
 	</div>
 
 	<div class="narrow-container">
-		<div class="barback-breadcrumbs">
+		<!-- <div class="barback-breadcrumbs">
 			<p>Bar Backend</p><span class="fa fa-angle-right"></span><p>7 Days Out</p><span class="fa fa-angle-right"></span><p>Saturday</p>
-		</div>	
+		</div>	 -->
 		
 
 
-	<div class="barback-tabs">
-    	<ul>
-    		<li><span class="fa fa-commenting"></span><p>Feed</p><i class="fa fa-ellipsis-h"></i></li>
-    		<li><span class="fa fa-beer"></span><p class="active-tab">Draft Beer</p><i class="fa fa-ellipsis-h"></i></li>
-    		<li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-ellipsis-h"></i></li>
-    		<li><span class="fa fa-calendar-o"></span><p>7 Days Out</p><i class="fa fa-ellipsis-h"></i></li>
-    		<li><span class="fa fa-cog"></span><p>Settings</p><i class="fa fa-ellipsis-h"></i></li>
-    		<li><span class="fa fa-power-off"></span><p>Logout</p><i class="fa fa-ellipsis-h"></i></li>
-    	</ul>
-    </div>
+
 
 		<div class="seven-day-nav">
 			<ul>
@@ -205,7 +207,9 @@
 
 		
 		
-		
+		<!-- <div class="sublist-header">
+          		<p>More Info</p>
+          </div> -->
 
 
     	<div class="calendar-nav">
