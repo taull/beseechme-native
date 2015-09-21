@@ -68,7 +68,7 @@ Parse.View.prototype.removeRenderedView = _.wrap(
     originalFunction.apply(this);
     BeMe.removeViewFromRenderedViews(this);
   }
-)
+);
 
 /*
 	End utility functions
@@ -105,12 +105,12 @@ BeMe.Views.Index = Parse.View.extend({
 	}
 });
 
-BeMe.Views.BarBack = Parse.View.extend({
+BeMe.Views.Backend = Parse.View.extend({
 	initialize: function () {
 		this.render();
 	},
 
-	template: _.template($('#barback-view').text()),
+	template: _.template($('#backend-view').text()),
 
 	render: function () {
 		this.$el.html(this.template(this.model));
@@ -124,7 +124,7 @@ BeMe.Views.Feed = Parse.View.extend({
 		this.render();
 	},
 
-	template: _.template($('#barback-feed-view').text()),
+	template: _.template($('#backend-feed-view').text()),
 
 	render: function () {
 		this.$el.html(this.template(this.model));
@@ -164,14 +164,14 @@ var Router = Backbone.Router.extend({
 	},
 
 	backend: function () {
-		console.log('Barback route fired');
+		console.log('Backend route fired');
 		BeMe.removeAllViews();
-		new BeMe.Views.BarBack();
+		new BeMe.Views.Backend();
 	},
 
 	backendFeed: function () {
 		BeMe.removeAllViews();
-		new BeMe.Views.BarBack();
+		new BeMe.Views.Backend();
 		new BeMe.Views.Feed();
 	}
 });
