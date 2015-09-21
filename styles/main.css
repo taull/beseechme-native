@@ -220,6 +220,23 @@ header {
     width: 15%;
     text-align: right;
     /*display:none;*/ }
+  .barback-tabs ul li ul {
+    display: none;
+    width: 16.86666667%;
+    padding-left: 0;
+    position: absolute;
+    margin-left: -22px;
+    margin-top: 22px;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-top: 0; }
+  .barback-tabs ul li ul li {
+    width: 100%;
+    border-right: 0;
+    padding: 15px; }
+
+.barback-tabs ul li:hover > ul {
+  display: block; }
 
 .barback-mobile-tabs {
   width: 100%;
