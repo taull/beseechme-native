@@ -256,7 +256,7 @@ header {
 		display: inline-block;
 		/*background: $primary-color-light;*/
 		border-right: 1px solid #f0f0f0;
-		width: 16.666667%;
+		width: 20%;
 		cursor: pointer;
 		text-align:left;
 	}
@@ -292,8 +292,8 @@ header {
 	i {
 		display: inline-block;
 		vertical-align: top;
-		font-size: 14px;
-		color: $green-light;
+		font-size: 12px;
+		color: #ccc;
 		width: 15%;
 		text-align: right;
 		/*display:none;*/
@@ -301,26 +301,42 @@ header {
 
 	ul li ul {
 		display: none;
-		width: 16.86666667%;
+		width: 20.1%;
 		padding-left: 0;
 		position: absolute;
-		margin-left: -22px;
-		margin-top: 22px;
-		background: #fff;
-		border: 1px solid #f0f0f0;
+		margin-left: -21px;
+		margin-top: 21px;
+		background: #333;
+		/*border: 1px solid #f0f0f0;*/
 		border-top: 0;
 	}
 
 	ul li ul li {
 	    width: 100%;
 	    border-right: 0;
-	    padding: 15px;
+	    padding: 21px 22px;
+	    border-bottom:1px solid #383838;
+	}
+
+	ul li ul li:first-child {
+		border-top:1px solid #f0f0f0;
+	}
+	ul li ul li:last-child {
+		border-bottom:0px;
 	}
 }
 
 .barback-tabs ul li:hover > ul
 {
 	display:block
+}
+
+.barback-tabs ul li:hover > i {
+	color: $secondary-color-dark;
+}
+
+.barback-tabs ul li:hover > p {
+	color: #333;
 }
 
 
