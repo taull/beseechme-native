@@ -9,7 +9,7 @@ $primary-color-dark: #263238;
 $primary-color-medium: #37474F;
 $primary-color-light: #f8f8f8;
 
-$secondary-color-dark: #37474F;
+$secondary-color-dark: #333;
 $secondary-color-medium: #0277BD;
 $secondary-color-light: #03A9F4;
 
@@ -50,10 +50,15 @@ body {
 
 .body-container {
     position: relative;
-    width: 860px;
+    width: 100%;
     margin: 0 auto;
     padding-bottom:15px;
     transition: 250ms;
+}
+
+.backend-container {
+	width: 860px;
+	margin: 0 auto;
 }
 .body-shift {
 	margin-right: 360px;
@@ -205,7 +210,7 @@ header {
 	padding: 0px 30px;
 }
 
-.barback-logo {
+.backend-logo {
 	width: 100%;
 	background: $primary-color-light;
 	border:1px solid #dfdfdf;
@@ -213,7 +218,7 @@ header {
 	padding:30px;
 }
 
-.barback-logo-overflow {
+.backend-logo-overflow {
 	width: 100%;
 	overflow: hidden;
 	max-height: 150px;
@@ -225,7 +230,7 @@ header {
 	}
 }
 
-.barback-controls {
+.backend-controls {
 	width: 100%;
 	margin: 0 auto;
 	display: block;
@@ -235,7 +240,7 @@ header {
 }
 
 
-.barback-tabs {
+.backend-tabs {
 	width: 860px;
 	margin: 0 auto;
 	position:relative;
@@ -300,22 +305,22 @@ header {
 	}
 
 	ul li ul {
-		display: none;
-		width: 20.1%;
-		padding-left: 0;
-		position: absolute;
-		margin-left: -21px;
-		margin-top: 21px;
-		background: #333;
-		/*border: 1px solid #f0f0f0;*/
-		border-top: 0;
+	    display: none;
+	    width: 20%;
+	    padding-left: 0;
+	    position: absolute;
+	    margin-left: -21px;
+	    margin-top: 21px;
+	    background: #444;
+	    border-right: 1px solid #f0f0f0;
+	    border-top: 0;
 	}
 
 	ul li ul li {
 	    width: 100%;
 	    border-right: 0;
 	    padding: 21px 22px;
-	    border-bottom:1px solid #383838;
+	    border-bottom:1px solid #555;
 	}
 
 	ul li ul li:first-child {
@@ -324,24 +329,28 @@ header {
 	ul li ul li:last-child {
 		border-bottom:0px;
 	}
+
+	ul li ul li p {
+		color: #f0f0f0;
+	}
 }
 
-.barback-tabs ul li:hover > ul
+.backend-tabs ul li:hover > ul
 {
 	display:block
 }
 
-.barback-tabs ul li:hover > i {
+.backend-tabs ul li:hover > i {
 	color: $secondary-color-dark;
 }
 
-.barback-tabs ul li:hover > p {
+.backend-tabs ul li:hover > p {
 	color: #333;
 }
 
 
 
-.barback-mobile-tabs {
+.backend-mobile-tabs {
 	width: 100%;
 	position:fixed;
 	bottom: 0;
@@ -398,7 +407,7 @@ header {
 	}
 }
 
-.barback-breadcrumbs {
+.backend-breadcrumbs {
 	width: 100%;
 	position:relative;
 	background: $primary-color-light;
@@ -457,7 +466,7 @@ header {
 	}
 }
 
-.barback-breadcrumbs-shift {
+.backend-breadcrumbs-shift {
 	position:relative;
 	z-index:50;
 	transition:250ms;
@@ -967,7 +976,7 @@ header {
 	}
 }
 
-.barback-tabs-shift {
+.backend-tabs-shift {
 	margin-top:56px;
 	position: relative;
 	z-index:10000;
@@ -1598,7 +1607,7 @@ header {
 
 /* Bar Backend Feed */
 
-.barback-info {
+.backend-info {
 	width: 100%;
 	background: $primary-color-light;
 	border:1px solid #dfdfdf;
@@ -2487,14 +2496,14 @@ header {
 	}
 }
 
-#barback-menu1 {
+#backend-menu1 {
 	width: 600px;
 	margin: 0 auto;
 	margin-top:0;
 	position: relative;
 }
 
-#barback-menu {
+#backend-menu {
 	width: 100%;
 	border-bottom: 0px solid #f8f8f8;
 	/*border-top:1px solid #f8f8f8;*/
@@ -3846,16 +3855,16 @@ svg rect{
 	.bar-search {
 		/*display: none;*/
 	}
-	.barback-breadcrumbs {
+	.backend-breadcrumbs {
 	}
 
-	.barback-breadcrumbs-shift {
+	.backend-breadcrumbs-shift {
 		margin-top:57px;
 		position:absolute;
 		transition:250ms;
 	}
 
-	.barback-mobile-tabs {
+	.backend-mobile-tabs {
 		display: inline-block;
 	}
 
@@ -3901,7 +3910,7 @@ svg rect{
 		border-top:0;
 	}
 
-	#barback-menu {
+	#backend-menu {
 		margin-bottom:0;
 	}
 
