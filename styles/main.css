@@ -15,7 +15,7 @@
 /* Layout */
 body {
   position: relative;
-  background: #f5f5f5;
+  background: #f8f8f8;
   width: 100%;
   margin: 0 auto;
   overflow-x: hidden;
@@ -26,12 +26,13 @@ body {
   position: relative;
   width: 100%;
   margin: 0 auto;
-  padding-bottom: 15px;
+  /*padding-bottom:15px;*/
   transition: 250ms; }
 
 .backend-container {
   width: 860px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  background: #f8f8f8; }
 
 .body-shift {
   margin-right: 360px;
@@ -642,11 +643,11 @@ header {
   display: inline-block;
   position: relative;
   vertical-align: top;
-  /*border: 1px solid #dfdfdf;*/
+  border-left: 1px solid #dfdfdf;
   transition: 250ms;
   /*float: right;*/
   top: 0px;
-  padding-left: 15px;
+  /*padding-left:15px;*/
   /*height: 100vh;*/
   /*background:$primary-color-light;*/
   z-index: 99999;
@@ -1249,7 +1250,7 @@ header {
   transition: 250ms;
   display: inline-block;
   vertical-align: top;
-  border-top: 1px solid #f0f0f0; }
+  border-bottom: 1px solid #dfdfdf; }
 
 .profile-tools-mobile {
   display: none; }
@@ -1317,10 +1318,7 @@ header {
 
 .profile-feed {
   width: 100%;
-  background: #f8f8f8;
-  border-top: 1px solid #f0f0f0;
-  /*border-bottom:0;*/
-  /*border-top:0;*/ }
+  background: #f8f8f8; }
   .profile-feed ul {
     list-style: none;
     padding-left: 0; }
