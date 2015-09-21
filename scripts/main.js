@@ -37,9 +37,7 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
 
 BeMe.removeAllViews = function () {
   for (var i = BeMe.renderedViews.length - 1; i >= 0; i--) {
-    if (!BeMe.renderedViews[i].isApplicationView) {
-			BeMe.renderedViews[i].removeRenderedView();
-		}
+		BeMe.renderedViews[i].removeRenderedView();
 	};
 };
 
@@ -90,7 +88,6 @@ BeMe.Views.Application = Parse.View.extend({
 
 	render: function () {
 		this.$el.html(this.template(this.model));
-		BeMe.renderedViews.push(this);
 	}
 });
 
