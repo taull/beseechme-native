@@ -121,15 +121,27 @@ BeMe.Views.BarBack = Parse.View.extend({
 	}
 });
 
+BeMe.Views.Feed = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#feed').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('body').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+})
+
 /*
 	End Views Section
 	-----------------------------
 	Begin Collections Section
 */
 
-BeMe.Collection = Parse.Collection.extend({
 
-});
 
 /*
 	End Collections Section
@@ -140,7 +152,8 @@ BeMe.Collection = Parse.Collection.extend({
 var Router = Backbone.Router.extend({
 	routes: {
 		'' : 'home',
-		'barback' : 'barback'
+		'backend' : 'backend',
+		'backend/feed' : 'backendFeed',
 	},
 
 	initialize: function () {
@@ -152,10 +165,16 @@ var Router = Backbone.Router.extend({
 		BeMe.removeAllViews();
 	},
 
-	barback: function () {
+	backend: function () {
 		console.log('Barback route fired');
 		BeMe.removeAllViews();
 		new BeMe.Views.BarBack();
+	},
+
+	backendFeed: function () {
+		BeMe.removeAllViews();
+		new BeMe.Views.BarBack();
+		new BeMe.Views.Feed();
 	}
 });
 
