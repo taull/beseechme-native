@@ -43,7 +43,7 @@ BeMe.removeAllViews = function () {
 	};
 };
 
-function removeViewFromRenderedViews (view) {
+BeMe.removeViewFromRenderedViews = function (view) {
   var cid = view.cid;
   var index = _.findIndex(BeMe.renderedViews, function (n) {return n.cid === cid});
   BeMe.renderedViews.splice(index,1); //remove from the array
@@ -68,7 +68,7 @@ Parse.View.prototype.removeRenderedView = _.wrap(
   Parse.View.prototype.remove,
   function (originalFunction) {
     originalFunction.apply(this);
-    removeViewFromRenderedViews(this);
+    BeMe.removeViewFromRenderedViews(this);
   }
 )
 
@@ -81,7 +81,6 @@ Parse.View.prototype.removeRenderedView = _.wrap(
 BeMe.Views.Application = Parse.View.extend({
 	initialize: function () {
 		this.render();
-		console.log("behold, an application view");
 		this.isApplicationView = true;
 	},
 
