@@ -24,10 +24,14 @@ body {
 
 .body-container {
   position: relative;
-  width: 860px;
+  width: 100%;
   margin: 0 auto;
   padding-bottom: 15px;
   transition: 250ms; }
+
+.backend-container {
+  width: 860px;
+  margin: 0 auto; }
 
 .body-shift {
   margin-right: 360px;
@@ -38,7 +42,7 @@ header {
   height: 60px;
   margin: 0px auto 0;
   position: relative;
-  background: #37474F;
+  background: #333;
   left: 0;
   z-index: 9999999; }
 
@@ -148,23 +152,23 @@ header {
   margin: 0 auto;
   padding: 0px 30px; }
 
-.barback-logo {
+.backend-logo {
   width: 100%;
   background: #f8f8f8;
   border: 1px solid #dfdfdf;
   border-bottom: 0;
   padding: 30px; }
 
-.barback-logo-overflow {
+.backend-logo-overflow {
   width: 100%;
   overflow: hidden;
   max-height: 150px; }
-  .barback-logo-overflow img {
+  .backend-logo-overflow img {
     width: 100%;
     height: auto;
     margin-top: -70px; }
 
-.barback-controls {
+.backend-controls {
   width: 100%;
   margin: 0 auto;
   display: block;
@@ -172,7 +176,7 @@ header {
   background: #f8f8f8;
   border-bottom: 1px solid #dfdfdf; }
 
-.barback-tabs {
+.backend-tabs {
   width: 860px;
   margin: 0 auto;
   position: relative;
@@ -182,10 +186,10 @@ header {
   /*top:60px;*/
   transition: 250ms;
   z-index: 25; }
-  .barback-tabs ul {
+  .backend-tabs ul {
     list-style: none;
     padding-left: 0; }
-  .barback-tabs li {
+  .backend-tabs li {
     padding: 21px;
     display: inline-block;
     /*background: $primary-color-light;*/
@@ -193,11 +197,11 @@ header {
     width: 20%;
     cursor: pointer;
     text-align: left; }
-  .barback-tabs a:last-child li {
+  .backend-tabs a:last-child li {
     border-right: 0; }
-  .barback-tabs li:hover {
+  .backend-tabs li:hover {
     background: #fff; }
-  .barback-tabs p {
+  .backend-tabs p {
     font-size: 13px !important;
     display: inline-block;
     vertical-align: top;
@@ -205,14 +209,14 @@ header {
     width: 85%;
     color: #333;
     /*padding-left:10px;*/ }
-  .barback-tabs span {
+  .backend-tabs span {
     font-size: 18px !important;
     display: inline-block;
     vertical-align: top;
     text-align: center;
     color: #999;
     display: none; }
-  .barback-tabs i {
+  .backend-tabs i {
     display: inline-block;
     vertical-align: top;
     font-size: 12px;
@@ -220,36 +224,38 @@ header {
     width: 15%;
     text-align: right;
     /*display:none;*/ }
-  .barback-tabs ul li ul {
+  .backend-tabs ul li ul {
     display: none;
-    width: 20.1%;
+    width: 20%;
     padding-left: 0;
     position: absolute;
     margin-left: -21px;
     margin-top: 21px;
-    background: #333;
-    /*border: 1px solid #f0f0f0;*/
+    background: #444;
+    border-right: 1px solid #f0f0f0;
     border-top: 0; }
-  .barback-tabs ul li ul li {
+  .backend-tabs ul li ul li {
     width: 100%;
     border-right: 0;
     padding: 21px 22px;
-    border-bottom: 1px solid #383838; }
-  .barback-tabs ul li ul li:first-child {
+    border-bottom: 1px solid #555; }
+  .backend-tabs ul li ul li:first-child {
     border-top: 1px solid #f0f0f0; }
-  .barback-tabs ul li ul li:last-child {
+  .backend-tabs ul li ul li:last-child {
     border-bottom: 0px; }
+  .backend-tabs ul li ul li p {
+    color: #f0f0f0; }
 
-.barback-tabs ul li:hover > ul {
+.backend-tabs ul li:hover > ul {
   display: block; }
 
-.barback-tabs ul li:hover > i {
-  color: #37474F; }
-
-.barback-tabs ul li:hover > p {
+.backend-tabs ul li:hover > i {
   color: #333; }
 
-.barback-mobile-tabs {
+.backend-tabs ul li:hover > p {
+  color: #333; }
+
+.backend-mobile-tabs {
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -264,10 +270,10 @@ header {
   /*li:hover {
   	background: #383838;
   }*/ }
-  .barback-mobile-tabs ul {
+  .backend-mobile-tabs ul {
     list-style: none;
     padding-left: 0; }
-  .barback-mobile-tabs li {
+  .backend-mobile-tabs li {
     padding: 15px 0px;
     display: inline-block;
     background: #333;
@@ -275,9 +281,9 @@ header {
     width: 20%;
     cursor: pointer;
     text-align: center; }
-  .barback-mobile-tabs li:last-child {
+  .backend-mobile-tabs li:last-child {
     border-bottom: 0; }
-  .barback-mobile-tabs span {
+  .backend-mobile-tabs span {
     font-size: 20px !important;
     display: inline-block;
     vertical-align: top;
@@ -290,7 +296,7 @@ header {
   .active-mobile-tab span {
     color: #03A9F4; }
 
-.barback-breadcrumbs {
+.backend-breadcrumbs {
   width: 100%;
   position: relative;
   background: #f8f8f8;
@@ -300,14 +306,14 @@ header {
   cursor: pointer;
   z-index: 50;
   text-align: left; }
-  .barback-breadcrumbs p {
+  .backend-breadcrumbs p {
     color: #333;
     font-size: 14px;
     font-weight: lighter;
     display: inline-block;
     vertical-align: top;
     padding-right: 5px; }
-  .barback-breadcrumbs a {
+  .backend-breadcrumbs a {
     color: #8BC34A;
     font-size: 14px;
     text-decoration: none;
@@ -317,28 +323,28 @@ header {
     padding-top: 18px;
     padding-right: 20px;
     padding-left: 20px; }
-  .barback-breadcrumbs span {
+  .backend-breadcrumbs span {
     text-align: right;
     display: inline-block;
     font-size: 16px;
     color: #8BC34A;
     padding-left: 5px;
     padding-right: 10px; }
-  .barback-breadcrumbs img {
+  .backend-breadcrumbs img {
     display: inline-block;
     vertical-align: top;
     width: 20px;
     height: auto;
     margin-top: -3px;
     margin-right: 5px; }
-  .barback-breadcrumbs i {
+  .backend-breadcrumbs i {
     display: inline-block;
     vertical-align: top;
     font-size: 18px;
     float: right;
     color: #8BC34A; }
 
-.barback-breadcrumbs-shift {
+.backend-breadcrumbs-shift {
   position: relative;
   z-index: 50;
   transition: 250ms; }
@@ -416,7 +422,7 @@ header {
     border: 0;
     color: #f8f8f8;
     font-weight: lighter;
-    background: #37474F;
+    background: #333;
     outline: 0;
     font-weight: lighter;
     border-radius: 3px;
@@ -466,7 +472,7 @@ header {
   .listing-info h1 {
     font-size: 13px;
     font-weight: normal;
-    color: #37474F; }
+    color: #333; }
   .listing-info p {
     font-size: 11px;
     font-weight: lighter;
@@ -529,7 +535,7 @@ header {
     display: inline-block;
     vertical-align: top;
     font-size: 12px;
-    background: #37474F;
+    background: #333;
     color: #f8f8f8;
     height: 50px;
     margin-top: 5px;
@@ -553,7 +559,7 @@ header {
   display: inline-block;
   vertical-align: top;
   height: 60px;
-  background: #37474F;
+  background: #333;
   text-align: center;
   margin: 0 auto; }
   .search-button p {
@@ -572,7 +578,7 @@ header {
   height: 60px;
   width: 100%;
   margin: 0 auto;
-  background: #37474F;
+  background: #333;
   text-align: center;
   border-radius: 4px;
   padding-top: 20px; }
@@ -596,7 +602,7 @@ header {
   .popular-locations h1 {
     display: block;
     font-size: 13px;
-    color: #37474F;
+    color: #333;
     font-weight: normal;
     padding-bottom: 10px; }
   .popular-locations p {
@@ -612,7 +618,7 @@ header {
   width: 100%; }
   .change-location a {
     font-size: 12px;
-    color: #37474F;
+    color: #333;
     cursor: pointer; }
 
 .or-button {
@@ -739,7 +745,7 @@ header {
     height: 30px;
     width: auto; }
 
-.barback-tabs-shift {
+.backend-tabs-shift {
   margin-top: 56px;
   position: relative;
   z-index: 10000; }
@@ -921,7 +927,7 @@ header {
     text-align: right;
     display: inline-block;
     font-size: 14px;
-    color: #37474F; }
+    color: #333; }
 
 .module-header:hover {
   /*background: #f0f0f0;*/ }
@@ -1084,7 +1090,7 @@ header {
   padding-left: 10px; }
   .beer-name h1 {
     font-size: 13px;
-    color: #37474F;
+    color: #333;
     font-weight: 400; }
   .beer-name h2 {
     font-size: 11px;
@@ -1151,7 +1157,7 @@ header {
   .beer-results-name h1,
   .bar-results-name h1 {
     font-size: 14px;
-    color: #37474F;
+    color: #333;
     font-weight: 400; }
   .beer-results-name h2,
   .bar-results-name h2 {
@@ -1224,24 +1230,24 @@ header {
   margin-top: 156px; }
 
 /* Bar Backend Feed */
-.barback-info {
+.backend-info {
   width: 100%;
   background: #f8f8f8;
   border: 1px solid #dfdfdf;
   /*border-bottom:0;*/
   /*border-top:0;*/
   margin-bottom: 15px; }
-  .barback-info ul {
+  .backend-info ul {
     padding-left: 0;
     list-style: none; }
-  .barback-info li {
+  .backend-info li {
     display: inline-block;
     width: 100%;
     padding: 20px;
     border-bottom: 1px solid #f0f0f0; }
-  .barback-info li:last-child {
+  .backend-info li:last-child {
     border-bottom: 0; }
-  .barback-info p {
+  .backend-info p {
     font-size: 13px;
     display: inline-block;
     vertical-align: top;
@@ -1249,12 +1255,12 @@ header {
     padding-left: 10px;
     font-weight: lighter;
     color: #37474F; }
-  .barback-info span {
+  .backend-info span {
     font-size: 12px;
     display: inline-block;
     width: 10%;
     text-align: right;
-    color: #37474F; }
+    color: #333; }
 
 .competition-module {
   width: 100%;
@@ -1351,11 +1357,11 @@ header {
   .addcomment-container span {
     display: inline-block;
     font-size: 16px;
-    color: #37474F; }
+    color: #333; }
   .addcomment-container p {
     display: inline-block;
     font-size: 14px;
-    color: #37474F;
+    color: #333;
     padding-left: 5px;
     font-weight: normal;
     vertical-align: top; }
@@ -1554,7 +1560,7 @@ header {
   /*margin-bottom: 25px;*/ }
   .load-all a {
     font-size: 16px;
-    color: #37474F;
+    color: #333;
     font-weight: lighter;
     text-decoration: none; }
 
@@ -1568,7 +1574,7 @@ header {
   /*margin-bottom: 25px;*/ }
   .view-all a {
     font-size: 14px;
-    color: #37474F;
+    color: #333;
     font-weight: lighter;
     text-decoration: none; }
 
@@ -1620,7 +1626,7 @@ header {
 
 .bar-search {
   position: relative;
-  background: #37474F;
+  background: #333;
   /*border:1px solid #dfdfdf;*/
   /*border-bottom:0;
   border-top:0;*/
@@ -1655,7 +1661,7 @@ header {
   .bar-search button {
     width: 20%;
     height: 35px;
-    background: #37474F;
+    background: #333;
     font-size: 14px;
     font-weight: 300;
     color: #f8f8f8;
@@ -1919,30 +1925,30 @@ header {
     vertical-align: top;
     font-size: 20px;
     padding: 10px 10px 0;
-    color: #37474F;
+    color: #333;
     float: right; }
   #only-one button:last-child {
     border-bottom: 1px solid #dfdfdf; }
 
-#barback-menu1 {
+#backend-menu1 {
   width: 600px;
   margin: 0 auto;
   margin-top: 0;
   position: relative; }
 
-#barback-menu {
+#backend-menu {
   width: 100%;
   border-bottom: 0px solid #f8f8f8;
   /*border-top:1px solid #f8f8f8;*/
   margin-bottom: 15px; }
-  #barback-menu h2 {
+  #backend-menu h2 {
     font-size: 16px;
     display: inline-block;
     vertical-align: top;
     padding-top: 0px;
     font-weight: normal;
     line-height: 24px; }
-  #barback-menu h1 {
+  #backend-menu h1 {
     font-size: 18px;
     font-weight: bold;
     display: inline-block;
@@ -1952,12 +1958,12 @@ header {
     color: #f8f8f8;
     border-radius: 4px;
     /*box-shadow: 0 0 15px 0px #dfdfdf inset;*/ }
-  #barback-menu section {
+  #backend-menu section {
     background: #f8f8f8; }
-  #barback-menu article {
+  #backend-menu article {
     /*padding: 0 25px 25px;*/
     /*border-top: 1px solid #f5f5f5;*/ }
-  #barback-menu button {
+  #backend-menu button {
     font-size: 14px;
     border: 0;
     background: #f8f8f8;
@@ -1970,25 +1976,25 @@ header {
     font-weight: 300;
     cursor: pointer;
     color: #263238; }
-  #barback-menu button:hover {
+  #backend-menu button:hover {
     background: #f8f8f8; }
-  #barback-menu h3 {
+  #backend-menu h3 {
     font-size: 12px;
     display: block;
     font-weight: 300; }
-  #barback-menu aside {
+  #backend-menu aside {
     width: 100%;
     display: inline-block;
     vertical-align: top;
     padding-left: 0px; }
-    #barback-menu aside p {
+    #backend-menu aside p {
       color: #333;
       font-size: 14px;
       font-weight: lighter;
       display: inline-block;
       vertical-align: top;
       padding-right: 5px; }
-    #barback-menu aside a {
+    #backend-menu aside a {
       color: #8BC34A;
       font-size: 14px;
       text-decoration: none;
@@ -1998,29 +2004,29 @@ header {
       padding-top: 18px;
       padding-right: 20px;
       padding-left: 20px; }
-    #barback-menu aside span {
+    #backend-menu aside span {
       text-align: right;
       display: inline-block;
       font-size: 16px;
       color: #689F38;
       padding-left: 5px;
       padding-right: 10px; }
-    #barback-menu aside img {
+    #backend-menu aside img {
       display: inline-block;
       vertical-align: top;
       width: 20px;
       height: auto;
       margin-top: -3px;
       margin-right: 5px; }
-    #barback-menu aside i {
+    #backend-menu aside i {
       display: inline-block;
       vertical-align: top;
       font-size: 18px;
       float: right;
       color: #8BC34A; }
-  #barback-menu button:hover {
+  #backend-menu button:hover {
     /*background: #fafafa;*/ }
-  #barback-menu button:last-child {
+  #backend-menu button:last-child {
     border-bottom: 1px solid #dfdfdf; }
 
 #current-day,
@@ -2104,7 +2110,7 @@ header {
     vertical-align: top;
     width: 20%;
     font-size: 12px;
-    background: #37474F;
+    background: #333;
     border-radius: 4px;
     padding: 10px 0;
     border: 0;
@@ -2388,7 +2394,7 @@ article {
     vertical-align: top;
     font-size: 22px !important;
     background: #fff;
-    color: #37474F !important;
+    color: #333 !important;
     height: 60px;
     width: 15%;
     padding-top: 20px !important;
@@ -2450,7 +2456,7 @@ article {
     width: 20% !important;
     margin: 0 auto !important;
     height: 30px !important;
-    background: #37474F !important;
+    background: #333 !important;
     font-size: 12px !important;
     font-weight: lighter !important;
     color: #f0f0f0 !important;
@@ -2475,14 +2481,14 @@ article {
     vertical-align: top;
     font-size: 16px !important;
     background: #fff;
-    color: #37474F !important;
+    color: #333 !important;
     width: 15%;
     /*padding-top:20px !important;*/
     text-align: center; }
   .sublist-header p {
     color: #fff;
     font-size: 16px;
-    background: #37474F;
+    background: #333;
     padding: 15px;
     /*margin-left: -5px;*/
     /*margin-bottom: -10px;*/
@@ -2537,7 +2543,7 @@ article {
     padding-right: 10px;
     padding-top: 5px;
     font-weight: lighter;
-    color: #37474F; }
+    color: #333; }
   .settings-avatar input[type="file"] {
     cursor: pointer !Important;
     font-weight: lighter;
@@ -2549,7 +2555,7 @@ article {
     -webkit-border-radius: 0;
     border-radius: 4px; }
     .settings-avatar input[type="file"]::-webkit-file-upload-button {
-      background: #37474F;
+      background: #333;
       border: 0;
       cursor: pointer;
       padding: 16px 15px 17px 25px;
@@ -2563,7 +2569,7 @@ article {
         box-shadow: none;
         border-color: transparent; }
     .settings-avatar input[type="file"]::-ms-browse {
-      background: #37474F;
+      background: #333;
       border: 0;
       padding: 11px;
       cursor: pointer;
@@ -2748,7 +2754,7 @@ input[type="file"] {
 .remodal-confirm {
   background: #03A9F4; }
   .remodal-confirm:hover {
-    background: #37474F; }
+    background: #333; }
 
 .remodal-cancel {
   background: #8BC34A; }
@@ -2834,7 +2840,7 @@ input[type="file"] {
 */
 svg path,
 svg rect {
-  fill: #37474F; }
+  fill: #333; }
 
 /*@media screen and (min-width : 700px) and (max-width : 860px) {
 	.body-container, 
@@ -2995,12 +3001,12 @@ svg rect {
   .bar-search {
     /*display: none;*/ }
 
-  .barback-breadcrumbs-shift {
+  .backend-breadcrumbs-shift {
     margin-top: 57px;
     position: absolute;
     transition: 250ms; }
 
-  .barback-mobile-tabs {
+  .backend-mobile-tabs {
     display: inline-block; }
 
   .top-border {
@@ -3030,7 +3036,7 @@ svg rect {
     margin-top: 0;
     border-top: 0; }
 
-  #barback-menu {
+  #backend-menu {
     margin-bottom: 0; } }
 
 /*# sourceMappingURL=main.css.map */
