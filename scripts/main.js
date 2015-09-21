@@ -84,11 +84,12 @@ BeMe.Views.Application = Parse.View.extend({
 		this.isApplicationView = true;
 	},
 
+	el: "#application",
+
 	template: _.template($('#application-view').text()),
 
 	render: function () {
 		this.$el.html(this.template(this.model));
-		$('body').append(this.el);
 		BeMe.renderedViews.push(this);
 	}
 });
@@ -102,7 +103,7 @@ BeMe.Views.Index = Parse.View.extend({
 
 	render:function () {
 		this.$el.html(this.template(this.model));
-		$('body').append(this.el);
+		$('#application').append(this.el);
 		BeMe.renderedViews.push(this);
 	}
 });
@@ -116,7 +117,7 @@ BeMe.Views.BarBack = Parse.View.extend({
 
 	render: function () {
 		this.$el.html(this.template(this.model));
-		$('body').append(this.el);
+		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
 	}
 });
@@ -126,11 +127,11 @@ BeMe.Views.Feed = Parse.View.extend({
 		this.render();
 	},
 
-	template: _.template($('#feed').text()),
+	template: _.template($('#barback-feed-view').text()),
 
 	render: function () {
 		this.$el.html(this.template(this.model));
-		$('body').append(this.el);
+		$('#application').append(this.el);
 		BeMe.renderedViews.push(this);
 	}
 })
