@@ -122,6 +122,7 @@ BeMe.Views.Backend = Parse.View.extend({
 BeMe.Views.BackendFeed = Parse.View.extend({
 	initialize: function () {
 		this.render();
+		autosize($('#business-status'));
 	},
 
 	template: _.template($('#backend-feed-view').text()),
@@ -164,6 +165,262 @@ BeMe.Views.BackendCompetition = Parse.View.extend({
 BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
 		this.render();
+		$(function() {
+
+		    // Now
+	    var now = moment();
+
+			$('.current-date').append([
+			  now.format('dddd, MMMM Do')
+			].join('<br/>'));
+
+			var oneDateLater = moment().add('days', 1);
+
+			$('.one-date-later').append([
+			  oneDateLater.format('dddd, MMMM Do')
+			].join('<br/>'));
+
+			var twoDateLater = moment().add('days', 2);
+
+			$('.two-date-later').append([
+			  twoDateLater.format('dddd, MMMM Do')
+			].join('<br/>'));
+
+			var threeDateLater = moment().add('days', 3);
+
+			$('.three-date-later').append([
+			  threeDateLater.format('dddd, MMMM Do')
+			].join('<br/>'));
+
+			var fourDateLater = moment().add('days', 4);
+
+			$('.four-date-later').append([
+			  fourDateLater.format('dddd, MMMM Do')
+			].join('<br/>'));
+
+			var fiveDateLater = moment().add('days', 5);
+
+			$('.five-date-later').append([
+			  fiveDateLater.format('dddd, MMMM Do')
+			].join('<br/>'));
+
+			var sixDateLater = moment().add('days', 6);
+
+			$('.six-date-later').append([
+			  sixDateLater.format('dddd, MMMM Do')
+			].join('<br/>'));
+
+		    // Now
+		    var now = moment();
+
+			$('#current-day').append([
+			  now.format('ddd')
+			].join('<br/>'));
+
+			// 1 day
+		    var oneDayLater = moment().add('days', 1);
+
+			$('#one-day-later').append([
+			  oneDayLater.format('Do')
+			].join('<br/>'));
+
+			// 2 days
+		    var twoDayLater = moment().add('days', 2);
+
+			$('#two-day-later').append([
+			  twoDayLater.format('Do')
+			].join('<br/>'));
+
+			// 3 days
+		    var threeDayLater = moment().add('days', 3);
+
+			$('#three-day-later').append([
+			  threeDayLater.format('Do')
+			].join('<br/>'));
+
+			// 4 day
+		    var fourDayLater = moment().add('days', 4);
+
+			$('#four-day-later').append([
+			  fourDayLater.format('Do')
+			].join('<br/>'));
+
+			// 5 day
+		    var fiveDayLater = moment().add('days', 5);
+
+			$('#five-day-later').append([
+			  fiveDayLater.format('Do')
+			].join('<br/>'));
+
+			// 6 day
+		    var sixDayLater = moment().add('days', 6);
+
+			$('#six-day-later').append([
+			  sixDayLater.format('Do')
+			].join('<br/>'));
+
+			// Week Day Now
+		    var weeklyZero = moment();
+
+			$('#weekly-zero').append([
+			  weeklyZero.format('MMMM Do, YYYY')
+			].join('<br/>'));
+
+			// Week Day 1
+		    var weeklyOne = moment().add('days', 1);
+
+			$('#weekly-one').append([
+			  weeklyOne.format('dddd')
+			].join('<br/>'));
+
+
+			// Week Day 2
+		    var weeklyTwo = moment().add('days', 2);
+
+			$('#weekly-two').append([
+			  weeklyTwo.format('dddd')
+			].join('<br/>'));
+
+			// Week Day 3
+		    var weeklyThree = moment().add('days', 3);
+
+			$('#weekly-three').append([
+			  weeklyThree.format('dddd')
+			].join('<br/>'));
+
+			// Week Day 4
+		    var weeklyFour = moment().add('days', 4);
+
+			$('#weekly-four').append([
+			  weeklyFour.format('dddd')
+			].join('<br/>'));
+
+			// Week Day 5
+		    var weeklyFive = moment().add('days', 5);
+
+			$('#weekly-five').append([
+			  weeklyFive.format('dddd')
+			].join('<br/>'));
+
+			// Week Day 6
+		    var weeklySix = moment().add('days', 6);
+
+			$('#weekly-six').append([
+			  weeklySix.format('dddd')
+			].join('<br/>'));
+
+
+		// Seven Day Nav
+
+			// Now
+	    var sevenDay1 = moment();
+
+			$('#seven-day-1').append([
+			  sevenDay1.format('dddd')
+			].join('<br/>'));
+
+			// Current Day Heading
+	    var currentDayHeading = moment();
+
+			$('#current-day-heading').append([
+			  currentDayHeading.format('dddd, MMM Do')
+			].join('<br/>'));
+
+
+
+			// 1 day
+	    var sevenDay2 = moment().add('days', 1);
+
+			$('#seven-day-2').append([
+			  sevenDay2.format('dddd')
+			].join('<br/>'));
+
+			// 2 days
+	    var sevenDay3 = moment().add('days', 2);
+
+			$('#seven-day-3').append([
+			  sevenDay3.format('dddd')
+			].join('<br/>'));
+
+			// 3 days
+	    var sevenDay4 = moment().add('days', 3);
+
+			$('#seven-day-4').append([
+			  sevenDay4.format('dddd')
+			].join('<br/>'));
+
+			// 4 day
+	    var sevenDay5 = moment().add('days', 4);
+
+			$('#seven-day-5').append([
+			  sevenDay5.format('dddd')
+			].join('<br/>'));
+
+			// 5 day
+	    var sevenDay6 = moment().add('days', 5);
+
+			$('#seven-day-6').append([
+			  sevenDay6.format('dddd')
+			].join('<br/>'));
+
+			// 6 day
+	    var sevenDay7 = moment().add('days', 6);
+
+			$('#seven-day-7').append([
+			  sevenDay7.format('dddd')
+			].join('<br/>'));
+
+
+			// Now
+	    var sevenMonth1 = moment();
+
+			$('#seven-month-1').append([
+			  sevenMonth1.format('MMMM Do')
+			].join('<br/>'));
+
+			// 1 day
+	    var sevenMonth2 = moment().add('days', 1);
+
+			$('#seven-month-2').append([
+			  sevenMonth2.format('MMMM Do')
+			].join('<br/>'));
+
+			// 2 days
+	    var sevenMonth3 = moment().add('days', 2);
+
+			$('#seven-month-3').append([
+			  sevenMonth3.format('MMMM Do')
+			].join('<br/>'));
+
+			// 3 days
+	    var sevenMonth4 = moment().add('days', 3);
+
+			$('#seven-month-4').append([
+			  sevenMonth4.format('MMMM Do')
+			].join('<br/>'));
+
+			// 4 day
+	    var sevenMonth5 = moment().add('days', 4);
+
+			$('#seven-month-5').append([
+			  sevenMonth5.format('MMMM Do')
+			].join('<br/>'));
+
+			// 5 day
+	    var sevenMonth6 = moment().add('days', 5);
+
+			$('#seven-month-6').append([
+			  sevenMonth6.format('MMMM Do')
+			].join('<br/>'));
+
+			// 6 day
+	    var sevenMonth7 = moment().add('days', 6);
+
+			$('#seven-month-7').append([
+			  sevenMonth7.format('MMMM Do')
+			].join('<br/>'));
+
+		});
 	},
 
 	template: _.template($('#backend-calendar-view').text()),
