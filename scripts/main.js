@@ -119,7 +119,7 @@ BeMe.Views.Backend = Parse.View.extend({
 	}
 });
 
-BeMe.Views.Feed = Parse.View.extend({
+BeMe.Views.BackendFeed = Parse.View.extend({
 	initialize: function () {
 		this.render();
 	},
@@ -128,10 +128,66 @@ BeMe.Views.Feed = Parse.View.extend({
 
 	render: function () {
 		this.$el.html(this.template(this.model));
-		$('#application').append(this.el);
+		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
 	}
-})
+});
+
+BeMe.Views.BackendBeerList = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#backend-beer-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+
+BeMe.Views.BackendCompetition = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#backend-competition-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+
+BeMe.Views.BackendCalendar = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#backend-calendar-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+
+BeMe.Views.BackendSettings = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#backend-settings-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
 
 /*
 	End Views Section
@@ -152,6 +208,10 @@ var Router = Backbone.Router.extend({
 		'' : 'home',
 		'backend' : 'backend',
 		'backend/feed' : 'backendFeed',
+		'backend/beer' : 'backendBeerList',
+		'backend/competition' : 'backendCompetition',
+		'backend/calendar' : 'backendCalendar',
+		'backend/settings' : 'backendSettings'
 	},
 
 	initialize: function () {
@@ -173,7 +233,31 @@ var Router = Backbone.Router.extend({
 	backendFeed: function () {
 		BeMe.removeAllViews();
 		new BeMe.Views.Backend();
-		new BeMe.Views.Feed();
+		new BeMe.Views.BackendFeed();
+	},
+
+	backendBeerList: function () {
+		BeMe.removeAllViews();
+		new BeMe.Views.Backend();
+		new BeMe.Views.BackendBeerList();
+	},
+
+	backendCompetition: function () {
+		BeMe.removeAllViews();
+		new BeMe.Views.Backend();
+		new BeMe.Views.BackendCompetition();
+	},
+
+	backendCalendar: function () {
+		BeMe.removeAllViews();
+		new BeMe.Views.Backend();
+		new BeMe.Views.BackendCalendar();
+	},
+
+	backendSettings: function () {
+		BeMe.removeAllViews();
+		new BeMe.Views.Backend();
+		new BeMe.Views.BackendSettings();
 	}
 });
 
