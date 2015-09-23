@@ -165,6 +165,7 @@ BeMe.Views.BackendCompetition = Parse.View.extend({
 BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
 		this.render();
+		this.query();
 		$(function() {
 
 		    // Now
@@ -211,7 +212,7 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 			].join('<br/>'));
 
 		    // Now
-		    var now = moment();
+	    var now = moment();
 
 			$('#current-day').append([
 			  now.format('ddd')
@@ -225,49 +226,49 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 			].join('<br/>'));
 
 			// 2 days
-		    var twoDayLater = moment().add('days', 2);
+	    var twoDayLater = moment().add('days', 2);
 
 			$('#two-day-later').append([
 			  twoDayLater.format('Do')
 			].join('<br/>'));
 
 			// 3 days
-		    var threeDayLater = moment().add('days', 3);
+	    var threeDayLater = moment().add('days', 3);
 
 			$('#three-day-later').append([
 			  threeDayLater.format('Do')
 			].join('<br/>'));
 
 			// 4 day
-		    var fourDayLater = moment().add('days', 4);
+	    var fourDayLater = moment().add('days', 4);
 
 			$('#four-day-later').append([
 			  fourDayLater.format('Do')
 			].join('<br/>'));
 
 			// 5 day
-		    var fiveDayLater = moment().add('days', 5);
+	    var fiveDayLater = moment().add('days', 5);
 
 			$('#five-day-later').append([
 			  fiveDayLater.format('Do')
 			].join('<br/>'));
 
 			// 6 day
-		    var sixDayLater = moment().add('days', 6);
+	    var sixDayLater = moment().add('days', 6);
 
 			$('#six-day-later').append([
 			  sixDayLater.format('Do')
 			].join('<br/>'));
 
 			// Week Day Now
-		    var weeklyZero = moment();
+	    var weeklyZero = moment();
 
 			$('#weekly-zero').append([
 			  weeklyZero.format('MMMM Do, YYYY')
 			].join('<br/>'));
 
 			// Week Day 1
-		    var weeklyOne = moment().add('days', 1);
+	    var weeklyOne = moment().add('days', 1);
 
 			$('#weekly-one').append([
 			  weeklyOne.format('dddd')
@@ -275,45 +276,45 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 
 			// Week Day 2
-		    var weeklyTwo = moment().add('days', 2);
+	    var weeklyTwo = moment().add('days', 2);
 
 			$('#weekly-two').append([
 			  weeklyTwo.format('dddd')
 			].join('<br/>'));
 
 			// Week Day 3
-		    var weeklyThree = moment().add('days', 3);
+	    var weeklyThree = moment().add('days', 3);
 
 			$('#weekly-three').append([
 			  weeklyThree.format('dddd')
 			].join('<br/>'));
 
 			// Week Day 4
-		    var weeklyFour = moment().add('days', 4);
+	    var weeklyFour = moment().add('days', 4);
 
 			$('#weekly-four').append([
 			  weeklyFour.format('dddd')
 			].join('<br/>'));
 
 			// Week Day 5
-		    var weeklyFive = moment().add('days', 5);
+	    var weeklyFive = moment().add('days', 5);
 
 			$('#weekly-five').append([
 			  weeklyFive.format('dddd')
 			].join('<br/>'));
 
 			// Week Day 6
-		    var weeklySix = moment().add('days', 6);
+	    var weeklySix = moment().add('days', 6);
 
 			$('#weekly-six').append([
 			  weeklySix.format('dddd')
 			].join('<br/>'));
 
 
-		// Seven Day Nav
+			// Seven Day Nav
 
 			// Now
-	    var sevenDay1 = moment();
+    	var sevenDay1 = moment();
 
 			$('#seven-day-1').append([
 			  sevenDay1.format('dddd')
@@ -423,6 +424,31 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 		});
 	},
 
+	query: function () {
+		var timeBasedQuery = new Parse.Query("weeklyComment");
+		var beginningOfDay = new Date();
+		beginningOfDay.setHours(0);
+		beginningOfDay.setMinutes(0);
+		beginningOfDay.setSeconds(0);
+		timeBasedQuery.greaterThanOrEqualTo('date', beginningOfDay);
+
+		var endOfLastDay = new Date();
+		endOfLastDay.setTime(endOfLastDay.getTime() + 604800000); //a week later
+		endOfLastDay.setHours(23);
+		endOfLastDay.setMinutes(59);
+		endOfLastDay.setSeconds(59);
+		timeBasedQuery.lessThanOrEqualTo('date', endOfLastDay);
+
+		var standingCommentQuery = new Parse.Query("weeklyComment");
+		standingCommentQuery.exists('dayOfWeek');
+
+		var query = Parse.Query.or(timeBasedQuery, standingCommentQuery);
+
+		query.find().then(function (e) {
+			BeMe.weeklyCommentCollection = new BeMe.Collections.WeeklyCommentCollection(e);
+		});
+	},
+
 	template: _.template($('#backend-calendar-view').text()),
 
 	render: function () {
@@ -452,7 +478,11 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 	Begin Collections Section
 */
 
-
+BeMe.Collections.WeeklyCommentCollection = Parse.Collection.extend({
+	initialize: function () {
+		console.log("Weekly Comment Collection initialized");
+	}
+});
 
 /*
 	End Collections Section
