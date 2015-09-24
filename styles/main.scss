@@ -7,9 +7,9 @@
 
 $primary-color-dark: #263238;
 $primary-color-medium: #37474F;
-$primary-color-light: #f8f8f8;
+$primary-color-light: #fff;
 
-$secondary-color-dark: #333;
+$secondary-color-dark: #01579B;
 $secondary-color-medium: #0277BD;
 $secondary-color-light: #03A9F4;
 
@@ -60,6 +60,10 @@ body {
 	width: 860px;
     margin: 0 auto;
     background: #f8f8f8;
+    min-height: 700px;
+    padding-top:15px;
+    /*border-right: 1px solid #dfdfdf;*/
+
 }
 
 .body-shift {
@@ -72,9 +76,10 @@ header {
     height: 60px;
     margin: 0px auto 0;
     position: relative;
-    background: $secondary-color-dark;
+    background: #222;
     left: 0;
     z-index: 9999999;
+    display:none;
 }
 
 .header-container {
@@ -174,7 +179,7 @@ header {
 
 	h1 {
 		font-size: 12px;
-		border-right: 1px solid #999;
+		border-right: 1px solid #f0f0f0;
 		padding-right: 10px;
 		display:inline-block;
 		vertical-align: top;
@@ -237,8 +242,10 @@ header {
 	margin: 0 auto;
 	display: block;
 	/*margin-top: 15px;*/
-	background: $primary-color-light;
-	border-bottom: 1px solid #dfdfdf;
+	background: #383838;
+	/*border-bottom: 1px solid #dfdfdf;*/
+	position:relative;
+	z-index:999999;
 }
 
 
@@ -246,9 +253,8 @@ header {
 	width: 860px;
 	margin: 0 auto;
 	position:relative;
-	border: 1px solid #f0f0f0;
-	border-top: 0;
-	border-bottom:0;
+
+
 	/*top:60px;*/
     transition:250ms;
     z-index: 25;
@@ -262,8 +268,7 @@ header {
 		padding: 21px;
 		display: inline-block;
 		/*background: $primary-color-light;*/
-		border-right: 1px solid #f0f0f0;
-
+		border-right: 1px solid #444;
 		width: 20%;
 		cursor: pointer;
 		text-align:left;
@@ -273,8 +278,14 @@ header {
 		border-right:0;
 	}
 
-	li:hover {
-		background: #fafafa;
+	a:first-child li{
+		/*border-left:1px solid #f0f0f0;*/
+
+	}
+
+	a li:hover {
+		background: #383838;
+		/*border-right:1px solid #dfdfdf;*/
 	}
 
 	p {
@@ -283,7 +294,7 @@ header {
 		vertical-align: top;
 		font-weight: 300;
 		width: 85%;
-		color: #333;
+		color: #f0f0f0;
 		/*padding-left:10px;*/
 	}
 
@@ -309,32 +320,40 @@ header {
 
 	ul li ul {
 	    display: none;
-	    width: 20.1%;
+	    width: 20%;
 	    padding-left: 0;
 	    position: absolute;
-	    margin-left: -22px;
+	    margin-left: -21px;
 	    margin-top: 21px;
-	    background: #fff;
-	    border: 1px solid #dfdfdf;
+	    background: #444;
+	    /*border: 1px solid #dfdfdf;*/
 	    border-top: 0;
+	}
+
+	ul:first-child li ul{
 	}
 
 	ul li ul li {
 	    width: 100%;
-	    border-right: 0;
 	    padding: 21px 22px;
-	    border-bottom:1px solid #f8f8f8;
+	    /*border-bottom:1px solid #555;*/
+	    border-right:0;
 	}
 
+/*	ul li ul li:hover {
+		border-right:0 !important;
+		border-left:0 !important;
+	}*/
+
 	ul li ul li:first-child {
-		border-top:1px solid #dfdfdf;
+		/*border-top:1px solid #dfdfdf;*/
 	}
 	ul li ul li:last-child {
 		border-bottom:0px;
 	}
 
 	ul li ul li p {
-		color: #333;
+		color: #f0f0f0;
 	}
 }
 
@@ -347,7 +366,7 @@ header {
 }
 
 .backend-tabs ul li:hover > p {
-	color: #333;
+	color: #f0f0f0;
 }
 
 
@@ -416,11 +435,11 @@ header {
 	position:relative;
 	background: $primary-color-light;
 	border:1px solid #dfdfdf;
-	/*border-bottom:0;*/
 	padding: 20px;
 	cursor: pointer;
 	z-index:50;
 	text-align: left;
+	/*margin-bottom:15px;*/
 
 	p {
 		color:#333;
@@ -599,8 +618,7 @@ header {
 	width: 100%;
 	background: $primary-color-light;
 	border: 1px solid #dfdfdf;
-	/*border-top:0;*/
-	border-bottom:0;
+	/*border-bottom:0;*/
 
 	ul {
 		list-style: none;
@@ -849,26 +867,46 @@ header {
 }
 
 .wide-container {
-    width: 500px;
+    width: 60%;
     display: inline-block;
     position: relative;
     vertical-align: top;
-    border-left: 1px solid #dfdfdf;
+    padding-left:15px;
     transition: 250ms;
     /*float: right;*/
     top: 0px;
     /*padding-left:15px;*/
+    /*padding-right:15px;*/
     /*height: 100vh;*/
     /*background:$primary-color-light;*/
     z-index: 99999;
+    /*border-left: 1px solid #dfdfdf;*/
+    min-height: 800px;
     /*box-shadow: -6px 0px 30px -15px;*/
 
 }
 
 .narrow-container {
-	width: 360px;
+	width: 40%;
 	display: inline-block;
 	vertical-align: top;
+	background:#fff;
+}
+
+.sidebar-container, 
+.sidebar-container-dark {
+	width: 16.6666667%;
+	display: inline-block;
+	vertical-align: top;
+	height:100vh;
+	background:#fff;	
+	border-right:1px solid #dfdfdf;
+}
+
+.sidebar-container-dark {
+	background:#f8f8f8;
+	border-right:0;
+	border-left:1px solid #dfdfdf;
 }
 
 .top-container, 
@@ -1182,8 +1220,7 @@ header {
 .module-header {
 	width: 100%;
 	background: #fafafa;
-	/*border: 1px solid #dfdfdf;*/
-	border-top:0;
+	border: 1px solid #dfdfdf;
 	border-bottom:0;
 	padding: 20px 15px;
 	cursor: pointer;
@@ -1300,10 +1337,9 @@ header {
 
 .profile-beer-list {
 	width: 100%;
-	background: $primary-color-light;
-	border-top:1px solid #f0f0f0;
-	/*border-top:0;*/
-	/*border-bottom:0;*/
+	background: #fff;
+	border:1px solid #dfdfdf;
+
 	margin-top:0px;
 
 
@@ -1348,7 +1384,7 @@ header {
 .beer-avatar {
 	display: inline-block;
 	vertical-align: top;
-	width: 15%;
+	width: 10%;
 
 	img {
 		width: 100%;
@@ -1357,7 +1393,7 @@ header {
 }
 
 .beer-name {
-	width: 65%;
+	width: 70%;
 	display: inline-block;
 	vertical-align: top;
 	padding-left:10px;
@@ -1592,7 +1628,7 @@ header {
 	/*border-top:0;*/
 	border-bottom:0;
 	/*margin-bottom:15px;*/
-	background:$primary-color-light;
+	background:#fff;
 	padding:10px;
 
 	ul {
@@ -1629,12 +1665,14 @@ header {
 
 .profile-tools {
 	width: 100%;
-    background: #f8f8f8;
+    background: #fff;
     text-align: left;
     transition: 250ms;
     display: inline-block;
     vertical-align: top;
- 	border-bottom: 1px solid #dfdfdf;
+ 	border: 1px solid #dfdfdf;
+ 	border-top:0;
+
 }
 
 
@@ -1654,8 +1692,8 @@ header {
     width: 100%;
     border: 0;
     outline: none;
-    background: $primary-color-light;
-    font-size: 16px;
+    background: #fff;
+    font-size: 14px;
     line-height: 24px;
     resize: none;
     padding: 40px 30px 5px 30px;
@@ -1721,7 +1759,8 @@ header {
 
 .profile-feed {
     width: 100%;
-    background: #f8f8f8;
+    background: #fff;
+    border:1px solid #dfdfdf;
 
 	ul {
 		list-style: none;
@@ -1730,11 +1769,10 @@ header {
 
 	li {
 		width: 100%;
-		/*border-top:1px solid #f0f0f0;*/
 		border-bottom: 1px solid #f0f0f0;
 		position: relative;
 		padding: 20px;
-		background:$primary-color-light;
+		background:transparent;
 	}
 
 	li:last-child {
@@ -1743,7 +1781,6 @@ header {
 }
 
 .feed-info {
-	background: $primary-color-light;
 	padding:0px;
 }
 
@@ -1887,7 +1924,6 @@ header {
 
 	div {
 		width: 100%;
-		background: $primary-color-light;
 		/*border-radius: 4px;*/
 		padding: 5px 0px;
 
@@ -1975,8 +2011,9 @@ header {
 
 .view-all {
 	width: 100%;
-	border:1px solid #f0f0f0;
-	background:$primary-color-light;
+	/*border:1px solid #dfdfdf;*/
+	border-top:0;
+	background:#f8f8f8;
 	text-align: center;
 	padding: 15px 0;
 	/*margin-bottom:15px;*/
@@ -2065,7 +2102,7 @@ header {
 		text-align: right;
 		font-size: 14px;
 		padding-top: 22px;
-		color: #ccc;
+		color: #f0f0f0;
 		padding-right: 5px;
 	}
 
@@ -3358,14 +3395,14 @@ article {
     vertical-align: top;
     text-align: left;
     padding: 0px 25px 14px 25px;
-    background: $primary-color-light;
+    background: #fff;
     /*border-radius: 0 0 4px 4px;*/
 
 	button {
 		display: inline-block;
 		vertical-align: top;
 		width: 20%;
-		font-size:14px;
+		font-size:12px;
 		background: $secondary-color-medium;
 		height: 30px;
 		border-radius:3px;
@@ -3411,7 +3448,7 @@ article {
 
 	label {
 		display: inline-block;
-		background: $primary-color-light;
+		background: #fff;
 		position:relative;
 		/*z-index:1;*/
 	}
@@ -3596,7 +3633,7 @@ svg rect{
 
 
 
-/*@media screen and (min-width : 700px) and (max-width : 860px) {
+@media screen and (min-width : 700px) and (max-width : 860px) {
 	.body-container, 
 	header, 
 	.header-container {
@@ -3604,8 +3641,12 @@ svg rect{
 	}
 
 	.body-container {
-		padding: 5px;
+		padding: 0px;
 		top: 0;
+	}
+
+	.backend-container {
+		width: 100%;
 	}
 
 	header {
@@ -3618,9 +3659,17 @@ svg rect{
 		width: 55%;
 	}
 
+	.narrow-container {
+		width: 45%;
+	}
+
 	.top-container {
 		width: 45%;
 		padding-right:5px;
+	}
+
+	.backend-tabs {
+		width: 100%;
 	}
 
 	.bar-search {
@@ -3637,7 +3686,7 @@ svg rect{
 
 
 
-}*/
+}
 
 @media screen and (min-width : 0px) and (max-width : 699px) {
 	header,
@@ -3696,6 +3745,10 @@ svg rect{
 	}
 
 	.narrow-container {
+		width: 100%;
+	}
+
+	.backend-container {
 		width: 100%;
 	}
 
