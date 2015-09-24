@@ -257,14 +257,40 @@ BeMe.Views.DayView = Parse.View.extend({
 	},
 
 	displayComments: function () {
-		console.log(this);
-		var model = this.model;
-		//use this to get the model
-		//_.each over the model array
-		//make new view for each comment
-		//**Need to make a new view class for this**
+		this.$el.siblings().removeClass('active-day');
+		this.$el.addClass('active-day');
+
+		var self = this;
+
+		var calendarSublist = $('.calendar-sublist');
+		calendarSublist.empty();
+
+
+		if (this.model) {
+			_.each(this.model, function (i) {
+				new BeMe.Views.CommentDisplay({model:i});
+			});
+		} else {
+			calendarSublist.append("<p>There are no comments to display for today!</p>");
+		}
 	}
 });
+
+BeMe.Views.CommentDisplay = Parse.View.extend({
+	tagName:'li',
+
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template("<i class='fa fa-arrows'></i><p><%= attributes.content %></p>"),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.calendar-sublist').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+})
 
 BeMe.Views.BackendSettings = Parse.View.extend({
 	initialize: function () {
