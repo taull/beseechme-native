@@ -425,6 +425,10 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 	},
 
 	query: function () {
+		/* Also need to base it off of the current user as well
+			Need to add a 'belongsTo' relationship column in Parse */
+
+
 		var timeBasedQuery = new Parse.Query("weeklyComment");
 		var beginningOfDay = new Date();
 		beginningOfDay.setHours(0);
@@ -444,9 +448,32 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 		var query = Parse.Query.or(timeBasedQuery, standingCommentQuery);
 
+		var self = this;
 		query.find().then(function (e) {
-			BeMe.weeklyCommentCollection = new BeMe.Collections.WeeklyCommentCollection(e);
-		});
+			console.log(e);
+			self.createViews(e);
+		})
+	},
+
+	createViews: function (e) {
+		for (var i = 0; i < 7; i++) {
+			var dateObject = new moment();
+			dateObject.add(i, 'days');
+
+			var dayUpperBound = new moment();
+			dayUpperBound.add(i, 'days');
+			dayUpperBound = dayUpperBound.endOf('day');
+
+			var dayLowerBound = new moment();
+			dayLowerBound.add(i, 'days');
+			dayLowerBound = dayLowerBound.startOf('day');
+
+			var queryResults = e;
+			var matchingObjects = queryResults.filter(function (i) {
+				var dateOfComment = moment(i.get('date'));
+				return dateOfComment.isBetween(dayLowerBound,dayUpperBound)
+			});
+		}
 	},
 
 	template: _.template($('#backend-calendar-view').text()),
@@ -478,11 +505,7 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 	Begin Collections Section
 */
 
-BeMe.Collections.WeeklyCommentCollection = Parse.Collection.extend({
-	initialize: function () {
-		console.log("Weekly Comment Collection initialized");
-	}
-});
+
 
 /*
 	End Collections Section
