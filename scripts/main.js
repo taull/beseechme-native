@@ -165,7 +165,6 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
 		this.render();
 		this.query();
-
 	},
 
 	query: function () {
@@ -214,7 +213,18 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 			var queryResults = e;
 			var matchingObjects = queryResults.filter(function (i) {
-				var dateOfComment = moment(i.get('date'));
+				if (i.get('date') !== undefined) {
+					var dateOfComment = moment(i.get('date'));
+				} else {
+					var dateOfComment = new moment();
+					dateOfComment.day(i.get('dayOfWeek'));
+					console.log(dateOfComment);
+					if (dateOfComment.isBefore(new Date(),'day')) {
+						dateOfComment.add(7,'days');
+						console.log(dateOfComment);
+					}
+				}
+
 				return dateOfComment.isBetween(dayLowerBound,dayUpperBound)
 			});
 
@@ -242,6 +252,7 @@ BeMe.Views.DayView = Parse.View.extend({
 
 	initialize: function () {
 		this.render();
+		this.commentViews = [];
 	},
 
 	template: _.template($('#backend-week-view').text()),
@@ -266,13 +277,20 @@ BeMe.Views.DayView = Parse.View.extend({
 		calendarSublist.empty();
 
 
+		_.each(this.commentViews, function (i) {
+			i.removeRenderedView();
+		});
+		this.commentViews = [];
+
+
 		if (this.model) {
 			_.each(this.model, function (i) {
-				new BeMe.Views.CommentDisplay({model:i});
+				self.commentViews.push(new BeMe.Views.CommentDisplay({model:i}));
 			});
 		} else {
 			calendarSublist.append("<p>There are no comments to display for today!</p>");
 		}
+
 	}
 });
 
