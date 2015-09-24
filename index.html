@@ -284,6 +284,13 @@
   </div>
 </script>
 
+<!-- backend WeekView -->
+
+<script type="text/template" id='backend-week-view'>
+  <section><div id="seven-day-1"><%= options.date.format('dddd') %></div><div id="seven-month-1"><%= options.date.format('MMMM Do') %></div></section>
+  <aside>  <% if (typeof model !== 'undefined') { %><span class="fa fa-comments"></span> <% } %></aside>
+</script>
+
 <!-- backend Calendar View -->
 
 <script type="text/template" id="backend-calendar-view">
@@ -291,7 +298,7 @@
     <div class="narrow-container">
       <div class="seven-day-nav">
         <ul>
-          <li>
+          <!-- <li>
             <section><div id="seven-day-1"></div><div id="seven-month-1"></div></section>
             <aside><span class="fa fa-comments"></span></aside>
           </li>
@@ -303,7 +310,7 @@
 
           <li>
             <section><div id="seven-day-3"></div><div id="seven-month-3"></div></section>
-            <aside><!-- <span class="fa fa-comments"></span> --></aside>
+            <aside></aside>
           </li>
 
           <li>
@@ -313,7 +320,7 @@
 
           <li>
             <section><div id="seven-day-5"></div><div id="seven-month-5"></div></section>
-            <aside><!-- <span class="fa fa-comments"></span> --></aside>
+            <aside></aside>
           </li>
 
           <li>
@@ -323,9 +330,8 @@
 
           <li>
             <section><div id="seven-day-7"></div><div id="seven-month-7"></div></section>
-            <aside><!-- <span class="fa fa-ellipsis-h"></span> --></aside>
-          </li>
-
+            <aside></aside>
+          </li> -->
 
         </ul>
       </div>
