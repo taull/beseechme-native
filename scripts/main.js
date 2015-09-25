@@ -187,6 +187,7 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
 		this.render();
 		this.query();
+		this.dayViews = []
 	},
 
 	query: function () {
@@ -250,13 +251,15 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 			if (matchingObjects.length > 0) {
 				var newObject = new Parse.Object({date: dateObject, models: matchingObjects})
-				new BeMe.Views.DayView({model:newObject});
+				var newView = new BeMe.Views.DayView({model:newObject});
 			} else {
 				var newObject = new Parse.Object({date: dateObject});
-				new BeMe.Views.DayView({model:newObject});
+				var newView = new BeMe.Views.DayView({model:newObject});
 			}
-
+			this.dayViews.push(newView);
 		}
+
+		this.dayViews[0].displayComments();
 	},
 
 	template: _.template($('#backend-calendar-view').text()),
