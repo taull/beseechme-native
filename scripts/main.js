@@ -113,6 +113,7 @@ BeMe.Views.Index = Parse.View.extend({
 		var email = $('input[name="email"]').val();
 		var password = $('input[name="password"]').val();
 		var stayLoggedIn = $('input[type="checkbox"]')[0].checked;
+		console.log(stayLoggedIn);
 
 		Parse.User.logIn(email,password, {
 			success: function  (userObject) {
@@ -197,6 +198,9 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
      confirmPassword = $('input[name="confirm-password"]').val(),
     firstName = $('input[name="first-name"]').val(),
      lastName = $('input[name="last-name"]').val();
+
+     console.log(email, password, confirmPassword, firstName, lastName);
+
 
     if(password == confirmPassword) {
       Parse.User.signUp(email, password, {
@@ -298,9 +302,13 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 		var standingCommentQuery = new Parse.Query("weeklyComment");
 		standingCommentQuery.exists('dayOfWeek');
 
+    timeBasedQuery.equalTo('createdBy', Parse.User.current());
+    standingCommentQuery.equalTo('createdBy', Parse.User.current());
+
 		var query = Parse.Query.or(timeBasedQuery, standingCommentQuery);
+
 		var self = this;
-		query.find({error: function (e) {console.log(e);}}).then(function (e) {
+		query.find().then(function (e) {
 			console.log(e);
 			self.createDayViews(e);
 		})
