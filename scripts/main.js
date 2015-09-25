@@ -281,13 +281,63 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
 		this.render();
 		this.query();
+    this.weeklyComments = [];
 		this.dayViews = []
 	},
 
-	query: function () {
-		/* Also need to base it off of the current user as well
-			Need to add a 'belongsTo' relationship column in Parse */
+	template: _.template($('#backend-calendar-view').text()),
 
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	},
+
+  events: {
+    'submit form' : 'postWeeklyComment'
+  },
+
+  postWeeklyComment: function (e) {
+    e.preventDefault();
+
+    var content = $('input[name="content"]').val(),
+           date = new Date($('input[name="date"]').val()),
+           dayOfWeek = Number($('select').val()),
+           isChecked = $('input[type="checkbox"]')[0].checked;
+
+    var post = new Parse.Object('weeklyComment', {
+      createdBy: Parse.User.current(),
+      content:content
+    });
+
+    var ACL = new Parse.ACL();
+    ACL.setPublicReadAccess(true);
+    ACL.setWriteAccess(Parse.User.current(),true);
+    post.setACL(ACL);
+
+    if (!isChecked) {
+      post.set('date', date);
+    } else {
+      post.set('dayOfWeek', dayOfWeek);
+    }
+
+    console.log(post);
+    post.save(null, {
+      success: function () {
+        $('input[name="content"]').val('');
+        $('input[type="date"]').val(null);
+        $('select').val(0);
+        $('input[type="checkbox"]')[0].checked = false;
+        alert("Success saving to the server");
+      },
+      error: function (e,err) {alert(err)}
+    });
+
+
+
+  },
+
+  query: function () {
 
 		var timeBasedQuery = new Parse.Query("weeklyComment");
 		var beginningOfDay = new moment();
@@ -309,9 +359,12 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 		var self = this;
 		query.find().then(function (e) {
+      console.log("---- WeeklyComments returned from the server below ----");
 			console.log(e);
+      console.log("-------------------------------------------------------");
+      self.weeklyComments = e;
 			self.createDayViews(e);
-		})
+		});
 	},
 
 	createDayViews: function (e) {
@@ -358,14 +411,6 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 		this.dayViews[0].displayComments();
 	},
-
-	template: _.template($('#backend-calendar-view').text()),
-
-	render: function () {
-		this.$el.html(this.template(this.model));
-		$('.body-container').append(this.el);
-		BeMe.renderedViews.push(this);
-	}
 });
 
 BeMe.Views.DayView = Parse.View.extend({
