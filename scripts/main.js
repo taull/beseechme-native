@@ -173,18 +173,14 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 
 		var timeBasedQuery = new Parse.Query("weeklyComment");
-		var beginningOfDay = new Date();
-		beginningOfDay.setHours(0);
-		beginningOfDay.setMinutes(0);
-		beginningOfDay.setSeconds(0);
-		timeBasedQuery.greaterThanOrEqualTo('date', beginningOfDay);
+		var beginningOfDay = new moment();
+		beginningOfDay.startOf('day');
+		timeBasedQuery.greaterThanOrEqualTo('date', beginningOfDay._d);
 
-		var endOfLastDay = new Date();
-		endOfLastDay.setTime(endOfLastDay.getTime() + 604800000); //a week later
-		endOfLastDay.setHours(23);
-		endOfLastDay.setMinutes(59);
-		endOfLastDay.setSeconds(59);
-		timeBasedQuery.lessThanOrEqualTo('date', endOfLastDay);
+		var endOfLastDay = new moment();
+		endOfLastDay.add(7, 'days');
+		endOfLastDay.endOf('day');
+		timeBasedQuery.lessThanOrEqualTo('date', endOfLastDay._d);
 
 		var standingCommentQuery = new Parse.Query("weeklyComment");
 		standingCommentQuery.exists('dayOfWeek');
@@ -194,11 +190,11 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 		var self = this;
 		query.find().then(function (e) {
 			console.log(e);
-			self.createViews(e);
+			self.createDayViews(e);
 		})
 	},
 
-	createViews: function (e) {
+	createDayViews: function (e) {
 		for (var i = 0; i < 7; i++) {
 			var dateObject = new moment();
 			dateObject.add(i, 'days');
@@ -218,10 +214,8 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 				} else {
 					var dateOfComment = new moment();
 					dateOfComment.day(i.get('dayOfWeek'));
-					console.log(dateOfComment);
 					if (dateOfComment.isBefore(new Date(),'day')) {
 						dateOfComment.add(7,'days');
-						console.log(dateOfComment);
 					}
 				}
 
