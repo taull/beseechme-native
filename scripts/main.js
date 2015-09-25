@@ -212,6 +212,9 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 				if (i.get('date') !== undefined) {
 					var dateOfComment = moment(i.get('date'));
 				} else {
+					/* This function coerces the standing comment's dayOfWeek value into
+					a usable date. If we coerce it to a day of the week, and that coerced
+					day is in the past, we just add a week to put it in the current week */
 					var dateOfComment = new moment();
 					dateOfComment.day(i.get('dayOfWeek'));
 					if (dateOfComment.isBefore(new Date(),'day')) {
@@ -224,9 +227,11 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 
 			if (matchingObjects.length > 0) {
-				new BeMe.Views.DayView({date: dateObject, model: matchingObjects});
+				var newObject = new Parse.Object({date: dateObject, models: matchingObjects})
+				new BeMe.Views.DayView({model:newObject});
 			} else {
-				new BeMe.Views.DayView({date: dateObject});
+				var newObject = new Parse.Object({date: dateObject});
+				new BeMe.Views.DayView({model:newObject});
 			}
 
 		}
@@ -249,10 +254,10 @@ BeMe.Views.DayView = Parse.View.extend({
 		this.commentViews = [];
 	},
 
-	template: _.template($('#backend-week-view').text()),
+	template: _.template($('#backend-day-view').text()),
 
 	render: function () {
-		this.$el.html(this.template(this));
+		this.$el.html(this.template(this.model));
 		$('.seven-day-nav ul').append(this.el);
 		BeMe.renderedViews.push(this);
 	},
@@ -270,15 +275,15 @@ BeMe.Views.DayView = Parse.View.extend({
 		var calendarSublist = $('.calendar-sublist');
 		calendarSublist.empty();
 
-
+		/* Not working properly? */
 		_.each(this.commentViews, function (i) {
 			i.removeRenderedView();
 		});
 		this.commentViews = [];
 
 
-		if (this.model) {
-			_.each(this.model, function (i) {
+		if (this.model.get('models')) {
+			_.each(this.model.get('models'), function (i) {
 				self.commentViews.push(new BeMe.Views.CommentDisplay({model:i}));
 			});
 		} else {

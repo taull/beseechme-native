@@ -378,9 +378,9 @@
 
 <!-- backend WeekView -->
 
-<script type="text/template" id='backend-week-view'>
-  <section><div id="seven-day-1"><%= options.date.format('dddd') %></div><div id="seven-month-1"><%= options.date.format('MMMM Do') %></div></section>
-  <aside>  <% if (typeof model !== 'undefined') { %><span class="fa fa-comments"></span> <% } %></aside>
+<script type="text/template" id='backend-day-view'>
+  <section><div id="seven-day-1"><%= attributes.date.format('dddd') %></div><div id="seven-month-1"><%= attributes.date.format('MMMM Do') %></div></section>
+  <aside>  <% if (typeof attributes.models !== 'undefined') { %><span class="fa fa-comments"></span> <% } %></aside>
 </script>
 
 <!-- backend Calendar View -->
