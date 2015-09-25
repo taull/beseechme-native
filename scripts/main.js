@@ -365,6 +365,8 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 var Router = Backbone.Router.extend({
 	routes: {
 		'' : 'home',
+		'register/business' : 'registerBusiness',
+		'register/consumer' : 'registerConsumer'
 		'backend' : 'backend',
 		'backend/feed' : 'backendFeed',
 		'backend/beer' : 'backendBeerList',
@@ -375,6 +377,16 @@ var Router = Backbone.Router.extend({
 
 	initialize: function () {
 		new BeMe.Views.Application();
+	},
+
+	registerBusiness: function () {
+		BeMe.removeAllViews();
+		new BeMe.Views.BusinessRegister();
+	},
+
+	registerConsumer: function () {
+		BeMe.removeAllViews();
+		new BeMe.Views.ConsumerRegister();
 	},
 
 	home: function () {
