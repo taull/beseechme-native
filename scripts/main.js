@@ -126,6 +126,34 @@ BeMe.Views.Index = Parse.View.extend({
 	}
 });
 
+BeMe.Views.BusinessRegister = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#business-register-route').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('#application').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+
+BeMe.Views.ConsumerRegister = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#consumer-register-route').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('#application').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+
 BeMe.Views.Backend = Parse.View.extend({
 	initialize: function () {
 		this.render();
@@ -366,7 +394,7 @@ var Router = Backbone.Router.extend({
 	routes: {
 		'' : 'home',
 		'register/business' : 'registerBusiness',
-		'register/consumer' : 'registerConsumer'
+		'register/consumer' : 'registerConsumer',
 		'backend' : 'backend',
 		'backend/feed' : 'backendFeed',
 		'backend/beer' : 'backendBeerList',
