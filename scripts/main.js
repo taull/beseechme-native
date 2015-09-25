@@ -112,6 +112,8 @@ BeMe.Views.Index = Parse.View.extend({
 
 		var email = $('input[name="email"]').val();
 		var password = $('input[name="password"]').val();
+		var stayLoggedIn = $('input[type="checkbox"]')[0].checked;
+		console.log(stayLoggedIn);
 
 		Parse.User.logIn(email,password, {
 			success: function  (userObject) {
@@ -261,7 +263,7 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 	render: function () {
 		this.$el.html(this.template(this.model));
-		$('.body-container').append(this.el);git
+		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
 	}
 });
