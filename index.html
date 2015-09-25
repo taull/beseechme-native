@@ -21,11 +21,11 @@
 
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="text" placeholder="Email Address">
+          <input type="text" name="email" placeholder="Email Address">
         </li>
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="password" placeholder="Password">
+          <input type="password" name="password" placeholder="Password">
         </li>
 
         <input type="checkbox" value="signedIn"><p>Keep me signed in.</p>
@@ -376,7 +376,7 @@
   </div>
 </script>
 
-<!-- backend WeekView -->
+<!-- backend DayView -->
 
 <script type="text/template" id='backend-day-view'>
   <section><div id="seven-day-1"><%= attributes.date.format('dddd') %></div><div id="seven-month-1"><%= attributes.date.format('MMMM Do') %></div></section>
@@ -395,41 +395,7 @@
 
       <div class="seven-day-nav">
         <ul>
-          <!-- <li>
-            <section><div id="seven-day-1"></div><div id="seven-month-1"></div></section>
-            <aside><span class="fa fa-comments"></span></aside>
-          </li>
-
-          <li class="active-day">
-            <section><div id="seven-day-2"></div><div id="seven-month-2"></div></section>
-            <aside><span class="fa fa-comments"></span></aside>
-          </li>
-
-          <li>
-            <section><div id="seven-day-3"></div><div id="seven-month-3"></div></section>
-            <aside></aside>
-          </li>
-
-          <li>
-            <section><div id="seven-day-4"></div><div id="seven-month-4"></div></section>
-            <aside><span class="fa fa-comments"></span></aside>
-          </li>
-
-          <li>
-            <section><div id="seven-day-5"></div><div id="seven-month-5"></div></section>
-            <aside></aside>
-          </li>
-
-          <li>
-            <section><div id="seven-day-6"></div><div id="seven-month-6"></div></section>
-            <aside><span class="fa fa-comments"></span></aside>
-          </li>
-
-          <li>
-            <section><div id="seven-day-7"></div><div id="seven-month-7"></div></section>
-            <aside></aside>
-          </li> -->
-
+          <!-- Appended DayViews go here -->
         </ul>
       </div>
 

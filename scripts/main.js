@@ -101,6 +101,26 @@ BeMe.Views.Index = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 		$('#application').append(this.el);
 		BeMe.renderedViews.push(this);
+	},
+
+	events: {
+		'submit' : 'login'
+	},
+
+	login: function (e) {
+		e.preventDefault();
+
+		var email = $('input[name="email"]').val();
+		var password = $('input[name="password"]').val();
+
+		Parse.User.logIn(email,password, {
+			success: function  (userObject) {
+				console.log(userObject);
+			},
+			error: function (error) {
+				console.log(error);
+			}
+		});
 	}
 });
 
@@ -241,7 +261,7 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 	render: function () {
 		this.$el.html(this.template(this.model));
-		$('.body-container').append(this.el);
+		$('.body-container').append(this.el);git
 		BeMe.renderedViews.push(this);
 	}
 });
