@@ -299,11 +299,14 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
   postWeeklyComment: function (e) {
     e.preventDefault();
+    var self = this;
 
     var content = $('input[name="content"]').val(),
-           date = new Date($('input[name="date"]').val()),
            dayOfWeek = Number($('select').val()),
-           isChecked = $('input[type="checkbox"]')[0].checked;
+           isChecked = $('input[type="checkbox"]')[0].checked,
+           date = new moment($('input[name="date"]').val());
+           date.add(12,'hours');
+           date = date._d;
 
     var post = new Parse.Object('weeklyComment', {
       createdBy: Parse.User.current(),
@@ -323,18 +326,16 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
     console.log(post);
     post.save(null, {
-      success: function () {
+      success: function (postObject) {
         $('input[name="content"]').val('');
         $('input[type="date"]').val(null);
         $('select').val(0);
         $('input[type="checkbox"]')[0].checked = false;
-        alert("Success saving to the server");
+        self.weeklyComments.push(postObject);
+        self.createDayViews(self.weeklyComments);
       },
-      error: function (e,err) {alert(err)}
+      error: function (e,err) {console.log(err)}
     });
-
-
-
   },
 
   query: function () {
@@ -368,6 +369,9 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 	},
 
 	createDayViews: function (e) {
+    _.each(this.dayViews, function (i) {
+      i.removeRenderedView();
+    });
 		for (var i = 0; i < 7; i++) {
 			var dateObject = new moment();
 			dateObject.add(i, 'days');
