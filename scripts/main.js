@@ -29,6 +29,10 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
 	BeMe.Collections = {};
 	BeMe.Router = {};
 	BeMe.renderedViews = [];
+
+
+  //route object
+  BeMe.BackendCalendarRoute = {};
 })();
 
 /*
@@ -280,13 +284,7 @@ BeMe.Views.BackendCompetition = Parse.View.extend({
 BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
 		this.render();
-		this.query();
-    this.weeklyComments = [];
-    var self = this;
-    this.activeCommentView = null;
-    Parse.Events.on('activatedDayView', function (e) {self.activeCommentView = e});
-		this.dayViews = []
-    console.log(this);
+    BeMe.BackendCalendarRoute.DaysView = new BeMe.Views.DaysView({collection:new BeMe.Collections.WeeklyComments()});
 	},
 
 	template: _.template($('#backend-calendar-view').text()),
@@ -298,11 +296,73 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 	},
 
   events: {
-    'submit form' : 'postWeeklyComment'
+    'submit form' : 'post'
   },
 
-  postWeeklyComment: function (e) {
+  post: function (e) {
     e.preventDefault();
+    BeMe.BackendCalendarRoute.DaysView.postWeeklyComment();
+  }
+
+});
+
+BeMe.Views.DaysView = Parse.View.extend({
+  initialize: function () {
+    this.dayViews = [];
+    this.query();
+    this.activeViewIndex = 0;
+  },
+
+  render: function () {
+    _.each(this.dayViews, function (i) {
+      i.removeRenderedView();
+    });
+    this.dayViews = [];
+		for (var i = 0; i < 7; i++) {
+			var dateObject = new moment();
+			dateObject.add(i, 'days');
+
+			var dayUpperBound = new moment();
+			dayUpperBound.add(i, 'days');
+			dayUpperBound = dayUpperBound.endOf('day');
+
+			var dayLowerBound = new moment();
+			dayLowerBound.add(i, 'days');
+			dayLowerBound = dayLowerBound.startOf('day');
+
+			var queryResults = this.collection;
+			var matchingObjects = queryResults.filter(function (i) {
+				if (i.get('date') !== undefined) {
+					var dateOfComment = moment(i.get('date'));
+				} else {
+					/* This function coerces the standing comment's dayOfWeek value into
+					a usable date. If we coerce it to a day of the week, and that coerced
+					day is in the past, we just add a week to put it in the current week */
+					var dateOfComment = new moment();
+					dateOfComment.day(i.get('dayOfWeek'));
+					if (dateOfComment.isBefore(new Date(),'day')) {
+						dateOfComment.add(7,'days');
+					}
+				}
+
+				return dateOfComment.isBetween(dayLowerBound,dayUpperBound)
+			});
+
+
+			if (matchingObjects.length > 0) {
+				var newObject = new Parse.Object({date: dateObject, models: matchingObjects})
+				var newView = new BeMe.Views.DayView({model:newObject});
+			} else {
+				var newObject = new Parse.Object({date: dateObject});
+				var newView = new BeMe.Views.DayView({model:newObject});
+			}
+			this.dayViews.push(newView);
+		}
+    console.log(this.dayViews);
+    this.dayViews[this.activeViewIndex].displayComments();
+  },
+
+  postWeeklyComment: function () {
     var self = this;
 
     var content = $('input[name="content"]').val(),
@@ -334,13 +394,15 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
           $('input[type="date"]').val(null);
           $('select').val(0);
           $('input[type="checkbox"]')[0].checked = false;
-          self.weeklyComments.push(postObject);
-          self.createDayViews(self.weeklyComments);
+
+
+          self.collection.add(postObject);
+          self.render();
         },
         error: function (e,err) {alert(err.message)}
       });
     } else {
-      alert("You must post a date that is not in the past");
+      alert("You cannot post a past date");
     }
   },
 
@@ -369,79 +431,10 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
       console.log("---- WeeklyComments returned from the server below ----");
 			console.log(e);
       console.log("-------------------------------------------------------");
-      self.weeklyComments = e;
-			self.createDayViews(e);
+      self.collection.add(e);
+			self.render();
 		});
 	},
-
-	createDayViews: function (e) {
-    _.each(this.dayViews, function (i) {
-      i.removeRenderedView();
-    });
-		for (var i = 0; i < 7; i++) {
-			var dateObject = new moment();
-			dateObject.add(i, 'days');
-
-			var dayUpperBound = new moment();
-			dayUpperBound.add(i, 'days');
-			dayUpperBound = dayUpperBound.endOf('day');
-
-			var dayLowerBound = new moment();
-			dayLowerBound.add(i, 'days');
-			dayLowerBound = dayLowerBound.startOf('day');
-
-			var queryResults = e;
-			var matchingObjects = queryResults.filter(function (i) {
-				if (i.get('date') !== undefined) {
-					var dateOfComment = moment(i.get('date'));
-				} else {
-					/* This function coerces the standing comment's dayOfWeek value into
-					a usable date. If we coerce it to a day of the week, and that coerced
-					day is in the past, we just add a week to put it in the current week */
-					var dateOfComment = new moment();
-					dateOfComment.day(i.get('dayOfWeek'));
-					if (dateOfComment.isBefore(new Date(),'day')) {
-						dateOfComment.add(7,'days');
-					}
-				}
-
-				return dateOfComment.isBetween(dayLowerBound,dayUpperBound)
-			});
-
-
-			if (matchingObjects.length > 0) {
-				var newObject = new Parse.Object({date: dateObject, models: matchingObjects})
-				var newView = new BeMe.Views.DayView({model:newObject});
-			} else {
-				var newObject = new Parse.Object({date: dateObject});
-				var newView = new BeMe.Views.DayView({model:newObject});
-			}
-			this.dayViews.push(newView);
-		}
-
-		this.dayViews[0].displayComments();
-	},
-});
-
-BeMe.Views.DaysView = Parse.View.extend({
-  initialize: function () {
-    this.dayViews = [];
-    this.render();
-    this.collection('add remove', this.render, this);
-  },
-
-  render: function () {
-    //remove all of the currently rendered views from the page properly
-    _.each(this.dayViews, function (i) {
-      i.removeRenderedView();
-    });
-    this.dayViews = [];
-
-    this.collection.each(function (i) {
-      this.dayViews.push(new BeMe.Views.DayView({model:i}));
-    });
-    //loop through the collection and do stuff
-  }
 });
 
 BeMe.Views.DayView = Parse.View.extend({
@@ -461,11 +454,19 @@ BeMe.Views.DayView = Parse.View.extend({
 	},
 
 	events: {
-		'click' : 'displayComments'
+		'click' : 'clickHandler'
 	},
 
+  clickHandler: function () {
+    var $ul = $('.seven-day-nav ul li');
+    var index = _.indexOf($ul, this.el);
+
+    BeMe.BackendCalendarRoute.DaysView.activeViewIndex= _.indexOf($ul, self.el);
+
+    this.displayComments();
+  },
+
 	displayComments: function () {
-    Parse.Events.trigger('activatedDayView', this);
 		this.$el.siblings().removeClass('active-day');
 		this.$el.addClass('active-day');
 
@@ -480,7 +481,6 @@ BeMe.Views.DayView = Parse.View.extend({
 		});
 		this.commentViews = [];
 
-
 		if (this.model.get('models')) {
 			_.each(this.model.get('models'), function (i) {
 				self.commentViews.push(new BeMe.Views.CommentDisplay({model:i}));
@@ -488,7 +488,6 @@ BeMe.Views.DayView = Parse.View.extend({
 		} else {
 			calendarSublist.append("<p>There are no comments to display for today!</p>");
 		}
-
 	}
 });
 
@@ -528,7 +527,7 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 	Begin Collections Section
 */
 
-BeMe.Collections.weeklyComments = Parse.Collection.extend({
+BeMe.Collections.WeeklyComments = Parse.Collection.extend({
   className: "weeklyComment",
 
   initialize: function () {
@@ -602,7 +601,7 @@ var Router = Backbone.Router.extend({
 	backendCalendar: function () {
 		BeMe.removeAllViews();
 		new BeMe.Views.Backend();
-		new BeMe.Views.BackendCalendar();
+		BeMe.BackendCalendarRoute.CalendarView = new BeMe.Views.BackendCalendar();
 	},
 
 	backendSettings: function () {
