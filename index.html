@@ -23,11 +23,11 @@
 
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="text" placeholder="Email Address">
+          <input type="text" name="email" placeholder="Email Address">
         </li>
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="password" placeholder="Password">
+          <input type="password" name="password" placeholder="Password">
         </li>
 
         <input type="checkbox" value="signedIn"><p>Keep me signed in.</p>
@@ -50,28 +50,28 @@
       <form action="">
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="text" value="businessName" placeholder="Business Name">
+          <input type="text" name="business-name" placeholder="Business Name">
         </li>
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="text" value="firstName" placeholder="First Name">
+          <input type="text" name="first-name" placeholder="First Name">
         </li>
 
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="text" value="lastName" placeholder="Last Name">
+          <input type="text" name="last-name" placeholder="Last Name">
         </li>
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="text" value="email" placeholder="Email Address">
+          <input type="text" name="email" placeholder="Email Address">
         </li>
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="password" placeholder="Password">
+          <input type="password" name="password" placeholder="Password">
         </li>
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="password" placeholder="Confirm Password">
+          <input type="password" name="confirm-password" placeholder="Confirm Password">
         </li>
 
         <button>Register</button>
@@ -93,24 +93,24 @@
 
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="text" value="firstName" placeholder="First Name">
+          <input type="text" name="first-name" placeholder="First Name">
         </li>
 
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="text" value="lastName" placeholder="Last Name">
+          <input type="text" name="last-name" placeholder="Last Name">
         </li>
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="text" value="email" placeholder="Email Address">
+          <input type="text" name="email" placeholder="Email Address">
         </li>
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="password" placeholder="Password">
+          <input type="password" name="password" placeholder="Password">
         </li>
         <li>
           <span class="fa fa-angle-right"></span>
-          <input type="password" placeholder="Confirm Password">
+          <input type="password" name="confirm-password" placeholder="Confirm Password">
         </li>
 
         <button>Register</button>
@@ -427,11 +427,17 @@
   </div>
 </script>
 
-<!-- backend WeekView -->
+<!-- backend DayView -->
 
+<<<<<<< HEAD
 <script type="text/template" id='backend-week-view'>
   <section><div id="seven-day-1"><%= options.date.format('ddd') %></div><div id="seven-month-1"><%= options.date.format('MMM Do') %></div></section>
   <aside>  <% if (typeof model !== 'undefined') { %><span class="fa fa-comments"></span> <% } %></aside>
+=======
+<script type="text/template" id='backend-day-view'>
+  <section><div id="seven-day-1"><%= attributes.date.format('dddd') %></div><div id="seven-month-1"><%= attributes.date.format('MMMM Do') %></div></section>
+  <aside>  <% if (typeof attributes.models !== 'undefined') { %><span class="fa fa-comments"></span> <% } %></aside>
+>>>>>>> 2f9f0fdfdc2d5205668ad6ece9c0589b0bf19535
 </script>
 
 <!-- backend Calendar View -->
@@ -459,17 +465,17 @@
       </section>
       <div class="add-weekly-comment">
         <form action="">
-          <input type="text" placeholder="Add Comment...">
-          <input type="date">
+          <input type="text" name="content" placeholder="Add Comment...">
+          <input name="date" type="date">
           <input type="checkbox" value="standingComment"><p>Repeat Every:</p>
           <select>
-            <option>Sunday</option>
-            <option>Monday</option>
-            <option>Tuesday</option>
-            <option>Wednesday</option>
-            <option>Thursday</option>
-            <option>Friday</option>
-            <option>Saturday</option>
+            <option value=0>Sunday</option>
+            <option value=1>Monday</option>
+            <option value=2>Tuesday</option>
+            <option value=3>Wednesday</option>
+            <option value=4>Thursday</option>
+            <option value=5>Friday</option>
+            <option value=6>Saturday</option>
           </select>
           <button type="submit">Comment</button>
         </form>
@@ -480,15 +486,21 @@
       </div>
       
 
-
+      <div class="seven-day-nav">
+        <ul>
+          <!-- Appended DayViews go here -->
+        </ul>
+      </div>
 
     </div>
 
     <div class="wide-container">
       
-      <div class="seven-day-nav">
+      <div class="calendar-nav">
         <ul>
-
+          <li>Every Saturday</li>
+          <li>Today</li>
+          <li>Hours</li>
         </ul>
       </div>
 
@@ -497,7 +509,7 @@
         <div class="calendar-sublist">
           <form action="">
             <ul>
-
+              <!-- Comments Displayed/appended here -->
             </ul>
           </form>
         </div>

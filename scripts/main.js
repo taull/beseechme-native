@@ -12,6 +12,7 @@ $('.accordion').accordion({
     "transitionSpeed": 400
 });
 
+$('#only-one [data-accordion]').accordion();
 $('#barback-menu [data-accordion]').accordion();
 
 
@@ -100,14 +101,128 @@ BeMe.Views.Index = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 		$('#application').append(this.el);
 		BeMe.renderedViews.push(this);
+	},
+
+	events: {
+		'submit' : 'login'
+	},
+
+	login: function (e) {
+		e.preventDefault();
+
+		var email = $('input[name="email"]').val();
+		var password = $('input[name="password"]').val();
+		var stayLoggedIn = $('input[type="checkbox"]')[0].checked;
+		console.log(stayLoggedIn);
+
+		Parse.User.logIn(email,password, {
+			success: function  (userObject) {
+				console.log(userObject);
+			},
+			error: function (error) {
+				console.log(error);
+			}
+		});
+	}
+});
+
+BeMe.Views.BusinessRegister = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#business-register-route').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('#application').append(this.el);
+		BeMe.renderedViews.push(this);
+	},
+
+	events: {
+		'submit' : 'register'
+	},
+
+	register: function (e) {
+		e.preventDefault();
+
+    var email = $('input[name="email"]').val(),
+     password = $('input[name="password"]').val(),
+     confirmPassword = $('input[name="confirm-password"]').val(),
+     businessName = $('input[name="business-name"]').val(),
+    firstName = $('input[name="first-name"]').val(),
+     lastName = $('input[name="last-name"]').val();
+
+
+    if (password == confirmPassword) {
+      Parse.User.signUp(email, password, {
+        businessName: businessName,
+        firstName: firstName,
+        lastName: lastName,
+        userType:"business"
+      }, {
+        success: function (e) {
+          console.log(e);
+        }, error: function (obj, error) {
+          alert("Error " + error.code + ": " + error.message);
+        }
+      });
+    } else {
+      alert('Passwords don\'t match');
+    }
+	}
+});
+
+BeMe.Views.ConsumerRegister = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#consumer-register-route').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('#application').append(this.el);
+		BeMe.renderedViews.push(this);
+	},
+
+	events: {
+		'submit' : 'register'
+	},
+
+	register: function (e) {
+		e.preventDefault();
+
+    var email = $('input[name="email"]').val(),
+     password = $('input[name="password"]').val(),
+     confirmPassword = $('input[name="confirm-password"]').val(),
+    firstName = $('input[name="first-name"]').val(),
+     lastName = $('input[name="last-name"]').val();
+
+     console.log(email, password, confirmPassword, firstName, lastName);
+
+
+    if(password == confirmPassword) {
+      Parse.User.signUp(email, password, {
+        firstName: firstName,
+        lastName: lastName,
+        userType:"consumer"
+      }, {
+        success: function (e) {
+          console.log(e);
+        }, error: function (obj, error) {
+          alert("Error " + error.code + ": " + error.message);
+        }
+      });
+    } else {
+      alert('Passwords don\'t match');
+    }
 	}
 });
 
 BeMe.Views.Backend = Parse.View.extend({
 	initialize: function () {
 		this.render();
-		$('#backend-menu [data-accordion]').accordion();
-
 	},
 
 	template: _.template($('#backend-view').text()),
@@ -123,8 +238,6 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 	initialize: function () {
 		this.render();
 		autosize($('#business-status'));
-		$('#backend-menu [data-accordion]').accordion();
-
 	},
 
 	template: _.template($('#backend-feed-view').text()),
@@ -139,8 +252,6 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 BeMe.Views.BackendBeerList = Parse.View.extend({
 	initialize: function () {
 		this.render();
-		$('#backend-menu [data-accordion]').accordion();
-
 	},
 
 	template: _.template($('#backend-beer-view').text()),
@@ -155,8 +266,6 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 BeMe.Views.BackendCompetition = Parse.View.extend({
 	initialize: function () {
 		this.render();
-		$('#backend-menu [data-accordion]').accordion();
-
 	},
 
 	template: _.template($('#backend-competition-view').text()),
@@ -172,42 +281,103 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
 		this.render();
 		this.query();
-		$('#backend-menu [data-accordion]').accordion();
-
+    this.weeklyComments = [];
+    var self = this;
+    this.activeCommentView = null;
+    Parse.Events.on('activatedDayView', function (e) {self.activeCommentView = e});
+		this.dayViews = []
+    console.log(this);
 	},
 
-	query: function () {
-		/* Also need to base it off of the current user as well
-			Need to add a 'belongsTo' relationship column in Parse */
+	template: _.template($('#backend-calendar-view').text()),
 
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	},
+
+  events: {
+    'submit form' : 'postWeeklyComment'
+  },
+
+  postWeeklyComment: function (e) {
+    e.preventDefault();
+    var self = this;
+
+    var content = $('input[name="content"]').val(),
+           dayOfWeek = Number($('select').val()),
+           isChecked = $('input[type="checkbox"]')[0].checked,
+           date = new moment($('input[name="date"]').val());
+           date.add(12,'hours');
+
+    var post = new Parse.Object('weeklyComment', {
+      createdBy: Parse.User.current(),
+      content:content
+    });
+
+    var ACL = new Parse.ACL();
+    ACL.setPublicReadAccess(true);
+    ACL.setWriteAccess(Parse.User.current(),true);
+    post.setACL(ACL);
+
+    if (!isChecked) {
+      post.set('date', date._d);
+    } else {
+      post.set('dayOfWeek', dayOfWeek);
+    }
+
+    if (!date.isBefore(moment(new Date()),'day')) { //if the set date is not before today
+      post.save(null, {
+        success: function (postObject) {
+          $('input[name="content"]').val('');
+          $('input[type="date"]').val(null);
+          $('select').val(0);
+          $('input[type="checkbox"]')[0].checked = false;
+          self.weeklyComments.push(postObject);
+          self.createDayViews(self.weeklyComments);
+        },
+        error: function (e,err) {alert(err.message)}
+      });
+    } else {
+      alert("You must post a date that is not in the past");
+    }
+  },
+
+  query: function () {
 
 		var timeBasedQuery = new Parse.Query("weeklyComment");
-		var beginningOfDay = new Date();
-		beginningOfDay.setHours(0);
-		beginningOfDay.setMinutes(0);
-		beginningOfDay.setSeconds(0);
-		timeBasedQuery.greaterThanOrEqualTo('date', beginningOfDay);
+		var beginningOfDay = new moment();
+		beginningOfDay.startOf('day');
+		timeBasedQuery.greaterThanOrEqualTo('date', beginningOfDay._d);
 
-		var endOfLastDay = new Date();
-		endOfLastDay.setTime(endOfLastDay.getTime() + 604800000); //a week later
-		endOfLastDay.setHours(23);
-		endOfLastDay.setMinutes(59);
-		endOfLastDay.setSeconds(59);
-		timeBasedQuery.lessThanOrEqualTo('date', endOfLastDay);
+		var endOfLastDay = new moment();
+		endOfLastDay.add(7, 'days');
+		endOfLastDay.endOf('day');
+		timeBasedQuery.lessThanOrEqualTo('date', endOfLastDay._d);
 
 		var standingCommentQuery = new Parse.Query("weeklyComment");
 		standingCommentQuery.exists('dayOfWeek');
+
+    timeBasedQuery.equalTo('createdBy', Parse.User.current());
+    standingCommentQuery.equalTo('createdBy', Parse.User.current());
 
 		var query = Parse.Query.or(timeBasedQuery, standingCommentQuery);
 
 		var self = this;
 		query.find().then(function (e) {
+      console.log("---- WeeklyComments returned from the server below ----");
 			console.log(e);
-			self.createViews(e);
-		})
+      console.log("-------------------------------------------------------");
+      self.weeklyComments = e;
+			self.createDayViews(e);
+		});
 	},
 
-	createViews: function (e) {
+	createDayViews: function (e) {
+    _.each(this.dayViews, function (i) {
+      i.removeRenderedView();
+    });
 		for (var i = 0; i < 7; i++) {
 			var dateObject = new moment();
 			dateObject.add(i, 'days');
@@ -225,12 +395,13 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 				if (i.get('date') !== undefined) {
 					var dateOfComment = moment(i.get('date'));
 				} else {
+					/* This function coerces the standing comment's dayOfWeek value into
+					a usable date. If we coerce it to a day of the week, and that coerced
+					day is in the past, we just add a week to put it in the current week */
 					var dateOfComment = new moment();
 					dateOfComment.day(i.get('dayOfWeek'));
-					console.log(dateOfComment);
 					if (dateOfComment.isBefore(new Date(),'day')) {
 						dateOfComment.add(7,'days');
-						console.log(dateOfComment);
 					}
 				}
 
@@ -239,23 +410,38 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 
 			if (matchingObjects.length > 0) {
-				new BeMe.Views.DayView({date: dateObject, model: matchingObjects});
+				var newObject = new Parse.Object({date: dateObject, models: matchingObjects})
+				var newView = new BeMe.Views.DayView({model:newObject});
 			} else {
-				new BeMe.Views.DayView({date: dateObject});
+				var newObject = new Parse.Object({date: dateObject});
+				var newView = new BeMe.Views.DayView({model:newObject});
 			}
-
+			this.dayViews.push(newView);
 		}
+
+		this.dayViews[0].displayComments();
 	},
+});
 
-	template: _.template($('#backend-calendar-view').text()),
+BeMe.Views.DaysView = Parse.View.extend({
+  initialize: function () {
+    this.dayViews = [];
+    this.render();
+    this.collection('add remove', this.render, this);
+  },
 
-	render: function () {
-		this.$el.html(this.template(this.model));
-		$('.body-container').append(this.el);
-		BeMe.renderedViews.push(this);
-	},
+  render: function () {
+    //remove all of the currently rendered views from the page properly
+    _.each(this.dayViews, function (i) {
+      i.removeRenderedView();
+    });
+    this.dayViews = [];
 
-
+    this.collection.each(function (i) {
+      this.dayViews.push(new BeMe.Views.DayView({model:i}));
+    });
+    //loop through the collection and do stuff
+  }
 });
 
 BeMe.Views.DayView = Parse.View.extend({
@@ -266,10 +452,10 @@ BeMe.Views.DayView = Parse.View.extend({
 		this.commentViews = [];
 	},
 
-	template: _.template($('#backend-week-view').text()),
+	template: _.template($('#backend-day-view').text()),
 
 	render: function () {
-		this.$el.html(this.template(this));
+		this.$el.html(this.template(this.model));
 		$('.seven-day-nav ul').append(this.el);
 		BeMe.renderedViews.push(this);
 	},
@@ -279,6 +465,7 @@ BeMe.Views.DayView = Parse.View.extend({
 	},
 
 	displayComments: function () {
+    Parse.Events.trigger('activatedDayView', this);
 		this.$el.siblings().removeClass('active-day');
 		this.$el.addClass('active-day');
 
@@ -287,15 +474,15 @@ BeMe.Views.DayView = Parse.View.extend({
 		var calendarSublist = $('.calendar-sublist');
 		calendarSublist.empty();
 
-
+		/* Not working properly? */
 		_.each(this.commentViews, function (i) {
 			i.removeRenderedView();
 		});
 		this.commentViews = [];
 
 
-		if (this.model) {
-			_.each(this.model, function (i) {
+		if (this.model.get('models')) {
+			_.each(this.model.get('models'), function (i) {
 				self.commentViews.push(new BeMe.Views.CommentDisplay({model:i}));
 			});
 		} else {
@@ -341,7 +528,13 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 	Begin Collections Section
 */
 
+BeMe.Collections.weeklyComments = Parse.Collection.extend({
+  className: "weeklyComment",
 
+  initialize: function () {
+    console.log("New weekly comments collecion");
+  },
+})
 
 /*
 	End Collections Section
@@ -352,6 +545,8 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 var Router = Backbone.Router.extend({
 	routes: {
 		'' : 'home',
+		'register/business' : 'registerBusiness',
+		'register/consumer' : 'registerConsumer',
 		'backend' : 'backend',
 		'backend/feed' : 'backendFeed',
 		'backend/beer' : 'backendBeerList',
@@ -362,6 +557,16 @@ var Router = Backbone.Router.extend({
 
 	initialize: function () {
 		new BeMe.Views.Application();
+	},
+
+	registerBusiness: function () {
+		BeMe.removeAllViews();
+		new BeMe.Views.BusinessRegister();
+	},
+
+	registerConsumer: function () {
+		BeMe.removeAllViews();
+		new BeMe.Views.ConsumerRegister();
 	},
 
 	home: function () {
