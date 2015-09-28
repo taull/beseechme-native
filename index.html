@@ -422,17 +422,17 @@
 
       <div class="add-weekly-comment">
         <form action="">
-          <input type="text" placeholder="Add Comment...">
-          <input type="date">
+          <input type="text" name="content" placeholder="Add Comment...">
+          <input name="date" type="date">
           <input type="checkbox" value="standingComment"><p>Repeat Every:</p>
           <select>
-            <option>Sunday</option>
-            <option>Monday</option>
-            <option>Tuesday</option>
-            <option>Wednesday</option>
-            <option>Thursday</option>
-            <option>Friday</option>
-            <option>Saturday</option>
+            <option value=0>Sunday</option>
+            <option value=1>Monday</option>
+            <option value=2>Tuesday</option>
+            <option value=3>Wednesday</option>
+            <option value=4>Thursday</option>
+            <option value=5>Friday</option>
+            <option value=6>Saturday</option>
           </select>
           <button type="submit">Comment</button>
         </form>

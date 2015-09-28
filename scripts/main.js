@@ -281,13 +281,70 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
 		this.render();
 		this.query();
+    this.weeklyComments = [];
+    var self = this;
+    this.activeCommentView = null;
+    Parse.Events.on('activatedDayView', function (e) {self.activeCommentView = e});
 		this.dayViews = []
+    console.log(this);
 	},
 
-	query: function () {
-		/* Also need to base it off of the current user as well
-			Need to add a 'belongsTo' relationship column in Parse */
+	template: _.template($('#backend-calendar-view').text()),
 
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	},
+
+  events: {
+    'submit form' : 'postWeeklyComment'
+  },
+
+  postWeeklyComment: function (e) {
+    e.preventDefault();
+    var self = this;
+
+    var content = $('input[name="content"]').val(),
+           dayOfWeek = Number($('select').val()),
+           isChecked = $('input[type="checkbox"]')[0].checked,
+           date = new moment($('input[name="date"]').val());
+           date.add(12,'hours');
+
+    var post = new Parse.Object('weeklyComment', {
+      createdBy: Parse.User.current(),
+      content:content
+    });
+
+    var ACL = new Parse.ACL();
+    ACL.setPublicReadAccess(true);
+    ACL.setWriteAccess(Parse.User.current(),true);
+    post.setACL(ACL);
+
+    if (!isChecked) {
+      post.set('date', date._d);
+    } else {
+      post.set('dayOfWeek', dayOfWeek);
+    }
+
+    if (!date.isBefore(moment(new Date()),'day')) { //if the set date is not before today
+      post.save(null, {
+        success: function (postObject) {
+          $('input[name="content"]').val('');
+          $('input[type="date"]').val(null);
+          $('select').val(0);
+          $('input[type="checkbox"]')[0].checked = false;
+          self.weeklyComments.push(postObject);
+          self.createDayViews(self.weeklyComments);
+        },
+        error: function (e,err) {alert(err.message)}
+      });
+    } else {
+      alert("You must post a date that is not in the past");
+    }
+  },
+
+  query: function () {
 
 		var timeBasedQuery = new Parse.Query("weeklyComment");
 		var beginningOfDay = new moment();
@@ -309,12 +366,18 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 		var self = this;
 		query.find().then(function (e) {
+      console.log("---- WeeklyComments returned from the server below ----");
 			console.log(e);
+      console.log("-------------------------------------------------------");
+      self.weeklyComments = e;
 			self.createDayViews(e);
-		})
+		});
 	},
 
 	createDayViews: function (e) {
+    _.each(this.dayViews, function (i) {
+      i.removeRenderedView();
+    });
 		for (var i = 0; i < 7; i++) {
 			var dateObject = new moment();
 			dateObject.add(i, 'days');
@@ -358,14 +421,27 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
 		this.dayViews[0].displayComments();
 	},
+});
 
-	template: _.template($('#backend-calendar-view').text()),
+BeMe.Views.DaysView = Parse.View.extend({
+  initialize: function () {
+    this.dayViews = [];
+    this.render();
+    this.collection('add remove', this.render, this);
+  },
 
-	render: function () {
-		this.$el.html(this.template(this.model));
-		$('.body-container').append(this.el);
-		BeMe.renderedViews.push(this);
-	}
+  render: function () {
+    //remove all of the currently rendered views from the page properly
+    _.each(this.dayViews, function (i) {
+      i.removeRenderedView();
+    });
+    this.dayViews = [];
+
+    this.collection.each(function (i) {
+      this.dayViews.push(new BeMe.Views.DayView({model:i}));
+    });
+    //loop through the collection and do stuff
+  }
 });
 
 BeMe.Views.DayView = Parse.View.extend({
@@ -389,6 +465,7 @@ BeMe.Views.DayView = Parse.View.extend({
 	},
 
 	displayComments: function () {
+    Parse.Events.trigger('activatedDayView', this);
 		this.$el.siblings().removeClass('active-day');
 		this.$el.addClass('active-day');
 
@@ -451,7 +528,13 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 	Begin Collections Section
 */
 
+BeMe.Collections.weeklyComments = Parse.Collection.extend({
+  className: "weeklyComment",
 
+  initialize: function () {
+    console.log("New weekly comments collecion");
+  },
+})
 
 /*
 	End Collections Section
