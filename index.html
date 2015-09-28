@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type='text/css' href="styles/main.css">
+    <link rel="stylesheet" type='text/css' href="styles/datepicker.css">
+
 </head>
 <body>
 
@@ -154,35 +156,11 @@
 
 <script type="text/template" id="backend-view">
 
-  <div class="backend-controls">
-      <div class="backend-tabs">
-        <ul>
-          <a href="#backend/feed">
-            <li><span class="fa fa-commenting"></span><p>My Feed</p><i class="fa fa-caret-down"></i>
-              <ul>
-                <li><p>Options</p></li>
-                <li><p>Options</p></li>
-              </ul>
-            </li>
-          </a>
-          <a href="#backend/beer">
-            <li><span class="fa fa-beer"></span><p>Beer List</p><i class="fa fa-caret-down"></i>
-              <ul>
-                <li><p>Draft</p></li>
-                <li><p>Bottled</p></li>
-                <li><p>Edit</p></li>
-              </ul>
-            </li>
-          </a>
-          <a href="#backend/competition"><li><span class="fa fa-globe"></span><p>Competition</p><i class="fa fa-caret-down"></i></li></a>
-          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>7 Days Out</p><i class="fa fa-caret-down"></i></li></a>
+  
 
-          <a href="#backend/settings"><li><span class="fa fa-calendar-o"></span><p>Settings</p><i class="fa fa-caret-down"></i></li></a>
+  <div class="bg-half"></div>
+  <div class="bg-half-2"></div>
 
-
-        </ul>
-      </div>
-  </div>
 
 </script>
 
@@ -192,10 +170,33 @@
 
   <div class="backend-container">
     <div class="narrow-container">
-      <div class="backend-breadcrumbs">
-        <img src="images/shotglass-new.png"><p>Bar Backend</p><!-- <span class="fa fa-angle-down"></span> --><i class="fa fa-bars"></i>
+      <section id="backend-menu" data-accordion-group>
+
+        <section data-accordion>
+          <button data-control><h1>My Feed</h1><i class="fa fa-cog"></i></button>
+          <div data-content>
+            <article>
+              <ul>
+                <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>Feed</p></li></a>
+                <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
+                <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
+                <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+      </section>
+
+      <div class="copyright-info">
+        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+        <p>Beseech Me®, LLC</p>
       </div>
 
+    </div>
+
+
+    <div class="wide-container">
       <div class="profile-tools profile-tools-desktop">
         <form action="">
           <textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea>
@@ -210,12 +211,6 @@
 
         </form>
       </div>
-
-
-    </div>
-
-
-    <div class="wide-container">
 
       <div class="profile-feed">
         <ul>
@@ -298,41 +293,42 @@
   <div class="backend-container">
     <div class="narrow-container">
 
-      <div class="backend-breadcrumbs">
-        <img src="images/shotglass-new.png"><p>Bar Backend</p><!-- <span class="fa fa-angle-down"></span> --><i class="fa fa-bars"></i>
-      </div>
+      <section id="backend-menu" data-accordion-group>
+
+        <section data-accordion>
+          <button data-control><h1>My Feed</h1><i class="fa fa-caret-down"></i></button>
+          <div data-content>
+            <article>
+              <ul>
+                <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>Feed</p></li></a>
+                <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
+                <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
+                <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+      </section>
 
       <div class="beer-search">
         <span class="fa fa-search"></span>
-        <input type="text" placeholder="Search Brewery Database...">
+        <input type="text" placeholder="Brewery Database...">
+        <button>Search</button>
+      </div>
+      <div class="copyright-info">
+        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+        <p>Beseech Me®, LLC</p>
       </div>
 
-      <div class="beer-search-results">
-      <ul>
-        <li>
-          <span class="fa fa-plus-circle"></span>
-          <div class="beer-results-name">
-            <h1>Two Hearted Ale</h1>
-            <p>Bells Brewery, Inc.</p>
-          </div>
-        </li>
-
-        <li>
-          <span class="fa fa-plus-circle"></span>
-          <div class="beer-results-name">
-            <h1>IPA</h1>
-            <p>Westbrook Brewing</p>
-          </div>
-        </li>
 
 
-      </ul>
-    </div>
+
     </div>
 
     <div class="wide-container">
 
-
+      
 
       <div class="profile-beer-list">
         <ul>
@@ -393,6 +389,34 @@
               <p>Abv</p>
             </div>
           </li>
+
+          <li>
+            <div class="beer-avatar">
+              <img src="images/harpoon-avatar.png">
+            </div>
+            <div class="beer-name">
+              <h1>Rich and Dans Rye IPA</h1>
+              <h2>Harpoon Brewing</h2>
+            </div>
+            <div class="beer-abv">
+              <h1>7.4%</h1>
+              <p>Abv</p>
+            </div>
+          </li>
+
+          <li>
+            <div class="beer-avatar">
+              <img src="images/coors-light-avatar.png">
+            </div>
+            <div class="beer-name">
+              <h1>Coors Light</h1>
+              <h2>Coors Brewing Co.</h2>
+            </div>
+            <div class="beer-abv">
+              <h1>4.2%</h1>
+              <p>Abv</p>
+            </div>
+          </li>
         </ul>
       </div>
 
@@ -405,9 +429,15 @@
 
 <!-- backend DayView -->
 
+<<<<<<< HEAD
+<script type="text/template" id='backend-week-view'>
+  <section><div id="seven-day-1"><%= options.date.format('ddd') %></div><div id="seven-month-1"><%= options.date.format('MMM Do') %></div></section>
+  <aside>  <% if (typeof model !== 'undefined') { %><span class="fa fa-comments"></span> <% } %></aside>
+=======
 <script type="text/template" id='backend-day-view'>
   <section><div id="seven-day-1"><%= attributes.date.format('dddd') %></div><div id="seven-month-1"><%= attributes.date.format('MMMM Do') %></div></section>
   <aside>  <% if (typeof attributes.models !== 'undefined') { %><span class="fa fa-comments"></span> <% } %></aside>
+>>>>>>> 2f9f0fdfdc2d5205668ad6ece9c0589b0bf19535
 </script>
 
 <!-- backend Calendar View -->
@@ -416,10 +446,23 @@
   <div class="backend-container">
     <div class="narrow-container">
 
-      <div class="backend-breadcrumbs">
-        <img src="images/shotglass-new.png"><p>Bar Backend</p><!-- <span class="fa fa-angle-down"></span> --><i class="fa fa-bars"></i>
-      </div>
+      <section id="backend-menu" data-accordion-group>
 
+        <section data-accordion>
+          <button data-control><h1>My Feed</h1><i class="fa fa-cog"></i></button>
+          <div data-content>
+            <article>
+              <ul>
+                <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>Feed</p></li></a>
+                <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
+                <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
+                <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+      </section>
       <div class="add-weekly-comment">
         <form action="">
           <input type="text" name="content" placeholder="Add Comment...">
@@ -437,6 +480,11 @@
           <button type="submit">Comment</button>
         </form>
       </div>
+      <div class="copyright-info">
+        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+        <p>Beseech Me®, LLC</p>
+      </div>
+      
 
       <div class="seven-day-nav">
         <ul>
@@ -447,7 +495,7 @@
     </div>
 
     <div class="wide-container">
-
+      
       <div class="calendar-nav">
         <ul>
           <li>Every Saturday</li>
@@ -455,6 +503,7 @@
           <li>Hours</li>
         </ul>
       </div>
+
 
       <div class="calendar-day">
         <div class="calendar-sublist">
@@ -664,9 +713,13 @@
 <script src='bower_components/jquery/dist/jquery.min.js'></script>
 <script src='bower_components/underscore/underscore-min.js'></script>
 <script src='bower_components/backbone/backbone-min.js'></script>
+<script src='bower_components/jquery-ui/jquery-ui.min.js'></script>
+<script src='bower_components/jquery-ui/ui/minified/datepicker.min.js'></script>
+
 <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 <script src='jquery-accordion.js'></script>
 <script src='bower_components/autosize/dist/autosize.min.js'></script>
 <script src="bower_components/moment/min/moment.min.js"></script>
 <script src='scripts/main.js'></script>
+
 </body>
