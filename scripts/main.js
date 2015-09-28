@@ -461,7 +461,7 @@ BeMe.Views.DayView = Parse.View.extend({
     var $ul = $('.seven-day-nav ul li');
     var index = _.indexOf($ul, this.el);
 
-    BeMe.BackendCalendarRoute.DaysView.activeViewIndex= _.indexOf($ul, self.el);
+    BeMe.BackendCalendarRoute.DaysView.activeViewIndex = index;
 
     this.displayComments();
   },
