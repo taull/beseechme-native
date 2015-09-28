@@ -12,7 +12,6 @@ $('.accordion').accordion({
     "transitionSpeed": 400
 });
 
-$('#only-one [data-accordion]').accordion();
 $('#barback-menu [data-accordion]').accordion();
 
 
@@ -107,6 +106,8 @@ BeMe.Views.Index = Parse.View.extend({
 BeMe.Views.Backend = Parse.View.extend({
 	initialize: function () {
 		this.render();
+		$('#backend-menu [data-accordion]').accordion();
+
 	},
 
 	template: _.template($('#backend-view').text()),
@@ -122,6 +123,8 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 	initialize: function () {
 		this.render();
 		autosize($('#business-status'));
+		$('#backend-menu [data-accordion]').accordion();
+
 	},
 
 	template: _.template($('#backend-feed-view').text()),
@@ -136,6 +139,8 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 BeMe.Views.BackendBeerList = Parse.View.extend({
 	initialize: function () {
 		this.render();
+		$('#backend-menu [data-accordion]').accordion();
+
 	},
 
 	template: _.template($('#backend-beer-view').text()),
@@ -150,6 +155,8 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 BeMe.Views.BackendCompetition = Parse.View.extend({
 	initialize: function () {
 		this.render();
+		$('#backend-menu [data-accordion]').accordion();
+
 	},
 
 	template: _.template($('#backend-competition-view').text()),
@@ -165,6 +172,8 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
 		this.render();
 		this.query();
+		$('#backend-menu [data-accordion]').accordion();
+
 	},
 
 	query: function () {
@@ -244,7 +253,9 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
-	}
+	},
+
+
 });
 
 BeMe.Views.DayView = Parse.View.extend({
