@@ -429,15 +429,9 @@
 
 <!-- backend DayView -->
 
-<<<<<<< HEAD
-<script type="text/template" id='backend-week-view'>
-  <section><div id="seven-day-1"><%= options.date.format('ddd') %></div><div id="seven-month-1"><%= options.date.format('MMM Do') %></div></section>
-  <aside>  <% if (typeof model !== 'undefined') { %><span class="fa fa-comments"></span> <% } %></aside>
-=======
 <script type="text/template" id='backend-day-view'>
-  <section><div id="seven-day-1"><%= attributes.date.format('dddd') %></div><div id="seven-month-1"><%= attributes.date.format('MMMM Do') %></div></section>
+  <section><div id="seven-day-1"><%= attributes.date.format('ddd') %></div><div id="seven-month-1"><%= attributes.date.format('MMM Do') %></div></section>
   <aside>  <% if (typeof attributes.models !== 'undefined') { %><span class="fa fa-comments"></span> <% } %></aside>
->>>>>>> 2f9f0fdfdc2d5205668ad6ece9c0589b0bf19535
 </script>
 
 <!-- backend Calendar View -->
@@ -486,23 +480,17 @@
       </div>
       
 
+      
+    </div>
+
+    <div class="wide-container">
+      
       <div class="seven-day-nav">
         <ul>
           <!-- Appended DayViews go here -->
         </ul>
       </div>
 
-    </div>
-
-    <div class="wide-container">
-      
-      <div class="calendar-nav">
-        <ul>
-          <li>Every Saturday</li>
-          <li>Today</li>
-          <li>Hours</li>
-        </ul>
-      </div>
 
 
       <div class="calendar-day">
