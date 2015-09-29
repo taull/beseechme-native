@@ -2320,7 +2320,8 @@ article {
     padding: 20px 20px;
     background: #fff;
     border-bottom: 1px solid #f0f0f0;
-    cursor: move; }
+    cursor: move;
+    height: 60px; }
   .settings-sublist li:hover,
   .calendar-daily li:hover {
     background: #fcfcfc; }
@@ -2376,7 +2377,7 @@ article {
     line-height: 20px;
     /*font-weight: 300;*/
     color: #333;
-    width: 90%;
+    width: 85%;
     display: inline-block;
     vertical-align: top;
     padding-left: 10px; }
@@ -2410,23 +2411,6 @@ article {
     .settings-sublist select:focus,
     .calendar-daily select:focus {
       outline: 0; }
-  .settings-sublist button,
-  .calendar-daily button {
-    width: 20% !important;
-    margin: 0 auto !important;
-    height: 30px !important;
-    background: #01579B !important;
-    font-size: 12px !important;
-    font-weight: lighter !important;
-    color: #f0f0f0 !important;
-    text-align: center !important;
-    outline: 0 !important;
-    border: 0 !important;
-    padding-top: 10px !important;
-    border-radius: 3px !important;
-    display: inline-block !important;
-    vertical-align: top !important;
-    float: right !important; }
 
 .calendar-standing {
   display: block;
@@ -2490,7 +2474,7 @@ article {
     line-height: 20px;
     /*font-weight: 300;*/
     color: #333;
-    width: 90%;
+    width: 85%;
     display: inline-block;
     vertical-align: top;
     padding-left: 10px; }
@@ -2520,28 +2504,20 @@ article {
     height: 28px; }
     .calendar-standing select:focus {
       outline: 0; }
-  .calendar-standing button {
-    width: 20% !important;
-    margin: 0 auto !important;
-    height: 30px !important;
-    background: #01579B !important;
-    font-size: 12px !important;
-    font-weight: lighter !important;
-    color: #f0f0f0 !important;
-    text-align: center !important;
-    outline: 0 !important;
-    border: 0 !important;
-    padding-top: 10px !important;
-    border-radius: 3px !important;
-    display: inline-block !important;
-    vertical-align: top !important;
-    float: right !important; }
 
 .delete-comment {
-  display: none; }
+  display: none;
+  width: 10%;
+  border: 0;
+  outline: 0;
+  background: #ff0000;
+  font-size: 12px;
+  padding: 5px;
+  color: #f0f0f0; }
 
 .calendar-daily li:hover .delete-comment {
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: top; }
 
 .sublist-header {
   z-index: 10;

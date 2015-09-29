@@ -3018,6 +3018,7 @@ article {
 		background: #fff;
 		border-bottom: 1px solid #f0f0f0;
 		cursor: move;
+		height: 60px;
 	}
 
 	li:hover {
@@ -3085,7 +3086,7 @@ article {
 		line-height: 20px;
 		/*font-weight: 300;*/
 		color: #333;
-		width: 90%;
+		width: 85%;
 		display: inline-block;
 		vertical-align: top;
 		padding-left:10px;
@@ -3125,23 +3126,6 @@ article {
     	}
 	}
 
-	button {
-		width: 20% !important;
-		margin: 0 auto !important;
-		height: 30px !important;
-		background: $secondary-color-dark !important;
-		font-size: 12px !important;
-		font-weight: lighter !important;
-		color: $text-color !important;
-		text-align: center !important;
-		outline: 0 !important;
-		border: 0 !important;
-		padding-top: 10px !important;
-		border-radius: 3px !important;
-		display: inline-block !important;
-		vertical-align: top !important;
-		float: right !important;
-	}
 }
 
 .calendar-standing {
@@ -3230,7 +3214,7 @@ article {
 		line-height: 20px;
 		/*font-weight: 300;*/
 		color: #333;
-		width: 90%;
+		width: 85%;
 		display: inline-block;
 		vertical-align: top;
 		padding-left:10px;
@@ -3270,31 +3254,22 @@ article {
     	}
 	}
 
-	button {
-		width: 20% !important;
-		margin: 0 auto !important;
-		height: 30px !important;
-		background: $secondary-color-dark !important;
-		font-size: 12px !important;
-		font-weight: lighter !important;
-		color: $text-color !important;
-		text-align: center !important;
-		outline: 0 !important;
-		border: 0 !important;
-		padding-top: 10px !important;
-		border-radius: 3px !important;
-		display: inline-block !important;
-		vertical-align: top !important;
-		float: right !important;
-	}
 }
 
 .delete-comment {
 	display: none;
+	width: 10%;
+	border: 0;
+	outline: 0;
+	background: #ff0000;
+	font-size: 12px;
+	padding: 5px;
+	color: #f0f0f0;
 }
 
 .calendar-daily li:hover .delete-comment {
-	display:inline-block
+	display:inline-block;
+	vertical-align: top;
 }
 
 
