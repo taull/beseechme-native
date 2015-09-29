@@ -10,7 +10,7 @@
   line-height: 1.2;
   color: #000000;
   position: absolute;
-  z-index: 10000;
+  z-index: 999999999;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
