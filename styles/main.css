@@ -5,10 +5,12 @@
 /* Global Variables */
 * {
   font-family: 'Helvetica', sans-serif;
-  font-size: 0;
+  /*	font-size: 0;
+  */
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  list-style: none;
   /*border-left:0 !important;
   border-right:0 !important;*/ }
 
@@ -36,7 +38,12 @@ body {
   position: relative;
   z-index: 1;
   top: 50px;
+  font-size: 0;
   /*border-right: 1px solid #dfdfdf;*/ }
+
+.datepicker {
+  position: relative;
+  z-index: 999999; }
 
 .body-shift {
   margin-right: 360px;
@@ -2028,18 +2035,7 @@ header {
   background: #fff;
   /*border: 1px solid #dfdfdf;*/
   text-align: left;
-  margin-top: 15px;
-  /*	li:nth-child(2), 
-  	li:nth-child(3) {
-  		width: 50%;
-  		height: 50px;
-  		display: inline-block;
-  		vertical-align: top;
-  	}
-  
-  	li:nth-child(2) {
-  		border-right: 1px solid #dfdfdf;
-  	}*/ }
+  margin-top: 15px; }
   .add-weekly-comment li {
     padding: 15px;
     border-bottom: 1px solid #f0f0f0; }
@@ -2082,17 +2078,6 @@ header {
     padding-left: 5px;
     width: 40%;
     text-align: left; }
-  .add-weekly-comment button {
-    display: block;
-    vertical-align: top;
-    width: 25%;
-    font-size: 12px;
-    background: #01579B;
-    border-radius: 4px;
-    padding: 10px 0;
-    border: 0;
-    outline: 0;
-    color: #f8f8f8; }
   .add-weekly-comment nav {
     width: 80%;
     display: inline-block;
