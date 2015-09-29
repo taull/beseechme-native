@@ -472,8 +472,10 @@ BeMe.Views.DayView = Parse.View.extend({
 
 		var self = this;
 
-		var calendarSublist = $('.calendar-sublist');
-		calendarSublist.empty();
+
+		var calendarDaily = $('.calendar-daily');
+    $('.calendar-standing').empty();
+		calendarDaily.empty();
 
 		/* Not working properly? */
 		_.each(this.commentViews, function (i) {
@@ -486,7 +488,7 @@ BeMe.Views.DayView = Parse.View.extend({
 				self.commentViews.push(new BeMe.Views.CommentDisplay({model:i}));
 			});
 		} else {
-			calendarSublist.append("<p>There are no comments to display for today!</p>");
+			calendarDaily.append("<p>There are no comments to display for today!</p>");
 		}
 	}
 });
@@ -498,11 +500,15 @@ BeMe.Views.CommentDisplay = Parse.View.extend({
 		this.render();
 	},
 
-	template: _.template("<i class='fa fa-arrows'></i><p><%= attributes.content %></p>"),
+	template: _.template("<% if (typeof attributes.dayOfWeek !== 'undefined') { %><i class='fa fa-thumb-tack'></i><% } else { %><i class='fa fa-arrows'><% } %></i><p><%= attributes.content %></p>"),
 
 	render: function () {
 		this.$el.html(this.template(this.model));
-		$('.calendar-sublist').append(this.el);
+    if (this.model.get('dayOfWeek')) {
+      $('.calendar-standing').append(this.el);
+    } else {
+	    $('.calendar-daily').append(this.el);
+    }
 		BeMe.renderedViews.push(this);
 	}
 })
