@@ -78,13 +78,11 @@
       </form>
     </div>
 
-    <div class="copyright-info">
-      <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-    </div>
+
   </div>
 </script>
 
-<!-- Business Register Route -->
+<!-- Consumer Register Route -->
 <script type='text/template' id='consumer-register-route'>
   <div class="home-container">
 
@@ -117,9 +115,7 @@
       </form>
     </div>
 
-    <div class="copyright-info">
-      <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-    </div>
+
   </div>
 </script>
 
@@ -130,15 +126,21 @@
   <header>
     <div class="header-container">
       <div class="header-left">
-        <div class="bar-search">
-          <i class="fa fa-search"></i>
-          <input placeholder="Search Bars..." type='text'>
-        </div>
+        <span class="fa fa-location-arrow"></span>
       </div>
+      <div class="header-center">
+        <ul>
+          <li class="active-header-li"><p>Backend</p></li>
+          <li><p>Search</p></li>
+          <li><p>Settings</p></li>
+          <li><p>Logout</p></li>
 
+        </ul>
+      </div>
       <div class="header-right">
-        <h1>Hello, Taylor</h1>
-        <img src="images/bar-logo.png">
+        <span class="fa fa-facebook"></span>
+        <span class="fa fa-twitter"></span>
+        <span class="fa fa-youtube"></span>
       </div>
 
     </div>
@@ -156,10 +158,9 @@
 
 <script type="text/template" id="backend-view">
 
-  
+  <div class="current-user-info"><p></p></div>
 
-  <div class="bg-half"></div>
-  <div class="bg-half-2"></div>
+
 
 
 </script>
@@ -167,26 +168,28 @@
 <!-- backend Feed View -->
 
 <script type="text/template" id="backend-feed-view">
-
+  
   <div class="backend-container">
     <div class="narrow-container">
-      <section id="backend-menu" data-accordion-group>
 
-        <section data-accordion>
-          <button data-control><h1>My Feed</h1><i class="fa fa-cog"></i></button>
-          <div data-content>
-            <article>
-              <ul>
-                <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>Feed</p></li></a>
-                <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
-                <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
-                <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
-              </ul>
-            </article>
-          </div>
+      <div class="backend-info">
+        <section>
+
+          <li>
+            <h1>Henrys Grill and Bar</h1>
+          </li>
         </section>
+      </div>
 
-      </section>
+      <div class="backend-tabs">
+        <ul>
+          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>Feed</p></li></a>
+          <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
+          <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
+          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+        </ul>
+      </div>
+
 
       <div class="copyright-info">
         <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
@@ -293,23 +296,22 @@
   <div class="backend-container">
     <div class="narrow-container">
 
-      <section id="backend-menu" data-accordion-group>
-
-        <section data-accordion>
-          <button data-control><h1>My Feed</h1><i class="fa fa-caret-down"></i></button>
-          <div data-content>
-            <article>
-              <ul>
-                <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>Feed</p></li></a>
-                <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
-                <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
-                <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
-              </ul>
-            </article>
-          </div>
+      <div class="backend-info">
+        <section>
+          <li>
+            <h1>Henrys Grill and Bar</h1>
+          </li>
         </section>
+      </div>
 
-      </section>
+      <div class="backend-tabs">
+        <ul>
+          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>Feed</p></li></a>
+          <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
+          <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
+          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+        </ul>
+      </div>
 
       <div class="beer-search">
         <span class="fa fa-search"></span>
@@ -440,38 +442,49 @@
   <div class="backend-container">
     <div class="narrow-container">
 
-      <section id="backend-menu" data-accordion-group>
-
-        <section data-accordion>
-          <button data-control><h1>My Feed</h1><i class="fa fa-cog"></i></button>
-          <div data-content>
-            <article>
-              <ul>
-                <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>Feed</p></li></a>
-                <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
-                <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
-                <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
-              </ul>
-            </article>
-          </div>
+      <div class="backend-info">
+        <section>
+          <li>
+            <h1>Henrys Grill and Bar</h1>
+          </li>
         </section>
+      </div>
 
-      </section>
+      <div class="backend-tabs">
+        <ul>
+          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>Feed</p></li></a>
+          <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
+          <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
+          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+        </ul>
+      </div>
       <div class="add-weekly-comment">
         <form action="">
-          <input type="text" name="content" placeholder="Add Comment...">
-          <input name="date" type="date">
-          <input type="checkbox" value="standingComment"><p>Repeat Every:</p>
-          <select>
-            <option value=0>Sunday</option>
-            <option value=1>Monday</option>
-            <option value=2>Tuesday</option>
-            <option value=3>Wednesday</option>
-            <option value=4>Thursday</option>
-            <option value=5>Friday</option>
-            <option value=6>Saturday</option>
-          </select>
-          <button type="submit">Comment</button>
+
+          <li>
+            <input type="text" name="content" placeholder="Add Comment...">
+          </li>
+
+          <li>
+            <input name="date" type="date">
+          </li>
+          <li>
+            <input type="checkbox" value="standingComment">
+            <select>
+              <option value=0>Every Sunday</option>
+              <option value=1>Every Monday</option>
+              <option value=2>Every Tuesday</option>
+              <option value=3>Every Wednesday</option>
+              <option value=4>Every Thursday</option>
+              <option value=5>Every Friday</option>
+              <option value=6>Every Saturday</option>
+            </select>
+          </li>
+
+          <li>
+            <button type="submit">Comment</button>
+          </li>
+
         </form>
       </div>
       <div class="copyright-info">
@@ -633,6 +646,23 @@
 
   <div class="backend-container">
     <div class="narrow-container">
+
+      <div class="backend-info">
+        <section>
+          <li>
+            <h1>Henrys Grill and Bar</h1>
+          </li>
+        </section>
+      </div>
+
+      <div class="backend-tabs">
+        <ul>
+          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>Feed</p></li></a>
+          <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
+          <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
+          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+        </ul>
+      </div>
     </div>
 
     <div class="wide-container">
