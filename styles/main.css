@@ -2319,41 +2319,41 @@ article {
   top: 0; }
 
 .settings-sublist,
-.calendar-sublist {
+.calendar-daily {
   display: block;
   /*background: #fff;*/
   /*padding-top:30px;*/
   /*border:1px solid #dfdfdf;*/
   margin-top: 15px; }
   .settings-sublist ul,
-  .calendar-sublist ul {
+  .calendar-daily ul {
     list-style: none;
     padding-left: 0; }
   .settings-sublist li,
-  .calendar-sublist li {
+  .calendar-daily li {
     display: block;
     padding: 20px 20px;
     background: #fff;
     border-bottom: 1px solid #f0f0f0;
     cursor: move; }
   .settings-sublist li:hover,
-  .calendar-sublist li:hover {
+  .calendar-daily li:hover {
     background: #fcfcfc; }
   .settings-sublist div,
-  .calendar-sublist div {
+  .calendar-daily div {
     display: inline-block;
     vertical-align: top;
     width: 50%;
     padding: 15px 0px; }
   .settings-sublist li:last-child,
-  .calendar-sublist li:last-child {
+  .calendar-daily li:last-child {
     /*padding-top:30px;*/ }
   .settings-sublist footer,
-  .calendar-sublist footer {
+  .calendar-daily footer {
     /*border-top:1px solid #dfdfdf;*/
     /*margin-top:15px;*/ }
   .settings-sublist i,
-  .calendar-sublist i {
+  .calendar-daily i {
     font-size: 12px;
     display: inline-block;
     vertical-align: top;
@@ -2363,7 +2363,7 @@ article {
     padding-top: 4px;
     /*float:right;*/ }
   .settings-sublist span,
-  .calendar-sublist span {
+  .calendar-daily span {
     display: inline-block;
     vertical-align: top;
     font-size: 22px !important;
@@ -2374,7 +2374,7 @@ article {
     padding-top: 20px !important;
     text-align: center; }
   .settings-sublist h1,
-  .calendar-sublist h1 {
+  .calendar-daily h1 {
     font-size: 8px;
     width: 25%;
     text-align: right;
@@ -2386,7 +2386,7 @@ article {
     vertical-align: top;
     text-transform: uppercase; }
   .settings-sublist p,
-  .calendar-sublist p {
+  .calendar-daily p {
     font-size: 14px;
     line-height: 20px;
     /*font-weight: 300;*/
@@ -2396,7 +2396,7 @@ article {
     vertical-align: top;
     padding-left: 10px; }
   .settings-sublist input,
-  .calendar-sublist input {
+  .calendar-daily input {
     width: 85%;
     height: 60px;
     border: 0;
@@ -2409,10 +2409,10 @@ article {
     /*border-radius:4px;*/
     /*border:1px solid #dfdfdf;*/ }
     .settings-sublist input:focus,
-    .calendar-sublist input:focus {
+    .calendar-daily input:focus {
       outline: none; }
   .settings-sublist select,
-  .calendar-sublist select {
+  .calendar-daily select {
     font-size: 16px;
     margin-left: 10px;
     -webkit-appearance: none;
@@ -2423,10 +2423,119 @@ article {
     width: 60%;
     height: 28px; }
     .settings-sublist select:focus,
-    .calendar-sublist select:focus {
+    .calendar-daily select:focus {
       outline: 0; }
   .settings-sublist button,
-  .calendar-sublist button {
+  .calendar-daily button {
+    width: 20% !important;
+    margin: 0 auto !important;
+    height: 30px !important;
+    background: #01579B !important;
+    font-size: 12px !important;
+    font-weight: lighter !important;
+    color: #f0f0f0 !important;
+    text-align: center !important;
+    outline: 0 !important;
+    border: 0 !important;
+    padding-top: 10px !important;
+    border-radius: 3px !important;
+    display: inline-block !important;
+    vertical-align: top !important;
+    float: right !important; }
+
+.calendar-standing {
+  display: block;
+  /*background: #fff;*/
+  /*padding-top:30px;*/
+  /*border:1px solid #dfdfdf;*/
+  margin-top: 15px; }
+  .calendar-standing ul {
+    list-style: none;
+    padding-left: 0; }
+  .calendar-standing li {
+    display: block;
+    padding: 20px 20px;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: move; }
+  .calendar-standing li:hover {
+    background: #fcfcfc; }
+  .calendar-standing div {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    padding: 15px 0px; }
+  .calendar-standing li:last-child {
+    /*padding-top:30px;*/ }
+  .calendar-standing footer {
+    /*border-top:1px solid #dfdfdf;*/
+    /*margin-top:15px;*/ }
+  .calendar-standing i {
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: top;
+    width: 5%;
+    text-align: left;
+    color: #dfdfdf;
+    padding-top: 4px;
+    /*float:right;*/ }
+  .calendar-standing span {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 22px !important;
+    background: #fff;
+    color: #01579B !important;
+    height: 60px;
+    width: 15%;
+    padding-top: 20px !important;
+    text-align: center; }
+  .calendar-standing h1 {
+    font-size: 8px;
+    width: 25%;
+    text-align: right;
+    display: inline-block;
+    padding-right: 10px;
+    padding-top: 10px;
+    font-weight: 400;
+    color: #0277BD;
+    vertical-align: top;
+    text-transform: uppercase; }
+  .calendar-standing p {
+    font-size: 14px;
+    line-height: 20px;
+    /*font-weight: 300;*/
+    color: #333;
+    width: 90%;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 10px; }
+  .calendar-standing input {
+    width: 85%;
+    height: 60px;
+    border: 0;
+    font-size: 14px;
+    padding: 20px;
+    font-weight: lighter;
+    resize: none;
+    color: #333;
+    background: #fff;
+    /*border-radius:4px;*/
+    /*border:1px solid #dfdfdf;*/ }
+    .calendar-standing input:focus {
+      outline: none; }
+  .calendar-standing select {
+    font-size: 16px;
+    margin-left: 10px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border: 0;
+    background: transparent;
+    font-weight: lighter;
+    width: 60%;
+    height: 28px; }
+    .calendar-standing select:focus {
+      outline: 0; }
+  .calendar-standing button {
     width: 20% !important;
     margin: 0 auto !important;
     height: 30px !important;

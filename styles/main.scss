@@ -3015,7 +3015,152 @@ article {
 }
 
 .settings-sublist, 
-.calendar-sublist {
+.calendar-daily {
+	display: block;
+	/*background: #fff;*/
+	/*padding-top:30px;*/
+	/*border:1px solid #dfdfdf;*/
+	margin-top:15px;
+
+
+	ul {
+		list-style: none;
+		padding-left: 0;
+	}
+
+	li {
+		display: block;
+		padding: 20px 20px;
+		background: #fff;
+		border-bottom: 1px solid #f0f0f0;
+		cursor: move;
+	}
+
+	li:hover {
+		background:#fcfcfc;
+	}
+
+	div {
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		padding: 15px 0px;
+	}
+
+	li:last-child {
+		/*padding-top:30px;*/
+	}
+
+	article {
+
+	}
+
+	footer {
+		/*border-top:1px solid #dfdfdf;*/
+		/*margin-top:15px;*/
+	}
+
+	i {
+		font-size: 12px;
+		display: inline-block;
+		vertical-align: top;
+		width: 5%;
+		text-align: left;
+		color: #dfdfdf;
+		padding-top:4px;
+		/*float:right;*/
+	}
+
+	span {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 22px !important;
+		background: #fff;
+		color: $secondary-color-dark !important;
+		height: 60px;
+		width: 15%;
+		padding-top:20px !important;
+		text-align: center;
+	}
+
+	h1 {
+		font-size: 8px;
+		width: 25%;
+		text-align: right;
+		display: inline-block;
+		padding-right: 10px;
+		padding-top:10px;
+		font-weight: 400;
+		color: $secondary-color-medium;
+		vertical-align: top;
+		text-transform: uppercase;
+	}
+
+	p {
+		font-size: 14px;
+		line-height: 20px;
+		/*font-weight: 300;*/
+		color: #333;
+		width: 90%;
+		display: inline-block;
+		vertical-align: top;
+		padding-left:10px;
+	}
+
+	input {
+		width:85%;
+		height: 60px;
+		border:0;
+		font-size: 14px;
+		padding: 20px ;
+		font-weight: lighter;
+		resize: none;
+		color: #333;
+		background:#fff;
+		/*border-radius:4px;*/
+		/*border:1px solid #dfdfdf;*/
+
+		&:focus {
+			outline:none;
+		}
+	}
+
+	select {
+		font-size: 16px;
+		margin-left:10px;
+		-webkit-appearance: none;
+    	-webkit-border-radius:0;
+    	border:0;
+    	background:transparent;
+    	font-weight: lighter;
+    	width:60%;
+    	height: 28px;
+
+    	&:focus {
+    		outline:0;
+    	}
+	}
+
+	button {
+		width: 20% !important;
+		margin: 0 auto !important;
+		height: 30px !important;
+		background: $secondary-color-dark !important;
+		font-size: 12px !important;
+		font-weight: lighter !important;
+		color: $text-color !important;
+		text-align: center !important;
+		outline: 0 !important;
+		border: 0 !important;
+		padding-top: 10px !important;
+		border-radius: 3px !important;
+		display: inline-block !important;
+		vertical-align: top !important;
+		float: right !important;
+	}
+}
+
+.calendar-standing {
 	display: block;
 	/*background: #fff;*/
 	/*padding-top:30px;*/
