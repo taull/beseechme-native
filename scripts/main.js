@@ -538,13 +538,12 @@ BeMe.Views.CommentDisplay = Parse.View.extend({
 	},
 
   events: {
-    'click .delete' : 'deleteComment'
+    'click .delete-comment' : 'deleteComment'
   },
 
   deleteComment: function () {
-    this.model.destroy().then(function () {
-
-    });
+    this.model.destroy();
+    BeMe.BackendCalendarRoute.DaysView.render();
   }
 })
 
