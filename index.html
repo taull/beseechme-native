@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type='text/css' href="styles/main.css">
-    <link rel="stylesheet" type='text/css' href="styles/datepicker.css">
+  <link rel="stylesheet" type='text/css' href="bower_components/pickadate/lib/themes/default.css">
+  <link rel="stylesheet" type='text/css' href="bower_components/pickadate/lib/themes/default.date.css">
 
 </head>
 <body>
@@ -466,7 +467,7 @@
           </li>
 
           <li>
-            <input name="date" type="date">
+            <input class="datepicker" name="date" type="text">
           </li>
           <li>
             <input type="checkbox" value="standingComment">
@@ -740,8 +741,8 @@
 <script src='bower_components/underscore/underscore-min.js'></script>
 <script src='bower_components/backbone/backbone-min.js'></script>
 <script src='bower_components/jquery-ui/jquery-ui.min.js'></script>
-<script src='bower_components/jquery-ui/ui/minified/datepicker.min.js'></script>
-
+<script src='bower_components/pickadate/lib/picker.js'></script>
+<script src='bower_components/pickadate/lib/picker.date.js'></script>
 <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 <script src='jquery-accordion.js'></script>
 <script src='bower_components/autosize/dist/autosize.min.js'></script>
