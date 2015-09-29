@@ -2537,6 +2537,12 @@ article {
     vertical-align: top !important;
     float: right !important; }
 
+.delete-comment {
+  display: none; }
+
+.calendar-daily li:hover .delete-comment {
+  display: inline-block; }
+
 .sublist-header {
   z-index: 10;
   width: 100%;
