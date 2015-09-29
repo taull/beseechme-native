@@ -140,7 +140,7 @@ BeMe.Views.Index = Parse.View.extend({
 		Parse.User.logIn(email,password, {
 			success: function  (userObject) {
 				console.log(userObject);
-        BeMe.ApplicationView.render(); 
+        BeMe.ApplicationView.render();
         if(userObject.get('userType') == 'consumer') {
           BeMe.Router.navigate('dashboard/feed', true);
         } else {
@@ -416,6 +416,7 @@ BeMe.Views.DaysView = Parse.View.extend({
         success: function (postObject) {
           $('input[name="content"]').val('');
           $('input[type="date"]').val(null);
+          $('.datepicker').datepicker('refresh');
           $('select').val(0);
           $('input[type="checkbox"]')[0].checked = false;
 
@@ -524,7 +525,7 @@ BeMe.Views.CommentDisplay = Parse.View.extend({
 		this.render();
 	},
 
-	template: _.template("<% if (typeof attributes.dayOfWeek !== 'undefined') { %><i class='fa fa-thumb-tack'></i><% } else { %><i class='fa fa-arrows'><% } %></i><p><%= attributes.content %></p>"),
+	template: _.template($('#comment-view').text()),
 
 	render: function () {
 		this.$el.html(this.template(this.model));
@@ -534,7 +535,17 @@ BeMe.Views.CommentDisplay = Parse.View.extend({
 	    $('.calendar-daily').append(this.el);
     }
 		BeMe.renderedViews.push(this);
-	}
+	},
+
+  events: {
+    'click .delete' : 'deleteComment'
+  },
+
+  deleteComment: function () {
+    this.model.destroy().then(function () {
+
+    });
+  }
 })
 
 BeMe.Views.BackendSettings = Parse.View.extend({

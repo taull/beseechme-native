@@ -443,6 +443,14 @@
   <aside>  <% if (typeof attributes.models !== 'undefined') { %><span class="fa fa-comments"></span> <% } %></aside>
 </script>
 
+<script type='text/template' id="comment-view">
+  <% if (typeof attributes.dayOfWeek !== 'undefined') { %>
+    <i class='fa fa-thumb-tack'></i>
+  <% } else { %>
+    <i class='fa fa-arrows'></i>
+  <% } %>
+  <p><%= attributes.content %></p>
+</script>
 <!-- backend Calendar View -->
 
 <script type="text/template" id="backend-calendar-view">
