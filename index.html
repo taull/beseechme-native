@@ -14,6 +14,47 @@
 
 <div id='application'></div>
 
+
+<!-- Application View -->
+
+<script type="text/template" id="application-view">
+
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <span class="fa fa-location-arrow"></span>
+      </div>
+      <div class="header-center">
+        <ul>
+          <li class="active-header-li"><p>Backend</p></li>
+          <li><p>Search</p></li>
+          <li><p>Settings</p></li>
+          <% if (Parse.User.current()) { %>
+          <li><p id='logout'>Logout</p></li>
+          <% } else { %>
+          <li><p id='sign-in'>Sign In</p></li>
+          <% } %>
+
+
+
+
+        </ul>
+      </div>
+      <div class="header-right">
+        <span class="fa fa-facebook"></span>
+        <span class="fa fa-twitter"></span>
+        <span class="fa fa-youtube"></span>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="body-container">
+  </div>
+
+</script>
+
+
 <!-- Index Route -->
 <script type='text/template' id='index-route'>
   <div class="home-container">
@@ -119,41 +160,6 @@
   </div>
 </script>
 
-<!-- Application View -->
-
-<script type="text/template" id="application-view">
-
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        <span class="fa fa-location-arrow"></span>
-      </div>
-      <div class="header-center">
-        <ul>
-          <li class="active-header-li"><p>Backend</p></li>
-          <li><p>Search</p></li>
-          <li><p>Settings</p></li>
-          <li><p>Logout</p></li>
-
-        </ul>
-      </div>
-      <div class="header-right">
-        <span class="fa fa-facebook"></span>
-        <span class="fa fa-twitter"></span>
-        <span class="fa fa-youtube"></span>
-      </div>
-
-    </div>
-  </header>
-
-  <div class="body-container">
-  </div>
-
-</script>
-
-
-
-
 <!-- Bar Backend View -->
 
 <script type="text/template" id="backend-view">
@@ -168,7 +174,7 @@
 <!-- backend Feed View -->
 
 <script type="text/template" id="backend-feed-view">
-  
+
   <div class="backend-container">
     <div class="narrow-container">
 
@@ -330,7 +336,7 @@
 
     <div class="wide-container">
 
-      
+
 
       <div class="profile-beer-list">
         <ul>
@@ -491,13 +497,13 @@
         <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
         <p>Beseech Me®, LLC</p>
       </div>
-      
 
-      
+
+
     </div>
 
     <div class="wide-container">
-      
+
       <div class="seven-day-nav">
         <ul>
           <!-- Appended DayViews go here -->

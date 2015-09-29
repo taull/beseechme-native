@@ -83,11 +83,29 @@ Parse.View.prototype.removeRenderedView = _.wrap(
 BeMe.Views.Application = Parse.View.extend({
 	initialize: function () {
 		this.render();
+    this.on('route', this.render, this);
 	},
 
 	el: "#application",
 
 	template: _.template($('#application-view').text()),
+
+  events: {
+    'click #logout' : 'logOut',
+    'click #sign-in' : 'signIn'
+  },
+
+  logOut: function () {
+    var self = this;
+    Parse.User.logOut().then(function () {
+      self.render();
+      BeMe.Router.navigate('', true);
+    });
+  },
+
+  signIn: function () {
+    BeMe.Router.navigate('', true);
+  },
 
 	render: function () {
 		this.$el.html(this.template(this.model));
@@ -117,11 +135,17 @@ BeMe.Views.Index = Parse.View.extend({
 		var email = $('input[name="email"]').val();
 		var password = $('input[name="password"]').val();
 		var stayLoggedIn = $('input[type="checkbox"]')[0].checked;
-		console.log(stayLoggedIn);
+    var self = this;
 
 		Parse.User.logIn(email,password, {
 			success: function  (userObject) {
 				console.log(userObject);
+        BeMe.ApplicationView.render(); 
+        if(userObject.get('userType') == 'consumer') {
+          BeMe.Router.navigate('dashboard/feed', true);
+        } else {
+          BeMe.Router.navigate('backend/feed', true);
+        }
 			},
 			error: function (error) {
 				console.log(error);
@@ -284,6 +308,7 @@ BeMe.Views.BackendCompetition = Parse.View.extend({
 BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
 		this.render();
+    $('.datepicker').pickadate();
     BeMe.BackendCalendarRoute.DaysView = new BeMe.Views.DaysView({collection:new BeMe.Collections.WeeklyComments()});
 	},
 
@@ -358,7 +383,6 @@ BeMe.Views.DaysView = Parse.View.extend({
 			}
 			this.dayViews.push(newView);
 		}
-    console.log(this.dayViews);
     this.dayViews[this.activeViewIndex].displayComments();
   },
 
@@ -547,7 +571,7 @@ BeMe.Collections.WeeklyComments = Parse.Collection.extend({
 	Begin Router Section
 */
 
-var Router = Backbone.Router.extend({
+var Router = Parse.Router.extend({
 	routes: {
 		'' : 'home',
 		'register/business' : 'registerBusiness',
@@ -561,7 +585,7 @@ var Router = Backbone.Router.extend({
 	},
 
 	initialize: function () {
-		new BeMe.Views.Application();
+		BeMe.ApplicationView = new BeMe.Views.Application();
 	},
 
 	registerBusiness: function () {
@@ -625,7 +649,7 @@ var Router = Backbone.Router.extend({
 
 $(document).ready(function () {
 	BeMe.Router = new Router();
-	Backbone.history.start();
+	Parse.history.start();
 });
 
 /*
