@@ -22,7 +22,7 @@ $text-color: #f0f0f0;
 /* Global Variables */
 
 * {
-	font-family: 'Helvetica', sans-serif;
+	font-family: 'Roboto', sans-serif;
 /*	font-size: 0;
 */	padding: 0;
 	margin: 0;
@@ -88,6 +88,7 @@ header {
     left: 0;
     z-index: 9999999;
     box-shadow: 0 0 30px -15px #555;
+    font-size: 0;
     /*display:none;*/
 }
 
@@ -310,7 +311,7 @@ header {
 	/*top:60px;*/
     transition:250ms;
     z-index: 25;
-    background: #444;
+    background: #f8f8f8;
 
 	ul {
 		list-style: none;
@@ -947,8 +948,9 @@ header {
 	width: 40%;
 	display: inline-block;
 	vertical-align: top;
-	padding-right:15px;
 	padding-top:15px;
+	padding-right:15px;
+
 }
 
 .sidebar-container, 
@@ -1515,14 +1517,14 @@ header {
 
 	h1 {
 		display:block;
-		font-size: 13px;
+		font-size: 16px;
 		color:$primary-color-dark;
-		font-weight: 400;
+		font-weight: 300;
 	}
 
 	p {
 		display:block;
-		font-size: 11px;
+		font-size: 8px;
 		text-transform: lowercase;
 		font-weight: lighter;
 		color:#ccc;
@@ -2648,15 +2650,25 @@ header {
 
 .add-weekly-comment {
 	width: 100%;
-	background: $primary-color-light;
+	/*background: $primary-color-light;*/
 	/*border: 1px solid #dfdfdf;*/
 	text-align: left;
 	margin-top: 15px;
 
 	li {
 		padding: 15px;
+		border-bottom: 1px solid #f8f8f8;
+		background: $primary-color-light;
+	}
+
+	li:first-child {
 		border-bottom: 1px solid #f0f0f0;
-		
+	}
+
+	li:last-child {
+		background: transparent;
+		padding: 15px 0;
+		border-bottom: 0;
 	}
 
 	input {
@@ -2667,40 +2679,60 @@ header {
 	input {
 		display: inline-block;
 		vertical-align: top;
-		font-size: 16px;
+		font-size: 14px;
 		border: 0;
 		outline: 0;
 		margin: 0 auto;
 	}
 
+
 	input[type="text"] {
-		height: 50px;
+		height: 40px;
 		background: #fff;
-		width: 100%;
+		width: 95%;
 		font-weight: 300;
-		text-align: center;
+		text-indent: 10px;
+		text-align: left;
+		display: inline-block;
 	}
 
-	input[type="date"] {
+/*	input[type="date"] {
 		font-size: 16px;
 		width: auto;
 		text-align: left;
 		display: inline-block;
 		width: 100%;
-	}
+	}*/
 
 	input[type="checkbox"] {
 		font-size: 16px;
-		margin-top:2px;
+		margin-top:13px;
+		width: 5%;
+	}
+
+	input::-webkit-input-placeholder {
+		color: #333;
 	}
 
 	select {
-		font-size: 12px;
-		width: 80%;
-		display: inline-block;
+		display:inline-block;
 		vertical-align: top;
-		outline: 0;
-		margin-left: 5px;
+		 -webkit-appearance: none;  /*REMOVES DEFAULT CHROME & SAFARI STYLE*/
+		 -moz-appearance: none;  /*REMOVES DEFAULT FIREFOX STYLE*/
+		 border: 0 !important;  /*REMOVES BORDER*/
+		 border-radius: 0;
+		 color: #ccc;
+		 font-weight: 300;
+		 font-size: 14px;
+		 padding: 10px 10px;
+		 width: 90%;
+		 cursor: pointer;
+		 height: 40px;
+		 outline: 0;
+		 background: #fff;
+		 pointer-events: none; 
+		 cursor: default;
+
 	}
 
 	p {
@@ -2710,6 +2742,20 @@ header {
 		padding-left: 5px;
 		width: 40%;
 		text-align: left;
+	}
+
+	button {
+		width: 25%;
+		background:$secondary-color-medium;
+		border: 0;
+		outline: 0;
+		color: #f0f0f0;
+		padding: 10px 0px;
+		border-radius: 4px;
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+		font-size: 12px;
 	}
 
 
@@ -2742,6 +2788,31 @@ header {
 		}
 	}
 }
+
+.input-date {
+	color: #ccc;
+	pointer-events: none; 
+	cursor: default;
+	text-indent: 10px;
+}
+
+
+.checkbox-standing:checked + .select-standing {
+	color:#333;
+	pointer-events: auto; 
+	cursor: pointer;
+}
+
+.checkbox-date:checked + .input-date {
+	color:#333;
+	pointer-events: auto; 
+	cursor: pointer;
+}
+
+.checkbox-date:checked .input-date::-webkit-input-placeholder {
+	color: #333 !important;
+}
+
 
 .calendar-day {
 	/*margin-top:15px;*/
@@ -2829,7 +2900,7 @@ header {
 .seven-day-nav {
 	/*border: 1px solid #dfdfdf;*/
 	border-bottom:0;
-	/*margin-top:15px;*/
+	margin-bottom:15px;
 	/*border-right:0;
 	border-left:0;*/
 
@@ -2842,11 +2913,12 @@ header {
 		vertical-align: top;
 		display: inline-block;
 		width: 14.285714285%;
-		background:#f8f8f8;
-		border-right:1px solid #dfdfdf;
+		background:#fff;
+		border-right:1px solid #fafafa;
 		text-align: center;
 		padding:10px 5px 15px;
 		cursor: pointer;
+		height: 80px;
 
 	}
 
@@ -2859,25 +2931,29 @@ header {
 	}
 
 	aside {
-		display: none;
+		/*display: none;*/
 		vertical-align: top;
 		width: 100%;
 		text-align: center;
+		padding-top:5px;
 	}
 
 	section {
 		display: inline-block;
 		vertical-align: top;
 		width: 100%;
+		color: #f0f0f0;
+
 	}
 
 	span {
 		font-size: 14px;
+		color: $green-light;
 	}
 }
 
 .active-day {
-	background:#fff !important;
+	background:#fafafa !important;
 	padding:15px;
 	text-align: right;
 }
@@ -2917,7 +2993,7 @@ header {
 	font-weight: 300;
 	display: block;
 	vertical-align: top;
-	color: #333;
+	color: #555;
 	text-align: right;
 }
 article {
@@ -3004,7 +3080,7 @@ article {
 	/*background: #fff;*/
 	/*padding-top:30px;*/
 	/*border:1px solid #dfdfdf;*/
-	margin-top:15px;
+	margin-top:0px;
 
 
 	ul {
@@ -3082,9 +3158,9 @@ article {
 	}
 
 	p {
-		font-size: 14px;
+		font-size: 13px;
 		line-height: 20px;
-		/*font-weight: 300;*/
+		font-weight: 300;
 		color: #333;
 		width: 85%;
 		display: inline-block;
@@ -3144,13 +3220,13 @@ article {
 	li {
 		display: block;
 		padding: 20px 20px;
-		background: #fff;
+		background: #fafafa;
 		border-bottom: 1px solid #f0f0f0;
 		cursor: move;
 	}
 
 	li:hover {
-		background:#fcfcfc;
+		background:#f8f8f8;
 	}
 
 	div {
@@ -3174,12 +3250,12 @@ article {
 	}
 
 	i {
-		font-size: 12px;
+		font-size: 14px;
 		display: inline-block;
 		vertical-align: top;
 		width: 5%;
 		text-align: left;
-		color: #dfdfdf;
+		color: #333;
 		padding-top:4px;
 		/*float:right;*/
 	}
@@ -3210,9 +3286,9 @@ article {
 	}
 
 	p {
-		font-size: 14px;
+		font-size: 13px;
 		line-height: 20px;
-		/*font-weight: 300;*/
+		font-weight: 300;
 		color: #333;
 		width: 85%;
 		display: inline-block;

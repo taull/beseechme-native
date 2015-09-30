@@ -9,7 +9,7 @@
   <link rel="stylesheet" type='text/css' href="styles/main.css">
   <link rel="stylesheet" type='text/css' href="bower_components/pickadate/lib/themes/default.css">
   <link rel="stylesheet" type='text/css' href="bower_components/pickadate/lib/themes/default.date.css">
-
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900,100italic,300italic,400italic,500italic,700italic,900italic" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -440,7 +440,7 @@
 
 <script type="text/template" id='backend-day-view'>
   <section><div id="seven-day-1"><%= attributes.date.format('ddd') %></div><div id="seven-month-1"><%= attributes.date.format('MMM Do') %></div></section>
-  <aside>  <% if (typeof attributes.models !== 'undefined') { %><span class="fa fa-comments"></span> <% } %></aside>
+  <aside>  <% if (typeof attributes.models !== 'undefined') { %><span class="fa fa-ellipsis-h"></span> <% } %></aside>
 </script>
 
 <script type='text/template' id="comment-view">
@@ -482,11 +482,14 @@
           </li>
 
           <li>
-            <input class="datepicker" name="date" type="text">
+            <input type="checkbox" name="standingComment" value="standingComment" class="checkbox-date">
+            <input class="datepicker input-date" value="30 September, 2015" name="date" type="text" placeholder="Choose a Date">
+
           </li>
+
           <li>
-            <input type="checkbox" value="standingComment">
-            <select>
+            <input type="checkbox" name="standingComment" value="standingComment" class="checkbox-standing">
+            <select class="select-standing">
               <option value=0>Every Sunday</option>
               <option value=1>Every Monday</option>
               <option value=2>Every Tuesday</option>
@@ -498,15 +501,14 @@
           </li>
 
           <li>
+
             <button type="submit">Comment</button>
+
           </li>
 
         </form>
       </div>
-      <div class="copyright-info">
-        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-        <p>Beseech Me®, LLC</p>
-      </div>
+      
 
 
 
@@ -538,6 +540,10 @@
             </ul>
           </form>
         </div>
+      </div>
+      <div class="copyright-info">
+        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+        <p>Beseech Me®, LLC</p>
       </div>
 
     </div>
