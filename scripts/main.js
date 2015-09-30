@@ -392,7 +392,7 @@ BeMe.Views.DaysView = Parse.View.extend({
 
     var content = $('input[name="content"]').val(),
            dayOfWeek = Number($('select').val()),
-           isChecked = $('input[name="daily-comment"]')[0].checked,
+           isChecked = $('input:radio')[0].checked,
            anyChecked = !!$('input:radio:checked').length,
            date = new moment($('input[name="date"]').val(),"D MMMM, YYYY");
            date.add(12,'hours');
@@ -414,7 +414,7 @@ BeMe.Views.DaysView = Parse.View.extend({
     }
 
     if (!anyChecked) {
-      alert("You must choose a date");
+      alert("You must choose one of the date options");
     } else if(date.isBefore(moment(new Date()),'day')) {
       alert("You cannot post a past date");
     } else if (!content) {
