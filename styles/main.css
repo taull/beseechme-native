@@ -2587,7 +2587,7 @@ article {
   padding: 5px;
   color: #f0f0f0; }
 
-.calendar-day li:hover .delete-comment {
+.calendar-daily li:hover .delete-comment {
   display: inline-block;
   vertical-align: top; }
 
