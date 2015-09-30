@@ -2496,7 +2496,8 @@ article {
   .calendar-standing li {
     display: block;
     padding: 20px 20px;
-    background: #fafafa;
+    height: 60px;
+    background: #f8f8f8;
     border-bottom: 1px solid #f0f0f0;
     cursor: move; }
   .calendar-standing li:hover {
