@@ -308,7 +308,6 @@ BeMe.Views.BackendCompetition = Parse.View.extend({
 BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
 		this.render();
-    $('.datepicker').pickadate();
     BeMe.BackendCalendarRoute.DaysView = new BeMe.Views.DaysView({collection:new BeMe.Collections.WeeklyComments()});
 	},
 
@@ -317,6 +316,8 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 	render: function () {
 		this.$el.html(this.template(this.model));
 		$('.body-container').append(this.el);
+    $('.datepicker').pickadate(); //initialize
+    $('.datepicker').val(new moment().format('D MMMM, YYYY')); //set the default value to today
 		BeMe.renderedViews.push(this);
 	},
 
@@ -326,7 +327,7 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
   post: function (e) {
     e.preventDefault();
-    BeMe.BackendCalendarRoute.DaysView.postWeeklyComment();
+    BeMe.BackendCalendarRoute.DaysView.postWeeklyComment(); //calls method on child view
   }
 
 });
@@ -391,7 +392,8 @@ BeMe.Views.DaysView = Parse.View.extend({
 
     var content = $('input[name="content"]').val(),
            dayOfWeek = Number($('select').val()),
-           isChecked = $('input[type="checkbox"]')[0].checked,
+           isChecked = $('input[name="daily-comment"]')[0].checked,
+           anyChecked = !!$('input:radio:checked').length,
            date = new moment($('input[name="date"]').val(),"D MMMM, YYYY");
            date.add(12,'hours');
 
@@ -405,20 +407,27 @@ BeMe.Views.DaysView = Parse.View.extend({
     ACL.setWriteAccess(Parse.User.current(),true);
     post.setACL(ACL);
 
-    if (!isChecked) {
+    if (isChecked) {
       post.set('date', date._d);
     } else {
       post.set('dayOfWeek', dayOfWeek);
     }
 
-    if (!date.isBefore(moment(new Date()),'day')) { //if the set date is not before today
+    if (!anyChecked) {
+      alert("You must choose a date");
+    } else if(date.isBefore(moment(new Date()),'day')) {
+      alert("You cannot post a past date");
+    } else if (!content) {
+      alert("You must write a comment");
+    } else {
+     //if the set date is not before today
       post.save(null, {
         success: function (postObject) {
           $('input[name="content"]').val('');
           $('input[type="date"]').val(null);
           $('.datepicker').datepicker('refresh');
           $('select').val(0);
-          $('input[type="checkbox"]')[0].checked = false;
+          $('input:radio').attr('checked', false);
 
 
           self.collection.add(postObject);
@@ -426,9 +435,8 @@ BeMe.Views.DaysView = Parse.View.extend({
         },
         error: function (e,err) {alert(err.message)}
       });
-    } else {
-      alert("You cannot post a past date");
     }
+
   },
 
   query: function () {
@@ -529,7 +537,7 @@ BeMe.Views.CommentDisplay = Parse.View.extend({
 
 	render: function () {
 		this.$el.html(this.template(this.model));
-    if (this.model.get('dayOfWeek')) {
+    if (typeof this.model.get('dayOfWeek') !== 'undefined') {
       $('.calendar-standing').append(this.el);
     } else {
 	    $('.calendar-daily').append(this.el);
