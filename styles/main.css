@@ -2591,6 +2591,10 @@ article {
   display: inline-block;
   vertical-align: top; }
 
+.calendar-standing li:hover .delete-comment {
+  display: inline-block;
+  vertical-align: top; }
+
 .sublist-header {
   z-index: 10;
   width: 100%;
