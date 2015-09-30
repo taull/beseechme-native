@@ -1007,7 +1007,7 @@ header {
   .module-header p {
     color: #999;
     font-size: 12px;
-    font-weight: lighter;
+    font-weight: 400;
     display: inline-block;
     vertical-align: top;
     padding-left: 5px; }
@@ -1427,7 +1427,7 @@ header {
     padding-left: 0; }
   .profile-feed li {
     width: 100%;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f8f8f8;
     position: relative;
     padding: 20px;
     background: transparent; }
@@ -2588,7 +2588,8 @@ article {
   padding: 5px;
   color: #f0f0f0; }
 
-.calendar-day li:hover .delete-comment {
+.calendar-daily li:hover .delete-comment,
+.calendar-standing li:hover .delete-comment {
   display: inline-block;
   vertical-align: top; }
 
