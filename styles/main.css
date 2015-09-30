@@ -771,11 +771,13 @@ header {
   transition: 250ms; }
 
 .home-container {
+  font-size: 0;
   width: 360px;
-  margin: 100px auto;
+  margin: 0 auto;
   position: relative;
   background: #fff;
-  transition: 250ms; }
+  transition: 250ms;
+  top: 100px; }
 
 .main-container::-mozilla-scrollbar {
   display: none; }

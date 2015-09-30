@@ -1021,11 +1021,13 @@ header {
 }
 
 .home-container {
+	font-size: 0;
 	width: 360px;
-	margin: 100px auto;
+	margin: 0 auto;
 	position: relative;
 	background:$primary-color-light;
 	transition: 250ms;
+	top:100px;
 }
 
 .main-container::-mozilla-scrollbar {
