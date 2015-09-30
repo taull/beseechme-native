@@ -2072,7 +2072,7 @@ header {
     text-indent: 10px;
     text-align: left;
     display: inline-block; }
-  .add-weekly-comment input[type="checkbox"] {
+  .add-weekly-comment input[type="radio"] {
     font-size: 16px;
     margin-top: 13px;
     width: 5%; }
