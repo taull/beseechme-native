@@ -302,16 +302,25 @@ header {
 }
 
 
-
+.backend-tabs-container {
+	width: 860px;
+	margin: 0 auto;
+	top: 50px;
+	position: relative;
+}
 
 .backend-tabs {
 	width: 100%;
 	margin: 0 auto;
 	position:relative;
-	/*top:60px;*/
     transition:250ms;
     z-index: 25;
     background: #f8f8f8;
+    border-top:1px solid #dfdfdf;
+    /*border-bottom: 1px solid #dfdfdf;*/
+    font-size: 0;
+    text-align: center;
+    margin-bottom: 15px;
 
 	ul {
 		list-style: none;
@@ -323,15 +332,15 @@ header {
 		display: inline-block;
 		/*background: $primary-color-light;*/
 		/*border-right: 1px solid #f0f0f0;*/
-		width: 25%;
 		cursor: pointer;
 		text-align:center;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 
 
 	a:last-child li {
 		border-right:0;
-		width: 25%;
 	}
 
 	a:first-child li{
@@ -348,9 +357,8 @@ header {
 		display: inline-block;
 		vertical-align: top;
 		font-weight: 300;
-		width: 85%;
 		color: #333;
-		display:none;
+		/*display:none;*/
 		/*padding-left:10px;*/
 	}
 
@@ -360,7 +368,7 @@ header {
 		vertical-align: top;
 		text-align: center;
 		color: #999;
-		/*display:none;*/
+		display:none;
 
 	}
 
@@ -930,7 +938,6 @@ header {
     display: inline-block;
     position: relative;
     vertical-align: top;
-    padding-top:15px;
     transition: 250ms;
     /*background: #fff;*/
     /*float: right;*/
@@ -939,6 +946,7 @@ header {
     padding-right: 15px;*/
     /*background:$primary-color-light;*/
     z-index: 99999;
+    padding-top: 15px;
     /*border-left: 1px solid #dfdfdf;*/
     /*box-shadow: -6px 0px 30px -15px;*/
 
@@ -1308,15 +1316,15 @@ header {
 
 .module-header {
 	width: 100%;
-	background: #fafafa;
-	border: 1px solid #dfdfdf;
-	border-bottom:0;
-	padding: 20px 15px;
+	margin: 0 auto;
+	background: #fff;
+	border-bottom:1px solid #f0f0f0;
+	padding: 15px 15px 10px;
 	cursor: pointer;
 
 	p {
-		color:$primary-color-dark;
-		font-size: 14px;
+		color:#999;
+		font-size: 12px;
 		font-weight: lighter;
 		display: inline-block;
 		vertical-align: top;
@@ -1676,8 +1684,7 @@ header {
 
 .backend-info {
 	width: 100%;
-	background: #333;
-
+	background: #fff;
 
 	ul {
 		padding-left: 0;
@@ -1688,22 +1695,22 @@ header {
 		display: inline-block;
 		vertical-align: top;
 		width: 100%;
-		padding: 15px;
+		padding: 20px;
 		text-align: center;
 	}
 
 	p {
-		font-size: 10px;
+		font-size: 12px;
 		display: inline-block;
 		vertical-align: top;
 		font-weight: 300;
-		color: #f0f0f0;
+		color: #333;
 	}
 
 	h1 {
-		font-size: 12px;
+		font-size: 14px;
 		font-weight: 300;
-		color: #f0f0f0;
+		color: #333;
 		margin-bottom: 2px;
 	}
 
@@ -1859,6 +1866,7 @@ header {
 .profile-feed {
     width: 100%;
     background: #fff;
+    padding: 10px;
     /*border:1px solid #dfdfdf;*/
 
 	ul {
@@ -2650,10 +2658,8 @@ header {
 
 .add-weekly-comment {
 	width: 100%;
-	/*background: $primary-color-light;*/
-	/*border: 1px solid #dfdfdf;*/
 	text-align: left;
-	margin-top: 15px;
+	/*margin-top: 15px;*/
 
 	li {
 		padding: 15px;
@@ -2665,11 +2671,11 @@ header {
 		border-bottom: 1px solid #f0f0f0;
 	}
 
-	li:last-child {
+	/*li:last-child {
 		background: transparent;
 		padding: 15px 0;
 		border-bottom: 0;
-	}
+	}*/
 
 	input {
 		display:inline-block;
