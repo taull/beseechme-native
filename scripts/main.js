@@ -392,7 +392,7 @@ BeMe.Views.DaysView = Parse.View.extend({
     var content = $('input[name="content"]').val(),
            dayOfWeek = Number($('select').val()),
            isChecked = $('input[type="checkbox"]')[0].checked,
-           date = new moment($('input[name="date"]').val());
+           date = new moment($('input[name="date"]').val(),"D MMMM, YYYY");
            date.add(12,'hours');
 
     var post = new Parse.Object('weeklyComment', {
