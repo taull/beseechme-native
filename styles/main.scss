@@ -106,7 +106,7 @@ header {
 		font-size: 18px;
 		text-decoration: none;
 		float: right;
-		font-weight: lighter;
+		font-weight: 300;
 		height:60px;
 		padding-top: 18px;
 	    padding-right: 10px;
@@ -512,7 +512,7 @@ header {
 	p {
 		color:#333;
 		font-size: 14px;
-		font-weight: lighter;
+		font-weight: 300;
 		display: inline-block;
 		vertical-align: top;
 		padding-right: 5px;
@@ -523,7 +523,7 @@ header {
 		font-size: 14px;
 		text-decoration: none;
 		float: right;
-		font-weight: lighter;
+		font-weight: 300;
 		height:50px;
 		padding-top: 18px;
 	    padding-right: 20px;
@@ -584,7 +584,7 @@ header {
 		font-size: 14px;
 		color: $text-color;
 		font-style: italic;
-		font-weight: lighter;
+		font-weight: 300;
 		margin-top:-10px;
 	}
 }
@@ -626,7 +626,7 @@ header {
 		border: 0;
 		outline: 0;
 		background: #444;
-		font-weight: lighter;
+		font-weight: 300;
 		text-indent: 0;
 	}
 
@@ -655,10 +655,10 @@ header {
 		font-size: 12px;
 		border: 0;
 		color: $primary-color-light;
-		font-weight: lighter;
+		font-weight: 300;
 		background: $secondary-color-dark;
 		outline: 0;
-		font-weight: lighter;
+		font-weight: 300;
 		border-radius: 3px;
 		float:right;
 	}
@@ -729,7 +729,7 @@ header {
 
 	p {
 		font-size: 11px;
-		font-weight: lighter;
+		font-weight: 300;
 		display: block;
 		font-style: italic;
 		color: $primary-color-dark;
@@ -790,7 +790,7 @@ header {
 		border-radius:0;
 		width: 70%;
 		background: transparent;
-		font-weight: lighter;
+		font-weight: 300;
 		color: $primary-color-medium;
 	}
 
@@ -835,7 +835,7 @@ header {
 	p {
 		font-size: 16px;
 		color: $primary-color-light;
-		font-weight: lighter;
+		font-weight: 300;
 		padding-top: 20px;
 	}
 }
@@ -870,7 +870,7 @@ header {
 		vertical-align: top;
 		color: $primary-color-light;
 		font-size: 18px;
-		font-weight: lighter;
+		font-weight: 300;
 		padding-left: 10px;
 	}
 
@@ -894,7 +894,7 @@ header {
 		vertical-align: top;
 		font-size: 12px;
 		color: $primary-color-medium;
-		font-weight: lighter;
+		font-weight: 300;
 	}
 }
 
@@ -1058,7 +1058,7 @@ header {
 		font-size: 12px;
 		text-align: center;
 		padding: 15px 0;
-		font-weight: lighter;
+		font-weight: 300;
 		border-right: 1px solid $primary-color-dark;
 		border-left: 1px solid #455A64;
 		/*border-top: 1px solid #455A64;*/
@@ -1137,7 +1137,7 @@ header {
 
 	p {
 		font-size: 12px;
-		font-weight: lighter;
+		font-weight: 300;
 		color: $primary-color-light;
 	}
 
@@ -1159,7 +1159,7 @@ header {
 		font-size: 12px;
 		text-align: center;
 		padding: 20px 0;
-		font-weight: lighter;
+		font-weight: 300;
 		border-right: 1px solid #000;
 		border-left: 1px solid $primary-color-medium;
 		/*border-bottom: 1px solid $primary-color-dark;*/
@@ -1265,7 +1265,7 @@ header {
 		color:$green-light;
 		font-size: 18px;
 		text-decoration: none;
-		font-weight: lighter;
+		font-weight: 300;
 		height:60px;
 		padding-top: 18px;
 	    padding-right: 20px;
@@ -1338,7 +1338,7 @@ header {
 		font-size: 14px;
 		text-decoration: none;
 		float: right;
-		font-weight: lighter;
+		font-weight: 300;
 		height:50px;
 		padding-top: 18px;
 	    padding-right: 20px;
@@ -1377,7 +1377,7 @@ header {
 	p {
 		color:$text-color;
 		font-size: 18px;
-		font-weight: lighter;
+		font-weight: 300;
 		display: inline-block;
 		vertical-align: top;
 		padding-right: 20px;
@@ -1391,7 +1391,7 @@ header {
 		color:$green-light;
 		font-size: 18px;
 		text-decoration: none;
-		font-weight: lighter;
+		font-weight: 300;
 		height:60px;
 	    padding-left: 20px;
 	    cursor: pointer;
@@ -1508,7 +1508,7 @@ header {
 	h2 {
 		font-size: 11px;
 		font-style: italic;
-		font-weight: lighter;
+		font-weight: 300;
 		display: block;
 		color: $primary-color-dark;
 	}
@@ -1536,7 +1536,7 @@ header {
 		display:block;
 		font-size: 8px;
 		text-transform: lowercase;
-		font-weight: lighter;
+		font-weight: 300;
 		color:#ccc;
 	}
 }
@@ -1593,7 +1593,7 @@ header {
 		font-style: italic;
 		display: block;
 		color: #333;
-		font-weight: lighter;
+		font-weight: 300;
 	}
 
 	p {
@@ -1632,7 +1632,7 @@ header {
 		font-size: 12px;
 		color:$text-color;
 		text-transform: lowercase;
-		font-weight: lighter;
+		font-weight: 300;
 	}
 }
 
@@ -1701,24 +1701,32 @@ header {
 		text-align: left;
 	}
 
-	p {
-		font-size: 10px;
+	aside {
+		width: 15%;
+		display: inline-block;
+	}
+
+	div {
+		width: 85%;
 		display: inline-block;
 		vertical-align: top;
-		font-weight: 300;
-		color: $secondary-color-light;
-		padding-left: 3px;
+		padding-left: 10px;
+	}
 
+	p {
+		font-size: 12px;
+		display: block;
+		vertical-align: top;
+		font-weight: 300;
+		color: #333;
 	}
 
 	h1 {
 		font-size: 16px;
 		font-weight: 400;
 		color: #333;
-		margin-bottom: 0px;
-		padding-left: 10px;
+		margin-bottom: 2px;
 		display: inline-block;
-		padding-top:2px;
 	}
 
 	span {
@@ -1739,7 +1747,7 @@ header {
 	}
 
 	img {
-		width: 10%;
+		width: 100%;
 		height: auto; 
 		border-radius: 2px;
 		display: inline-block;
@@ -1822,7 +1830,7 @@ header {
     resize: none;
     padding: 40px 30px 5px 30px;
     color: #000;
-    font-weight: lighter;
+    font-weight: 300;
     /*border-radius: 4px 4px 0 0;*/
 }
 
@@ -1846,7 +1854,7 @@ header {
 		font-size:14px;
 		color:$green-dark;
 		padding-left:5px;
-		font-weight: lighter;
+		font-weight: 300;
 		vertical-align:top;
 		margin-top:17px;
 	}
@@ -1926,7 +1934,7 @@ header {
 		font-size: 11px;
 		font-style: italic;
 		color: #999;
-		font-weight: lighter;
+		font-weight: 300;
 		padding-top: 3px;
 		padding-left:5px;
 		display: inline-block;
@@ -2028,7 +2036,7 @@ header {
 	p {
 		font-size: 12px;
 		color: #999;
-		font-weight: lighter;
+		font-weight: 300;
 		font-style: italic;
 		padding-bottom:3px;
 	}
@@ -2041,7 +2049,7 @@ header {
 	p {
 		font-size: 14px;
 		line-height: 20px;
-		font-weight: lighter;
+		font-weight: 300;
 		color: $primary-color-medium;
 		padding-bottom: 10px;
 	}
@@ -2054,7 +2062,7 @@ header {
 		span {
 			font-size: 13px;
 			line-height: 20px;
-			font-weight: lighter;
+			font-weight: 300;
 			/*font-style: italic;*/
 			padding-top:15px;
 			color: $primary-color-medium;
@@ -2127,7 +2135,7 @@ header {
 	a {
 		font-size: 16px; 
 		color: $secondary-color-dark;
-		font-weight: lighter;
+		font-weight: 300;
 		text-decoration: none;
 	}
 }
@@ -2146,7 +2154,7 @@ header {
 	a {
 		font-size: 14px; 
 		color: $secondary-color-dark;
-		font-weight: lighter;
+		font-weight: 300;
 		text-decoration: none;
 	}
 }
@@ -2164,7 +2172,7 @@ header {
 		font-size: 14px; 
 		color: $secondary-color-light;
 		text-decoration: none;
-		font-weight: lighter;
+		font-weight: 300;
 	}
 }
 
@@ -2705,7 +2713,7 @@ header {
 	input {
 		display: inline-block;
 		vertical-align: top;
-		font-size: 14px;
+		font-size: 13px;
 		border: 0;
 		outline: 0;
 		margin: 0 auto;
@@ -2731,7 +2739,7 @@ header {
 	}*/
 
 	input[type="radio"] {
-		font-size: 16px;
+		font-size: 12px;
 		margin-top:13px;
 		width: 5%;
 	}
@@ -2749,7 +2757,7 @@ header {
 		 border-radius: 0;
 		 color: #ccc;
 		 font-weight: 300;
-		 font-size: 14px;
+		 font-size: 13px;
 		 padding: 10px 10px;
 		 width: 90%;
 		 cursor: pointer;
@@ -3059,7 +3067,7 @@ article {
 		font-size: 14px;
 		color: $primary-color-light;
 		padding-left: 10px;
-		font-weight: lighter;
+		font-weight: 300;
 		width: 80%;
 	}
 
@@ -3119,7 +3127,6 @@ article {
 		padding: 20px 20px;
 		background: #fff;
 		border-bottom: 1px solid #f0f0f0;
-		cursor: move;
 		height: 60px;
 	}
 
@@ -3196,7 +3203,7 @@ article {
 		border:0;
 		font-size: 14px;
 		padding: 20px ;
-		font-weight: lighter;
+		font-weight: 300;
 		resize: none;
 		color: #333;
 		background:#fff;
@@ -3215,7 +3222,7 @@ article {
     	-webkit-border-radius:0;
     	border:0;
     	background:transparent;
-    	font-weight: lighter;
+    	font-weight: 300;
     	width:60%;
     	height: 28px;
 
@@ -3245,7 +3252,6 @@ article {
 		height: 60px;
 		background: #f8f8f8;
 		border-bottom: 1px solid #f0f0f0;
-		cursor: move;
 	}
 
 	li:hover {
@@ -3308,7 +3314,7 @@ article {
 	p {
 		font-size: 13px;
 		line-height: 20px;
-		font-weight: 300;
+		font-weight: 400;
 		color: #333;
 		width: 85%;
 		display: inline-block;
@@ -3322,7 +3328,7 @@ article {
 		border:0;
 		font-size: 14px;
 		padding: 20px ;
-		font-weight: lighter;
+		font-weight: 300;
 		resize: none;
 		color: #333;
 		background:#fff;
@@ -3341,7 +3347,7 @@ article {
     	-webkit-border-radius:0;
     	border:0;
     	background:transparent;
-    	font-weight: lighter;
+    	font-weight: 300;
     	width:60%;
     	height: 28px;
 
@@ -3417,7 +3423,7 @@ article {
 		border:0;
 		font-size: 14px;
 		padding: 20px ;
-		font-weight: lighter;
+		font-weight: 300;
 		resize: none;
 		color: #333;
 		background:#fff;
@@ -3451,7 +3457,7 @@ article {
 		display: inline-block;
 		vertical-align: top;
 		font-size: 16px;
-		font-weight: lighter;
+		font-weight: 300;
 		border: 0;
 		background: transparent;
 		outline: 0;
@@ -3470,13 +3476,13 @@ article {
 		display: inline-block;
 		padding-right: 10px;
 		padding-top:5px;
-		font-weight: lighter;
+		font-weight: 300;
 		color: $secondary-color-dark;
 	}
 
 	input[type="file"] {
 		cursor: pointer !Important;
-		font-weight: lighter;
+		font-weight: 300;
 		width: 100%;
 		background: $primary-color-light;
 		height: 50px;
@@ -3493,7 +3499,7 @@ article {
 	    padding: 16px 15px 17px 25px;
 	    color: $primary-color-light;
 	    border-radius: 4px 0 0 4px;
-	    font-weight: lighter;
+	    font-weight: 300;
 	    font-size:14px;
 	    margin-left:-10px;
 
@@ -3511,7 +3517,7 @@ article {
 	    cursor: pointer;
 	    color: $primary-color-light;
 	    border-radius: 4px 0 0 4px;
-	    font-weight: lighter;
+	    font-weight: 300;
 	  }
 
 	}
@@ -3576,7 +3582,7 @@ article {
 		outline: 0;
 		border:0;
 		color:$text-color;
-		font-weight: lighter;
+		font-weight: 300;
 		margin-top:10px;
 		cursor: pointer;
 		position:relative;
@@ -3642,7 +3648,7 @@ article {
 		outline: 0;
 		border:0;
 		color:$text-color;
-		font-weight: lighter;
+		font-weight: 300;
 		margin-top:10px;
 		cursor: pointer;
 		position:relative;
@@ -3688,7 +3694,7 @@ article {
 }
 
 #file-input {
-	font-weight: lighter;
+	font-weight: 300;
 }
 
 #basicExample {
