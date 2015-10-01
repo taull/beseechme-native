@@ -181,7 +181,9 @@
         <section>
 
           <li>
-            <h1>Henrys Grill and Bar</h1>
+            <img src="images/bar-logo.png">
+            <h1><%= Parse.User.current().get('businessName') %></h1>
+            <i class="fa fa-check-circle"></i>
           </li>
         </section>
       </div>
@@ -215,12 +217,10 @@
 
 
     <div class="wide-container">
-
+      <div class="module-header">
+        <p>My Feed</p>
+      </div>
       <div class="profile-feed">
-        <div class="module-header">
-          <p>My Feed</p>
-        </div>
-
         <ul>
           <li>
             <div class="feed-avatar">
@@ -310,8 +310,9 @@
       <div class="backend-info">
         <section>
           <li>
-            <h1>Henrys Grill and Bar</h1>
-          </li>
+            <img src="images/bar-logo.png">
+            <h1><%= Parse.User.current().get('businessName') %></h1>
+            <i class="fa fa-check-circle"></i>          </li>
         </section>
       </div>
 
@@ -341,9 +342,12 @@
 
     <div class="wide-container">
 
-
+      <div class="module-header">
+        <p>Draft Beer</p>
+      </div>
 
       <div class="profile-beer-list">
+
         <ul>
           <li>
             <div class="beer-avatar">
@@ -454,7 +458,7 @@
     <i class='fa fa-arrows'></i>
   <% } %>
   <p><%= attributes.content %></p>
-  <button class="delete-comment">Delete</button>
+  <button class="delete-comment"><span class="fa fa-close"></span></button>
 </script>
 <!-- backend Calendar View -->
 
@@ -465,8 +469,9 @@
       <div class="backend-info">
         <section>
           <li>
-            <h1>Henrys Grill and Bar</h1>
-          </li>
+            <img src="images/bar-logo.png">
+            <h1><%= Parse.User.current().get('businessName') %></h1>
+            <i class="fa fa-check-circle"></i>          </li>
         </section>
       </div>
       <div class="backend-tabs">
@@ -685,14 +690,15 @@
       <div class="backend-info">
         <section>
           <li>
-            <h1>Henrys Grill and Bar</h1>
-          </li>
+            <img src="images/bar-logo.png">
+            <h1><%= Parse.User.current().get('businessName') %></h1>
+            <i class="fa fa-check-circle"></i>          </li>
         </section>
       </div>
 
       <div class="backend-tabs">
         <ul>
-          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>Feed</p></li></a>
+          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
           <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
           <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
           <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>

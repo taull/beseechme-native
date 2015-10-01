@@ -239,9 +239,9 @@ header {
 	}
 }
 
-.active-header-li {
+/*.active-header-li {
 	border-bottom: 3px solid #333;
-}
+}*/
 
 /* Login/Register */
 
@@ -316,7 +316,7 @@ header {
     transition:250ms;
     z-index: 25;
     background: #f8f8f8;
-    border-top:1px solid #dfdfdf;
+    /*border-top:1px solid #dfdfdf;*/
     /*border-bottom: 1px solid #dfdfdf;*/
     font-size: 0;
     text-align: center;
@@ -1698,22 +1698,27 @@ header {
 		vertical-align: top;
 		width: 100%;
 		padding: 20px;
-		text-align: center;
+		text-align: left;
 	}
 
 	p {
-		font-size: 12px;
+		font-size: 10px;
 		display: inline-block;
 		vertical-align: top;
 		font-weight: 300;
-		color: #333;
+		color: $secondary-color-light;
+		padding-left: 3px;
+
 	}
 
 	h1 {
-		font-size: 14px;
-		font-weight: 300;
+		font-size: 16px;
+		font-weight: 400;
 		color: #333;
-		margin-bottom: 2px;
+		margin-bottom: 0px;
+		padding-left: 10px;
+		display: inline-block;
+		padding-top:2px;
 	}
 
 	span {
@@ -1724,10 +1729,21 @@ header {
 		color: $secondary-color-dark;
 	}
 
+	i {
+		color: $secondary-color-light;
+		font-size: 14px;
+		display: inline-block;
+		vertical-align: top;
+		padding-top:6px;
+		padding-left: 5px;
+	}
+
 	img {
-		width: 100%;
+		width: 10%;
 		height: auto; 
 		border-radius: 2px;
+		display: inline-block;
+		vertical-align: top;
 	}
 }
 
@@ -1868,7 +1884,6 @@ header {
 .profile-feed {
     width: 100%;
     background: #fff;
-    padding: 10px;
     /*border:1px solid #dfdfdf;*/
 
 	ul {
@@ -2670,14 +2685,17 @@ header {
 	}
 
 	li:first-child {
-		border-bottom: 1px solid #f0f0f0;
+		/*border-bottom: 1px solid #f0f0f0;*/
 	}
 
-	/*li:last-child {
-		background: transparent;
-		padding: 15px 0;
-		border-bottom: 0;
-	}*/
+	li:nth-child(2), 
+	li:nth-child(3) {
+		padding: 10px 30px;
+	}
+
+	li:last-child {
+		text-align: right;
+	}
 
 	input {
 		display:inline-block;
@@ -3143,13 +3161,9 @@ article {
 	span {
 		display: inline-block;
 		vertical-align: top;
-		font-size: 22px !important;
-		background: #fff;
-		color: $secondary-color-dark !important;
-		height: 60px;
-		width: 15%;
-		padding-top:20px !important;
+		font-size: 18px;
 		text-align: center;
+		color: #B71C1C;
 	}
 
 	h1 {
@@ -3272,13 +3286,10 @@ article {
 	span {
 		display: inline-block;
 		vertical-align: top;
-		font-size: 22px !important;
-		background: #fff;
-		color: $secondary-color-dark !important;
-		height: 60px;
-		width: 15%;
-		padding-top:20px !important;
+		font-size: 18px;
 		text-align: center;
+		color: #B71C1C;
+
 	}
 
 	h1 {
@@ -3346,10 +3357,16 @@ article {
 	width: 10%;
 	border: 0;
 	outline: 0;
-	background: #ff0000;
+	background: transparent;
 	font-size: 12px;
 	padding: 5px;
-	color: #f0f0f0;
+	color: #333;
+	margin-top: -5px;
+	cursor:pointer;
+
+	span {
+		font-size: 18px;
+	}
 }
 
 .calendar-daily li:hover .delete-comment, 
@@ -4074,38 +4091,7 @@ svg rect{
 		display: none;
 	}
 
-	.add-weekly-comment {
-		margin-bottom: 0;
-
-		input:first-child {
-			width: 100%;
-		}
-
-		button {
-			margin-top: 0px;
-			width: 30%;
-			height: 60px;
-			border-radius: 0;
-		}
-
-		input[type="checkbox"] {
-			margin-top:20px;
-		}
-
-		p {
-			padding-top: 20px;
-			width: 40%;
-		}
-
-		nav {
-			width: 100%;
-			text-align: left;
-		}
-
-		nav li:last-child {
-			padding-right:10px;
-		}
-	}
+	
 
 	.calendar-day {
 		margin-top:0;
@@ -4115,7 +4101,9 @@ svg rect{
 	#backend-menu {
 		margin-bottom:0;
 	}
-
+	.backend-container {
+		padding: 15px;
+	}
 
 }
 
