@@ -274,6 +274,33 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
+	},
+
+	events: {
+		'submit form': 'postBusinessStatus',
+	},
+
+	postBusinessStatus: function (e) {
+		e.preventDefault();
+		var fileObject = $('#camera-file')[0].files;
+
+		if(fileObject.length == 0) {
+			alert("You need to choose a file");
+		} else if (fileObject[0].type.search('image') == -1) {
+			alert('Image type needs to be an image');
+		} else {
+			var name = fileObject[0].name;
+			var file = fileObject[0];
+			var content = $("#business-status").val();
+			var image = new Parse.File(name, file);
+
+			var businessStatus = new Parse.Object('businessStatus');
+			businessStatus.set('content', content);
+			businessStatus.set('image', image);
+			businessStatus.set('createdBy', Parse.User.current());
+			console.log(businessStatus);
+			businessStatus.save();
+		}
 	}
 });
 
@@ -289,7 +316,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
 	}
-});
+});	
 
 BeMe.Views.BackendCompetition = Parse.View.extend({
 	initialize: function () {
@@ -537,11 +564,11 @@ BeMe.Views.CommentDisplay = Parse.View.extend({
 
 	render: function () {
 		this.$el.html(this.template(this.model));
-    if (typeof this.model.get('dayOfWeek') !== 'undefined') {
-      $('.calendar-standing').append(this.el);
-    } else {
-	    $('.calendar-daily').append(this.el);
-    }
+	    if (typeof this.model.get('dayOfWeek') !== 'undefined') {
+	      $('.calendar-standing').append(this.el);
+	    } else {
+		    $('.calendar-daily').append(this.el);
+	    }
 		BeMe.renderedViews.push(this);
 	},
 
