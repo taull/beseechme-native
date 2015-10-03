@@ -291,7 +291,8 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 		} else {
 			var name = fileObject[0].name;
 			var file = fileObject[0];
-			var content = $("#business-status").val();
+			var contentHolder = $("#business-status");
+			var content = contentHolder.val();
 			var image = new Parse.File(name, file);
 
 			var businessStatus = new Parse.Object('businessStatus');
@@ -299,7 +300,10 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 			businessStatus.set('image', image);
 			businessStatus.set('createdBy', Parse.User.current());
 			console.log(businessStatus);
-			businessStatus.save();
+			businessStatus.save().then(function (e){
+				contentHolder.val('');
+				$('#camera-file').val('');
+			});
 		}
 	}
 });
