@@ -432,7 +432,7 @@ BeMe.Views.DaysView = Parse.View.extend({
 
     var post = new Parse.Object('weeklyComment', {
       createdBy: Parse.User.current(),
-      content:content
+      content:content,
     });
 
     var ACL = new Parse.ACL();

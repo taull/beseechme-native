@@ -594,15 +594,14 @@ header {
 	width: 100%;
 	display:inline-block;
 	vertical-align: top;
-	background: #333;
+	background: #fff;
 	padding:25px 25px 25px;
 
 	li {
 		margin-bottom: 15px;
 		width: 100%;
-		height: 50px;
 		/*border: 1px solid #dfdfdf;*/
-		background:#444;
+		background:#fff;
 	}
 
 	li:last-child {
@@ -611,7 +610,7 @@ header {
 
 	p {
 		font-size:12px;
-		color:$primary-color-light;
+		color:#333;
 		display: inline-block;
 		vertical-align: top;
 		margin-top:7px;
@@ -619,19 +618,19 @@ header {
 
 	input {
 		display: inline-block;
-		font-size: 16px;
-		color: $primary-color-light;
-		height: 48px;
+		font-size: 14px;
+		color: #333;
 		width: 85%;
 		border: 0;
 		outline: 0;
-		background: #444;
+		background: transparent;
 		font-weight: 300;
 		text-indent: 0;
+		padding: 10px;
 	}
 
 	input::-webkit-input-placeholder {
-		color: $primary-color-light;
+		color: #333;
 	}
 
 	input:nth-child(3) {
@@ -642,8 +641,16 @@ header {
 
 	span {
 		display: inline-block;
-		color: $green-light;
-		font-size: 18px;
+		color: #333;
+		font-size: 14px;
+		width: 15%;
+		text-align: center;
+	}
+
+	h1 {
+		display: inline-block;
+		color: #333;
+		font-size: 14px;
 		width: 15%;
 		text-align: center;
 	}
@@ -663,6 +670,10 @@ header {
 		float:right;
 	}
 
+}
+
+.confirm-password {
+	padding: 15%;
 }
 
 .options-caret {
@@ -1204,7 +1215,8 @@ header {
 	background: #f8f8f8;
 }
 
-.beer-search {
+.beer-search, 
+.bar-search {
 	width: 100%;
 	background: #fff;
 	/*border-bottom: 1px solid #dfdfdf;*/
@@ -1229,7 +1241,6 @@ header {
 	input {
 		display: inline-block;
 		color: $primary-color-dark;
-
 		vertical-align: top;
 		height: 60px;
 		width: 60%;
@@ -1434,27 +1445,25 @@ header {
 }
 
 
+
+/*Backend Beer Tab*/
+
 .profile-beer-list {
 	width: 100%;
 	background: #fff;
-	/*border:1px solid #dfdfdf;*/
-
 	margin-top:0px;
-
 
 	ul {
 		list-style: none;
 		padding-left: 0;
-		/*border-bottom: 1px solid $primary-color-light;*/
-
 	}
 
 	li {
 		display: inline-block;
 		width: 100%;
 		padding: 20px;
-		/*border-bottom:1px solid #dfdfdf;*/
-		/*border-top: 1px solid #f0f0f0;*/
+		behavior: switch;
+		cursor:auto;
 	}
 
 	li:first-child {
@@ -1462,14 +1471,70 @@ header {
 	}
 
 	span {
-		width: 5%;
-		text-align: center;
-		font-size: 16px;
+		width: 10%;
+		text-align: right;
+		font-size: 14px;
 		display: inline-block;
 		vertical-align: top;
-		color: $primary-color-medium;
+		color: #dfdfdf;
+		cursor:pointer;
+		padding-top:2px;
+	}
+
+	
+}
+
+.delete-beer {
+	width: 10%;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	font-size: 12px;
+	padding: 5px;
+	margin-top: -5px;
+
+	span {
+		font-size: 14px;
+		color: #dfdfdf;
 	}
 }
+
+#focusableElement:focus { 
+	background: #f8f8f8 !important; 
+}
+
+#focusableElement:focus span { 
+	color: #000 !important; 
+	pointer-events: auto; 
+	cursor: pointer;
+}
+
+#focusableElement:focus i { 
+	color: #000 !important; 
+	pointer-events: auto; 
+	cursor: pointer;
+}
+
+#focusableElement:focus button {
+	display: inline-block;
+	pointer-events: auto;
+}
+
+.profile-beer-list li:hover .delete-beer {
+	display:inline-block;
+	vertical-align: top;
+}
+
+
+.profile-beer-list li:checked:focus > #focusableElement { 
+	background-color:red; 
+	color:white; 
+}
+
+#focusableElement {
+	outline:0;
+}
+
 
 /*.beer-list-header {
 	text-align: center;
@@ -1491,10 +1556,38 @@ header {
 	}
 }
 
+.beer-order {
+	width: 5%;
+	display: inline-block;
+	vertical-align: top;
 
+	i {
+		display: block;
+		font-size: 16px;
+		color: #dfdfdf;
+		pointer-events: none;
+	}
+
+	button {
+		background: transparent;
+		outline: 0;
+		border: 0;
+		font-weight: 500;
+		cursor: pointer;
+		text-align: center;
+		margin-left: -6.5px;
+		padding: 0px 0;
+		pointer-events: none;
+
+	}
+
+	span {
+		font-size: 14px;
+	}
+}
 
 .beer-name {
-	width: 70%;
+	width: 60%;
 	display: inline-block;
 	vertical-align: top;
 	padding-left:10px;
@@ -1517,6 +1610,8 @@ header {
 		display: block;
 		color: #F44336;
 	}
+
+
 }
 
 .beer-abv {
@@ -1527,9 +1622,9 @@ header {
 
 	h1 {
 		display:block;
-		font-size: 16px;
+		font-size: 13px;
 		color:$primary-color-dark;
-		font-weight: 300;
+		font-weight: 400;
 	}
 
 	p {
@@ -1742,14 +1837,14 @@ header {
 		font-size: 14px;
 		display: inline-block;
 		vertical-align: top;
-		padding-top:6px;
+		padding-top: 5px;
 		padding-left: 5px;
 	}
 
 	img {
 		width: 100%;
 		height: auto; 
-		border-radius: 2px;
+		border-radius: 50px;
 		display: inline-block;
 		vertical-align: top;
 	}
@@ -2216,17 +2311,13 @@ header {
 }
 
 
-.bar-search {
+/*.bar-search {
 	position:relative;
 	background: $secondary-color-dark;
-	/*border:1px solid #dfdfdf;*/
-	/*border-bottom:0;
-	border-top:0;*/
 	width: 100%;
 	display: inline-block;
 	vertical-align: top;
 	z-index: 50;
-	/*margin-bottom:15px;*/
 
 	i {
 		display: inline-block;
@@ -2281,7 +2372,7 @@ header {
 		margin-top:17px;
 	}
 }
-
+*/
 
 /* Bar Slideout */
 
@@ -2687,33 +2778,47 @@ header {
 	/*margin-top: 15px;*/
 
 	li {
-		padding: 15px;
 		border-bottom: 1px solid #f8f8f8;
 		background: $primary-color-light;
 	}
-
+ 
 	li:first-child {
 		/*border-bottom: 1px solid #f0f0f0;*/
+		height: 60px;
+	}
+
+	li:nth-child(2) {
+		border-right: 0px solid #f8f8f8;
 	}
 
 	li:nth-child(2), 
+	li:nth-child(4) {
+		padding: 0px;
+		width: 45%;
+		display: inline-block;
+		vertical-align: top;
+		background: #f8f8f8;
+	}
+
 	li:nth-child(3) {
-		padding: 10px 30px;
+		width: 10%;
+		display: inline-block;
+		vertical-align: top;
+		border-right:0px solid #f8f8f8;
+		text-align: center;
+		padding: 0;
+		height: 41px;
+		padding-top:12px;
+		background: #f8f8f8;
 	}
 
 	li:last-child {
-		text-align: right;
-	}
-
-	input {
-		display:inline-block;
-		vertical-align: top;
+		text-align: left;
 	}
 
 	input {
 		display: inline-block;
 		vertical-align: top;
-		font-size: 13px;
 		border: 0;
 		outline: 0;
 		margin: 0 auto;
@@ -2721,27 +2826,14 @@ header {
 
 
 	input[type="text"] {
-		height: 40px;
-		background: #fff;
-		width: 95%;
 		font-weight: 300;
-		text-indent: 10px;
-		text-align: left;
 		display: inline-block;
 	}
-
-/*	input[type="date"] {
-		font-size: 16px;
-		width: auto;
-		text-align: left;
-		display: inline-block;
-		width: 100%;
-	}*/
 
 	input[type="radio"] {
 		font-size: 12px;
 		margin-top:13px;
-		width: 5%;
+		width: 0%;
 	}
 
 	input::-webkit-input-placeholder {
@@ -2759,13 +2851,14 @@ header {
 		 font-weight: 300;
 		 font-size: 13px;
 		 padding: 10px 10px;
-		 width: 90%;
+		 width: 100%;
 		 cursor: pointer;
 		 height: 40px;
 		 outline: 0;
-		 background: #fff;
+		 background: #f8f8f8;
 		 pointer-events: none; 
 		 cursor: default;
+		 text-align: center;
 
 	}
 
@@ -2773,23 +2866,16 @@ header {
 		font-size: 12px;
 		display: inline-block;
 		vertical-align: top;
-		padding-left: 5px;
-		width: 40%;
-		text-align: left;
+		text-transform: lowercase;
 	}
 
-	button {
-		width: 25%;
-		background:$secondary-color-medium;
-		border: 0;
-		outline: 0;
-		color: #f0f0f0;
-		padding: 10px 0px;
-		border-radius: 4px;
-		display: inline-block;
+	i {
+		font-size: 14px;
+		display:inline-block;
 		vertical-align: top;
+		width: 15%;
+		margin-top:22px;
 		text-align: center;
-		font-size: 12px;
 	}
 
 
@@ -2823,28 +2909,75 @@ header {
 	}
 }
 
+.submit-comment {
+	background: $secondary-color-medium;
+	width: 20%;
+	outline: 0;
+	border: 0;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 300;
+	padding: 10px 0;
+	margin-top:13px;
+}
+
 .input-date {
+	width: 100%;
 	color: #ccc;
 	pointer-events: none; 
 	cursor: default;
-	text-indent: 10px;
+	text-align: right;
+	padding-right:10px;
+	background: #f8f8f8;
+	height: 40px;
+	font-size: 13px;
+
 }
 
+.input-comment {
+	text-align: left;
+	height: 60px;
+	font-size: 16px;
+	width: 60%;
+	border: 0;
+	outline: 0;
+	border-radius: 0;
+	font-size: 16px;
+	font-weight: 300;
+}
 
-.checkbox-standing:checked + .select-standing {
+#checkbox-standing:checked + .select-standing {
 	color:#333;
 	pointer-events: auto; 
 	cursor: pointer;
+	font-weight: 400;
 }
 
-.checkbox-date:checked + .input-date {
+#checkbox-date:checked + .input-date {
 	color:#333;
 	pointer-events: auto; 
 	cursor: pointer;
+	font-weight:400;
 }
 
-.checkbox-date:checked .input-date::-webkit-input-placeholder {
+#checkbox-date:checked .input-date::-webkit-input-placeholder {
 	color: #333 !important;
+}
+
+#checkbox-date {
+	display: none;
+}
+
+#checkbox-standing {
+	display: none;
+}
+
+.radio-label {
+	font-size: 14px;
+	display: inline-block;
+	width: 100%;
+	cursor:pointer;
 }
 
 
@@ -3823,7 +3956,7 @@ input[type="file"] {
 
 .copyright-info {
 	width: 100%;
-	padding: 15px 5px;
+	padding: 15px 15px;
 	/*border: 1px solid #dfdfdf;*/
 	border-top:0;
 
