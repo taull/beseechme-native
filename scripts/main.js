@@ -284,27 +284,29 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 		e.preventDefault();
 		var fileObject = $('#camera-file')[0].files;
 
-		if(fileObject.length == 0) {
-			alert("You need to choose a file");
-		} else if (fileObject[0].type.search('image') == -1) {
-			alert('Image type needs to be an image');
-		} else {
-			var name = fileObject[0].name;
-			var file = fileObject[0];
-			var contentHolder = $("#business-status");
-			var content = contentHolder.val();
-			var image = new Parse.File(name, file);
+    if (typeof fileObject[0] !== 'undefined') {
+      if (fileObject[0].type.search('image') == -1) {
+  			alert('Image type needs to be an image');
+  		} else {
+        var name = fileObject[0].name;
+  			var file = fileObject[0];
+        var image = new Parse.File(name, file);
+      }
+    } else {
+      var image = undefined;
+    }
+		var contentHolder = $("#business-status");
+		var content = contentHolder.val();
 
-			var businessStatus = new Parse.Object('businessStatus');
-			businessStatus.set('content', content);
-			businessStatus.set('image', image);
-			businessStatus.set('createdBy', Parse.User.current());
-			console.log(businessStatus);
-			businessStatus.save().then(function (e){
-				contentHolder.val('');
-				$('#camera-file').val('');
-			});
-		}
+		var businessStatus = new Parse.Object('businessStatus');
+		businessStatus.set('content', content);
+		businessStatus.set('image', image);
+		businessStatus.set('createdBy', Parse.User.current());
+		console.log(businessStatus);
+		businessStatus.save().then(function (e){
+			contentHolder.val('');
+			$('#camera-file').val('');
+		});
 	}
 });
 
@@ -320,7 +322,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
 	}
-});	
+});
 
 BeMe.Views.BackendCompetition = Parse.View.extend({
 	initialize: function () {
