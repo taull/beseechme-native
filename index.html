@@ -64,11 +64,11 @@
       <form action="">
 
         <li>
-          <span class="fa fa-angle-right"></span>
+          <h1>@</h1>
           <input type="text" name="email" placeholder="Email Address">
         </li>
         <li>
-          <span class="fa fa-angle-right"></span>
+          <span class="fa fa-lock"></span>
           <input type="password" name="password" placeholder="Password">
         </li>
 
@@ -91,29 +91,30 @@
     <div class="login-container">
       <form action="">
         <li>
-          <span class="fa fa-angle-right"></span>
+          <span class="fa fa-bookmark"></span>
           <input type="text" name="business-name" placeholder="Business Name">
         </li>
         <li>
-          <span class="fa fa-angle-right"></span>
-          <input type="text" name="first-name" placeholder="First Name">
-        </li>
-
-        <li>
-          <span class="fa fa-angle-right"></span>
-          <input type="text" name="last-name" placeholder="Last Name">
+          <h1>N</h1>
+          <input type="text" name="first-name" placeholder="Name">
         </li>
         <li>
-          <span class="fa fa-angle-right"></span>
-          <input type="text" name="email" placeholder="Email Address">
+          <span class="fa fa-envelope"></span>
+          <input type="text" name="email" placeholder="Email">
         </li>
         <li>
-          <span class="fa fa-angle-right"></span>
+          <h1>@</h1>
+          <input type="text" name="handle" placeholder="Handle">
+        </li>
+        <li>
+          <span class="fa fa-lock"></span>
           <input type="password" name="password" placeholder="Password">
+          <h1></h1>
         </li>
         <li>
-          <span class="fa fa-angle-right"></span>
-          <input type="password" name="confirm-password" placeholder="Confirm Password">
+          <span class="fa fa-lock"></span>
+          <input type="password" class="confirm-password" name="confirm-password" placeholder="Confirm Password">
+
         </li>
 
         <button>Register</button>
@@ -132,31 +133,25 @@
       <form action="">
 
         <li>
-          <span class="fa fa-angle-right"></span>
-          <input type="text" name="first-name" placeholder="First Name">
-        </li>
-
-        <li>
-          <span class="fa fa-angle-right"></span>
-          <input type="text" name="last-name" placeholder="Last Name">
+          <h1>N</h1>
+          <input type="text" name="first-name" placeholder="Name">
         </li>
         <li>
-          <span class="fa fa-angle-right"></span>
+          <h1>@</h1>
           <input type="text" name="email" placeholder="Email Address">
         </li>
         <li>
-          <span class="fa fa-angle-right"></span>
+          <span class="fa fa-lock"></span>
           <input type="password" name="password" placeholder="Password">
         </li>
         <li>
-          <span class="fa fa-angle-right"></span>
+          <span class="fa fa-lock"></span>
           <input type="password" name="confirm-password" placeholder="Confirm Password">
         </li>
 
         <button>Register</button>
       </form>
     </div>
-
 
   </div>
 </script>
@@ -355,7 +350,8 @@
       <div class="profile-beer-list">
 
         <ul>
-          <li>
+          <li tabindex="-1" id="focusableElement">
+
             <div class="beer-avatar">
               <img src="images/two-hearted-avatar.png">
             </div>
@@ -366,11 +362,12 @@
             <div class="beer-abv">
               <h1>7.0%</h1>
               <p>Abv</p>
-
             </div>
+            <span class="fa fa-bars"></span>
           </li>
 
-          <li>
+          <li tabindex="-1" id="focusableElement">
+
             <div class="beer-avatar">
               <img src="images/westbrook-avatar.png">
             </div>
@@ -381,11 +378,13 @@
             <div class="beer-abv">
               <h1>6.8%</h1>
               <p>Abv</p>
-
             </div>
+            <span class="fa fa-bars"></span>
+
           </li>
 
-          <li>
+          <li tabindex="-1" id="focusableElement">
+
             <div class="beer-avatar">
               <img src="images/harpoon-avatar.png">
             </div>
@@ -397,9 +396,11 @@
               <h1>7.4%</h1>
               <p>Abv</p>
             </div>
+            <span class="fa fa-bars"></span>
           </li>
 
-          <li>
+          <li tabindex="-1" id="focusableElement">
+
             <div class="beer-avatar">
               <img src="images/coors-light-avatar.png">
             </div>
@@ -411,9 +412,11 @@
               <h1>4.2%</h1>
               <p>Abv</p>
             </div>
+            <span class="fa fa-bars"></span>
           </li>
 
-          <li>
+          <li tabindex="-1" id="focusableElement">
+
             <div class="beer-avatar">
               <img src="images/harpoon-avatar.png">
             </div>
@@ -425,9 +428,11 @@
               <h1>7.4%</h1>
               <p>Abv</p>
             </div>
+            <span class="fa fa-bars"></span>
           </li>
 
-          <li>
+          <li tabindex="-1" id="focusableElement">
+
             <div class="beer-avatar">
               <img src="images/coors-light-avatar.png">
             </div>
@@ -439,13 +444,11 @@
               <h1>4.2%</h1>
               <p>Abv</p>
             </div>
+            <span class="fa fa-bars"></span>
           </li>
         </ul>
       </div>
 
-      <div class="view-all">
-        <a>View All Beer</a>
-      </div>
     </div>
   </div>
 </script>
@@ -464,6 +467,7 @@
     <i class='fa fa-arrows'></i>
   <% } %>
   <p><%= attributes.content %></p>
+
   <button class="delete-comment"><span class="fa fa-close"></span></button>
 </script>
 <!-- backend Calendar View -->
@@ -497,33 +501,34 @@
         <form action="">
 
           <li>
-            <input type="text" name="content" placeholder="Add Comment...">
-          </li>
-
-          <li>
-            <input type="radio" name="select-comment" class="checkbox-date">
-
-            <input class="datepicker input-date" name="date" type="text" placeholder="Choose a Date">
+            <i class="fa fa-comments"></i>
+            <input type="text" class="input-comment" name="content" placeholder="Add Comment...">
+            <button type="submit" class="submit-comment">Comment</button>
 
           </li>
 
-          <li>
-            <input type="radio" name="select-comment" value="standingComment" class="checkbox-standing">
-            <select class="select-standing">
-              <option value=0>Every Sunday</option>
-              <option value=1>Every Monday</option>
-              <option value=2>Every Tuesday</option>
-              <option value=3>Every Wednesday</option>
-              <option value=4>Every Thursday</option>
-              <option value=5>Every Friday</option>
-              <option value=6>Every Saturday</option>
-            </select>
+          <li>          
+            <label class="radio-label" for="checkbox-date">
+              <input type="radio" name="select-comment" id="checkbox-date">
+              <input class="datepicker input-date" name="date" type="text" placeholder="Choose a Date">
+            </label>
           </li>
 
+          <li><p>Or</p></li>
+
           <li>
-
-            <button type="submit">Comment</button>
-
+            <label class="radio-label" for="checkbox-standing">
+              <input type="radio" name="select-comment" value="standingComment" id="checkbox-standing">
+              <select class="select-standing">
+                <option value=0>Every Sunday</option>
+                <option value=1>Every Monday</option>
+                <option value=2>Every Tuesday</option>
+                <option value=3>Every Wednesday</option>
+                <option value=4>Every Thursday</option>
+                <option value=5>Every Friday</option>
+                <option value=6>Every Saturday</option>
+              </select>
+            </label>
           </li>
 
         </form>
@@ -718,6 +723,13 @@
           <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
         </ul>
       </div>
+
+      <div class="bar-search">
+        <span class="fa fa-search"></span>
+        <input type="text" placeholder="Bar Search...">
+        <button>Search</button>
+      </div>
+
     </div>
 
     <div class="wide-container">
@@ -780,8 +792,269 @@
     </div>
   </div>
 </script>
+<!-- END BACKEND TEMPLATES -->
 
 
+
+
+
+
+<!-- BUSINESS PAGES -->
+
+<!-- Business Page View -->
+
+<script type="text/template" id="business-view">
+
+  <div class="current-user-info"><p></p></div>
+
+</script>
+
+<!-- Business Feed View -->
+
+<script type="text/template" id="business-feed-view">
+
+  <div class="business-container">
+    <div class="narrow-container">
+
+      <div class="business-info">
+        <section>
+          <li>
+            <aside><img src="images/bar-logo.png"></aside>
+            <div>
+              <h1><%= Parse.User.current().get('businessName') %></h1>
+              <i class="fa fa-check-circle"></i>  
+              <p>2714 Blossom St</p>      
+            </div>
+          </li>
+        </section>
+      </div>
+
+      <div class="business-tabs">
+        <ul>
+          <a href="#business/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
+          <a href="#business/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
+          <a href="#business/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
+          <a href="#business/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="wide-container">
+      <div class="module-header">
+        <p>My Feed</p>
+      </div>
+      <div class="profile-feed">
+        <ul>
+          <li>
+            <div class="feed-avatar">
+              <div class="feed-logo">
+                <img src="images/bar-logo.png">
+              </div>
+            </div>
+            <div class="feed-post">
+
+              <div class="feed-info">
+
+                <div class="feed-name"><h1>Henrys Grill and Bar</h1><p>@henrysbar</p></div>
+                <div class="feed-ago"><p>1h</p></div>
+
+              </div>
+
+              <div class="feed-status">
+                <div>
+                  <span>Lorem option this is a test post to see what happens. option this is a test post to see what happens. $2 Drinks until 9pm!</span>
+                </div>
+              </div>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="feed-avatar">
+              <div class="feed-logo">
+                <img src="images/bar-logo.png">
+              </div>
+            </div>
+
+            <div class="feed-post">
+              <div class="feed-info">
+                <div class="feed-name"><h1>Henrys Grill and Bar</h1><p>@henrysbar</p></div>
+                <div class="feed-ago"><p>32m</p></div>
+              </div>
+
+              <div class="feed-status">
+                <div>
+                  <span>Lorem option this is a test post to see what happens. $2 Drinks until 9pm!</span>
+                </div>
+              </div>
+
+              <div class="feed-photo">
+                <a href="#photo">
+                  <img src="images/peopleatbar.png">
+                </a>
+              </div>
+
+            </div>
+          </li>
+
+        </ul>
+      </div><!-- END PROFILE FEED -->
+
+      <div class="view-all">
+        <a>Load More</a>
+      </div>
+
+      <div class="copyright-info">
+        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+        <p>Beseech Me®, LLC</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</script>
+
+
+<!-- Business Beer View -->
+
+<script type="text/template" id="business-beer-view">
+
+  <div class="business-container">
+    <div class="narrow-container">
+
+      <div class="business-info">
+        <section>
+          <li>
+            <aside><img src="images/bar-logo.png"></aside>
+            <div>
+              <h1><%= Parse.User.current().get('businessName') %></h1>
+              <i class="fa fa-check-circle"></i>  
+              <p>2714 Blossom St</p>      
+            </div>
+          </li>
+        </section>
+      </div>
+
+      <div class="business-tabs">
+        <ul>
+          <a href="#business/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
+          <a href="#business/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
+          <a href="#business/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
+          <a href="#business/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+        </ul>
+      </div>
+
+      <div class="copyright-info">
+        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+        <p>Beseech Me®, LLC</p>
+      </div>
+
+    </div>
+
+    <div class="wide-container">
+
+      <div class="module-header">
+        <p>Draft Beer</p>
+      </div>
+
+      <div class="profile-beer-list">
+        <ul>
+          <li>
+            <div class="beer-avatar">
+              <img src="images/two-hearted-avatar.png">
+            </div>
+            <div class="beer-name">
+              <h1>Two Hearted Ale</h1>
+              <h2>Bells Brewery, Inc.</h2>
+            </div>
+            <div class="beer-abv">
+              <h1>7.0%</h1>
+              <p>Abv</p>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="beer-avatar">
+              <img src="images/westbrook-avatar.png">
+            </div>
+            <div class="beer-name">
+              <h1>IPA</h1>
+              <h2>Westbrook Brewing</h2>
+            </div>
+            <div class="beer-abv">
+              <h1>6.8%</h1>
+              <p>Abv</p>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="beer-avatar">
+              <img src="images/harpoon-avatar.png">
+            </div>
+            <div class="beer-name">
+              <h1>Rich and Dans Rye IPA</h1>
+              <h2>Harpoon Brewing</h2>
+            </div>
+            <div class="beer-abv">
+              <h1>7.4%</h1>
+              <p>Abv</p>
+            </div>
+          </li>
+
+          <li>
+            <div class="beer-avatar">
+              <img src="images/coors-light-avatar.png">
+            </div>
+            <div class="beer-name">
+              <h1>Coors Light</h1>
+              <h2>Coors Brewing Co.</h2>
+            </div>
+            <div class="beer-abv">
+              <h1>4.2%</h1>
+              <p>Abv</p>
+            </div>
+          </li>
+
+          <li>
+            <div class="beer-avatar">
+              <img src="images/harpoon-avatar.png">
+            </div>
+            <div class="beer-name">
+              <h1>Rich and Dans Rye IPA</h1>
+              <h2>Harpoon Brewing</h2>
+            </div>
+            <div class="beer-abv">
+              <h1>7.4%</h1>
+              <p>Abv</p>
+            </div>
+          </li>
+
+          <li>
+            <div class="beer-avatar">
+              <img src="images/coors-light-avatar.png">
+            </div>
+            <div class="beer-name">
+              <h1>Coors Light</h1>
+              <h2>Coors Brewing Co.</h2>
+            </div>
+            <div class="beer-abv">
+              <h1>4.2%</h1>
+              <p>Abv</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="view-all">
+        <a>View All Beer</a>
+      </div>
+    </div>
+  </div>
+</script>
 
 <script src='bower_components/jquery/dist/jquery.min.js'></script>
 <script src='bower_components/underscore/underscore-min.js'></script>
