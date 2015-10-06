@@ -308,7 +308,7 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 		businessStatus.save().then(function (e){
 			contentHolder.val('');
 			$('#camera-file').val('');
-      self.collectionReference.add(e);
+      self.collectionReference.add(e, {at:0});
 		});
 	}
 });
@@ -326,7 +326,8 @@ BeMe.Collections.FeedsCollection = Parse.Collection.extend({
 
   query: new Parse.Query('businessStatus')
         .equalTo('createdBy', Parse.User.current())
-        .include('createdBy'),
+        .include('createdBy')
+        .descending('createdAt'),
 
   render: function () {
     var self = this;
