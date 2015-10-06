@@ -266,6 +266,7 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 	initialize: function () {
 		this.render();
 		autosize($('#business-status'));
+    this.collectionReference = new BeMe.Collections.FeedsCollection();
 	},
 
 	template: _.template($('#backend-feed-view').text()),
@@ -282,6 +283,7 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 
 	postBusinessStatus: function (e) {
 		e.preventDefault();
+    var self = this;
 		var fileObject = $('#camera-file')[0].files;
 
     if (typeof fileObject[0] !== 'undefined') {
@@ -306,8 +308,54 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 		businessStatus.save().then(function (e){
 			contentHolder.val('');
 			$('#camera-file').val('');
+      self.collectionReference.add(e);
 		});
 	}
+});
+
+BeMe.Collections.FeedsCollection = Parse.Collection.extend({
+  initialize: function () {
+    var self = this;
+    this.views = [];
+    this.on('add remove', this.render);
+    this.fetch(this.query).then(function (e) {
+      console.log(e);
+      self.render();
+    });
+  },
+
+  query: new Parse.Query('businessStatus')
+        .equalTo('createdBy', Parse.User.current())
+        .include('createdBy'),
+
+  render: function () {
+    var self = this;
+    _.each(this.views, function (i) {
+      i.remove();
+    });
+    this.views = [];
+    console.log('render called');
+    this.each(function (i) {
+      $('.profile-feed ul').append("NEW VIEW");
+      var feedPost = new BeMe.Views.FeedPost({model:i});
+      self.views.push(feedPost);
+    });
+  }
+});
+
+BeMe.Views.FeedPost = Parse.View.extend({
+  tagName:'li',
+
+  initialize: function () {
+      this.render();
+  },
+
+  template: _.template($('#businessStatus-post-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.profile-feed ul').append(this.el);
+  }
 });
 
 BeMe.Views.BackendBeerList = Parse.View.extend({

@@ -23,10 +23,23 @@
   <header>
     <div class="header-container">
       <div class="header-left">
-        <span class="fa fa-bars"></span>
+        <span class="fa fa-location-arrow"></span>
       </div>
       <div class="header-center">
+        <ul>
+          <li class="active-header-li"><p>Backend</p></li>
+          <li><p>Search</p></li>
+          <li><p>Settings</p></li>
+          <% if (Parse.User.current()) { %>
+          <li><p id='logout'>Logout</p></li>
+          <% } else { %>
+          <li><p id='sign-in'>Sign In</p></li>
+          <% } %>
 
+
+
+
+        </ul>
       </div>
       <div class="header-right">
         <span class="fa fa-facebook"></span>
@@ -147,31 +160,69 @@
 
 <script type="text/template" id="backend-view">
 
-<div class="top-container">
+  <div class="current-user-info"><p></p></div>
 
-  <div class="backend-tabs">
-    <ul>
-      <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
-      <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
-      <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
-      <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
-      <% if (Parse.User.current()) { %>
-      <li><p id='logout'>Logout</p></li>
-      <% } else { %>
-      <li><p id='sign-in'>Sign In</p></li>
-      <% } %>
-    </ul>
-  </div>
-</div>
 
 </script>
 
 <!-- backend Feed View -->
 
+<script type='text/template' id='businessStatus-post-view'>
+    <div class="feed-avatar">
+      <div class="feed-logo">
+        <img src="images/bar-logo.png" >
+      </div>
+    </div>
+    <div class="feed-post">
+
+      <div class="feed-info">
+        <% var user = attributes.createdBy %>
+        <div class="feed-name"><h1><%= user.attributes.businessName %></h1><p><%= "handle" %></p></div>
+        <div class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></div>
+
+      </div>
+
+      <div class="feed-status">
+        <div>
+          <span><%= attributes.content %></span>
+        </div>
+      </div>
+      <% if (typeof attributes.image !== 'undefined') {%>
+      <div class="feed-photo">
+        <a href=<%= attributes.image._url %> >
+          <img src=<%= attributes.image._url %> />
+        </a>
+      </div>
+      <% } %>
+    </div>
+</script>
+
 <script type="text/template" id="backend-feed-view">
 
   <div class="backend-container">
     <div class="narrow-container">
+
+      <div class="backend-info">
+        <section>
+          <li>
+            <aside><img src="images/bar-logo.png"></aside>
+            <div>
+              <h1><%= Parse.User.current().get('businessName') %></h1>
+              <i class="fa fa-check-circle"></i>
+              <p>2714 Blossom St</p>
+            </div>
+          </li>
+        </section>
+      </div>
+
+      <div class="backend-tabs">
+        <ul>
+          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
+          <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
+          <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
+          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+        </ul>
+      </div>
 
       <div class="profile-tools profile-tools-desktop">
         <form action="">
@@ -199,57 +250,6 @@
           <p>My Feed</p>
         </div>
         <ul>
-          <li>
-            <div class="feed-avatar">
-              <div class="feed-logo">
-                <img src="images/bar-logo.png">
-              </div>
-            </div>
-            <div class="feed-post">
-
-              <div class="feed-info">
-
-                <div class="feed-name"><h1>Henrys Grill and Bar</h1><p>@henrysbar</p></div>
-                <div class="feed-ago"><p>1h</p></div>
-
-              </div>
-
-              <div class="feed-status">
-                <div>
-                  <span>Lorem option this is a test post to see what happens. option this is a test post to see what happens. $2 Drinks until 9pm!</span>
-                </div>
-              </div>
-
-            </div>
-          </li>
-
-          <li>
-            <div class="feed-avatar">
-              <div class="feed-logo">
-                <img src="images/bar-logo.png">
-              </div>
-            </div>
-
-            <div class="feed-post">
-              <div class="feed-info">
-                <div class="feed-name"><h1>Henrys Grill and Bar</h1><p>@henrysbar</p></div>
-                <div class="feed-ago"><p>32m</p></div>
-              </div>
-
-              <div class="feed-status">
-                <div>
-                  <span>Lorem option this is a test post to see what happens. $2 Drinks until 9pm!</span>
-                </div>
-              </div>
-
-              <div class="feed-photo">
-                <a href="#photo">
-                  <img src="images/peopleatbar.png">
-                </a>
-              </div>
-
-            </div>
-          </li>
 
         </ul>
       </div><!-- END PROFILE FEED -->
@@ -264,10 +264,6 @@
 
 
   </div>
-
-
-
-
 
 
 </script>
@@ -427,17 +423,38 @@
   <div class="backend-container">
     <div class="narrow-container">
 
+      <div class="backend-info">
+        <section>
+          <li>
+            <aside><img src="images/bar-logo.png"></aside>
+            <div>
+              <h1><%= Parse.User.current().get('businessName') %></h1>
+              <i class="fa fa-check-circle"></i>
+              <p>2714 Blossom St</p>
+            </div>
+          </li>
+        </section>
+      </div>
+      <div class="backend-tabs">
+        <ul>
+          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
+          <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
+          <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
+          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+        </ul>
+      </div>
 
       <div class="add-weekly-comment">
         <form action="">
 
           <li>
+            <i class="fa fa-comments"></i>
             <input type="text" class="input-comment" name="content" placeholder="Add Comment...">
             <button type="submit" class="submit-comment">Comment</button>
 
           </li>
 
-          <li>          
+          <li>
             <label class="radio-label" for="checkbox-date">
               <input type="radio" name="select-comment" id="checkbox-date">
               <input class="datepicker input-date" name="date" type="text" placeholder="Choose a Date">
@@ -733,8 +750,8 @@
             <aside><img src="images/bar-logo.png"></aside>
             <div>
               <h1><%= Parse.User.current().get('businessName') %></h1>
-              <i class="fa fa-check-circle"></i>  
-              <p>2714 Blossom St</p>      
+              <i class="fa fa-check-circle"></i>
+              <p>2714 Blossom St</p>
             </div>
           </li>
         </section>
@@ -841,8 +858,8 @@
             <aside><img src="images/bar-logo.png"></aside>
             <div>
               <h1><%= Parse.User.current().get('businessName') %></h1>
-              <i class="fa fa-check-circle"></i>  
-              <p>2714 Blossom St</p>      
+              <i class="fa fa-check-circle"></i>
+              <p>2714 Blossom St</p>
             </div>
           </li>
         </section>
