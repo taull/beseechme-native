@@ -17,7 +17,7 @@
 /* Layout */
 body {
   position: relative;
-  background: #f0f0f0;
+  background: #e5e5e5;
   width: 100%;
   margin: 0 auto;
   overflow-x: hidden;
@@ -32,7 +32,7 @@ body {
   transition: 250ms; }
 
 .backend-container {
-  width: 860px;
+  width: 480px;
   margin: 0 auto;
   top: 35px;
   position: relative;
@@ -60,7 +60,7 @@ header {
   /*display:none;*/ }
 
 .header-container {
-  width: 860px;
+  width: 480px;
   height: 56px;
   margin: 0 auto;
   position: relative;
@@ -244,8 +244,8 @@ header {
   transition: 250ms;
   z-index: 25;
   background: #f8f8f8;
-  /*border-top:1px solid #dfdfdf;*/
-  /*border-bottom: 1px solid #dfdfdf;*/
+  border: 1px solid #dfdfdf;
+  border-radius: 2px;
   font-size: 0;
   text-align: center;
   margin-bottom: 15px;
@@ -708,7 +708,7 @@ header {
   padding-bottom: 15px; }
 
 .wide-container {
-  width: 60%;
+  width: 100%;
   display: inline-block;
   position: relative;
   vertical-align: top;
@@ -725,11 +725,11 @@ header {
   /*box-shadow: -6px 0px 30px -15px;*/ }
 
 .narrow-container {
-  width: 40%;
+  width: 100%;
   display: inline-block;
   vertical-align: top;
   padding-top: 15px;
-  padding-right: 15px; }
+  /*padding-right:15px;*/ }
 
 .sidebar-container,
 .sidebar-container-dark {
@@ -748,7 +748,7 @@ header {
 .top-container,
 .top-container2 {
   position: relative;
-  width: 860px;
+  width: 480px;
   top: 50px;
   margin: 0 auto;
   padding: 0px;
@@ -801,7 +801,7 @@ header {
 
 .profile-options {
   width: 100%;
-  background: #37474F;
+  /*background:$primary-color-medium;*/
   position: relative;
   /*border-top: 1px solid $primary-color-dark;*/
   transition: 250ms; }
@@ -924,6 +924,7 @@ header {
 .bar-search {
   width: 100%;
   background: #fff;
+  border: 1px solid #d8d8d8;
   position: relative;
   height: 60px;
   padding-top: 0px;
@@ -1016,7 +1017,7 @@ header {
   width: 100%;
   margin: 0 auto;
   background: #fff;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f8f8f8;
   padding: 15px 15px 10px;
   cursor: pointer; }
   .module-header p {
@@ -1106,7 +1107,9 @@ header {
 .profile-beer-list {
   width: 100%;
   background: #fff;
-  margin-top: 0px; }
+  margin-top: 0px;
+  border: 1px solid #d8d8d8;
+  border-radius: 2px; }
   .profile-beer-list ul {
     list-style: none;
     padding-left: 0; }
@@ -1446,7 +1449,8 @@ header {
   transition: 250ms;
   display: inline-block;
   vertical-align: top;
-  /*border: 1px solid #dfdfdf;*/
+  border: 1px solid #d8d8d8;
+  border-radius: 2px;
   /*border-top:0;*/ }
 
 .profile-tools-mobile {
@@ -1468,7 +1472,7 @@ header {
   padding: 40px 30px 5px 30px;
   color: #000;
   font-weight: 300;
-  /*border-radius: 4px 4px 0 0;*/ }
+  border-radius: 2px 2px 0 0; }
 
 .verified-container {
   display: inline-block;
@@ -1516,7 +1520,7 @@ header {
 .profile-feed {
   width: 100%;
   background: #fff;
-  /*border:1px solid #dfdfdf;*/ }
+  border: 1px solid #d8d8d8; }
   .profile-feed ul {
     list-style: none;
     padding-left: 0; }
@@ -2309,7 +2313,6 @@ header {
 
 .calendar-day {
   /*margin-top:15px;*/
-  /*border: 1px solid #dfdfdf;*/
   border-bottom: 0;
   border-top: 0; }
 
@@ -2372,9 +2375,7 @@ header {
 
 /* Seven Day Nav */
 .seven-day-nav {
-  /*border: 1px solid #dfdfdf;*/
-  border-bottom: 0;
-  margin-bottom: 15px;
+  border: 1px solid #d8d8d8;
   /*border-right:0;
   border-left:0;*/ }
   .seven-day-nav ul {
@@ -2517,41 +2518,41 @@ article {
   top: 0; }
 
 .settings-sublist,
-.calendar-daily {
+.yily {
   display: block;
   /*background: #fff;*/
   /*padding-top:30px;*/
   /*border:1px solid #dfdfdf;*/
   margin-top: 0px; }
   .settings-sublist ul,
-  .calendar-daily ul {
+  .yily ul {
     list-style: none;
     padding-left: 0; }
   .settings-sublist li,
-  .calendar-daily li {
+  .yily li {
     display: block;
     padding: 20px 20px;
     background: #fff;
     border-bottom: 1px solid #f0f0f0;
     height: 60px; }
   .settings-sublist li:hover,
-  .calendar-daily li:hover {
+  .yily li:hover {
     background: #fcfcfc; }
   .settings-sublist div,
-  .calendar-daily div {
+  .yily div {
     display: inline-block;
     vertical-align: top;
     width: 50%;
     padding: 15px 0px; }
   .settings-sublist li:last-child,
-  .calendar-daily li:last-child {
+  .yily li:last-child {
     /*padding-top:30px;*/ }
   .settings-sublist footer,
-  .calendar-daily footer {
+  .yily footer {
     /*border-top:1px solid #dfdfdf;*/
     /*margin-top:15px;*/ }
   .settings-sublist i,
-  .calendar-daily i {
+  .yily i {
     font-size: 12px;
     display: inline-block;
     vertical-align: top;
@@ -2561,14 +2562,14 @@ article {
     padding-top: 4px;
     /*float:right;*/ }
   .settings-sublist span,
-  .calendar-daily span {
+  .yily span {
     display: inline-block;
     vertical-align: top;
     font-size: 18px;
     text-align: center;
     color: #B71C1C; }
   .settings-sublist h1,
-  .calendar-daily h1 {
+  .yily h1 {
     font-size: 8px;
     width: 25%;
     text-align: right;
@@ -2580,7 +2581,7 @@ article {
     vertical-align: top;
     text-transform: uppercase; }
   .settings-sublist p,
-  .calendar-daily p {
+  .yily p {
     font-size: 13px;
     line-height: 20px;
     font-weight: 300;
@@ -2590,7 +2591,7 @@ article {
     vertical-align: top;
     padding-left: 10px; }
   .settings-sublist input,
-  .calendar-daily input {
+  .yily input {
     width: 85%;
     height: 60px;
     border: 0;
@@ -2603,10 +2604,10 @@ article {
     /*border-radius:4px;*/
     /*border:1px solid #dfdfdf;*/ }
     .settings-sublist input:focus,
-    .calendar-daily input:focus {
+    .yily input:focus {
       outline: none; }
   .settings-sublist select,
-  .calendar-daily select {
+  .yily select {
     font-size: 16px;
     margin-left: 10px;
     -webkit-appearance: none;
@@ -2617,15 +2618,11 @@ article {
     width: 60%;
     height: 28px; }
     .settings-sublist select:focus,
-    .calendar-daily select:focus {
+    .yily select:focus {
       outline: 0; }
 
 .calendar-standing {
-  display: block;
-  /*background: #fff;*/
-  /*padding-top:30px;*/
-  /*border:1px solid #dfdfdf;*/
-  margin-top: 15px; }
+  display: block; }
   .calendar-standing ul {
     list-style: none;
     padding-left: 0; }
@@ -3100,7 +3097,7 @@ svg path,
 svg rect {
   fill: #01579B; }
 
-@media screen and (min-width: 700px) and (max-width: 860px) {
+@media screen and (min-width: 700px) and (max-width: 480px) {
   .body-container,
   header,
   .header-container {
@@ -3199,7 +3196,6 @@ svg rect {
     display: none; }
 
   .wide-container {
-    padding: 0;
     margin-left: 0;
     /*margin-top:55px;*/ }
 
@@ -3207,12 +3203,6 @@ svg rect {
     padding-top: 0; }
     .profile-feed li {
       padding: 15px; }
-
-  .profile-tools-desktop {
-    display: none; }
-
-  .profile-tools-mobile {
-    display: block; }
 
   .bottom-slideout {
     display: inline-block; }
