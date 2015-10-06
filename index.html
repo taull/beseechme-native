@@ -244,18 +244,15 @@
 
 
     <div class="wide-container">
-      <div class="module-header">
-        <p>My Feed</p>
-      </div>
+      
       <div class="profile-feed">
+        <div class="module-header">
+          <p>My Feed</p>
+        </div>
         <ul>
 
         </ul>
       </div><!-- END PROFILE FEED -->
-
-      <div class="view-all">
-        <a>Load More</a>
-      </div>
 
       <div class="copyright-info">
         <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
@@ -279,51 +276,22 @@
   <div class="backend-container">
     <div class="narrow-container">
 
-      <div class="backend-info">
-        <section>
-          <li>
-            <aside><img src="images/bar-logo.png"></aside>
-            <div>
-              <h1><%= Parse.User.current().get('businessName') %></h1>
-              <i class="fa fa-check-circle"></i>
-              <p>2714 Blossom St</p>
-            </div>
-          </li>
-        </section>
-      </div>
-
-      <div class="backend-tabs">
-        <ul>
-          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
-          <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
-          <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
-          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
-        </ul>
-      </div>
-
       <div class="beer-search">
         <span class="fa fa-search"></span>
         <input type="text" placeholder="Brewery Database...">
         <button>Search</button>
       </div>
-      <div class="copyright-info">
-        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-        <p>Beseech Me®, LLC</p>
-      </div>
-
-
-
-
+  
     </div>
 
     <div class="wide-container">
 
-      <div class="module-header">
-        <p>Draft Beer</p>
-      </div>
+      
 
       <div class="profile-beer-list">
-
+        <div class="module-header">
+          <p>Draft Beer</p>
+        </div>
         <ul>
           <li tabindex="-1" id="focusableElement">
 
@@ -422,6 +390,10 @@
             <span class="fa fa-bars"></span>
           </li>
         </ul>
+      </div>
+      <div class="copyright-info">
+        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+        <p>Beseech Me®, LLC</p>
       </div>
 
     </div>
@@ -677,28 +649,6 @@
   <div class="backend-container">
     <div class="narrow-container">
 
-      <div class="backend-info">
-        <section>
-          <li>
-            <aside><img src="images/bar-logo.png"></aside>
-            <div>
-              <h1><%= Parse.User.current().get('businessName') %></h1>
-              <i class="fa fa-check-circle"></i>
-              <p>2714 Blossom St</p>
-            </div>
-          </li>
-        </section>
-      </div>
-
-      <div class="backend-tabs">
-        <ul>
-          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
-          <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
-          <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
-          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
-        </ul>
-      </div>
-
       <div class="bar-search">
         <span class="fa fa-search"></span>
         <input type="text" placeholder="Bar Search...">
@@ -708,6 +658,9 @@
     </div>
 
     <div class="wide-container">
+      <div class="module-header">
+        <p>My Competition</p>
+      </div>
       <div class="listing-container">
         <ul>
           <li>
@@ -1030,6 +983,28 @@
     </div>
   </div>
 </script>
+
+<script type="text/template" id="dashboard-view">
+
+</script>
+
+<script type="text/template" id="dashboard-feed-view">
+
+</script>
+
+<script type="text/template" id="dashboard-listing-view">
+
+</script>
+
+<script type="text/template" id="dashboard-favorites-view">
+
+</script>
+
+<script type="text/template" id="dashboard-map-view">
+
+</script>
+
+
 
 <script src='bower_components/jquery/dist/jquery.min.js'></script>
 <script src='bower_components/underscore/underscore-min.js'></script>
