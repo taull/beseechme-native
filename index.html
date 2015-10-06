@@ -23,22 +23,15 @@
   <header>
     <div class="header-container">
       <div class="header-left">
-        <span class="fa fa-location-arrow"></span>
+        <span class="fa fa-bars"></span>
       </div>
       <div class="header-center">
         <ul>
-          <li class="active-header-li"><p>Backend</p></li>
-          <li><p>Search</p></li>
-          <li><p>Settings</p></li>
           <% if (Parse.User.current()) { %>
           <li><p id='logout'>Logout</p></li>
           <% } else { %>
           <li><p id='sign-in'>Sign In</p></li>
           <% } %>
-
-
-
-
         </ul>
       </div>
       <div class="header-right">
@@ -160,8 +153,16 @@
 
 <script type="text/template" id="backend-view">
 
-  <div class="current-user-info"><p></p></div>
-
+<div class="top-container">
+      <div class="backend-tabs">
+        <ul>
+          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
+          <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
+          <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
+          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+        </ul>
+      </div>
+</div>
 
 </script>
 
@@ -202,27 +203,7 @@
   <div class="backend-container">
     <div class="narrow-container">
 
-      <div class="backend-info">
-        <section>
-          <li>
-            <aside><img src="images/bar-logo.png"></aside>
-            <div>
-              <h1><%= Parse.User.current().get('businessName') %></h1>
-              <i class="fa fa-check-circle"></i>
-              <p>2714 Blossom St</p>
-            </div>
-          </li>
-        </section>
-      </div>
-
-      <div class="backend-tabs">
-        <ul>
-          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
-          <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
-          <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
-          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
-        </ul>
-      </div>
+      
 
       <div class="profile-tools profile-tools-desktop">
         <form action="">
@@ -423,35 +404,12 @@
   <div class="backend-container">
     <div class="narrow-container">
 
-      <div class="backend-info">
-        <section>
-          <li>
-            <aside><img src="images/bar-logo.png"></aside>
-            <div>
-              <h1><%= Parse.User.current().get('businessName') %></h1>
-              <i class="fa fa-check-circle"></i>
-              <p>2714 Blossom St</p>
-            </div>
-          </li>
-        </section>
-      </div>
-      <div class="backend-tabs">
-        <ul>
-          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
-          <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
-          <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
-          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
-        </ul>
-      </div>
-
       <div class="add-weekly-comment">
         <form action="">
 
           <li>
-            <i class="fa fa-comments"></i>
             <input type="text" class="input-comment" name="content" placeholder="Add Comment...">
             <button type="submit" class="submit-comment">Comment</button>
-
           </li>
 
           <li>

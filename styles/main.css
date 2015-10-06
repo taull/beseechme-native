@@ -2313,7 +2313,7 @@ header {
 
 .calendar-day {
   /*margin-top:15px;*/
-  border-bottom: 0;
+  border: 1px solid #d8d8d8;
   border-top: 0; }
 
 .calendar-comment {
@@ -2518,41 +2518,41 @@ article {
   top: 0; }
 
 .settings-sublist,
-.yily {
+.calendar-daily {
   display: block;
   /*background: #fff;*/
   /*padding-top:30px;*/
   /*border:1px solid #dfdfdf;*/
   margin-top: 0px; }
   .settings-sublist ul,
-  .yily ul {
+  .calendar-daily ul {
     list-style: none;
     padding-left: 0; }
   .settings-sublist li,
-  .yily li {
+  .calendar-daily li {
     display: block;
     padding: 20px 20px;
     background: #fff;
     border-bottom: 1px solid #f0f0f0;
     height: 60px; }
   .settings-sublist li:hover,
-  .yily li:hover {
+  .calendar-daily li:hover {
     background: #fcfcfc; }
   .settings-sublist div,
-  .yily div {
+  .calendar-daily div {
     display: inline-block;
     vertical-align: top;
     width: 50%;
     padding: 15px 0px; }
   .settings-sublist li:last-child,
-  .yily li:last-child {
+  .calendar-daily li:last-child {
     /*padding-top:30px;*/ }
   .settings-sublist footer,
-  .yily footer {
+  .calendar-daily footer {
     /*border-top:1px solid #dfdfdf;*/
     /*margin-top:15px;*/ }
   .settings-sublist i,
-  .yily i {
+  .calendar-daily i {
     font-size: 12px;
     display: inline-block;
     vertical-align: top;
@@ -2562,14 +2562,14 @@ article {
     padding-top: 4px;
     /*float:right;*/ }
   .settings-sublist span,
-  .yily span {
+  .calendar-daily span {
     display: inline-block;
     vertical-align: top;
     font-size: 18px;
     text-align: center;
     color: #B71C1C; }
   .settings-sublist h1,
-  .yily h1 {
+  .calendar-daily h1 {
     font-size: 8px;
     width: 25%;
     text-align: right;
@@ -2581,7 +2581,7 @@ article {
     vertical-align: top;
     text-transform: uppercase; }
   .settings-sublist p,
-  .yily p {
+  .calendar-daily p {
     font-size: 13px;
     line-height: 20px;
     font-weight: 300;
@@ -2591,7 +2591,7 @@ article {
     vertical-align: top;
     padding-left: 10px; }
   .settings-sublist input,
-  .yily input {
+  .calendar-daily input {
     width: 85%;
     height: 60px;
     border: 0;
@@ -2604,10 +2604,10 @@ article {
     /*border-radius:4px;*/
     /*border:1px solid #dfdfdf;*/ }
     .settings-sublist input:focus,
-    .yily input:focus {
+    .calendar-daily input:focus {
       outline: none; }
   .settings-sublist select,
-  .yily select {
+  .calendar-daily select {
     font-size: 16px;
     margin-left: 10px;
     -webkit-appearance: none;
@@ -2618,7 +2618,7 @@ article {
     width: 60%;
     height: 28px; }
     .settings-sublist select:focus,
-    .yily select:focus {
+    .calendar-daily select:focus {
       outline: 0; }
 
 .calendar-standing {
