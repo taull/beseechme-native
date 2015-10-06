@@ -41,7 +41,7 @@ input [file] {
 
 body {
 	position: relative;
-	background: #f0f0f0;
+	background: #e5e5e5;
 	width: 100%;
 	margin: 0 auto;
 	overflow-x: hidden;
@@ -58,7 +58,7 @@ body {
 }
 
 .backend-container {
-	width: 860px;
+	width: 480px;
     margin: 0 auto;
     top:35px;
     position:relative;
@@ -91,7 +91,7 @@ header {
 }
 
 .header-container {
-	width: 860px;
+	width: 480px;
 	height: 56px;
 	margin: 0 auto;
 	position:relative;
@@ -325,8 +325,8 @@ header {
     transition:250ms;
     z-index: 25;
     background: #f8f8f8;
-    /*border-top:1px solid #dfdfdf;*/
-    /*border-bottom: 1px solid #dfdfdf;*/
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
     font-size: 0;
     text-align: center;
     margin-bottom: 15px;
@@ -954,7 +954,7 @@ header {
 }
 
 .wide-container {
-    width: 60%;
+    width: 100%;
     display: inline-block;
     position: relative;
     vertical-align: top;
@@ -973,11 +973,11 @@ header {
 }
 
 .narrow-container {
-	width: 40%;
+	width: 100%;
 	display: inline-block;
 	vertical-align: top;
 	padding-top:15px;
-	padding-right:15px;
+	/*padding-right:15px;*/
 
 }
 
@@ -1000,7 +1000,7 @@ header {
 .top-container, 
 .top-container2 {
     position: relative;
-    width: 860px;
+    width: 480px;
     top: 50px;
     margin: 0 auto;
 	padding: 0px;
@@ -1062,7 +1062,7 @@ header {
 
 .profile-options {
 	width: 100%;
-	background:$primary-color-medium;
+	/*background:$primary-color-medium;*/
 	position: relative;
 	/*border-top: 1px solid $primary-color-dark;*/
 	transition:250ms;
@@ -1224,6 +1224,7 @@ header {
 .bar-search {
 	width: 100%;
 	background: #fff;
+	border: 1px solid #d8d8d8;
 	position:relative;
 	height: 60px;
 	padding-top:0px;
@@ -1332,7 +1333,7 @@ header {
 	width: 100%;
 	margin: 0 auto;
 	background: #fff;
-	border-bottom:1px solid #f0f0f0;
+	border-bottom:1px solid #f8f8f8;
 	padding: 15px 15px 10px;
 	cursor: pointer;
 
@@ -1453,6 +1454,8 @@ header {
 	width: 100%;
 	background: #fff;
 	margin-top:0px;
+	border:1px solid #d8d8d8;
+	border-radius: 2px;
 
 	ul {
 		list-style: none;
@@ -1898,7 +1901,8 @@ header {
     transition: 250ms;
     display: inline-block;
     vertical-align: top;
- 	/*border: 1px solid #dfdfdf;*/
+ 	border: 1px solid #d8d8d8;
+ 	border-radius: 2px;
  	/*border-top:0;*/
 
 }
@@ -1927,7 +1931,7 @@ header {
     padding: 40px 30px 5px 30px;
     color: #000;
     font-weight: 300;
-    /*border-radius: 4px 4px 0 0;*/
+    border-radius: 2px 2px 0 0;
 }
 
 .verified-container {
@@ -1988,7 +1992,7 @@ header {
 .profile-feed {
     width: 100%;
     background: #fff;
-    /*border:1px solid #dfdfdf;*/
+    border:1px solid #d8d8d8;
 
 	ul {
 		list-style: none;
@@ -2984,7 +2988,6 @@ header {
 
 .calendar-day {
 	/*margin-top:15px;*/
-	/*border: 1px solid #dfdfdf;*/
 	border-bottom:0;
 	border-top:0;
 }
@@ -3066,9 +3069,7 @@ header {
 /* Seven Day Nav */
 
 .seven-day-nav {
-	/*border: 1px solid #dfdfdf;*/
-	border-bottom:0;
-	margin-bottom:15px;
+	border: 1px solid #d8d8d8;
 	/*border-right:0;
 	border-left:0;*/
 
@@ -3243,7 +3244,7 @@ article {
 }
 
 .settings-sublist, 
-.calendar-daily {
+.yily {
 	display: block;
 	/*background: #fff;*/
 	/*padding-top:30px;*/
@@ -3369,11 +3370,6 @@ article {
 
 .calendar-standing {
 	display: block;
-	/*background: #fff;*/
-	/*padding-top:30px;*/
-	/*border:1px solid #dfdfdf;*/
-	margin-top:15px;
-
 
 	ul {
 		list-style: none;
@@ -4005,7 +4001,7 @@ svg rect{
 
 
 
-@media screen and (min-width : 700px) and (max-width : 860px) {
+@media screen and (min-width : 700px) and (max-width : 480px) {
 	.body-container, 
 	header, 
 	.header-container {
@@ -4133,7 +4129,6 @@ svg rect{
 	}
 
 	.wide-container {
-		padding:0;
 		margin-left:0;
 		/*margin-top:55px;*/
 	}
@@ -4146,19 +4141,11 @@ svg rect{
 		}
 	}
 
-	.profile-tools-desktop {
-		display: none;
-	}
 
-	.profile-tools-mobile {
-		display: block;
-	}
 
 	.bottom-slideout {
 		display: inline-block;
 	}
-
-
 
 	.login-logo {
 		width:100%;
