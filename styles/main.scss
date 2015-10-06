@@ -60,10 +60,9 @@ body {
 .backend-container {
 	width: 860px;
     margin: 0 auto;
-    min-height: 700px;
+    top:35px;
     position:relative;
     z-index:1;
-    top: 50px;
     font-size: 0;
     /*border-right: 1px solid #dfdfdf;*/
 
@@ -83,17 +82,16 @@ header {
 	width: 100%;
     height: 50px;
     margin: 0px auto 0;
-    position: fixed;
-    background: #fff;
+    position: absolute;
     left: 0;
     z-index: 9999999;
-    box-shadow: 0 0 30px -15px #555;
+    /*box-shadow: 0 0 30px -15px #555;*/
     font-size: 0;
     /*display:none;*/
 }
 
 .header-container {
-	width: 100%;
+	width: 860px;
 	height: 56px;
 	margin: 0 auto;
 	position:relative;
@@ -146,7 +144,8 @@ header {
 
 .header-left {
 	width: 25%;
-	padding-top:0px;
+	padding-top:20px;
+	padding-left: 10px;
 
 	img {
 		width: 100px;
@@ -164,16 +163,20 @@ header {
 	span {
 		display: inline-block;
 		vertical-align: top;
-		font-size: 24px;
-		padding: 10px 20px 20px;
-		height: 50px;
-		background: red;
-		display: none;
+		font-size: 18px;
 	}
 
 	i {
 		font-size: 16px;
 		padding-top:0;
+	}
+
+	h1 {
+		font-size: 14px;
+		font-weight: 400;
+		color: #333;
+		display: inline-block;
+		padding-left: 8px;
 	}
 }
 
@@ -228,7 +231,6 @@ header {
 		padding-right: 15px;
 		padding-left: 15px;
 		padding-top:17px;
-
 		height: 50px;
 	}
 
@@ -236,6 +238,13 @@ header {
 		font-size: 14px;
 		font-weight: 300;
 		color: #555;
+	}
+
+	h1 {
+		font-size: 14px;
+		font-weight: 400;
+		color: #333;
+		display: inline-block;
 	}
 }
 
@@ -302,12 +311,12 @@ header {
 }
 
 
-.backend-tabs-container {
-	width: 860px;
+/*.backend-tabs-container {
+	width: 400px;
 	margin: 0 auto;
 	top: 50px;
 	position: relative;
-}
+}*/
 
 .backend-tabs {
 	width: 100%;
@@ -990,15 +999,11 @@ header {
 
 .top-container, 
 .top-container2 {
-    /*position: fixed;*/
-    top: 60px;
+    position: relative;
     width: 860px;
+    top: 50px;
+    margin: 0 auto;
 	padding: 0px;
-	display: inline-block;
-	vertical-align: top;
-	/*padding-right:15px;*/
-	/*height: 100vh;*/
-	/*background: #383838;*/
 	transition:250ms;
 	margin-bottom:15px;
 }
@@ -1219,14 +1224,10 @@ header {
 .bar-search {
 	width: 100%;
 	background: #fff;
-	/*border-bottom: 1px solid #dfdfdf;*/
-	/*margin-bottom: 5px;*/
 	position:relative;
 	height: 60px;
 	padding-top:0px;
-	/*z-index:300;*/
 	transition:250ms;
-	margin-top:15px;
 
 	span {
 		display: inline-block;
@@ -2775,12 +2776,12 @@ header {
 .add-weekly-comment {
 	width: 100%;
 	text-align: left;
+	font-size: 0;
 	/*margin-top: 15px;*/
 
 	li {
-		border-bottom: 1px solid #f8f8f8;
 		background: $primary-color-light;
-	}
+	} 
  
 	li:first-child {
 		/*border-bottom: 1px solid #f0f0f0;*/
@@ -2807,7 +2808,7 @@ header {
 		border-right:0px solid #f8f8f8;
 		text-align: center;
 		padding: 0;
-		height: 41px;
+		height: 40px;
 		padding-top:12px;
 		background: #f8f8f8;
 	}
@@ -2938,13 +2939,13 @@ header {
 .input-comment {
 	text-align: left;
 	height: 60px;
-	font-size: 16px;
-	width: 60%;
+	width: 75%;
 	border: 0;
 	outline: 0;
 	border-radius: 0;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 300;
+	text-indent: 20px;
 }
 
 #checkbox-standing:checked + .select-standing {
@@ -3957,8 +3958,8 @@ input[type="file"] {
 .copyright-info {
 	width: 100%;
 	padding: 15px 15px;
-	/*border: 1px solid #dfdfdf;*/
 	border-top:0;
+	text-align: center;
 
 	h1 {
 		font-size: 12px;
