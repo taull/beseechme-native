@@ -59,6 +59,25 @@ BeMe.removeViewFromRenderedViews = function (view) {
   }
 };
 
+BeMe.createImageFile = function ($fileContainer) {
+  var fileObject = $fileContainer[0].files;
+  console.log(fileObject);
+
+  if(fileObject.length) {
+    if (fileObject[0].type.search('image') == -1) {
+      alert('Image type needs to be an image');
+    } else {
+     var name = fileObject[0].name;
+     var file = fileObject[0];
+     var image = new Parse.File(name, file);
+    }
+  } else {
+   var image = undefined;
+  }
+
+  return image;
+}
+
 /*
 	Prototype Manipulation
 */
@@ -286,22 +305,22 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 	postBusinessStatus: function (e) {
 		e.preventDefault();
     var self = this;
-		var fileObject = $('#camera-file')[0].files;
+    var $fileContainer = $("#camera-file");
+    var contentHolder = $("#business-status");
 
-    if (typeof fileObject[0] !== 'undefined') {
-      if (fileObject[0].type.search('image') == -1) {
-  			alert('Image type needs to be an image');
-  		} else {
-        var name = fileObject[0].name;
-  			var file = fileObject[0];
-        var image = new Parse.File(name, file);
+    var fileIsChosen = !!$fileContainer[0].files.length;
+
+    if (fileIsChosen) { //if there is a file chosen
+      var image = BeMe.createImageFile($fileContainer); //create the image file
+      if(image == undefined) {
+        return false;
       }
-    } else {
-      var image = undefined;
     }
-		var contentHolder = $("#business-status");
-		var content = contentHolder.val();
 
+    //conditional where we check to see if there was a file chosen && it was processed correctly
+    //if fileIsChosen && image != 'undefined'....
+
+		var content = contentHolder.val();
 		var businessStatus = new Parse.Object('businessStatus');
 		businessStatus.set('content', content);
 		businessStatus.set('image', image);
