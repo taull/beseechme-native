@@ -160,6 +160,8 @@
           <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
           <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
           <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
+          <a href="#backend/settings"><li><span class="fa fa-calendar-o"></span><p>Settings</p></li></a>
+
         </ul>
       </div>
 </div>
@@ -169,23 +171,24 @@
 <!-- backend Feed View -->
 
 <script type='text/template' id='businessStatus-post-view'>
-    <div class="feed-avatar">
-      <div class="feed-logo">
-        <img src="images/bar-logo.png" >
-      </div>
-    </div>
+    
     <div class="feed-post">
 
       <div class="feed-info">
         <% var user = attributes.createdBy %>
-        <div class="feed-name"><h1><%= user.attributes.businessName %></h1><p><%= "handle" %></p></div>
+        <div class="feed-avatar">
+          <div class="feed-logo">
+            <img src="images/bar-logo.png" >
+          </div>
+        </div>
+        <div class="feed-name"><h1><%= user.attributes.businessName %></h1><p><%= "@craftanddraft" %></p></div>
         <div class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></div>
 
       </div>
 
       <div class="feed-status">
         <div>
-          <span><%= attributes.content %></span>
+          <p><%= attributes.content %></p>
         </div>
       </div>
       <% if (typeof attributes.image !== 'undefined') {%>
@@ -271,7 +274,7 @@
 
       <div class="profile-beer-list">
         <div class="module-header">
-          <p>Draft Beer</p>
+          <p>My Draft Beer</p>
         </div>
         <ul>
           <li tabindex="-1" id="focusableElement">
@@ -409,7 +412,6 @@
 
           <li>
             <input type="text" class="input-comment" name="content" placeholder="Add Comment...">
-            <button type="submit" class="submit-comment">Comment</button>
           </li>
 
           <li>
@@ -434,6 +436,10 @@
                 <option value=6>Every Saturday</option>
               </select>
             </label>
+          </li>
+
+          <li>
+            <button type="submit" class="submit-comment">Comment</button>
           </li>
 
         </form>
@@ -496,22 +502,22 @@
         <p>Settings</p>
       </div>
 
-      <section id="only-one" data-accordion-group>
+      <section id="backend-settings" data-accordion-group>
 
           <section data-accordion>
-            <button data-control><p>Basic Information</p></button>
+            <aside data-control><p>Basic Information</p></aside>
             <div data-content>
               <article>
                 <div class="settings-sublist">
                   <form action="">
                     <ul>
-                      <li><h1>Name</h1><input type="text" value="Henry's Grill and Bar"></li>
-                      <li><h1>User</h1><input type="text" value="henrysbar"></li>
+                      <li><span class="fa fa-bookmark"></span><input type="text" value="Henry's Grill and Bar"></li>
+                      <li><h1>@</h1><input type="text" value="craftanddraft"></li>
 
-                      <li><h1>Street</h1><input type="text" value="2828 Devine Street"></li>
-                      <li><h1>City</h1><input type="text" value="Columbia"></li>
+                      <li><span class="fa fa-location-arrow"></span><input type="text" value="2828 Devine Street"></li>
+                      <li><h1>C</h1><input type="text" value="Columbia"></li>
                       <li>
-                        <h1>State</h1>
+                        <h1>S</h1>
                         <!-- <input type="text" value="South Carolina"> -->
                         <select>
                           <option value="AL">Alabama</option>
@@ -567,9 +573,9 @@
                           <option value="WY">Wyoming</option>
                         </select>
                       </li>
-                      <li><h1>Zip</h1><input type="text" value="29205"></li>
-                      <li><h1>Phone</h1><input type="text" value="(803) 555-2341"></li>
-                      <li><h1>Web</h1><input type="text" value="www.henrysgrillandbar.com"></li>
+                      <li><h1>Z</h1><input type="text" value="29205"></li>
+                      <li><span class="fa fa-phone"></span><input type="text" value="(803) 555-2341"></li>
+                      <li><span class="fa fa-globe"></span><input type="text" value="www.henrysgrillandbar.com"></li>
                       <li><button type="submit" class="save-button">Save</button></li>
                     </ul>
                   </form>
@@ -581,9 +587,15 @@
 
 
           <section data-accordion>
-            <button data-control><p>My Logo</p></button>
+            <aside data-control><p>My Logo</p></aside>
             <div data-content>
               <article>
+                <div class="settings-sublist">
+                  <form action="">
+                    <input type="file">
+                    <button>Upload</button>
+                  </form>
+                </div>
 
               </article>
             </div>
@@ -616,11 +628,12 @@
     </div>
 
     <div class="wide-container">
-      <div class="module-header">
-        <p>My Competition</p>
-      </div>
+      
       <div class="listing-container">
         <ul>
+          <div class="module-header">
+            <p>My Competition</p>
+          </div>
           <li>
             <div class="listing-avatar">
               <img src="images/bar-logo.png">

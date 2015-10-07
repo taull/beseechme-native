@@ -14,6 +14,8 @@ $('.accordion').accordion({
 
 $('#only-one [data-accordion]').accordion();
 $('#barback-menu [data-accordion]').accordion();
+$('#backend-settings [data-accordion]').accordion();
+
 
 
 //Initialize Parse
@@ -640,6 +642,8 @@ BeMe.Views.CommentDisplay = Parse.View.extend({
 BeMe.Views.BackendSettings = Parse.View.extend({
 	initialize: function () {
 		this.render();
+		$('#backend-settings [data-accordion]').accordion();
+
 	},
 
 	template: _.template($('#backend-settings-view').text()),

@@ -324,9 +324,8 @@ header {
 	position:relative;
     transition:250ms;
     z-index: 25;
-    background: #f8f8f8;
-    border: 1px solid #dfdfdf;
-    border-radius: 2px;
+    background: #444;
+    border-radius: 2px 2px 0 0;
     font-size: 0;
     text-align: center;
     margin-bottom: 15px;
@@ -366,7 +365,7 @@ header {
 		display: inline-block;
 		vertical-align: top;
 		font-weight: 300;
-		color: #333;
+		color: #f0f0f0;
 		/*display:none;*/
 		/*padding-left:10px;*/
 	}
@@ -704,8 +703,7 @@ header {
 .listing-container {
 	width: 100%;
 	background: $primary-color-light;
-	/*border: 1px solid #dfdfdf;*/
-	/*border-bottom:0;*/
+	border: 1px solid #d8d8d8;
 
 	ul {
 		list-style: none;
@@ -715,7 +713,6 @@ header {
 	li {
 		display: inline-block;
 		width: 100%;
-		border-bottom: 1px solid #f0f0f0;
 		padding: 15px;
 		cursor:pointer;
 	}
@@ -958,18 +955,10 @@ header {
     display: inline-block;
     position: relative;
     vertical-align: top;
-    transition: 250ms;
-    /*background: #fff;*/
-    /*float: right;*/
-    top: 0px;
-    /*padding-left:15px;
-    padding-right: 15px;*/
-    /*background:$primary-color-light;*/
-    z-index: 99999;
     padding-top: 15px;
-    /*border-left: 1px solid #dfdfdf;*/
-    /*box-shadow: -6px 0px 30px -15px;*/
-
+    transition: 250ms;
+    top: 0px;
+    z-index: 99999;
 }
 
 .narrow-container {
@@ -1226,8 +1215,7 @@ header {
 	background: #fff;
 	border: 1px solid #d8d8d8;
 	position:relative;
-	height: 60px;
-	padding-top:0px;
+	padding:5px 0;
 	transition:250ms;
 
 	span {
@@ -1455,7 +1443,6 @@ header {
 	background: #fff;
 	margin-top:0px;
 	border:1px solid #d8d8d8;
-	border-radius: 2px;
 
 	ul {
 		list-style: none;
@@ -1902,9 +1889,6 @@ header {
     display: inline-block;
     vertical-align: top;
  	border: 1px solid #d8d8d8;
- 	border-radius: 2px;
- 	/*border-top:0;*/
-
 }
 
 
@@ -1931,7 +1915,6 @@ header {
     padding: 40px 30px 5px 30px;
     color: #000;
     font-weight: 300;
-    border-radius: 2px 2px 0 0;
 }
 
 .verified-container {
@@ -2003,7 +1986,7 @@ header {
 		width: 100%;
 		border-bottom: 1px solid #f8f8f8;
 		position: relative;
-		padding: 20px;
+		padding: 5px;
 		background:transparent;
 	}
 
@@ -2013,13 +1996,14 @@ header {
 }
 
 .feed-info {
-	padding:0px;
+	padding: 0 15px;
 }
 
 .feed-name {
-	width: 90%;
+	width: 65%;
 	display: inline-block;
 	vertical-align: top;
+	padding-left: 10px;
 
 
 	h1 {
@@ -2036,8 +2020,7 @@ header {
 		color: #999;
 		font-weight: 300;
 		padding-top: 3px;
-		padding-left:5px;
-		display: inline-block;
+		display: block;
 		vertical-align: top;
 		width:120px;
 		white-space: nowrap;
@@ -2059,6 +2042,8 @@ header {
 	img {
 		width: 100%;
 		height: auto;
+		border-radius: 100px;
+
 	}
 }
 
@@ -2109,9 +2094,8 @@ header {
 .feed-post {
 	display: inline-block;
 	vertical-align: top;
-	width: 90%;
-	padding: 0px 15px 0px 10px;
-	/*border:1px solid #dfdfdf;*/
+	width: 100%;
+	padding: 15px 0px;
 }
 
 .feed-photo {
@@ -2128,7 +2112,7 @@ header {
 }
 
 .feed-ago {
-	width: 10%;
+	width: 25%;
 	display: inline-block;
 	text-align: right;
 	vertical-align: top;
@@ -2152,12 +2136,14 @@ header {
 		font-weight: 300;
 		color: $primary-color-medium;
 		padding-bottom: 10px;
+		padding-left: 20px;
 	}
 
 	div {
 		width: 100%;
 		/*border-radius: 4px;*/
-		padding: 5px 0px;
+		padding: 5px 0px 10px;
+		padding-left: 10%;
 
 		span {
 			font-size: 13px;
@@ -2603,6 +2589,24 @@ header {
 	font-weight:normal !important;
 }
 
+#backend-settings {
+
+	aside {
+		width: 100%;
+		background: #f8f8f8;
+		border: 0;
+		border-bottom: 1px solid #d8d8d8;
+		padding: 15px;
+		outline: 0;
+		text-align: left;
+
+		p {
+			font-size: 14px;
+			font-weight: 300;
+		}
+	}
+}
+
 #backend-menu {
 	width: 100%;
 	border-bottom: 0px solid #f8f8f8;
@@ -2781,6 +2785,9 @@ header {
 	width: 100%;
 	text-align: left;
 	font-size: 0;
+	border: 1px solid #d8d8d8;
+	background: #fff;
+	padding-top:30px;
 	/*margin-top: 15px;*/
 
 	li {
@@ -2788,8 +2795,6 @@ header {
 	} 
  
 	li:first-child {
-		/*border-bottom: 1px solid #f0f0f0;*/
-		height: 60px;
 	}
 
 	li:nth-child(2) {
@@ -2803,6 +2808,7 @@ header {
 		display: inline-block;
 		vertical-align: top;
 		background: #f8f8f8;
+		padding-top:10px;
 	}
 
 	li:nth-child(3) {
@@ -2812,13 +2818,15 @@ header {
 		border-right:0px solid #f8f8f8;
 		text-align: center;
 		padding: 0;
-		height: 40px;
-		padding-top:12px;
+		height: 50px;
+		padding-top:22px;
 		background: #f8f8f8;
 	}
 
 	li:last-child {
-		text-align: left;
+		text-align: center;
+		padding: 15px;
+		background: #f8f8f8;
 	}
 
 	input {
@@ -2915,6 +2923,8 @@ header {
 }
 
 .submit-comment {
+	position:relative;
+	display: inline-block;
 	background: $secondary-color-medium;
 	width: 20%;
 	outline: 0;
@@ -2924,7 +2934,6 @@ header {
 	font-size: 11px;
 	font-weight: 300;
 	padding: 10px 0;
-	margin-top:13px;
 }
 
 .input-date {
@@ -2941,15 +2950,14 @@ header {
 }
 
 .input-comment {
-	text-align: left;
+	text-align: center;
 	height: 60px;
-	width: 75%;
+	width: 100%;
 	border: 0;
 	outline: 0;
 	border-radius: 0;
 	font-size: 14px;
 	font-weight: 300;
-	text-indent: 20px;
 }
 
 #checkbox-standing:checked + .select-standing {
@@ -3070,6 +3078,7 @@ header {
 
 .seven-day-nav {
 	border: 1px solid #d8d8d8;
+	background: #fff;
 	/*border-right:0;
 	border-left:0;*/
 
@@ -3092,7 +3101,7 @@ header {
 	}
 
 	li:last-child {
-		border-right: 0;
+		border-right: 0 !important;
 	}
 
 	li:hover {
@@ -3243,7 +3252,6 @@ article {
 	top: 0;
 }
 
-.settings-sublist, 
 .calendar-daily {
 	display: block;
 	/*background: #fff;*/
@@ -3510,6 +3518,40 @@ article {
 	display:inline-block;
 	vertical-align: top;
 }
+
+.settings-sublist {
+	background: #fff;
+	padding: 15px;
+
+	li {
+		padding: 10px 0;
+	}
+
+	h1, 
+	span, 
+	input {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	span, 
+	h1 {
+		width: 10%;
+		font-size: 12px;
+		font-weight: 400;
+		text-align: right;
+		padding-right: 10px;
+	}
+
+	input {
+		width: 90%;
+		outline: 0;
+		border: 0;
+		text-indent: 10px;
+		padding: 0px 0;
+	}
+}
+
 
 
 .sublist-header {
@@ -4229,7 +4271,7 @@ svg rect{
 		margin-bottom:0;
 	}
 	.backend-container {
-		padding: 15px;
+		padding: 5px;
 	}
 
 }
