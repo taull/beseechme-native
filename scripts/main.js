@@ -665,7 +665,7 @@ BeMe.Collections.WeeklyComments = Parse.Collection.extend({
   className: "weeklyComment",
 
   initialize: function () {
-    console.log("New weekly comments collecion");
+    console.log("New weekly comments collection");
   },
 })
 
