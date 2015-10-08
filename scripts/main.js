@@ -324,7 +324,6 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 		businessStatus.set('content', content);
 		businessStatus.set('image', image);
 		businessStatus.set('createdBy', Parse.User.current());
-		console.log(businessStatus);
 		businessStatus.save().then(function (e){
 			contentHolder.val('');
 			$('#camera-file').val('');
@@ -338,6 +337,7 @@ BeMe.Collections.FeedsCollection = Parse.Collection.extend({
     var self = this;
     this.views = [];
     this.on('add remove', this.render);
+    console.log(Parse.User.current());
     this.fetch(this.query).then(function (e) {
       console.log(e);
       self.render();
@@ -355,7 +355,6 @@ BeMe.Collections.FeedsCollection = Parse.Collection.extend({
       i.remove();
     });
     this.views = [];
-    console.log('render called');
     this.each(function (i) {
       $('.profile-feed ul').append("NEW VIEW");
       var feedPost = new BeMe.Views.FeedPost({model:i});
@@ -684,6 +683,12 @@ BeMe.Views.BackendSettings = Parse.View.extend({
     user.set('avatar', image);
     user.save().then(function () {
       user.fetch();
+      var div = document.createElement('div');
+      div.className = 'upload-control';
+
+      $('.settings-sublist form').append(div);
+
+      _.delay(function () {$(div).fadeOut()}, 4000);
     });
   }
 });
