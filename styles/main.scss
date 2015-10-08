@@ -3010,9 +3010,8 @@ header {
 
 
 .calendar-day {
-	/*margin-top:15px;*/
+	margin-top:15px;
 	border: 1px solid #d8d8d8;
-	border-top:0;
 }
 
 .calendar-comment {
@@ -3509,6 +3508,13 @@ article {
     	}
 	}
 
+}
+
+.upload-control {
+	span {
+		font-size: 12px;
+		color: $green-light;
+	}
 }
 
 .delete-comment {
