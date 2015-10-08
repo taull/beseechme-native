@@ -684,11 +684,15 @@ BeMe.Views.BackendSettings = Parse.View.extend({
     user.save().then(function () {
       user.fetch();
       var div = document.createElement('div');
-      div.className = 'upload-control';
+      div.className = 'upload-confirm';
+      $(div).html('<span class=“fa fa-check-circle”></span>');
 
       $('.settings-sublist form').append(div);
 
-      _.delay(function () {$(div).fadeOut()}, 4000);
+      _.delay(function () {
+        $(div).fadeOut();
+        div.remove();
+      }, 4000);
     });
   }
 });
