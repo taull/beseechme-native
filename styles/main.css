@@ -1628,7 +1628,7 @@ header {
   display: inline-block; }
   .feed-status p {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 24px;
     font-weight: 300;
     color: #37474F;
     padding-bottom: 10px;
@@ -1637,7 +1637,8 @@ header {
     width: 100%;
     /*border-radius: 4px;*/
     padding: 5px 0px 10px;
-    padding-left: 10%; }
+    padding-left: 10%;
+    padding-right: 10%; }
     .feed-status div span {
       font-size: 13px;
       line-height: 20px;
@@ -3214,7 +3215,7 @@ svg rect {
   .profile-feed {
     padding-top: 0; }
     .profile-feed li {
-      padding: 15px; }
+      padding: 5px; }
 
   .bottom-slideout {
     display: inline-block; }
