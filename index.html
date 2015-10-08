@@ -23,9 +23,17 @@
   <header>
     <div class="header-container">
       <div class="header-left">
-        <span class="fa fa-bars"></span>
+        <ul>
+          <li><span class="fa fa-bars"></span></li>
+
+        </ul>
       </div>
+
       <div class="header-center">
+        <p>Craft and Draft</p>
+      </div>
+
+      <div class="header-right">
         <ul>
           <% if (Parse.User.current()) { %>
           <li><p id='logout'>Logout</p></li>
@@ -33,11 +41,6 @@
           <li><p id='sign-in'>Sign In</p></li>
           <% } %>
         </ul>
-      </div>
-      <div class="header-right">
-        <span class="fa fa-facebook"></span>
-        <span class="fa fa-twitter"></span>
-        <span class="fa fa-youtube"></span>
       </div>
 
     </div>
@@ -689,8 +692,9 @@
         </ul>
       </div>
 
-      <div class="view-all">
-        <a>View All</a>
+      <div class="copyright-info">
+        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+        <p>Beseech Me®, LLC</p>
       </div>
     </div>
   </div>
