@@ -61,7 +61,6 @@ BeMe.removeViewFromRenderedViews = function (view) {
 
 BeMe.createImageFile = function ($fileContainer) {
   var fileObject = $fileContainer[0].files;
-  console.log(fileObject);
 
   if(fileObject.length) {
     if (fileObject[0].type.search('image') == -1) {
@@ -671,7 +670,22 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
-	}
+	},
+
+  events: {
+    'click #avatar-upload' : 'uploadAvatar'
+  },
+
+  uploadAvatar: function () {
+    var image = BeMe.createImageFile($('input[type="file"]'));
+
+    var user = Parse.User.current();
+
+    user.set('avatar', image);
+    user.save().then(function () {
+      user.fetch();
+    });
+  }
 });
 
 /*
