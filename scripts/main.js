@@ -355,9 +355,7 @@ BeMe.Collections.FeedsCollection = Parse.Collection.extend({
       i.remove();
     });
     this.views = [];
-    console.log('render called');
     this.each(function (i) {
-      $('.profile-feed ul').append("NEW VIEW");
       var feedPost = new BeMe.Views.FeedPost({model:i});
       self.views.push(feedPost);
     });
@@ -682,6 +680,7 @@ BeMe.Views.BackendSettings = Parse.View.extend({
     var user = Parse.User.current();
 
     user.set('avatar', image);
+    //save and sync
     user.save().then(function () {
       user.fetch();
     });
