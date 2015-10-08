@@ -178,7 +178,11 @@
         <% var user = attributes.createdBy %>
         <div class="feed-avatar">
           <div class="feed-logo">
-            <img src="images/bar-logo.png" >
+            <% if (typeof user.attributes.avatar !=='undefined') { %>
+            <img src=<%= user.attributes.avatar._url %> >
+            <% } else { %>
+            <img src="images/default-avatar.png">
+            <% } %>
           </div>
         </div>
         <div class="feed-name"><h1><%= user.attributes.businessName %></h1><p><%= "@craftanddraft" %></p></div>
