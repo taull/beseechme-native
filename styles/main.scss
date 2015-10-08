@@ -2132,7 +2132,7 @@ header {
 
 	p {
 		font-size: 14px;
-		line-height: 20px;
+		line-height: 24px;
 		font-weight: 300;
 		color: $primary-color-medium;
 		padding-bottom: 10px;
@@ -2144,6 +2144,7 @@ header {
 		/*border-radius: 4px;*/
 		padding: 5px 0px 10px;
 		padding-left: 10%;
+		padding-right: 10%;
 
 		span {
 			font-size: 13px;
@@ -4179,7 +4180,7 @@ svg rect{
 		padding-top:0;
 
 		li {
-			padding: 15px;
+			padding: 5px;
 		}
 	}
 
