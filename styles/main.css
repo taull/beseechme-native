@@ -2706,7 +2706,7 @@ article {
     .calendar-standing select:focus {
       outline: 0; }
 
-.upload-control span {
+.upload-confirm span {
   font-size: 12px;
   color: #8BC34A; }
 
