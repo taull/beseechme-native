@@ -94,11 +94,9 @@ Parse.View.prototype.removeRenderedView = _.wrap(
   }
 );
 
-/*
-	End utility functions
-	--------------------------
-	Begin Views Section
-*/
+
+/* Application Section */
+
 
 BeMe.Views.Application = Parse.View.extend({
 	initialize: function () {
@@ -131,6 +129,10 @@ BeMe.Views.Application = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 	}
 });
+
+
+/* Index Section */
+
 
 BeMe.Views.Index = Parse.View.extend({
 	initialize: function () {
@@ -173,6 +175,10 @@ BeMe.Views.Index = Parse.View.extend({
 		});
 	}
 });
+
+
+/* Register Section */
+
 
 BeMe.Views.BusinessRegister = Parse.View.extend({
 	initialize: function () {
@@ -268,6 +274,10 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
 	}
 });
 
+
+/* Backend Section */
+
+
 BeMe.Views.Backend = Parse.View.extend({
 	initialize: function () {
 		this.render();
@@ -282,11 +292,15 @@ BeMe.Views.Backend = Parse.View.extend({
 	}
 });
 
+
+/* Backend Feed */
+
+
 BeMe.Views.BackendFeed = Parse.View.extend({
 	initialize: function () {
 		this.render();
 		autosize($('#business-status'));
-    this.collectionReference = new BeMe.Collections.FeedsCollection();
+    this.collectionReference = new BeMe.Collections.Feeds();
 	},
 
 	template: _.template($('#backend-feed-view').text()),
@@ -332,7 +346,7 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 	}
 });
 
-BeMe.Collections.FeedsCollection = Parse.Collection.extend({
+BeMe.Collections.Feeds = Parse.Collection.extend({
   initialize: function () {
     var self = this;
     this.views = [];
@@ -377,9 +391,14 @@ BeMe.Views.FeedPost = Parse.View.extend({
   }
 });
 
+
+/* Backend Beer List Section */
+
+
 BeMe.Views.BackendBeerList = Parse.View.extend({
 	initialize: function () {
 		this.render();
+    this.currentCollection = new BeMe.Collections.BeerResults([],{queryString:'ale'});
 	},
 
 	template: _.template($('#backend-beer-view').text()),
@@ -390,6 +409,84 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 		BeMe.renderedViews.push(this);
 	}
 });
+
+BeMe.Collections.BeerResults = Parse.Collection.extend({
+  initialize: function (models, options) {
+    var self = this;
+    this.views = [];
+    var queryString = options.queryString;
+    Parse.Cloud.run('searchBrewery', {queryString:queryString})
+    .then(function (beers) {
+      self.add(beers);
+      console.log(beers);
+      console.log(self);
+      self.render();
+      $('.profile-beer-list, .copyright-info').css("display", 'none');
+      BeMe.Router.navigate('backend/beer/results');
+    });
+  },
+
+  render: function () {
+    // BeMe.removeAllViews();
+    var self = this;
+    _.each(this.views, function (i) {
+      i.remove();
+    });
+    this.views = [];
+    this.each(function (i) {
+      var view = new BeMe.Views.BeerResult({model:i, collection:self});
+      self.views.push(view);
+    });
+  },
+
+  remove: function () {
+    _.each(this.views, function (i) {
+      i.remove();
+    });
+    // delete this; not sure if this is good to use?
+  }
+
+});
+
+BeMe.Views.BeerResult = Parse.View.extend({
+  tagName: 'li',
+
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#backend-beer-result').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    this.el.style.fontSize = '16px';
+    $('.wide-container').append(this.el);
+  },
+
+  events: {
+    'click': 'addToBeers'
+  },
+
+  addToBeers: function () {
+    var id = this.model.id;
+    var user = Parse.User.current();
+
+    user.addUnique('beers', id);
+    user.save();
+    this.backToList();
+  },
+
+  backToList: function () {
+    this.collection.remove(); //empty the entire list
+    $('.profile-beer-list, .copyright-info').css("display", 'block');
+    BeMe.Router.navigate('backend/beer/');
+  }
+});
+
+
+
+/* Backend Competition Section */
+
 
 BeMe.Views.BackendCompetition = Parse.View.extend({
 	initialize: function () {
@@ -404,6 +501,10 @@ BeMe.Views.BackendCompetition = Parse.View.extend({
 		BeMe.renderedViews.push(this);
 	}
 });
+
+
+/* Backend Calendar Section */
+
 
 BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
@@ -655,6 +756,17 @@ BeMe.Views.CommentDisplay = Parse.View.extend({
   }
 })
 
+BeMe.Collections.WeeklyComments = Parse.Collection.extend({
+  className: "weeklyComment",
+
+  initialize: function () {
+    console.log("New weekly comments collection");
+  },
+});
+
+/* Backend Settings */
+
+
 BeMe.Views.BackendSettings = Parse.View.extend({
 	initialize: function () {
 		this.render();
@@ -697,25 +809,8 @@ BeMe.Views.BackendSettings = Parse.View.extend({
   }
 });
 
-/*
-	End Views Section
-	-----------------------------
-	Begin Collections Section
-*/
 
-BeMe.Collections.WeeklyComments = Parse.Collection.extend({
-  className: "weeklyComment",
-
-  initialize: function () {
-    console.log("New weekly comments collection");
-  },
-})
-
-/*
-	End Collections Section
-	----------------------------
-	Begin Router Section
-*/
+/* Router */
 
 var Router = Parse.Router.extend({
 	routes: {
@@ -787,17 +882,9 @@ var Router = Parse.Router.extend({
 	}
 });
 
-/*
-	End Router Section
-	--------------------------
-	Begin Glue Code
-*/
+
 
 $(document).ready(function () {
 	BeMe.Router = new Router();
 	Parse.history.start();
 });
-
-/*
-	End Glue Code
-*/
