@@ -398,7 +398,6 @@ BeMe.Views.FeedPost = Parse.View.extend({
 BeMe.Views.BackendBeerList = Parse.View.extend({
 	initialize: function () {
 		this.render();
-    this.currentCollection = new BeMe.Collections.BeerResults([],{queryString:'ale'});
 	},
 
 	template: _.template($('#backend-beer-view').text()),
@@ -407,7 +406,18 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
-	}
+	},
+
+  events: {
+    'submit .beer-search form' : 'searchBreweryDB'
+  },
+
+  searchBreweryDB: function (e) {
+    e.preventDefault();
+    var queryString = $('.beer-search input').val();
+
+    new BeMe.Collections.BeerResults([],{queryString:queryString});
+  }
 });
 
 BeMe.Collections.BeerResults = Parse.Collection.extend({
@@ -427,7 +437,6 @@ BeMe.Collections.BeerResults = Parse.Collection.extend({
   },
 
   render: function () {
-    // BeMe.removeAllViews();
     var self = this;
     _.each(this.views, function (i) {
       i.remove();
@@ -439,6 +448,8 @@ BeMe.Collections.BeerResults = Parse.Collection.extend({
     });
   },
 
+
+  //not sure this remove function is necessary at all
   remove: function () {
     _.each(this.views, function (i) {
       i.remove();
@@ -473,13 +484,12 @@ BeMe.Views.BeerResult = Parse.View.extend({
 
     user.addUnique('beers', id);
     user.save();
-    this.backToList();
+
+    this.routeBackToList();
   },
 
-  backToList: function () {
-    this.collection.remove(); //empty the entire list
-    $('.profile-beer-list, .copyright-info').css("display", 'block');
-    BeMe.Router.navigate('backend/beer/');
+  routeBackToList: function () {
+    BeMe.Router.navigate('backend/beer', true);
   }
 });
 
