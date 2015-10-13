@@ -7,7 +7,7 @@
 
 $primary-color-dark: #263238;
 $primary-color-medium: #37474F;
-$primary-color-light: #fff;
+$primary-color-light: #f8f8f8;
 
 $secondary-color-dark: #01579B;
 $secondary-color-medium: #0277BD;
@@ -336,7 +336,7 @@ header {
 	position:relative;
     transition:250ms;
     z-index: 25;
-    background: #444;
+    background: transparent;
     font-size: 0;
     text-align: center;
     margin-bottom: 15px;
@@ -347,14 +347,14 @@ header {
 	}
 
 	li {
-		padding: 21px;
 		display: inline-block;
-		/*background: $primary-color-light;*/
+		width: 16.6666666666666667%;
+		background: $primary-color-light;
 		/*border-right: 1px solid #f0f0f0;*/
 		cursor: pointer;
 		text-align:center;
-		padding-left: 10px;
-		padding-right: 10px;
+		padding: 15px;
+
 	}
 
 
@@ -371,19 +371,32 @@ header {
 	a li:hover {
 	}
 
-	p {
-		font-size: 13px !important;
+	h1 {
+		font-size: 12px !important;
 		display: inline-block;
 		vertical-align: top;
-		font-weight: 300;
-		color: #f0f0f0;
+		font-weight: 500;
+		color: #333;
+		text-transform: uppercase;
 		/*display:none;*/
+		/*padding-left:10px;*/
+	}
+
+	p {
+		font-size: 10px !important;
+		display: inline-block;
+		vertical-align: top;
+		font-weight: 400;
+		color: #333;
+		font-style: italic;
+		margin-top:10px;
+		display:none;
 		/*padding-left:10px;*/
 	}
 
 	span {
 		font-size: 18px !important;
-		display: inline-block;
+		display: block;
 		vertical-align: top;
 		text-align: center;
 		color: #999;
@@ -391,57 +404,7 @@ header {
 
 	}
 
-	i {
-		display: inline-block;
-		vertical-align: top;
-		font-size: 18px;
-		color: #ccc;
-		text-align: right;
-		/*display:none;*/
-	}
 
-	ul li:last-child ul {
-
-	}
-
-	ul li ul {
-	    display: none;
-	    width: 100%;
-	    padding-left: 0;
-	    position: absolute;
-	    margin-top: 21px;
-	    background: #333;
-	    /*border: 1px solid #dfdfdf;*/
-	    border-top: 0;
-	    left:0;
-	    transition: 250ms;
-	}
-
-	ul:first-child li ul{
-	}
-
-	ul li ul li {
-	    width: 100%;
-	    padding: 21px 22px;
-	    /*border-bottom:1px solid #555;*/
-	    border-right:0;
-	}
-
-/*	ul li ul li:hover {
-		border-right:0 !important;
-		border-left:0 !important;
-	}*/
-
-	ul li ul li:first-child {
-		/*border-top:1px solid #dfdfdf;*/
-	}
-	ul li ul li:last-child {
-		border-bottom:0px;
-	}
-
-	ul li ul li p {
-		color: #f0f0f0;
-	}
 }
 
 .backend-tabs ul li:hover > ul {
@@ -1043,8 +1006,6 @@ header {
     margin: 0 auto;
 	padding: 0px;
 	transition:250ms;
-	border-left: 1px solid #d8d8d8;
-	border-right: 1px solid #d8d8d8;
 }
 
 .sticky {
@@ -1263,7 +1224,7 @@ header {
 .bar-search {
 	width: 100%;
 	background: #fff;
-	border: 1px solid #d8d8d8;
+	/*border: 1px solid #d8d8d8;*/
 	position:relative;
 	transition:250ms;
 
@@ -1489,9 +1450,9 @@ header {
 
 .profile-beer-list {
 	width: 100%;
-	background: #fff;
+	background: $primary-color-light;
 	margin-top:0px;
-	border:1px solid #d8d8d8;
+	/*border:1px solid #d8d8d8;*/
 
 	ul {
 		list-style: none;
@@ -1501,7 +1462,7 @@ header {
 	li {
 		display: inline-block;
 		width: 100%;
-		padding: 20px;
+		padding: 15px;
 		behavior: switch;
 		cursor:auto;
 	}
@@ -1509,6 +1470,62 @@ header {
 	li:first-child {
 		border-top:0;
 	}
+
+	aside {
+		display: inline-block;
+		vertical-align: top;
+		width: 10%;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	div {
+		width: 60%;
+		display: inline-block;
+		vertical-align: top;
+		padding-left:10px;
+
+		h1 {
+			width: 100%;
+			display: inline-block;
+			vertical-align: top;
+			font-size: 14px;
+			color: $secondary-color-dark;
+		}
+
+		p {
+			font-size: 14px;
+			font-weight: 300;
+		}
+
+
+	}
+
+	section {
+		width: 20%;
+		display: inline-block;
+		vertical-align: top;
+		text-align: right;
+
+		h1 {
+			display:block;
+			font-size: 13px;
+			color:$primary-color-dark;
+			font-weight: 400;
+		}
+
+		p {
+			display:block;
+			font-size: 8px;
+			text-transform: lowercase;
+			font-weight: 300;
+			color:#ccc;
+		}
+	}
+
 
 	span {
 		width: 10%;
@@ -1585,16 +1602,7 @@ header {
 	}
 }*/
 
-.beer-avatar {
-	display: inline-block;
-	vertical-align: top;
-	width: 10%;
 
-	img {
-		width: 100%;
-		height: auto;
-	}
-}
 
 .beer-order {
 	width: 5%;
@@ -1626,62 +1634,17 @@ header {
 	}
 }
 
-.beer-name {
-	width: 60%;
-	display: inline-block;
-	vertical-align: top;
-	padding-left:10px;
-
-	h1 {
-		font-size: 13px;
-		color: $secondary-color-dark;
-		font-weight: 400;
-	}
-
-	h2 {
-		font-size: 11px;
-		font-style: italic;
-		font-weight: 300;
-		display: block;
-		color: $primary-color-dark;
-	}
-	p {
-		font-size: 10px;
-		display: block;
-		color: #F44336;
-	}
 
 
-}
-
-.beer-abv {
-	width: 20%;
-	display: inline-block;
-	vertical-align: top;
-	text-align: right;
-
-	h1 {
-		display:block;
-		font-size: 13px;
-		color:$primary-color-dark;
-		font-weight: 400;
-	}
-
-	p {
-		display:block;
-		font-size: 8px;
-		text-transform: lowercase;
-		font-weight: 300;
-		color:#ccc;
-	}
-}
 
 .beer-search-results, 
 .bar-search-results {
 	width: 100%;
 	background:#f8f8f8;
+	padding: 10px;
 	/*border-bottom: 1px solid $primary-color-medium;*/
 	position: relative;
+	font-size: 0;
 
 
 	ul {
@@ -1695,18 +1658,55 @@ header {
 	li {
 		display: inline-block;
 		width: 100%;
-		padding: 20px;
+		padding: 10px;
+	}
+
+	aside {
+		width: 10%;
+		display: inline-block;
+		vertical-align: top;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	section {
+		width: 60%;
+		display: inline-block;
+		vertical-align: top;
+		padding-left: 10px;
+
+		h1 {
+			width: 100%;
+			display: inline-block;
+			vertical-align: top;
+			font-size: 14px;
+			color: $secondary-color-dark;
+		}
+
+		p {
+			font-size: 14px;
+			font-weight: 300;
+		}
+	}
+
+	div {
+		width: 30%;
+		display: inline-block;
+		vertical-align: top;
+		text-align: right;
 	}
 
 	span {
-		width: 10%;
-		text-align: center;
 		font-size: 24px;
 		display: inline-block;
 		vertical-align: top;
 		color: $green-light;
-		text-align: right;
 	}
+
+	
 }
 
 .beer-results-name, 
@@ -1938,7 +1938,7 @@ header {
     display: inline-block;
     vertical-align: top;
     background: #fff;
- 	border: 1px solid #d8d8d8;
+ 	/*border: 1px solid #d8d8d8;*/
 }
 
 
@@ -2025,8 +2025,8 @@ header {
 
 .profile-feed {
     width: 100%;
-    background: #fff;
-    border:1px solid #d8d8d8;
+    background: $primary-color-light;
+    /*border:1px solid #d8d8d8;*/
 
 	ul {
 		list-style: none;
@@ -2836,13 +2836,13 @@ header {
 	width: 100%;
 	text-align: left;
 	font-size: 0;
-	border: 1px solid #d8d8d8;
+	/*border: 1px solid #d8d8d8;*/
 	background: #fff;
 	padding-top:15px;
 	z-index: 1;
 
 	li {
-		background: $primary-color-light;
+		background: #fff;
 	} 
  
 	li:first-child {
@@ -3057,7 +3057,7 @@ header {
 
 .calendar-choose-date {
 	width: 100%;
-	border: 1px solid #d8d8d8;
+	/*border: 1px solid #d8d8d8;*/
 	background: #fff;
 	padding: 15px;
 	position: relative;
@@ -3082,7 +3082,7 @@ header {
 
 .calendar-day {
 	/*margin-top:15px;*/
-	border: 1px solid #d8d8d8;
+	/*border: 1px solid #d8d8d8;*/
 }
 
 .calendar-comment {
@@ -3162,7 +3162,7 @@ header {
 /* Seven Day Nav */
 
 .seven-day-nav {
-	border: 1px solid #d8d8d8;
+	/*border: 1px solid #d8d8d8;*/
 	background: #fff;
 	/*border-right:0;
 	border-left:0;*/

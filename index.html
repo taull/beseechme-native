@@ -156,11 +156,13 @@
 <div class="top-container">
       <div class="backend-tabs">
         <ul>
-          <a href="#backend/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
-          <a href="#backend/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
-          <a href="#backend/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
-          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
-          <a href="#backend/settings"><li><span class="fa fa-calendar-o"></span><p>Settings</p></li></a>
+          <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Updates, videos, photos and more</p></li></a>
+          <a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer List</h1><p>Updates, videos, photos and more</p></li></a>
+          <a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Updates, videos, photos and more</p></li></a>
+
+          <a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>Updates, videos, photos and more</p></li></a>
+          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Updates, videos, photos and more</p></li></a>
+          <a href="#backend/settings"><li><span class="fa fa-calendar-o"></span><h1>Settings</h1><p>Updates, videos, photos and more</p></li></a>
 
         </ul>
       </div>
@@ -258,6 +260,42 @@
 
 </script>
 
+<script type='text/template' id="backend-beer-draft-view">
+  <li tabindex="-1" id="focusableElement">
+
+    <div class="beer-avatar">
+      <img src="images/two-hearted-avatar.png">
+    </div>
+    <div class="beer-name">
+      <h1>Two Hearted Ale</h1>
+      <h2>Bells Brewery, Inc.</h2>
+    </div>
+    <div class="beer-abv">
+      <h1>7.0%</h1>
+      <p>Abv</p>
+    </div>
+    <span class="fa fa-bars"></span>
+  </li>
+</script>
+
+<script type='text/template' id="backend-beer-bottle-view">
+  <li tabindex="-1" id="focusableElement">
+
+    <div class="beer-avatar">
+      <img src="images/two-hearted-avatar.png">
+    </div>
+    <div class="beer-name">
+      <h1>Two Hearted Ale</h1>
+      <h2>Bells Brewery, Inc.</h2>
+    </div>
+    <div class="beer-abv">
+      <h1>7.0%</h1>
+      <p>Abv</p>
+    </div>
+    <span class="fa fa-bars"></span>
+  </li>
+</script>
+
 
 <!-- backend Beer View -->
 
@@ -267,8 +305,8 @@
     <div class="narrow-container">
 
       <div class="beer-search">
-        <span class="fa fa-search"></span>
         <form action>
+          <span class="fa fa-search"></span>
           <input type="text" placeholder="Brewery Database...">
           <button>Search</button>
         </form>
@@ -279,109 +317,32 @@
 
     <div class="wide-container">
 
-
-
-      <div class="profile-beer-list">
         <div class="module-header">
           <p>My Draft Beer</p>
         </div>
+
+      <div class="profile-beer-list">
+        
         <ul>
-          <li tabindex="-1" id="focusableElement">
-
-            <div class="beer-avatar">
-              <img src="images/two-hearted-avatar.png">
-            </div>
-            <div class="beer-name">
-              <h1>Two Hearted Ale</h1>
-              <h2>Bells Brewery, Inc.</h2>
-            </div>
-            <div class="beer-abv">
-              <h1>7.0%</h1>
-              <p>Abv</p>
-            </div>
-            <span class="fa fa-bars"></span>
-          </li>
+          
 
           <li tabindex="-1" id="focusableElement">
 
-            <div class="beer-avatar">
+            <aside>
               <img src="images/westbrook-avatar.png">
-            </div>
-            <div class="beer-name">
+            </aside>
+            <div>
               <h1>IPA</h1>
-              <h2>Westbrook Brewing</h2>
+              <p>Westbrook Brewing</p>
             </div>
-            <div class="beer-abv">
+            <section>
               <h1>6.8%</h1>
               <p>Abv</p>
-            </div>
+            </section>
             <span class="fa fa-bars"></span>
 
           </li>
 
-          <li tabindex="-1" id="focusableElement">
-
-            <div class="beer-avatar">
-              <img src="images/harpoon-avatar.png">
-            </div>
-            <div class="beer-name">
-              <h1>Rich and Dans Rye IPA</h1>
-              <h2>Harpoon Brewing</h2>
-            </div>
-            <div class="beer-abv">
-              <h1>7.4%</h1>
-              <p>Abv</p>
-            </div>
-            <span class="fa fa-bars"></span>
-          </li>
-
-          <li tabindex="-1" id="focusableElement">
-
-            <div class="beer-avatar">
-              <img src="images/coors-light-avatar.png">
-            </div>
-            <div class="beer-name">
-              <h1>Coors Light</h1>
-              <h2>Coors Brewing Co.</h2>
-            </div>
-            <div class="beer-abv">
-              <h1>4.2%</h1>
-              <p>Abv</p>
-            </div>
-            <span class="fa fa-bars"></span>
-          </li>
-
-          <li tabindex="-1" id="focusableElement">
-
-            <div class="beer-avatar">
-              <img src="images/harpoon-avatar.png">
-            </div>
-            <div class="beer-name">
-              <h1>Rich and Dans Rye IPA</h1>
-              <h2>Harpoon Brewing</h2>
-            </div>
-            <div class="beer-abv">
-              <h1>7.4%</h1>
-              <p>Abv</p>
-            </div>
-            <span class="fa fa-bars"></span>
-          </li>
-
-          <li tabindex="-1" id="focusableElement">
-
-            <div class="beer-avatar">
-              <img src="images/coors-light-avatar.png">
-            </div>
-            <div class="beer-name">
-              <h1>Coors Light</h1>
-              <h2>Coors Brewing Co.</h2>
-            </div>
-            <div class="beer-abv">
-              <h1>4.2%</h1>
-              <p>Abv</p>
-            </div>
-            <span class="fa fa-bars"></span>
-          </li>
         </ul>
       </div>
       <div class="copyright-info">
@@ -974,7 +935,34 @@
 </script>
 
 <script type='text/template' id='backend-beer-result'>
-  <h1><%= attributes.name %></h1>
+
+  <div class="beer-search-results">
+    <ul>
+      <li>
+        <aside>
+          <% if (typeof attributes.labels !== 'undefined') { %>
+            <img src=<%= attributes.labels.icon %>/>
+
+          <% } else { %>
+            <img src="images/default-avatar.png">
+          <% } %>
+
+        </aside>
+        <section>
+          <h1><%= attributes.name %></h1>
+          <% if (typeof attributes.breweries !== 'undefined') { %>
+            <p><%= attributes.breweries[0].name %></p>
+          <% } %>
+
+        </section>
+        <div>
+          <span class="fa fa-plus"></span>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
 </script>
 
 <script type="text/template" id="dashboard-view">
