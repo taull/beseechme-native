@@ -398,6 +398,8 @@ BeMe.Views.FeedPost = Parse.View.extend({
 BeMe.Views.BackendBeerList = Parse.View.extend({
 	initialize: function () {
 		this.render();
+
+    this.loadDraftBeers();
 	},
 
 	template: _.template($('#backend-beer-view').text()),
@@ -409,7 +411,13 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 	},
 
   events: {
-    'submit .beer-search form' : 'searchBreweryDB'
+    'submit .beer-search form' : 'searchBreweryDB',
+    'click li' : 'loadBottledBeers'
+  },
+
+  emptyBeerList: function () {
+    $('.profile-beer-list ul').empty();
+    console.log($('.profile-beer-list ul'));
   },
 
   searchBreweryDB: function (e) {
@@ -431,12 +439,51 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
       self.collection.add(beers);
       console.log(self.collection);
 
-      $('.profile-beer-list ul').empty();
+      self.emptyBeerList();
       $('.beer-search input').val('');
 
       self.collection.render();
       BeMe.Router.navigate('backend/beer/results');
     });
+  },
+
+  loadDraftBeers:function () {
+    this.emptyBeerList();
+    //Parse.User.fetch().then do what's below
+    Parse.Cloud.run('getBeers', {array:Parse.User.current().get('draftBeers')})
+    .then(function (e) {
+      console.log(e);
+      _.each(e, function (i) {
+        new BeMe.Views.BackendBeer({model:i});
+      });
+    });
+  },
+
+  loadBottledBeers: function () {
+    this.emptyBeerList();
+    //Parse.User.fetch().then do what's below
+    Parse.Cloud.run('getBeers', {array:Parse.User.current().get('bottledBeers')})
+    .then(function (e) {
+      _.each(e, function (i) {
+        new BeMe.Views.BackendBeer({model:i});
+      });
+    });
+  }
+});
+
+BeMe.Views.BackendBeer = Parse.View.extend({
+  tagName: 'li',
+
+  initialize: function () {
+    console.log(this.model);
+    this.render();
+  },
+
+  template: _.template($('#backend-beer-list-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.profile-beer-list ul').append(this.el);
   }
 });
 
@@ -485,7 +532,6 @@ BeMe.Views.BeerResult = Parse.View.extend({
 
   render: function () {
     this.$el.html(this.template(this.model));
-    this.el.style.fontSize = '16px';
     $('.beer-search-results ul').append(this.el);
     // $('.profile-beer-list ul').append(this.el);
   },

@@ -267,11 +267,13 @@
       <img src="images/westbrook-avatar.png">
     </aside>
     <div>
-      <h1>IPA</h1>
-      <p>Westbrook Brewing</p>
+      <h1><%= name%></h1>
+      <% if (typeof breweries !== 'undefined') { %>
+      <p><%= breweries[0].name %></p>
+      <% } %>
     </div>
     <section>
-      <h1>6.8%</h1>
+      <h1><%= abv %>%</h1>
       <p>Abv</p>
     </section>
     <span class="fa fa-bars"></span>
