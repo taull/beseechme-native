@@ -2200,7 +2200,7 @@ header {
   .add-weekly-comment li {
     background: #fff; }
   .add-weekly-comment li:first-child {
-    border-bottom: 1px solid #d8d8d8; }
+    border-bottom: 0px solid #d8d8d8; }
   .add-weekly-comment li:nth-child(2) {
     border-right: 0px solid #f8f8f8; }
   .add-weekly-comment li:nth-child(2),
@@ -2512,7 +2512,7 @@ header {
 #seven-month-5,
 #seven-month-6,
 #seven-month-7 {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 300;
   display: block;
   vertical-align: top;
