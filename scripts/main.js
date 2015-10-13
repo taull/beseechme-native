@@ -490,14 +490,15 @@ BeMe.Views.BackendBeer = Parse.View.extend({
     'click .remove' : 'removeFromList'
   },
 
-  removeFromList: function (list, id) {
+  removeFromList: function (list) {
     var user = Parse.User.current();
     var listToRemoveFrom = user.get(list);
 
     console.log(listToRemoveFrom);
+    var self = this;
 
     var newList = _.reject(listToRemoveFrom, function (i) {
-      return i === id;
+      return i === self.id;
     });
 
     console.log(newList);
