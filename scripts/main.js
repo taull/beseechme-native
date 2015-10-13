@@ -421,10 +421,13 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
       this.collection = new BeMe.Collections.BeerResults();
     }
 
+    window.collectionReference = this.collection;
+
     Parse.Cloud.run('searchBrewery', {queryString:queryString})
     .then(function (beers) {
-      self.collection.remove();
+      // self.collection.remove();
       self.collection.reset();
+      console.log(self.collection);
       self.collection.add(beers);
       console.log(self.collection);
 
@@ -439,21 +442,22 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 
 BeMe.Collections.BeerResults = Parse.Collection.extend({
   initialize: function () {
-    var self = this;
     this.views = [];
   },
 
   render: function () {
-    var div = document.createElement('div');
-    div.className = 'beer-search-results';
+    var isAppended = !!$('.beer-search-results').length;
+    //is this the best way to do it or do we want the element on the page to begin with...
+    if(!isAppended) {
+      var div = document.createElement('div');
+      div.className = 'beer-search-results';
 
-    $(div).append('<ul></ul>');
-    $('.copyright-info').before(div);
+      $(div).append('<ul></ul>');
+      $('.copyright-info').before(div);
+    }
 
     var self = this;
-    _.each(this.views, function (i) {
-      i.remove();
-    });
+    this.remove();
     this.views = [];
     this.each(function (i) {
       var view = new BeMe.Views.BeerResult({model:i, collection:self});
@@ -461,13 +465,11 @@ BeMe.Collections.BeerResults = Parse.Collection.extend({
     });
   },
 
-
-  //not sure this remove function is necessary at all
   remove: function () {
     _.each(this.views, function (i) {
       i.remove();
     });
-    // delete this; not sure if this is good to use?
+    this.views = [];
   }
 
 });
