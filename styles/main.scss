@@ -1690,6 +1690,12 @@ header {
 			font-size: 14px;
 			font-weight: 300;
 		}
+
+		h2 {
+			width: 100%;
+			display: inline-block;
+			font-size: 12px;
+		}
 	}
 
 	div {
@@ -1698,8 +1704,8 @@ header {
 		vertical-align: top;
 		text-align: right;
 
-		nav {
-			width: 100px;
+		/*nav {
+			width: 200px;
 			position: absolute;
 			background: #fff;
 
@@ -1709,7 +1715,7 @@ header {
 			}
 
 			li {
-				width: 100%;
+				width: 50%;
 				display: inline-block;
 				padding: 5px;
 
@@ -1717,7 +1723,7 @@ header {
 					font-size: 12px;
 				}
 			}
-		}
+		}*/
 	}
 
 	span {
@@ -1731,7 +1737,6 @@ header {
 }
 
 .beer-selection {
-	display: none;
 }
 
 .show {

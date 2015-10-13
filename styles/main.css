@@ -1286,38 +1286,43 @@ header {
     .bar-search-results section p {
       font-size: 14px;
       font-weight: 300; }
+    .beer-search-results section h2,
+    .bar-search-results section h2 {
+      width: 100%;
+      display: inline-block;
+      font-size: 12px; }
   .beer-search-results div,
   .bar-search-results div {
     width: 30%;
     display: inline-block;
     vertical-align: top;
-    text-align: right; }
-    .beer-search-results div nav,
-    .bar-search-results div nav {
-      width: 100px;
-      position: absolute;
-      background: #fff; }
-      .beer-search-results div nav ul,
-      .bar-search-results div nav ul {
-        list-style: none;
-        padding-left: 0; }
-      .beer-search-results div nav li,
-      .bar-search-results div nav li {
-        width: 100%;
-        display: inline-block;
-        padding: 5px; }
-        .beer-search-results div nav li p,
-        .bar-search-results div nav li p {
-          font-size: 12px; }
+    text-align: right;
+    		/*nav {
+    			width: 200px;
+    			position: absolute;
+    			background: #fff;
+    
+    			ul {
+    				list-style:none;
+    				padding-left: 0;
+    			}
+    
+    			li {
+    				width: 50%;
+    				display: inline-block;
+    				padding: 5px;
+    
+    				p {
+    					font-size: 12px;
+    				}
+    			}
+    		}*/ }
   .beer-search-results span,
   .bar-search-results span {
     font-size: 18px;
     display: inline-block;
     vertical-align: top;
     color: #0277BD; }
-
-.beer-selection {
-  display: none; }
 
 .show {
   display: inline-block; }
