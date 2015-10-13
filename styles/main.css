@@ -1145,6 +1145,11 @@ header {
     .profile-beer-list div p {
       font-size: 14px;
       font-weight: 300; }
+    .profile-beer-list div h2 {
+      width: 100%;
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 400; }
   .profile-beer-list section {
     width: 20%;
     display: inline-block;
