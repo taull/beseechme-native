@@ -417,7 +417,6 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 
   emptyBeerList: function () {
     $('.profile-beer-list ul').empty();
-    console.log($('.profile-beer-list ul'));
   },
 
   searchBreweryDB: function (e) {
@@ -464,6 +463,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     //Parse.User.fetch().then do what's below
     Parse.Cloud.run('getBeers', {array:Parse.User.current().get('bottledBeers')})
     .then(function (e) {
+      console.log(e);
       _.each(e, function (i) {
         new BeMe.Views.BackendBeer({model:i});
       });
@@ -484,6 +484,25 @@ BeMe.Views.BackendBeer = Parse.View.extend({
   render: function () {
     this.$el.html(this.template(this.model));
     $('.profile-beer-list ul').append(this.el);
+  },
+
+  events: {
+    'click .remove' : 'removeFromList'
+  },
+
+  removeFromList: function (list, id) {
+    var user = Parse.User.current();
+    var listToRemoveFrom = user.get(list);
+
+    console.log(listToRemoveFrom);
+
+    var newList = _.reject(listToRemoveFrom, function (i) {
+      return i === id;
+    });
+
+    console.log(newList);
+    user.set(list, newList);
+    user.save();
   }
 });
 
