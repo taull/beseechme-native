@@ -1649,9 +1649,6 @@ header {
 
 	ul {
 		list-style: none;
-		/*border-top: 1px solid #dfdfdf;*/
-		/*border-bottom: 1px solid #f0f0f0;*/
-
 		padding-left: 0;
 	}
 
@@ -1665,10 +1662,14 @@ header {
 		width: 10%;
 		display: inline-block;
 		vertical-align: top;
+		position: relative;
 
 		img {
 			width: 100%;
 			height: auto;
+			position: absolute;
+			top: 0;
+			left: 0;
 		}
 	}
 
@@ -1694,15 +1695,24 @@ header {
 		h2 {
 			width: 100%;
 			display: inline-block;
-			font-size: 12px;
+			font-size: 11px;
+			font-weight: 400;
 		}
 	}
 
 	div {
-		width: 30%;
+		width: 25%;
 		display: inline-block;
 		vertical-align: top;
 		text-align: right;
+
+		h1 {
+			width: 100%;
+			display: inline-block;
+			vertical-align: top;
+			font-size: 14px;
+			color: $secondary-color-dark;
+		}
 
 		/*nav {
 			width: 200px;

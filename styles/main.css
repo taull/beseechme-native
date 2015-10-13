@@ -1252,8 +1252,6 @@ header {
   .beer-search-results ul,
   .bar-search-results ul {
     list-style: none;
-    /*border-top: 1px solid #dfdfdf;*/
-    /*border-bottom: 1px solid #f0f0f0;*/
     padding-left: 0; }
   .beer-search-results li,
   .bar-search-results li {
@@ -1264,11 +1262,15 @@ header {
   .bar-search-results aside {
     width: 10%;
     display: inline-block;
-    vertical-align: top; }
+    vertical-align: top;
+    position: relative; }
     .beer-search-results aside img,
     .bar-search-results aside img {
       width: 100%;
-      height: auto; }
+      height: auto;
+      position: absolute;
+      top: 0;
+      left: 0; }
   .beer-search-results section,
   .bar-search-results section {
     width: 60%;
@@ -1290,10 +1292,11 @@ header {
     .bar-search-results section h2 {
       width: 100%;
       display: inline-block;
-      font-size: 12px; }
+      font-size: 11px;
+      font-weight: 400; }
   .beer-search-results div,
   .bar-search-results div {
-    width: 30%;
+    width: 25%;
     display: inline-block;
     vertical-align: top;
     text-align: right;
@@ -1317,6 +1320,13 @@ header {
     				}
     			}
     		}*/ }
+    .beer-search-results div h1,
+    .bar-search-results div h1 {
+      width: 100%;
+      display: inline-block;
+      vertical-align: top;
+      font-size: 14px;
+      color: #01579B; }
   .beer-search-results span,
   .bar-search-results span {
     font-size: 18px;
