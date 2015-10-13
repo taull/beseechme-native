@@ -491,14 +491,25 @@ BeMe.Views.BeerResult = Parse.View.extend({
   },
 
   events: {
-    'click span.fa-plus': 'addToBeers'
+    'click #draft-select': 'addToDraft',
+    'click #bottle-select': 'addToBottled'
   },
 
-  addToBeers: function () {
+  addToDraft: function () {
     var id = this.model.id;
     var user = Parse.User.current();
 
-    user.addUnique('beers', id);
+    user.addUnique('draftBeers', id);
+    user.save();
+
+    this.routeBackToList();
+  },
+
+  addToBottled: function () {
+    var id = this.model.id;
+    var user = Parse.User.current();
+
+    user.addUnique('bottledBeers', id);
     user.save();
 
     this.routeBackToList();
@@ -508,7 +519,6 @@ BeMe.Views.BeerResult = Parse.View.extend({
     BeMe.Router.navigate('backend/beer', true);
   }
 });
-
 
 
 /* Backend Competition Section */
