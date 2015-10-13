@@ -414,29 +414,42 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 
   searchBreweryDB: function (e) {
     e.preventDefault();
+    var self = this;
     var queryString = $('.beer-search input').val();
 
-    new BeMe.Collections.BeerResults([],{queryString:queryString});
+    if(!this.collection) {
+      this.collection = new BeMe.Collections.BeerResults();
+    }
+
+    Parse.Cloud.run('searchBrewery', {queryString:queryString})
+    .then(function (beers) {
+      self.collection.remove();
+      self.collection.reset();
+      self.collection.add(beers);
+      console.log(self.collection);
+
+      $('.profile-beer-list ul').empty();
+      $('.beer-search input').val('');
+
+      self.collection.render();
+      BeMe.Router.navigate('backend/beer/results');
+    });
   }
 });
 
 BeMe.Collections.BeerResults = Parse.Collection.extend({
-  initialize: function (models, options) {
+  initialize: function () {
     var self = this;
     this.views = [];
-    var queryString = options.queryString;
-    Parse.Cloud.run('searchBrewery', {queryString:queryString})
-    .then(function (beers) {
-      self.add(beers);
-      console.log(beers);
-      console.log(self);
-      self.render();
-      $('.profile-beer-list, .copyright-info').css("display", 'none');
-      BeMe.Router.navigate('backend/beer/results');
-    });
   },
 
   render: function () {
+    var div = document.createElement('div');
+    div.className = 'beer-search-results';
+
+    $(div).append('<ul></ul>');
+    $('.copyright-info').before(div);
+
     var self = this;
     _.each(this.views, function (i) {
       i.remove();
@@ -471,11 +484,12 @@ BeMe.Views.BeerResult = Parse.View.extend({
   render: function () {
     this.$el.html(this.template(this.model));
     this.el.style.fontSize = '16px';
-    $('.wide-container').append(this.el);
+    $('.beer-search-results ul').append(this.el);
+    // $('.profile-beer-list ul').append(this.el);
   },
 
   events: {
-    'click': 'addToBeers'
+    'click span.fa-plus': 'addToBeers'
   },
 
   addToBeers: function () {
