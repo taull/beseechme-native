@@ -32,7 +32,7 @@ body {
   transition: 250ms; }
 
 .backend-container {
-  width: 480px;
+  width: 800px;
   margin: 0 auto;
   top: 35px;
   position: relative;
@@ -57,16 +57,17 @@ header {
   z-index: 9999999;
   /*box-shadow: 0 0 30px -15px #555;*/
   font-size: 0;
+  background: transparent;
   /*display:none;*/ }
 
 .header-container {
-  width: 480px;
+  width: 800px;
   height: 50px;
   margin: 0 auto;
   position: relative;
-  background: #555;
-  border-left: 1px solid #d8d8d8;
-  border-right: 1px solid #d8d8d8; }
+  background: transparent;
+  /*border-left: 1px solid #d8d8d8;
+  border-right: 1px solid #d8d8d8;*/ }
   .header-container a {
     width: 20%;
     vertical-align: top;
@@ -115,7 +116,7 @@ header {
   .header-left p {
     font-size: 12px;
     font-weight: 400;
-    color: #f0f0f0;
+    color: #333;
     display: inline-block;
     vertical-align: top;
     padding-left: 10px;
@@ -124,14 +125,14 @@ header {
     display: inline-block;
     vertical-align: top;
     font-size: 18px;
-    color: #f0f0f0; }
+    color: #333; }
   .header-left i {
     font-size: 16px;
     padding-top: 0; }
   .header-left h1 {
     font-size: 14px;
     font-weight: 400;
-    color: #f0f0f0;
+    color: #333;
     display: inline-block;
     padding-left: 8px; }
 
@@ -155,14 +156,14 @@ header {
     height: 25px;
     padding-top: 5px;
     font-weight: 400;
-    color: #f0f0f0; }
+    color: #333; }
   .header-right p {
     display: inline-block;
     vertical-align: top;
     font-size: 14px;
     padding-left: 10px;
     padding-right: 10px;
-    color: #f0f0f0; }
+    color: #333; }
 
 .header-center {
   text-align: center;
@@ -181,7 +182,7 @@ header {
   .header-center p {
     font-size: 14px;
     font-weight: 400;
-    color: #f0f0f0; }
+    color: #333; }
   .header-center h1 {
     font-size: 14px;
     font-weight: 400;
@@ -441,17 +442,35 @@ header {
     font-weight: 300;
     margin-top: -10px; }
 
-.login-container {
+.index-container {
+  position: fixed;
   width: 100%;
-  display: inline-block;
-  vertical-align: top;
+  height: 100%;
+  background: url("../images/bar-scene3.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: #f8f8f8; }
+
+.login-container {
+  width: 400px;
+  margin: 100px auto;
   background: #fff;
-  padding: 25px 25px 25px; }
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+  padding: 25px 25px 25px;
+  /*input:nth-child(3) {
+  	width:auto;
+  	height:auto;
+  	margin: 8px 5px 0;
+  }*/ }
   .login-container li {
     margin-bottom: 15px;
     width: 100%;
-    /*border: 1px solid #dfdfdf;*/
-    background: #fff; }
+    border: 1px solid #d8d8d8;
+    background: #f8f8f8;
+    border-radius: 4px; }
   .login-container li:last-child {
     margin-bottom: 0; }
   .login-container p {
@@ -459,8 +478,17 @@ header {
     color: #333;
     display: inline-block;
     vertical-align: top;
-    margin-top: 7px; }
-  .login-container input {
+    padding-left: 5px;
+    margin-top: 4px; }
+  .login-container a {
+    font-size: 12px;
+    color: #333;
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    cursor: pointer; }
+  .login-container input[type="text"],
+  .login-container input[type="password"] {
     display: inline-block;
     font-size: 14px;
     color: #333;
@@ -473,10 +501,9 @@ header {
     padding: 10px; }
   .login-container input::-webkit-input-placeholder {
     color: #333; }
-  .login-container input:nth-child(3) {
+  .login-container input[type="checkbox"] {
     width: auto;
-    height: auto;
-    margin: 8px 5px 0; }
+    margin-bottom: 20px; }
   .login-container span {
     display: inline-block;
     color: #333;
@@ -489,8 +516,13 @@ header {
     font-size: 14px;
     width: 15%;
     text-align: center; }
+  .login-container h2 {
+    font-size: 12px;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 15px; }
   .login-container button {
-    display: inline-block;
+    display: block;
     width: 30%;
     height: 30px;
     font-size: 12px;
@@ -501,7 +533,7 @@ header {
     outline: 0;
     font-weight: 300;
     border-radius: 3px;
-    float: right; }
+    margin-top: 20px; }
 
 .confirm-password {
   padding: 15%; }
@@ -520,8 +552,7 @@ header {
 .listing-container {
   width: 100%;
   background: #fff;
-  border: 1px solid #d8d8d8;
-  border-top: 0; }
+  border: 1px solid #d8d8d8; }
   .listing-container ul {
     list-style: none;
     padding-left: 0; }
@@ -714,7 +745,7 @@ header {
   padding-bottom: 15px; }
 
 .wide-container {
-  width: 100%;
+  width: 60%;
   display: inline-block;
   position: relative;
   vertical-align: top;
@@ -724,10 +755,11 @@ header {
   z-index: 99999; }
 
 .narrow-container {
-  width: 100%;
+  width: 40%;
   display: inline-block;
   vertical-align: top;
-  /*padding-right:15px;*/ }
+  padding-right: 15px;
+  padding-top: 15px; }
 
 .sidebar-container,
 .sidebar-container-dark {
@@ -746,7 +778,7 @@ header {
 .top-container,
 .top-container2 {
   position: relative;
-  width: 480px;
+  width: 800px;
   top: 50px;
   margin: 0 auto;
   padding: 0px;
@@ -924,9 +956,7 @@ header {
   width: 100%;
   background: #fff;
   border: 1px solid #d8d8d8;
-  border-top: 0;
   position: relative;
-  padding: 5px 0;
   transition: 250ms; }
   .beer-search span,
   .bar-search span {
@@ -943,7 +973,7 @@ header {
     color: #263238;
     vertical-align: top;
     height: 60px;
-    width: 65%;
+    width: 60%;
     border: 0;
     background: transparent;
     outline: 0;
@@ -956,7 +986,7 @@ header {
   .beer-search button,
   .bar-search button {
     background: #0277BD;
-    width: 15%;
+    width: 20%;
     outline: 0;
     border: 0;
     border-radius: 4px;
@@ -1447,8 +1477,8 @@ header {
   transition: 250ms;
   display: inline-block;
   vertical-align: top;
-  border: 1px solid #d8d8d8;
-  border-top: 0; }
+  background: #fff;
+  border: 1px solid #d8d8d8; }
 
 .profile-tools-mobile {
   display: none; }
@@ -1461,6 +1491,7 @@ header {
 #business-status1 {
   width: 100%;
   border: 0;
+  border-radius: 0;
   outline: none;
   background: #fff;
   font-size: 14px;
@@ -1565,8 +1596,7 @@ header {
   margin-top: 0px; }
   .feed-logo img {
     width: 100%;
-    height: auto;
-    border-radius: 100px; }
+    height: auto; }
 
 .shotglass {
   margin-top: 0px;
@@ -2166,12 +2196,13 @@ header {
   text-align: left;
   font-size: 0;
   border: 1px solid #d8d8d8;
-  border-top: 0;
   background: #fff;
-  padding-top: 30px;
-  /*margin-top: 15px;*/ }
+  padding-top: 15px;
+  z-index: 1; }
   .add-weekly-comment li {
     background: #fff; }
+  .add-weekly-comment li:first-child {
+    border-bottom: 1px solid #d8d8d8; }
   .add-weekly-comment li:nth-child(2) {
     border-right: 0px solid #f8f8f8; }
   .add-weekly-comment li:nth-child(2),
@@ -2181,7 +2212,7 @@ header {
     display: inline-block;
     vertical-align: top;
     background: #f8f8f8;
-    padding-top: 10px; }
+    padding-top: 0px; }
   .add-weekly-comment li:nth-child(3) {
     width: 10%;
     display: inline-block;
@@ -2189,12 +2220,8 @@ header {
     border-right: 0px solid #f8f8f8;
     text-align: center;
     padding: 0;
-    height: 50px;
-    padding-top: 22px;
-    background: #f8f8f8; }
-  .add-weekly-comment li:last-child {
-    text-align: center;
-    padding: 15px;
+    height: 40px;
+    padding-top: 12px;
     background: #f8f8f8; }
   .add-weekly-comment input {
     display: inline-block;
@@ -2238,13 +2265,21 @@ header {
     display: inline-block;
     vertical-align: top;
     text-transform: lowercase; }
+  .add-weekly-comment span {
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    margin-left: -25px;
+    margin-top: 12px; }
   .add-weekly-comment i {
     font-size: 14px;
     display: inline-block;
     vertical-align: top;
-    width: 15%;
-    margin-top: 22px;
-    text-align: center; }
+    position: absolute;
+    z-index: 5;
+    margin-left: 10px;
+    margin-top: 12px; }
   .add-weekly-comment nav {
     width: 80%;
     display: inline-block;
@@ -2268,6 +2303,7 @@ header {
 .submit-comment {
   position: relative;
   display: inline-block;
+  vertical-align: top;
   background: #0277BD;
   width: 20%;
   outline: 0;
@@ -2276,7 +2312,8 @@ header {
   color: #fff;
   font-size: 11px;
   font-weight: 300;
-  padding: 10px 0; }
+  padding: 10px 0;
+  margin-bottom: 15px; }
 
 .input-date {
   width: 100%;
@@ -2287,29 +2324,34 @@ header {
   padding-right: 10px;
   background: #f8f8f8;
   height: 40px;
-  font-size: 13px; }
+  font-size: 13px;
+  z-index: 1;
+  position: relative; }
 
 .input-comment {
-  text-align: center;
-  height: 60px;
-  width: 100%;
+  text-align: left;
+  width: 75%;
   border: 0;
   outline: 0;
   border-radius: 0;
   font-size: 14px;
-  font-weight: 300; }
+  font-weight: 300;
+  text-indent: 15px;
+  height: 33px; }
 
 #checkbox-standing:checked + .select-standing {
   color: #333;
   pointer-events: auto;
   cursor: pointer;
-  font-weight: 400; }
+  font-weight: 400;
+  /*background:#fff;*/ }
 
 #checkbox-date:checked + .input-date {
   color: #333;
   pointer-events: auto;
   cursor: pointer;
-  font-weight: 400; }
+  font-weight: 400;
+  /*background:#fff;*/ }
 
 #checkbox-date:checked .input-date::-webkit-input-placeholder {
   color: #333 !important; }
@@ -2326,8 +2368,28 @@ header {
   width: 100%;
   cursor: pointer; }
 
-.calendar-day {
+.calendar-choose-date {
+  width: 100%;
+  border: 1px solid #d8d8d8;
+  background: #fff;
+  padding: 15px;
+  position: relative;
+  z-index: 999999;
   margin-top: 15px;
+  margin-bottom: 15px; }
+  .calendar-choose-date input {
+    font-size: 14px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding-left: 10px;
+    cursor: pointer;
+    font-weight: 300; }
+  .calendar-choose-date span {
+    font-size: 13px; }
+
+.calendar-day {
+  /*margin-top:15px;*/
   border: 1px solid #d8d8d8; }
 
 .calendar-comment {
@@ -2547,6 +2609,8 @@ article {
     background: #fff;
     border-bottom: 1px solid #f0f0f0;
     height: 60px; }
+  .calendar-daily li:last-child {
+    border-bottom: 0; }
   .calendar-daily li:hover {
     background: #fcfcfc; }
   .calendar-daily div {
@@ -2592,8 +2656,7 @@ article {
     color: #333;
     width: 85%;
     display: inline-block;
-    vertical-align: top;
-    padding-left: 10px; }
+    vertical-align: top; }
   .calendar-daily input {
     width: 85%;
     height: 60px;
@@ -2632,6 +2695,8 @@ article {
     height: 60px;
     background: #f8f8f8;
     border-bottom: 1px solid #f0f0f0; }
+  .calendar-standing li:last-child {
+    border-bottom: 0; }
   .calendar-standing li:hover {
     background: #f8f8f8; }
   .calendar-standing div {
@@ -2673,12 +2738,11 @@ article {
   .calendar-standing p {
     font-size: 13px;
     line-height: 20px;
-    font-weight: 400;
+    font-weight: 300;
     color: #333;
     width: 85%;
     display: inline-block;
-    vertical-align: top;
-    padding-left: 10px; }
+    vertical-align: top; }
   .calendar-standing input {
     width: 85%;
     height: 60px;
@@ -2706,12 +2770,18 @@ article {
     .calendar-standing select:focus {
       outline: 0; }
 
-.upload-confirm span {
-  font-size: 12px;
-  color: #8BC34A; }
+.upload-confirm {
+  display: inline-block;
+  font-size: 20px !important;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  z-index: 999999999999999999; }
+  .upload-confirm i {
+    font-size: 20px !important;
+    color: #000; }
 
 .delete-comment {
-  display: none;
   width: 10%;
   border: 0;
   outline: 0;
@@ -2719,10 +2789,10 @@ article {
   font-size: 12px;
   padding: 5px;
   color: #333;
-  margin-top: -5px;
+  margin-top: -3px;
   cursor: pointer; }
   .delete-comment span {
-    font-size: 18px; }
+    font-size: 14px; }
 
 .calendar-daily li:hover .delete-comment,
 .calendar-standing li:hover .delete-comment {
@@ -2747,7 +2817,7 @@ article {
     text-align: right;
     padding-right: 10px; }
   .settings-sublist input {
-    width: 90%;
+    width: 70%;
     outline: 0;
     border: 0;
     text-indent: 10px;

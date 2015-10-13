@@ -807,7 +807,7 @@ BeMe.Views.BackendSettings = Parse.View.extend({
       user.fetch();
       var div = document.createElement('div');
       div.className = 'upload-confirm';
-      $(div).html('<span class=“fa fa-check-circle”></span>');
+      $(div).html('<i class=“fa fa-check-circle”></i>');
 
       $('.settings-sublist form').append(div);
 

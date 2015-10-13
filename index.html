@@ -20,31 +20,7 @@
 
 <script type="text/template" id="application-view">
 
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        <ul>
-          <li><span class="fa fa-bars"></span></li>
-
-        </ul>
-      </div>
-
-      <div class="header-center">
-        <p>Craft and Draft</p>
-      </div>
-
-      <div class="header-right">
-        <ul>
-          <% if (Parse.User.current()) { %>
-          <li><p id='logout'>Logout</p></li>
-          <% } else { %>
-          <li><p id='sign-in'>Sign In</p></li>
-          <% } %>
-        </ul>
-      </div>
-
-    </div>
-  </header>
+  
 
   <div class="body-container">
   </div>
@@ -54,29 +30,26 @@
 
 <!-- Index Route -->
 <script type='text/template' id='index-route'>
-  <div class="home-container">
-
+  <div class="index-container">
     <div class="login-container">
+
+      <h2>Login</h2>
       <form action="">
 
         <li>
-          <h1>@</h1>
           <input type="text" name="email" placeholder="Email Address">
         </li>
+        <input type="checkbox" value="signedIn"><p>Remember Me?</p>
         <li>
-          <span class="fa fa-lock"></span>
           <input type="password" name="password" placeholder="Password">
         </li>
+        <a>Forgot Password?</a>
 
-        <input type="checkbox" value="signedIn"><p>Keep me signed in.</p>
         <button>Sign In</button>
       </form>
     </div>
-
-    <div class="copyright-info">
-      <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-    </div>
   </div>
+    
 </script>
 
 
@@ -155,7 +128,31 @@
 <!-- Bar Backend View -->
 
 <script type="text/template" id="backend-view">
+<header>
+    <div class="header-container">
+      <div class="header-left">
+        <ul>
+          <li><span class="fa fa-bars"></span></li>
 
+        </ul>
+      </div>
+
+      <div class="header-center">
+        <p>Craft and Draft</p>
+      </div>
+
+      <div class="header-right">
+        <ul>
+          <% if (Parse.User.current()) { %>
+          <li><p id='logout'>Logout</p></li>
+          <% } else { %>
+          <li><p id='sign-in'>Sign In</p></li>
+          <% } %>
+        </ul>
+      </div>
+
+    </div>
+  </header>
 <div class="top-container">
       <div class="backend-tabs">
         <ul>
@@ -188,7 +185,7 @@
             <% } %>
           </div>
         </div>
-        <div class="feed-name"><h1><%= user.attributes.businessName %></h1><p><%= "@craftanddraft" %></p></div>
+        <div class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></div>
         <div class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></div>
 
       </div>
@@ -217,6 +214,8 @@
 
       <div class="profile-tools profile-tools-desktop">
         <form action="">
+          <div id="business-logo">
+          </div>
           <textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea>
 
           <div class="posting-options">
@@ -402,14 +401,15 @@
 </script>
 
 <script type='text/template' id="comment-view">
+  <button class="delete-comment"><span class="fa fa-close"></span></button>
+
+  <p><%= attributes.content %></p>
+
   <% if (typeof attributes.dayOfWeek !== 'undefined') { %>
     <i class='fa fa-thumb-tack'></i>
   <% } else { %>
-    <i class='fa fa-arrows'></i>
   <% } %>
-  <p><%= attributes.content %></p>
 
-  <button class="delete-comment"><span class="fa fa-close"></span></button>
 </script>
 <!-- backend Calendar View -->
 
@@ -422,13 +422,17 @@
 
           <li>
             <input type="text" class="input-comment" name="content" placeholder="Add Comment...">
+            <button type="submit" class="submit-comment">Comment</button>
+
           </li>
 
           <li>
+
             <label class="radio-label" for="checkbox-date">
               <input type="radio" name="select-comment" id="checkbox-date">
               <input class="datepicker input-date" name="date" type="text" placeholder="Choose a Date">
             </label>
+
           </li>
 
           <li><p>Or</p></li>
@@ -446,10 +450,7 @@
                 <option value=6>Every Saturday</option>
               </select>
             </label>
-          </li>
 
-          <li>
-            <button type="submit" class="submit-comment">Comment</button>
           </li>
 
         </form>
@@ -466,6 +467,12 @@
         <ul>
           <!-- Appended DayViews go here -->
         </ul>
+      </div>
+
+      <div class="calendar-choose-date">
+        <span class="fa fa-caret-down"></span>
+
+        <input class="datepicker" name="date" type="text" placeholder="Choose a Date">
       </div>
 
 
