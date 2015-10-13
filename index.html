@@ -264,13 +264,19 @@
 <script type='text/template' id="backend-beer-list-view">
 
     <aside>
-      <img src="images/westbrook-avatar.png">
+      <% if (typeof attributes.labels !== 'undefined') { %>
+            <img src=<%= attributes.labels.icon %> />
+
+          <% } else { %>
+            <img src="images/default-avatar.png">
+          <% } %>
     </aside>
     <div>
       <h1><%= name%></h1>
       <% if (typeof breweries !== 'undefined') { %>
       <p><%= breweries[0].name %></p>
       <% } %>
+      <h2 id="delete-beer">Remove from List</h2>
     </div>
     <section>
       <h1><%= abv %>%</h1>
@@ -302,8 +308,8 @@
     <div class="wide-container">
 
       <div class="profile-beer-tabs">
-        <li><p>Draft</p></li>
-        <li><p>Bottled</p></li>
+        <li id="backend-draft-tab"><p>Draft</p></li>
+        <li id="backend-bottle-tab"><p>Bottled</p></li>
       </div>
 
       <div class="profile-beer-list">
