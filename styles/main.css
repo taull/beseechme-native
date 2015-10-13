@@ -1171,6 +1171,19 @@ header {
     cursor: pointer;
     padding-top: 2px; }
 
+.profile-beer-tabs {
+  width: 100%; }
+  .profile-beer-tabs li {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    background: #fff;
+    padding: 10px;
+    text-align: center; }
+  .profile-beer-tabs p {
+    font-size: 14px;
+    text-transform: uppercase; }
+
 .delete-beer {
   width: 10%;
   border: 0;

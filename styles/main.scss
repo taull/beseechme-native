@@ -1541,6 +1541,25 @@ header {
 	
 }
 
+.profile-beer-tabs {
+	width: 100%;
+
+	li {
+		display: inline-block;
+		width: 50%;
+		vertical-align: top;
+		background: #fff;
+		padding: 10px;
+		text-align: center;
+	}
+
+	p {
+		font-size: 14px;
+		text-transform: uppercase;
+
+	}
+}
+
 .delete-beer {
 	width: 10%;
 	border: 0;
