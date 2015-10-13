@@ -1119,7 +1119,7 @@ header {
   .profile-beer-list li {
     display: inline-block;
     width: 100%;
-    padding: 15px;
+    padding: 20px;
     behavior: switch;
     cursor: auto; }
   .profile-beer-list li:first-child {
@@ -1143,13 +1143,14 @@ header {
       font-size: 14px;
       color: #01579B; }
     .profile-beer-list div p {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 300; }
     .profile-beer-list div h2 {
       width: 100%;
       display: inline-block;
       font-size: 11px;
-      font-weight: 400; }
+      font-weight: 400;
+      margin-top: 5px; }
   .profile-beer-list section {
     width: 20%;
     display: inline-block;
@@ -1275,7 +1276,7 @@ header {
   .bar-search-results li {
     display: inline-block;
     width: 100%;
-    padding: 10px; }
+    padding: 20px; }
   .beer-search-results aside,
   .bar-search-results aside {
     width: 10%;
@@ -1304,14 +1305,15 @@ header {
       color: #01579B; }
     .beer-search-results section p,
     .bar-search-results section p {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 300; }
     .beer-search-results section h2,
     .bar-search-results section h2 {
       width: 100%;
       display: inline-block;
       font-size: 11px;
-      font-weight: 400; }
+      font-weight: 400;
+      margin-top: 5px; }
   .beer-search-results div,
   .bar-search-results div {
     width: 25%;

@@ -264,8 +264,8 @@
 <script type='text/template' id="backend-beer-list-view">
 
     <aside>
-      <% if (typeof attributes.labels !== 'undefined') { %>
-            <img src=<%= attributes.labels.icon %> />
+      <% if (typeof labels !== 'undefined') { %>
+            <img src=<%= labels.icon %> />
 
           <% } else { %>
             <img src="images/default-avatar.png">
@@ -300,7 +300,6 @@
           <input type="text" placeholder="Brewery Database...">
           <button>Search</button>
         </form>
-
       </div>
 
     </div>
