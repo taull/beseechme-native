@@ -131,38 +131,44 @@
 <header>
     <div class="header-container">
       <div class="header-left">
-        <ul>
-          <li><span class="fa fa-bars"></span></li>
-
-        </ul>
+        <h1></h1>
       </div>
-
       <div class="header-center">
-        <p>Craft and Draft</p>
-      </div>
 
+          
+      </div>
+      
       <div class="header-right">
         <ul>
-          <% if (Parse.User.current()) { %>
-          <li><p id='logout'>Logout</p></li>
-          <% } else { %>
-          <li><p id='sign-in'>Sign In</p></li>
-          <% } %>
+
+          
+          <li>
+            <h1>Bar Backend</h1>
+            <span class="fa fa-caret-down"></span>
+          </li>
+          <div>
+            <% if (Parse.User.current()) { %>
+              <i class="fa fa-power-off" id='logout'></i>
+              <% } else { %>
+              <p id='sign-in'>Sign In</p>
+            <% } %>
+
+
+          </div>
         </ul>
       </div>
+
 
     </div>
   </header>
 <div class="top-container">
       <div class="backend-tabs">
         <ul>
-          <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Updates, videos, photos and more</p></li></a>
-          <a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer List</h1><p>Updates, videos, photos and more</p></li></a>
-          <a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Updates, videos, photos and more</p></li></a>
-
-          <a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>Updates, videos, photos and more</p></li></a>
-          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Updates, videos, photos and more</p></li></a>
-          <a href="#backend/settings"><li><span class="fa fa-calendar-o"></span><h1>Settings</h1><p>Updates, videos, photos and more</p></li></a>
+          <a href="#backend/feed"><li class="active-tab"><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a>
+          <a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer List</h1><p>Set your draft and bottled lists</p></li></a>
+          <a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a>
+          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a>
+          <a href="#backend/settings"><li><span class="fa fa-calendar-o"></span><h1>Settings</h1><p>Just some random sample</p></li></a>
 
         </ul>
       </div>
@@ -307,8 +313,14 @@
     <div class="wide-container">
 
       <div class="profile-beer-tabs">
-        <li id="backend-draft-tab"><p>Draft</p></li>
-        <li id="backend-bottle-tab"><p>Bottled</p></li>
+        <li id="backend-draft-tab" class="active-beer-type">
+          <h1>Draft Beer</h1>
+          <p>View All</p>
+        </li>
+        <li id="backend-bottle-tab">
+          <h1>Bottled Beer</h1>
+          <p>View All</p>
+        </li>
       </div>
 
       <div class="profile-beer-list">
