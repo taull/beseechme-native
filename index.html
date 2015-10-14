@@ -141,20 +141,19 @@
       <div class="header-right">
         <ul>
 
-          
-          <li>
-            <h1>Bar Backend</h1>
-            <span class="fa fa-caret-down"></span>
-          </li>
           <div>
             <% if (Parse.User.current()) { %>
               <i class="fa fa-power-off" id='logout'></i>
               <% } else { %>
               <p id='sign-in'>Sign In</p>
             <% } %>
-
-
           </div>
+
+          <li>
+            <h1>Bar Backend</h1>
+            <span class="fa fa-caret-down"></span>
+          </li>
+          
         </ul>
       </div>
 
@@ -168,7 +167,6 @@
           <a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer List</h1><p>Set your draft and bottled lists</p></li></a>
           <a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a>
           <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a>
-          <a href="#backend/settings"><li><span class="fa fa-calendar-o"></span><h1>Settings</h1><p>Just some random sample</p></li></a>
 
         </ul>
       </div>
@@ -243,12 +241,19 @@
 
     <div class="wide-container">
 
-      <div class="profile-feed">
-        <div class="module-header">
-          <p>My Feed</p>
-        </div>
-        <ul>
+      <div class="backend-feed-tabs">
+        <li id="backend-myfeed-tab" class="active-feed-type">
+          <h1>My Posts</h1>
+          <p>View All</p>
+        </li>
+        <li id="backend-mainfeed-tab">
+          <h1>Main Feed</h1>
+          <p>View All</p>
+        </li>
+      </div>
 
+      <div class="profile-feed">
+        <ul>
         </ul>
       </div><!-- END PROFILE FEED -->
 

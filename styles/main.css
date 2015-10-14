@@ -32,7 +32,7 @@ body {
   transition: 250ms; }
 
 .backend-container {
-  width: 800px;
+  width: 480px;
   margin: 0 auto;
   top: 60px;
   position: relative;
@@ -50,19 +50,19 @@ body {
 
 header {
   width: 100%;
-  height: 75px;
+  height: 65px;
   margin: 0px auto 0;
   position: absolute;
   left: 0;
   z-index: 9999999;
   /*box-shadow: 0 0 30px -15px #555;*/
   font-size: 0;
-  background: transparent;
+  background: #e5e5e5;
   /*display:none;*/ }
 
 .header-container {
-  width: 800px;
-  height: 75px;
+  width: 480px;
+  height: 65px;
   margin: 0 auto;
   position: relative;
   background: transparent;
@@ -106,7 +106,7 @@ header {
 .header-right {
   display: inline-block;
   vertical-align: top;
-  width: 40%;
+  width: 100%;
   padding-top: 10px;
   font-size: 0; }
   .header-right img {
@@ -117,17 +117,17 @@ header {
     vertical-align: top;
     background: #fff;
     /*border-radius: 2px;*/
-    width: 80%; }
+    width: 85%; }
     .header-right li span {
       display: inline-block;
       vertical-align: top;
       font-size: 16px;
       color: #333;
-      width: 20%;
+      width: 15%;
       height: 55px;
       text-align: center;
       padding-top: 20px;
-      background: #f8f8f8;
+      background: #fff;
       /*border-radius: 0px 2px 2px 0px;*/
       /*border-radius: 4px;*/ }
     .header-right li i {
@@ -135,7 +135,7 @@ header {
       vertical-align: top;
       font-size: 16px;
       color: #333;
-      width: 20%;
+      width: 25%;
       height: 55px;
       text-align: center;
       padding-top: 18px;
@@ -145,7 +145,7 @@ header {
       font-weight: 300;
       color: #333;
       display: inline-block;
-      width: 80%;
+      width: 85%;
       border: 0;
       outline: 0;
       height: 55px;
@@ -154,15 +154,15 @@ header {
   .header-right div {
     display: inline-block;
     vertical-align: top;
-    width: 20%;
+    width: 15%;
     /*border-radius: 2px;*/
     /*border-radius: 4px;*/
-    background: #37474F; }
+    background: #fff; }
     .header-right div i {
       display: inline-block;
       vertical-align: top;
       font-size: 16px;
-      color: #f0f0f0;
+      color: #333;
       width: 100%;
       height: 55px;
       text-align: center;
@@ -174,7 +174,8 @@ header {
   vertical-align: top;
   width: 30%;
   text-align: center;
-  padding-top: 15px; }
+  padding-top: 15px;
+  display: none; }
   .header-left h1 {
     /*background: #f8f8f8;*/
     width: 100%;
@@ -186,7 +187,8 @@ header {
   vertical-align: top;
   text-align: right;
   width: 30%;
-  padding-top: 15px; }
+  padding-top: 15px;
+  display: none; }
   .header-center div {
     display: inline-block;
     vertical-align: top;
@@ -263,7 +265,7 @@ header {
 	position: relative;
 }*/
 .backend-tabs {
-  width: 800px;
+  width: 480px;
   margin: 0 auto;
   position: relative;
   transition: 250ms;
@@ -271,19 +273,18 @@ header {
   background: transparent;
   font-size: 0;
   text-align: center;
-  margin-bottom: 15px; }
+  border-top: 1px solid #f0f0f0; }
   .backend-tabs ul {
     list-style: none;
     padding-left: 0; }
   .backend-tabs li {
     display: inline-block;
-    width: 20%;
+    width: 25%;
     background: #f8f8f8;
     /*border-right: 1px solid #f0f0f0;*/
     cursor: pointer;
     text-align: center;
-    padding: 15px 25px 15px;
-    height: 85px;
+    padding: 15px 0px 15px;
     border-right: 1px solid #fff;
     border-left: 1px solid #f0f0f0; }
     .backend-tabs li h1 {
@@ -298,7 +299,7 @@ header {
     .backend-tabs li p {
       font-size: 10px !important;
       line-height: 16px;
-      display: inline-block;
+      display: none;
       vertical-align: top;
       font-weight: 300;
       color: #333;
@@ -552,8 +553,7 @@ header {
 /* Listings */
 .listing-container {
   width: 100%;
-  background: #f8f8f8;
-  border: 1px solid #d8d8d8; }
+  background: #f8f8f8; }
   .listing-container ul {
     list-style: none;
     padding-left: 0; }
@@ -746,20 +746,20 @@ header {
   padding-bottom: 15px; }
 
 .wide-container {
-  width: 60%;
+  width: 100%;
   display: inline-block;
   position: relative;
   vertical-align: top;
-  padding-top: 15px;
+  /*padding-top: 15px;*/
   transition: 250ms;
   top: 0px;
   z-index: 99999; }
 
 .narrow-container {
-  width: 40%;
+  width: 100%;
   display: inline-block;
   vertical-align: top;
-  padding-right: 15px;
+  /*padding-right: 15px;*/
   padding-top: 15px; }
 
 .sidebar-container,
@@ -781,7 +781,7 @@ header {
   position: relative;
   /*background: #f8f8f8;*/
   width: 100%;
-  top: 75px;
+  top: 65px;
   margin: 0 auto;
   padding: 0px;
   transition: 250ms; }
@@ -954,7 +954,7 @@ header {
 .beer-search,
 .bar-search {
   width: 100%;
-  background: #fff;
+  background: #f0f0f0;
   /*border: 1px solid #d8d8d8;*/
   position: relative;
   transition: 250ms; }
@@ -1067,7 +1067,8 @@ header {
   background: #fff;
   border-bottom: 1px solid #f8f8f8;
   padding: 15px 15px 10px;
-  cursor: pointer; }
+  cursor: pointer;
+  display: none; }
   .module-header p {
     color: #999;
     font-size: 12px;
@@ -1221,11 +1222,13 @@ header {
     cursor: pointer;
     padding-top: 2px; }
 
-.profile-beer-tabs {
+.profile-beer-tabs,
+.backend-feed-tabs {
   width: 100%;
   border-bottom: 1px solid #f0f0f0;
   transition: 250ms; }
-  .profile-beer-tabs li {
+  .profile-beer-tabs li,
+  .backend-feed-tabs li {
     display: inline-block;
     width: 50%;
     vertical-align: top;
@@ -1234,15 +1237,19 @@ header {
     text-align: center;
     cursor: pointer;
     transition: 250ms; }
-  .profile-beer-tabs li:first-child {
+  .profile-beer-tabs li:first-child,
+  .backend-feed-tabs li:first-child {
     border-right: 1px solid #000; }
-  .profile-beer-tabs li:last-child {
+  .profile-beer-tabs li:last-child,
+  .backend-feed-tabs li:last-child {
     border-left: 1px solid #37474F; }
-  .profile-beer-tabs h1 {
+  .profile-beer-tabs h1,
+  .backend-feed-tabs h1 {
     font-size: 14px;
     text-transform: uppercase;
     color: #f0f0f0; }
-  .profile-beer-tabs p {
+  .profile-beer-tabs p,
+  .backend-feed-tabs p {
     font-size: 10px;
     text-transform: uppercase;
     font-weight: 300;
@@ -3356,8 +3363,9 @@ svg rect {
   .backend-container {
     width: 100%; }
 
-  .top-container2 {
-    display: none; }
+  .top-container {
+    width: 100%;
+    padding: 0 10px; }
 
   .wide-container {
     margin-left: 0;
@@ -3395,8 +3403,6 @@ svg rect {
     border: 0; }
 
   .bar-search {
-    margin-bottom: 0;
-    border-bottom: 0;
     width: 100%; }
 
   .copyright-info {
@@ -3435,6 +3441,8 @@ svg rect {
     padding: 5px 10px; }
 
   .backend-tabs {
-    display: none; } }
+    width: 100%; }
+    .backend-tabs h1 {
+      font-size: 12px; } }
 
 /*# sourceMappingURL=main.css.map */
