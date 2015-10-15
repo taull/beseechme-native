@@ -412,15 +412,18 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 
   events: {
     'submit .beer-search form' : 'searchBreweryDB',
-    'click li' : 'loadBottledBeers'
+    'click #backend-bottle-tab' : 'loadBottledBeers',
+    'click #backend-draft-tab' : 'loadDraftBeers'
   },
 
   emptyBeerList: function () {
     $('.profile-beer-list ul').empty();
+    $('.beer-search-results ul').empty();
   },
 
   searchBreweryDB: function (e) {
     e.preventDefault();
+    $("#backend-draft-tab, #backend-bottle-tab").removeClass('active-beer-type');
     var self = this;
     var queryString = $('.beer-search input').val();
 
@@ -428,7 +431,6 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
       this.collection = new BeMe.Collections.BeerResults();
     }
 
-    window.collectionReference = this.collection;
 
     Parse.Cloud.run('searchBrewery', {queryString:queryString})
     .then(function (beers) {
@@ -448,6 +450,8 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 
   loadDraftBeers:function () {
     this.emptyBeerList();
+    $("#backend-bottle-tab").removeClass('active-beer-type');
+    $("#backend-draft-tab").addClass('active-beer-type');
     //Parse.User.fetch().then do what's below
     Parse.Cloud.run('getBeers', {array:Parse.User.current().get('draftBeers')})
     .then(function (e) {
@@ -460,6 +464,8 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 
   loadBottledBeers: function () {
     this.emptyBeerList();
+    $("#backend-draft-tab").removeClass('active-beer-type');
+    $("#backend-bottle-tab").addClass('active-beer-type');
     //Parse.User.fetch().then do what's below
     Parse.Cloud.run('getBeers', {array:Parse.User.current().get('bottledBeers')})
     .then(function (e) {
