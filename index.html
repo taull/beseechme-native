@@ -934,7 +934,7 @@
           <% } %>
 
         </aside>
-        <section>
+        <div>
           <h1><%= attributes.name %></h1>
           <% if (typeof attributes.breweries !== 'undefined') { %>
             <p><%= attributes.breweries[0].name %></p>
@@ -942,11 +942,11 @@
           <h2><a id="draft-select">Add to Draft</a> • <a id="bottle-select">Add to Bottled</a></h2>
 
 
-        </section>
-        <div>
+        </div>
+        <section>
 
           <h1><%= attributes.abv %>%</h1>
-        </div>
+        </section>
 
 
 </script>
