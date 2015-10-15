@@ -1019,7 +1019,7 @@ header {
 	display: inline-block;
 	vertical-align: top;
 	/*padding-right: 15px;*/
-	padding-top: 15px;
+	padding-top: 5px;
 
 }
 
@@ -1265,7 +1265,7 @@ header {
 .beer-search, 
 .bar-search {
 	width: 100%;
-	background: #f0f0f0;
+	background: #444;
 	/*border: 1px solid #d8d8d8;*/
 	position:relative;
 	transition:250ms;
@@ -1275,14 +1275,15 @@ header {
 		vertical-align: top;
 		width: 15%;
 		font-size: 14px;
-		color: #333;
-		text-align: center;
-		padding-top: 22px;
+		color: $secondary-color-light;
+		text-align: right;
+		padding-right: 20px;
+		padding-top: 23px;
 	}
 
 	input {
 		display: inline-block;
-		color: $primary-color-dark;
+		color: #f8f8f8;
 		vertical-align: top;
 		height: 60px;
 		width: 60%;
@@ -1295,12 +1296,12 @@ header {
 	}
 
 	input::-webkit-input-placeholder {
-		color: #333;
+		color: #d8d8d8;
 	}
 
 	button {
-		background: $secondary-color-medium;
-		width: 20%;
+		background: #555;
+		width: 15%;
 		outline: 0;
 		border: 0;
 		border-radius: 4px;
@@ -1619,15 +1620,17 @@ header {
 
 .profile-beer-tabs, 
 .backend-feed-tabs {
-	width: 100%;
+	width: 104%;
+	margin-left: -2%;
 	border-bottom: 1px solid #f0f0f0;
+	margin-bottom: 5px;
 	transition: 250ms;
 
 	li {
 		display: inline-block;
 		width: 50%;
 		vertical-align: top;
-		background: $primary-color-dark;
+		background: #333;
 		padding: 20px 0px;
 		text-align: center;
 		cursor: pointer;
@@ -1639,7 +1642,7 @@ header {
 	}
 
 	li:last-child {
-		border-left: 1px solid $primary-color-medium;
+		border-left: 1px solid #444;
 	}
 
 	h1 {
@@ -2050,7 +2053,7 @@ header {
     transition: 250ms;
     display: inline-block;
     vertical-align: top;
-    background: #fff;
+    background: #f0f0f0;
  	/*border: 1px solid #d8d8d8;*/
 }
 
@@ -3173,7 +3176,7 @@ header {
 	padding: 15px;
 	position: relative;
 	z-index: 999999;
-	margin-top:15px;
+	margin-top:5px;
 	margin-bottom: 15px;
 
 	input {
@@ -3192,7 +3195,7 @@ header {
 }
 
 .calendar-day {
-	/*margin-top:15px;*/
+	margin-top:0px;
 	/*border: 1px solid #d8d8d8;*/
 }
 
@@ -3273,8 +3276,12 @@ header {
 /* Seven Day Nav */
 
 .seven-day-nav {
+	width: 100%;
 	/*border: 1px solid #d8d8d8;*/
 	background: #fff;
+	margin-top:10px;
+	margin-bottom: 10px;
+	position: relative;
 	/*border-right:0;
 	border-left:0;*/
 
@@ -3287,13 +3294,14 @@ header {
 		vertical-align: top;
 		display: inline-block;
 		width: 14.285714285%;
-		background:$primary-color-dark;
-		border-left: 1px solid $primary-color-medium;
+		background:$primary-color-light;
+		border-left: 1px solid #f0f0f0;
+		border-right: 1px solid #fff;
+
 		text-align: center;
 		padding:10px 5px 15px;
 		cursor: pointer;
 		height: 80px;
-
 	}
 
 	li:last-child {
@@ -3305,7 +3313,7 @@ header {
 	}
 
 	li:hover {
-		background: $primary-color-medium;
+		background: #fafafa;
 	}
 
 	aside {
@@ -3331,7 +3339,7 @@ header {
 }
 
 .active-day {
-	background:$primary-color-medium !important;
+	background:#fff !important;
 	padding:15px;
 	text-align: right;
 }
@@ -3347,7 +3355,7 @@ header {
 	display: inline-block;
 	vertical-align: top;
 	padding: 5px 0;
-	color: #f0f0f0;
+	color: #333;
 	font-weight: 500;
 	text-align: left;
 }
@@ -3363,7 +3371,7 @@ header {
 	font-weight: 300;
 	display: block;
 	vertical-align: top;
-	color: #f8f8f8;
+	color: #333;
 	text-align: center;
 }
 #current-day-heading {
@@ -4318,7 +4326,7 @@ svg rect{
 
 }
 
-@media screen and (min-width : 0px) and (max-width : 699px) {
+@media screen and (min-width : 0px) and (max-width : 480px) {
 	header,
 	.header-container, 
 	.wide-container, 
