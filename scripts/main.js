@@ -449,29 +449,31 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
   },
 
   loadDraftBeers:function () {
-    this.emptyBeerList();
+    var self = this;
     $("#backend-bottle-tab").removeClass('active-beer-type');
     $("#backend-draft-tab").addClass('active-beer-type');
     //Parse.User.fetch().then do what's below
     Parse.Cloud.run('getBeers', {array:Parse.User.current().get('draftBeers')})
     .then(function (e) {
       console.log(e);
+      self.emptyBeerList();
       _.each(e, function (i) {
-        new BeMe.Views.BackendBeer({model:i});
+        new BeMe.Views.BackendBeer({model:i,type:'draftBeers'});
       });
     });
   },
 
   loadBottledBeers: function () {
-    this.emptyBeerList();
+    var self = this;
     $("#backend-draft-tab").removeClass('active-beer-type');
     $("#backend-bottle-tab").addClass('active-beer-type');
     //Parse.User.fetch().then do what's below
     Parse.Cloud.run('getBeers', {array:Parse.User.current().get('bottledBeers')})
     .then(function (e) {
       console.log(e);
+      self.emptyBeerList();
       _.each(e, function (i) {
-        new BeMe.Views.BackendBeer({model:i});
+        new BeMe.Views.BackendBeer({model:i, type:'bottledBeers'});
       });
     });
   }
@@ -481,7 +483,6 @@ BeMe.Views.BackendBeer = Parse.View.extend({
   tagName: 'li',
 
   initialize: function () {
-    console.log(this.model);
     this.render();
   },
 
@@ -493,23 +494,25 @@ BeMe.Views.BackendBeer = Parse.View.extend({
   },
 
   events: {
-    'click .remove' : 'removeFromList'
+    'click #delete-beer' : 'removeFromList'
   },
 
-  removeFromList: function (list) {
+  removeFromList: function () {
     var user = Parse.User.current();
+    var list = this.options.type;
     var listToRemoveFrom = user.get(list);
 
     console.log(listToRemoveFrom);
     var self = this;
 
     var newList = _.reject(listToRemoveFrom, function (i) {
-      return i === self.id;
+      return i === self.model.id;
     });
 
     console.log(newList);
     user.set(list, newList);
     user.save();
+    this.remove();
   }
 });
 
