@@ -437,14 +437,24 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
       // self.collection.remove();
       self.collection.reset();
       console.log(self.collection);
-      self.collection.add(beers);
-      console.log(self.collection);
 
       self.emptyBeerList();
       $('.beer-search input').val('');
 
-      self.collection.render();
-      BeMe.Router.navigate('backend/beer/results');
+
+      if (beers) {
+        self.collection.add(beers);
+        console.log(self.collection);
+
+        self.collection.render();
+        BeMe.Router.navigate('backend/beer/results');
+      } else {
+        //'no results found'
+        var div = document.createElement("div");
+        $(div).html('<h1>No results found</h1>');
+        $('.profile-beer-list ul').append(div);
+      }
+
     });
   },
 
@@ -455,7 +465,6 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     //Parse.User.fetch().then do what's below
     Parse.Cloud.run('getBeers', {array:Parse.User.current().get('draftBeers')})
     .then(function (e) {
-      console.log(e);
       self.emptyBeerList();
       _.each(e, function (i) {
         new BeMe.Views.BackendBeer({model:i,type:'draftBeers'});
@@ -470,7 +479,6 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     //Parse.User.fetch().then do what's below
     Parse.Cloud.run('getBeers', {array:Parse.User.current().get('bottledBeers')})
     .then(function (e) {
-      console.log(e);
       self.emptyBeerList();
       _.each(e, function (i) {
         new BeMe.Views.BackendBeer({model:i, type:'bottledBeers'});
@@ -522,15 +530,6 @@ BeMe.Collections.BeerResults = Parse.Collection.extend({
   },
 
   render: function () {
-    var isAppended = !!$('.beer-search-results').length;
-    //is this the best way to do it or do we want the element on the page to begin with...
-    if(!isAppended) {
-      var div = document.createElement('div');
-      div.className = 'beer-search-results';
-
-      $(div).append('<ul></ul>');
-      $('.copyright-info').before(div);
-    }
 
     var self = this;
     this.remove();
@@ -561,8 +560,7 @@ BeMe.Views.BeerResult = Parse.View.extend({
 
   render: function () {
     this.$el.html(this.template(this.model));
-    $('.beer-search-results ul').append(this.el);
-    // $('.profile-beer-list ul').append(this.el);
+    $('.profile-beer-list ul').append(this.el);
   },
 
   events: {
