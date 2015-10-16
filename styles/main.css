@@ -1230,7 +1230,8 @@ header {
   padding: 50px;
   text-align: center; }
   .beer-loading i {
-    font-size: 36px; }
+    font-size: 24px;
+    color: #0277BD; }
 
 .profile-beer-tabs,
 .backend-feed-tabs {
