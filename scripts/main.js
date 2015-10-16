@@ -402,10 +402,13 @@ BeMe.Views.FeedPost = Parse.View.extend({
 
 BeMe.Views.BackendBeerList = Parse.View.extend({
 	initialize: function () {
+    this.beerType = null;
+    this.pageNumber = 1;
 		this.render();
 
     this.loadDraftBeers();
     this.addSpinner();
+    window.viewReference = this;
 	},
 
 	template: _.template($('#backend-beer-view').text()),
@@ -503,10 +506,15 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 
       BeMe.Router.navigate('backend/beer/results');
 
+    }, function (error) {
+      console.log(error);
     });
   },
 
   loadDraftBeers:function () {
+    this.pageNumber = 1;
+    this.beerType = 'draftBeers';
+
     var self = this;
     $("#backend-bottle-tab").removeClass('active-beer-type');
     $("#backend-draft-tab").addClass('active-beer-type');
@@ -522,6 +530,9 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
   },
 
   loadBottledBeers: function () {
+    this.pageNumber = 1;
+    this.beerType = 'bottledBeers';
+
     var self = this;
     $("#backend-draft-tab").removeClass('active-beer-type');
     $("#backend-bottle-tab").addClass('active-beer-type');
@@ -554,8 +565,23 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
   },
 
   loadMore: function () {
-    var currentPageNumber = this.currentPageNumber;
-    currentPageNumber++;
+    this.pageNumber++; //should increment AND store the value
+    var pageNumber = this.pageNumber;
+    var beerType = this.beerType;
+
+    console.log(pageNumber);
+    console.log(beerType);
+
+    var self = this;
+
+    Parse.Cloud.run('getBeers', {array:this.getIdArray(Parse.User.current().get(beerType),pageNumber)})
+    .then(function (e) {
+      // self.emptyBeerList();
+      self.removeSpinner();
+      _.each(e, function (i) {
+        new BeMe.Views.BackendBeer({model:i, type:'bottledBeers'});
+      });
+    });
 
   }
 });
