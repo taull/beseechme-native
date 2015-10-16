@@ -691,8 +691,50 @@
 
 <script type="text/template" id="business-view">
 
-  <div class="current-user-info"><p></p></div>
+<header>
+    <div class="header-container">
+      <div class="header-left">
+        <h1></h1>
+      </div>
+      <div class="header-center">
 
+
+      </div>
+
+      <div class="header-right">
+        <ul>
+
+          <div>
+            <% if (Parse.User.current()) { %>
+              <i class="fa fa-power-off" id='logout'></i>
+              <% } else { %>
+              <p id='sign-in'>Sign In</p>
+            <% } %>
+          </div>
+
+          <li>
+            <h1>Bar Backend</h1>
+            <span class="fa fa-caret-down"></span>
+          </li>
+
+        </ul>
+      </div>
+
+
+    </div>
+  </header>
+  <div class="top-container">
+      <div class="backend-tabs">
+        <ul>
+          <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a>
+          <a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer List</h1><p>Set your draft and bottled lists</p></li></a>
+          <a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a>
+          <a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a>
+          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a>
+
+        </ul>
+      </div>
+</div>
 </script>
 
 <!-- Business Feed View -->
