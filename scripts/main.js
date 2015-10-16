@@ -418,7 +418,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 			$('.beer-search').toggleClass('beer-search-shift');
 			$('#backend-draft-tab').removeClass('active-beer-type');
 			$('#backend-bottle-tab').removeClass('active-beer-type');
-			$('.profile-beer-list').toggleClass('hidden');
+			$('.profile-beer-list').addClass('hidden');
 
 		});
 
