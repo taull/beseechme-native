@@ -956,7 +956,7 @@ header {
 .beer-search,
 .bar-search {
   width: 100%;
-  background: #444;
+  background: #555;
   position: relative;
   transition: 250ms;
   margin-top: -70px;
@@ -977,7 +977,7 @@ header {
     color: #f8f8f8;
     vertical-align: top;
     height: 70px;
-    width: 60%;
+    width: 65%;
     border: 0;
     background: transparent;
     outline: 0;
@@ -989,7 +989,7 @@ header {
     color: #d8d8d8; }
   .beer-search button,
   .bar-search button {
-    background: #555;
+    background: #444;
     width: 15%;
     outline: 0;
     border: 0;
@@ -1026,14 +1026,17 @@ header {
 .beer-results-cancel {
   text-decoration: none;
   display: none;
-  width: 100%; }
+  width: 100%;
+  background: #f8f8f8;
+  padding: 20px; }
   .beer-results-cancel div {
-    width: 100%;
-    padding: 20px;
+    width: 20%;
     background: #B71C1C;
-    text-align: center; }
+    text-align: center;
+    padding: 10px;
+    border-radius: 3px; }
     .beer-results-cancel div h1 {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 400;
       color: #f8f8f8;
       text-decoration: none;
@@ -1227,10 +1230,11 @@ header {
 
 .beer-loading {
   width: 100%;
-  padding: 50px;
+  padding: 25px;
   text-align: center; }
   .beer-loading i {
-    font-size: 36px; }
+    font-size: 24px;
+    color: #0277BD; }
 
 .profile-beer-tabs,
 .backend-feed-tabs {

@@ -1267,7 +1267,7 @@ header {
 .beer-search, 
 .bar-search {
 	width: 100%;
-    background: #444;
+    background: #555;
     position: relative;
     transition: 250ms;
     margin-top: -70px;
@@ -1289,7 +1289,7 @@ header {
 		color: #f8f8f8;
 		vertical-align: top;
 		height: 70px;
-		width: 60%;
+		width: 65%;
 		border: 0;
 		background: transparent;
 		outline: 0;
@@ -1303,7 +1303,7 @@ header {
 	}
 
 	button {
-		background: #555;
+		background: #444;
 		width: 15%;
 		outline: 0;
 		border: 0;
@@ -1346,16 +1346,19 @@ header {
 	text-decoration: none;
 	display: none;
 	width: 100%;
+	background: $primary-color-light;
+	padding: 20px;
 
 	div {
 
-		width: 100%;
-		padding: 20px;
+		width: 20%;
 		background: $red-dark;
 		text-align: center;
+		padding: 10px;
+		border-radius: 3px;
 
 		h1 {
-			font-size: 16px;
+			font-size: 14px;
 			font-weight: 400;
 			color: #f8f8f8;
 			text-decoration: none;
@@ -1616,12 +1619,15 @@ header {
 
 .beer-loading {
 	width: 100%;
-	padding: 50px;
+	padding: 25px;
 	text-align: center;
 
 	i {
-		font-size: 36px;
+		font-size: 24px;
+		color: $secondary-color-medium;
 	}
+
+
 }
 
 .profile-beer-tabs, 
