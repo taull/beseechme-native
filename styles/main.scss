@@ -1351,7 +1351,7 @@ header {
 
 		width: 100%;
 		padding: 20px;
-		background: $red-medium;
+		background: $red-dark;
 		text-align: center;
 
 		h1 {
@@ -1608,9 +1608,21 @@ header {
 		padding-top:2px;
 	}
 
+	i {
+		font-size: 12px;
+	}
 	
 }
 
+.beer-loading {
+	width: 100%;
+	padding: 50px;
+	text-align: center;
+
+	i {
+		font-size: 36px;
+	}
+}
 
 .profile-beer-tabs, 
 .backend-feed-tabs {
@@ -1669,9 +1681,9 @@ header {
 	}
 }
 
-.active-beer-type {
+.active-beer-type, 
+.active-feed-type {
 	background:#424242 !important;
-	/*border-bottom: 5px solid $secondary-color-medium;*/
 
 	h1 {
 		color: #f0f0f0;
