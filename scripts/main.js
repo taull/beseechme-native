@@ -420,27 +420,22 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 			$('#backend-draft-tab').removeClass('active-beer-type');
 			$('#backend-bottle-tab').removeClass('active-beer-type');
 			$('.profile-beer-list').addClass('hidden');
-
 		});
 
 		$('#backend-draft-tab').click(function(){
 			$('.beer-search').removeClass('beer-search-shift');
 			$('.profile-beer-list').removeClass('hidden');
-
 		});
 
 		$('#backend-bottle-tab').click(function(){
 			$('.beer-search').removeClass('beer-search-shift');
 			$('.profile-beer-list').removeClass('hidden');
-
 		});
 
 		$('#beer-submit').click(function(){
 			$('.narrow-container').addClass('narrow-container-shift');
 			$('.profile-beer-list').removeClass('hidden');
 			$('.beer-results-cancel').addClass('show');
-
-
 		});
 	},
 
@@ -448,7 +443,12 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     'submit .beer-search form' : 'searchBreweryDB',
     'click #backend-bottle-tab' : 'loadBottledBeers',
     'click #backend-draft-tab' : 'loadDraftBeers',
+    'click .beer-results-cancel' : 'routeBack',
     'click .tabs-loading' : 'addSpinner'
+  },
+
+  routeBack: function () {
+    BeMe.Router.navigate('backend/beer', true);
   },
 
   addSpinner: function () {
@@ -494,13 +494,14 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
         console.log(self.collection);
 
         self.collection.render();
-        BeMe.Router.navigate('backend/beer/results');
       } else {
         //'no results found'
         var div = document.createElement("div");
         $(div).html('<h1>No results found</h1>');
         $('.profile-beer-list ul').append(div);
       }
+
+      BeMe.Router.navigate('backend/beer/results');
 
     });
   },
