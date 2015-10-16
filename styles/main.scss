@@ -63,7 +63,7 @@ body {
 .backend-container {
 	width: 480px;
     margin: 0 auto;
-    top:60px;
+    top:65px;
     position:relative;
     z-index:1;
     font-size: 0;
@@ -377,7 +377,7 @@ header {
 
 	li {
 		display: inline-block;
-		width: 25%;
+		width: 20%;
 		background: $primary-color-light;
 		/*border-right: 1px solid #f0f0f0;*/
 		cursor: pointer;
@@ -1018,9 +1018,11 @@ header {
 	width: 100%;
 	display: inline-block;
 	vertical-align: top;
-	/*padding-right: 15px;*/
-	padding-top: 5px;
+	transition: 250ms;
+}
 
+.narrow-container-shift {
+	margin-top: -70px;
 }
 
 .sidebar-container, 
@@ -1265,10 +1267,11 @@ header {
 .beer-search, 
 .bar-search {
 	width: 100%;
-	background: #444;
-	/*border: 1px solid #d8d8d8;*/
-	position:relative;
-	transition:250ms;
+    background: #444;
+    position: relative;
+    transition: 250ms;
+    margin-top: -70px;
+    z-index: 50;
 
 	span {
 		display: inline-block;
@@ -1278,20 +1281,20 @@ header {
 		color: $secondary-color-light;
 		text-align: right;
 		padding-right: 20px;
-		padding-top: 23px;
+		padding-top: 28px;
 	}
 
 	input {
 		display: inline-block;
 		color: #f8f8f8;
 		vertical-align: top;
-		height: 60px;
+		height: 70px;
 		width: 60%;
 		border: 0;
 		background: transparent;
 		outline: 0;
 		border-radius: 0;
-		font-size: 16px;
+		font-size: 14px;
 		font-weight: 300;
 	}
 
@@ -1309,7 +1312,7 @@ header {
 		font-size: 12px;
 		font-weight: 300;
 		padding: 10px 0;
-		margin-top:13px;
+		margin-top:18px;
 	}
 
 	a {
@@ -1320,8 +1323,8 @@ header {
 		font-size: 18px;
 		text-decoration: none;
 		font-weight: 300;
-		height:60px;
-		padding-top: 18px;
+		height:70px;
+		padding-top: 23px;
 	    padding-right: 20px;
 	    cursor:pointer;
 	    text-align: right;
@@ -1335,40 +1338,30 @@ header {
 	}
 }
 
+.beer-search-shift {
+	margin-top: 0;
+}
+
 .beer-results-cancel {
 	text-decoration: none;
 	display: none;
+	width: 100%;
 
 	div {
 
 		width: 100%;
-		padding: 15px;
+		padding: 20px;
 		background: $red-medium;
 		text-align: center;
-		margin-top:15px;
 
 		h1 {
-			font-size: 18px;
-			font-weight: 300;
+			font-size: 16px;
+			font-weight: 400;
 			color: #f8f8f8;
 			text-decoration: none;
 			/*text-transform: uppercase;*/
 		}
 	}	
-}
-
-.show {
-	display: block;
-}
-
-/*.search-shift {
-	margin-top:60px;
-}*/
-
-
-
-.beer-plus {
-
 }
 
 .rotate {
@@ -1618,31 +1611,47 @@ header {
 	
 }
 
+
 .profile-beer-tabs, 
 .backend-feed-tabs {
-	width: 104%;
-	margin-left: -2%;
-	border-bottom: 1px solid #f0f0f0;
-	margin-bottom: 5px;
-	transition: 250ms;
+	width: 100%;
+    /*margin-left: -2%;*/
+    transition: 250ms;
+    z-index: 100;
+    position: relative;
+    /*border-bottom: 1px solid #555;*/
 
 	li {
 		display: inline-block;
-		width: 50%;
+		width: 40%;
 		vertical-align: top;
 		background: #333;
 		padding: 20px 0px;
 		text-align: center;
+/*		border-right: 1px solid #222;
+		border-left: 1px solid #555;
+		border-bottom: 1px solid #222;*/
+		height: 70px;
 		cursor: pointer;
 		transition: 250ms;
 	}
 
+	li:nth-child(2) {
+		width: 20%;
+		padding-top: 25px;
+	}
+
 	li:first-child {
-		border-right: 1px solid #000;
+		border-left: 0;
 	}
 
 	li:last-child {
-		border-left: 1px solid #444;
+		border-right: 0;
+	}
+
+	i {
+		font-size: 18px;
+		color: $secondary-color-light;
 	}
 
 	h1 {
@@ -1661,7 +1670,8 @@ header {
 }
 
 .active-beer-type {
-	background: #555;
+	background:#424242 !important;
+	/*border-bottom: 5px solid $secondary-color-medium;*/
 
 	h1 {
 		color: #f0f0f0;
@@ -1877,16 +1887,6 @@ header {
 	
 }
 
-.beer-selection {
-}
-
-.show {
-	display: inline-block;
-}
-
-
-
-
 .beer-results-add {
 	width: 20%;
 	display: inline-block;
@@ -2054,10 +2054,10 @@ header {
     display: inline-block;
     vertical-align: top;
     background: #f0f0f0;
- 	/*border: 1px solid #d8d8d8;*/
+ 	position: relative;
+    z-index: 50;
+    margin-top: -128px;
 }
-
-
 
 
 .profile-tools-mobile {
@@ -2075,12 +2075,12 @@ header {
     border: 0;
     border-radius: 0;
     outline: none;
-    background: #fff;
+    background: #444;
     font-size: 14px;
     line-height: 24px;
     resize: none;
     padding: 40px 30px 5px 30px;
-    color: #000;
+    color: #f8f8f8;
     font-weight: 300;
 }
 
@@ -2951,12 +2951,12 @@ header {
 	text-align: left;
 	font-size: 0;
 	/*border: 1px solid #d8d8d8;*/
-	background: #fff;
+	background: #444;
 	padding-top:15px;
 	z-index: 1;
 
 	li {
-		background: #fff;
+		background: #444;
 	} 
  
 	li:first-child {
@@ -2973,7 +2973,7 @@ header {
 		width: 45%;
 		display: inline-block;
 		vertical-align: top;
-		background: #f8f8f8;
+		background: #333;
 		padding-top:0px;
 	}
 
@@ -2986,7 +2986,7 @@ header {
 		padding: 0;
 		height: 40px;
 		padding-top:12px;
-		background: #f8f8f8;
+		background: #333;
 	}
 
 
@@ -2994,6 +2994,7 @@ header {
 		display: inline-block;
 		vertical-align: top;
 		border: 0;
+		background: transparent;
 		outline: 0;
 		margin: 0 auto;
 	}
@@ -3011,12 +3012,13 @@ header {
 	}
 
 	input::-webkit-input-placeholder {
-		color: #333;
+		color: #d8d8d8;
 	}
 
 	select {
 		display:inline-block;
 		vertical-align: top;
+		background: transparent;
 		 -webkit-appearance: none;  /*REMOVES DEFAULT CHROME & SAFARI STYLE*/
 		 -moz-appearance: none;  /*REMOVES DEFAULT FIREFOX STYLE*/
 		 border: 0 !important;  /*REMOVES BORDER*/
@@ -3029,7 +3031,6 @@ header {
 		 cursor: pointer;
 		 height: 40px;
 		 outline: 0;
-		 background: #f8f8f8;
 		 pointer-events: none; 
 		 cursor: default;
 		 text-align: center;
@@ -3041,6 +3042,7 @@ header {
 		display: inline-block;
 		vertical-align: top;
 		text-transform: lowercase;
+		color: #f8f8f8;
 	}
 
 	span {
@@ -3096,7 +3098,7 @@ header {
 	position:relative;
 	display: inline-block;
 	vertical-align: top;
-	background: $secondary-color-medium;
+	background: #555;
 	width: 20%;
 	outline: 0;
 	border: 0;
@@ -3130,8 +3132,9 @@ header {
 	border-radius: 0;
 	font-size: 14px;
 	font-weight: 300;
-	text-indent: 15px;
+	text-indent: 25px;
 	height: 33px;
+	color: #f8f8f8;
 }
 
 #checkbox-standing:checked + .select-standing {
@@ -3936,7 +3939,6 @@ article {
 
 .show {
 	display: inline-block;
-	margin-top:-45px;
 	z-index: 50;
     position: relative;
 }
@@ -4034,7 +4036,7 @@ article {
     vertical-align: top;
     text-align: left;
     padding: 0px 25px 14px 25px;
-    background: #fff;
+    background: #444;
     /*border-radius: 0 0 4px 4px;*/
 
 	button {
@@ -4042,7 +4044,7 @@ article {
 		vertical-align: top;
 		width: 20%;
 		font-size:12px;
-		background: $secondary-color-medium;
+		background: #555;
 		height: 30px;
 		border-radius:3px;
 		outline: 0;
@@ -4060,7 +4062,7 @@ article {
 		height: 40px;
 		display: inline-block;
 		font-size: 16px;
-		color: $primary-color-dark;
+		color: $secondary-color-light;
 		margin-top:5px;
 		padding-top: 12px;
 		padding-left: 12px;
@@ -4075,6 +4077,7 @@ article {
 		margin-left:-79px;
 		z-index:0;
 		font-size: 12px;
+		color: #f8f8f8;
 		-webkit-appearance: none;
 	    -webkit-border-radius:0;
 
@@ -4087,8 +4090,9 @@ article {
 
 	label {
 		display: inline-block;
-		background: #fff;
+		background: #444;
 		position:relative;
+		color: #f8f8f8;
 		/*z-index:1;*/
 	}
 }
@@ -4392,7 +4396,7 @@ svg rect{
 
 	.top-container {
 		width: 100%;
-		padding: 0 10px;
+		padding: 0 0px;
 	}
 
 	.wide-container {
@@ -4497,7 +4501,7 @@ svg rect{
 		margin-bottom:0;
 	}
 	.backend-container {
-		padding: 5px 10px;
+		padding: 0px 0px;
 	}
 
 	.backend-tabs {
