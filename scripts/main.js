@@ -446,8 +446,8 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     'submit .beer-search form' : 'searchBreweryDB',
     'click #backend-bottle-tab' : 'loadBottledBeers',
     'click #backend-draft-tab' : 'loadDraftBeers',
-    'click .beer-results-cancel' : 'routeBack',
-    'click .tabs-loading' : 'addSpinner'
+    'click .tabs-loading' : 'addSpinner',
+    'click .load-more-button' : 'loadMore'
   },
 
   routeBack: function () {
@@ -554,6 +554,13 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     var min = max - 9;
     var realMin = min >= 0 ? min : 0;
 
+    console.log(min);
+
+    if (min <= 0) { //if we hit the end of the results...
+      $('.load-more-button').addClass('hidden'); //show it
+    } else {
+      $('.load-more-button').removeClass('hidden'); //hide it
+    }
     //we are iterating in reverse order to make the ones added to the list most
     //recent appear first without having to store extra data in the array (addedAt date, etc...)
     var arrayOfIds = [];
@@ -576,7 +583,6 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 
     Parse.Cloud.run('getBeers', {array:this.getIdArray(Parse.User.current().get(beerType),pageNumber)})
     .then(function (e) {
-      // self.emptyBeerList();
       self.removeSpinner();
       _.each(e, function (i) {
         new BeMe.Views.BackendBeer({model:i, type:'bottledBeers'});
