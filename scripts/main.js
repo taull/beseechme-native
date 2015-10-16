@@ -455,13 +455,13 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
   },
 
   addSpinner: function () {
-    $('.profile-beer-list').css('display', 'none');
-    $('.beer-loading').css('display', 'block');
+    $('.profile-beer-list').addClass('hidden');
+    $('.beer-loading').removeClass('hidden')
   },
 
   removeSpinner: function () {
-    $('.profile-beer-list').css('display', 'block');
-    $('.beer-loading').css('display', 'none');
+    $('.profile-beer-list').removeClass('hidden')
+    $('.beer-loading').addClass('hidden');
   },
 
   emptyBeerList: function () {
