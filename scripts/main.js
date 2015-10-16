@@ -405,6 +405,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 		this.render();
 
     this.loadDraftBeers();
+    this.addSpinner();
 	},
 
 	template: _.template($('#backend-beer-view').text()),
@@ -466,6 +467,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
   },
 
   searchBreweryDB: function (e) {
+    this.addSpinner();
     e.preventDefault();
     $("#backend-draft-tab, #backend-bottle-tab").removeClass('active-beer-type');
     var self = this;
