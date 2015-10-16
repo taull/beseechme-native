@@ -165,6 +165,7 @@
         <ul>
           <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a>
           <a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer List</h1><p>Set your draft and bottled lists</p></li></a>
+          <a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a>
           <a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a>
           <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a>
 
@@ -216,7 +217,21 @@
   <div class="backend-container">
     <div class="narrow-container">
 
+      <div class="backend-feed-tabs">
+        <li id="backend-myfeed-tab" class="active-feed-type">
+          <h1>My Posts</h1>
+          <p>View All</p>
+        </li>
 
+        <li id="backend-add-status">
+          <i class="fa fa-comments"></i>
+        </li>
+
+        <li id="backend-mainfeed-tab">
+          <h1>Main Feed</h1>
+          <p>View All</p>
+        </li>
+      </div>
 
       <div class="profile-tools profile-tools-desktop">
         <form action="">
@@ -241,16 +256,7 @@
 
     <div class="wide-container">
 
-      <div class="backend-feed-tabs">
-        <li id="backend-myfeed-tab" class="active-feed-type">
-          <h1>My Posts</h1>
-          <p>View All</p>
-        </li>
-        <li id="backend-mainfeed-tab">
-          <h1>Main Feed</h1>
-          <p>View All</p>
-        </li>
-      </div>
+      
 
       <div class="profile-feed">
         <ul>
@@ -305,32 +311,42 @@
   <div class="backend-container">
     <div class="narrow-container">
 
-      <div class="beer-search">
-        <form action>
-          <span class="fa fa-search"></span>
-          <input type="text" placeholder="Brewery Database...">
-          <button>Search</button>
-        </form>
-      </div>
-      <a href="#backend/beer" class="beer-results-cancel">
-        <div>
-          <h1>Cancel Search</h1>
-        </div>
-      </a>
-    </div>
-
-    <div class="wide-container">
-
       <div class="profile-beer-tabs">
         <li id="backend-draft-tab" class="active-beer-type">
           <h1>Draft Beer</h1>
           <p>View All</p>
         </li>
-        <li id="backend-bottle-tab">
+
+        <li id="backend-add-beer">
+          <i class="fa fa-search"></i>
+        </li>
+
+        <li id="backend-bottle-tab" class="active-beer-type">
           <h1>Bottled Beer</h1>
           <p>View All</p>
         </li>
       </div>
+      <div class="beer-search">
+        <form action>
+          <span class="fa fa-search"></span>
+          <input type="text" placeholder="Add to Beer List">
+          <button id="beer-submit">Search</button>
+        </form>
+      </div>
+      <a href="#backend/beer" class="beer-results-cancel">
+        <div>
+          <h1>Cancel</h1>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="wide-container">
+
+      
+
+      
+
 
       <div class="profile-beer-list">
         <ul>
@@ -369,7 +385,21 @@
 <script type="text/template" id="backend-calendar-view">
   <div class="backend-container">
     <div class="narrow-container">
+      <div class="profile-beer-tabs">
+        <li id="backend-draft-tab" class="active-beer-type">
+          <h1>Draft Beer</h1>
+          <p>View All</p>
+        </li>
 
+        <li id="backend-add-beer">
+          <i class="fa fa-comments"></i>
+        </li>
+
+        <li id="backend-bottle-tab">
+          <h1>Bottled Beer</h1>
+          <p>View All</p>
+        </li>
+      </div>
       <div class="add-weekly-comment">
         <form action="">
 
@@ -584,7 +614,21 @@
 
   <div class="backend-container">
     <div class="narrow-container">
+      <div class="profile-beer-tabs">
+        <li id="backend-draft-tab" class="active-beer-type">
+          <h1>Draft Beer</h1>
+          <p>View All</p>
+        </li>
 
+        <li id="backend-add-beer">
+          <i class="fa fa-search"></i>
+        </li>
+
+        <li id="backend-bottle-tab">
+          <h1>Bottled Beer</h1>
+          <p>View All</p>
+        </li>
+      </div>
       <div class="bar-search">
         <span class="fa fa-search"></span>
         <input type="text" placeholder="Bar Search...">
