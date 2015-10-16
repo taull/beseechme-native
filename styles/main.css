@@ -1030,7 +1030,7 @@ header {
   .beer-results-cancel div {
     width: 100%;
     padding: 20px;
-    background: #F44336;
+    background: #B71C1C;
     text-align: center; }
     .beer-results-cancel div h1 {
       font-size: 16px;
@@ -1222,6 +1222,15 @@ header {
     color: #dfdfdf;
     cursor: pointer;
     padding-top: 2px; }
+  .profile-beer-list i {
+    font-size: 12px; }
+
+.beer-loading {
+  width: 100%;
+  padding: 50px;
+  text-align: center; }
+  .beer-loading i {
+    font-size: 36px; }
 
 .profile-beer-tabs,
 .backend-feed-tabs {
@@ -1272,12 +1281,14 @@ header {
     margin-top: 5px;
     color: #f0f0f0; }
 
-.active-beer-type {
-  background: #424242 !important;
-  /*border-bottom: 5px solid $secondary-color-medium;*/ }
-  .active-beer-type h1 {
+.active-beer-type,
+.active-feed-type {
+  background: #424242 !important; }
+  .active-beer-type h1,
+  .active-feed-type h1 {
     color: #f0f0f0; }
-  .active-beer-type p {
+  .active-beer-type p,
+  .active-feed-type p {
     color: #f0f0f0; }
 
 #delete-beer {
