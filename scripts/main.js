@@ -487,26 +487,27 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
   },
 
   getIdArray: function (list, pageNumber) {
-    console.log(list);
-    console.log(pageNumber);
     //note the numbers passed around in these small calculations are effectively
     //the *index* number in the `list` array
     var max = list.length - (10 * (pageNumber - 1) + 1);
     var min = max - 9;
     var realMin = min >= 0 ? min : 0;
-    console.log(max);
-    console.log(realMin);
 
     //we are iterating in reverse order to make the ones added to the list most
     //recent appear first without having to store extra data in the array (addedAt date, etc...)
     var arrayOfIds = [];
     for(var i = max; i >= realMin; i--) {
-      console.log(i);
       arrayOfIds.push(list[i]);
     }
     console.log(arrayOfIds);
     return arrayOfIds;
   },
+
+  loadMore: function () {
+    var currentPageNumber = this.currentPageNumber;
+    currentPageNumber++;
+    
+  }
 });
 
 BeMe.Views.BackendBeer = Parse.View.extend({
