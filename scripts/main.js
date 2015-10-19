@@ -312,7 +312,17 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 
 		$('#backend-add-status').click(function(){
 			$('.profile-tools').toggleClass('profile-tools-shift');
+      $('#backend-myfeed-tab').removeClass('active-feed-type');
+      $('#backend-mainfeed-tab').removeClass('active-feed-type');
+      $('.profile-feed').addClass('hidden');
 		});
+
+    $('#backend-myfeed-tab').click(function(){
+      $('.profile-feed').removeClass('hidden');
+      $('#backend-myfeed-tab').addClass('active-feed-type');
+      $('.profile-tools').toggleClass('profile-tools-shift');
+
+    });
 
 	},
 
