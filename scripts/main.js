@@ -289,6 +289,10 @@ BeMe.Views.Backend = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
+
+    $('#slideout-trigger').click(function(){
+      $('.header-slideout').toggleClass('slideout-shift');
+    });
 	}
 });
 
@@ -676,6 +680,10 @@ BeMe.Views.BeerResult = Parse.View.extend({
   render: function () {
     this.$el.html(this.template(this.model));
     $('.profile-beer-list ul').append(this.el);
+
+    $('#choose-beer-type').click(function(){
+      $('.beer-type').removeClass('hidden');
+    });
   },
 
   events: {
