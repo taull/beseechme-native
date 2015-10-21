@@ -26,13 +26,10 @@ $text-color: #f0f0f0;
 
 * {
 	font-family: 'Roboto', sans-serif;
-/*	font-size: 0;
-*/	padding: 0;
+	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 	list-style: none;
-	/*border-left:0 !important;
-	border-right:0 !important;*/
 }
 
 
@@ -43,12 +40,12 @@ input [file] {
 /* Layout */
 
 body {
+	font-size: 12px;
 	position: relative;
 	background: #e5e5e5;
 	width: 100%;
 	margin: 0 auto;
 	overflow-x: hidden;
-	/*overflow: hidden;*/
 	transition: 250ms;
 }
 
@@ -60,13 +57,14 @@ body {
     transition: 250ms;
 }
 
-.backend-container {
+.backend-container, 
+.business-container {
 	width: 480px;
     margin: 0 auto;
-    top:65px;
+    top:55px;
     position:relative;
     z-index:1;
-    font-size: 0;
+    ;
     /*border-right: 1px solid #dfdfdf;*/
 
 }
@@ -83,15 +81,10 @@ body {
 
 header {
 	width: 100%;
-    height: 65px;
     margin: 0px auto 0;
-    position: absolute;
+    position: fixed;
     left: 0;
     z-index: 9999999;
-    /*box-shadow: 0 0 30px -15px #555;*/
-    font-size: 0;
-    background: #e5e5e5;
-    /*display:none;*/
 }
 
 .header-container {
@@ -100,28 +93,6 @@ header {
 	margin: 0 auto;
 	position:relative;
 	background: transparent;
-	/*border-left: 1px solid #d8d8d8;
-	border-right: 1px solid #d8d8d8;*/
-
-	a {
-		width: 20%;
-		vertical-align: top;
-		color:$green-light;
-		font-size: 18px;
-		text-decoration: none;
-		float: right;
-		font-weight: 300;
-		height:60px;
-		padding-top: 18px;
-	    padding-right: 10px;
-	    padding-left: 10px;
-	    cursor: pointer;
-	}
-
-	i {
-		padding-right: 5px;
-		font-size: 22px;
-	}
 }
 
 .header-logo {
@@ -152,8 +123,8 @@ header {
 	display: inline-block;
 	vertical-align: top;
 	width: 100%;
-	padding-top:10px;
-	font-size: 0;
+	position: relative;
+    z-index: 999999999;
 
 	img {
 		width: 100px;
@@ -195,7 +166,7 @@ header {
 
 
 		h1 {
-			font-size: 14px;
+			font-size: 1.2em;
 		    font-weight: 300;
 		    color: #333;
 		    display: inline-block;
@@ -289,9 +260,24 @@ header {
 	}
 }
 
-/*.active-header-li {
-	border-bottom: 3px solid #333;
-}*/
+/* Header Slideout*/
+
+.header-slideout {
+	position: relative;
+    top: -500px;
+    left: 0;
+    height: 500px;
+    width: 480px;
+    margin: 0 auto;
+    background: #444;
+    z-index: 99999999;
+    transition: 250ms;
+}
+
+.slideout-shift {
+	top: 0;
+}
+
 
 /* Login/Register */
 
@@ -314,32 +300,6 @@ header {
 	/*border-bottom:0;*/
 }
 
-.home-search {
-	width: 100%;
-	margin: 0 auto;
-	padding: 0px 30px;
-}
-
-.backend-logo {
-	width: 100%;
-	background: $primary-color-light;
-	border:1px solid #dfdfdf;
-	border-bottom:0;
-	padding:30px;
-}
-
-.backend-logo-overflow {
-	width: 100%;
-	overflow: hidden;
-	max-height: 150px;
-
-	img {
-		width: 100%;
-		height:auto;
-		margin-top:-70px;
-	}
-}
-
 .backend-controls {
 	width: 100%;
 	margin: 0 auto;
@@ -351,14 +311,6 @@ header {
 	z-index:999999;
 }
 
-
-/*.backend-tabs-container {
-	width: 400px;
-	margin: 0 auto;
-	top: 50px;
-	position: relative;
-}*/
-
 .backend-tabs {
 	width: 480px;
 	margin: 0 auto;
@@ -366,7 +318,6 @@ header {
     transition:250ms;
     z-index: 25;
     background: transparent;
-    font-size: 0;
     text-align: center;
     border-top: 1px solid #f0f0f0;
 
@@ -377,7 +328,7 @@ header {
 
 	li {
 		display: inline-block;
-		width: 20%;
+		width: 33.3333333%;
 		background: $primary-color-light;
 		/*border-right: 1px solid #f0f0f0;*/
 		cursor: pointer;
@@ -387,7 +338,7 @@ header {
 		border-left: 1px solid #f0f0f0;
 
 		h1 {
-			font-size: 12px !important;
+			font-size: 1em !important;
 			display: inline-block;
 			vertical-align: top;
 			font-weight: 500;
@@ -398,7 +349,7 @@ header {
 		}
 
 		p {
-			font-size: 10px !important;
+			font-size: .8em !important;
 			line-height: 16px;
 			display: none;
 			vertical-align: top;
@@ -420,12 +371,8 @@ header {
 		border-left: 0;
 	}
 
-
-
 	a li:hover {
 	}
-
-	
 
 	span {
 		font-size: 18px !important;
@@ -436,8 +383,6 @@ header {
 		display:none;
 
 	}
-
-
 }
 
 .active-tab {
@@ -448,22 +393,6 @@ header {
 		color: #333 !important;
 	}
 }
-
-.backend-tabs ul li:hover > ul {
-	transition:250ms;
-	display:block;
-}
-
-.backend-tabs ul li:hover > i {
-	color: $secondary-color-dark;
-}
-
-.backend-tabs ul li:hover > p {
-}
-
-
-
-
 
 .backend-mobile-tabs {
 	width: 100%;
@@ -497,11 +426,6 @@ header {
 		border-bottom:0;
 	}
 
-	/*li:hover {
-		background: #383838;
-	}*/
-
-
 	span {
 		font-size: 20px !important;
 		display: inline-block;
@@ -509,107 +433,6 @@ header {
 		width: 100%;
 		text-align: center;
 		color: #999;
-	}
-
-
-}
-
-.active-mobile-tab {
-	background: #383838 !important;
-
-	span {
-		color: $secondary-color-light;
-	}
-}
-
-.backend-breadcrumbs {
-	width: 100%;
-	position:relative;
-	background: $primary-color-light;
-	border:1px solid #dfdfdf;
-	padding: 20px;
-	cursor: pointer;
-	z-index:50;
-	text-align: left;
-	/*margin-bottom:15px;*/
-
-	p {
-		color:#333;
-		font-size: 14px;
-		font-weight: 300;
-		display: inline-block;
-		vertical-align: top;
-		padding-right: 5px;
-	}
-
-	a {
-		color:$green-light;
-		font-size: 14px;
-		text-decoration: none;
-		float: right;
-		font-weight: 300;
-		height:50px;
-		padding-top: 18px;
-	    padding-right: 20px;
-	    padding-left: 20px;
-	}
-
-	span {
-		text-align: right;
-		display: inline-block;
-		font-size: 16px;
-		color:$green-light;
-		padding-left: 5px;
-		padding-right: 10px;
-	}
-
-	img {
-		display: inline-block;
-		vertical-align: top;
-		width: 20px;
-		height: auto;
-		margin-top:-3px;
-		margin-right:5px;
-	}
-
-	i {
-		display: inline-block;
-		vertical-align: top;
-		font-size: 18px;
-		float:right;
-		color: $green-light;
-	}
-}
-
-.backend-breadcrumbs-shift {
-	position:relative;
-	z-index:50;
-	transition:250ms;
-}
-
-.login-logo {
-	width: 35%;
-    height: 205px;
-    text-align: center;
-    display: inline-block;
-    padding: 28px 25px;
-    border-right: 1px solid #dfdfdf;
-    background: #f0f0f0;
-    border-radius: 4px 0px 0px 4px;
-
-	img {
-		width: 100%;
-		margin-bottom:0px;
-		/*border:1px solid #dfdfdf;*/
-	}
-
-	p {
-		display: block;
-		font-size: 14px;
-		color: $text-color;
-		font-style: italic;
-		font-weight: 300;
-		margin-top:-10px;
 	}
 }
 
@@ -648,7 +471,7 @@ header {
 	}
 
 	p {
-		font-size:12px;
+		font-size: 1em;
 		color:#333;
 		display: inline-block;
 		vertical-align: top;
@@ -657,7 +480,7 @@ header {
 	}
 
 	a {
-		font-size: 12px;
+		font-size: 1em;
 		color: #333;
 		display: inline-block;
 		vertical-align: top;
@@ -668,7 +491,7 @@ header {
 	input[type="text"], 
 	input[type="password"] {
 		display: inline-block;
-		font-size: 14px;
+		font-size: 1.2em;
 		color: #333;
 		width: 85%;
 		border: 0;
@@ -688,16 +511,10 @@ header {
 		margin-bottom: 20px;
 	}
 
-	/*input:nth-child(3) {
-		width:auto;
-		height:auto;
-		margin: 8px 5px 0;
-	}*/
-
 	span {
 		display: inline-block;
 		color: #333;
-		font-size: 14px;
+		font-size: 1.2em;
 		width: 15%;
 		text-align: center;
 	}
@@ -705,13 +522,13 @@ header {
 	h1 {
 		display: inline-block;
 		color: #333;
-		font-size: 14px;
+		font-size: 1.2em;
 		width: 15%;
 		text-align: center;
 	}
 
 	h2 {
-		font-size: 12px;
+		font-size: 1em;
 		color: #333;
 		text-transform: uppercase;
 		margin-bottom: 15px;
@@ -721,7 +538,7 @@ header {
 		display: block;
 		width: 30%;
 		height: 30px;
-		font-size: 12px;
+		font-size: 1em;
 		border: 0;
 		color: $primary-color-light;
 		font-weight: 300;
@@ -732,24 +549,6 @@ header {
 		margin-top: 20px;
 	}
 
-}
-
-.confirm-password {
-	padding: 15%;
-}
-
-.options-caret {
-
-	text-align:right;
-	padding-right:30px;
-
-	span {
-		font-size: 48px;
-		color: $primary-color-medium;
-		position: relative;
-		margin-top: -20px;
-		vertical-align: bottom;
-	}
 }
 
 /* Listings */
@@ -792,13 +591,13 @@ header {
 	padding-left: 10px;
 
 	h1 {
-		font-size: 13px;
+		font-size: 1.1em;
 		font-weight: normal;
 		color: $secondary-color-dark;
 	}
 
 	p {
-		font-size: 11px;
+		font-size: 1em;
 		font-weight: 300;
 		display: block;
 		font-style: italic;
@@ -868,7 +667,7 @@ header {
 		width: 15%;
 		display: inline-block;
 		vertical-align: top;
-		font-size: 12px;
+		font-size: 1em;
 		background: $secondary-color-dark;
 		color: $primary-color-light;
 		height: 50px;
@@ -953,7 +752,7 @@ header {
 
 	h1 {
 		display: block;
-		font-size: 13px;
+		font-size: 1.1em;
 		color: $secondary-color-dark;
 		font-weight: normal;
 		padding-bottom: 10px;
@@ -962,7 +761,7 @@ header {
 	p {
 		display: block;
 		vertical-align: top;
-		font-size: 12px;
+		font-size: 1em;
 		color: $primary-color-medium;
 		font-weight: 300;
 	}
@@ -974,7 +773,7 @@ header {
 	width: 100%;
 
 	a {
-		font-size: 12px;
+		font-size: 1em;
 		color: $secondary-color-dark;
 		cursor:pointer;
 
@@ -1081,7 +880,7 @@ header {
 }
 
 .home-container {
-	font-size: 0;
+	;
 	width: 360px;
 	margin: 0 auto;
 	position: relative;
@@ -1115,7 +914,7 @@ header {
 		width: 25%;
 		display: inline-block;
 		color:$primary-color-medium;
-		font-size: 12px;
+		font-size: 1em;
 		text-align: center;
 		padding: 15px 0;
 		font-weight: 300;
@@ -1196,7 +995,7 @@ header {
 	}
 
 	p {
-		font-size: 12px;
+		font-size: 1em;
 		font-weight: 300;
 		color: $primary-color-light;
 	}
@@ -1216,7 +1015,7 @@ header {
 		width: 25%;
 		display: inline-block;
 		color:$primary-color-medium;
-		font-size: 12px;
+		font-size: 1em;
 		text-align: center;
 		padding: 20px 0;
 		font-weight: 300;
@@ -1277,7 +1076,7 @@ header {
 		display: inline-block;
 		vertical-align: top;
 		width: 15%;
-		font-size: 14px;
+		font-size: 1.2em;
 		color: $secondary-color-light;
 		text-align: right;
 		padding-right: 20px;
@@ -1294,7 +1093,7 @@ header {
 		background: transparent;
 		outline: 0;
 		border-radius: 0;
-		font-size: 14px;
+		font-size: 1.4em;
 		font-weight: 300;
 	}
 
@@ -1309,7 +1108,7 @@ header {
 		border: 0;
 		border-radius: 4px;
 		color: #fff;
-		font-size: 12px;
+		font-size: 1em;
 		font-weight: 300;
 		padding: 10px 0;
 		margin-top:18px;
@@ -1358,7 +1157,7 @@ header {
 		border-radius: 3px;
 
 		h1 {
-			font-size: 14px;
+			font-size: 1.2em;
 			font-weight: 400;
 			color: #f8f8f8;
 			text-decoration: none;
@@ -1403,7 +1202,7 @@ header {
 
 	p {
 		color:#999;
-		font-size: 12px;
+		font-size: 1em;
 		font-weight: 400;
 		display: inline-block;
 		vertical-align: top;
@@ -1412,7 +1211,7 @@ header {
 
 	a {
 		color:$green-light;
-		font-size: 14px;
+		font-size: 1.2em;
 		text-decoration: none;
 		float: right;
 		font-weight: 300;
@@ -1425,7 +1224,7 @@ header {
 	span {
 		text-align: right;
 		display: inline-block;
-		font-size: 14px;
+		font-size: 1.2em;
 		color:$secondary-color-dark;
 	}
 }
@@ -1537,40 +1336,54 @@ header {
 		border-top:0;
 	}
 
+	li:nth-child(odd) {
+		background: #fff;
+	}
+
 	aside {
 		display: inline-block;
 		vertical-align: top;
 		width: 10%;
+		position: relative;
+
 
 		img {
 			width: 100%;
 			height: auto;
+			top: 0;
+			position: absolute;
+			left: 0;
 		}
 	}
 
 	div {
-		width: 60%;
+		width: 70%;
 		display: inline-block;
 		vertical-align: top;
 		padding-left:10px;
 
 		h1 {
-			width: 100%;
 			display: inline-block;
 			vertical-align: top;
-			font-size: 14px;
+			font-size: 1.2em;
 			color: $secondary-color-dark;
 		}
 
 		p {
-			font-size: 12px;
+			font-size: 1em;
 			font-weight: 300;
+			margin-top: 1px;
 		}
 
 		h2 {
-			width: 100%;
 			display: inline-block;
-			font-size: 11px;
+			vertical-align: top;
+			font-size: .9em;
+			font-weight: 400;
+		}
+
+		h3 {
+			font-size: .9em;
 			font-weight: 400;
 			margin-top: 5px;
 		}
@@ -1585,17 +1398,78 @@ header {
 
 		h1 {
 			display:block;
-			font-size: 13px;
+			font-size: 1.2em;
 			color:$primary-color-dark;
-			font-weight: 400;
+			font-weight: 700;
 		}
 
 		p {
 			display:block;
-			font-size: 8px;
+			font-size: .8em;
 			text-transform: lowercase;
 			font-weight: 300;
-			color:#ccc;
+			color:#333;
+		}
+
+		h2 {
+			font-size: 1em;
+		    font-weight: 700;
+		    color: #333;
+		    width: 70%;
+		    display: inline-block;
+		    vertical-align: top;
+		    text-align: center;
+		    height: 30px;
+		    background: #dfdfdf;
+		    border-radius: 3px 0px 0px 3px;
+		    padding-top: 8px;
+		}
+
+		h3 {
+			width: 60%;
+			display: inline-block;
+			vertical-align: top;
+			background: #f5f5f5;
+			color: #333;
+			height: 30px;
+			padding-top: 7px;
+			border-radius: 4px 0 0 4px;
+			font-size: 1em;
+			font-weight: 400;
+		}
+
+		footer {
+			text-align: center;
+		}
+
+		article {
+			background: #fff;
+			border: 1px solid #d8d8d8;
+			border-radius: 4px;
+			position: absolute;
+			padding: 10px;
+			width: 100px;
+			text-align: left;
+			right: 20px;
+		}
+
+		h4 {
+			font-size: .9em;
+			font-weight: 400;
+		}
+
+		i {
+			font-size: 1.2em;
+			width: 40%;
+			height: 30px;
+			display: inline-block;
+			vertical-align: top;
+			text-align: center;
+			padding-top: 9px;
+			background: #f0f0f0;
+			color: #ccc;
+			border-radius: 0px 4px 4px 0px;
+
 		}
 	}
 
@@ -1603,7 +1477,7 @@ header {
 	span {
 		width: 10%;
 		text-align: right;
-		font-size: 14px;
+		font-size: 1.2em;
 		display: inline-block;
 		vertical-align: top;
 		color: #dfdfdf;
@@ -1612,10 +1486,37 @@ header {
 	}
 
 	i {
-		font-size: 12px;
+		font-size: 1em;
 	}
 	
 }
+
+#choose-beer-type {
+
+}
+
+#beer-type {
+}
+
+.loader{
+  margin: 0 0 2em;
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*
+  Set the color of the icon
+*/
+svg path,
+svg rect{
+  fill: green-light;
+}
+
 
 .beer-loading {
 	width: 100%;
@@ -1624,10 +1525,18 @@ header {
 
 	i {
 		font-size: 24px;
-		color: $secondary-color-medium;
+		color: $secondary-color-light;
 	}
 
 
+}
+
+.load-more-button {
+	width: 100% !important;
+	text-align: center;
+	padding: 15px;
+	border-top: 1px solid #f0f0f0;
+	background: #fff;
 }
 
 .profile-beer-tabs, 
@@ -1644,7 +1553,7 @@ header {
 		width: 40%;
 		vertical-align: top;
 		background: #333;
-		padding: 20px 0px;
+		padding: 17.5px 0px;
 		text-align: center;
 /*		border-right: 1px solid #222;
 		border-left: 1px solid #555;
@@ -1673,13 +1582,13 @@ header {
 	}
 
 	h1 {
-		font-size: 14px;
+		font-size: 1.2em;
 		text-transform: uppercase;
 		color: #f0f0f0;
 	}
 
 	p {
-		font-size: 10px;
+		font-size: .8em;
 		text-transform: uppercase;
 		font-weight: 300;
 		margin-top: 5px;
@@ -1701,18 +1610,26 @@ header {
 }
 
 #delete-beer {
-	width: 100%;
 	border: 0;
 	outline: 0;
 	background: transparent;
-	font-size: 12px;
-	padding: 5px 0;
-	margin-top: 0px;
+	font-size: 1em;
+	padding-left: 5px;
+	transition: 250ms;
 
 	span {
-		font-size: 14px;
+		font-size: 1.2em;
 		color: #dfdfdf;
 	}
+}
+
+#delete-beer:hover span {
+	color: $red-dark;
+}
+
+
+.show-beer-controls {
+	display: inline-block;
 }
 
 #focusableElement:focus { 
@@ -1789,7 +1706,7 @@ header {
 	}
 
 	span {
-		font-size: 14px;
+		font-size: 1.2em;
 	}
 }
 
@@ -1802,7 +1719,7 @@ header {
 	background:#f8f8f8;
 	/*border-bottom: 1px solid $primary-color-medium;*/
 	position: relative;
-	font-size: 0;
+	;
 
 
 	ul {
@@ -1841,19 +1758,19 @@ header {
 			width: 100%;
 			display: inline-block;
 			vertical-align: top;
-			font-size: 14px;
+			font-size: 1.2em;
 			color: $secondary-color-dark;
 		}
 
 		p {
-			font-size: 12px;
+			font-size: 1em;
 			font-weight: 300;
 		}
 
 		h2 {
 			width: 100%;
 			display: inline-block;
-			font-size: 11px;
+			font-size: 1em;
 			font-weight: 400;
 			margin-top: 5px;
 		}
@@ -1869,7 +1786,7 @@ header {
 			width: 100%;
 			display: inline-block;
 			vertical-align: top;
-			font-size: 14px;
+			font-size: 1.2em;
 			color: $secondary-color-dark;
 		}
 
@@ -1889,7 +1806,7 @@ header {
 				padding: 5px;
 
 				p {
-					font-size: 12px;
+					font-size: 1em;
 				}
 			}
 		}*/
@@ -1902,7 +1819,11 @@ header {
 		color: $secondary-color-medium;
 	}
 
-	
+}
+
+#bottle-select, 
+#draft-select {
+	cursor: pointer;
 }
 
 .beer-results-add {
@@ -1983,7 +1904,7 @@ header {
 	}
 
 	p {
-		font-size: 12px;
+		font-size: 1em;
 		display: block;
 		vertical-align: top;
 		font-weight: 300;
@@ -1999,7 +1920,7 @@ header {
 	}
 
 	span {
-		font-size: 12px;
+		font-size: 1em;
 		display: inline-block;
 		width: 10%;
 		text-align: right;
@@ -2008,7 +1929,7 @@ header {
 
 	i {
 		color: $secondary-color-light;
-		font-size: 14px;
+		font-size: 1.2em;
 		display: inline-block;
 		vertical-align: top;
 		padding-top: 5px;
@@ -2094,7 +2015,7 @@ header {
     border-radius: 0;
     outline: none;
     background: #444;
-    font-size: 14px;
+    font-size: 1.2em;
     line-height: 24px;
     resize: none;
     padding: 40px 30px 5px 30px;
@@ -2119,7 +2040,7 @@ header {
 
 	p {
 		display: inline-block;
-		font-size:14px;
+		font-size: 1.2em;
 		color:$green-dark;
 		padding-left:5px;
 		font-weight: 300;
@@ -2147,7 +2068,7 @@ header {
 
 	p {
 		display: inline-block;
-		font-size:14px;
+		font-size: 1.2em;
 		color:$secondary-color-dark;
 		padding-left:5px;
 		font-weight: normal;
@@ -2169,12 +2090,16 @@ header {
 
 	li {
 		width: 100%;
-		border-bottom: 1px solid #f8f8f8;
+		/*border-bottom: 1px solid #f0f0f0;*/
 		position: relative;
 		padding: 5px;
 		background: $primary-color-light;
-		margin-top: 10px;
-		border-radius: 2px;
+		/*margin-top: 10px;*/
+		/*border-radius: 2px;*/
+	}
+
+	li:nth-child(even) {
+		background: #fff;
 	}
 
 	li:last-child {
@@ -2194,16 +2119,15 @@ header {
 
 
 	h1 {
-		font-size: 14px;
-		color: $primary-color-medium;
+		font-size: 1.2em;
+		color: $secondary-color-dark;
 		padding-top:0px;
 		display: inline-block;
-		font-weight: 500;
+		font-weight: 700;
 	}
 
 	p {
-		font-size: 11px;
-		font-style: italic;
+		font-size: 1em;
 		color: #999;
 		font-weight: 300;
 		padding-top: 3px;
@@ -2304,7 +2228,7 @@ header {
 	vertical-align: top;
 
 	p {
-		font-size: 12px;
+		font-size: 1em;
 		color: #999;
 		font-weight: 300;
 		font-style: italic;
@@ -2315,25 +2239,20 @@ header {
 .feed-status {
 	width: 100%;
 	display: inline-block;
+	padding: 15px;
 
 	p {
-		font-size: 14px;
+		font-size: 1.2em;
 		line-height: 24px;
 		font-weight: 300;
 		color: $primary-color-medium;
-		padding-bottom: 10px;
-		padding-left: 20px;
 	}
 
 	div {
 		width: 100%;
-		/*border-radius: 4px;*/
-		padding: 5px 0px 10px;
-		padding-left: 10%;
-		padding-right: 10%;
 
 		span {
-			font-size: 13px;
+			font-size: 1.1em;
 			line-height: 20px;
 			font-weight: 300;
 			/*font-style: italic;*/
@@ -2341,8 +2260,6 @@ header {
 			color: $primary-color-medium;
 		}
 	}
-
-
 }
 
 .photo-info {
@@ -2353,13 +2270,13 @@ header {
 
 .feed-controls {
 	width: 100%;
-	text-align:left;
+	text-align: right;
 	/*background:#fff;*/
 	/*border-top:1px solid #dfdfdf;*/
 	/*text-align: center;*/
 
 	section {
-		padding: 5px 15px;
+		padding: 10px 15px;
 		display: inline-block;
 		vertical-align: top;
 		text-align: left;
@@ -2372,7 +2289,7 @@ header {
 
 
 	i {
-		font-size: 14px;
+		font-size: 1.2em;
 		color: #999;
 		display: inline-block;
 		vertical-align: top;
@@ -2383,7 +2300,7 @@ header {
 	p {
 		display: inline-block;
 		vertical-align: top;
-		font-size:12px;
+		font-size: 1em;
 		font-weight: normal;
 		color: #999;
 		padding-left:5px;
@@ -2422,7 +2339,7 @@ header {
 	/*margin-bottom: 25px;*/
 
 	a {
-		font-size: 14px; 
+		font-size: 1.2em; 
 		color: $secondary-color-dark;
 		font-weight: 300;
 		text-decoration: none;
@@ -2439,7 +2356,7 @@ header {
 	/*margin-bottom: 25px;*/
 
 	a {
-		font-size: 14px; 
+		font-size: 1.2em; 
 		color: $secondary-color-light;
 		text-decoration: none;
 		font-weight: 300;
@@ -2498,7 +2415,7 @@ header {
 		display: inline-block;
 		width: 12%;
 		text-align: right;
-		font-size: 14px;
+		font-size: 1.2em;
 		padding-top: 22px;
 		color: #f0f0f0;
 		padding-right: 5px;
@@ -2530,7 +2447,7 @@ header {
 		width: 20%;
 		height: 35px;
 		background: $secondary-color-dark;
-		font-size: 14px;
+		font-size: 1.2em;
 		font-weight: 300;
 		color: $primary-color-light;
 		outline: 0;
@@ -2783,7 +2700,7 @@ header {
 		text-align: left;
 
 		p {
-			font-size: 14px;
+			font-size: 1.2em;
 			font-weight: 300;
 		}
 	}
@@ -2796,7 +2713,7 @@ header {
 	/*margin-bottom:15px;*/
 
 	p {
-		font-size: 14px;
+		font-size: 1.2em;
 		font-weight: 300;
 		display: none;
 
@@ -2814,7 +2731,7 @@ header {
 	}
 
 	h1 {
-		font-size: 14px;
+		font-size: 1.2em;
 		font-weight: 300;
 		display: inline-block;
 		vertical-align: top;
@@ -2839,7 +2756,7 @@ header {
 	}
 
 	button {
-		font-size: 14px;
+		font-size: 1.2em;
 		border: 0;
 		background: #333;
 		width: 100%;
@@ -2859,7 +2776,7 @@ header {
 	}
 
 	h3 {
-		font-size: 12px;
+		font-size: 1em;
 		display:block;
 		font-weight: 300;
 	}
@@ -2899,7 +2816,7 @@ header {
 	i {
 		display: inline-block;
 		vertical-align: top;
-		font-size: 14px;
+		font-size: 1.2em;
 		/*padding: 10px 10px 0;*/
 		color: $green-light;
 		float:right;
@@ -2910,7 +2827,7 @@ header {
 	}
 
 	span {
-		font-size: 14px;
+		font-size: 1.2em;
 	}
 }
 
@@ -2923,7 +2840,7 @@ header {
 #four-day-later, 
 #five-day-later, 
 #six-day-later {
-	font-size: 14px;
+	font-size: 1.2em;
 	font-weight: bold;
 	display: inline-block;
 	vertical-align: top;
@@ -2944,7 +2861,7 @@ header {
 .four-date-later, 
 .five-date-later, 
 .six-date-later {
-	font-size: 14px;
+	font-size: 1.2em;
 }
 
 #weekly-zero, 
@@ -2954,7 +2871,7 @@ header {
 #weekly-four, 
 #weekly-five, 
 #weekly-six {
-	font-size: 14px;
+	font-size: 1.2em;
 	display: inline-block;
 	vertical-align: top;
 	padding-top:0px;
@@ -2966,7 +2883,7 @@ header {
 .add-weekly-comment {
 	width: 100%;
 	text-align: left;
-	font-size: 0;
+	;
 	/*border: 1px solid #d8d8d8;*/
 	background: #444;
 	padding-top:15px;
@@ -3023,7 +2940,7 @@ header {
 	}
 
 	input[type="radio"] {
-		font-size: 12px;
+		font-size: 1em;
 		margin-top:13px;
 		width: 0%;
 	}
@@ -3042,7 +2959,7 @@ header {
 		 border-radius: 0;
 		 color: #ccc;
 		 font-weight: 300;
-		 font-size: 13px;
+		 font-size: 1.1em;
 		 padding: 10px 10px;
 		 width: 100%;
 		 cursor: pointer;
@@ -3055,7 +2972,7 @@ header {
 	}
 
 	p {
-		font-size: 12px;
+		font-size: 1em;
 		display: inline-block;
 		vertical-align: top;
 		text-transform: lowercase;
@@ -3063,7 +2980,7 @@ header {
 	}
 
 	span {
-		font-size: 14px;
+		font-size: 1.2em;
 		display:inline-block;
 		vertical-align: top;
 		position: absolute;
@@ -3072,7 +2989,7 @@ header {
 
 	}
 	i {
-		font-size: 14px;
+		font-size: 1.2em;
 		display: inline-block;
 		vertical-align: top;
 		position: absolute;
@@ -3096,7 +3013,7 @@ header {
 		li {
 			display: inline-block;
 			vertical-align: top;
-			font-size: 12px;
+			font-size: 1em;
 			padding: 0 10px;
 			border-right: 1px solid #dfdfdf;
 		}
@@ -3121,7 +3038,7 @@ header {
 	border: 0;
 	border-radius: 4px;
 	color: #fff;
-	font-size: 11px;
+	font-size: 1em;
 	font-weight: 300;
 	padding: 10px 0;
 	margin-bottom: 15px;
@@ -3136,7 +3053,7 @@ header {
 	padding-right:10px;
 	background: #f8f8f8;
 	height: 40px;
-	font-size: 13px;
+	font-size: 1.1em;
 	z-index: 1;
 	position: relative;
 }
@@ -3147,7 +3064,7 @@ header {
 	border: 0;
 	outline: 0;
 	border-radius: 0;
-	font-size: 14px;
+	font-size: 1.2em;
 	font-weight: 300;
 	text-indent: 25px;
 	height: 33px;
@@ -3183,7 +3100,7 @@ header {
 }
 
 .radio-label {
-	font-size: 14px;
+	font-size: 1.2em;
 	display: inline-block;
 	width: 100%;
 	cursor:pointer;
@@ -3200,7 +3117,7 @@ header {
 	margin-bottom: 15px;
 
 	input {
-		font-size: 14px;
+		font-size: 1.2em;
 		background: transparent;
 		border:0;
 		outline: 0;
@@ -3210,7 +3127,7 @@ header {
 	}
 
 	span {
-		font-size: 13px;
+		font-size: 1.1em;
 	}
 }
 
@@ -3227,7 +3144,7 @@ header {
 		background: #fff;
 		width: 80%;
 		height: 50px;
-		font-size: 13px;
+		font-size: 1.1em;
 		border: 1px solid #dfdfdf;
 		border-left: 0;
 		border-right: 0;
@@ -3278,7 +3195,7 @@ header {
 	li {
 		display: inline-block;
 		vertical-align: top;
-		font-size: 12px;
+		font-size: 1em;
 		padding: 0 10px;
 		border-right: 1px solid #dfdfdf;
 	}
@@ -3353,7 +3270,7 @@ header {
 	}
 
 	span {
-		font-size: 14px;
+		font-size: 1.2em;
 		color: $green-light;
 	}
 }
@@ -3371,7 +3288,7 @@ header {
 #seven-day-5, 
 #seven-day-6, 
 #seven-day-7 {
-	font-size: 14px;
+	font-size: 1.2em;
 	display: inline-block;
 	vertical-align: top;
 	padding: 5px 0;
@@ -3387,7 +3304,7 @@ header {
 #seven-month-5, 
 #seven-month-6, 
 #seven-month-7 {
-	font-size: 11px;
+	font-size: 1em;
 	font-weight: 300;
 	display: block;
 	vertical-align: top;
@@ -3395,7 +3312,7 @@ header {
 	text-align: center;
 }
 #current-day-heading {
-	font-size: 12px;
+	font-size: 1em;
 	font-weight: 300;
 	display: block;
 	vertical-align: top;
@@ -3403,7 +3320,7 @@ header {
 	text-align: right;
 }
 article {
-	font-size: 14px;
+	font-size: 1.2em;
 	width: 100%;
 }
 
@@ -3436,7 +3353,7 @@ article {
 	p {
 		display: inline-block;
 		vertical-align: top;
-		font-size: 14px;
+		font-size: 1.2em;
 		color: $primary-color-light;
 		padding-left: 10px;
 		font-weight: 300;
@@ -3531,7 +3448,7 @@ article {
 	}
 
 	i {
-		font-size: 12px;
+		font-size: 1em;
 		display: inline-block;
 		vertical-align: top;
 		width: 5%;
@@ -3563,7 +3480,7 @@ article {
 	}
 
 	p {
-		font-size: 13px;
+		font-size: 1.1em;
 		line-height: 20px;
 		font-weight: 300;
 		color: #333;
@@ -3576,7 +3493,7 @@ article {
 		width:85%;
 		height: 60px;
 		border:0;
-		font-size: 14px;
+		font-size: 1.2em;
 		padding: 20px ;
 		font-weight: 300;
 		resize: none;
@@ -3653,7 +3570,7 @@ article {
 	}
 
 	i {
-		font-size: 14px;
+		font-size: 1.2em;
 		display: inline-block;
 		vertical-align: top;
 		width: 5%;
@@ -3686,7 +3603,7 @@ article {
 	}
 
 	p {
-		font-size: 13px;
+		font-size: 1.1em;
 		line-height: 20px;
 		font-weight: 300;
 		color: #333;
@@ -3699,7 +3616,7 @@ article {
 		width:85%;
 		height: 60px;
 		border:0;
-		font-size: 14px;
+		font-size: 1.2em;
 		padding: 20px ;
 		font-weight: 300;
 		resize: none;
@@ -3750,14 +3667,14 @@ article {
 	border: 0;
 	outline: 0;
 	background: transparent;
-	font-size: 12px;
+	font-size: 1em;
 	padding: 5px;
 	color: #333;
 	margin-top: -3px;
 	cursor:pointer;
 
 	span {
-		font-size: 14px;
+		font-size: 1.2em;
 	}
 }
 
@@ -3785,7 +3702,7 @@ article {
 	span, 
 	h1 {
 		width: 10%;
-		font-size: 12px;
+		font-size: 1em;
 		font-weight: 400;
 		text-align: right;
 		padding-right: 10px;
@@ -3841,7 +3758,7 @@ article {
 		width:55%;
 		height: 60px;
 		border:0;
-		font-size: 14px;
+		font-size: 1.2em;
 		padding: 20px ;
 		font-weight: 300;
 		resize: none;
@@ -3920,7 +3837,7 @@ article {
 	    color: $primary-color-light;
 	    border-radius: 4px 0 0 4px;
 	    font-weight: 300;
-	    font-size:14px;
+	    font-size: 1.2em;
 	    margin-left:-10px;
 
 	    &:focus {
@@ -3994,7 +3911,7 @@ article {
 		display: inline-block;
 		vertical-align: top;
 		width: 43.5%;
-		font-size:14px;
+		font-size: 1.2em;
 		background: $secondary-color-medium;
 		height: 30px;
 		border-radius:3px;
@@ -4028,7 +3945,7 @@ article {
 		padding-top:17px;
 		margin-left:-79px;
 		z-index:0;
-		font-size: 12px;
+		font-size: 1em;
 		-webkit-appearance: none;
 	    -webkit-border-radius:0;
 
@@ -4060,7 +3977,7 @@ article {
 		display: inline-block;
 		vertical-align: top;
 		width: 20%;
-		font-size:12px;
+		font-size: 1em;
 		background: #555;
 		height: 30px;
 		border-radius:3px;
@@ -4093,7 +4010,7 @@ article {
 		padding-top:17px;
 		margin-left:-79px;
 		z-index:0;
-		font-size: 12px;
+		font-size: 1em;
 		color: #f8f8f8;
 		-webkit-appearance: none;
 	    -webkit-border-radius:0;
@@ -4119,7 +4036,7 @@ article {
 }
 
 #basicExample {
-	font-size: 14px;
+	font-size: 1.2em;
 }
 
 input[type="file"] {
@@ -4191,7 +4108,7 @@ input[type="file"] {
 	width:300px;
 
 	button {
-		font-size:14px;
+		font-size: 1.2em;
 	}
 
 	p {
@@ -4249,14 +4166,14 @@ input[type="file"] {
 	text-align: center;
 
 	h1 {
-		font-size: 12px;
+		font-size: 1em;
 		color: #333;
 		font-weight: 300;
 	}
 
 	p {
 		display: block;
-		font-size: 12px;
+		font-size: 1em;
 		color: #333;	
 		font-weight: 400;
 		padding-top:10px;
@@ -4379,7 +4296,7 @@ svg rect{
 
 	.header-right {
 		width: 100%;
-		padding: 10px;
+		/*padding: 10px;*/
 	}
 
 	.main-container,
@@ -4525,7 +4442,7 @@ svg rect{
 		width: 100%;
 
 		h1 {
-			font-size: 12px;
+			font-size: 1em;
 		}
 	}
 
