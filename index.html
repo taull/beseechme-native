@@ -132,46 +132,50 @@
     <div class="header-container">
       <div class="header-left">
         <h1></h1>
-      </div>
-      <div class="header-center">
+      </div
 
+      ><div class="header-center">
+      </div
 
-      </div>
-
-      <div class="header-right">
+      ><div class="header-right">
         <ul>
-
           <div>
             <% if (Parse.User.current()) { %>
               <i class="fa fa-power-off" id='logout'></i>
               <% } else { %>
               <p id='sign-in'>Sign In</p>
             <% } %>
-          </div>
+          </div
 
-          <li>
-            <h1>Bar Backend</h1>
-            <span class="fa fa-caret-down"></span>
+          ><li>
+            <h1>Bar Backend</h1
+            ><span id="slideout-trigger" class="fa fa-caret-down"></span>
           </li>
 
         </ul>
       </div>
 
+      <div class="header-slideout">
+        <div class="backend-tabs">
+          <ul>
+            <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
+            ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
+            ><a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
+            ><a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
+            ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
+            ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a>
+          </ul>
+        </div>
+      </div>
 
     </div>
   </header>
-<div class="top-container">
-      <div class="backend-tabs">
-        <ul>
-          <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a>
-          <a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a>
-          <a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a>
-          <a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a>
-          <a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a>
+  
 
-        </ul>
-      </div>
-</div>
+
+  <div class="top-container">
+    
+  </div>
 
 </script>
 
@@ -191,9 +195,9 @@
             <img src="images/default-avatar.png">
             <% } %>
           </div>
-        </div>
-        <div class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></div>
-        <div class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></div>
+        </div
+        ><div class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></div
+        ><div class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></div>
 
       </div>
 
@@ -225,13 +229,13 @@
         <li id="backend-myfeed-tab" class="active-feed-type">
           <h1>My Posts</h1>
           <p>View All</p>
-        </li>
+        </li
 
-        <li id="backend-add-status">
+        ><li id="backend-add-status">
           <i class="fa fa-comments"></i>
-        </li>
+        </li
 
-        <li id="backend-mainfeed-tab">
+        ><li id="backend-mainfeed-tab">
           <h1>Main Feed</h1>
           <p>View All</p>
         </li>
@@ -291,19 +295,19 @@
           <% } else { %>
             <img src="images/default-avatar.png">
           <% } %>
-    </aside>
-    <div>
-      <h1><%= name%></h1>
+    </aside
+    ><div>
+      <h1><%= name%></h1><h2 id="delete-beer"><span class="fa fa-times-circle"></span></h2>
       <% if (typeof breweries !== 'undefined') { %>
       <p><%= breweries[0].name %></p>
       <% } %>
-      <h2 id="delete-beer">Remove from List</h2>
-    </div>
-    <section>
+      <h3><%= style.name %></h3>
+    </div
+    ><section>
       <h1><%= abv %>%</h1>
+
       <p>Abv</p>
     </section>
-    <span class="fa fa-bars"></span>
 
 </script>
 
@@ -317,23 +321,23 @@
 
       <div class="profile-beer-tabs">
         <li id="backend-draft-tab" class="active-beer-type tabs-loading">
-          <h1>Draft Beer</h1>
+          <h1>Draft</h1>
           <p>View All</p>
-        </li>
+        </li
 
-        <li id="backend-add-beer" >
+        ><li id="backend-add-beer" >
           <i class="fa fa-search"></i>
-        </li>
+        </li
 
-        <li id="backend-bottle-tab" class="active-beer-type tabs-loading">
-          <h1>Bottled Beer</h1>
+        ><li id="backend-bottle-tab" class="active-beer-type tabs-loading">
+          <h1>Bottled</h1>
           <p>View All</p>
         </li>
       </div>
       <div class="beer-search">
         <form action>
           <span class="fa fa-search"></span>
-          <input type="text" placeholder="Add to Beer List">
+          <input type="text" placeholder="Search by Name or Brewery">
           <button id="beer-submit">Search</button>
         </form>
       </div>
@@ -351,7 +355,26 @@
 
 
       <div class="beer-loading hidden">
-        <i class="fa fa-spinner fa-pulse"></i>
+        <!-- 1 -->
+        <div class="loader" title="0">
+          <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           width="30px" height="30px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+          <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+            s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+            c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+          <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+            C22.32,8.481,24.301,9.057,26.013,10.047z">
+            <animateTransform attributeType="xml"
+              attributeName="transform"
+              type="rotate"
+              from="0 20 20"
+              to="360 20 20"
+              dur="0.5s"
+              repeatCount="indefinite"/>
+            </path>
+          </svg>
+        </div>
+
       </div>
 
       <div class="profile-beer-list">
@@ -379,12 +402,12 @@
 </script>
 
 <script type='text/template' id="comment-view">
-  <button class="delete-comment"><span class="fa fa-close"></span></button>
+  <button class="delete-comment"><span class="fa fa-close"></span></button
 
-  <p><%= attributes.content %></p>
+  ><p><%= attributes.content %></p
 
   <% if (typeof attributes.dayOfWeek !== 'undefined') { %>
-    <i class='fa fa-thumb-tack'></i>
+    ><i class='fa fa-thumb-tack'></i>
   <% } else { %>
   <% } %>
 
@@ -401,20 +424,20 @@
             <input type="text" class="input-comment" name="content" placeholder="Add Comment...">
             <button type="submit" class="submit-comment">Comment</button>
 
-          </li>
+          </li
 
-          <li>
+          ><li>
 
             <label class="radio-label" for="checkbox-date">
               <input type="radio" name="select-comment" id="checkbox-date">
               <input class="datepicker input-date" name="date" type="text" placeholder="Choose a Date">
             </label>
 
-          </li>
+          </li
 
-          <li><p>Or</p></li>
+          ><li><p>Or</p></li
 
-          <li>
+          ><li>
             <label class="radio-label" for="checkbox-standing">
               <input type="radio" name="select-comment" value="standingComment" id="checkbox-standing">
               <select class="select-standing">
@@ -726,6 +749,8 @@
 
 
     </div>
+
+    <div class="header-slideout"></div>
   </header>
   <div class="top-container">
       <div class="backend-tabs">
@@ -739,6 +764,19 @@
         </ul>
       </div>
 </div>
+</script>
+
+<script type="text/template" id="business-home-view">
+
+  <div class="business-container">
+
+    <div class="narrow-container">
+    </div>
+    <div class="wide-container">
+    </div>
+
+  </div>
+  
 </script>
 
 <!-- Business Feed View -->
@@ -990,30 +1028,32 @@
 
 <script type='text/template' id='backend-beer-result'>
 
+    <aside>
+      <% if (typeof attributes.labels !== 'undefined') { %>
+        <img src=<%= attributes.labels.icon %> />
+      <% } else { %>
+        <img src="images/default-avatar.png">
+      <% } %>
+    </aside
 
-        <aside>
-          <% if (typeof attributes.labels !== 'undefined') { %>
-            <img src=<%= attributes.labels.icon %> />
+    ><div>
+      <h1><%= attributes.name %></h1>
+      <% if (typeof attributes.breweries !== 'undefined') { %>
+        <p><%= attributes.breweries[0].name %></p>
+      <% } %>
+      <h2><a id="draft-select">Add to Draft</a> • <a id="bottle-select">Add to Bottled</a></h2>
+    </div
 
-          <% } else { %>
-            <img src="images/default-avatar.png">
-          <% } %>
-
-        </aside>
-        <div>
-          <h1><%= attributes.name %></h1>
-          <% if (typeof attributes.breweries !== 'undefined') { %>
-            <p><%= attributes.breweries[0].name %></p>
-          <% } %>
-          <h2><a id="draft-select">Add to Draft</a> • <a id="bottle-select">Add to Bottled</a></h2>
-
-
-        </div>
-        <section>
-
-          <h1><%= attributes.abv %>%</h1>
-        </section>
-
+    ><section>
+      <footer id="choose-beer-type">
+        <h3>Add</h3
+        ><i class="fa fa-caret-down"></i>
+      </footer>
+      <article class="beer-type hidden">
+        <h4>Draft List</h4>
+        <h4>Bottled List</h4>
+      </article>
+    </section>
 
 </script>
 
