@@ -407,6 +407,9 @@ BeMe.Views.FeedPost = Parse.View.extend({
 });
 
 
+/* ------- BACKEND SECTION -------- */
+
+
 /* Backend Beer List Section */
 
 
@@ -564,8 +567,6 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     var min = max - 9;
     var realMin = min >= 0 ? min : 0;
 
-    console.log(min);
-
     if (min <= 0) { //if we hit the end of the results...
       $('.load-more-button').addClass('hidden'); //show it
     } else {
@@ -577,12 +578,14 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     for(var i = max; i >= realMin; i--) {
       arrayOfIds.push(list[i]);
     }
+    console.log("Id's in array that are going to hit the BreweryDB API");
     console.log(arrayOfIds);
     return arrayOfIds;
   },
 
   loadMore: function () {
     this.pageNumber++; //should increment AND store the value
+    console.log(this);
     var pageNumber = this.pageNumber;
     var beerType = this.beerType;
 
@@ -990,7 +993,6 @@ BeMe.Collections.WeeklyComments = Parse.Collection.extend({
 
 /* Backend Settings */
 
-
 BeMe.Views.BackendSettings = Parse.View.extend({
 	initialize: function () {
 		this.render();
@@ -1033,6 +1035,38 @@ BeMe.Views.BackendSettings = Parse.View.extend({
   }
 });
 
+/* ------- Business SECTION --------- */
+
+BeMe.Views.Business = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#business-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+  }
+});
+
+/* Business Home */
+
+BeMe.Views.BusinessHome = Parse.View.extend({
+  initalize: function () {
+    this.render();
+  },
+
+  template: _.template($('#business-home').text()),
+
+  render:function () {
+    this.$el.html(this.template(this.model));
+    $('body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+  }
+});
+
 
 /* Router */
 
@@ -1046,7 +1080,8 @@ var Router = Parse.Router.extend({
 		'backend/beer' : 'backendBeerList',
 		'backend/competition' : 'backendCompetition',
 		'backend/calendar' : 'backendCalendar',
-		'backend/settings' : 'backendSettings'
+		'backend/settings' : 'backendSettings',
+    'business/:handle' : 'businessHome'
 	},
 
 	initialize: function () {
@@ -1103,7 +1138,37 @@ var Router = Parse.Router.extend({
 		BeMe.removeAllViews();
 		new BeMe.Views.Backend();
 		new BeMe.Views.BackendSettings();
-	}
+	},
+
+  businessHome: function (handle) {
+    BeMe.removeAllViews();
+    new BeMe.Views.Business();
+
+    var query = new Parse.Query('User');
+    query.equalTo('handle', handle);
+    query.find().then(function (i) {
+      new BeMe.Views.BusinessHome({model:i[0]});
+      console.log(i);
+    });
+  },
+
+  businessFeed: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Business();
+    new BeMe.Views.BusinessFeed();
+  },
+
+  businessBeerList: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Business();
+    new BeMe.Views.BusinessBeerList();
+  },
+
+  businessCalendar: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Business();
+    new BeMe.Views.BusinessCalendar();
+  }
 });
 
 
