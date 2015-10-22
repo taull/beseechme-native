@@ -148,6 +148,7 @@ header {
 		    text-align: center;
 		    padding-top: 20px;
 		    background: #fff;
+		    float:right;
 		    /*border-radius: 0px 2px 2px 0px;*/
 		    /*border-radius: 4px;*/
 		}
@@ -328,21 +329,21 @@ header {
 
 	li {
 		display: inline-block;
-		width: 33.3333333%;
-		background: $primary-color-light;
+		width: 50%;
+		background: #444;
 		/*border-right: 1px solid #f0f0f0;*/
 		cursor: pointer;
 		text-align:center;
 		padding: 15px 0px 15px;
-		border-right: 1px solid #fff;
-		border-left: 1px solid #f0f0f0;
+		border-right: 1px solid #555;
+		border-left: 1px solid #333;
 
 		h1 {
 			font-size: 1em !important;
 			display: inline-block;
 			vertical-align: top;
 			font-weight: 500;
-			color: #333;
+			color: #f0f0f0;
 			text-transform: uppercase;
 			/*display:none;*/
 			/*padding-left:10px;*/
@@ -354,7 +355,7 @@ header {
 			display: none;
 			vertical-align: top;
 			font-weight: 300;
-			color: #333;
+			color: #f0f0f0;
 			margin-top: 5px;
 
 		}
@@ -1002,6 +1003,28 @@ header {
 
 }
 
+/*Business Error Page*/
+
+.business-error {
+	width: 100%;
+
+	section {
+		display: block;
+
+		p {
+			font-size: 1.4em;
+			font-weight: 400;
+		}
+	}
+
+	article {
+		
+		h1 {
+			font-size: 1em;
+		}
+	}
+}
+
 /* Bar Page Options */
 
 .bar-page-options {
@@ -1471,18 +1494,20 @@ header {
 			border-radius: 0px 4px 4px 0px;
 
 		}
-	}
 
-
-	span {
-		width: 10%;
-		text-align: right;
-		font-size: 1.2em;
-		display: inline-block;
-		vertical-align: top;
-		color: #dfdfdf;
-		cursor:pointer;
-		padding-top:2px;
+		span {
+			width: 30px;
+			height: 30px;
+			background: #f0f0f0;
+			text-align: center;
+			font-size: 1.2em;
+			display: inline-block;
+			vertical-align: top;
+			color: #ccc;
+			cursor:pointer;
+			padding-top:7.5px;
+			border-radius: 3px;
+		}
 	}
 
 	i {
