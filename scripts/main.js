@@ -1052,6 +1052,10 @@ BeMe.Views.Business = Parse.View.extend({
     this.$el.html(this.template(this.model));
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
+
+    $('#slideout-trigger').click(function(){
+      $('.header-slideout').toggleClass('slideout-shift');
+    });
   }
 });
 
