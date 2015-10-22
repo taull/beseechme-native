@@ -1065,7 +1065,7 @@ BeMe.Views.BusinessHome = Parse.View.extend({
     if (this.model) {
       this.template = _.template($('#business-home-view').text());
     } else {
-      this.template = _.template($('#business-error-view').text()),
+      this.template = _.template($('#business-error-view').text());
     }
   },
 
