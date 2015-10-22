@@ -1058,8 +1058,7 @@ BeMe.Views.Business = Parse.View.extend({
 /* Business Home */
 
 BeMe.Views.BusinessHome = Parse.View.extend({
-  initalize: function () {
-    this.render();
+  initialize: function () {
     console.log(this.model);
 
     if (this.model) {
@@ -1067,11 +1066,13 @@ BeMe.Views.BusinessHome = Parse.View.extend({
     } else {
       this.template = _.template($('#business-error-view').text());
     }
+    this.render();
   },
 
   render:function () {
     this.$el.html(this.template(this.model));
-    $('body-container').append(this.el);
+    $('.body-container').append(this.el);
+    console.log(this.el);
     BeMe.renderedViews.push(this);
   }
 });
