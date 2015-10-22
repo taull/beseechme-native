@@ -1098,6 +1098,7 @@ BeMe.Views.BusinessHome = Parse.View.extend({
 BeMe.Views.BusinessFeed = Parse.View.extend({
   initialize: function () {
     this.render();
+    this.pullFeed();
   },
 
   template: _.template($('#business-feed-view').text()),
@@ -1112,10 +1113,31 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
     var query = new Parse.Query('businessStatus');
     query.equalTo('createdBy',this.model);
     query.find().then(function (e) {
-      console.log(e); //should be an array of matching shiz.
-    })
+      console.log(e); 
+      this.feedCollection = new Parse.Collection(e);
+    });
+  },
+
+  renderChildren: function () {
+    this.feedCollection.each(function (i) {
+      new BeMe.Views.BusinessPostView({model:i});
+    });
   }
 });
+
+BeMe.Views.BusinessPostView = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($("business-post-view").text()),
+
+  render: function ()  {
+    this.$el.html(this.template(this.model));
+    $('<ENTER DESTINATION HERE>').append(this.el);
+    BeMe.renderedViews.push(this);
+  }
+})
 
 /* Business Beer List */
 
