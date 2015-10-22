@@ -148,8 +148,7 @@
           </div
 
           ><li>
-            <h1>Bar Backend</h1
-            ><span id="slideout-trigger" class="fa fa-caret-down"></span>
+            <span id="slideout-trigger" class="fa fa-caret-down"></span>
           </li>
 
         </ul>
@@ -163,7 +162,7 @@
             ><a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
             ><a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
             ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
-            ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a>
+            ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
           </ul>
         </div>
       </div>
@@ -299,14 +298,12 @@
     ><div>
       <h1><%= name%></h1><h2 id="delete-beer"><span class="fa fa-times-circle"></span></h2>
       <% if (typeof breweries !== 'undefined') { %>
-      <p><%= breweries[0].name %></p>
+      <p><%= breweries[0].name %> | <%= abv %>% abv</p>
       <% } %>
       <h3><%= style.name %></h3>
     </div
     ><section>
-      <h1><%= abv %>%</h1>
-
-      <p>Abv</p>
+      <span class="fa fa-bars"></span>
     </section>
 
 </script>
@@ -777,7 +774,7 @@
     </div>
 
   </div>
-  
+
 </script>
 
 <!-- Business Feed View -->
@@ -1024,6 +1021,19 @@
         <a>View All Beer</a>
       </div>
     </div>
+  </div>
+</script>
+
+<script type="text/template" id="business-error-view">
+  <div class="business-container">
+
+    <div class="narrow-container">
+      <div class="business-error">
+        <section><p>No matches found</p></section>
+        <article><a>Home</a></article>
+      </div>
+    </div>
+
   </div>
 </script>
 
