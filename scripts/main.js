@@ -1070,6 +1070,7 @@ BeMe.Views.BusinessHome = Parse.View.extend({
     } else {
       this.template = _.template($('#business-error-view').text());
     }
+
     this.render();
   },
 
@@ -1186,11 +1187,13 @@ var Router = Parse.Router.extend({
 
   businessHome: function (handle) {
     BeMe.removeAllViews();
-    new BeMe.Views.Business();
 
     var query = new Parse.Query('User');
     query.equalTo('handle', handle);
     query.find().then(function (i) {
+      if (i.length) {
+        new BeMe.Views.Business({model:i[0]});
+      }
       new BeMe.Views.BusinessHome({model:i[0]});
       console.log(i);
     });
