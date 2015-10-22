@@ -1064,9 +1064,10 @@ BeMe.Views.Business = Parse.View.extend({
 BeMe.Views.BusinessHome = Parse.View.extend({
   initalize: function () {
     this.render();
+    console.log(this.model);
   },
 
-  template: _.template($('#business-home').text()),
+  template: _.template($('#business-home-view').text()),
 
   render:function () {
     this.$el.html(this.template(this.model));
