@@ -1059,20 +1059,32 @@ BeMe.Views.Business = Parse.View.extend({
   }
 });
 
+/* Business Error */
+
+BeMe.Views.BusinessError = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#business-error-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+  }
+});
+
 /* Business Home */
 
 BeMe.Views.BusinessHome = Parse.View.extend({
   initialize: function () {
     console.log(this.model);
 
-    if (this.model) {
-      this.template = _.template($('#business-home-view').text());
-    } else {
-      this.template = _.template($('#business-error-view').text());
-    }
-
     this.render();
   },
+
+  template: _.template($('#business-home-view').text()),
 
   render:function () {
     this.$el.html(this.template(this.model));
@@ -1094,6 +1106,14 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
     this.$el.html(this.template(this.model));
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
+  },
+
+  pullFeed: function () {
+    var query = new Parse.Query('businessStatus');
+    query.equalTo('createdBy',this.model);
+    query.find().then(function (e) {
+      console.log(e); //should be an array of matching shiz.
+    })
   }
 });
 
@@ -1126,8 +1146,37 @@ var Router = Parse.Router.extend({
 		'backend/competition' : 'backendCompetition',
 		'backend/calendar' : 'backendCalendar',
 		'backend/settings' : 'backendSettings',
-    'business/:handle' : 'businessHome'
+    'business/:handle' : 'businessHome',
+    'business/:handle/feed' : 'businessFeed',
+    'test' : 'test'
 	},
+
+  test: function () {
+    BeMe.removeAllViews();
+
+    //basic functionality for making our code  more dry!!
+
+    var BaseView = Parse.View.extend({
+    render: function () {
+      this.$el.html(this.template(this.model));
+      $(this.destination).append(this.el);
+      BeMe.renderedViews.push(this);
+    }
+    });
+
+    var ChildView = BaseView.extend({
+      initialize: function () {
+        this.template = _.template($("#business-view").text());
+        this.destination = '.body-container';
+        this.render();
+      }
+    });
+
+    window.childView = new ChildView({model:new Parse.Object({name:"Justin"})});
+
+    //end basic inheritance functionality
+
+  },
 
 	initialize: function () {
 		BeMe.ApplicationView = new BeMe.Views.Application();
@@ -1193,16 +1242,29 @@ var Router = Parse.Router.extend({
     query.find().then(function (i) {
       if (i.length) {
         new BeMe.Views.Business({model:i[0]});
+        new BeMe.Views.BusinessHome({model:i[0]});
+      } else {
+        new BeMe.Views.BusinessError(handle);
       }
-      new BeMe.Views.BusinessHome({model:i[0]});
       console.log(i);
     });
   },
 
-  businessFeed: function () {
+  businessFeed: function (handle) {
     BeMe.removeAllViews();
-    new BeMe.Views.Business();
-    new BeMe.Views.BusinessFeed();
+
+
+    var query = new Parse.Query('User');
+    query.equalTo('handle', handle);
+    query.find().then(function (i) {
+      if (i.length) {
+        new BeMe.Views.Business({model:i[0]});
+        new BeMe.Views.BusinessFeed({model:i[0]});
+      } else {
+        new BeMe.Views.BusinessError(handle);
+      }
+      console.log(i);
+    });
   },
 
   businessBeerList: function () {
