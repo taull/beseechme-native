@@ -275,7 +275,7 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
 });
 
 
-/* Backend Section */
+/* ------- BACKEND SECTION -------- */
 
 
 BeMe.Views.Backend = Parse.View.extend({
@@ -411,9 +411,6 @@ BeMe.Views.FeedPost = Parse.View.extend({
 });
 
 
-/* ------- BACKEND SECTION -------- */
-
-
 /* Backend Beer List Section */
 
 
@@ -425,7 +422,6 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 
     this.loadDraftBeers();
     this.addSpinner();
-    window.viewReference = this;
 	},
 
 	template: _.template($('#backend-beer-view').text()),
@@ -1065,9 +1061,13 @@ BeMe.Views.BusinessHome = Parse.View.extend({
   initalize: function () {
     this.render();
     console.log(this.model);
-  },
 
-  template: _.template($('#business-home-view').text()),
+    if (this.model) {
+      this.template = _.template($('#business-home-view').text());
+    } else {
+      this.template = _.template($('#business-error-view').text()),
+    }
+  },
 
   render:function () {
     this.$el.html(this.template(this.model));
@@ -1076,6 +1076,37 @@ BeMe.Views.BusinessHome = Parse.View.extend({
   }
 });
 
+/* Business Feed */
+
+BeMe.Views.BusinessFeed = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#business-feed-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+  }
+});
+
+/* Business Beer List */
+
+BeMe.Views.BusinessBeerList = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#business-beer-list-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+  }
+});
 
 /* Router */
 
