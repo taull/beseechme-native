@@ -828,6 +828,47 @@
 
 </script>
 
+<!-- backend Feed View -->
+
+<script type='text/template' id='business-post-view'>
+
+    <div class="feed-post">
+
+      <div class="feed-info">
+        <% var user = attributes.createdBy %>
+        <div class="feed-avatar">
+          <div class="feed-logo">
+            <% if (typeof user.attributes.avatar !=='undefined') { %>
+            <img src=<%= user.attributes.avatar._url %> >
+            <% } else { %>
+            <img src="images/default-avatar.png">
+            <% } %>
+          </div>
+        </div
+        ><div class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></div
+        ><div class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></div>
+
+      </div>
+
+      <div class="feed-status">
+        <div>
+          <p><%= attributes.content %></p>
+        </div>
+      </div>
+      <% if (typeof attributes.image !== 'undefined') {%>
+      <div class="feed-photo">
+        <a href=<%= attributes.image._url %> >
+          <img src=<%= attributes.image._url %> />
+        </a>
+      </div>
+      <% } %>
+      <div class="feed-controls">
+        <section><i class="fa fa-location-arrow"></i><p>Check In</p></section>
+        <section><i class="fa fa-check-square"></i><p>Like</p></section>
+      </div>
+    </div>
+</script>
+
 <!-- Business Feed View -->
 
 <script type="text/template" id="business-feed-view">
@@ -835,94 +876,14 @@
   <div class="business-container">
     <div class="narrow-container">
 
-      <div class="business-info">
-        <section>
-          <li>
-            <aside><img src="images/bar-logo.png"></aside>
-            <div>
-              <h1><%= Parse.User.current().get('businessName') %></h1>
-              <i class="fa fa-check-circle"></i>
-              <p>2714 Blossom St</p>
-            </div>
-          </li>
-        </section>
-      </div>
-
-      <div class="business-tabs">
-        <ul>
-          <a href="#business/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
-          <a href="#business/beer"><li><span class="fa fa-beer"></span><p>Beer Menu</p></li></a>
-          <a href="#business/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
-          <a href="#business/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
-        </ul>
-      </div>
     </div>
 
 
     <div class="wide-container">
-      <div class="module-header">
-        <p>My Feed</p>
-      </div>
       <div class="profile-feed">
         <ul>
-          <li>
-            <div class="feed-avatar">
-              <div class="feed-logo">
-                <img src="images/bar-logo.png">
-              </div>
-            </div>
-            <div class="feed-post">
-
-              <div class="feed-info">
-
-                <div class="feed-name"><h1>Henrys Grill and Bar</h1><p>@henrysbar</p></div>
-                <div class="feed-ago"><p>1h</p></div>
-
-              </div>
-
-              <div class="feed-status">
-                <div>
-                  <span>Lorem option this is a test post to see what happens. option this is a test post to see what happens. $2 Drinks until 9pm!</span>
-                </div>
-              </div>
-
-            </div>
-          </li>
-
-          <li>
-            <div class="feed-avatar">
-              <div class="feed-logo">
-                <img src="images/bar-logo.png">
-              </div>
-            </div>
-
-            <div class="feed-post">
-              <div class="feed-info">
-                <div class="feed-name"><h1>Henrys Grill and Bar</h1><p>@henrysbar</p></div>
-                <div class="feed-ago"><p>32m</p></div>
-              </div>
-
-              <div class="feed-status">
-                <div>
-                  <span>Lorem option this is a test post to see what happens. $2 Drinks until 9pm!</span>
-                </div>
-              </div>
-
-              <div class="feed-photo">
-                <a href="#photo">
-                  <img src="images/peopleatbar.png">
-                </a>
-              </div>
-
-            </div>
-          </li>
-
         </ul>
       </div><!-- END PROFILE FEED -->
-
-      <div class="view-all">
-        <a>Load More</a>
-      </div>
 
       <div class="copyright-info">
         <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>

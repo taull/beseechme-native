@@ -1130,11 +1130,11 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     this.render();
   },
 
-  template: _.template($("business-post-view").text()),
+  template: _.template($('#business-post-view').text()),
 
   render: function ()  {
     this.$el.html(this.template(this.model));
-    $('<ENTER DESTINATION HERE>').append(this.el);
+    $('.profile-feed ul').append(this.el);
     BeMe.renderedViews.push(this);
   }
 })
