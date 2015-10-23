@@ -154,17 +154,36 @@
         </ul>
       </div>
 
-      <div class="header-slideout">
-        <div class="backend-tabs">
-          <ul>
-            <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
-            ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
-            ><a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
-            ><a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
-            ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
-            ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
-          </ul>
-        </div>
+      <div class="backend-slideout">
+        <div class="bar-search">
+            <form action>
+              <span class="fa fa-search"></span>
+              <input type="text" placeholder="Search Bars">
+              <button id="bar-submit">Search</button>
+            </form>
+          </div>
+        <aside>
+          <li><span class="fa fa-search"></span></li>
+          <li><span class="fa fa-comments"></span></li>
+          <li><span class="fa fa-cog"></span></li>
+          <li><span class="fa fa-power-off"></span></li>
+
+        </aside
+
+        ><section>
+          <div class="backend-tabs">
+            <ul>
+              <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
+              ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
+              ><a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
+              ><a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
+              ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
+              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
+            </ul>
+          </div>
+          
+        </section>
+        
       </div>
 
     </div>
@@ -222,6 +241,7 @@
 <script type="text/template" id="backend-feed-view">
 
   <div class="backend-container">
+
     <div class="narrow-container">
 
       <div class="backend-feed-tabs">
@@ -242,8 +262,7 @@
 
       <div class="profile-tools profile-tools-desktop">
         <form action="">
-          <div id="business-logo">
-          </div>
+
           <textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea
 
           ><div class="posting-options">
@@ -338,17 +357,16 @@
           <button id="beer-submit">Search</button>
         </form>
       </div>
-      <a href="#backend/beer" class="beer-results-cancel">
-        <div>
-          <h1>Cancel</h1>
-        </div>
-      </a>
 
     </div>
 
     <div class="wide-container">
 
-
+      <a href="#backend/beer" class="beer-results-cancel">
+        <div>
+          <h1>Cancel</h1>
+        </div>
+      </a>
 
 
       <div class="beer-loading hidden">
@@ -741,16 +759,36 @@
         </ul>
       </div>
 
-      <div class="header-slideout">
-        <div class="backend-tabs">
-          <ul>
-            <a href="#business/<%=attributes.handle %>"><li><span class="fa fa-home"></span><h1>Home</h1><p>Post updates, photos and videos</p></li></a
-            ><a href="#business/<%=attributes.handle %>/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
-            ><a href="#business/<%=attributes.handle %>/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
-            ><a href="#business/<%=attributes.handle %>/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
-            ><a href="#business/<%=attributes.handle %>/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
-          </ul>
-        </div>
+      <div class="backend-slideout">
+        <div class="bar-search">
+            <form action>
+              <span class="fa fa-search"></span>
+              <input type="text" placeholder="Search Bars">
+              <button id="bar-submit">Search</button>
+            </form>
+          </div>
+        <aside>
+          <li><span class="fa fa-search"></span></li>
+          <li><span class="fa fa-comments"></span></li>
+          <li><span class="fa fa-cog"></span></li>
+          <li><span class="fa fa-power-off"></span></li>
+
+        </aside
+
+        ><section>
+          <div class="backend-tabs">
+            <ul>
+              <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
+              ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
+              ><a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
+              ><a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
+              ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
+              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
+            </ul>
+          </div>
+          
+        </section>
+        
       </div>
 
     </div>
@@ -765,7 +803,23 @@
   <div class="business-container">
 
     <div class="narrow-container">
-      <h1><%=attributes.firstName%></h1>
+
+      <div class="business-cover">
+        <img src="images/craft2.jpg">
+      </div>
+      <div class="business-home">
+        <section>
+            <% if (typeof attributes.avatar !=='undefined') { %>
+              <img src=<%= attributes.avatar._url %> >
+              <% } else { %>
+              <img src="images/default-avatar.png">
+            <% } %>
+
+            <h1><%=attributes.businessName%></h1>
+            <p><%=attributes.address%>, <%=attributes.City%>, <%=attributes.State%> <%=attributes.zip%></p>
+
+        </section>
+      </div>
     </div>
     <div class="wide-container">
     </div>
