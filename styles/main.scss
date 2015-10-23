@@ -89,10 +89,11 @@ header {
 
 .header-container {
 	width: 480px;
-	height: 65px;
+	height: 55px;
 	margin: 0 auto;
 	position:relative;
 	background: transparent;
+	box-shadow: 0 0 30px -15px #000;
 }
 
 .header-logo {
@@ -125,6 +126,7 @@ header {
 	width: 100%;
 	position: relative;
     z-index: 999999999;
+    background: $primary-color-light;
 
 	img {
 		width: 100px;
@@ -134,16 +136,17 @@ header {
 	li {
 		display: inline-block;
 		vertical-align: top;
-		background: #fff;
+		background: $primary-color-light;
 		/*border-radius: 2px;*/
-		width: 85%;
+		width: 15%;
+		float: right;
 
 		span {
 			display: inline-block;
 		    vertical-align: top;
 		    font-size: 16px;
 		    color: #333;
-		    width: 15%;
+		    width: 100%;
 		    height: 55px;
 		    text-align: center;
 		    padding-top: 20px;
@@ -162,7 +165,7 @@ header {
 		    height: 55px;
 		    text-align: center;
 		    padding-top: 18px;
-		    background: #fff;
+		    background: $primary-color-light;
 		}
 
 
@@ -187,7 +190,7 @@ header {
 		width: 15%;
 		/*border-radius: 2px;*/
 		/*border-radius: 4px;*/
-		background: #fff;
+		background: $primary-color-light;
 
 
 		i {
@@ -263,16 +266,46 @@ header {
 
 /* Header Slideout*/
 
-.header-slideout {
+.backend-slideout, 
+.consumer-slideout {
 	position: relative;
-    top: -500px;
+    top: -460px;
     left: 0;
-    height: 500px;
     width: 480px;
     margin: 0 auto;
     background: #444;
     z-index: 99999999;
     transition: 250ms;
+
+    aside, 
+    section {
+    	display: inline-block;
+    	vertical-align: top;
+    	height: 300px;
+    	border-top:1px solid #555;
+    }
+
+    aside {
+    	width: 20%;
+    	border-right: 1px solid #555;
+
+    	li {
+    		width: 100%;
+    		text-align: center;
+    		padding: 20px;
+
+    		span {
+    			font-size: 1.6em;
+    			color: #f0f0f0;
+    		}
+    	}
+    }
+
+    section {
+    	width: 80%;
+    	border-left: 1px solid #333;
+
+    }
 }
 
 .slideout-shift {
@@ -313,14 +346,13 @@ header {
 }
 
 .backend-tabs {
-	width: 480px;
-	margin: 0 auto;
+	display: inline-block;
+	width: 100%;
 	position:relative;
     transition:250ms;
     z-index: 25;
     background: transparent;
     text-align: center;
-    border-top: 1px solid #f0f0f0;
 
 	ul {
 		list-style: none;
@@ -329,14 +361,13 @@ header {
 
 	li {
 		display: inline-block;
-		width: 50%;
+		width: 100%;
 		background: #444;
 		/*border-right: 1px solid #f0f0f0;*/
 		cursor: pointer;
-		text-align:center;
-		padding: 15px 0px 15px;
-		border-right: 1px solid #555;
-		border-left: 1px solid #333;
+		text-align:left;
+		padding: 15px 30px 15px;
+
 
 		h1 {
 			font-size: 1em !important;
@@ -815,9 +846,12 @@ header {
 }
 
 .narrow-container {
+	position: relative;
+	margin-top:0;
 	width: 100%;
 	display: inline-block;
 	vertical-align: top;
+	background: #444;
 	transition: 250ms;
 }
 
@@ -1025,6 +1059,54 @@ header {
 	}
 }
 
+/* Business Tabs */
+
+.business-home {
+	width: 100%;
+	background: $primary-color-light;
+
+	section {
+		padding: 30px 15px;
+		text-align: center;
+
+		img {
+			width: 25%;
+			padding: 2px;
+			background: #fff;
+			margin-top:-75px;
+			box-shadow: 0 0 30px -20px #000;
+
+		}
+
+		h1 {
+			width: 100%;
+			color: #333;
+			font-size: 1.4em;
+			font-weight: 700;
+			margin-top: 5px;
+		}
+
+		p {
+			color: #333;
+			font-size: 1em;
+			font-weight: 300;
+			margin-top: 5px;
+		}
+	}
+}
+
+.business-cover {
+	width: 100%;
+	height: 250px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: auto;
+		margin-top:-170px;
+	}
+}
+
 /* Bar Page Options */
 
 .bar-page-options {
@@ -1158,6 +1240,12 @@ header {
 		font-size: 24px;
 		color:#F44336;
 	}
+}
+
+.bar-search {
+	margin-top:0;
+	width: 100%;
+	border-bottom: 1px solid #333;
 }
 
 .beer-search-shift {
@@ -1350,7 +1438,7 @@ header {
 	li {
 		display: inline-block;
 		width: 100%;
-		padding: 20px;
+		padding: 30px 20px;
 		behavior: switch;
 		cursor:auto;
 	}
@@ -2017,10 +2105,9 @@ svg rect{
     transition: 250ms;
     display: inline-block;
     vertical-align: top;
-    background: #f0f0f0;
+    background: $primary-color-light;
  	position: relative;
     z-index: 50;
-    margin-top: -128px;
 }
 
 
@@ -2039,7 +2126,7 @@ svg rect{
     border: 0;
     border-radius: 0;
     outline: none;
-    background: #444;
+    background: $primary-color-light;
     font-size: 1.2em;
     line-height: 24px;
     resize: none;
@@ -2908,14 +2995,11 @@ svg rect{
 .add-weekly-comment {
 	width: 100%;
 	text-align: left;
-	;
-	/*border: 1px solid #d8d8d8;*/
-	background: #444;
+	background: $primary-color-light;
 	padding-top:15px;
 	z-index: 1;
 
 	li {
-		background: #444;
 	} 
  
 	li:first-child {
@@ -2932,7 +3016,7 @@ svg rect{
 		width: 45%;
 		display: inline-block;
 		vertical-align: top;
-		background: #333;
+		background: $primary-color-light;
 		padding-top:0px;
 	}
 
@@ -2945,7 +3029,7 @@ svg rect{
 		padding: 0;
 		height: 40px;
 		padding-top:12px;
-		background: #333;
+		background: $primary-color-light;
 	}
 
 
@@ -2984,7 +3068,7 @@ svg rect{
 		 border-radius: 0;
 		 color: #ccc;
 		 font-weight: 300;
-		 font-size: 1.1em;
+		 font-size: 1em;
 		 padding: 10px 10px;
 		 width: 100%;
 		 cursor: pointer;
@@ -3001,11 +3085,11 @@ svg rect{
 		display: inline-block;
 		vertical-align: top;
 		text-transform: lowercase;
-		color: #f8f8f8;
+		color: #333;
 	}
 
 	span {
-		font-size: 1.2em;
+		font-size: 1em;
 		display:inline-block;
 		vertical-align: top;
 		position: absolute;
@@ -3014,7 +3098,7 @@ svg rect{
 
 	}
 	i {
-		font-size: 1.2em;
+		font-size: 1em;
 		display: inline-block;
 		vertical-align: top;
 		position: absolute;
@@ -3057,7 +3141,7 @@ svg rect{
 	position:relative;
 	display: inline-block;
 	vertical-align: top;
-	background: #555;
+	background: $secondary-color-dark;
 	width: 20%;
 	outline: 0;
 	border: 0;
@@ -3078,7 +3162,7 @@ svg rect{
 	padding-right:10px;
 	background: #f8f8f8;
 	height: 40px;
-	font-size: 1.1em;
+	font-size: 1em;
 	z-index: 1;
 	position: relative;
 }
@@ -3093,7 +3177,7 @@ svg rect{
 	font-weight: 300;
 	text-indent: 25px;
 	height: 33px;
-	color: #f8f8f8;
+	color: #333;
 }
 
 #checkbox-standing:checked + .select-standing {
@@ -3125,7 +3209,7 @@ svg rect{
 }
 
 .radio-label {
-	font-size: 1.2em;
+	font-size: 1em;
 	display: inline-block;
 	width: 100%;
 	cursor:pointer;
@@ -3169,7 +3253,7 @@ svg rect{
 		background: #fff;
 		width: 80%;
 		height: 50px;
-		font-size: 1.1em;
+		font-size: 1em;
 		border: 1px solid #dfdfdf;
 		border-left: 0;
 		border-right: 0;
@@ -3195,7 +3279,7 @@ svg rect{
 }
 
 #datepicker {
-	font-size: 15px;
+	font-size: 1em;
 }
 
 .calendar-day-heading {
@@ -3995,7 +4079,7 @@ article {
     vertical-align: top;
     text-align: left;
     padding: 0px 25px 14px 25px;
-    background: #444;
+    background: $primary-color-light;
     /*border-radius: 0 0 4px 4px;*/
 
 	button {
@@ -4003,7 +4087,7 @@ article {
 		vertical-align: top;
 		width: 20%;
 		font-size: 1em;
-		background: #555;
+		background: $secondary-color-dark;
 		height: 30px;
 		border-radius:3px;
 		outline: 0;
@@ -4049,7 +4133,7 @@ article {
 
 	label {
 		display: inline-block;
-		background: #444;
+		background: $primary-color-light;
 		position:relative;
 		color: #f8f8f8;
 		/*z-index:1;*/
@@ -4186,20 +4270,21 @@ input[type="file"] {
 
 .copyright-info {
 	width: 100%;
-	padding: 15px 15px;
+	padding: 30px;
 	border-top:0;
 	text-align: center;
+	background: transparent;
 
 	h1 {
 		font-size: 1em;
-		color: #333;
+		color: #555;
 		font-weight: 300;
 	}
 
 	p {
 		display: block;
 		font-size: 1em;
-		color: #333;	
+		color: #555;	
 		font-weight: 400;
 		padding-top:10px;
 	}
