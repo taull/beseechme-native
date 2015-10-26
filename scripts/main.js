@@ -41,6 +41,13 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
 	Begin utility functions
 */
 
+BeMe.removeGroup = function (group) {
+  _.each(group, function (i) {
+    i.remove();
+  });
+  group = [];
+}
+
 BeMe.removeAllViews = function () {
   for (var i = BeMe.renderedViews.length - 1; i >= 0; i--) {
 		BeMe.renderedViews[i].removeRenderedView();
@@ -1130,10 +1137,7 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
   },
 
   removeFeed: function () {
-    _.each(this.feedItems, function (i) {
-      i.remove();
-    });
-    this.feedItems = [];
+    BeMe.removeGroup(this.feedItems);
   }
 });
 
