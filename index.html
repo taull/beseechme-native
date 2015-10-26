@@ -863,8 +863,10 @@
       </div>
       <% } %>
       <div class="feed-controls">
+      <% if (Parse.User.current().get('userType') === 'consumer') { %>
         <section><i class="fa fa-location-arrow"></i><p>Check In</p></section>
         <section><i class="fa fa-check-square"></i><p>Like</p></section>
+      <% } %>
       </div>
     </div>
 </script>
