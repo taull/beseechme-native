@@ -112,7 +112,8 @@ header {
     background: rgba(255, 255, 255, 0.1);
     height: 70px;
     padding: 27.5px 15px;
-    float: right; }
+    float: right;
+    cursor: pointer; }
     .header-right li span {
       display: inline-block;
       vertical-align: top;
