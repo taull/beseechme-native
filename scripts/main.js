@@ -1099,6 +1099,8 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
   initialize: function () {
     this.render();
     this.pullFeed();
+    this.feedItems = [];
+    window.businessreference = this;
   },
 
   template: _.template($('#business-feed-view').text()),
@@ -1110,18 +1112,29 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
   },
 
   pullFeed: function () {
+    var self = this;
     var query = new Parse.Query('businessStatus');
     query.equalTo('createdBy',this.model);
     query.find().then(function (e) {
       console.log(e); 
-      this.feedCollection = new Parse.Collection(e);
+      self.feedCollection = new Parse.Collection(e);
+      self.renderFeed();
     });
   },
 
   renderFeed: function () {
+    var self = this;
     this.feedCollection.each(function (i) {
-      new BeMe.Views.BusinessPostView({model:i});
+      var newFeedItem = new BeMe.Views.BusinessPostView({model:i});
+      self.feedItems.push(newFeedItem);
     });
+  },
+
+  removeFeed: function () {
+    _.each(this.feedItems, function (i) {
+      i.remove();
+    });
+    this.feedItems = [];
   }
 });
 
