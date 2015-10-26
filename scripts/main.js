@@ -1100,7 +1100,6 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
     this.render();
     this.pullFeed();
     this.feedItems = [];
-    window.businessreference = this;
   },
 
   template: _.template($('#business-feed-view').text()),
