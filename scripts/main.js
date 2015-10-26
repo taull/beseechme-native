@@ -291,7 +291,7 @@ BeMe.Views.Backend = Parse.View.extend({
 		BeMe.renderedViews.push(this);
 
     $('#slideout-trigger').click(function(){
-      $('.backend-slideout').toggleClass('slideout-shift');
+      $('.backend-slideout').toggleClass('show');
     });
 	}
 });
@@ -1054,7 +1054,7 @@ BeMe.Views.Business = Parse.View.extend({
     BeMe.renderedViews.push(this);
 
     $('#slideout-trigger').click(function(){
-      $('.backend-slideout').toggleClass('slideout-shift');
+      $('.backend-slideout').toggleClass('show');
     });
   }
 });
