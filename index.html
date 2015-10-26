@@ -154,17 +154,36 @@
         </ul>
       </div>
 
-      <div class="header-slideout">
-        <div class="backend-tabs">
-          <ul>
-            <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
-            ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
-            ><a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
-            ><a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
-            ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
-            ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
-          </ul>
-        </div>
+      <div class="backend-slideout">
+        <div class="bar-search">
+            <form action>
+              <span class="fa fa-search"></span>
+              <input type="text" placeholder="Search Bars">
+              <button id="bar-submit">Search</button>
+            </form>
+          </div>
+        <aside>
+          <li><span class="fa fa-search"></span></li>
+          <li><span class="fa fa-comments"></span></li>
+          <li><span class="fa fa-cog"></span></li>
+          <li><span class="fa fa-power-off"></span></li>
+
+        </aside
+
+        ><section>
+          <div class="backend-tabs">
+            <ul>
+              <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
+              ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
+              ><a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
+              ><a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
+              ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
+              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
+            </ul>
+          </div>
+          
+        </section>
+        
       </div>
 
     </div>
@@ -222,6 +241,7 @@
 <script type="text/template" id="backend-feed-view">
 
   <div class="backend-container">
+
     <div class="narrow-container">
 
       <div class="backend-feed-tabs">
@@ -242,8 +262,7 @@
 
       <div class="profile-tools profile-tools-desktop">
         <form action="">
-          <div id="business-logo">
-          </div>
+
           <textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea
 
           ><div class="posting-options">
@@ -338,17 +357,16 @@
           <button id="beer-submit">Search</button>
         </form>
       </div>
-      <a href="#backend/beer" class="beer-results-cancel">
-        <div>
-          <h1>Cancel</h1>
-        </div>
-      </a>
 
     </div>
 
     <div class="wide-container">
 
-
+      <a href="#backend/beer" class="beer-results-cancel">
+        <div>
+          <h1>Cancel</h1>
+        </div>
+      </a>
 
 
       <div class="beer-loading hidden">
@@ -741,16 +759,36 @@
         </ul>
       </div>
 
-      <div class="header-slideout">
-        <div class="backend-tabs">
-          <ul>
-            <a href="#business/<%=attributes.handle %>"><li><span class="fa fa-home"></span><h1>Home</h1><p>Post updates, photos and videos</p></li></a
-            ><a href="#business/<%=attributes.handle %>/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
-            ><a href="#business/<%=attributes.handle %>/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
-            ><a href="#business/<%=attributes.handle %>/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
-            ><a href="#business/<%=attributes.handle %>/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
-          </ul>
-        </div>
+      <div class="backend-slideout">
+        <div class="bar-search">
+            <form action>
+              <span class="fa fa-search"></span>
+              <input type="text" placeholder="Search Bars">
+              <button id="bar-submit">Search</button>
+            </form>
+          </div>
+        <aside>
+          <li><span class="fa fa-search"></span></li>
+          <li><span class="fa fa-comments"></span></li>
+          <li><span class="fa fa-cog"></span></li>
+          <li><span class="fa fa-power-off"></span></li>
+
+        </aside
+
+        ><section>
+          <div class="backend-tabs">
+            <ul>
+              <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
+              ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
+              ><a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
+              ><a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
+              ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
+              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
+            </ul>
+          </div>
+          
+        </section>
+        
       </div>
 
     </div>
@@ -765,13 +803,70 @@
   <div class="business-container">
 
     <div class="narrow-container">
-      <h1><%=attributes.firstName%></h1>
+
+      <div class="business-cover">
+        <img src="images/craft2.jpg">
+      </div>
+      <div class="business-home">
+        <section>
+            <% if (typeof attributes.avatar !=='undefined') { %>
+              <img src=<%= attributes.avatar._url %> >
+              <% } else { %>
+              <img src="images/default-avatar.png">
+            <% } %>
+
+            <h1><%=attributes.businessName%></h1>
+            <p><%=attributes.address%>, <%=attributes.City%>, <%=attributes.State%> <%=attributes.zip%></p>
+
+        </section>
+      </div>
     </div>
     <div class="wide-container">
     </div>
 
   </div>
 
+</script>
+
+<!-- backend Feed View -->
+
+<script type='text/template' id='business-post-view'>
+
+    <div class="feed-post">
+
+      <div class="feed-info">
+        <% var user = attributes.createdBy %>
+        <div class="feed-avatar">
+          <div class="feed-logo">
+            <% if (typeof user.attributes.avatar !=='undefined') { %>
+            <img src=<%= user.attributes.avatar._url %> >
+            <% } else { %>
+            <img src="images/default-avatar.png">
+            <% } %>
+          </div>
+        </div
+        ><div class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></div
+        ><div class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></div>
+
+      </div>
+
+      <div class="feed-status">
+        <div>
+          <p><%= attributes.content %></p>
+        </div>
+      </div>
+      <% if (typeof attributes.image !== 'undefined') {%>
+      <div class="feed-photo">
+        <a href=<%= attributes.image._url %> >
+          <img src=<%= attributes.image._url %> />
+        </a>
+      </div>
+      <% } %>
+      <div class="feed-controls">
+        <section><i class="fa fa-location-arrow"></i><p>Check In</p></section>
+        <section><i class="fa fa-check-square"></i><p>Like</p></section>
+      </div>
+    </div>
 </script>
 
 <!-- Business Feed View -->
@@ -781,94 +876,14 @@
   <div class="business-container">
     <div class="narrow-container">
 
-      <div class="business-info">
-        <section>
-          <li>
-            <aside><img src="images/bar-logo.png"></aside>
-            <div>
-              <h1><%= Parse.User.current().get('businessName') %></h1>
-              <i class="fa fa-check-circle"></i>
-              <p>2714 Blossom St</p>
-            </div>
-          </li>
-        </section>
-      </div>
-
-      <div class="business-tabs">
-        <ul>
-          <a href="#business/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
-          <a href="#business/beer"><li><span class="fa fa-beer"></span><p>Beer Menu</p></li></a>
-          <a href="#business/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
-          <a href="#business/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
-        </ul>
-      </div>
     </div>
 
 
     <div class="wide-container">
-      <div class="module-header">
-        <p>My Feed</p>
-      </div>
       <div class="profile-feed">
         <ul>
-          <li>
-            <div class="feed-avatar">
-              <div class="feed-logo">
-                <img src="images/bar-logo.png">
-              </div>
-            </div>
-            <div class="feed-post">
-
-              <div class="feed-info">
-
-                <div class="feed-name"><h1>Henrys Grill and Bar</h1><p>@henrysbar</p></div>
-                <div class="feed-ago"><p>1h</p></div>
-
-              </div>
-
-              <div class="feed-status">
-                <div>
-                  <span>Lorem option this is a test post to see what happens. option this is a test post to see what happens. $2 Drinks until 9pm!</span>
-                </div>
-              </div>
-
-            </div>
-          </li>
-
-          <li>
-            <div class="feed-avatar">
-              <div class="feed-logo">
-                <img src="images/bar-logo.png">
-              </div>
-            </div>
-
-            <div class="feed-post">
-              <div class="feed-info">
-                <div class="feed-name"><h1>Henrys Grill and Bar</h1><p>@henrysbar</p></div>
-                <div class="feed-ago"><p>32m</p></div>
-              </div>
-
-              <div class="feed-status">
-                <div>
-                  <span>Lorem option this is a test post to see what happens. $2 Drinks until 9pm!</span>
-                </div>
-              </div>
-
-              <div class="feed-photo">
-                <a href="#photo">
-                  <img src="images/peopleatbar.png">
-                </a>
-              </div>
-
-            </div>
-          </li>
-
         </ul>
       </div><!-- END PROFILE FEED -->
-
-      <div class="view-all">
-        <a>Load More</a>
-      </div>
 
       <div class="copyright-info">
         <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
