@@ -1118,7 +1118,7 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
     });
   },
 
-  renderChildren: function () {
+  renderFeed: function () {
     this.feedCollection.each(function (i) {
       new BeMe.Views.BusinessPostView({model:i});
     });
