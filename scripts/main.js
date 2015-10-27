@@ -538,7 +538,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     var self = this;
     $("#backend-bottle-tab").removeClass('active-beer-type');
     $("#backend-draft-tab").addClass('active-beer-type');
-    //Parse.User.fetch().then do what's below
+    //Parse.User.fetch().then do what's below?
     Parse.Cloud.run('getBeers', {array:this.getIdArray(Parse.User.current().get('draftBeers'),1)})
     .then(function (e) {
       self.emptyBeerList();
@@ -556,7 +556,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     var self = this;
     $("#backend-draft-tab").removeClass('active-beer-type');
     $("#backend-bottle-tab").addClass('active-beer-type');
-    //Parse.User.fetch().then do what's below
+    //Parse.User.fetch().then do what's below?
     Parse.Cloud.run('getBeers', {array:this.getIdArray(Parse.User.current().get('bottledBeers'),1)})
     .then(function (e) {
       self.emptyBeerList();
@@ -575,9 +575,9 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     var realMin = min >= 0 ? min : 0;
 
     if (min <= 0) { //if we hit the end of the results...
-      $('.load-more-button').addClass('hidden'); //show it
+      $('.load-more-button').addClass('hidden'); //hide it
     } else {
-      $('.load-more-button').removeClass('hidden'); //hide it
+      $('.load-more-button').removeClass('hidden'); //show it
     }
     //we are iterating in reverse order to make the ones added to the list most
     //recent appear first without having to store extra data in the array (addedAt date, etc...)
@@ -1194,7 +1194,7 @@ BeMe.Views.BusinessBeerList = Parse.View.extend({
     this.render();
   },
 
-  template: _.template($('#business-beer-list-view').text()),
+  template: _.template($('#business-beer-view').text()),
 
   render: function () {
     this.$el.html(this.template(this.model));
@@ -1218,6 +1218,7 @@ var Router = Parse.Router.extend({
 		'backend/settings' : 'backendSettings',
     'business/:handle' : 'businessHome',
     'business/:handle/feed' : 'businessFeed',
+    'business/:handle/beer' : 'businessBeerList',
     'test' : 'test'
 	},
 
@@ -1337,13 +1338,23 @@ var Router = Parse.Router.extend({
     });
   },
 
-  businessBeerList: function () {
+  businessBeerList: function (handle) {
     BeMe.removeAllViews();
-    new BeMe.Views.Business();
-    new BeMe.Views.BusinessBeerList();
+
+    var query = new Parse.Query('User');
+    query.equalTo('handle', handle);
+    query.first().then(function (i) {
+      if (i) {
+        new BeMe.Views.Business({model:i});
+        new BeMe.Views.BusinessBeerList({model:i});
+      } else {
+        new BeMe.Views.BusinessError(handle);
+      }
+      console.log(i);
+    });
   },
 
-  businessCalendar: function () {
+  businessCalendar: function (handle) {
     BeMe.removeAllViews();
     new BeMe.Views.Business();
     new BeMe.Views.BusinessCalendar();
