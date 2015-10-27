@@ -427,6 +427,8 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     this.pageNumber = 1;
 		this.render();
 
+
+    this.collection = new BeMe.Collections.BeerResults();
     this.loadDraftBeers();
     this.addSpinner();
 	},
@@ -445,15 +447,14 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 			$('.profile-beer-list').addClass('hidden');
 		});
 
-		$('#backend-draft-tab').click(function(){
-			$('.beer-search').removeClass('beer-search-shift');
-			$('.profile-beer-list').removeClass('hidden');
-		});
+    function resetSearchFunction() {
+      $('.beer-search').removeClass('beer-search-shift');
+      $('.profile-beer-list').removeClass('hidden');
+    }
 
-		$('#backend-bottle-tab').click(function(){
-			$('.beer-search').removeClass('beer-search-shift');
-			$('.profile-beer-list').removeClass('hidden');
-		});
+		$('#backend-draft-tab').click(resetSearchFunction);
+
+		$('#backend-bottle-tab').click(resetSearchFunction);
 
 		$('#beer-submit').click(function(){
 			$('.narrow-container').addClass('narrow-container-shift');
@@ -496,20 +497,16 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     var self = this;
     var queryString = $('.beer-search input').val();
 
-    if(!this.collection) {
-      this.collection = new BeMe.Collections.BeerResults();
-    }
-
 
     Parse.Cloud.run('searchBrewery', {queryString:queryString})
     .then(function (beers) {
-      // self.collection.remove();
+      self.collection.remove();
       self.removeSpinner();
       self.collection.reset();
       console.log(self.collection);
 
-      self.emptyBeerList();
-      $('.beer-search input').val('');
+      // self.emptyBeerList();
+      // $('.beer-search input').val('');
 
 
       if (beers) {
@@ -1020,6 +1017,7 @@ BeMe.Views.BackendSettings = Parse.View.extend({
       console.log(i);
       self.$el.html(self.template(i));
       $('.body-container').append(self.el);
+      $('option[value=' + user.get("state") + ']').attr('selected', true);
     });
 		
 		BeMe.renderedViews.push(this);
