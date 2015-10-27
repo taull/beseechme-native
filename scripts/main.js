@@ -1014,13 +1014,22 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 	template: _.template($('#backend-settings-view').text()),
 
 	render: function () {
-		this.$el.html(this.template(this.model));
-		$('.body-container').append(this.el);
+    var user = Parse.User.current();
+    user.fetch().then(function (i) {
+      console.log(i);
+      this.$el.html(this.template(i));
+    $('.body-container').append(this.el);
+    });
+		
 		BeMe.renderedViews.push(this);
 	},
 
   events: {
     'click #avatar-upload' : 'uploadAvatar'
+  },
+
+  updateProfile: function () {
+    var user = Parse.User.current();
   },
 
   uploadAvatar: function () {
@@ -1121,8 +1130,8 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
     var self = this;
     var query = new Parse.Query('businessStatus');
     query.equalTo('createdBy',this.model);
+    query.include('createdBy');
     query.find().then(function (e) {
-      console.log(e); 
       self.feedCollection = new Parse.Collection(e);
       self.renderFeed();
     });
@@ -1277,10 +1286,10 @@ var Router = Parse.Router.extend({
 
     var query = new Parse.Query('User');
     query.equalTo('handle', handle);
-    query.find().then(function (i) {
-      if (i.length) {
-        new BeMe.Views.Business({model:i[0]});
-        new BeMe.Views.BusinessHome({model:i[0]});
+    query.first().then(function (i) {
+      if (i) {
+        new BeMe.Views.Business({model:i});
+        new BeMe.Views.BusinessHome({model:i});
       } else {
         new BeMe.Views.BusinessError(handle);
       }
@@ -1294,10 +1303,10 @@ var Router = Parse.Router.extend({
 
     var query = new Parse.Query('User');
     query.equalTo('handle', handle);
-    query.find().then(function (i) {
-      if (i.length) {
-        new BeMe.Views.Business({model:i[0]});
-        new BeMe.Views.BusinessFeed({model:i[0]});
+    query.first().then(function (i) {
+      if (i) {
+        new BeMe.Views.Business({model:i});
+        new BeMe.Views.BusinessFeed({model:i});
       } else {
         new BeMe.Views.BusinessError(handle);
       }

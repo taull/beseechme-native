@@ -540,13 +540,13 @@
                   <form action="">
                     <ul>
                       <li><span class="fa fa-bookmark"></span><input type="text" value="Henry's Grill and Bar"></li>
-                      <li><h1>@</h1><input type="text" value="craftanddraft"></li>
+                      <li><h1>@</h1><input type="text" value="<%=  attributes.handle %>"></li>
 
-                      <li><span class="fa fa-location-arrow"></span><input type="text" value="2828 Devine Street"></li>
-                      <li><h1>C</h1><input type="text" value="Columbia"></li>
+                      <li><span class="fa fa-location-arrow"></span><input type="text" value="<%=  attribute.address %>"></li>
+                      <li><h1>C</h1><input type="text" value="<%=  attributes.City %>"></li>
                       <li>
                         <h1>S</h1>
-                        <!-- <input type="text" value="South Carolina"> -->
+                        <!-- <input type="text" value="<%=  attributes.State %>"> -->
                         <select>
                           <option value="AL">Alabama</option>
                           <option value="AK">Alaska</option>
@@ -602,7 +602,7 @@
                         </select>
                       </li>
                       <li><h1>Z</h1><input type="text" value="29205"></li>
-                      <li><span class="fa fa-phone"></span><input type="text" value="(803) 555-2341"></li>
+                      <li><span class="fa fa-phone"></span><input type="text" value="(803) 555-2341(not from server)"></li>
                       <li><span class="fa fa-globe"></span><input type="text" value="www.henrysgrillandbar.com"></li>
                       <li><button type="submit" class="save-button">Save</button></li>
                     </ul>
