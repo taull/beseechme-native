@@ -844,7 +844,7 @@
               <% } %>
 
               <h1><%=attributes.businessName%></h1>
-              <p><%=attributes.address%>, <%=attributes.City%>, <%=attributes.State%> <%=attributes.zip%></p>
+              <p><%=attributes.address%>, <%=attributes.City%>, <%=attributes.state%> <%=attributes.zip%></p>
 
           </section>
         </div>
@@ -852,7 +852,7 @@
       <div class="wide-container">
         <div class="business-tabs">
           <ul>
-            <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>Feed</h1><p>Post updates, photos and videos</p></li></a
+            <a href="#business/<%= attributes.handle %>/feed"><li><span class="fa fa-comments"></span><h1>Feed</h1><p>Post updates, photos and videos</p></li></a
             ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
             ><a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
             ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a>
