@@ -1049,7 +1049,7 @@ BeMe.Views.BackendSettings = Parse.View.extend({
     user.set('website',website);
 
     user.save().then(function() {
-      alert('done');
+      alert('Saved!');
     });
   },
 
