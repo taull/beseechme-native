@@ -29,12 +29,31 @@ body {
 
 .backend-container,
 .business-container {
-  width: 480px;
+  width: 880px;
   margin: 0 auto;
-  top: 55px;
   position: relative;
   z-index: 1;
+  border-top: 15px solid #e5e5e5;
+  overflow: hidden;
   /*border-right: 1px solid #dfdfdf;*/ }
+
+.left-container,
+.middle-container,
+.right-container {
+  display: inline-block;
+  vertical-align: top; }
+
+.left-container {
+  width: 40%;
+  padding: 5px;
+  background: #fff; }
+
+.middle-container {
+  width: 60%;
+  padding-left: 15px; }
+
+.right-container {
+  width: 20%; }
 
 .datepicker {
   position: relative;
@@ -46,18 +65,19 @@ body {
 
 header {
   width: 100%;
+  height: 70px;
   margin: 0px auto 0;
-  position: fixed;
+  position: relative;
   left: 0;
-  z-index: 9999999; }
+  z-index: 9999999;
+  background: #333; }
 
 .header-container {
-  width: 480px;
-  height: 55px;
+  width: 880px;
+  height: 70px;
   margin: 0 auto;
   position: relative;
-  background: transparent;
-  box-shadow: 0 0 30px -15px #000; }
+  /*box-shadow: 0 0 30px -15px #000;*/ }
 
 .header-logo {
   display: inline-block;
@@ -80,31 +100,26 @@ header {
 .header-right {
   display: inline-block;
   vertical-align: top;
-  width: 100%;
+  width: 45%;
   position: relative;
-  z-index: 999999999;
-  background: #f8f8f8; }
+  z-index: 999999999; }
   .header-right img {
     width: 100px;
     height: auto; }
   .header-right li {
     display: inline-block;
     vertical-align: top;
-    background: #f8f8f8;
-    /*border-radius: 2px;*/
-    width: 15%;
-    float: right; }
+    background: rgba(255, 255, 255, 0.1);
+    height: 70px;
+    padding: 27.5px 15px;
+    float: right;
+    cursor: pointer; }
     .header-right li span {
       display: inline-block;
       vertical-align: top;
       font-size: 16px;
-      color: #333;
-      width: 100%;
-      height: 55px;
+      color: #f8f8f8;
       text-align: center;
-      padding-top: 20px;
-      background: #fff;
-      float: right;
       /*border-radius: 0px 2px 2px 0px;*/
       /*border-radius: 4px;*/ }
     .header-right li i {
@@ -115,21 +130,19 @@ header {
       width: 25%;
       height: 55px;
       text-align: center;
-      padding-top: 18px;
-      background: #f8f8f8; }
+      padding-top: 18px; }
     .header-right li h1 {
       font-size: 1.2em;
-      font-weight: 300;
-      color: #333;
+      font-weight: 400;
+      color: #f8f8f8;
       display: inline-block;
-      width: 85%;
+      vertical-align: top;
+      padding-right: 10px;
       border: 0;
       outline: 0;
-      height: 55px;
-      text-align: center;
-      padding-top: 20px; }
+      text-align: center; }
   .header-right div {
-    display: inline-block;
+    display: none;
     vertical-align: top;
     width: 15%;
     /*border-radius: 2px;*/
@@ -149,10 +162,9 @@ header {
 .header-left {
   display: inline-block;
   vertical-align: top;
-  width: 30%;
+  width: 45%;
   text-align: center;
-  padding-top: 15px;
-  display: none; }
+  padding-top: 15px; }
   .header-left h1 {
     /*background: #f8f8f8;*/
     width: 100%;
@@ -163,9 +175,8 @@ header {
   display: inline-block;
   vertical-align: top;
   text-align: right;
-  width: 30%;
-  padding-top: 15px;
-  display: none; }
+  width: 10%;
+  padding-top: 15px; }
   .header-center div {
     display: inline-block;
     vertical-align: top;
@@ -186,25 +197,28 @@ header {
 /* Header Slideout*/
 .backend-slideout,
 .consumer-slideout {
-  position: relative;
-  top: -460px;
-  left: 0;
-  width: 480px;
-  margin: 0 auto;
-  background: #444;
-  z-index: 99999999;
+  display: none;
+  position: absolute;
+  top: 70px;
+  width: 40%;
+  right: 0;
+  float: right;
+  background: #fff;
+  padding: 5px;
+  /*border: 1px solid #d8d8d8;*/
+  box-shadow: 0 0 30px -15px #000;
+  z-index: 9999999999999;
   transition: 250ms; }
   .backend-slideout aside,
   .backend-slideout section,
   .consumer-slideout aside,
   .consumer-slideout section {
     display: inline-block;
-    vertical-align: top;
-    height: 300px;
-    border-top: 1px solid #555; }
+    vertical-align: top; }
   .backend-slideout aside,
   .consumer-slideout aside {
     width: 20%;
+    display: none;
     border-right: 1px solid #555; }
     .backend-slideout aside li,
     .consumer-slideout aside li {
@@ -217,11 +231,17 @@ header {
         color: #f0f0f0; }
   .backend-slideout section,
   .consumer-slideout section {
-    width: 80%;
-    border-left: 1px solid #333; }
-
-.slideout-shift {
-  top: 0; }
+    width: 100%;
+    padding: 0 10px;
+    /*border-left: 1px solid #333;*/ }
+  .backend-slideout i,
+  .consumer-slideout i {
+    position: absolute;
+    float: right;
+    font-size: 2em;
+    color: #fff;
+    top: -15px;
+    right: 20px; }
 
 /* Login/Register */
 .location-container {
@@ -265,17 +285,17 @@ header {
   .backend-tabs li {
     display: inline-block;
     width: 100%;
-    background: #444;
     /*border-right: 1px solid #f0f0f0;*/
     cursor: pointer;
     text-align: left;
-    padding: 15px 30px 15px; }
+    padding: 15px 30px 15px;
+    border-bottom: 1px solid #f0f0f0; }
     .backend-tabs li h1 {
       font-size: 1em !important;
       display: inline-block;
       vertical-align: top;
       font-weight: 500;
-      color: #f0f0f0;
+      color: #01579B;
       text-transform: uppercase;
       /*display:none;*/
       /*padding-left:10px;*/ }
@@ -285,13 +305,61 @@ header {
       display: none;
       vertical-align: top;
       font-weight: 300;
-      color: #f0f0f0;
+      color: #01579B;
       margin-top: 5px; }
   .backend-tabs a:last-child li {
     border-right: 0; }
   .backend-tabs a:first-child li {
     border-left: 0; }
   .backend-tabs span {
+    font-size: 18px !important;
+    display: block;
+    vertical-align: top;
+    text-align: center;
+    color: #999;
+    display: none; }
+
+.business-tabs {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  transition: 250ms;
+  z-index: 25;
+  background: transparent;
+  text-align: center; }
+  .business-tabs ul {
+    list-style: none;
+    padding-left: 0; }
+  .business-tabs li {
+    display: inline-block;
+    width: 25%;
+    background: #444;
+    /*border-right: 1px solid #f0f0f0;*/
+    cursor: pointer;
+    text-align: center;
+    padding: 15px 0px 15px; }
+    .business-tabs li h1 {
+      font-size: 1em !important;
+      display: inline-block;
+      vertical-align: top;
+      font-weight: 500;
+      color: #f0f0f0;
+      text-transform: uppercase;
+      /*display:none;*/
+      /*padding-left:10px;*/ }
+    .business-tabs li p {
+      font-size: .8em !important;
+      line-height: 16px;
+      display: none;
+      vertical-align: top;
+      font-weight: 300;
+      color: #f0f0f0;
+      margin-top: 5px; }
+  .business-tabs a:last-child li {
+    border-right: 0; }
+  .business-tabs a:first-child li {
+    border-left: 0; }
+  .business-tabs span {
     font-size: 18px !important;
     display: block;
     vertical-align: top;
@@ -804,7 +872,7 @@ header {
     padding: 30px 15px;
     text-align: center; }
     .business-home section img {
-      width: 25%;
+      width: 30%;
       padding: 2px;
       background: #fff;
       margin-top: -75px;
@@ -823,12 +891,12 @@ header {
 
 .business-cover {
   width: 100%;
-  height: 250px;
+  height: 200px;
   overflow: hidden; }
   .business-cover img {
     width: 100%;
     height: auto;
-    margin-top: -170px; }
+    margin-top: -120px; }
 
 /* Bar Page Options */
 .bar-page-options {
@@ -945,8 +1013,7 @@ header {
 
 .bar-search {
   margin-top: 0;
-  width: 100%;
-  border-bottom: 1px solid #333; }
+  width: 100%; }
 
 .beer-search-shift {
   margin-top: 0; }
@@ -1096,8 +1163,7 @@ header {
   .profile-beer-list li {
     display: inline-block;
     width: 100%;
-    padding: 30px 20px;
-    behavior: switch;
+    padding: 20px 20px;
     cursor: auto; }
   .profile-beer-list li:first-child {
     border-top: 0; }
@@ -1323,9 +1389,6 @@ svg rect {
 
 .show-beer-controls {
   display: inline-block; }
-
-#focusableElement:focus {
-  background: #f8f8f8 !important; }
 
 #focusableElement:focus span {
   color: #000 !important;
@@ -3066,9 +3129,7 @@ article {
   cursor: pointer; }
 
 .show {
-  display: inline-block;
-  z-index: 50;
-  position: relative; }
+  display: inline-block; }
 
 .avatar-container {
   width: 100%;
@@ -3378,7 +3439,8 @@ svg rect {
     width: 100%; }
 
   body {
-    /*background: #fcfcfc;*/ }
+    /*background: #fcfcfc;*/
+    font-size: 90%; }
 
   header {
     /*display:none;*/ }
@@ -3486,6 +3548,9 @@ svg rect {
 
   #backend-menu {
     margin-bottom: 0; }
+
+  .business-container {
+    width: 100%; }
 
   .backend-container {
     padding: 0px 0px; }

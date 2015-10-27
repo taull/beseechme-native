@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Beseech Me</title>
   <meta name="description" content="Beseech Me">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1, user-scalable=0/">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type='text/css' href="styles/main.css">
   <link rel="stylesheet" type='text/css' href="bower_components/pickadate/lib/themes/default.css">
@@ -147,28 +147,24 @@
             <% } %>
           </div
 
-          ><li>
-            <span id="slideout-trigger" class="fa fa-caret-down"></span>
+          ><li id="slideout-trigger">
+            <h1>Options</h1
+            ><span class="fa fa-chevron-down"></span>
           </li>
 
         </ul>
       </div>
 
       <div class="backend-slideout">
-        <div class="bar-search">
-            <form action>
-              <span class="fa fa-search"></span>
-              <input type="text" placeholder="Search Bars">
-              <button id="bar-submit">Search</button>
-            </form>
-          </div>
-        <aside>
-          <li><span class="fa fa-search"></span></li>
-          <li><span class="fa fa-comments"></span></li>
-          <li><span class="fa fa-cog"></span></li>
-          <li><span class="fa fa-power-off"></span></li>
 
-        </aside
+        <i class="fa fa-caret-up"></i>
+        <div class="bar-search">
+          <form action>
+            <span class="fa fa-search"></span>
+            <input type="text" placeholder="Search Bars">
+            <button id="bar-submit">Search</button>
+          </form>
+        </div
 
         ><section>
           <div class="backend-tabs">
@@ -178,7 +174,8 @@
               ><a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
               ><a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
               ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
-              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
+              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a
+              ><li id="logout"><span class="fa fa-cog"></span><h1>Logout</h1><p>Keep your customers up to date</p></li>
             </ul>
           </div>
           
@@ -242,61 +239,73 @@
 
   <div class="backend-container">
 
-    <div class="narrow-container">
+    <div class="left-container">
+        <div class="business-cover">
+          <img src="images/craft2.jpg">
+        </div>
+        <div class="business-home">
+          <section>
+                <img src="images/craftdraft-logo.jpeg">
 
-      <div class="backend-feed-tabs">
-        <li id="backend-myfeed-tab" class="active-feed-type">
-          <h1>My Posts</h1>
-          <p>View All</p>
-        </li
+              <h1>Craft and Draft</h1>
+              <p>2717 Blossom St, Columbia, SC 29205</p>
 
-        ><li id="backend-add-status">
-          <i class="fa fa-comments"></i>
-        </li
+          </section>
+        </div>
+    </div
+    ><div class="middle-container">
+      <div class="narrow-container">
 
-        ><li id="backend-mainfeed-tab">
-          <h1>Main Feed</h1>
-          <p>View All</p>
-        </li>
+        <div class="backend-feed-tabs">
+          <li id="backend-myfeed-tab" class="active-feed-type">
+            <h1>My Posts</h1>
+            <p>View All</p>
+          </li
+
+          ><li id="backend-add-status">
+            <i class="fa fa-comments"></i>
+          </li
+
+          ><li id="backend-mainfeed-tab">
+            <h1>Main Feed</h1>
+            <p>View All</p>
+          </li>
+        </div>
+
+        <div class="profile-tools profile-tools-desktop">
+          <form action="">
+
+            <textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea
+
+            ><div class="posting-options">
+              <button type="submit">Post</button
+              ><label for="camera-file">
+                <i class="fa fa-camera"></i>
+              </label
+              ><input type="file" id="camera-file" />
+            </div>
+
+          </form>
+        </div>
+
+
       </div>
 
-      <div class="profile-tools profile-tools-desktop">
-        <form action="">
 
-          <textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea
+      <div class="wide-container">
 
-          ><div class="posting-options">
-            <button type="submit">Post</button
-            ><label for="camera-file">
-              <i class="fa fa-camera"></i>
-            </label
-            ><input type="file" id="camera-file" />
-          </div>
+        <div class="profile-feed">
+          <ul>
+          </ul>
+        </div><!-- END PROFILE FEED -->
 
-        </form>
+        <div class="copyright-info">
+          <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+          <p>Beseech Me®, LLC</p>
+        </div>
+
       </div>
-
-
     </div>
-
-
-    <div class="wide-container">
-
-
-
-      <div class="profile-feed">
-        <ul>
-        </ul>
-      </div><!-- END PROFILE FEED -->
-
-      <div class="copyright-info">
-        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-        <p>Beseech Me®, LLC</p>
-      </div>
-
-    </div>
-
-
 
   </div>
 
@@ -333,78 +342,96 @@
 <script type="text/template" id="backend-beer-view">
 
   <div class="backend-container">
-    <div class="narrow-container">
+    <div class="left-container">
 
-      <div class="profile-beer-tabs">
-        <li id="backend-draft-tab" class="active-beer-type tabs-loading">
-          <h1>Draft</h1>
-          <p>View All</p>
-        </li
-
-        ><li id="backend-add-beer" >
-          <i class="fa fa-search"></i>
-        </li
-
-        ><li id="backend-bottle-tab" class="active-beer-type tabs-loading">
-          <h1>Bottled</h1>
-          <p>View All</p>
-        </li>
-      </div>
-      <div class="beer-search">
-        <form action>
-          <span class="fa fa-search"></span>
-          <input type="text" placeholder="Search by Name or Brewery">
-          <button id="beer-submit">Search</button>
-        </form>
-      </div>
-
-    </div>
-
-    <div class="wide-container">
-
-      <a href="#backend/beer" class="beer-results-cancel">
-        <div>
-          <h1>Cancel</h1>
+        <div class="business-cover">
+          <img src="images/craft2.jpg">
         </div>
-      </a>
+        <div class="business-home">
+          <section>
+                <img src="images/craftdraft-logo.jpeg">
 
+              <h1>Craft and Draft</h1>
+              <p>2717 Blossom St, Columbia, SC 29205</p>
 
-      <div class="beer-loading hidden">
-        <!-- 1 -->
-        <div class="loader" title="0">
-          <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-           width="30px" height="30px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-          <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
-            s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
-            c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
-          <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
-            C22.32,8.481,24.301,9.057,26.013,10.047z">
-            <animateTransform attributeType="xml"
-              attributeName="transform"
-              type="rotate"
-              from="0 20 20"
-              to="360 20 20"
-              dur="0.5s"
-              repeatCount="indefinite"/>
-            </path>
-          </svg>
+          </section>
+        </div>
+
+    </div
+    ><div class="middle-container">
+      <div class="narrow-container">
+
+        <div class="profile-beer-tabs">
+          <li id="backend-draft-tab" class="active-beer-type tabs-loading">
+            <h1>Draft</h1>
+            <p>View All</p>
+          </li
+
+          ><li id="backend-add-beer" >
+            <i class="fa fa-search"></i>
+          </li
+
+          ><li id="backend-bottle-tab" class="active-beer-type tabs-loading">
+            <h1>Bottled</h1>
+            <p>View All</p>
+          </li>
+        </div>
+        <div class="beer-search">
+          <form action>
+            <span class="fa fa-search"></span>
+            <input type="text" placeholder="Search by Name or Brewery">
+            <button id="beer-submit">Search</button>
+          </form>
         </div>
 
       </div>
 
-      <div class="profile-beer-list">
-        <ul>
-        </ul>
-        <div class='load-more-button hidden'>
-          <h1>Load More</h1>
+      <div class="wide-container">
+
+        <a href="#backend/beer" class="beer-results-cancel">
+          <div>
+            <h1>Cancel</h1>
+          </div>
+        </a>
+
+
+        <div class="beer-loading hidden">
+          <!-- 1 -->
+          <div class="loader" title="0">
+            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             width="30px" height="30px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+            <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+              s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+              c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+            <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+              C22.32,8.481,24.301,9.057,26.013,10.047z">
+              <animateTransform attributeType="xml"
+                attributeName="transform"
+                type="rotate"
+                from="0 20 20"
+                to="360 20 20"
+                dur="0.5s"
+                repeatCount="indefinite"/>
+              </path>
+            </svg>
+          </div>
+
         </div>
-      </div>
 
-      <div class="copyright-info">
-        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-        <p>Beseech Me®, LLC</p>
-      </div>
+        <div class="profile-beer-list">
+          <ul>
+          </ul>
+          <div class='load-more-button hidden'>
+            <h1>Load More</h1>
+          </div>
+        </div>
 
+        <div class="copyright-info">
+          <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+          <p>Beseech Me®, LLC</p>
+        </div>
+
+      </div>
     </div>
   </div>
 </script>
@@ -761,13 +788,13 @@
 
       <div class="backend-slideout">
         <div class="bar-search">
-            <form action>
-              <span class="fa fa-search"></span>
-              <input type="text" placeholder="Search Bars">
-              <button id="bar-submit">Search</button>
-            </form>
-          </div>
-        <aside>
+          <form action>
+            <span class="fa fa-search"></span>
+            <input type="text" placeholder="Search Bars">
+            <button id="bar-submit">Search</button>
+          </form>
+        </div
+        ><aside>
           <li><span class="fa fa-search"></span></li>
           <li><span class="fa fa-comments"></span></li>
           <li><span class="fa fa-cog"></span></li>
@@ -799,32 +826,64 @@
 </script>
 
 <script type="text/template" id="business-home-view">
-
   <div class="business-container">
 
-    <div class="narrow-container">
+    <div class="left-container">
 
-      <div class="business-cover">
-        <img src="images/craft2.jpg">
+      <div class="narrow-container">
+
+        <div class="business-cover">
+          <img src="images/craft2.jpg">
+        </div>
+        <div class="business-home">
+          <section>
+              <% if (typeof attributes.avatar !=='undefined') { %>
+                <img src=<%= attributes.avatar._url %> >
+                <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+
+              <h1><%=attributes.businessName%></h1>
+              <p><%=attributes.address%>, <%=attributes.City%>, <%=attributes.State%> <%=attributes.zip%></p>
+
+          </section>
+        </div>
       </div>
-      <div class="business-home">
-        <section>
-            <% if (typeof attributes.avatar !=='undefined') { %>
-              <img src=<%= attributes.avatar._url %> >
-              <% } else { %>
-              <img src="images/default-avatar.png">
-            <% } %>
-
-            <h1><%=attributes.businessName%></h1>
-            <p><%=attributes.address%>, <%=attributes.City%>, <%=attributes.State%> <%=attributes.zip%></p>
-
-        </section>
+      <div class="wide-container">
+        <div class="business-tabs">
+          <ul>
+            <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>Feed</h1><p>Post updates, photos and videos</p></li></a
+            ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
+            ><a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
+            ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="wide-container">
-    </div>
+    </div
 
+    ><div class="middle-container">
+        <div class="profile-beer-list">
+          <ul>
+            <li>
+              <aside>
+                <img src="images/coors-light-avatar.png">
+
+              </aside
+              ><div>
+                <h1>Coors Light</h1><h2 id="delete-beer"><span class="fa fa-times-circle"></span></h2>
+                <p>Coors Brewery Company | 4.2% abv</p>
+                <h3>American Lager (Low Calorie)</h3>
+              </div
+              ><section>
+                <span class="fa fa-bars"></span>
+              </section>
+
+            </li>
+
+          </ul>
+        </div>
   </div>
+
 
 </script>
 
