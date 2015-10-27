@@ -1014,22 +1014,45 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 	template: _.template($('#backend-settings-view').text()),
 
 	render: function () {
+    var self = this;
     var user = Parse.User.current();
     user.fetch().then(function (i) {
       console.log(i);
-      this.$el.html(this.template(i));
-    $('.body-container').append(this.el);
+      self.$el.html(self.template(i));
+      $('.body-container').append(self.el);
     });
 		
 		BeMe.renderedViews.push(this);
 	},
 
   events: {
-    'click #avatar-upload' : 'uploadAvatar'
+    'click #avatar-upload' : 'uploadAvatar',
+    'click .save-button' : 'updateProfile'
   },
 
-  updateProfile: function () {
+  updateProfile: function (e) {
+    e.preventDefault();
     var user = Parse.User.current();
+
+    var businessName = $('input[type="business-name"]').val();
+    var handle = $('input[name="handle"]').val();
+    var city = $('input[name="city"]').val();
+    var state = $('input[name="state"]').val();
+    var zip = $('input[name="zip"]').val();
+    var phoneNumber = $('input[name="phone-number"]').val();
+    var website = $('input[name="website"]').val();
+
+    user.set('businessName', businessName);
+    user.set('handle', handle);
+    user.set('City',city);
+    user.set('State',state);
+    user.set('zip',zip);
+    user.set('phoneNumber',phoneNumber);
+    user.set('website',website);
+
+    user.save().then(function() {
+      alert('done');
+    });
   },
 
   uploadAvatar: function () {
