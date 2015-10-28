@@ -942,11 +942,7 @@ BeMe.Views.DayView = Parse.View.extend({
     $('.calendar-standing').empty();
 		calendarDaily.empty();
 
-		/* Not working properly? */
-		_.each(this.commentViews, function (i) {
-			i.removeRenderedView();
-		});
-		this.commentViews = [];
+		BeMe.removeGroup(this.commentViews);
 
 		if (this.model.get('models')) {
 			_.each(this.model.get('models'), function (i) {
