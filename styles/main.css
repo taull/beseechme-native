@@ -2234,7 +2234,7 @@ svg rect {
   transform: rotate(-135deg); }
 
 .hidden {
-  display: none; }
+  display: none !important; }
 
 #backend-settings aside {
   width: 100%;
