@@ -158,13 +158,14 @@
       </div>
 
       <div class="backend-slideout">
-
-        <i class="fa fa-caret-up"></i>
+        <aside>
+          <span class="fa fa-caret-up"></span>
+        </aside>
         <div class="bar-search">
           <form action>
             <span class="fa fa-search"></span>
             <input type="text" placeholder="Search Bars">
-            <button id="bar-submit">Search</button>
+            <button id="bar-submit"><i class="fa fa-plus"></i></button>
           </form>
         </div
 
@@ -798,39 +799,38 @@
               <p id='sign-in'>Sign In</p>
             <% } %>
           </div
-
-          ><li>
-            <span id="slideout-trigger" class="fa fa-caret-down"></span>
-          </li>
+          ><li id="slideout-trigger">
+            <h1>Options</h1
+            ><span class="fa fa-chevron-down"></span>
+          </li><a href="#business/craftanddraft"><section>
+            <img src="images/default-avatar.png">
+          </section
+          ></a>
 
         </ul>
       </div>
 
       <div class="backend-slideout">
+        <aside>
+          <span class="fa fa-caret-up"></span>
+        </aside>
         <div class="bar-search">
           <form action>
             <span class="fa fa-search"></span>
             <input type="text" placeholder="Search Bars">
-            <button id="bar-submit">Search</button>
+            <button id="bar-submit"><i class="fa fa-plus"></i></button>
           </form>
         </div
-        ><aside>
-          <li><span class="fa fa-search"></span></li>
-          <li><span class="fa fa-comments"></span></li>
-          <li><span class="fa fa-cog"></span></li>
-          <li><span class="fa fa-power-off"></span></li>
-
-        </aside
 
         ><section>
           <div class="backend-tabs">
             <ul>
               <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
               ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
-              ><a href="#backend/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
               ><a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
               ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
-              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
+              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a
+              ><li id="logout"><span class="fa fa-cog"></span><h1>Logout</h1><p>Keep your customers up to date</p></li>
             </ul>
           </div>
           
@@ -840,9 +840,13 @@
 
     </div>
   </header>
+  
+
+
   <div class="top-container">
     
   </div>
+
 </script>
 
 <script type="text/template" id="business-home-view">
@@ -1001,51 +1005,31 @@
 <script type="text/template" id="business-beer-view">
 
   <div class="business-container">
-    <div class="narrow-container">
+    <div class="left-container">
+      <div class="business-cover">
+          <img src="images/craft2.jpg">
+        </div>
+        <div class="business-home">
+          <section>
+                <img src="images/craftdraft-logo.jpeg">
 
-      <div class="business-info">
-        <section>
-          <li>
-            <aside><img src="images/bar-logo.png"></aside>
-            <div>
-              <h1><%= Parse.User.current().get('businessName') %></h1>
-              <i class="fa fa-check-circle"></i>
-              <p>2714 Blossom St</p>
-            </div>
-          </li>
-        </section>
-      </div>
+              <h1>Craft and Draft</h1>
+              <p>2717 Blossom St, Columbia, SC 29205</p>
 
-      <div class="business-tabs">
-        <ul>
-          <a href="#business/feed"><li><span class="fa fa-comments"></span><p>My Feed</p></li></a>
-          <a href="#business/beer"><li><span class="fa fa-beer"></span><p>Beer List</p></li></a>
-          <a href="#business/competition"><li><span class="fa fa-cog"></span><p>Competition</p></li></a>
-          <a href="#business/calendar"><li><span class="fa fa-calendar-o"></span><p>Calendar</p></li></a>
-        </ul>
-      </div>
+          </section>
+        </div>
 
-      <div class="copyright-info">
-        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-        <p>Beseech Me®, LLC</p>
-      </div>
+    </div
 
-    </div>
+    ><div class="middle-container">
+      <div class="wide-container">
 
-    <div class="wide-container">
+        <div class="profile-beer-list">
+          <ul>
 
-      <div class="module-header">
-        <p>Draft Beer</p>
-      </div>
+          </ul>
+        </div>
 
-      <div class="profile-beer-list">
-        <ul>
-
-        </ul>
-      </div>
-
-      <div class="view-all">
-        <a>View All Beer</a>
       </div>
     </div>
   </div>

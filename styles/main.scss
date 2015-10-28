@@ -339,14 +339,18 @@ header {
 
     }
 
-    i {
-    	position: absolute;
-	    float: right;
-	    font-size: 2em;
-	    color: #fff;
-	    top: -15px;
-	    left: 20px;
+    aside {
+    	span {
+	    	position: absolute;
+		    float: right;
+		    font-size: 2em;
+		    color: #fff;
+		    top: -15px;
+		    left: 20px;
+	    }
     }
+
+    
 }
 
 
@@ -1310,16 +1314,20 @@ header {
 	}
 
 	button {
-		background: $green-light;
-		width: 15%;
+		background: rgba(255,255,255,.1);
 		outline: 0;
 		border: 0;
 		border-radius: 4px;
 		color: #fff;
 		font-size: 1em;
 		font-weight: 300;
-		padding: 10px 0;
+		padding: 10px;
 		margin-top:18px;
+	}
+
+	i {
+		font-size: 1em;
+
 	}
 
 	a {
@@ -1337,18 +1345,12 @@ header {
 	    text-align: right;
 	}
 
-	i {
-		/*width: 20%;*/
-		/*padding-right: 5px;*/
-		font-size: 24px;
-		color:#F44336;
-	}
 }
 
 .bar-search {
 	margin-top:0;
 	width: 100%;
-	background: $green-dark;
+	/*background: $green-dark;*/
 
 	span {
 		color: $green-light;
@@ -3446,9 +3448,9 @@ svg rect{
 		vertical-align: top;
 		display: inline-block;
 		width: 14.285714285%;
-		background:#fff;
-		border-left: 1px solid #f0f0f0;
-		border-right: 1px solid #fff;
+		background:#f0f0f0;
+		/*border-left: 1px solid #f0f0f0;
+		border-right: 1px solid #fff;*/
 
 		text-align: center;
 		padding:10px 5px 15px;

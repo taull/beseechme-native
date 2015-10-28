@@ -245,8 +245,8 @@ header {
     width: 100%;
     padding: 0 10px;
     /*border-left: 1px solid #333;*/ }
-  .backend-slideout i,
-  .consumer-slideout i {
+  .backend-slideout aside span,
+  .consumer-slideout aside span {
     position: absolute;
     float: right;
     font-size: 2em;
@@ -991,16 +991,18 @@ header {
     color: #f8f8f8; }
   .beer-search button,
   .bar-search button {
-    background: #8BC34A;
-    width: 15%;
+    background: rgba(255, 255, 255, 0.1);
     outline: 0;
     border: 0;
     border-radius: 4px;
     color: #fff;
     font-size: 1em;
     font-weight: 300;
-    padding: 10px 0;
+    padding: 10px;
     margin-top: 18px; }
+  .beer-search i,
+  .bar-search i {
+    font-size: 1em; }
   .beer-search a,
   .bar-search a {
     width: 15%;
@@ -1015,17 +1017,11 @@ header {
     padding-right: 20px;
     cursor: pointer;
     text-align: right; }
-  .beer-search i,
-  .bar-search i {
-    /*width: 20%;*/
-    /*padding-right: 5px;*/
-    font-size: 24px;
-    color: #F44336; }
 
 .bar-search {
   margin-top: 0;
   width: 100%;
-  background: #689F38; }
+  /*background: $green-dark;*/ }
   .bar-search span {
     color: #8BC34A; }
 
@@ -2657,9 +2653,9 @@ svg rect {
     vertical-align: top;
     display: inline-block;
     width: 14.285714285%;
-    background: #fff;
-    border-left: 1px solid #f0f0f0;
-    border-right: 1px solid #fff;
+    background: #f0f0f0;
+    /*border-left: 1px solid #f0f0f0;
+    border-right: 1px solid #fff;*/
     text-align: center;
     padding: 10px 5px 15px;
     cursor: pointer;
