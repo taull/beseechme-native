@@ -42,7 +42,7 @@ input [file] {
 body {
 	font-size: 12px;
 	position: relative;
-	background: #e5e5e5;
+	background: #f8f8f8;
 	width: 100%;
 	margin: 0 auto;
 	overflow-x: hidden;
@@ -63,7 +63,7 @@ body {
     margin: 0 auto;
     position:relative;
     z-index:1;
-    border-top: 15px solid #e5e5e5;
+    /*border-top: 15px solid #e5e5e5;*/
     overflow: hidden;
     /*border-right: 1px solid #dfdfdf;*/
 }
@@ -77,8 +77,8 @@ body {
 
 .left-container {
 	width: 40%;
-	padding: 5px;
-	background: #fff;
+	/*background: #fff;
+	padding: 5px;*/
 }
 
 .middle-container {
@@ -108,7 +108,6 @@ header {
     position: relative;
     left: 0;
     z-index: 9999999;
-    background: #333;
 }
 
 .header-container {
@@ -146,9 +145,10 @@ header {
 .header-right {
 	display: inline-block;
 	vertical-align: top;
-	width: 45%;
+	width: 100%;
 	position: relative;
     z-index: 999999999;
+    text-align: left;
 
 	img {
 		width: 100px;
@@ -161,15 +161,15 @@ header {
 		background: rgba(255,255,255,.1);
 		height: 70px;
 		padding: 27.5px 15px;
-		float: right;
 		cursor: pointer;
 
 		span {
 			display: inline-block;
 		    vertical-align: top;
-		    font-size: 16px;
-		    color: #f8f8f8;
+		    font-size: 12px;
+		    color: #333;
 		    text-align: center;
+		    padding-top: 4px;
 		    /*border-radius: 0px 2px 2px 0px;*/
 		    /*border-radius: 4px;*/
 		}
@@ -188,8 +188,8 @@ header {
 
 		h1 {
 			font-size: 1.2em;
-		    font-weight: 400;
-		    color: #f8f8f8;
+		    font-weight: 500;
+		    color: #333;
 		    display: inline-block;
 		    vertical-align: top;
 		    padding-right: 10px;
@@ -225,6 +225,18 @@ header {
 
 		}
 	}
+
+	section {
+		display: inline-block;
+		vertical-align: top;
+		padding: 20px 30px 0;
+
+		img {
+			width: 30px;
+			height: auto;
+			border-radius: 20px;
+		}
+	}
 	
 }
 
@@ -234,6 +246,7 @@ header {
 	width: 45%;
 	text-align: center;
 	padding-top:15px;
+	display: none;
 
 	h1 {
 		/*background: #f8f8f8;*/
@@ -250,6 +263,7 @@ header {
 	text-align: right;
 	width: 10%;
 	padding-top:15px;
+	display: none;
 
 	div {
 		display: inline-block;
@@ -285,12 +299,13 @@ header {
 	position: absolute;
 	top:70px;
     width: 40%;
-    right: 0;
+    left: 0;
     float:right;
+    border-radius: 0px 0px 3px 3px;
     background: #fff;
     padding: 5px;
     /*border: 1px solid #d8d8d8;*/
-    box-shadow: 0 0 30px -15px #000;
+    /*box-shadow: 0 0 30px -15px #000;*/
     z-index: 9999999999999;
     transition: 250ms;
 
@@ -330,7 +345,7 @@ header {
 	    font-size: 2em;
 	    color: #fff;
 	    top: -15px;
-	    right: 20px;
+	    left: 20px;
     }
 }
 
@@ -416,7 +431,7 @@ header {
 	}
 
 	a:last-child li {
-		border-right:0;
+		border-bottom:0;
 	}
 
 	a:first-child li{
@@ -1152,7 +1167,7 @@ header {
 
 .business-home {
 	width: 100%;
-	background: $primary-color-light;
+	background: #fff;
 
 	section {
 		padding: 30px 15px;
@@ -1268,9 +1283,9 @@ header {
 	span {
 		display: inline-block;
 		vertical-align: top;
-		width: 15%;
+		width: 20%;
 		font-size: 1.2em;
-		color: $secondary-color-light;
+		color: #f8f8f8;
 		text-align: right;
 		padding-right: 20px;
 		padding-top: 28px;
@@ -1278,10 +1293,10 @@ header {
 
 	input {
 		display: inline-block;
-		color: #f8f8f8;
+		color: #fff;
 		vertical-align: top;
 		height: 70px;
-		width: 65%;
+		width: 60%;
 		border: 0;
 		background: transparent;
 		outline: 0;
@@ -1291,11 +1306,11 @@ header {
 	}
 
 	input::-webkit-input-placeholder {
-		color: #d8d8d8;
+		color: #f8f8f8;
 	}
 
 	button {
-		background: #555;
+		background: $green-light;
 		width: 15%;
 		outline: 0;
 		border: 0;
@@ -1333,6 +1348,11 @@ header {
 .bar-search {
 	margin-top:0;
 	width: 100%;
+	background: $green-dark;
+
+	span {
+		color: $green-light;
+	}
 }
 
 .beer-search-shift {
@@ -1533,9 +1553,9 @@ header {
 		border-top:0;
 	}
 
-	li:nth-child(odd) {
+	/*li:nth-child(odd) {
 		background: #fff;
-	}
+	}*/
 
 	aside {
 		display: inline-block;
@@ -1751,12 +1771,9 @@ svg rect{
 		display: inline-block;
 		width: 40%;
 		vertical-align: top;
-		background: #333;
+		background: #fff;
 		padding: 17.5px 0px;
 		text-align: center;
-/*		border-right: 1px solid #222;
-		border-left: 1px solid #555;
-		border-bottom: 1px solid #222;*/
 		height: 70px;
 		cursor: pointer;
 		transition: 250ms;
@@ -1768,11 +1785,9 @@ svg rect{
 	}
 
 	li:first-child {
-		border-left: 0;
 	}
 
 	li:last-child {
-		border-right: 0;
 	}
 
 	i {
@@ -1783,7 +1798,7 @@ svg rect{
 	h1 {
 		font-size: 1.2em;
 		text-transform: uppercase;
-		color: #f0f0f0;
+		color: #999;
 	}
 
 	p {
@@ -1791,20 +1806,21 @@ svg rect{
 		text-transform: uppercase;
 		font-weight: 300;
 		margin-top: 5px;
-		color: #f0f0f0;
+		color: #999;
 	}
 }
 
 .active-beer-type, 
 .active-feed-type {
-	background:#424242 !important;
+	background:#fff !important;
+	/*border: 1px solid $secondary-color-medium;*/
 
 	h1 {
-		color: #f0f0f0;
+		color: #333;
 	}
 
 	p {
-		color: #f0f0f0;
+		color: #555;
 	}
 }
 
@@ -2295,7 +2311,7 @@ svg rect{
 		/*border-radius: 2px;*/
 	}
 
-	li:nth-child(even) {
+	li:nth-child(odd) {
 		background: #fff;
 	}
 
@@ -3083,6 +3099,7 @@ svg rect{
 	background: $primary-color-light;
 	padding-top:15px;
 	z-index: 1;
+	margin-top: 15px;
 
 	li {
 	} 
@@ -3117,6 +3134,12 @@ svg rect{
 		background: $primary-color-light;
 	}
 
+	li:nth-child(5) {
+		text-align: center;
+		width: 100%;
+		padding-top:10px;
+	}
+
 
 	input {
 		display: inline-block;
@@ -3140,7 +3163,7 @@ svg rect{
 	}
 
 	input::-webkit-input-placeholder {
-		color: #d8d8d8;
+		color: #555;
 	}
 
 	select {
@@ -3253,14 +3276,13 @@ svg rect{
 }
 
 .input-comment {
-	text-align: left;
-	width: 75%;
+	text-align: center;
+	width: 100%;
 	border: 0;
 	outline: 0;
 	border-radius: 0;
 	font-size: 1.2em;
 	font-weight: 300;
-	text-indent: 25px;
 	height: 33px;
 	color: #333;
 }
@@ -3410,7 +3432,6 @@ svg rect{
 	width: 100%;
 	/*border: 1px solid #d8d8d8;*/
 	background: #fff;
-	margin-top:10px;
 	margin-bottom: 10px;
 	position: relative;
 	/*border-right:0;
@@ -3425,7 +3446,7 @@ svg rect{
 		vertical-align: top;
 		display: inline-block;
 		width: 14.285714285%;
-		background:$primary-color-light;
+		background:#fff;
 		border-left: 1px solid #f0f0f0;
 		border-right: 1px solid #fff;
 
@@ -3731,7 +3752,7 @@ article {
 		display: block;
 		padding: 20px 20px;
 		height: 60px;
-		background: #f8f8f8;
+		background: #fff;
 		border-bottom: 1px solid #f0f0f0;
 	}
 
@@ -3740,7 +3761,7 @@ article {
 	}
 
 	li:hover {
-		background:#f8f8f8;
+		background:#fff;
 	}
 
 	div {
@@ -4470,7 +4491,10 @@ svg rect{
 	.location-container, 
 	.sidebar, 
 	.top-container, 
-	.body-container {
+	.body-container, 
+	.left-container, 
+	.middle-container, 
+	.backend-slideout {
 		width: 100%;
 	}
 
@@ -4502,6 +4526,10 @@ svg rect{
 	.body-container {
 		/*top:56px;*/
 		padding: 0px;
+	}
+
+	.middle-container {
+		padding-left: 0;
 	}
 
 	.top-container {
