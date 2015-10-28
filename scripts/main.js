@@ -425,6 +425,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 	initialize: function () {
     this.beerType = null;
     this.pageNumber = 1;
+    this.views = [];
 		this.render();
 
 
@@ -452,9 +453,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
       $('.profile-beer-list').removeClass('hidden');
     }
 
-		$('#backend-draft-tab').click(resetSearchFunction);
-
-		$('#backend-bottle-tab').click(resetSearchFunction);
+		$('#backend-draft-tab, #backend-bottle-tab').click(resetSearchFunction);
 
 		$('#beer-submit').click(function(){
 			$('.narrow-container').addClass('narrow-container-shift');
@@ -486,8 +485,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
   },
 
   emptyBeerList: function () {
-    $('.profile-beer-list ul').empty();
-    $('.beer-search-results ul').empty();
+    BeMe.removeGroup(this.views);
   },
 
   searchBreweryDB: function (e) {
@@ -500,18 +498,18 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 
     Parse.Cloud.run('searchBrewery', {queryString:queryString})
     .then(function (beers) {
+
       self.collection.remove();
       self.removeSpinner();
       self.collection.reset();
       console.log(self.collection);
 
-      // self.emptyBeerList();
-      // $('.beer-search input').val('');
+      self.emptyBeerList();
+      $('.load-more-button').addClass('hidden');
 
 
       if (beers) {
         self.collection.add(beers);
-        console.log(self.collection);
 
         self.collection.render();
       } else {
@@ -541,7 +539,8 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
       self.emptyBeerList();
       self.removeSpinner();
       _.each(e, function (i) {
-        new BeMe.Views.BackendBeer({model:i,type:'draftBeers'});
+        var newView = new BeMe.Views.BackendBeer({model:i,type:'draftBeers'});
+        self.views.push(newView);
       });
     });
   },
@@ -559,7 +558,8 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
       self.emptyBeerList();
       self.removeSpinner();
       _.each(e, function (i) {
-        new BeMe.Views.BackendBeer({model:i, type:'bottledBeers'});
+        var newView = new BeMe.Views.BackendBeer({model:i, type:'bottledBeers'});
+        self.views.push(newView);
       });
     });
   },
@@ -602,7 +602,8 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     .then(function (e) {
       self.removeSpinner();
       _.each(e, function (i) {
-        new BeMe.Views.BackendBeer({model:i, type:'bottledBeers'});
+        var newView = new BeMe.Views.BackendBeer({model:i, type:'bottledBeers'});
+        self.views.push(newView);
       });
     });
 
@@ -652,7 +653,6 @@ BeMe.Collections.BeerResults = Parse.Collection.extend({
   },
 
   render: function () {
-
     var self = this;
     this.remove();
     this.views = [];
@@ -663,12 +663,8 @@ BeMe.Collections.BeerResults = Parse.Collection.extend({
   },
 
   remove: function () {
-    _.each(this.views, function (i) {
-      i.remove();
-    });
-    this.views = [];
+    BeMe.removeGroup(this.views);
   }
-
 });
 
 BeMe.Views.BeerResult = Parse.View.extend({
@@ -1035,7 +1031,7 @@ BeMe.Views.BackendSettings = Parse.View.extend({
     var businessName = $('input[type="business-name"]').val();
     var handle = $('input[name="handle"]').val();
     var city = $('input[name="city"]').val();
-    var state = $('input[name="state"]').val();
+    var state = $('select[name="state"]').val();
     var zip = $('input[name="zip"]').val();
     var phoneNumber = $('input[name="phone-number"]').val();
     var website = $('input[name="website"]').val();
@@ -1043,7 +1039,7 @@ BeMe.Views.BackendSettings = Parse.View.extend({
     user.set('businessName', businessName);
     user.set('handle', handle);
     user.set('City',city);
-    user.set('State',state);
+    user.set('state',state);
     user.set('zip',zip);
     user.set('phoneNumber',phoneNumber);
     user.set('website',website);
