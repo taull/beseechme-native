@@ -1233,7 +1233,7 @@ BeMe.Views.BusinessBeerList = Parse.View.extend({
     $("#backend-bottle-tab").removeClass('active-beer-type');
     $("#backend-draft-tab").addClass('active-beer-type');
     //Parse.User.fetch().then do what's below?
-    Parse.Cloud.run('getBeers', {array:this.getIdArray(Parse.User.current().get('draftBeers'),1)})
+    Parse.Cloud.run('getBeers', {array:this.getIdArray(self.model.get('draftBeers'),1)})
     .then(function (e) {
       self.emptyBeerList();
       self.removeSpinner();
@@ -1252,7 +1252,7 @@ BeMe.Views.BusinessBeerList = Parse.View.extend({
     $("#backend-draft-tab").removeClass('active-beer-type');
     $("#backend-bottle-tab").addClass('active-beer-type');
     //Parse.User.fetch().then do what's below?
-    Parse.Cloud.run('getBeers', {array:this.getIdArray(Parse.User.current().get('bottledBeers'),1)})
+    Parse.Cloud.run('getBeers', {array:this.getIdArray(self.model.get('bottledBeers'),1)})
     .then(function (e) {
       self.emptyBeerList();
       self.removeSpinner();
