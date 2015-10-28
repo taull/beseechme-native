@@ -1452,7 +1452,6 @@ svg rect {
 .bar-search-results {
   width: 100%;
   background: #f8f8f8;
-  /*border-bottom: 1px solid $primary-color-medium;*/
   position: relative; }
   .beer-search-results ul,
   .bar-search-results ul {
@@ -2235,7 +2234,7 @@ svg rect {
   transform: rotate(-135deg); }
 
 .hidden {
-  display: none !important; }
+  display: none; }
 
 #backend-settings aside {
   width: 100%;
