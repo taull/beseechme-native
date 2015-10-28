@@ -34,7 +34,7 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
 
 
   //route object
-  BeMe.BackendCalendarRoute = {};
+  BeMe.Calendar = {};
 })();
 
 /*
@@ -740,7 +740,7 @@ BeMe.Views.BackendCompetition = Parse.View.extend({
 BeMe.Views.BackendCalendar = Parse.View.extend({
 	initialize: function () {
 		this.render();
-    BeMe.BackendCalendarRoute.DaysView = new BeMe.Views.DaysView({collection:new BeMe.Collections.WeeklyComments()});
+    BeMe.Calendar.DaysView = new BeMe.Views.DaysView({collection:new BeMe.Collections.WeeklyComments(), user:Parse.User.current()});
 	},
 
 	template: _.template($('#backend-calendar-view').text()),
@@ -759,7 +759,7 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 
   post: function (e) {
     e.preventDefault();
-    BeMe.BackendCalendarRoute.DaysView.postWeeklyComment(); //calls method on child view
+    BeMe.Calendar.DaysView.postWeeklyComment(); //calls method on child view
   }
 
 });
@@ -767,8 +767,8 @@ BeMe.Views.BackendCalendar = Parse.View.extend({
 BeMe.Views.DaysView = Parse.View.extend({
   initialize: function () {
     this.dayViews = [];
-    this.query();
     this.activeViewIndex = 0;
+    this.query(this.options.user);
   },
 
   render: function () {
@@ -871,7 +871,7 @@ BeMe.Views.DaysView = Parse.View.extend({
 
   },
 
-  query: function () {
+  query: function (user) {
 
 		var timeBasedQuery = new Parse.Query("weeklyComment");
 		var beginningOfDay = new moment();
@@ -886,8 +886,8 @@ BeMe.Views.DaysView = Parse.View.extend({
 		var standingCommentQuery = new Parse.Query("weeklyComment");
 		standingCommentQuery.exists('dayOfWeek');
 
-    timeBasedQuery.equalTo('createdBy', Parse.User.current());
-    standingCommentQuery.equalTo('createdBy', Parse.User.current());
+    timeBasedQuery.equalTo('createdBy', user);
+    standingCommentQuery.equalTo('createdBy', user);
 
 		var query = Parse.Query.or(timeBasedQuery, standingCommentQuery);
 
@@ -926,7 +926,7 @@ BeMe.Views.DayView = Parse.View.extend({
     var $ul = $('.seven-day-nav ul li');
     var index = _.indexOf($ul, this.el);
 
-    BeMe.BackendCalendarRoute.DaysView.activeViewIndex = index;
+    BeMe.Calendar.DaysView.activeViewIndex = index;
 
     this.displayComments();
   },
@@ -979,7 +979,7 @@ BeMe.Views.CommentDisplay = Parse.View.extend({
 
   deleteComment: function () {
     this.model.destroy();
-    BeMe.BackendCalendarRoute.DaysView.render();
+    BeMe.Calendar.DaysView.render();
   }
 })
 
@@ -1308,6 +1308,21 @@ BeMe.Views.BusinessBeerList = Parse.View.extend({
   }
 });
 
+BeMe.Views.BusinessCalendar = Parse.View.extend({
+  initialize: function () {
+    this.render();
+    BeMe.Calendar.DaysView = new BeMe.Views.DaysView({collection:new BeMe.Collections.WeeklyComments(), user: this.model});
+  },
+
+  template: _.template($('#business-calendar-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+  }
+})
+
 
 
 /* Router */
@@ -1326,6 +1341,7 @@ var Router = Parse.Router.extend({
     'business/:handle' : 'businessHome',
     'business/:handle/feed' : 'businessFeed',
     'business/:handle/beer' : 'businessBeerList',
+    'business/:handle/calendar' : 'businessCalendar',
     'test' : 'test'
 	},
 
@@ -1403,7 +1419,7 @@ var Router = Parse.Router.extend({
 	backendCalendar: function () {
 		BeMe.removeAllViews();
 		new BeMe.Views.Backend();
-		BeMe.BackendCalendarRoute.CalendarView = new BeMe.Views.BackendCalendar();
+		BeMe.Calendar.CalendarView = new BeMe.Views.BackendCalendar();
 	},
 
 	backendSettings: function () {
@@ -1463,8 +1479,18 @@ var Router = Parse.Router.extend({
 
   businessCalendar: function (handle) {
     BeMe.removeAllViews();
-    new BeMe.Views.Business();
-    new BeMe.Views.BusinessCalendar();
+
+    var query = new Parse.Query('User');
+    query.equalTo('handle', handle);
+    query.first().then(function (i) {
+      if (i) {
+        new BeMe.Views.Business({model:i});
+        new BeMe.Views.BusinessCalendar({model:i});
+      } else {
+        new BeMe.Views.BusinessError(handle);
+      }
+      console.log(i);
+    });
   }
 });
 
