@@ -1297,7 +1297,7 @@ BeMe.Views.BusinessBeerList = Parse.View.extend({
 
     var self = this;
 
-    Parse.Cloud.run('getBeers', {array:this.getIdArray(Parse.User.current().get(beerType),pageNumber)})
+    Parse.Cloud.run('getBeers', {array:this.getIdArray(self.model.get(beerType),pageNumber)})
     .then(function (e) {
       self.removeSpinner();
       _.each(e, function (i) {
@@ -1307,6 +1307,8 @@ BeMe.Views.BusinessBeerList = Parse.View.extend({
     });
   }
 });
+
+/* Business Calendar */
 
 BeMe.Views.BusinessCalendar = Parse.View.extend({
   initialize: function () {
@@ -1323,7 +1325,57 @@ BeMe.Views.BusinessCalendar = Parse.View.extend({
   }
 })
 
+/* Bar Search */
 
+BeMe.Views.BarSearch = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#bar-search-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+    $('input').val(this.options.query); //keep an eye on this
+  }
+});
+
+BeMe.Views.BarSearchResults = Parse.View.extend({
+  initialize: function () {
+    this.renderedViews = [];
+    this.render();
+  },
+
+  render: function () {
+    BeMe.removeGroup(this.renderedViews);
+    var self = this;
+    if(this.collection.length === 0) {
+      alert('No results found');
+    } else {
+      this.collection.each(function (i) {
+        var newView = new BeMe.Views.BarSearchResult();
+        self.renderedViews.push(newView);
+    });
+    }
+  }
+});
+
+BeMe.Views.BarSearchResult = Parse.View.extend({
+  tagName: 'li', 
+
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#bar-search-result-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('bar-search-results ul').append(this.el);
+  }
+});
 
 /* Router */
 
@@ -1342,7 +1394,8 @@ var Router = Parse.Router.extend({
     'business/:handle/feed' : 'businessFeed',
     'business/:handle/beer' : 'businessBeerList',
     'business/:handle/calendar' : 'businessCalendar',
-    'test' : 'test'
+    'test' : 'test',
+    'search/:query' : 'search'
 	},
 
   test: function () {
@@ -1366,7 +1419,7 @@ var Router = Parse.Router.extend({
       }
     });
 
-    window.childView = new ChildView({model:new Parse.Object({name:"Justin"})});
+    new ChildView({model:new Parse.Object({name:"Justin"})});
 
     //end basic inheritance functionality
 
@@ -1490,6 +1543,21 @@ var Router = Parse.Router.extend({
         new BeMe.Views.BusinessError(handle);
       }
       console.log(i);
+    });
+  },
+
+  search: function (queryString) {
+    BeMe.removeAllViews();
+    var queryString = decodeURIComponent(queryString).toLowerCase();
+    new BeMe.Views.BarSearch({query:queryString});
+
+    var query = new Parse.Query('User');
+    query.contains('businessNameLowercase', queryString);
+    query.find().then(function (i) {
+      var collection = new Parse.Collection(i);
+      console.log(collection);
+      collection.each(function (i) {alert(i.get('businessName'))});
+      new BeMe.Views.BarSearchResults({collection:collection});
     });
   }
 });
