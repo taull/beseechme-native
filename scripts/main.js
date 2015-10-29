@@ -309,7 +309,7 @@ BeMe.Views.Backend = Parse.View.extend({
 	},
 
   events: {
-    'submit form' : 'search'
+    'submit form[name="bar-search"]' : 'search'
   },
 
   search: function (e) {
@@ -1574,7 +1574,6 @@ var Router = Parse.Router.extend({
   search: function (queryString) {
     BeMe.removeAllViews();
     var queryString = decodeURIComponent(queryString);
-    console.log(queryString);
     new BeMe.Views.BarSearch({query:queryString});
     var queryString = queryString.toLowerCase();
 
