@@ -1185,10 +1185,10 @@
 <!-- Bar Search View -->
 
 <script type="text/template" id="bar-search-results-view">
-  <aside><img src="images/craftdraft-logo.jpeg"></aside>
+  <aside><img src="<%= attributes.avatar._url %>"></aside>
   <section>
-    <h1>Craft and Draft</h1>
-    <p>2727 Blossom St., Columbia, SC 29205</p>
+    <h1><%= attributes.businessName %></h1>
+    <p><%= attributes.address %>, <%= attributes.City %>, <%= attributes.state %> <%= attributes.zip %></p>
   </section>
 
 </script>
