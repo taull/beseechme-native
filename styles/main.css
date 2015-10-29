@@ -716,7 +716,6 @@ header {
   width: 100%;
   display: inline-block;
   vertical-align: top;
-  background: #444;
   transition: 250ms; }
 
 .narrow-container-shift {
@@ -1336,7 +1335,7 @@ svg rect {
   .profile-beer-tabs li,
   .backend-feed-tabs li {
     display: inline-block;
-    width: 40%;
+    width: 40.001%;
     vertical-align: top;
     background: #fff;
     padding: 17.5px 0px;
