@@ -1335,10 +1335,9 @@ BeMe.Views.BarSearch = Parse.View.extend({
   template: _.template($('#bar-search-view').text()),
 
   render: function () {
-    this.$el.html(this.template(this.model));
+    this.$el.html(this.template(this.options));
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
-    $('input').val(this.options.query);
   }
 });
 
@@ -1548,8 +1547,8 @@ var Router = Parse.Router.extend({
 
   search: function (queryString) {
     BeMe.removeAllViews();
-    var queryString = decodeURIComponent(queryString).toLowerCase();
     new BeMe.Views.BarSearch({query:queryString});
+    var queryString = decodeURIComponent(queryString).toLowerCase();
 
     var query = new Parse.Query('User');
     query.contains('businessNameLowercase', queryString);
