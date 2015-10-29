@@ -41,6 +41,12 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
 	Begin utility functions
 */
 
+BeMe.searchBars = function (searchString) {
+  var encodedString = encodeURIComponent(searchString);
+
+  BeMe.Router.navigate('search/' + encodedString, true);
+}
+
 BeMe.removeGroup = function (group) {
   _.each(group, function (i) {
     i.remove();
@@ -300,7 +306,17 @@ BeMe.Views.Backend = Parse.View.extend({
     $('#slideout-trigger').click(function(){
       $('.backend-slideout').toggleClass('show');
     });
-	}
+	},
+
+  events: {
+    'submit form' : 'search'
+  },
+
+  search: function (e) {
+    e.preventDefault();
+    var searchString = $('input').val();
+    BeMe.searchBars(searchString);
+  }
 });
 
 
@@ -1338,6 +1354,16 @@ BeMe.Views.BarSearch = Parse.View.extend({
     this.$el.html(this.template(this.options));
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
+  },
+
+  events: {
+    'submit form' : 'search'
+  },
+
+  search: function (e) {
+    e.preventDefault();
+    var searchString = $('input').val();
+    BeMe.searchBars(searchString);
   }
 });
 
@@ -1547,8 +1573,10 @@ var Router = Parse.Router.extend({
 
   search: function (queryString) {
     BeMe.removeAllViews();
+    var queryString = decodeURIComponent(queryString);
+    console.log(queryString);
     new BeMe.Views.BarSearch({query:queryString});
-    var queryString = decodeURIComponent(queryString).toLowerCase();
+    var queryString = queryString.toLowerCase();
 
     var query = new Parse.Query('User');
     query.contains('businessNameLowercase', queryString);
