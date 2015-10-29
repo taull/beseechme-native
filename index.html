@@ -134,8 +134,7 @@
         <h1></h1>
       </div
 
-      ><div class="header-center">
-      </div
+      
 
       ><div class="header-right">
         <ul>
@@ -155,35 +154,39 @@
           ></a>
 
         </ul>
-      </div>
+      </div
 
-      <div class="backend-slideout">
-        <aside>
-          <span class="fa fa-caret-up"></span>
-        </aside>
+      ><div class="header-center">
+
         <div class="bar-search">
           <form action>
             <span class="fa fa-search"></span>
             <input type="text" placeholder="Search Bars">
-            <button id="bar-submit"><i class="fa fa-plus"></i></button>
+            <button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
           </form>
-        </div
+        </div>
+      </div
 
-        ><section>
+      ><div class="backend-slideout">
+        <aside>
+          <span class="fa fa-caret-up"></span>
+        </aside>
+        
+        <section>
           <div class="backend-tabs">
             <ul>
               <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
               ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
-              ><a href="#backend/competition"><li><span class="fa fa-cog"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
+              ><a href="#backend/competition"><li><span class="fa fa-users"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
               ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
-              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a
-              ><li id="logout"><span class="fa fa-cog"></span><h1>Logout</h1><p>Keep your customers up to date</p></li>
+              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
             </ul>
           </div>
           
         </section>
         
       </div>
+      
 
     </div>
   </header>
@@ -202,38 +205,40 @@
 
     <div class="feed-post">
 
-      <div class="feed-info">
+      <section class="feed-info">
         <% var user = attributes.createdBy %>
-        <div class="feed-avatar">
-          <div class="feed-logo">
+        <section class="feed-avatar">
+          <section class="feed-logo">
             <% if (typeof user.attributes.avatar !=='undefined') { %>
-            <img src=<%= user.attributes.avatar._url %> >
-            <% } else { %>
-            <img src="images/default-avatar.png">
-            <% } %>
-          </div>
-        </div
-        ><div class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></div
-        ><div class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></div>
+                <img src=<%= user.attributes.avatar._url %> >
+                <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+          </section>
+        </section
+        ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></section
+        ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></section>
 
-      </div>
+      </section>
 
-      <div class="feed-status">
-        <div>
+      <section class="feed-status">
+        <aside>
           <p><%= attributes.content %></p>
-        </div>
-      </div>
+        </aside>
+      </section>
       <% if (typeof attributes.image !== 'undefined') {%>
-      <div class="feed-photo">
+      <section class="feed-photo">
         <a href=<%= attributes.image._url %> >
           <img src=<%= attributes.image._url %> />
         </a>
-      </div>
+      </section>
       <% } %>
-      <div class="feed-controls">
+      <section class="feed-controls">
+      <% if (Parse.User.current().get('userType') === 'consumer') { %>
         <section><i class="fa fa-location-arrow"></i><p>Check In</p></section>
         <section><i class="fa fa-check-square"></i><p>Like</p></section>
-      </div>
+      <% } %>
+      </section>
     </div>
 </script>
 
@@ -247,12 +252,12 @@
         </div>
         <div class="business-home">
           <section>
-                <img src="images/craftdraft-logo.jpeg">
-
-              <h1>Craft and Draft</h1>
+              <img src="images/craftdraft-logo.jpeg">
+              <h1>Craft and Draft</h1><i class="fa fa-check-circle"></i>
               <p>2717 Blossom St, Columbia, SC 29205</p>
-
+              <h2>(803) 254 - 2341</h2>
           </section>
+          
         </div>
     </div
     ><div class="middle-container">
@@ -366,7 +371,6 @@
         <div class="profile-beer-tabs">
           <li id="backend-draft-tab" class="active-beer-type tabs-loading">
             <h1>Draft Beer</h1>
-            <p>View All</p>
           </li
 
           ><li id="backend-add-beer" >
@@ -375,7 +379,6 @@
 
           ><li id="backend-bottle-tab" class="active-beer-type tabs-loading">
             <h1>Bottled Beer</h1>
-            <p>View All</p>
           </li>
         </div
         ><div class="beer-search">
@@ -916,40 +919,40 @@
 
     <div class="feed-post">
 
-      <div class="feed-info">
+      <section class="feed-info">
         <% var user = attributes.createdBy %>
-        <div class="feed-avatar">
-          <div class="feed-logo">
+        <section class="feed-avatar">
+          <section class="feed-logo">
             <% if (typeof attributes.avatar !=='undefined') { %>
                 <img src=<%= attributes.avatar._url %> >
                 <% } else { %>
                 <img src="images/default-avatar.png">
               <% } %>
-          </div>
-        </div
-        ><div class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></div
-        ><div class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></div>
+          </section>
+        </section
+        ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></section
+        ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></section>
 
-      </div>
+      </section>
 
-      <div class="feed-status">
-        <div>
+      <section class="feed-status">
+        <aside>
           <p><%= attributes.content %></p>
-        </div>
-      </div>
+        </aside>
+      </section>
       <% if (typeof attributes.image !== 'undefined') {%>
-      <div class="feed-photo">
+      <section class="feed-photo">
         <a href=<%= attributes.image._url %> >
           <img src=<%= attributes.image._url %> />
         </a>
-      </div>
+      </section>
       <% } %>
-      <div class="feed-controls">
+      <section class="feed-controls">
       <% if (Parse.User.current().get('userType') === 'consumer') { %>
         <section><i class="fa fa-location-arrow"></i><p>Check In</p></section>
         <section><i class="fa fa-check-square"></i><p>Like</p></section>
       <% } %>
-      </div>
+      </section>
     </div>
 </script>
 
@@ -977,11 +980,7 @@
         </div>
     </div
     ><div class="middle-container">
-
-      <div class="narrow-container">
-      </div
-
-      ><div class="wide-container">
+      <div class="wide-container">
         <div class="profile-feed">
           <ul>
           </ul>

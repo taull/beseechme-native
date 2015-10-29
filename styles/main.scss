@@ -42,7 +42,7 @@ input [file] {
 body {
 	font-size: 12px;
 	position: relative;
-	background: #f8f8f8;
+	background: #f8f8f8 ;
 	width: 100%;
 	margin: 0 auto;
 	overflow-x: hidden;
@@ -79,6 +79,11 @@ body {
 	width: 40%;
 	/*background: #fff;
 	padding: 5px;*/
+
+	section {
+		background: #fff;
+		padding: 15px;
+	}
 }
 
 .middle-container {
@@ -145,10 +150,10 @@ header {
 .header-right {
 	display: inline-block;
 	vertical-align: top;
-	width: 100%;
+	width: 70%;
 	position: relative;
     z-index: 999999999;
-    text-align: left;
+    text-align: right;
 
 	img {
 		width: 100px;
@@ -158,7 +163,7 @@ header {
 	li {
 		display: inline-block;
 		vertical-align: top;
-		background: rgba(255,255,255,.1);
+		/*background: rgba(255,255,255,.1);*/
 		height: 70px;
 		padding: 27.5px 15px;
 		cursor: pointer;
@@ -229,7 +234,7 @@ header {
 	section {
 		display: inline-block;
 		vertical-align: top;
-		padding: 20px 30px 0;
+		padding: 20px 20px 0;
 
 		img {
 			width: 30px;
@@ -259,30 +264,28 @@ header {
 
 .header-center {
 	display: inline-block;
-	vertical-align: top;
-	text-align: right;
-	width: 10%;
-	padding-top:15px;
-	display: none;
+    vertical-align: top;
+    text-align: right;
+    width: 30%;
+    height: 70px;
+    padding: 15px;
+    padding-right: 0;
+    /*display: none;*/
 
 	div {
 		display: inline-block;
 		vertical-align: top;
-		width: 25%;
-		border-radius: 4px 0px 0px 4px;
-		background: $primary-color-medium;
+
 
 
 		i {
 			display: inline-block;
 		    vertical-align: top;
-		    font-size: 16px;
-		    color: #f0f0f0;
+		    font-size: 14px;
+		    color: $green-light;
 		    width: 100%;
-		    height: 45px;
 		    text-align: center;
-		    padding-top: 15px;
-		    padding-left:3px;
+
 		}
 
 		i:first-child {
@@ -301,7 +304,6 @@ header {
     width: 40%;
     left: 0;
     float:right;
-    border-radius: 0px 0px 3px 3px;
     background: #fff;
     padding: 5px;
     /*border: 1px solid #d8d8d8;*/
@@ -1171,6 +1173,9 @@ header {
 .business-home {
 	width: 100%;
 	background: #fff;
+	position: relative;
+	padding: 0 20px 0px;
+	margin-bottom: 15px;
 
 	section {
 		padding: 30px 15px;
@@ -1180,17 +1185,19 @@ header {
 			width: 30%;
 			padding: 2px;
 			background: #fff;
+			margin: 0 auto;
 			margin-top:-75px;
 			box-shadow: 0 0 30px -20px #000;
+			display: block;
 
 		}
 
 		h1 {
-			width: 100%;
 			color: #333;
 			font-size: 1.4em;
 			font-weight: 700;
 			margin-top: 5px;
+			display: inline-block;
 		}
 
 		p {
@@ -1198,6 +1205,24 @@ header {
 			font-size: 1em;
 			font-weight: 300;
 			margin-top: 5px;
+			width: 100%;
+		}
+
+		h2 {
+			font-size: 1.2em;
+			font-weight: 400;
+			color: $secondary-color-light;
+			margin-top: 5px;
+			width: 100%;
+		}
+
+		i {
+			display: inline-block;
+			vertical-align: top;
+			padding-left: 5px;
+			padding-top: 7px;
+			color: $green-light;
+			font-size: 1.2em;
 		}
 	}
 }
@@ -1205,7 +1230,34 @@ header {
 .business-cover {
 	width: 100%;
 	height: 200px;
+	position: relative;
 	overflow: hidden;
+
+	section {
+		position: absolute;
+		top: 15px;
+		left: 15px;
+
+		p, 
+		i {
+			display: inline-block;
+			vertical-align: top;
+			text-shadow: 1px 1px 5px #000;
+
+		}
+
+		p {
+			color: #fff;
+			font-weight: 400;
+			font-size: 1em;
+			padding-left: 5px;
+		}
+
+		i {
+			color: $secondary-color-light;
+			font-size: 1.4em;
+		}
+	}
 	img {
 		width: 100%;
 		height: auto;
@@ -1274,8 +1326,7 @@ header {
 	background: #f8f8f8;
 }
 
-.beer-search, 
-.bar-search {
+.beer-search {	
 	width: 100%;
     background: #444;
     position: relative;
@@ -1347,12 +1398,52 @@ header {
 }
 
 .bar-search {
-	margin-top:0;
 	width: 100%;
-	/*background: $green-dark;*/
+	background: #444;
+	position: relative;
+	transition: 250ms;
+	z-index: 50;
+	border-radius: 4px;
+	height: 40px;
 
 	span {
-		color: $green-light;
+		display: inline-block;
+	    height: 40px;
+	    vertical-align: top;
+	    width: 15%;
+	    font-size: 1em;
+	    color: #999;
+	    text-align: right;
+	    padding-right: 10px;
+	    padding-top: 14px;
+	}
+
+	button {
+		background: #444;
+		outline: 0;
+		border: 0;
+		 border-radius: 0px 4px 4px 0px; 
+		color: #fff;
+		font-size: 1em;
+		font-weight: 300;
+		padding: 0;
+		/* margin-top: 18px; */
+		height: 40px;
+		padding: 13px;
+	}
+
+	input {
+		display: inline-block;
+		color: #fff;
+		vertical-align: top;
+		height: 40px;
+		width: 65%;
+		border: 0;
+		background: transparent;
+		outline: 0;
+		border-radius: 0;
+		font-size: 1.2em;
+		font-weight: 300;
 	}
 }
 
@@ -1773,11 +1864,12 @@ svg rect{
 		width: 40.001%;
 		vertical-align: top;
 		background: #fff;
-		padding: 17.5px 0px;
+		padding: 27px 0px;
 		text-align: center;
 		height: 70px;
 		cursor: pointer;
 		transition: 250ms;
+		/*border-bottom: 1px solid #444;*/
 	}
 
 	li:nth-child(2) {
@@ -1793,7 +1885,7 @@ svg rect{
 
 	i {
 		font-size: 18px;
-		color: $secondary-color-light;
+		color: $green-light;
 	}
 
 	h1 {
@@ -1814,7 +1906,7 @@ svg rect{
 .active-beer-type, 
 .active-feed-type {
 	background:#fff !important;
-	/*border: 1px solid $secondary-color-medium;*/
+	/*border-bottom: 5px solid $secondary-color-light !important;*/
 
 	h1 {
 		color: #333;
@@ -2291,7 +2383,8 @@ svg rect{
 
 .profile-feed {
     width: 100%;
-    background: transparent;
+    background: $primary-color-light;
+    padding-top:15px;
     /*border:1px solid #d8d8d8;*/
 
 	ul {
@@ -2299,7 +2392,7 @@ svg rect{
 		padding-left: 0;
 	}
 
-	li {
+	div {
 		width: 100%;
 		/*border-bottom: 1px solid #f0f0f0;*/
 		position: relative;
@@ -2307,10 +2400,6 @@ svg rect{
 		background: $primary-color-light;
 		/*margin-top: 10px;*/
 		/*border-radius: 2px;*/
-	}
-
-	li:nth-child(odd) {
-		background: #fff;
 	}
 
 	li:last-child {
@@ -2459,7 +2548,7 @@ svg rect{
 		color: $primary-color-medium;
 	}
 
-	div {
+	aside {
 		width: 100%;
 
 		span {
@@ -2477,17 +2566,29 @@ svg rect{
 	padding-bottom: 0;
 }
 
+.feed-statistics {
+	padding: 10px 15px;
+	display: none;
+
+	p {
+		color: $secondary-color-dark;
+		font-size: 1em;
+		font-weight: 300;
+	}
+}
+
 /* Feed Controls */
 
 .feed-controls {
 	width: 100%;
-	text-align: right;
+	text-align: left;
 	/*background:#fff;*/
 	/*border-top:1px solid #dfdfdf;*/
 	/*text-align: center;*/
+	margin: 10px 0px;
 
 	section {
-		padding: 10px 15px;
+		padding: 5px 15px;
 		display: inline-block;
 		vertical-align: top;
 		text-align: left;
@@ -2501,10 +2602,9 @@ svg rect{
 
 	i {
 		font-size: 1.2em;
-		color: #999;
+		color: $secondary-color-dark;
 		display: inline-block;
 		vertical-align: top;
-		padding-top: 1px;
 		cursor: pointer;
 	}
 
@@ -2512,8 +2612,8 @@ svg rect{
 		display: inline-block;
 		vertical-align: top;
 		font-size: 1em;
-		font-weight: normal;
-		color: #999;
+		font-weight: 700;
+		color: $secondary-color-dark;
 		padding-left:5px;
 	}
 
