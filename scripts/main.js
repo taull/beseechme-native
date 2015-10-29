@@ -1338,25 +1338,25 @@ BeMe.Views.BarSearch = Parse.View.extend({
     this.$el.html(this.template(this.model));
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
-    $('input').val(this.options.query); //keep an eye on this
+    $('input').val(this.options.query);
   }
 });
 
 BeMe.Views.BarSearchResults = Parse.View.extend({
   initialize: function () {
-    this.renderedViews = [];
+    this.subViews = [];
     this.render();
   },
 
   render: function () {
-    BeMe.removeGroup(this.renderedViews);
+    BeMe.removeGroup(this.subViews);
     var self = this;
     if(this.collection.length === 0) {
       alert('No results found');
     } else {
       this.collection.each(function (i) {
-        var newView = new BeMe.Views.BarSearchResult();
-        self.renderedViews.push(newView);
+        var newView = new BeMe.Views.BarSearchResult({model:i});
+        self.subViews.push(newView);
     });
     }
   }
@@ -1369,11 +1369,11 @@ BeMe.Views.BarSearchResult = Parse.View.extend({
     this.render();
   },
 
-  template: _.template($('#bar-search-result-view').text()),
+  template: _.template($('#bar-search-results-view').text()),
 
   render: function () {
     this.$el.html(this.template(this.model));
-    $('bar-search-results ul').append(this.el);
+    $('.bar-search-results ul').append(this.el);
   }
 });
 
@@ -1555,8 +1555,6 @@ var Router = Parse.Router.extend({
     query.contains('businessNameLowercase', queryString);
     query.find().then(function (i) {
       var collection = new Parse.Collection(i);
-      console.log(collection);
-      collection.each(function (i) {alert(i.get('businessName'))});
       new BeMe.Views.BarSearchResults({collection:collection});
     });
   }
