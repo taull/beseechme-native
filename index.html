@@ -322,6 +322,10 @@
 
 <script type='text/template' id="backend-beer-list-view">
 
+    <% if (typeof abv == 'undefined') {%>
+      <%  var abv = "Unknown"  %>
+    <% } %>
+
     <aside>
       <% if (typeof labels !== 'undefined') { %>
             <img src=<%= labels.icon %> />
