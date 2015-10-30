@@ -538,7 +538,9 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
       BeMe.Router.navigate('backend/beer/results');
 
     }, function (error) {
-      console.log(error);
+      BeMe.Router.navigate('backend/beer/results');
+      alert('error');
+      self.routeBack();
     });
   },
 
