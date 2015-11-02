@@ -1055,6 +1055,7 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 
   events: {
     'click #avatar-upload' : 'uploadAvatar',
+    'click #cover-upload' : 'uploadCover',
     'click .save-button' : 'updateProfile'
   },
 
@@ -1084,7 +1085,7 @@ BeMe.Views.BackendSettings = Parse.View.extend({
   },
 
   uploadAvatar: function () {
-    var image = BeMe.createImageFile($('input[type="file"]'));
+    var image = BeMe.createImageFile($('input[name="avatar"]'));
 
     var user = Parse.User.current();
 
@@ -1103,7 +1104,29 @@ BeMe.Views.BackendSettings = Parse.View.extend({
         div.remove();
       }, 4000);
     });
-  }
+  },
+
+  uploadCover: function () {
+    var image = BeMe.createImageFile($('input[name="cover"]'));
+
+    var user = Parse.User.current();
+
+    user.set('coverPhoto', image);
+    //save and sync
+    user.save().then(function () {
+      user.fetch();
+      var div = document.createElement('div');
+      div.className = 'upload-confirm';
+      $(div).html('<i class=“fa fa-check-circle”></i>');
+
+      $('.settings-sublist form').append(div);
+
+      _.delay(function () {
+        $(div).fadeOut();
+        div.remove();
+      }, 4000);
+    });
+  },
 });
 
 /* ------- Business SECTION --------- */
