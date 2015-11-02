@@ -211,13 +211,13 @@ header {
   display: none;
   position: absolute;
   top: 70px;
-  width: 60%;
+  width: 30%;
   right: 0;
   float: right;
   background: #fff;
-  /*padding: 5px;*/
+  padding: 5px;
   /*border: 1px solid #d8d8d8;*/
-  /*box-shadow: 0 0 30px -15px #000;*/
+  box-shadow: 0 0 30px -15px #000;
   z-index: 9999999999999;
   transition: 250ms; }
   .backend-slideout aside,
@@ -229,8 +229,7 @@ header {
   .backend-slideout aside,
   .consumer-slideout aside {
     width: 20%;
-    display: none;
-    border-right: 1px solid #555; }
+    /*display: none;*/ }
     .backend-slideout aside li,
     .consumer-slideout aside li {
       width: 100%;
@@ -252,7 +251,7 @@ header {
     font-size: 2em;
     color: #fff;
     top: -15px;
-    left: 20px; }
+    right: 20px; }
 
 /* Login/Register */
 .location-container {
@@ -295,22 +294,22 @@ header {
     padding-left: 0; }
   .backend-tabs li {
     display: inline-block;
-    width: 16.66666666667%;
+    width: 100%;
     /*border-right: 1px solid #f0f0f0;*/
     cursor: pointer;
-    text-align: center;
-    padding: 15px 0px 15px;
-    background: #333;
-    /*border-bottom: 1px solid #f0f0f0;*/ }
+    text-align: left;
+    padding: 15px 30px 15px;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0; }
     .backend-tabs li h1 {
-      font-size: .7em !important;
+      font-size: 1em !important;
       display: inline-block;
       vertical-align: top;
-      font-weight: 300;
+      font-weight: 400;
       color: #01579B;
-      text-transform: uppercase;
+      /*text-transform: uppercase;*/
       margin-top: 10px;
-      display: none;
+      /*display:none;*/
       /*padding-left:10px;*/ }
     .backend-tabs li p {
       font-size: 1em !important;
@@ -331,7 +330,10 @@ header {
     text-align: center;
     color: #999;
     width: 100%;
-    /*display:none;*/ }
+    display: none; }
+
+#logout {
+  border-bottom: 0; }
 
 .business-tabs {
   display: inline-block;
@@ -1245,7 +1247,7 @@ header {
     cursor: auto; }
   .profile-beer-list li:first-child {
     border-top: 0; }
-  .profile-beer-list li:nth-child(odd) {
+  .profile-beer-list li:nth-child(even) {
     background: #fff; }
   .profile-beer-list div {
     width: 70%;
@@ -1346,19 +1348,19 @@ header {
       cursor: pointer;
       padding-top: 7.5px;
       border-radius: 3px; }
-    .profile-beer-list section aside {
-      display: inline-block;
-      vertical-align: top;
-      width: 10%;
-      position: relative; }
-      .profile-beer-list section aside img {
-        width: 100%;
-        height: auto;
-        top: 0;
-        position: absolute;
-        left: 0; }
   .profile-beer-list i {
     font-size: 1em; }
+  .profile-beer-list aside {
+    display: inline-block;
+    vertical-align: top;
+    width: 10%;
+    position: relative; }
+    .profile-beer-list aside img {
+      width: 100%;
+      height: auto;
+      top: 0;
+      position: absolute;
+      left: 0; }
 
 .loader {
   margin: 0 0 2em;
@@ -1759,7 +1761,7 @@ svg rect {
   line-height: 24px;
   resize: none;
   padding: 40px 30px 5px 30px;
-  color: #f8f8f8;
+  color: #333;
   font-weight: 300; }
 
 .verified-container {
@@ -1809,6 +1811,7 @@ svg rect {
   width: 100%;
   background: #f8f8f8;
   padding-top: 15px;
+  margin-top: 15px;
   /*border:1px solid #d8d8d8;*/ }
   .profile-feed ul {
     list-style: none;
