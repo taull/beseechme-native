@@ -635,10 +635,6 @@
     <div class="left-container">
       <% var user = Parse.User.current() %>
 
-
-        <div class="business-cover">
-          <img src="images/craft2.jpg">
-        </div>
         <div class="business-cover">
           <% if (typeof user.get('coverPhoto') !=='undefined') { %>
             <img src=<%= user.get('coverPhoto')._url %> >
