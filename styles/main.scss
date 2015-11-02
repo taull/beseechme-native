@@ -42,7 +42,7 @@ input [file] {
 body {
 	font-size: 12px;
 	position: relative;
-	background: #f8f8f8 ;
+	background: #e5e5e5 ;
 	width: 100%;
 	margin: 0 auto;
 	overflow-x: hidden;
@@ -59,7 +59,7 @@ body {
 
 .backend-container, 
 .business-container {
-	width: 880px;
+	width: 1000px;
     margin: 0 auto;
     position:relative;
     z-index:1;
@@ -77,8 +77,8 @@ body {
 
 .left-container {
 	width: 40%;
-	/*background: #fff;
-	padding: 5px;*/
+	/*background: #fff;*/
+	padding-right: 15px;
 
 	section {
 		background: #fff;
@@ -88,12 +88,14 @@ body {
 
 .middle-container {
 	width: 60%;
-	padding-left: 15px;
+	/*padding: 0 0px 0 15px;*/
+	/*padding-left: 15px;*/
 
 }
 
 .right-container {
-	width: 20%;
+	width: 5%;
+	display: none;
 }
 
 .datepicker {
@@ -116,7 +118,7 @@ header {
 }
 
 .header-container {
-	width: 880px;
+	width: 1000px;
 	height: 70px;
 	margin: 0 auto;
 	position:relative;
@@ -301,11 +303,11 @@ header {
 	display: none;
 	position: absolute;
 	top:70px;
-    width: 40%;
-    left: 0;
+    width: 60%;
+    right: 0;
     float:right;
     background: #fff;
-    padding: 5px;
+    /*padding: 5px;*/
     /*border: 1px solid #d8d8d8;*/
     /*box-shadow: 0 0 30px -15px #000;*/
     z-index: 9999999999999;
@@ -336,7 +338,7 @@ header {
 
     section {
     	width: 100%;
-    	padding: 0 10px;
+    	padding: 0 0px;
     	/*border-left: 1px solid #333;*/
 
     }
@@ -405,27 +407,29 @@ header {
 
 	li {
 		display: inline-block;
-		width: 100%;
+		width: 16.66666666667%;
 		/*border-right: 1px solid #f0f0f0;*/
 		cursor: pointer;
-		text-align:left;
-		padding: 15px 30px 15px;
-		border-bottom: 1px solid #f0f0f0;
+		text-align:center;
+		padding: 15px 0px 15px;
+		background:#333;
+		/*border-bottom: 1px solid #f0f0f0;*/
 
 
 		h1 {
-			font-size: 1em !important;
+			font-size: .7em !important;
 			display: inline-block;
 			vertical-align: top;
-			font-weight: 500;
+			font-weight: 300;
 			color: $secondary-color-dark;
 			text-transform: uppercase;
-			/*display:none;*/
+			margin-top: 10px;
+			display:none;
 			/*padding-left:10px;*/
 		}
 
 		p {
-			font-size: .8em !important;
+			font-size: 1em !important;
 			line-height: 16px;
 			display: none;
 			vertical-align: top;
@@ -448,12 +452,13 @@ header {
 	}
 
 	span {
-		font-size: 18px !important;
+		font-size: 1.4em !important;
 		display: block;
 		vertical-align: top;
 		text-align: center;
 		color: #999;
-		display:none;
+		width: 100%;
+		/*display:none;*/
 
 	}
 }
@@ -1645,25 +1650,11 @@ header {
 		border-top:0;
 	}
 
-	/*li:nth-child(odd) {
+	li:nth-child(odd) {
 		background: #fff;
-	}*/
-
-	aside {
-		display: inline-block;
-		vertical-align: top;
-		width: 10%;
-		position: relative;
-
-
-		img {
-			width: 100%;
-			height: auto;
-			top: 0;
-			position: absolute;
-			left: 0;
-		}
 	}
+
+	
 
 	div {
 		width: 70%;
@@ -1794,6 +1785,21 @@ header {
 			padding-top:7.5px;
 			border-radius: 3px;
 		}
+		aside {
+		display: inline-block;
+		vertical-align: top;
+		width: 10%;
+		position: relative;
+
+
+		img {
+			width: 100%;
+			height: auto;
+			top: 0;
+			position: absolute;
+			left: 0;
+		}
+	}
 	}
 
 	i {
@@ -2038,7 +2044,7 @@ svg rect{
 	}
 
 	aside {
-		width: 10%;
+		width: 8%;
 		display: inline-block;
 		vertical-align: top;
 		position: relative;
@@ -2053,7 +2059,7 @@ svg rect{
 	}
 
 	section {
-		width: 60%;
+		width: 70%;
 		display: inline-block;
 		vertical-align: top;
 		padding-left: 10px;
@@ -2524,8 +2530,9 @@ svg rect{
 .feed-ago {
 	width: 25%;
 	display: inline-block;
-	text-align: right;
+	text-align: left;
 	vertical-align: top;
+	padding: 5px 15px;
 
 	p {
 		font-size: 1em;
@@ -2544,7 +2551,7 @@ svg rect{
 	p {
 		font-size: 1.2em;
 		line-height: 24px;
-		font-weight: 300;
+		font-weight: 400;
 		color: $primary-color-medium;
 	}
 
@@ -3847,10 +3854,27 @@ article {
 		padding-left: 0;
 	}
 
+	aside {
+		display: inline-block;
+		vertical-align: top;
+		width: 60%;
+	}
+
+	section, 
+	div {
+		display: inline-block;
+		vertical-align: top;
+		width: 90%;
+	}
+
+	article {
+		text-align:right;
+		width: 10%;
+	}
+
 	li {
 		display: block;
 		padding: 20px 20px;
-		height: 60px;
 		background: #fff;
 		border-bottom: 1px solid #f0f0f0;
 	}
@@ -3863,19 +3887,15 @@ article {
 		background:#fff;
 	}
 
-	div {
-		display: inline-block;
-		vertical-align: top;
-		width: 50%;
-		padding: 15px 0px;
-	}
+
 
 	li:last-child {
 		/*padding-top:30px;*/
 	}
 
 	article {
-
+		display: inline-block;
+		vertical-align: top;
 	}
 
 	footer {
@@ -3897,29 +3917,22 @@ article {
 	span {
 		display: inline-block;
 		vertical-align: top;
-		font-size: 18px;
+		font-size: 24px;
 		text-align: center;
-		color: #B71C1C;
+		color: #dfdfdf;
 
 	}
 
 	h1 {
-		font-size: 8px;
-		width: 25%;
-		text-align: right;
 		display: inline-block;
-		padding-right: 10px;
-		padding-top:10px;
-		font-weight: 400;
-		color: $secondary-color-medium;
-		vertical-align: top;
-		text-transform: uppercase;
+		font-size: .8em;
+		font-weight: 300;
 	}
 
 	p {
 		font-size: 1.1em;
 		line-height: 20px;
-		font-weight: 300;
+		font-weight: 400;
 		color: #333;
 		width: 85%;
 		display: inline-block;
@@ -3988,7 +4001,7 @@ article {
 	cursor:pointer;
 
 	span {
-		font-size: 1.2em;
+		/*font-size: 1.2em;*/
 	}
 }
 
