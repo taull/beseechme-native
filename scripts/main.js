@@ -444,10 +444,12 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     this.views = [];
 		this.render();
 
-
+    var self = this;
     this.collection = new BeMe.Collections.BeerResults();
-    this.loadDraftBeers();
     this.addSpinner();
+    Parse.User.current().fetch().then(function () {
+      self.loadDraftBeers();
+    });
 	},
 
 	template: _.template($('#backend-beer-view').text()),
@@ -482,7 +484,6 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     'submit .beer-search form' : 'searchBreweryDB',
     'click #backend-bottle-tab' : 'loadBottledBeers',
     'click #backend-draft-tab' : 'loadDraftBeers',
-    'click .tabs-loading' : 'addSpinner',
     'click .load-more-button' : 'loadMore'
   },
 
@@ -492,16 +493,17 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 
   addSpinner: function () {
     $('.profile-beer-list').addClass('hidden');
-    $('.beer-loading').removeClass('hidden')
+    $('.beer-loading').removeClass('hidden');
   },
 
   removeSpinner: function () {
-    $('.profile-beer-list').removeClass('hidden')
+    $('.profile-beer-list').removeClass('hidden');
     $('.beer-loading').addClass('hidden');
   },
 
   emptyBeerList: function () {
     BeMe.removeGroup(this.views);
+    $('.profile-beer-list ul').empty();
   },
 
   searchBreweryDB: function (e) {
@@ -510,6 +512,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     $("#backend-draft-tab, #backend-bottle-tab").removeClass('active-beer-type');
     var self = this;
     var queryString = $('.beer-search input').val();
+    console.log(queryString);
 
 
     Parse.Cloud.run('searchBrewery', {queryString:queryString})
@@ -518,7 +521,6 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
       self.collection.remove();
       self.removeSpinner();
       self.collection.reset();
-      console.log(self.collection);
 
       self.emptyBeerList();
       $('.load-more-button').addClass('hidden');
@@ -526,6 +528,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 
       if (beers) {
         self.collection.add(beers);
+        console.log(self.collection);
 
         self.collection.render();
       } else {
@@ -545,14 +548,23 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
   },
 
   loadDraftBeers:function () {
+    this.addSpinner();
     this.pageNumber = 1;
     this.beerType = 'draftBeers';
 
     var self = this;
     $("#backend-bottle-tab").removeClass('active-beer-type');
     $("#backend-draft-tab").addClass('active-beer-type');
-    //Parse.User.fetch().then do what's below?
-    Parse.Cloud.run('getBeers', {array:this.getIdArray(Parse.User.current().get('draftBeers'),1)})
+
+    var array = this.getIdArray(Parse.User.current().get('draftBeers'),1);
+    if (array.length === 0) {
+      this.emptyBeerList();
+      this.removeSpinner();
+      $('.profile-beer-list ul').append('<h1> No beers in list</h1>');
+      return;
+    };
+
+    Parse.Cloud.run('getBeers', {array:array})
     .then(function (e) {
       self.emptyBeerList();
       self.removeSpinner();
@@ -564,14 +576,23 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
   },
 
   loadBottledBeers: function () {
+    this.addSpinner();
     this.pageNumber = 1;
     this.beerType = 'bottledBeers';
 
     var self = this;
     $("#backend-draft-tab").removeClass('active-beer-type');
     $("#backend-bottle-tab").addClass('active-beer-type');
-    //Parse.User.fetch().then do what's below?
-    Parse.Cloud.run('getBeers', {array:this.getIdArray(Parse.User.current().get('bottledBeers'),1)})
+
+    var array = this.getIdArray(Parse.User.current().get('bottledBeers'),1);
+      if (array.length === 0) {
+        this.emptyBeerList();
+        this.removeSpinner();
+        $('.profile-beer-list ul').append('<h1> No beers in list</h1>');
+      return;
+    };
+
+    Parse.Cloud.run('getBeers', {array:array})
     .then(function (e) {
       self.emptyBeerList();
       self.removeSpinner();
@@ -585,6 +606,7 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
   getIdArray: function (list, pageNumber) {
     //note the numbers passed around in these small calculations are effectively
     //the *index* number in the `list` array
+    list = list || [];
     var max = list.length - (10 * (pageNumber - 1) + 1);
     var min = max - 9;
     var realMin = min >= 0 ? min : 0;
@@ -600,8 +622,6 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
     for(var i = max; i >= realMin; i--) {
       arrayOfIds.push(list[i]);
     }
-    console.log("Id's in array that are going to hit the BreweryDB API");
-    console.log(arrayOfIds);
     return arrayOfIds;
   },
 
