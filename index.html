@@ -179,7 +179,9 @@
               ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
               ><a href="#backend/competition"><li><span class="fa fa-users"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
               ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
-              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
+              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a
+              ><li id="logout"><span class="fa fa-power-off"></span></li>
+
             </ul>
           </div>
           
@@ -217,7 +219,7 @@
           </section>
         </section
         ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></section
-        ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></section>
+        >
 
       </section>
 
@@ -233,6 +235,8 @@
         </a>
       </section>
       <% } %>
+
+      <section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
       <section class="feed-controls">
       <% if (Parse.User.current().get('userType') === 'consumer') { %>
         <section><i class="fa fa-location-arrow"></i><p>Check In</p></section>
@@ -247,6 +251,8 @@
   <div class="backend-container">
 
     <div class="left-container">
+
+
         <div class="business-cover">
           <img src="images/craft2.jpg">
         </div>
@@ -259,6 +265,8 @@
           </section>
           
         </div>
+
+
     </div
     ><div class="middle-container">
       <div class="narrow-container">
@@ -312,6 +320,20 @@
         </div>
 
       </div>
+    </div
+
+    ><div class="right-container">
+
+          <div class="backend-tabs">
+            <ul>
+              <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
+              ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
+              ><a href="#backend/competition"><li><span class="fa fa-users"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
+              ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
+              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a
+              ><li id="logout"><span class="fa fa-power-off"></span></li>
+            </ul>
+          </div>
     </div>
 
   </div>
@@ -447,15 +469,24 @@
 </script>
 
 <script type='text/template' id="comment-view">
-  <button class="delete-comment"><span class="fa fa-close"></span></button
+  <section>
 
-  ><p><%= attributes.content %></p
+    <aside>
+      <p><%= attributes.content %></p
+      ><h1>a few moments ago</h1>
+    </aside>
 
-  <% if (typeof attributes.dayOfWeek !== 'undefined') { %>
-    ><i class='fa fa-thumb-tack'></i>
-  <% } else { %>
-  <% } %>
+    
+    
+  </section
+  ><article>
 
+      <% if (typeof attributes.dayOfWeek !== 'undefined') { %>
+        <i class='fa fa-thumb-tack'></i>
+      <% } else { %>
+      <% } %>
+    </article>
+<button class="delete-comment"><span class="fa fa-star-o"></span></button
 </script>
 <!-- backend Calendar View -->
 
@@ -1196,22 +1227,91 @@
 </script>
 
 <script type="text/template" id="bar-search-view">
-    <div class="left-container">
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <h1></h1>
+      </div
+
+      
+
+      ><div class="header-right">
+        <ul>
+          <div>
+            <% if (Parse.User.current()) { %>
+              <i class="fa fa-power-off" id='logout'></i>
+              <% } else { %>
+              <p id='sign-in'>Sign In</p>
+            <% } %>
+          </div
+          ><li id="slideout-trigger">
+            <h1>Options</h1
+            ><span class="fa fa-chevron-down"></span>
+          </li><a href="#business/craftanddraft"><section>
+            <img src="images/default-avatar.png">
+          </section
+          ></a>
+
+        </ul>
+      </div
+
+      ><div class="header-center">
+
+        <div class="bar-search">
+          <form name='bar-search' action>
+            <span class="fa fa-search"></span>
+            <input type="text" placeholder="Search Bars">
+            <button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
+          </form>
+        </div>
+      </div
+
+      ><div class="backend-slideout">
+        <aside>
+          <span class="fa fa-caret-up"></span>
+        </aside>
         
+        <section>
+          <div class="backend-tabs">
+            <ul>
+              <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
+              ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
+              ><a href="#backend/competition"><li><span class="fa fa-users"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
+              ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
+              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
+            </ul>
+          </div>
+          
+        </section>
+        
+      </div>
+      
+
+    </div>
+  </header>
+
+  <div class="backend-container">
+    <div class="left-container">
+        <div class="business-cover">
+          <img src="images/craft2.jpg">
+        </div
+        ><div class="business-home">
+          <section>
+                <img src="images/craftdraft-logo.jpeg">
+
+              <h1>Craft and Draft</h1>
+              <p>2717 Blossom St, Columbia, SC 29205</p>
+
+          </section>
+        </div>
     </div
     ><div class="middle-container">
-      <div class="bar-search">
-        <form action>
-          <span class="fa fa-search"></span>
-          <input type="text" placeholder="Search Bars" value="<%= query %>">
-          <button id="bar-submit"><i class="fa fa-plus"></i></button>
-        </form>
-      </div
-      ><div class="bar-search-results">
+      <div class="bar-search-results">
         <ul>
         </ul>
       </div>
     </div>
+  </div>
 </script>
 
 <script type="text/template" id="dashboard-view">
