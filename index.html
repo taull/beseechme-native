@@ -148,7 +148,7 @@
           ><li id="slideout-trigger">
             <h1>Options</h1
             ><span class="fa fa-chevron-down"></span>
-          </li><a href="#business/craftanddraft"><section>
+          </li><a href="#business/<%= Parse.User.current().get('handle') %>"><section>
             <img src="images/default-avatar.png">
           </section
           ></a>
@@ -258,10 +258,15 @@
         </div>
         <div class="business-home">
           <section>
-              <img src="images/craftdraft-logo.jpeg">
-              <h1>Craft and Draft</h1><i class="fa fa-check-circle"></i>
-              <p>2717 Blossom St, Columbia, SC 29205</p>
-              <h2>(803) 254 - 2341</h2>
+              <% var user = Parse.User.current(); %>
+              <% if (typeof user.get('avatar') !=='undefined') { %>
+                <img src=<%= user.get('avatar')._url %> >
+                <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+              <h1><%= user.get('businessName') %></h1><i class="fa fa-check-circle"></i>
+              <p><%= user.get('address') %>, <%= user.get('City') %>, <%= user.get('state') %> <%= user.get('zip') %></p>
+              <h2><%= user.get('phoneNumber') %></h2>
           </section>
           
         </div>
@@ -382,10 +387,15 @@
         </div>
         <div class="business-home">
           <section>
-              <img src="images/craftdraft-logo.jpeg">
-              <h1>Craft and Draft</h1><i class="fa fa-check-circle"></i>
-              <p>2717 Blossom St, Columbia, SC 29205</p>
-              <h2>(803) 254 - 2341</h2>
+              <% var user = Parse.User.current(); %>
+              <% if (typeof user.get('avatar') !=='undefined') { %>
+                <img src=<%= user.get('avatar')._url %> >
+                <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+              <h1><%= user.get('businessName') %></h1><i class="fa fa-check-circle"></i>
+              <p><%= user.get('address') %>, <%= user.get('City') %>, <%= user.get('state') %> <%= user.get('zip') %></p>
+              <h2><%= user.get('phoneNumber') %></h2>
           </section>
         </div>
 
@@ -503,11 +513,15 @@
         </div
         ><div class="business-home">
           <section>
-                <img src="images/craftdraft-logo.jpeg">
-
-              <h1>Craft and Draft</h1>
-              <p>2717 Blossom St, Columbia, SC 29205</p>
-
+              <% var user = Parse.User.current(); %>
+              <% if (typeof user.get('avatar') !=='undefined') { %>
+                <img src=<%= user.get('avatar')._url %> >
+                <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+              <h1><%= user.get('businessName') %></h1><i class="fa fa-check-circle"></i>
+              <p><%= user.get('address') %>, <%= user.get('City') %>, <%= user.get('state') %> <%= user.get('zip') %></p>
+              <h2><%= user.get('phoneNumber') %></h2>
           </section>
         </div
 
@@ -837,7 +851,7 @@
           ><li id="slideout-trigger">
             <h1>Options</h1
             ><span class="fa fa-chevron-down"></span>
-          </li><a href="#business/craftanddraft"><section>
+          </li><a href="#business/<%= Parse.User.current().get('handle') %>"><section>
             <img src="images/default-avatar.png">
           </section
           ></a>
