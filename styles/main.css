@@ -34,7 +34,7 @@ body {
   position: relative;
   z-index: 1;
   /*border-top: 15px solid #e5e5e5;*/
-  overflow: hidden;
+  /*overflow: hidden;*/
   /*border-right: 1px solid #dfdfdf;*/ }
 
 .left-container,
@@ -74,6 +74,7 @@ header {
   margin: 0px auto 0;
   position: relative;
   left: 0;
+  background: #e5e5e5;
   z-index: 9999999; }
 
 .header-container {
@@ -1242,8 +1243,9 @@ header {
   .profile-beer-list li {
     display: inline-block;
     width: 100%;
-    padding: 20px 20px;
-    cursor: auto; }
+    padding: 20px 0px 20px 20px;
+    cursor: auto;
+    position: relative; }
   .profile-beer-list li:first-child {
     border-top: 0; }
   .profile-beer-list li:nth-child(even) {
@@ -1271,11 +1273,32 @@ header {
       font-size: .9em;
       font-weight: 400;
       margin-top: 5px; }
-  .profile-beer-list section {
-    width: 20%;
-    display: inline-block;
+  .profile-beer-list article {
+    display: none;
     vertical-align: top;
-    text-align: right; }
+    width: 30px;
+    text-align: right;
+    /* margin-right: -30px; */
+    position: absolute;
+    right: 35px;
+    top: 5px; }
+    .profile-beer-list article span {
+      font-size: 1.2em;
+      width: 30px;
+      height: 30px;
+      background: #B71C1C;
+      text-align: center;
+      color: #f0f0f0;
+      padding-top: 6px; }
+  .profile-beer-list section {
+    display: none;
+    vertical-align: top;
+    text-align: right;
+    width: 30px;
+    /* margin-right: -3px; */
+    position: absolute;
+    right: 5px;
+    top: 5px; }
     .profile-beer-list section h1 {
       display: block;
       font-size: 1.2em;
@@ -1312,33 +1335,28 @@ header {
       font-weight: 400; }
     .profile-beer-list section footer {
       text-align: center; }
-    .profile-beer-list section article {
-      background: #fff;
-      border: 1px solid #d8d8d8;
-      border-radius: 4px;
-      position: absolute;
-      padding: 10px;
-      width: 100px;
-      text-align: left;
-      right: 20px; }
     .profile-beer-list section h4 {
       font-size: .9em;
       font-weight: 400; }
     .profile-beer-list section i {
-      font-size: 1.2em;
-      width: 40%;
-      height: 30px;
+      font-size: 1.4em;
       display: inline-block;
       vertical-align: top;
       text-align: center;
-      padding-top: 9px;
-      background: #f0f0f0;
-      color: #ccc;
-      border-radius: 0px 4px 4px 0px; }
+      color: #000;
+      position: absolute;
+      margin-top: -7px;
+      margin-left: -9px;
+      -ms-transform: rotate(45deg);
+      /* IE 9 */
+      -webkit-transform: rotate(45deg);
+      /* Chrome, Safari, Opera */
+      transform: rotate(45deg);
+      z-index: 50; }
     .profile-beer-list section span {
       width: 30px;
       height: 30px;
-      background: #f0f0f0;
+      background: #444;
       text-align: center;
       font-size: 1.2em;
       display: inline-block;
@@ -1346,7 +1364,9 @@ header {
       color: #ccc;
       cursor: pointer;
       padding-top: 7.5px;
-      border-radius: 3px; }
+      z-index: 100;
+      position: relative;
+      /*border-radius: 3px;*/ }
   .profile-beer-list i {
     font-size: 1em; }
   .profile-beer-list aside {
@@ -1360,6 +1380,16 @@ header {
       top: 0;
       position: absolute;
       left: 0; }
+
+.profile-beer-list li:hover #show-beer-tools {
+  display: inline-block; }
+
+.profile-beer-list li:hover .show-beer-cancel {
+  display: inline-block; }
+
+.beer-cancel-shift {
+  right: 22px;
+  position: absolute; }
 
 .loader {
   margin: 0 0 2em;
@@ -1445,20 +1475,23 @@ svg rect {
   .active-feed-type p {
     color: #555; }
 
-#delete-beer {
-  border: 0;
-  outline: 0;
-  background: transparent;
-  font-size: 1em;
-  padding-left: 5px;
-  transition: 250ms; }
-  #delete-beer span {
-    font-size: 1.2em;
-    color: #dfdfdf; }
+/*#delete-beer {
+	border: 0;
+	outline: 0;
+	background: transparent;
+	font-size: 1em;
+	padding-left: 5px;
+	transition: 250ms;
 
-#delete-beer:hover span {
-  color: #B71C1C; }
-
+	span {
+		font-size: 1.2em;
+		color: #dfdfdf;
+	}
+}*/
+/*#delete-beer:hover span {
+	color: $red-dark;
+}
+*/
 .show-beer-controls {
   display: inline-block; }
 
@@ -2963,7 +2996,17 @@ article {
   .calendar-standing aside {
     display: inline-block;
     vertical-align: top;
-    width: 60%; }
+    width: 90%; }
+  .calendar-standing footer {
+    display: inline-block;
+    vertical-align: top;
+    width: 5%; }
+    .calendar-standing footer span {
+      display: inline-block;
+      vertical-align: top;
+      font-size: 1.6em;
+      text-align: center;
+      color: #dfdfdf; }
   .calendar-standing section,
   .calendar-standing div {
     display: inline-block;
@@ -2998,14 +3041,8 @@ article {
     color: #333;
     padding-top: 4px;
     /*float:right;*/ }
-  .calendar-standing span {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 24px;
-    text-align: center;
-    color: #dfdfdf; }
   .calendar-standing h1 {
-    display: inline-block;
+    display: block;
     font-size: .8em;
     font-weight: 300; }
   .calendar-standing p {

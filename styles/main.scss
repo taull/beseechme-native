@@ -64,7 +64,7 @@ body {
     position:relative;
     z-index:1;
     /*border-top: 15px solid #e5e5e5;*/
-    overflow: hidden;
+    /*overflow: hidden;*/
     /*border-right: 1px solid #dfdfdf;*/
 }
 
@@ -114,6 +114,7 @@ header {
     margin: 0px auto 0;
     position: relative;
     left: 0;
+    background: #e5e5e5;
     z-index: 9999999;
 }
 
@@ -1644,8 +1645,9 @@ header {
 	li {
 		display: inline-block;
 		width: 100%;
-		padding: 20px 20px;
+		padding: 20px 0px 20px 20px;
 		cursor:auto;
+		position: relative;
 	}
 
 	li:first-child {
@@ -1692,11 +1694,36 @@ header {
 
 	}
 
+	article {
+		display: none;
+		vertical-align: top;
+		width: 30px;
+		text-align: right;
+		/* margin-right: -30px; */
+		position: absolute;
+		right: 35px;
+		top: 5px;
+
+		span {
+			font-size: 1.2em;
+		    width: 30px;
+		    height: 30px;
+		    background: $red-dark;
+		    text-align: center;
+		    color: #f0f0f0;
+		    padding-top: 6px;
+		}
+	}
+
 	section {
-		width: 20%;
-		display: inline-block;
+		display: none;
 		vertical-align: top;
 		text-align: right;
+		width: 30px;
+		/* margin-right: -3px; */
+		position: absolute;
+		right: 5px;
+		top: 5px;
 
 		h1 {
 			display:block;
@@ -1744,16 +1771,6 @@ header {
 			text-align: center;
 		}
 
-		article {
-			background: #fff;
-			border: 1px solid #d8d8d8;
-			border-radius: 4px;
-			position: absolute;
-			padding: 10px;
-			width: 100px;
-			text-align: left;
-			right: 20px;
-		}
 
 		h4 {
 			font-size: .9em;
@@ -1761,23 +1778,25 @@ header {
 		}
 
 		i {
-			font-size: 1.2em;
-			width: 40%;
-			height: 30px;
+			font-size: 1.4em;
 			display: inline-block;
 			vertical-align: top;
 			text-align: center;
-			padding-top: 9px;
-			background: #f0f0f0;
-			color: #ccc;
-			border-radius: 0px 4px 4px 0px;
-
+			color: #000;
+			position: absolute;
+			margin-top: -7px;
+			margin-left: -9px;
+			-ms-transform: rotate(45deg); /* IE 9 */
+			-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+			transform: rotate(45deg);
+			z-index: 50;
+ 
 		}
 
 		span {
 			width: 30px;
 			height: 30px;
-			background: #f0f0f0;
+			background: #444;
 			text-align: center;
 			font-size: 1.2em;
 			display: inline-block;
@@ -1785,7 +1804,9 @@ header {
 			color: #ccc;
 			cursor:pointer;
 			padding-top:7.5px;
-			border-radius: 3px;
+			z-index: 100;
+			position: relative;
+			/*border-radius: 3px;*/
 		}
 		
 	}
@@ -1810,6 +1831,22 @@ header {
 	}
 }
 
+.profile-beer-list li:hover #show-beer-tools{
+	display: inline-block;
+
+}
+
+.profile-beer-list li:hover .show-beer-cancel{
+	display: inline-block;
+}
+
+.show-beer-cancel {
+}
+
+.beer-cancel-shift {
+	right:22px;
+	position: absolute;
+}
 #choose-beer-type {
 
 }
@@ -1925,7 +1962,7 @@ svg rect{
 	}
 }
 
-#delete-beer {
+/*#delete-beer {
 	border: 0;
 	outline: 0;
 	background: transparent;
@@ -1937,12 +1974,12 @@ svg rect{
 		font-size: 1.2em;
 		color: #dfdfdf;
 	}
-}
+}*/
 
-#delete-beer:hover span {
+/*#delete-beer:hover span {
 	color: $red-dark;
 }
-
+*/
 
 .show-beer-controls {
 	display: inline-block;
@@ -3860,7 +3897,21 @@ article {
 	aside {
 		display: inline-block;
 		vertical-align: top;
-		width: 60%;
+		width: 90%;
+	}
+
+	footer {
+		display: inline-block;
+		vertical-align: top;
+		width: 5%;	
+		span {
+			display: inline-block;
+			vertical-align: top;
+			font-size: 1.6em;
+			text-align: center;
+			color: #dfdfdf;
+
+		}
 	}
 
 	section, 
@@ -3917,17 +3968,10 @@ article {
 		/*float:right;*/
 	}
 
-	span {
-		display: inline-block;
-		vertical-align: top;
-		font-size: 24px;
-		text-align: center;
-		color: #dfdfdf;
-
-	}
+	
 
 	h1 {
-		display: inline-block;
+		display: block;
 		font-size: .8em;
 		font-weight: 300;
 	}

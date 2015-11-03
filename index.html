@@ -365,13 +365,16 @@
           <% } %>
     </aside
     ><div>
-      <h1><%= name%></h1><h2 id="delete-beer"><span class="fa fa-times-circle"></span></h2>
+      <h1><%= name%></h1>
       <% if (typeof breweries !== 'undefined') { %>
       <p><%= breweries[0].name %> | <%= abv %>% abv</p>
       <% } %>
       <h3><%= style.name %></h3>
     </div
-    ><section>
+    ><article class="show-beer-cancel" id="delete-beer">
+      <span class="fa fa-ban"></span>
+    </article
+    ><section id="show-beer-tools">
       <span class="fa fa-bars"></span>
     </section>
 
@@ -491,23 +494,23 @@
 
 <script type='text/template' id="comment-view">
   <section>
-
+    <footer>
+      <span class="fa fa-star-o"></span>
+    </footer>
     <aside>
       <p><%= attributes.content %></p
-      ><h1>a few moments ago</h1>
+      ><h1>22 people liked this</h1>
     </aside>
 
-    
-    
   </section
   ><article>
-
       <% if (typeof attributes.dayOfWeek !== 'undefined') { %>
-        <i class='fa fa-thumb-tack'></i>
+        <i class='fa fa-thumb-tack'></i
       <% } else { %>
       <% } %>
+      ><button class="delete-comment"><span class="fa fa-close"></span></button>
+
     </article>
-<button class="delete-comment"><span class="fa fa-star-o"></span></button
 </script>
 <!-- backend Calendar View -->
 
