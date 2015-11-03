@@ -1276,12 +1276,13 @@ header {
   .profile-beer-list article {
     display: none;
     vertical-align: top;
-    width: 30px;
+    width: 60px;
     text-align: right;
     /* margin-right: -30px; */
     position: absolute;
-    right: 35px;
-    top: 5px; }
+    right: 0px;
+    top: 50%;
+    transform: translate(-50%, -50%); }
     .profile-beer-list article span {
       font-size: 1.2em;
       width: 30px;
@@ -1289,7 +1290,17 @@ header {
       background: #B71C1C;
       text-align: center;
       color: #f0f0f0;
-      padding-top: 6px; }
+      padding-top: 7.5px; }
+    .profile-beer-list article i {
+      width: 30px;
+      height: 30px;
+      font-size: 1.2em;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      padding-top: 7.5px;
+      color: #f0f0f0;
+      background: #444; }
   .profile-beer-list section {
     display: none;
     vertical-align: top;
@@ -1298,7 +1309,8 @@ header {
     /* margin-right: -3px; */
     position: absolute;
     right: 5px;
-    top: 5px; }
+    top: 50%;
+    transform: translate(-50%, -50%); }
     .profile-beer-list section h1 {
       display: block;
       font-size: 1.2em;
@@ -1338,21 +1350,6 @@ header {
     .profile-beer-list section h4 {
       font-size: .9em;
       font-weight: 400; }
-    .profile-beer-list section i {
-      font-size: 1.4em;
-      display: inline-block;
-      vertical-align: top;
-      text-align: center;
-      color: #000;
-      position: absolute;
-      margin-top: -7px;
-      margin-left: -9px;
-      -ms-transform: rotate(45deg);
-      /* IE 9 */
-      -webkit-transform: rotate(45deg);
-      /* Chrome, Safari, Opera */
-      transform: rotate(45deg);
-      z-index: 50; }
     .profile-beer-list section span {
       width: 30px;
       height: 30px;
@@ -2833,10 +2830,6 @@ svg rect {
   color: #555;
   text-align: right; }
 
-article {
-  font-size: 1.2em;
-  width: 100%; }
-
 /* Bar Settings */
 .settings-container,
 .calendar-container {
@@ -2898,69 +2891,113 @@ article {
 .top-border {
   top: 0; }
 
+.calendar-standing,
 .calendar-daily {
-  display: block;
-  /*background: #fff;*/
-  /*padding-top:30px;*/
-  /*border:1px solid #dfdfdf;*/
-  margin-top: 0px; }
+  display: block; }
+  .calendar-standing ul,
   .calendar-daily ul {
     list-style: none;
     padding-left: 0; }
+  .calendar-standing aside,
+  .calendar-daily aside {
+    display: inline-block;
+    vertical-align: top;
+    width: 80%; }
+    .calendar-standing aside h1,
+    .calendar-daily aside h1 {
+      display: block;
+      font-size: 0.8em;
+      font-weight: 300;
+      color: #555;
+      margin-top: 3px; }
+  .calendar-standing footer,
+  .calendar-daily footer {
+    display: inline-block;
+    vertical-align: top;
+    width: 10%;
+    text-align: center;
+    padding-top: 3px; }
+    .calendar-standing footer span,
+    .calendar-daily footer span {
+      display: inline-block;
+      vertical-align: top;
+      font-size: 1.6em;
+      text-align: center;
+      color: #dfdfdf;
+      cursor: pointer; }
+    .calendar-standing footer h1,
+    .calendar-daily footer h1 {
+      display: block;
+      font-size: 0.8em;
+      font-weight: 700;
+      color: #555;
+      margin-top: 3px; }
+  .calendar-standing section,
+  .calendar-standing div,
+  .calendar-daily section,
+  .calendar-daily div {
+    display: inline-block;
+    vertical-align: top;
+    width: 85%; }
+  .calendar-standing li,
   .calendar-daily li {
     display: block;
     padding: 20px 20px;
     background: #fff;
-    border-bottom: 1px solid #f0f0f0;
-    height: 60px; }
+    border-bottom: 1px solid #f0f0f0; }
+  .calendar-standing li:last-child,
   .calendar-daily li:last-child {
     border-bottom: 0; }
+  .calendar-standing li:hover,
   .calendar-daily li:hover {
-    background: #fcfcfc; }
-  .calendar-daily div {
-    display: inline-block;
-    vertical-align: top;
-    width: 50%;
-    padding: 15px 0px; }
+    /*background:#fff;*/ }
+  .calendar-standing li:last-child,
   .calendar-daily li:last-child {
     /*padding-top:30px;*/ }
+  .calendar-standing article,
+  .calendar-daily article {
+    display: none;
+    vertical-align: top;
+    width: 60px;
+    float: right; }
+    .calendar-standing article span,
+    .calendar-daily article span {
+      width: 30px;
+      height: 30px;
+      border: 0;
+      outline: 0;
+      background: #B71C1C;
+      font-size: 1.2em;
+      color: #f0f0f0;
+      cursor: pointer;
+      text-align: center;
+      padding-top: 7.5px; }
+    .calendar-standing article i,
+    .calendar-daily article i {
+      font-size: 1.2em;
+      display: inline-block;
+      vertical-align: top;
+      width: 30%;
+      text-align: center;
+      color: #f0f0f0;
+      background: #444;
+      padding-top: 7px;
+      width: 30px;
+      height: 30px; }
+  .calendar-standing footer,
   .calendar-daily footer {
     /*border-top:1px solid #dfdfdf;*/
     /*margin-top:15px;*/ }
-  .calendar-daily i {
-    font-size: 1em;
-    display: inline-block;
-    vertical-align: top;
-    width: 5%;
-    text-align: left;
-    color: #dfdfdf;
-    padding-top: 4px;
-    /*float:right;*/ }
-  .calendar-daily span {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 18px;
-    text-align: center;
-    color: #B71C1C; }
-  .calendar-daily h1 {
-    font-size: 8px;
-    width: 25%;
-    text-align: right;
-    display: inline-block;
-    padding-right: 10px;
-    padding-top: 10px;
-    font-weight: 400;
-    color: #0277BD;
-    vertical-align: top;
-    text-transform: uppercase; }
+  .calendar-standing p,
   .calendar-daily p {
     font-size: 1.1em;
     line-height: 20px;
-    font-weight: 300;
+    font-weight: 400;
     color: #333;
     width: 85%;
     display: inline-block;
     vertical-align: top; }
+  .calendar-standing input,
   .calendar-daily input {
     width: 85%;
     height: 60px;
@@ -2973,8 +3010,10 @@ article {
     background: #fff;
     /*border-radius:4px;*/
     /*border:1px solid #dfdfdf;*/ }
+    .calendar-standing input:focus,
     .calendar-daily input:focus {
       outline: none; }
+  .calendar-standing select,
   .calendar-daily select {
     font-size: 16px;
     margin-left: 10px;
@@ -2985,100 +3024,15 @@ article {
     font-weight: 300;
     width: 60%;
     height: 28px; }
+    .calendar-standing select:focus,
     .calendar-daily select:focus {
       outline: 0; }
 
-.calendar-standing {
-  display: block; }
-  .calendar-standing ul {
-    list-style: none;
-    padding-left: 0; }
-  .calendar-standing aside {
-    display: inline-block;
-    vertical-align: top;
-    width: 90%; }
-  .calendar-standing footer {
-    display: inline-block;
-    vertical-align: top;
-    width: 5%; }
-    .calendar-standing footer span {
-      display: inline-block;
-      vertical-align: top;
-      font-size: 1.6em;
-      text-align: center;
-      color: #dfdfdf; }
-  .calendar-standing section,
-  .calendar-standing div {
-    display: inline-block;
-    vertical-align: top;
-    width: 90%; }
-  .calendar-standing article {
-    text-align: right;
-    width: 10%; }
-  .calendar-standing li {
-    display: block;
-    padding: 20px 20px;
-    background: #fff;
-    border-bottom: 1px solid #f0f0f0; }
-  .calendar-standing li:last-child {
-    border-bottom: 0; }
-  .calendar-standing li:hover {
-    background: #fff; }
-  .calendar-standing li:last-child {
-    /*padding-top:30px;*/ }
-  .calendar-standing article {
-    display: inline-block;
-    vertical-align: top; }
-  .calendar-standing footer {
-    /*border-top:1px solid #dfdfdf;*/
-    /*margin-top:15px;*/ }
-  .calendar-standing i {
-    font-size: 1.2em;
-    display: inline-block;
-    vertical-align: top;
-    width: 5%;
-    text-align: left;
-    color: #333;
-    padding-top: 4px;
-    /*float:right;*/ }
-  .calendar-standing h1 {
-    display: block;
-    font-size: .8em;
-    font-weight: 300; }
-  .calendar-standing p {
-    font-size: 1.1em;
-    line-height: 20px;
-    font-weight: 400;
-    color: #333;
-    width: 85%;
-    display: inline-block;
-    vertical-align: top; }
-  .calendar-standing input {
-    width: 85%;
-    height: 60px;
-    border: 0;
-    font-size: 1.2em;
-    padding: 20px;
-    font-weight: 300;
-    resize: none;
-    color: #333;
-    background: #fff;
-    /*border-radius:4px;*/
-    /*border:1px solid #dfdfdf;*/ }
-    .calendar-standing input:focus {
-      outline: none; }
-  .calendar-standing select {
-    font-size: 16px;
-    margin-left: 10px;
-    -webkit-appearance: none;
-    -webkit-border-radius: 0;
-    border: 0;
-    background: transparent;
-    font-weight: 300;
-    width: 60%;
-    height: 28px; }
-    .calendar-standing select:focus {
-      outline: 0; }
+.comment-star:hover {
+  color: #FFC107; }
+
+.calendar-daily li {
+  background: #f8f8f8; }
 
 .upload-confirm {
   display: inline-block;
@@ -3092,20 +3046,17 @@ article {
     color: #000; }
 
 .delete-comment {
-  width: 10%;
   border: 0;
   outline: 0;
-  background: transparent;
-  font-size: 1em;
-  padding: 5px;
-  color: #333;
-  margin-top: -3px;
-  cursor: pointer; }
-  .delete-comment span {
-    /*font-size: 1.2em;*/ }
+  background: #B71C1C; }
+
+.comment-controls {
+  display: none; }
 
 .calendar-daily li:hover .delete-comment,
-.calendar-standing li:hover .delete-comment {
+.calendar-standing li:hover .delete-comment,
+.calendar-daily li:hover .comment-controls,
+.calendar-standing li:hover .comment-controls {
   display: inline-block;
   vertical-align: top; }
 
@@ -3686,6 +3637,9 @@ svg rect {
   .backend-tabs {
     width: 100%; }
     .backend-tabs h1 {
-      font-size: 1em; } }
+      font-size: 1em; }
+
+  .left-container {
+    padding-right: 0; } }
 
 /*# sourceMappingURL=main.css.map */
