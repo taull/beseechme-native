@@ -353,8 +353,10 @@
     <% if (typeof abv == 'undefined') {%>
       <%  var abv = "Unknown"  %>
     <% } %>
-
-    <aside>
+    <article class="show-beer-cancel">
+      <span class="fa fa-star"></span>
+    </article
+    ><aside>
       <% if (typeof labels !== 'undefined') { %>
             <img src=<%= labels.icon %> />
 
@@ -363,17 +365,12 @@
           <% } %>
     </aside
     ><div>
-      <h1><%= name%></h1>
+      <h1><%= name%></h1><span class="fa fa-minus-circle" id="delete-beer"></span>
       <% if (typeof breweries !== 'undefined') { %>
       <p><%= breweries[0].name %> | <%= abv %>% abv</p>
       <% } %>
       <h3><%= style.name %></h3>
-    </div
-    ><article class="show-beer-cancel" id="delete-beer">
-      <span class="fa fa-ban"></span
-      ><i class="fa fa-bars"></i>
-    </article
-
+    </div>
 
 </script>
 
@@ -1187,8 +1184,10 @@
 </script>
 
 <script type='text/template' id='backend-beer-result'>
-
-    <aside>
+    <article class="show-beer-cancel">
+      <span class="fa fa-plus-circle"></span>
+    </article
+    ><aside>
       <% if (typeof attributes.labels !== 'undefined') { %>
         <img src=<%= attributes.labels.icon %> />
       <% } else { %>

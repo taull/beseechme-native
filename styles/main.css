@@ -1243,7 +1243,7 @@ header {
   .profile-beer-list li {
     display: inline-block;
     width: 100%;
-    padding: 20px 0px 20px 20px;
+    padding: 20px 0px;
     cursor: auto;
     position: relative; }
   .profile-beer-list li:first-child {
@@ -1273,27 +1273,31 @@ header {
       font-size: .9em;
       font-weight: 400;
       margin-top: 5px; }
+    .profile-beer-list div span {
+      display: inline-block;
+      vertical-align: top;
+      font-size: 1em;
+      color: #ccc;
+      padding-left: 5px;
+      padding-top: 2px;
+      cursor: pointer; }
   .profile-beer-list article {
-    display: none;
+    display: inline-block;
     vertical-align: top;
     width: 60px;
-    text-align: right;
+    text-align: center;
     /* margin-right: -30px; */
-    position: absolute;
-    right: 0px;
-    top: 50%;
-    transform: translate(-50%, -50%); }
+    		/*top: 50%;
+      transform: translate(-50%,-50%);*/ }
     .profile-beer-list article span {
-      font-size: 1.2em;
+      font-size: 1.6em;
       width: 30px;
-      height: 30px;
-      background: #B71C1C;
+      /*background: $red-dark;*/
       text-align: center;
-      color: #f0f0f0;
+      color: #ccc;
       padding-top: 7.5px; }
     .profile-beer-list article i {
       width: 30px;
-      height: 30px;
       font-size: 1.2em;
       display: inline-block;
       vertical-align: top;
@@ -1301,6 +1305,10 @@ header {
       padding-top: 7.5px;
       color: #f0f0f0;
       background: #444; }
+    .profile-beer-list article h2 {
+      font-size: .8em;
+      font-weight: 700;
+      margin-top: 3px; }
   .profile-beer-list section {
     display: none;
     vertical-align: top;
@@ -1369,7 +1377,7 @@ header {
   .profile-beer-list aside {
     display: inline-block;
     vertical-align: top;
-    width: 10%;
+    width: 9%;
     position: relative; }
     .profile-beer-list aside img {
       width: 100%;
@@ -3596,9 +3604,9 @@ svg rect {
   .bar-search {
     width: 100%; }
 
-  .copyright-info {
-    display: none; }
-
+  /*.copyright-info {
+  	display: none;
+  }*/
   #only-one {
     border-bottom: 0;
     border-left: 0;
