@@ -1024,8 +1024,8 @@
         <% var user = attributes.createdBy %>
         <section class="feed-avatar">
           <section class="feed-logo">
-            <% if (typeof attributes.avatar !=='undefined') { %>
-                <img src=<%= attributes.avatar._url %> >
+            <% if (typeof user.get('avatar') !=='undefined') { %>
+                <img src=<%= user.get('avatar')._url %> >
                 <% } else { %>
                 <img src="images/default-avatar.png">
               <% } %>
