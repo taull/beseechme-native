@@ -282,7 +282,6 @@
         <div class="backend-feed-tabs">
           <li id="backend-myfeed-tab" class="active-feed-type">
             <h1>My Posts</h1>
-            <p>View All</p>
           </li
 
           ><li id="backend-add-status">
@@ -291,7 +290,6 @@
 
           ><li id="backend-mainfeed-tab">
             <h1>Main Feed</h1>
-            <p>View All</p>
           </li>
         </div>
 
@@ -365,15 +363,17 @@
           <% } %>
     </aside
     ><div>
-      <h1><%= name%></h1><h2 id="delete-beer"><span class="fa fa-times-circle"></span></h2>
+      <h1><%= name%></h1>
       <% if (typeof breweries !== 'undefined') { %>
       <p><%= breweries[0].name %> | <%= abv %>% abv</p>
       <% } %>
       <h3><%= style.name %></h3>
     </div
-    ><section>
-      <span class="fa fa-bars"></span>
-    </section>
+    ><article class="show-beer-cancel" id="delete-beer">
+      <span class="fa fa-ban"></span
+      ><i class="fa fa-bars"></i>
+    </article
+
 
 </script>
 
@@ -412,7 +412,7 @@
 
         <div class="profile-beer-tabs">
           <li id="backend-draft-tab" class="active-beer-type tabs-loading">
-            <h1>Draft Beer</h1>
+            <h1>Draft</h1>
           </li
 
           ><li id="backend-add-beer" >
@@ -420,7 +420,7 @@
           </li
 
           ><li id="backend-bottle-tab" class="active-beer-type tabs-loading">
-            <h1>Bottled Beer</h1>
+            <h1>Bottled</h1>
           </li>
         </div
         ><div class="beer-search">
@@ -491,23 +491,20 @@
 
 <script type='text/template' id="comment-view">
   <section>
-
+    <footer>
+      <span class="fa fa-star comment-star"></span
+      ><h1>22</h1>
+    </footer>
     <aside>
       <p><%= attributes.content %></p
-      ><h1>a few moments ago</h1>
+      ><% if (typeof attributes.dayOfWeek !== 'undefined') { %><h1>Every Tuesday</h1><% } else { %><h1>Nov 3rd, 2015</h1><% } %>
     </aside>
 
-    
-    
   </section
-  ><article>
-
-      <% if (typeof attributes.dayOfWeek !== 'undefined') { %>
-        <i class='fa fa-thumb-tack'></i>
-      <% } else { %>
-      <% } %>
+  ><article class="comment-controls">
+      <button class="delete-comment"><span class="fa fa-ban"></span></button
+      ><% if (typeof attributes.dayOfWeek !== 'undefined') { %><i class='fa fa-thumb-tack'></i><% } else { %><i class='fa fa-bars'></i><% } %>
     </article>
-<button class="delete-comment"><span class="fa fa-star-o"></span></button
 </script>
 <!-- backend Calendar View -->
 
@@ -1126,8 +1123,7 @@
 
         <div class="profile-beer-tabs">
           <li id="backend-draft-tab" class="active-beer-type tabs-loading">
-            <h1>Draft Beer</h1>
-            <p>View All</p>
+            <h1>Draft</h1>
           </li
 
           ><li id="backend-add-beer" >
@@ -1135,8 +1131,7 @@
           </li
 
           ><li id="backend-bottle-tab" class="active-beer-type tabs-loading">
-            <h1>Bottled Beer</h1>
-            <p>View All</p>
+            <h1>Bottled</h1>
           </li>
         </div>
 

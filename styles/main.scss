@@ -64,7 +64,7 @@ body {
     position:relative;
     z-index:1;
     /*border-top: 15px solid #e5e5e5;*/
-    overflow: hidden;
+    /*overflow: hidden;*/
     /*border-right: 1px solid #dfdfdf;*/
 }
 
@@ -114,6 +114,7 @@ header {
     margin: 0px auto 0;
     position: relative;
     left: 0;
+    background: #e5e5e5;
     z-index: 9999999;
 }
 
@@ -1644,8 +1645,9 @@ header {
 	li {
 		display: inline-block;
 		width: 100%;
-		padding: 20px 20px;
+		padding: 20px 0px 20px 20px;
 		cursor:auto;
+		position: relative;
 	}
 
 	li:first-child {
@@ -1692,11 +1694,50 @@ header {
 
 	}
 
+	article {
+		display: none;
+		vertical-align: top;
+		width: 60px;
+		text-align: right;
+		/* margin-right: -30px; */
+		position: absolute;
+		right: 0px;
+		top: 50%;
+  transform: translate(-50%,-50%);
+
+		span {
+			font-size: 1.2em;
+		    width: 30px;
+		    height: 30px;
+		    background: $red-dark;
+		    text-align: center;
+		    color: #f0f0f0;
+		    padding-top: 7.5px;
+		}
+
+		i {
+			width: 30px;
+			height: 30px;
+			font-size: 1.2em;
+			display: inline-block;
+			vertical-align: top;
+			text-align: center;
+			padding-top:7.5px;
+			color: #f0f0f0;
+			background: #444;
+		}
+	}
+
 	section {
-		width: 20%;
-		display: inline-block;
+		display: none;
 		vertical-align: top;
 		text-align: right;
+		width: 30px;
+		/* margin-right: -3px; */
+		position: absolute;
+		right: 5px;
+		top: 50%;
+  transform: translate(-50%,-50%);
 
 		h1 {
 			display:block;
@@ -1744,40 +1785,18 @@ header {
 			text-align: center;
 		}
 
-		article {
-			background: #fff;
-			border: 1px solid #d8d8d8;
-			border-radius: 4px;
-			position: absolute;
-			padding: 10px;
-			width: 100px;
-			text-align: left;
-			right: 20px;
-		}
 
 		h4 {
 			font-size: .9em;
 			font-weight: 400;
 		}
 
-		i {
-			font-size: 1.2em;
-			width: 40%;
-			height: 30px;
-			display: inline-block;
-			vertical-align: top;
-			text-align: center;
-			padding-top: 9px;
-			background: #f0f0f0;
-			color: #ccc;
-			border-radius: 0px 4px 4px 0px;
-
-		}
+		
 
 		span {
 			width: 30px;
 			height: 30px;
-			background: #f0f0f0;
+			background: #444;
 			text-align: center;
 			font-size: 1.2em;
 			display: inline-block;
@@ -1785,7 +1804,9 @@ header {
 			color: #ccc;
 			cursor:pointer;
 			padding-top:7.5px;
-			border-radius: 3px;
+			z-index: 100;
+			position: relative;
+			/*border-radius: 3px;*/
 		}
 		
 	}
@@ -1810,6 +1831,22 @@ header {
 	}
 }
 
+.profile-beer-list li:hover #show-beer-tools{
+	display: inline-block;
+
+}
+
+.profile-beer-list li:hover .show-beer-cancel{
+	display: inline-block;
+}
+
+.show-beer-cancel {
+}
+
+.beer-cancel-shift {
+	right:22px;
+	position: absolute;
+}
 #choose-beer-type {
 
 }
@@ -1925,7 +1962,7 @@ svg rect{
 	}
 }
 
-#delete-beer {
+/*#delete-beer {
 	border: 0;
 	outline: 0;
 	background: transparent;
@@ -1937,12 +1974,12 @@ svg rect{
 		font-size: 1.2em;
 		color: #dfdfdf;
 	}
-}
+}*/
 
-#delete-beer:hover span {
+/*#delete-beer:hover span {
 	color: $red-dark;
 }
-
+*/
 
 .show-beer-controls {
 	display: inline-block;
@@ -3643,10 +3680,6 @@ svg rect{
 	color: #555;
 	text-align: right;
 }
-article {
-	font-size: 1.2em;
-	width: 100%;
-}
 
 /* Bar Settings */
 
@@ -3721,17 +3754,59 @@ article {
 	top: 0;
 }
 
+.calendar-standing, 
 .calendar-daily {
 	display: block;
-	/*background: #fff;*/
-	/*padding-top:30px;*/
-	/*border:1px solid #dfdfdf;*/
-	margin-top:0px;
-
 
 	ul {
 		list-style: none;
 		padding-left: 0;
+	}
+
+	aside {
+		display: inline-block;
+		vertical-align: top;
+		width: 80%;
+
+		h1 {
+			display: block;
+		    font-size: 0.8em;
+		    font-weight: 300;
+		    color: #555;
+		    margin-top: 3px;
+		}
+	}
+
+	footer {
+		display: inline-block;
+		vertical-align: top;
+		width: 10%;
+		text-align: center;
+		padding-top:3px;
+
+		span {
+			display: inline-block;
+			vertical-align: top;
+			font-size: 1.6em;
+			text-align: center;
+			color: #dfdfdf;
+			cursor: pointer;
+		}
+
+		h1 {
+			display: block;
+		    font-size: 0.8em;
+		    font-weight: 700;
+		    color: #555;
+		    margin-top: 3px;
+		}
+	}
+
+	section, 
+	div {
+		display: inline-block;
+		vertical-align: top;
+		width: 85%;
 	}
 
 	li {
@@ -3739,31 +3814,55 @@ article {
 		padding: 20px 20px;
 		background: #fff;
 		border-bottom: 1px solid #f0f0f0;
-		height: 60px;
 	}
 
 	li:last-child {
 		border-bottom: 0;
 	}
 
-
 	li:hover {
-		background:#fcfcfc;
+		/*background:#fff;*/
 	}
 
-	div {
-		display: inline-block;
-		vertical-align: top;
-		width: 50%;
-		padding: 15px 0px;
-	}
+
 
 	li:last-child {
 		/*padding-top:30px;*/
 	}
 
 	article {
+		display: none;
+		vertical-align: top;
+		width: 60px;
+		float: right;
 
+
+
+		span {
+			width: 30px;
+			height: 30px;
+			border: 0;
+			outline: 0;
+			background: $red-dark;
+			font-size: 1.2em;
+			color: #f0f0f0;
+			cursor: pointer;
+			text-align: center;
+			padding-top:7.5px;
+		}
+
+		i {
+			font-size: 1.2em;
+			display: inline-block;
+			vertical-align: top;
+			width: 30%;
+			text-align: center;
+			color: #f0f0f0;
+			background: #444;
+			padding-top:7px;
+			width: 30px;
+			height: 30px;
+		}
 	}
 
 	footer {
@@ -3771,42 +3870,16 @@ article {
 		/*margin-top:15px;*/
 	}
 
-	i {
-		font-size: 1em;
-		display: inline-block;
-		vertical-align: top;
-		width: 5%;
-		text-align: left;
-		color: #dfdfdf;
-		padding-top:4px;
-		/*float:right;*/
-	}
+	
 
-	span {
-		display: inline-block;
-		vertical-align: top;
-		font-size: 18px;
-		text-align: center;
-		color: #B71C1C;
-	}
+	
 
-	h1 {
-		font-size: 8px;
-		width: 25%;
-		text-align: right;
-		display: inline-block;
-		padding-right: 10px;
-		padding-top:10px;
-		font-weight: 400;
-		color: $secondary-color-medium;
-		vertical-align: top;
-		text-transform: uppercase;
-	}
+	
 
 	p {
 		font-size: 1.1em;
 		line-height: 20px;
-		font-weight: 300;
+		font-weight: 400;
 		color: #333;
 		width: 85%;
 		display: inline-block;
@@ -3849,133 +3922,15 @@ article {
 
 }
 
-.calendar-standing {
-	display: block;
+.comment-star:hover {
+	color: #FFC107;
+}
 
-	ul {
-		list-style: none;
-		padding-left: 0;
-	}
-
-	aside {
-		display: inline-block;
-		vertical-align: top;
-		width: 60%;
-	}
-
-	section, 
-	div {
-		display: inline-block;
-		vertical-align: top;
-		width: 90%;
-	}
-
-	article {
-		text-align:right;
-		width: 10%;
-	}
+.calendar-daily {
 
 	li {
-		display: block;
-		padding: 20px 20px;
-		background: #fff;
-		border-bottom: 1px solid #f0f0f0;
+		background: #f8f8f8;
 	}
-
-	li:last-child {
-		border-bottom: 0;
-	}
-
-	li:hover {
-		background:#fff;
-	}
-
-
-
-	li:last-child {
-		/*padding-top:30px;*/
-	}
-
-	article {
-		display: inline-block;
-		vertical-align: top;
-	}
-
-	footer {
-		/*border-top:1px solid #dfdfdf;*/
-		/*margin-top:15px;*/
-	}
-
-	i {
-		font-size: 1.2em;
-		display: inline-block;
-		vertical-align: top;
-		width: 5%;
-		text-align: left;
-		color: #333;
-		padding-top:4px;
-		/*float:right;*/
-	}
-
-	span {
-		display: inline-block;
-		vertical-align: top;
-		font-size: 24px;
-		text-align: center;
-		color: #dfdfdf;
-
-	}
-
-	h1 {
-		display: inline-block;
-		font-size: .8em;
-		font-weight: 300;
-	}
-
-	p {
-		font-size: 1.1em;
-		line-height: 20px;
-		font-weight: 400;
-		color: #333;
-		width: 85%;
-		display: inline-block;
-		vertical-align: top;
-	}
-
-	input {
-		width:85%;
-		height: 60px;
-		border:0;
-		font-size: 1.2em;
-		padding: 20px ;
-		font-weight: 300;
-		resize: none;
-		color: #333;
-		background:#fff;
-		/*border-radius:4px;*/
-		/*border:1px solid #dfdfdf;*/
-
-		&:focus {
-			outline:none;
-		}
-	}
-
-	select {
-		font-size: 16px;
-		margin-left:10px;
-		-webkit-appearance: none;
-    	-webkit-border-radius:0;
-    	border:0;
-    	background:transparent;
-    	font-weight: 300;
-    	width:60%;
-    	height: 28px;
-
-    	&:focus {
-    		outline:0;
-    	}
-	}
-
 }
 
 .upload-confirm {
@@ -3993,23 +3948,20 @@ article {
 }
 
 .delete-comment {
-	width: 10%;
-	border: 0;
-	outline: 0;
-	background: transparent;
-	font-size: 1em;
-	padding: 5px;
-	color: #333;
-	margin-top: -3px;
-	cursor:pointer;
-
-	span {
-		/*font-size: 1.2em;*/
-	}
+    border: 0;
+    outline: 0;
+    background: $red-dark;
 }
 
+.comment-controls {
+	display: none;
+}
+
+
 .calendar-daily li:hover .delete-comment, 
-.calendar-standing li:hover .delete-comment {
+.calendar-standing li:hover .delete-comment,
+.calendar-daily li:hover .comment-controls, 
+.calendar-standing li:hover .comment-controls {
 	display:inline-block;
 	vertical-align: top;
 }
@@ -4785,6 +4737,10 @@ svg rect{
 		h1 {
 			font-size: 1em;
 		}
+	}
+
+	.left-container {
+		padding-right: 0;
 	}
 
 }
