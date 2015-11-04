@@ -16,8 +16,17 @@ $secondary-color-light: #03A9F4;
 $red-medium: #F44336;
 $red-dark: #B71C1C;
 
+$gold-dark: #FFB300;
+$gold-medium: #FFC107;
+
 $green-light: #8BC34A;
 $green-dark: #689F38;
+
+$blue-500: #2196F3;
+$blue-600: #1E88E5;
+$blue-700: #1976D2;
+$blue-800: #1565C0;
+$blue-900: #0D47A1;
 
 $text-color: #f0f0f0;
 
@@ -473,22 +482,22 @@ header {
 	position:relative;
     transition:250ms;
     z-index: 25;
-    background: transparent;
     text-align: center;
 
 	ul {
 		list-style: none;
 		padding-left: 0;
+		padding: 15px 0;
+		background: $blue-700;
+		border-radius: 3px;
 	}
 
 	li {
 		display: inline-block;
-		width: 25%;
-		background: #444;
-		/*border-right: 1px solid #f0f0f0;*/
 		cursor: pointer;
 		text-align:center;
-		padding: 15px 0px 15px;
+		padding: 0px 10px 0px;
+		border-right: 1px solid $blue-500;
 
 
 		h1 {
@@ -497,7 +506,7 @@ header {
 			vertical-align: top;
 			font-weight: 500;
 			color: #f0f0f0;
-			text-transform: uppercase;
+			/*text-transform: uppercase;*/
 			/*display:none;*/
 			/*padding-left:10px;*/
 		}
@@ -1220,7 +1229,7 @@ header {
 		h2 {
 			font-size: 1.2em;
 			font-weight: 400;
-			color: $secondary-color-light;
+			color: $blue-700;
 			margin-top: 5px;
 			width: 100%;
 		}
@@ -1273,6 +1282,25 @@ header {
 	}
 }
 
+
+.business-return-home {
+	width: 100%;
+	padding: 0 15px 15px;
+	text-align: center;
+
+	section {
+		background: $blue-700;
+		padding: 15px;
+		border-radius: 4px;
+
+		p {
+			font-size: 1.2em;
+			color: #fff;
+		}
+	}
+
+	
+}
 /* Bar Page Options */
 
 .bar-page-options {
@@ -1920,7 +1948,7 @@ svg rect{
 		display: inline-block;
 		width: 40.001%;
 		vertical-align: top;
-		background: #fff;
+		background: #ddd;
 		padding: 27px 0px;
 		text-align: center;
 		height: 70px;
@@ -1942,13 +1970,13 @@ svg rect{
 
 	i {
 		font-size: 18px;
-		color: $green-light;
+		color: #333;
 	}
 
 	h1 {
 		font-size: 1.2em;
 		text-transform: uppercase;
-		color: #999;
+		color: #555;
 	}
 
 	p {
@@ -1956,21 +1984,22 @@ svg rect{
 		text-transform: uppercase;
 		font-weight: 300;
 		margin-top: 5px;
-		color: #999;
+		color: #333;
 	}
 }
 
 .active-beer-type, 
 .active-feed-type {
-	background:#fff !important;
-	/*border-bottom: 5px solid $secondary-color-light !important;*/
+	background:#eee !important;
+	/*border-bottom: 5px solid #aaa !important;*/
 
 	h1 {
-		color: #333;
+		color: #000;
+		/*text-shadow:1px 1px;*/
 	}
 
 	p {
-		color: #555;
+		color: #fff;
 	}
 }
 
@@ -2441,9 +2470,7 @@ svg rect{
 .profile-feed {
     width: 100%;
     background: $primary-color-light;
-    padding-top:15px;
-    margin-top:15px;
-    /*border:1px solid #d8d8d8;*/
+
 
 	ul {
 		list-style: none;
@@ -2452,12 +2479,8 @@ svg rect{
 
 	div {
 		width: 100%;
-		/*border-bottom: 1px solid #f0f0f0;*/
 		position: relative;
-		padding: 5px;
 		background: $primary-color-light;
-		/*margin-top: 10px;*/
-		/*border-radius: 2px;*/
 	}
 
 	li:last-child {
@@ -2580,7 +2603,7 @@ svg rect{
 }
 
 .feed-ago {
-	width: 25%;
+	width: 100%;
 	display: inline-block;
 	text-align: left;
 	vertical-align: top;
