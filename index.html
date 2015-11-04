@@ -788,77 +788,94 @@
 <script type="text/template" id="backend-competition-view">
 
   <div class="backend-container">
-    <div class="narrow-container">
+    <div class="left-container">
+      <% var user = Parse.User.current(); %>
 
-      <div class="bar-search">
-        <span class="fa fa-search"></span>
-        <input type="text" placeholder="Bar Search...">
-        <button>Search</button>
-      </div>
+        <div class="business-cover">
+          <% if (typeof user.get('coverPhoto') !=='undefined') { %>
+            <img src=<%= user.get('coverPhoto')._url %> >
+            <% } else { %>
+            <img src="images/craft2.jpg">
+          <% } %>
+        </div>
+        <div class="business-home">
+          <section>
+              <% if (typeof user.get('avatar') !=='undefined') { %>
+                <img src=<%= user.get('avatar')._url %> >
+                <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+              <h1><%= user.get('businessName') %></h1><i class="fa fa-check-circle"></i>
+              <p><%= user.get('address') %>, <%= user.get('City') %>, <%= user.get('state') %> <%= user.get('zip') %></p>
+              <h2><%= user.get('phoneNumber') %></h2>
+          </section>
+        </div>
 
-    </div>
+    </div
+    ><div class="middle-container">
 
-    <div class="wide-container">
+      <div class="wide-container">
 
-      <div class="listing-container">
-        <ul>
-          <div class="module-header">
-            <p>My Competition</p>
-          </div>
-          <li>
-            <div class="listing-avatar">
-              <img src="images/bar-logo.png">
+        <div class="listing-container">
+          <ul>
+            <div class="module-header">
+              <p>My Competition</p>
             </div>
-            <div class="listing-info">
-              <h1>Henrys Grill and Bar</h1>
-              <p>2855 Devine Street</p>
-            </div>
-            <div class="listing-link">
-              <span class="fa fa-ellipsis-h"></span>
-            </div>
-          </li>
-          <li>
-            <div class="listing-avatar">
-              <img src="images/bar-logo1.jpg">
-            </div>
-            <div class="listing-info">
-              <h1>Aviator Grill</h1>
-              <p>143 Airport Boulevard</p>
-            </div>
-            <div class="listing-link">
-              <span class="fa fa-ellipsis-h"></span>
-            </div>
-          </li>
-          <li>
-            <div class="listing-avatar">
-              <img src="images/bar-logo2.jpg">
-            </div>
-            <div class="listing-info">
-              <h1>Phils Beer Bar</h1>
-              <p>542 Lafeyette Avenue</p>
-            </div>
-            <div class="listing-link">
-              <span class="fa fa-ellipsis-h"></span>
-            </div>
-          </li>
-          <li>
-            <div class="listing-avatar">
-              <img src="images/bar-logo3.jpg">
-            </div>
-            <div class="listing-info">
-              <h1>The Menu Bar</h1>
-              <p>313 Main Street</p>
-            </div>
-            <div class="listing-link">
-              <span class="fa fa-ellipsis-h"></span>
-            </div>
-          </li>
-        </ul>
-      </div>
+            <li>
+              <div class="listing-avatar">
+                <img src="images/bar-logo.png">
+              </div>
+              <div class="listing-info">
+                <h1>Henrys Grill and Bar</h1>
+                <p>2855 Devine Street</p>
+              </div>
+              <div class="listing-link">
+                <span class="fa fa-ellipsis-h"></span>
+              </div>
+            </li>
+            <li>
+              <div class="listing-avatar">
+                <img src="images/bar-logo1.jpg">
+              </div>
+              <div class="listing-info">
+                <h1>Aviator Grill</h1>
+                <p>143 Airport Boulevard</p>
+              </div>
+              <div class="listing-link">
+                <span class="fa fa-ellipsis-h"></span>
+              </div>
+            </li>
+            <li>
+              <div class="listing-avatar">
+                <img src="images/bar-logo2.jpg">
+              </div>
+              <div class="listing-info">
+                <h1>Phils Beer Bar</h1>
+                <p>542 Lafeyette Avenue</p>
+              </div>
+              <div class="listing-link">
+                <span class="fa fa-ellipsis-h"></span>
+              </div>
+            </li>
+            <li>
+              <div class="listing-avatar">
+                <img src="images/bar-logo3.jpg">
+              </div>
+              <div class="listing-info">
+                <h1>The Menu Bar</h1>
+                <p>313 Main Street</p>
+              </div>
+              <div class="listing-link">
+                <span class="fa fa-ellipsis-h"></span>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-      <div class="copyright-info">
-        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-        <p>Beseech Me®, LLC</p>
+        <div class="copyright-info">
+          <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+          <p>Beseech Me®, LLC</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1391,11 +1408,23 @@
   </div>
 </script>
 
+<script type="text/template" id="location-view">
+
+</script>
+
 <script type="text/template" id="dashboard-view">
 
 </script>
 
+<script type="text/template" id="dashboard-home-view">
+
+</script>
+
 <script type="text/template" id="dashboard-feed-view">
+
+</script>
+
+<script type="text/template" id="dashboard-beer-view">
 
 </script>
 
