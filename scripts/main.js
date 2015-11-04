@@ -383,6 +383,7 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 		businessStatus.save().then(function (e){
 			contentHolder.val('');
 			$('#camera-file').val('');
+      console.log(e);
       self.collectionReference.add(e, {at:0});
 		});
 	}
@@ -647,6 +648,8 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
         var newView = new BeMe.Views.BackendBeer({model:i, type:'bottledBeers'});
         self.views.push(newView);
       });
+    }, function (e) {
+      alert(error);
     });
 
   }
@@ -875,11 +878,6 @@ BeMe.Views.DaysView = Parse.View.extend({
       createdBy: Parse.User.current(),
       content:content,
     });
-
-    var ACL = new Parse.ACL();
-    ACL.setPublicReadAccess(true);
-    ACL.setWriteAccess(Parse.User.current(),true);
-    post.setACL(ACL);
 
     if (isChecked) {
       post.set('date', date._d);
