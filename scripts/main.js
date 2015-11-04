@@ -465,7 +465,9 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 			$('#backend-bottle-tab').removeClass('active-beer-type');
 			$('.profile-beer-list').addClass('hidden');
 		});
-
+    $('#show-beer-tools').click(function(){
+      $('.show-beer-cancel').addClass('beer-cancel-shift');
+    });
     function resetSearchFunction() {
       $('.beer-search').removeClass('beer-search-shift');
       $('.profile-beer-list').removeClass('hidden');
@@ -478,6 +480,8 @@ BeMe.Views.BackendBeerList = Parse.View.extend({
 			$('.profile-beer-list').removeClass('hidden');
 			$('.beer-results-cancel').addClass('show');
 		});
+
+    
 	},
 
   events: {

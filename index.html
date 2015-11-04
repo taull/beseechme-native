@@ -282,7 +282,6 @@
         <div class="backend-feed-tabs">
           <li id="backend-myfeed-tab" class="active-feed-type">
             <h1>My Posts</h1>
-            <p>View All</p>
           </li
 
           ><li id="backend-add-status">
@@ -291,7 +290,6 @@
 
           ><li id="backend-mainfeed-tab">
             <h1>Main Feed</h1>
-            <p>View All</p>
           </li>
         </div>
 
@@ -355,8 +353,10 @@
     <% if (typeof abv == 'undefined') {%>
       <%  var abv = "Unknown"  %>
     <% } %>
-
-    <aside>
+    <article class="show-beer-cancel">
+      <span class="fa fa-star"></span>
+    </article
+    ><aside>
       <% if (typeof labels !== 'undefined') { %>
             <img src=<%= labels.icon %> />
 
@@ -365,15 +365,12 @@
           <% } %>
     </aside
     ><div>
-      <h1><%= name%></h1><h2 id="delete-beer"><span class="fa fa-times-circle"></span></h2>
+      <h1><%= name%></h1><span class="fa fa-minus-circle" id="delete-beer"></span>
       <% if (typeof breweries !== 'undefined') { %>
       <p><%= breweries[0].name %> | <%= abv %>% abv</p>
       <% } %>
       <h3><%= style.name %></h3>
-    </div
-    ><section>
-      <span class="fa fa-bars"></span>
-    </section>
+    </div>
 
 </script>
 
@@ -412,7 +409,7 @@
 
         <div class="profile-beer-tabs">
           <li id="backend-draft-tab" class="active-beer-type tabs-loading">
-            <h1>Draft Beer</h1>
+            <h1>Draft</h1>
           </li
 
           ><li id="backend-add-beer" >
@@ -420,7 +417,7 @@
           </li
 
           ><li id="backend-bottle-tab" class="active-beer-type tabs-loading">
-            <h1>Bottled Beer</h1>
+            <h1>Bottled</h1>
           </li>
         </div
         ><div class="beer-search">
@@ -491,23 +488,20 @@
 
 <script type='text/template' id="comment-view">
   <section>
-
+    <footer>
+      <span class="fa fa-star comment-star"></span
+      ><h1>22</h1>
+    </footer>
     <aside>
       <p><%= attributes.content %></p
-      ><h1>a few moments ago</h1>
+      ><% if (typeof attributes.dayOfWeek !== 'undefined') { %><h1>Every Tuesday</h1><% } else { %><h1>Nov 3rd, 2015</h1><% } %>
     </aside>
 
-    
-    
   </section
-  ><article>
-
-      <% if (typeof attributes.dayOfWeek !== 'undefined') { %>
-        <i class='fa fa-thumb-tack'></i>
-      <% } else { %>
-      <% } %>
+  ><article class="comment-controls">
+      <button class="delete-comment"><span class="fa fa-ban"></span></button
+      ><% if (typeof attributes.dayOfWeek !== 'undefined') { %><i class='fa fa-thumb-tack'></i><% } else { %><i class='fa fa-bars'></i><% } %>
     </article>
-<button class="delete-comment"><span class="fa fa-star-o"></span></button
 </script>
 <!-- backend Calendar View -->
 
@@ -960,7 +954,12 @@
       <div class="narrow-container">
 
         <div class="business-cover">
-          <img src="images/craft2.jpg">
+
+          <% if (typeof attributes.coverPhoto !=='undefined') { %>
+            <img src=<%= attributes.coverPhoto._url %> >
+            <% } else { %>
+            <img src="images/craft2.jpg">
+          <% } %>
         </div>
         <div class="business-home">
           <section>
@@ -979,7 +978,7 @@
       <div class="wide-container">
         <div class="business-tabs">
           <ul>
-            <a href="#business/<%= attributes.handle %>/feed"><li><span class="fa fa-comments"></span><h1>Feed</h1><p>Post updates, photos and videos</p></li></a
+            <a href="#business/<%= attributes.handle %>/feed"><li><span class="fa fa-comments"></span><h1> The Feed</h1><p>Post updates, photos and videos</p></li></a
             ><a href="#business/<%= attributes.handle %>/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
             ><a href="#business/<%= attributes.handle %>/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
             ><a href="#business/<%= attributes.handle %>/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a>
@@ -1064,7 +1063,11 @@
   <div class="business-container">
     <div class="left-container">
       <div class="business-cover">
-          <img src="images/craft2.jpg">
+          <% if (typeof attributes.coverPhoto !=='undefined') { %>
+            <img src=<%= attributes.coverPhoto._url %> >
+            <% } else { %>
+            <img src="images/craft2.jpg">
+          <% } %>
         </div>
         <div class="business-home">
           <section>
@@ -1077,6 +1080,11 @@
               <h1><%=attributes.businessName%></h1>
               <p><%=attributes.address%>, <%=attributes.City%>, <%=attributes.State%> <%=attributes.zip%></p>
 
+          </section>
+        </div>
+        <div class="business-return-home">
+          <section>
+            <a><p>Go Back</p></a>
           </section>
         </div>
     </div
@@ -1126,8 +1134,7 @@
 
         <div class="profile-beer-tabs">
           <li id="backend-draft-tab" class="active-beer-type tabs-loading">
-            <h1>Draft Beer</h1>
-            <p>View All</p>
+            <h1>Draft</h1>
           </li
 
           ><li id="backend-add-beer" >
@@ -1135,8 +1142,7 @@
           </li
 
           ><li id="backend-bottle-tab" class="active-beer-type tabs-loading">
-            <h1>Bottled Beer</h1>
-            <p>View All</p>
+            <h1>Bottled</h1>
           </li>
         </div>
 
@@ -1192,8 +1198,10 @@
 </script>
 
 <script type='text/template' id='backend-beer-result'>
-
-    <aside>
+    <article class="show-beer-cancel">
+      <span class="fa fa-plus-circle"></span>
+    </article
+    ><aside>
       <% if (typeof attributes.labels !== 'undefined') { %>
         <img src=<%= attributes.labels.icon %> />
       <% } else { %>
