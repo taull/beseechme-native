@@ -954,7 +954,12 @@
       <div class="narrow-container">
 
         <div class="business-cover">
-          <img src="images/craft2.jpg">
+
+          <% if (typeof attributes.coverPhoto !=='undefined') { %>
+            <img src=<%= attributes.coverPhoto._url %> >
+            <% } else { %>
+            <img src="images/craft2.jpg">
+          <% } %>
         </div>
         <div class="business-home">
           <section>
@@ -973,7 +978,7 @@
       <div class="wide-container">
         <div class="business-tabs">
           <ul>
-            <a href="#business/<%= attributes.handle %>/feed"><li><span class="fa fa-comments"></span><h1>Feed</h1><p>Post updates, photos and videos</p></li></a
+            <a href="#business/<%= attributes.handle %>/feed"><li><span class="fa fa-comments"></span><h1> The Feed</h1><p>Post updates, photos and videos</p></li></a
             ><a href="#business/<%= attributes.handle %>/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
             ><a href="#business/<%= attributes.handle %>/bartenders"><li><span class="fa fa-beer"></span><h1>Bartenders</h1><p>Set your draft and bottled lists</p></li></a
             ><a href="#business/<%= attributes.handle %>/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a>
@@ -1058,7 +1063,11 @@
   <div class="business-container">
     <div class="left-container">
       <div class="business-cover">
-          <img src="images/craft2.jpg">
+          <% if (typeof attributes.coverPhoto !=='undefined') { %>
+            <img src=<%= attributes.coverPhoto._url %> >
+            <% } else { %>
+            <img src="images/craft2.jpg">
+          <% } %>
         </div>
         <div class="business-home">
           <section>
@@ -1071,6 +1080,11 @@
               <h1><%=attributes.businessName%></h1>
               <p><%=attributes.address%>, <%=attributes.City%>, <%=attributes.State%> <%=attributes.zip%></p>
 
+          </section>
+        </div>
+        <div class="business-return-home">
+          <section>
+            <a><p>Go Back</p></a>
           </section>
         </div>
     </div

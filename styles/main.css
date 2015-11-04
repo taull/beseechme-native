@@ -342,26 +342,26 @@ header {
   position: relative;
   transition: 250ms;
   z-index: 25;
-  background: transparent;
   text-align: center; }
   .business-tabs ul {
     list-style: none;
-    padding-left: 0; }
+    padding-left: 0;
+    padding: 15px 0;
+    background: #1976D2;
+    border-radius: 3px; }
   .business-tabs li {
     display: inline-block;
-    width: 25%;
-    background: #444;
-    /*border-right: 1px solid #f0f0f0;*/
     cursor: pointer;
     text-align: center;
-    padding: 15px 0px 15px; }
+    padding: 0px 10px 0px;
+    border-right: 1px solid #2196F3; }
     .business-tabs li h1 {
       font-size: 1em !important;
       display: inline-block;
       vertical-align: top;
       font-weight: 500;
       color: #f0f0f0;
-      text-transform: uppercase;
+      /*text-transform: uppercase;*/
       /*display:none;*/
       /*padding-left:10px;*/ }
     .business-tabs li p {
@@ -913,7 +913,7 @@ header {
     .business-home section h2 {
       font-size: 1.2em;
       font-weight: 400;
-      color: #03A9F4;
+      color: #1976D2;
       margin-top: 5px;
       width: 100%; }
     .business-home section i {
@@ -949,6 +949,18 @@ header {
   .business-cover img {
     width: 100%;
     height: auto; }
+
+.business-return-home {
+  width: 100%;
+  padding: 0 15px 15px;
+  text-align: center; }
+  .business-return-home section {
+    background: #1976D2;
+    padding: 15px;
+    border-radius: 4px; }
+    .business-return-home section p {
+      font-size: 1.2em;
+      color: #fff; }
 
 /* Bar Page Options */
 .bar-page-options {
@@ -1441,7 +1453,7 @@ svg rect {
     display: inline-block;
     width: 40.001%;
     vertical-align: top;
-    background: #fff;
+    background: #ddd;
     padding: 27px 0px;
     text-align: center;
     height: 70px;
@@ -1455,30 +1467,31 @@ svg rect {
   .profile-beer-tabs i,
   .backend-feed-tabs i {
     font-size: 18px;
-    color: #8BC34A; }
+    color: #333; }
   .profile-beer-tabs h1,
   .backend-feed-tabs h1 {
     font-size: 1.2em;
     text-transform: uppercase;
-    color: #999; }
+    color: #555; }
   .profile-beer-tabs p,
   .backend-feed-tabs p {
     font-size: .8em;
     text-transform: uppercase;
     font-weight: 300;
     margin-top: 5px;
-    color: #999; }
+    color: #333; }
 
 .active-beer-type,
 .active-feed-type {
-  background: #fff !important;
-  /*border-bottom: 5px solid $secondary-color-light !important;*/ }
+  background: #eee !important;
+  /*border-bottom: 5px solid #aaa !important;*/ }
   .active-beer-type h1,
   .active-feed-type h1 {
-    color: #333; }
+    color: #000;
+    /*text-shadow:1px 1px;*/ }
   .active-beer-type p,
   .active-feed-type p {
-    color: #555; }
+    color: #fff; }
 
 /*#delete-beer {
 	border: 0;
@@ -1846,21 +1859,14 @@ svg rect {
 
 .profile-feed {
   width: 100%;
-  background: #f8f8f8;
-  padding-top: 15px;
-  margin-top: 15px;
-  /*border:1px solid #d8d8d8;*/ }
+  background: #f8f8f8; }
   .profile-feed ul {
     list-style: none;
     padding-left: 0; }
   .profile-feed div {
     width: 100%;
-    /*border-bottom: 1px solid #f0f0f0;*/
     position: relative;
-    padding: 5px;
-    background: #f8f8f8;
-    /*margin-top: 10px;*/
-    /*border-radius: 2px;*/ }
+    background: #f8f8f8; }
   .profile-feed li:last-child {
     border-bottom: 0; }
 
@@ -1956,7 +1962,7 @@ svg rect {
     height: auto; }
 
 .feed-ago {
-  width: 25%;
+  width: 100%;
   display: inline-block;
   text-align: left;
   vertical-align: top;
