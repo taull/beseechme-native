@@ -27,8 +27,8 @@ body {
   /*padding-bottom:15px;*/
   transition: 250ms; }
 
-.backend-container,
-.business-container {
+.two-column-container,
+.two-column-container {
   width: 1000px;
   margin: 0 auto;
   position: relative;
@@ -1324,7 +1324,22 @@ header {
     width: 70%;
     display: inline-block;
     vertical-align: top;
-    padding-left: 10px; }
+    padding-left: 10px;
+    /*span::before {
+    	content: "";
+    	color: #fff;
+    	background: #222;
+    	font-size: .8em;
+    	bottom: 10px;
+    	position: absolute;
+    	width: 10px;
+    	height: 10px;
+    	text-align: center;
+    	left: -10px;
+    	-ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }*/ }
     .profile-beer-list div h1 {
       display: inline-block;
       vertical-align: top;
@@ -1655,9 +1670,13 @@ svg rect {
     display: inline-block;
     width: 100%;
     padding: 20px; }
+  .beer-search-results li:nth-child(even),
+  .bar-search-results li:nth-child(even) {
+    background: #fff; }
   .beer-search-results aside,
   .bar-search-results aside {
-    width: 8%;
+    width: 50px;
+    height: 50px;
     display: inline-block;
     vertical-align: top;
     position: relative; }
@@ -3560,7 +3579,7 @@ svg rect {
     padding: 0px;
     top: 0; }
 
-  .backend-container {
+  .two-column-container {
     width: 100%; }
 
   header {
@@ -3645,7 +3664,7 @@ svg rect {
     width: 100%;
     padding: 0; }
 
-  .backend-container {
+  .two-column-container {
     width: 100%; }
 
   .top-container {
@@ -3722,10 +3741,10 @@ svg rect {
   #backend-menu {
     margin-bottom: 0; }
 
-  .business-container {
+  .two-column-container {
     width: 100%; }
 
-  .backend-container {
+  .two-column-container {
     padding: 0px 0px; }
 
   .backend-tabs {
