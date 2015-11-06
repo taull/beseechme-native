@@ -66,8 +66,8 @@ body {
     transition: 250ms;
 }
 
-.backend-container, 
-.business-container {
+.two-column-container, 
+.two-column-container {
 	width: 1000px;
     margin: 0 auto;
     position:relative;
@@ -1825,6 +1825,22 @@ header {
 			display: none;
 		}
 
+		/*span::before {
+			content: "";
+			color: #fff;
+			background: #222;
+			font-size: .8em;
+			bottom: 10px;
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			text-align: center;
+			left: -10px;
+			-ms-transform: rotate(45deg);
+		    -webkit-transform: rotate(45deg);
+		    transform: rotate(45deg);
+		}*/
+
 		span:hover::after {
 			display: inline-block;
 		}
@@ -2222,8 +2238,13 @@ svg rect{
 		padding: 20px;
 	}
 
+	li:nth-child(even) {
+		background: #fff;
+	}
+
 	aside {
-		width: 8%;
+		width: 50px;
+		height: 50px;
 		display: inline-block;
 		vertical-align: top;
 		position: relative;
@@ -4650,7 +4671,7 @@ svg rect{
 		top: 0;
 	}
 
-	.backend-container {
+	.two-column-container {
 		width: 100%;
 	}
 
@@ -4759,7 +4780,7 @@ svg rect{
 		padding:0;
 	}
 
-	.backend-container {
+	.two-column-container {
 		width: 100%;
 	}
 
@@ -4872,10 +4893,10 @@ svg rect{
 		margin-bottom:0;
 	}
 
-	.business-container {
+	.two-column-container {
 		width: 100%;
 	}
-	.backend-container {
+	.two-column-container {
 		padding: 0px 0px;
 	}
 

@@ -251,7 +251,7 @@
 
 <script type="text/template" id="backend-feed-view">
 
-  <div class="backend-container">
+  <div class="two-column-container">
 
     <div class="left-container">
       <% var user = Parse.User.current(); %>
@@ -402,7 +402,7 @@
 
 <script type="text/template" id="backend-beer-view">
 
-  <div class="backend-container">
+  <div class="two-column-container">
     <div class="left-container">
       <% var user = Parse.User.current(); %>
 
@@ -545,7 +545,7 @@
 <!-- backend Calendar View -->
 
 <script type="text/template" id="backend-calendar-view">
-  <div class="backend-container">
+  <div class="two-column-container">
     <div class="left-container">
       <% var user = Parse.User.current(); %>
 
@@ -680,7 +680,7 @@
 
 <script type="text/template" id="backend-settings-view">
 
-  <div class="backend-container">
+  <div class="two-column-container">
     <div class="left-container">
       <% var user = Parse.User.current() %>
 
@@ -842,7 +842,7 @@
 
 <script type="text/template" id="backend-competition-view">
 
-  <div class="backend-container">
+  <div class="two-column-container">
     <div class="left-container">
       <% var user = Parse.User.current(); %>
 
@@ -1019,7 +1019,7 @@
 </script>
 
 <script type="text/template" id="business-home-view">
-  <div class="business-container">
+  <div class="two-column-container">
 
     <div class="left-container">
 
@@ -1140,7 +1140,7 @@
 
 <script type="text/template" id="business-feed-view">
 
-  <div class="business-container">
+  <div class="two-column-container">
     <div class="left-container">
       <div class="business-cover">
           <% if (typeof attributes.coverPhoto !=='undefined') { %>
@@ -1191,7 +1191,7 @@
 
 <script type="text/template" id="business-beer-view">
 
-  <div class="business-container">
+  <div class="two-column-container">
     <div class="left-container">
       <div class="business-cover">
           <img src="images/craft2.jpg">
@@ -1265,7 +1265,7 @@
 </script>
 
 <script type="text/template" id="business-error-view">
-  <div class="business-container">
+  <div class="two-column-container">
 
     <div class="narrow-container">
       <div class="business-error">
@@ -1313,7 +1313,7 @@
 <!-- backend Calendar View -->
 
 <script type="text/template" id="business-calendar-view">
-  <div class="backend-container">
+  <div class="two-column-container">
     <div class="left-container">
 
         <div class="business-cover">
@@ -1390,8 +1390,6 @@
         <h1></h1>
       </div
 
-      
-
       ><div class="header-right">
         <ul>
           <div>
@@ -1447,19 +1445,22 @@
     </div>
   </header>
 
-  <div class="backend-container">
+  <div class="two-column-container">
     <div class="left-container">
-        <div class="business-cover">
-          <img src="images/craft2.jpg">
-        </div
-        ><div class="business-home">
-          <section>
-                <img src="images/craftdraft-logo.jpeg">
+        <div class="business-tabs-container">
+          <div class="business-tabs">
+            <ul>
+              <a href="#backend/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>The Feed</h1><p>Post updates, photos and videos</p></section></a
 
-              <h1>Craft and Draft</h1>
-              <p>2717 Blossom St, Columbia, SC 29205</p>
+              ><a href="#backend/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></section></a
 
-          </section>
+              ><a href="#backend/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Bartenders</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#backend/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
+
+              ><a href="#backend/settings"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
+            </ul>
+          </div>
         </div>
     </div
     ><div class="middle-container">
@@ -1476,31 +1477,123 @@
 </script>
 
 <script type="text/template" id="dashboard-view">
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <h1></h1>
+      </div
+
+      ><div class="header-right">
+        <ul>
+          <div>
+            <% if (Parse.User.current()) { %>
+              <i class="fa fa-power-off" id='logout'></i>
+              <% } else { %>
+              <p id='sign-in'>Sign In</p>
+            <% } %>
+          </div
+          ><li id="slideout-trigger">
+            <h1>Options</h1
+            ><span class="fa fa-chevron-down"></span>
+          </li><a href="#business/craftanddraft"><section>
+            <img src="images/default-avatar.png">
+          </section
+          ></a>
+
+        </ul>
+      </div
+
+      ><div class="header-center">
+
+        <div class="bar-search">
+          <form name='bar-search' action>
+            <span class="fa fa-search"></span>
+            <input type="text" placeholder="Search Bars">
+            <button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
+          </form>
+        </div>
+      </div
+
+      ><div class="backend-slideout">
+        <aside>
+          <span class="fa fa-caret-up"></span>
+        </aside>
+        
+        <section>
+          <div class="backend-tabs">
+            <ul>
+              <a href="#dashboard/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
+              ><a href="#dashboard/beer"><li><span class="fa fa-beer"></span><h1>Beer Tracker</h1><p>Set your draft and bottled lists</p></li></a
+              ><a href="#dashboard/listing"><li><span class="fa fa-users"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
+              ><a href="#dashboard/favorites"><li><span class="fa fa-heart"></span><h1>Favorites</h1><p>Keep your customers up to date</p></li></a
+              ><a href="#dashboard/map"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
+            </ul>
+          </div>
+          
+        </section>
+        
+      </div>
+      
+
+    </div>
+  </header>
 
 </script>
 
 <script type="text/template" id="dashboard-home-view">
+  <div class="one-column-container">
+    <div class="left-container">
+      <div class="business-tabs-container">
+          <div class="business-tabs">
+            <ul>
+              <a href="#dashboard/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>The Feed</h1><p>Post updates, photos and videos</p></section></a
 
+              ><a href="#dashboard/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#dashboard/listing"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Listing</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#dashboard/favorites"><article><aside><span class="fa fa-heart"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
+
+              ><a href="#dashboard/map"><article><aside><span class="fa fa-location-arrow"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
 </script>
 
 <script type="text/template" id="dashboard-feed-view">
-
+  <div class="two-column-container">
+    <div class="left-container"></div>
+    <div class="middle-container"></div>
+  </div>
 </script>
 
 <script type="text/template" id="dashboard-beer-view">
-
+  <div class="two-column-container">
+    <div class="left-container"></div>
+    <div class="middle-container"></div>
+  </div>
 </script>
 
 <script type="text/template" id="dashboard-listing-view">
-
+  <div class="two-column-container">
+    <div class="left-container"></div>
+    <div class="middle-container"></div>
+  </div>
 </script>
 
 <script type="text/template" id="dashboard-favorites-view">
-
+  <div class="two-column-container">
+    <div class="left-container"></div>
+    <div class="middle-container"></div>
+  </div>
 </script>
 
 <script type="text/template" id="dashboard-map-view">
-
+  <div class="one-column-container">
+    <div class="left-container"></div>
+  </div>
 </script>
 
 
