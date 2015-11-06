@@ -27,16 +27,18 @@ body {
   /*padding-bottom:15px;*/
   transition: 250ms; }
 
-.two-column-container,
 .two-column-container {
   width: 1000px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
-  padding-bottom: 20px;
-  /*border-top: 15px solid #e5e5e5;*/
-  /*overflow: hidden;*/
-  /*border-right: 1px solid #dfdfdf;*/ }
+  padding-bottom: 20px; }
+
+.one-column-container {
+  width: 600px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 20px; }
 
 .left-container,
 .middle-container,
