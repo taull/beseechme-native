@@ -375,11 +375,14 @@ BeMe.Views.BackendFeed = Parse.View.extend({
     //conditional where we check to see if there was a file chosen && it was processed correctly
     //if fileIsChosen && image != 'undefined'....
 
+    var user = Parse.User.current();
+
 		var content = contentHolder.val();
 		var businessStatus = new Parse.Object('businessStatus');
 		businessStatus.set('content', content);
 		businessStatus.set('image', image);
-		businessStatus.set('createdBy', Parse.User.current());
+		businessStatus.set('createdBy', user);
+    businessStatus.set('location', user.get('location'));
 		businessStatus.save().then(function (e){
 			contentHolder.val('');
 			$('#camera-file').val('');
@@ -1449,6 +1452,36 @@ BeMe.Views.BarSearchResult = Parse.View.extend({
   }
 });
 
+// Consumer Dashboard
+
+BeMe.Views.Dashboard = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#dashboard-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+  }
+});
+
+BeMe.Views.Dashboard = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#dashboard-home-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+  }
+});
+
 /* Router */
 
 var Router = Parse.Router.extend({
@@ -1466,6 +1499,7 @@ var Router = Parse.Router.extend({
     'business/:handle/feed' : 'businessFeed',
     'business/:handle/beer' : 'businessBeerList',
     'business/:handle/calendar' : 'businessCalendar',
+    'dashboard' : 'dashboard',
     'test' : 'test',
     'search/:query' : 'search'
 	},
@@ -1476,11 +1510,11 @@ var Router = Parse.Router.extend({
     //basic functionality for making our code  more dry!!
 
     var BaseView = Parse.View.extend({
-    render: function () {
-      this.$el.html(this.template(this.model));
-      $(this.destination).append(this.el);
-      BeMe.renderedViews.push(this);
-    }
+      render: function () {
+        this.$el.html(this.template(this.model));
+        $(this.destination).append(this.el);
+        BeMe.renderedViews.push(this);
+      }
     });
 
     var ChildView = BaseView.extend({
@@ -1630,6 +1664,12 @@ var Router = Parse.Router.extend({
       var collection = new Parse.Collection(i);
       new BeMe.Views.BarSearchResults({collection:collection});
     });
+  }, 
+
+  dashboard: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Dashboard();
+    new BeMe.Views.DashboardHome();
   }
 });
 
