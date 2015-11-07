@@ -1174,8 +1174,6 @@ BeMe.Views.BusinessError = Parse.View.extend({
 
 BeMe.Views.BusinessHome = Parse.View.extend({
   initialize: function () {
-    console.log(this.model);
-
     this.render();
   },
 
@@ -1468,19 +1466,74 @@ BeMe.Views.Dashboard = Parse.View.extend({
   }
 });
 
-BeMe.Views.Dashboard = Parse.View.extend({
-  initialize: function () {
-    this.render();
-  },
-
-  template: _.template($('#dashboard-home-view').text()),
-
+BeMe.Views.DashboardBaseView = Parse.View.extend({
   render: function () {
+    new BeMe.Views.Dashboard(); // the dependency template for the dashboard views
     this.$el.html(this.template(this.model));
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
   }
 });
+
+BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
+  initialize: function () {
+    this.template = _.template($('#dashboard-home-view').text());
+    this.render();
+  }
+});
+
+BeMe.Views.DashboardFeed = BeMe.Views.DashboardBaseView.extend({
+  initialize: function () {
+    this.template = _.template($('#dashboard-feed-view').text())
+    this.render();
+    this.loadNearStatusesView();
+  },
+
+  loadNearStatusesView: function () {
+    new BeMe.Views.DashboardFeedList();
+  }
+});
+
+BeMe.Views.DashboardFeedList = Parse.View.extend({
+  initialize: function () {
+    this.collection = new Parse.Collection();
+    this.views = [];
+    this.pullNearStatuses();
+  },
+
+  pullNearStatuses: function () {
+    var self = this;
+    var user = Parse.User.current();
+    Parse.Cloud.run('pullNearStatuses',{location: user.get('location'), maxDistance:user.get('maxDistance')}).then(function (e) {
+      self.collection.add(e);
+      self.render();
+    });
+  },
+
+  render: function () {
+    var self = this;
+    BeMe.removeGroup(this.views);
+    console.log(this.collection);
+    this.collection.each(function (i) {
+      var newView = new BeMe.Views.DashboardFeedItem({model:i});
+      self.views.push(this);
+    });
+  }
+});
+
+BeMe.Views.DashboardFeedItem = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#business-post-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.profile-feed ul').append(this.el);
+  }
+});
+
 
 /* Router */
 
@@ -1500,6 +1553,7 @@ var Router = Parse.Router.extend({
     'business/:handle/beer' : 'businessBeerList',
     'business/:handle/calendar' : 'businessCalendar',
     'dashboard' : 'dashboard',
+    'dashboard/feed' : 'dashboardFeed',
     'test' : 'test',
     'search/:query' : 'search'
 	},
@@ -1507,7 +1561,7 @@ var Router = Parse.Router.extend({
   test: function () {
     BeMe.removeAllViews();
 
-    //basic functionality for making our code  more dry!!
+    //basic functionality for making our code more dry!!
 
     var BaseView = Parse.View.extend({
       render: function () {
@@ -1519,7 +1573,7 @@ var Router = Parse.Router.extend({
 
     var ChildView = BaseView.extend({
       initialize: function () {
-        this.template = _.template($("#business-view").text());
+        this.template = _.template($("#dashboard-home-view").text());
         this.destination = '.body-container';
         this.render();
       }
@@ -1668,8 +1722,12 @@ var Router = Parse.Router.extend({
 
   dashboard: function () {
     BeMe.removeAllViews();
-    new BeMe.Views.Dashboard();
     new BeMe.Views.DashboardHome();
+  },
+
+  dashboardFeed: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.DashboardFeed();
   }
 });
 
