@@ -630,7 +630,6 @@ header {
   height: 60px;
   position: relative;
   background: #f0f0f0;
-  border: 1px solid #dfdfdf;
   margin-left: auto;
   /*border-radius: 4px;*/
   padding-right: 5px; }
@@ -1672,8 +1671,8 @@ svg rect {
     display: inline-block;
     width: 100%;
     padding: 20px; }
-  .beer-search-results li:nth-child(even),
-  .bar-search-results li:nth-child(even) {
+  .beer-search-results li:nth-child(odd),
+  .bar-search-results li:nth-child(odd) {
     background: #fff; }
   .beer-search-results aside,
   .bar-search-results aside {

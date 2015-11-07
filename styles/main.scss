@@ -871,7 +871,6 @@ header {
 	height: 60px;
 	position: relative;
 	background: #f0f0f0;
-	border: 1px solid #dfdfdf;
 	margin-left: auto;
 	/*border-radius: 4px;*/
 	padding-right: 5px;
@@ -2241,7 +2240,7 @@ svg rect{
 		padding: 20px;
 	}
 
-	li:nth-child(even) {
+	li:nth-child(odd) {
 		background: #fff;
 	}
 
