@@ -306,6 +306,10 @@ BeMe.Views.Backend = Parse.View.extend({
     $('#slideout-trigger').click(function(){
       $('.backend-slideout').toggleClass('show');
     });
+
+    $('.business-tabs-expand').click(function(){
+      $('.business-tabs-container').toggleClass('business-tabs-container-expand');
+    });
 	},
 
   events: {
