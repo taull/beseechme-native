@@ -66,16 +66,37 @@ body {
     transition: 250ms;
 }
 
-.two-column-container {
+.backend-container {
+	width: 1000px;
+    /*margin: 0 auto;*/
+    margin-left: 225px;
+    margin-top: 0px;
+    position:relative;
+    z-index:1;
+    padding-bottom: 20px;
+}
+
+.dashboard-container {
+	width: 1000px;
+    /*margin: 0 auto;*/
+    margin-left: 225px;
+    margin-top: 25px;
+    position:relative;
+    z-index:1;
+    padding-bottom: 20px;
+}
+
+.business-container {
 	width: 1000px;
     margin: 0 auto;
+    margin-top: 75px;
     position:relative;
     z-index:1;
     padding-bottom: 20px;
 }
 
 .one-column-container {
-	width: 600px;
+	width: 540px;
 	margin: 0 auto;
 	position: relative;
 	padding-bottom: 20px;
@@ -89,26 +110,24 @@ body {
 }
 
 .left-container {
-	width: 40%;
-	/*background: #fff;*/
-	padding-right: 15px;
+	width:60px;
+	display: none;
 
 	section {
 		background: #fff;
-		/*padding: 15px;*/
 	}
 }
 
 .middle-container {
 	width: 60%;
 	/*padding: 0 0px 0 15px;*/
-	/*padding-left: 15px;*/
+	/*padding-left: 10px;*/
 
 }
 
 .right-container {
-	width: 5%;
-	display: none;
+	padding-left: 25px;
+	width: 40%;
 }
 
 .datepicker {
@@ -123,20 +142,20 @@ body {
 
 header {
 	width: 100%;
-	height: 70px;
+	height: 25px;
     margin: 0px auto 0;
     position: relative;
+    top: 0;
     left: 0;
     background: #e5e5e5;
     z-index: 9999999;
 }
 
 .header-container {
-	width: 1000px;
-	height: 70px;
+	width: 540px;
+	height: 50px;
 	margin: 0 auto;
 	position:relative;
-	/*box-shadow: 0 0 30px -15px #000;*/
 }
 
 .header-logo {
@@ -166,10 +185,11 @@ header {
 .header-right {
 	display: inline-block;
 	vertical-align: top;
-	width: 70%;
+	width: 50%;
 	position: relative;
     z-index: 999999999;
     text-align: right;
+    display: none;
 
 	img {
 		width: 100px;
@@ -282,32 +302,8 @@ header {
 	display: inline-block;
     vertical-align: top;
     text-align: right;
-    width: 30%;
+    width: 100%;
     height: 70px;
-    padding: 15px;
-    padding-right: 0;
-    /*display: none;*/
-
-	div {
-		display: inline-block;
-		vertical-align: top;
-
-
-
-		i {
-			display: inline-block;
-		    vertical-align: top;
-		    font-size: 14px;
-		    color: $green-light;
-		    width: 100%;
-		    text-align: center;
-
-		}
-
-		i:first-child {
-
-		}
-	}
 }
 
 /* Header Slideout*/
@@ -480,26 +476,40 @@ header {
 	border-bottom: 0;
 }
 
-
 .business-tabs-container {
-	width: 100%;
-	background: #f8f8f8;
+	width: 540px;
+	margin: 0 auto;
+	background: #444;
+	position:relative;
+	transition: 250ms;
+}
+
+.left-slideout {
+	width: 200px;
+	background: #333;
+	position:fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	overflow: hidden;
+    z-index: 999999999999999999999999;
+	transition: 250ms;
+}
+
+.business-tabs-container-expand {
+	width: 150px;
 }
 
 .business-tabs {
 	display: inline-block;
-	width: 100%;
-	position:relative;
     transition:250ms;
     z-index: 25;
     text-align: center;
-    padding: 20px 15px;
+    width: 100%;
 
 	ul {
 		list-style: none;
 		padding-left: 0;
-		padding: 0;
-		/*border-radius: 3px;*/
 	}
 
 	section {
@@ -565,20 +575,17 @@ header {
 		overflow: hidden;
 		height: 40px;
 		width: 40px;
-		text-align: center;
+		text-align: left;
 		margin: 0 auto;
 	}
 
 
 
 	a {
-		width: 20%;
 		display: inline-block;
 		cursor: pointer;
 		text-align:center;
-		/*padding: 20px 15px 20px;*/
-		/*border-bottom: 1px solid #181818;*/
-
+		padding: 20px 10px;
 
 		h1 {
 			font-size: .8em !important;
@@ -586,9 +593,7 @@ header {
 			vertical-align: top;
 			font-weight: 300;
 			color: #fff;
-			/*text-transform: uppercase;*/
-			/*display:none;*/
-			/*padding-left:10px;*/
+
 		}
 
 		p {
@@ -623,9 +628,69 @@ header {
 	a:nth-child(5) footer {
 		background: #4DB6AC;
 	}
-
-	
 }
+
+.slideout-user {
+	padding: 30px 0;
+	background: #444;
+	text-align: center;
+
+	img {
+		width: 60px;
+		height: 60px;
+		padding: 3px;
+		background: #666;
+		/*border-radius: 30px;*/
+	}
+
+	h1 {
+		font-size: 1.2em;
+		font-weight: 300;
+		color: #fff;
+		margin-top: 15px;
+	}
+}
+
+.sidebar-tabs {
+	width: 100%;
+	padding: 15px 0;
+
+	a {
+		width: 100%;
+		text-align: left;
+		padding: 15px;
+	}
+
+	li {
+		padding-left: 15px;
+	}
+
+	span, 
+	h1 {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	span {
+		font-size: 1.2em;
+		color: #ccc;
+		width: 36px;
+		height: 36px;
+		/*padding-top: .2em;*/
+		/*border-radius: 25px;
+		border: 2px solid #ccc;*/
+		text-align: center;
+	}
+
+	h1 {
+		color: #ccc;
+		font-size: 1.2em;
+		font-weight: 300;
+/*		padding-left: 10px;
+		padding-top: .4em;*/
+	}
+}
+
 
 .active-tab {
 	background: #f5f5f5 !important;	
@@ -1515,51 +1580,63 @@ header {
 
 .bar-search {
 	width: 100%;
-	background: #444;
+	background: #fff;
 	position: relative;
 	transition: 250ms;
 	z-index: 50;
-	border-radius: 4px;
-	height: 40px;
+	height: 50px;
+	margin: 0 auto;
 
 	span {
 		display: inline-block;
-	    height: 40px;
+	    height: 50px;
 	    vertical-align: top;
 	    width: 15%;
-	    font-size: 1em;
+	    font-size: 1.4em;
 	    color: #999;
 	    text-align: right;
 	    padding-right: 10px;
-	    padding-top: 14px;
+	    padding-top: 17px;
 	}
 
 	button {
-		background: #444;
+		background: transparent;
 		outline: 0;
 		border: 0;
-		 border-radius: 0px 4px 4px 0px; 
 		color: #fff;
 		font-size: 1em;
 		font-weight: 300;
 		padding: 0;
-		/* margin-top: 18px; */
-		height: 40px;
+		height: 50px;
 		padding: 13px;
+
+
+		i {
+			display: inline-block;
+		    vertical-align: top;
+		    font-size: 14px;
+		    color: $green-light;
+		    width: 100%;
+		    text-align: center;
+		    display: none;
+
+		}
 	}
+
 
 	input {
 		display: inline-block;
-		color: #fff;
+		color: #333;
 		vertical-align: top;
-		height: 40px;
-		width: 65%;
+		height: 50px;
+		width: 70%;
 		border: 0;
 		background: transparent;
 		outline: 0;
 		border-radius: 0;
-		font-size: 1.2em;
+		font-size: 1.4em;
 		font-weight: 300;
+		text-indent: 10px;
 	}
 }
 
@@ -2591,7 +2668,7 @@ svg rect{
 
 .profile-feed {
     width: 100%;
-    background: $primary-color-light;
+    background: transparent;
 
 
 	ul {
@@ -2620,12 +2697,18 @@ svg rect{
 		text-align: left;
 	}
 
-	li {
+	li, 
+	div {
 		padding: 20px 0;
+		background: $primary-color-light;
+	}
+	li:nth-child(odd), 
+	div:nth-child(odd) {
+		background: #fff;
 	}
 
-
 }
+
 
 .feed-info {
 	padding: 0 0px;
@@ -2903,25 +2986,6 @@ svg rect{
 
 /* Slideout Panel */
 
-.left-slideout {
-	position: absolute;
-	left:-100%;
-	height: 100vh;
-	width: 480px;
-	transition: 250ms;
-	background: $primary-color-light;
-}
-
-.top-slideout {
-	position: fixed;
-	top: 0;
-	height: 80px;
-}
-
-.toggle-left-slideout {
-	left: 0;
-}
-
 .settings-slideout {
 	position: absolute;
 	left: 0;
@@ -2931,77 +2995,12 @@ svg rect{
 	background: $primary-color-dark;
 }
 
-
-/*.bar-search {
-	position:relative;
-	background: $secondary-color-dark;
-	width: 100%;
-	display: inline-block;
-	vertical-align: top;
-	z-index: 50;
-
-	i {
-		display: inline-block;
-		width: 12%;
-		text-align: right;
-		font-size: 1.2em;
-		padding-top: 22px;
-		color: #f0f0f0;
-		padding-right: 5px;
-	}
-
-
-	input {
-		display: inline-block;
-		vertical-align: top;
-		font-size:16px;
-		height: 60px;
-		font-weight:300;
-		text-indent: 10px;
-		background: transparent;
-		width: 73%;
-		border:0;
-		color:#f0f0f0;
-
-		&:focus {
-			outline:0;
-		}
-	}
-
-	input::-webkit-input-placeholder {
-		color: #f0f0f0;
-	}
-
-	button {
-		width: 20%;
-		height: 35px;
-		background: $secondary-color-dark;
-		font-size: 1.2em;
-		font-weight: 300;
-		color: $primary-color-light;
-		outline: 0;
-		border: 0;
-		border-radius: 4px;
-		margin-top:15px;
-	}
-
-	img {
-		width: 25px;
-		height: 25px;
-		display: inline-block;
-		vertical-align: top;
-		margin-top:17px;
-	}
-}
-*/
-
 /* Bar Slideout */
 
 .right-slideout {
 	position: fixed;
 	z-index: 10;
-/*	right:-480px;
-*/	bottom:-100%;
+	bottom:-100%;
 	height: 100%;
 	width: 480px;
 	transition: 250ms;
@@ -3416,7 +3415,7 @@ svg rect{
 	background: $primary-color-light;
 	padding-top:15px;
 	z-index: 1;
-	margin-top: 15px;
+	/*margin-top: 15px;*/
 
 	li {
 	} 
@@ -3751,6 +3750,8 @@ svg rect{
 	background: #fff;
 	margin-bottom: 10px;
 	position: relative;
+	overflow: scroll;
+	height: 80px;
 	/*border-right:0;
 	border-left:0;*/
 
@@ -3762,7 +3763,7 @@ svg rect{
 	li {
 		vertical-align: top;
 		display: inline-block;
-		width: 14.285714285%;
+		width: 20%;
 		background:#f0f0f0;
 		/*border-left: 1px solid #f0f0f0;
 		border-right: 1px solid #fff;*/
