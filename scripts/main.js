@@ -1567,6 +1567,19 @@ BeMe.Views.Location = Parse.View.extend({
     this.$el.html(this.template(this.model));
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
+  },
+
+  events: {
+    'click .location-button' : 'setCurrentLocation'
+  },
+
+  setCurrentLocation: function () {
+    var user = Parse.User.current();
+    new Parse.GeoPoint.current().then(function (currentLocation) {
+      user.set('location', currentLocation);
+      user.save();
+      BeMe.Router.navigate('dashboard', true);
+    });
   }
 })
 
