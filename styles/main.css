@@ -1218,7 +1218,7 @@ header {
       color: #8BC34A;
       width: 100%;
       text-align: center;
-      display: none; }
+      /*display: none;*/ }
   .bar-search input {
     display: inline-block;
     color: #333;
