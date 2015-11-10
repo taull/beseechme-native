@@ -1175,6 +1175,7 @@ BeMe.Views.BusinessError = Parse.View.extend({
 BeMe.Views.BusinessHome = Parse.View.extend({
   initialize: function () {
     this.render();
+    this.loadRecentPosts();
   },
 
   template: _.template($('#business-home-view').text()),
@@ -1183,7 +1184,17 @@ BeMe.Views.BusinessHome = Parse.View.extend({
     this.$el.html(this.template(this.model));
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
-  }
+  },
+
+  loadRecentPosts: function () {
+    var query = new Parse.Query('businessStatus');
+    query.equalTo('createdBy', this.model);
+    query.limit(5);
+    query.descending('createdAt');
+    query.find().then(function (e) {
+      console.log(e);
+    });
+  },
 });
 
 /* Business Feed */
@@ -1513,7 +1524,6 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
   render: function () {
     var self = this;
     BeMe.removeGroup(this.views);
-    console.log(this.collection);
     this.collection.each(function (i) {
       var newView = new BeMe.Views.DashboardFeedItem({model:i});
       self.views.push(this);
@@ -1653,7 +1663,6 @@ var Router = Parse.Router.extend({
       } else {
         new BeMe.Views.BusinessError(handle);
       }
-      console.log(i);
     });
   },
 
