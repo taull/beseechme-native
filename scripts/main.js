@@ -1577,10 +1577,13 @@ BeMe.Views.Location = Parse.View.extend({
     var user = Parse.User.current();
     new Parse.GeoPoint.current().then(function (currentLocation) {
       user.set('location', currentLocation);
+      user.set('lastUpdatedLocation', new Date());
       user.save();
       BeMe.Router.navigate('dashboard', true);
     });
-  }
+  },
+
+
 })
 
 
