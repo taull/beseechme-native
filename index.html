@@ -1554,7 +1554,7 @@
     <p><%= attributes.address %></p>
   </section
   ><article>
-    <h1>X Miles Away</h1>
+    <h1><%= attributes.location.milesTo(Parse.User.current().get('location')).toFixed(1) %> Miles Away</h1>
   </article>
 </script>
 
