@@ -1574,14 +1574,19 @@ BeMe.Views.DashboardListing = BeMe.Views.DashboardBaseView.extend({
 
   loadListings: function () {
     var self = this;
+
+    var user = Parse.User.current();
+
     var query = new Parse.Query('User');
     query.equalTo('userType', 'business');
-    query.withinMiles('location',Parse.User.current().get('location'), 100);
+
+    /* CHANGE TO user.get('maxDistance') WHENEVER WE GET THE SLIDER WORKING */
+    query.withinMiles('location',user.get('location'), 100);
     query.find().then(function (e) {
-      console.log(e);
       BeMe.removeGroup(this.listingViews);
       _.each(e, function (i) {
         var newListingView = new BeMe.Views.DashboardIndividualListing({model:i});
+        console.log(i);
         self.listingViews.push(this);
       });
     }, function (error) {
