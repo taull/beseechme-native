@@ -1203,7 +1203,28 @@ BeMe.Views.BusinessHome = Parse.View.extend({
 
   loadRandomBeers: function () {
     var draftBeers = this.model.get('draftBeers');
-    var bottledBeers = this.model.get('bottledBeers');
+
+
+    if (draftBeers.length === 0) {
+      console.log('No beers to display');
+    } else if (draftBeers.length <= 5) {
+      Parse.Cloud.run('getBeers', {array:draftBeers}).then(function (e) {
+        console.log("5 or less beers");
+        console.log(e);
+      });
+    } else {
+      var array = [];
+      for (var i = 0; i < 5; i++) {
+        var randomNum = _.random(0, draftBeers.length - 1);
+        array.push(draftBeers.splice(randomNum, 1)[0]);
+      }
+      console.log(array);
+
+      Parse.Cloud.run('getBeers', {array:array}).then(function (e) {
+        console.log('Random Beers:')
+        console.log(e);
+      });
+    }
   },
 });
 
@@ -1515,12 +1536,8 @@ BeMe.Views.DashboardFeed = BeMe.Views.DashboardBaseView.extend({
   initialize: function () {
     this.template = _.template($('#dashboard-feed-view').text())
     this.render();
-    this.loadNearStatusesView();
-  },
-
-  loadNearStatusesView: function () {
     new BeMe.Views.DashboardFeedList();
-  }
+  },
 });
 
 BeMe.Views.DashboardFeedList = Parse.View.extend({
