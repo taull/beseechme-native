@@ -77,10 +77,9 @@ body {
 }
 
 .dashboard-container {
-	width: 1000px;
-    /*margin: 0 auto;*/
-    margin-left: 225px;
-    margin-top: 25px;
+	width: 540px;
+    margin: 0 auto;
+    margin-top: 50px;
     position:relative;
     z-index:1;
     padding-bottom: 20px;
@@ -112,7 +111,7 @@ body {
 
 .left-container {
 	width:60px;
-	display: none;
+	/*display: none;*/
 
 	section {
 		background: #fff;
@@ -128,7 +127,8 @@ body {
 
 .right-container {
 	padding-left: 25px;
-	width: 40%;
+	width: 400px;
+    position: fixed;
 }
 
 .datepicker {
@@ -880,51 +880,52 @@ header {
 	li:last-child {
 		border-bottom: 0;
 	}
-}
 
-.listing-avatar {
-	width: 10%;
-	display: inline-block;
+	aside {
+		width: 10%;
+		display: inline-block;
 
-	img {
-		width: 100%;
-		height: auto;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	section {
+		width: 50%;
+		display: inline-block;
+		vertical-align: top;
+		padding-left: 10px;
+
+		h1 {
+			font-size: 1.1em;
+			font-weight: normal;
+			color: $secondary-color-dark;
+		}
+
+		p {
+			font-size: 1em;
+			font-weight: 300;
+			display: block;
+			font-style: italic;
+			color: $primary-color-dark;
+		}
+	}
+
+	article {
+		width: 20%;
+		text-align: right;
+		display: inline-block;
+		vertical-align: top;
+
+		h1 {
+			font-size: 1em;
+			font-weight: 300;
+			color: #333;
+		}
 	}
 }
 
-.listing-info {
-	width: 75%;
-	display: inline-block;
-	vertical-align: top;
-	padding-left: 10px;
-
-	h1 {
-		font-size: 1.1em;
-		font-weight: normal;
-		color: $secondary-color-dark;
-	}
-
-	p {
-		font-size: 1em;
-		font-weight: 300;
-		display: block;
-		font-style: italic;
-		color: $primary-color-dark;
-	}
-}
-
-.listing-link {
-	width: 10%;
-	display: inline-block;
-	vertical-align: top;
-	text-align: center;
-	padding-top:10px;
-
-	span {
-		font-size: 24px;
-		color: $green-light;
-	}
-}
 
 
 /* Search */
@@ -1026,12 +1027,17 @@ header {
 
 .location-button {
     height: 60px;
-    width: 100%;
+    width: 60%;
     margin: 0 auto;
     background: $secondary-color-dark;
     text-align: center;
     border-radius: 4px;
     padding-top: 20px;
+    margin-bottom: 50px;
+
+    span {
+    	color: $primary-color-light;
+    }
 
 	i {
 		color: $primary-color-light;
@@ -1431,7 +1437,7 @@ header {
 
 .business-return-home {
 	width: 100%;
-	padding: 0 15px 15px;
+	padding: 15px 60px;
 	text-align: center;
 
 	section {
@@ -1585,19 +1591,19 @@ header {
 	position: relative;
 	transition: 250ms;
 	z-index: 50;
-	height: 50px;
+	height: 75px;
 	margin: 0 auto;
 
 	span {
 		display: inline-block;
-	    height: 50px;
+	    height: 75px;
 	    vertical-align: top;
 	    width: 15%;
 	    font-size: 1.4em;
 	    color: #999;
 	    text-align: right;
 	    padding-right: 10px;
-	    padding-top: 17px;
+	    padding-top: 30px;
 	}
 
 	button {
@@ -1608,7 +1614,7 @@ header {
 		font-size: 1em;
 		font-weight: 300;
 		padding: 0;
-		height: 50px;
+		height: 75px;
 		padding: 13px;
 
 
@@ -1619,7 +1625,7 @@ header {
 		    color: $green-light;
 		    width: 100%;
 		    text-align: center;
-		    /*display: none;*/
+		    display: none;
 
 		}
 	}
@@ -1629,7 +1635,7 @@ header {
 		display: inline-block;
 		color: #333;
 		vertical-align: top;
-		height: 50px;
+		height: 75px;
 		width: 70%;
 		border: 0;
 		background: transparent;
@@ -1640,6 +1646,7 @@ header {
 		text-indent: 10px;
 	}
 }
+
 
 .beer-search-shift {
 	margin-top: 0;
