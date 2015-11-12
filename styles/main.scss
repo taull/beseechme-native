@@ -877,6 +877,10 @@ header {
 		cursor:pointer;
 	}
 
+	li:nth-child(even) {
+		background: #fff;
+	}
+
 	li:last-child {
 		border-bottom: 0;
 	}
@@ -898,7 +902,7 @@ header {
 		padding-left: 10px;
 
 		h1 {
-			font-size: 1.1em;
+			font-size: 1.2em;
 			font-weight: normal;
 			color: $secondary-color-dark;
 		}
@@ -908,7 +912,14 @@ header {
 			font-weight: 300;
 			display: block;
 			font-style: italic;
-			color: $primary-color-dark;
+			color: #333;
+			margin-top: 3px;
+		}
+
+		h2 {
+			font-size: 1em;
+			font-weight: 400;
+			color: #333;
 		}
 	}
 
