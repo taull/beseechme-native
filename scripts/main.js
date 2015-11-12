@@ -401,7 +401,6 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
     var self = this;
     this.views = [];
     this.on('add remove', this.render);
-    console.log(Parse.User.current());
     this.fetch(this.query).then(function (e) {
       console.log(e);
       self.render();
@@ -415,10 +414,7 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
 
   render: function () {
     var self = this;
-    _.each(this.views, function (i) {
-      i.remove();
-    });
-    this.views = [];
+    BeMe.removeGroup(this.views);
     this.each(function (i) {
       var feedPost = new BeMe.Views.FeedPost({model:i});
       self.views.push(feedPost);
@@ -824,9 +820,7 @@ BeMe.Views.DaysView = Parse.View.extend({
   },
 
   render: function () {
-    _.each(this.dayViews, function (i) {
-      i.removeRenderedView();
-    });
+    BeMe.removeGroup(this.dayViews);
     this.dayViews = [];
 		for (var i = 0; i < 7; i++) {
 			var dateObject = new moment();
@@ -1196,22 +1190,26 @@ BeMe.Views.BusinessHome = Parse.View.extend({
     var query = new Parse.Query('businessStatus');
     query.equalTo('createdBy', this.model);
     query.limit(5);
+    query.include('createdBy');
     query.descending('createdAt');
     query.find().then(function (e) {
       console.log(e);
+      _.each(e, function (i) {
+        new BeMe.Views.FeedPost({model:i});
+      });
     });
   },
 
   loadRandomBeers: function () {
     var draftBeers = this.model.get('draftBeers');
 
-
     if (draftBeers.length === 0) {
       console.log('No beers to display');
     } else if (draftBeers.length <= 5) {
       Parse.Cloud.run('getBeers', {array:draftBeers}).then(function (e) {
-        console.log("5 or less beers");
-        console.log(e);
+        _.each(e, function (i) {
+          new BeMe.Views.BackendBeer({model:i});
+        });
       });
     } else {
       var array = [];
@@ -1219,11 +1217,12 @@ BeMe.Views.BusinessHome = Parse.View.extend({
         var randomNum = _.random(0, draftBeers.length - 1);
         array.push(draftBeers.splice(randomNum, 1)[0]);
       }
-      console.log(array);
 
       Parse.Cloud.run('getBeers', {array:array}).then(function (e) {
-        console.log('Random Beers:')
         console.log(e);
+        _.each(e, function (i) {
+          new BeMe.Views.BackendBeer({model:i});
+        });
       });
     }
   },
@@ -1252,6 +1251,9 @@ BeMe.Views.BusinessHome = Parse.View.extend({
     var query = Parse.Query.or(timeBasedQuery, standingCommentQuery);
     query.find().then(function (e) {
       console.log(e);
+      _.each(e, function (i) {
+        new BeMe.Views.CommentDisplay({model:i});
+      });
     }, function (error) {
       console.log(error);
       alert(error.message);
