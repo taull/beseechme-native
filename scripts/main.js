@@ -1181,6 +1181,7 @@ BeMe.Views.BusinessHome = Parse.View.extend({
     this.render();
     this.loadRecentPosts();
     this.loadRandomBeers();
+    this.loadWeeklyComments();
   },
 
   template: _.template($('#business-home-view').text()),
@@ -1226,6 +1227,36 @@ BeMe.Views.BusinessHome = Parse.View.extend({
       });
     }
   },
+
+  loadWeeklyComments: function () {
+    var beginningOfToday = new moment();
+    beginningOfToday.startOf('day');
+    beginningOfToday = beginningOfToday.toDate();
+
+    var endOfToday = new moment();
+    endOfToday.endOf('day');
+    endOfToday = endOfToday.toDate();
+
+
+    var timeBasedQuery = new Parse.Query('weeklyComment');
+    timeBasedQuery.equalTo('createdBy', this.model);
+    timeBasedQuery.greaterThanOrEqualTo('date', beginningOfToday);
+    timeBasedQuery.lessThanOrEqualTo('date', endOfToday);
+
+    var standingCommentQuery = new Parse.Query('weeklyComment');
+    var dayOfWeek = moment();
+    dayOfWeek = dayOfWeek.day();
+    standingCommentQuery.equalTo('dayOfWeek', dayOfWeek);
+    standingCommentQuery.equalTo('createdBy', this.model);
+
+    var query = Parse.Query.or(timeBasedQuery, standingCommentQuery);
+    query.find().then(function (e) {
+      console.log(e);
+    }, function (error) {
+      console.log(error);
+      alert(error.message);
+    });
+  }
 });
 
 /* Business Feed */
