@@ -14,7 +14,7 @@
 body {
   font-size: 12px;
   position: relative;
-  background: #e5e5e5;
+  background: #37465F;
   width: 100%;
   margin: 0 auto;
   overflow-x: hidden;
@@ -31,15 +31,15 @@ body {
   width: 1000px;
   /*margin: 0 auto;*/
   margin-left: 225px;
-  margin-top: 0px;
+  margin-top: 90px;
   position: relative;
   z-index: 1;
   padding-bottom: 20px; }
 
 .dashboard-container {
-  width: 540px;
+  width: 1000px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 90px;
   position: relative;
   z-index: 1;
   padding-bottom: 20px; }
@@ -47,7 +47,7 @@ body {
 .business-container {
   width: 1000px;
   margin: 0 auto;
-  margin-top: 75px;
+  margin-top: 90px;
   position: relative;
   z-index: 1;
   padding-bottom: 20px; }
@@ -56,14 +56,24 @@ body {
   width: 540px;
   margin: 0 auto;
   position: relative;
-  margin-top: 50px;
+  margin-top: 90px;
   padding-bottom: 20px; }
 
 .left-container,
 .middle-container,
-.right-container {
+.right-container,
+.left-column,
+.middle-column,
+.right-column {
   display: inline-block;
   vertical-align: top; }
+
+.middle-column {
+  width: 55%;
+  padding-right: 15px; }
+
+.right-column {
+  width: 45%; }
 
 .left-container {
   width: 60px;
@@ -91,16 +101,17 @@ body {
 
 header {
   width: 100%;
-  height: 25px;
   margin: 0px auto 0;
-  position: relative;
+  position: fixed;
+  height: 75px;
   top: 0;
   left: 0;
-  background: #e5e5e5;
+  background: #37465F;
+  border-bottom: 1px solid #5E6B7F;
   z-index: 9999999; }
 
 .header-container {
-  width: 540px;
+  width: 1000px;
   height: 50px;
   margin: 0 auto;
   position: relative; }
@@ -126,11 +137,12 @@ header {
 .header-right {
   display: inline-block;
   vertical-align: top;
-  width: 50%;
+  width: 100%;
   position: relative;
   z-index: 999999999;
   text-align: right;
-  display: none; }
+  height: 75px;
+  /*display: none;*/ }
   .header-right img {
     width: 100px;
     height: auto; }
@@ -145,7 +157,7 @@ header {
       display: inline-block;
       vertical-align: top;
       font-size: 12px;
-      color: #333;
+      color: #fff;
       text-align: center;
       padding-top: 4px;
       /*border-radius: 0px 2px 2px 0px;*/
@@ -154,7 +166,7 @@ header {
       display: inline-block;
       vertical-align: top;
       font-size: 16px;
-      color: #333;
+      color: #fff;
       width: 25%;
       height: 55px;
       text-align: center;
@@ -162,7 +174,7 @@ header {
     .header-right li h1 {
       font-size: 1.2em;
       font-weight: 500;
-      color: #333;
+      color: #fff;
       display: inline-block;
       vertical-align: top;
       padding-right: 10px;
@@ -212,8 +224,10 @@ header {
   display: inline-block;
   vertical-align: top;
   text-align: right;
-  width: 100%;
-  height: 70px; }
+  width: 35%;
+  padding-top: 10px;
+  height: 75px;
+  display: none; }
 
 /* Header Slideout*/
 .backend-slideout,
@@ -346,7 +360,7 @@ header {
   border-bottom: 0; }
 
 .business-tabs-container {
-  width: 540px;
+  width: 100%;
   margin: 0 auto;
   background: #444;
   position: relative;
@@ -635,7 +649,7 @@ header {
 /* Listings */
 .listing-container {
   width: 100%;
-  background: #f8f8f8; }
+  background: rgba(255, 255, 255, 0.05); }
   .listing-container ul {
     list-style: none;
     padding-left: 0; }
@@ -645,7 +659,7 @@ header {
     padding: 15px;
     cursor: pointer; }
   .listing-container li:nth-child(even) {
-    background: #fff; }
+    /*background: #fff;*/ }
   .listing-container li:last-child {
     border-bottom: 0; }
   .listing-container aside {
@@ -655,34 +669,34 @@ header {
       width: 100%;
       height: auto; }
   .listing-container section {
-    width: 50%;
+    width: 60%;
     display: inline-block;
     vertical-align: top;
     padding-left: 10px; }
     .listing-container section h1 {
-      font-size: 1.2em;
+      font-size: 1.3em;
       font-weight: normal;
-      color: #01579B; }
+      color: #03A9F4; }
     .listing-container section p {
       font-size: 1em;
       font-weight: 300;
       display: block;
       font-style: italic;
-      color: #333;
+      color: #fff;
       margin-top: 3px; }
     .listing-container section h2 {
       font-size: 1em;
       font-weight: 400;
-      color: #333; }
+      color: #fff; }
   .listing-container article {
-    width: 20%;
+    width: 30%;
     text-align: right;
     display: inline-block;
     vertical-align: top; }
     .listing-container article h1 {
       font-size: 1em;
       font-weight: 300;
-      color: #333; }
+      color: #fff; }
 
 /* Search */
 .search-container,
@@ -1010,10 +1024,10 @@ header {
 /* Business Tabs */
 .business-home {
   width: 100%;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.05);
   position: relative;
   padding: 0 20px 0px;
-  /*margin-bottom: 15px;*/ }
+  margin-bottom: 15px; }
   .business-home section {
     padding: 30px 15px;
     text-align: center; }
@@ -1026,13 +1040,13 @@ header {
       box-shadow: 0 0 30px -20px #000;
       display: block; }
     .business-home section h1 {
-      color: #333;
+      color: #fff;
       font-size: 1.4em;
       font-weight: 700;
-      margin-top: 5px;
+      margin-top: 15px;
       display: inline-block; }
     .business-home section p {
-      color: #333;
+      color: #fff;
       font-size: 1em;
       font-weight: 300;
       margin-top: 5px;
@@ -1192,22 +1206,23 @@ header {
 
 .bar-search {
   width: 100%;
-  background: #fff;
+  background: #333;
   position: relative;
   transition: 250ms;
   z-index: 50;
-  height: 75px;
-  margin: 0 auto; }
+  height: 55px;
+  margin: 0 auto;
+  border-radius: 4px; }
   .bar-search span {
     display: inline-block;
-    height: 75px;
+    height: 55px;
     vertical-align: top;
     width: 15%;
     font-size: 1.4em;
     color: #999;
     text-align: right;
     padding-right: 10px;
-    padding-top: 30px; }
+    padding-top: 20px; }
   .bar-search button {
     background: transparent;
     outline: 0;
@@ -1216,7 +1231,7 @@ header {
     font-size: 1em;
     font-weight: 300;
     padding: 0;
-    height: 75px;
+    height: 55px;
     padding: 13px; }
     .bar-search button i {
       display: inline-block;
@@ -1230,8 +1245,8 @@ header {
     display: inline-block;
     color: #333;
     vertical-align: top;
-    height: 75px;
-    width: 70%;
+    height: 55px;
+    width: 80%;
     border: 0;
     background: transparent;
     outline: 0;
@@ -1287,10 +1302,21 @@ header {
 /* Module Header */
 .module-header {
   width: 100%;
-  background: #222;
-  padding: 20px 30px;
+  /*background: rgba(255,255,255,.05);*/
+  padding: 20px 20px 10px;
   cursor: pointer;
-  display: none; }
+  border-bottom: 1px solid #5E6B7F;
+  /*display: none;*/ }
+  .module-header p {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-top: 5px;
+    color: #fff;
+    display: none; }
+  .module-header h1 {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #fff; }
   .module-header aside {
     display: inline-block;
     vertical-align: top;
@@ -1378,8 +1404,9 @@ header {
 /*Backend Beer Tab*/
 .profile-beer-list {
   width: 100%;
-  background: #f8f8f8;
+  background: rgba(255, 255, 255, 0.05);
   margin-top: 0px;
+  margin-bottom: 15px;
   /*border:1px solid #d8d8d8;*/ }
   .profile-beer-list ul {
     list-style: none;
@@ -1393,7 +1420,7 @@ header {
   .profile-beer-list li:first-child {
     border-top: 0; }
   .profile-beer-list li:nth-child(even) {
-    background: #fff; }
+    /*background: #fff;*/ }
   .profile-beer-list div {
     width: 70%;
     display: inline-block;
@@ -1418,25 +1445,28 @@ header {
       display: inline-block;
       vertical-align: top;
       font-size: 1.2em;
-      color: #01579B; }
+      color: #8BC34A; }
     .profile-beer-list div p {
       font-size: 1em;
       font-weight: 300;
-      margin-top: 1px; }
+      margin-top: 1px;
+      color: #fff; }
     .profile-beer-list div h2 {
       display: inline-block;
       vertical-align: top;
       font-size: .9em;
-      font-weight: 400; }
+      font-weight: 400;
+      color: #fff; }
     .profile-beer-list div h3 {
       font-size: .9em;
       font-weight: 400;
-      margin-top: 5px; }
+      margin-top: 5px;
+      color: #fff; }
     .profile-beer-list div span {
       display: inline-block;
       vertical-align: top;
       font-size: 1em;
-      color: #ccc;
+      color: #5E6B7F;
       padding-left: 5px;
       padding-top: 2px;
       cursor: pointer; }
@@ -1565,6 +1595,9 @@ header {
 
 .profile-beer-list li:hover .show-beer-cancel {
   display: inline-block; }
+
+.profile-beer-list li:hover {
+  /*background: rgba(255,255,255,.05);*/ }
 
 .beer-cancel-shift {
   right: 22px;
@@ -1838,30 +1871,6 @@ svg rect {
     color: #8BC34A;
     font-size: 28px; }
 
-.middle-column {
-  right: 0;
-  /*height:auto;*/
-  /*left:0;*/
-  /*position:absolute;*/
-  background: #f8f8f8;
-  display: inline-block;
-  /*padding-bottom:50px;*/
-  width: 100%;
-  padding: 0px 15px 15px;
-  /*overflow-y: scroll;*/
-  transition: 250ms; }
-
-.left-column {
-  background: #263238;
-  display: inline-block;
-  padding-bottom: 50px;
-  width: 100%;
-  /*overflow-y: scroll;*/
-  transition: 250ms; }
-
-.middle-column::-webkit-scrollbar {
-  display: none; }
-
 .profile-right-shift {
   margin-top: 156px; }
 
@@ -2034,26 +2043,29 @@ svg rect {
     vertical-align: top;
     width: 10%;
     text-align: center;
-    padding-top: 10px; }
+    padding-top: 10px;
+    display: none; }
     .profile-feed aside span {
       font-size: 1.8em;
       color: #ccc; }
   .profile-feed article {
     display: inline-block;
     vertical-align: top;
-    width: 80%;
+    width: 100%;
     padding: 0px 0px 0px;
     text-align: left; }
   .profile-feed li,
   .profile-feed div {
     padding: 20px 0;
-    background: #f8f8f8; }
+    margin-bottom: 15px;
+    background: #fff;
+    /*border-radius: 4px;*/ }
   .profile-feed li:nth-child(odd),
   .profile-feed div:nth-child(odd) {
-    background: #fff; }
+    /*background: #fff;*/ }
 
 .feed-info {
-  padding: 0 0px; }
+  padding: 0 30px; }
 
 .feed-name {
   width: 65%;
@@ -2142,7 +2154,7 @@ svg rect {
   display: inline-block;
   text-align: left;
   vertical-align: top;
-  padding: 5px 0px; }
+  padding: 5px 30px; }
   .feed-ago p {
     font-size: 1em;
     color: #999;
@@ -2153,7 +2165,7 @@ svg rect {
 .feed-status {
   width: 100%;
   display: inline-block;
-  padding: 15px 0; }
+  padding: 15px 30px; }
   .feed-status p {
     font-size: 1.3em;
     line-height: 24px;
@@ -2162,7 +2174,8 @@ svg rect {
   .feed-status aside {
     width: 100%;
     text-align: left;
-    padding-top: 0; }
+    padding-top: 0;
+    display: inline-block; }
     .feed-status aside span {
       font-size: 1.1em;
       line-height: 20px;
@@ -3016,13 +3029,13 @@ svg rect {
   .calendar-daily aside {
     display: inline-block;
     vertical-align: top;
-    width: 80%; }
+    width: 100%; }
     .calendar-standing aside h1,
     .calendar-daily aside h1 {
       display: block;
       font-size: 0.8em;
       font-weight: 300;
-      color: #555;
+      color: #fff;
       margin-top: 3px; }
   .calendar-standing footer,
   .calendar-daily footer {
@@ -3057,8 +3070,8 @@ svg rect {
   .calendar-daily li {
     display: block;
     padding: 20px 20px;
-    background: #fff;
-    border-bottom: 1px solid #f0f0f0; }
+    background: rgba(255, 255, 255, 0.05);
+    /*border-bottom: 1px solid #f0f0f0;*/ }
   .calendar-standing li:last-child,
   .calendar-daily li:last-child {
     border-bottom: 0; }
@@ -3104,10 +3117,10 @@ svg rect {
     /*margin-top:15px;*/ }
   .calendar-standing p,
   .calendar-daily p {
-    font-size: 1.1em;
+    font-size: 1.2em;
     line-height: 20px;
     font-weight: 400;
-    color: #333;
+    color: #fff;
     width: 85%;
     display: inline-block;
     vertical-align: top; }
@@ -3145,9 +3158,12 @@ svg rect {
 .comment-star:hover {
   color: #FFC107; }
 
-.calendar-daily li {
-  background: #f8f8f8; }
+/*.calendar-daily {
 
+	li {
+		background: #f8f8f8;
+	}
+}*/
 .upload-confirm {
   display: inline-block;
   font-size: 20px !important;
@@ -3316,7 +3332,8 @@ svg rect {
   cursor: pointer; }
 
 .show {
-  display: inline-block; }
+  display: inline-block;
+  margin-top: 5px; }
 
 .avatar-container {
   width: 100%;
@@ -3538,12 +3555,12 @@ input[type="file"] {
   background: transparent; }
   .copyright-info h1 {
     font-size: 1em;
-    color: #555;
+    color: #fff;
     font-weight: 300; }
   .copyright-info p {
     display: block;
     font-size: 1em;
-    color: #555;
+    color: #fff;
     font-weight: 400;
     padding-top: 10px; }
 

@@ -473,10 +473,7 @@
 
 <script type='text/template' id="comment-view">
   <section>
-    <footer>
-      <span class="fa fa-star comment-star"></span
-      ><h1>22</h1>
-    </footer>
+
     <aside>
       <p><%= attributes.content %></p
       ><% if (typeof attributes.dayOfWeek !== 'undefined') { %><h1>Every Tuesday</h1><% } else { %><h1>Nov 3rd, 2015</h1><% } %>
@@ -881,12 +878,11 @@
       </div
 
       ><div class="header-center">
-
         <div class="bar-search">
-          <form action>
-            <span class="fa fa-search"></span
-            ><input type="text" placeholder="Search Bars"
-            ><button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
+          <form name='bar-search' action>
+            <span class="fa fa-search"></span>
+            <input type="text" placeholder="Search Bars">
+            <button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
           </form>
         </div>
       </div>
@@ -923,64 +919,51 @@
 </script>
 
 <script type="text/template" id="business-home-view">
-  <div class="one-column-container">
+  <div class="business-container">
 
+      <div class="middle-column">
 
-      <div class="narrow-container">
-
-        <div class="business-cover">
-
-          <% if (typeof attributes.coverPhoto !=='undefined') { %>
-            <img src=<%= attributes.coverPhoto._url %> >
-            <% } else { %>
-            <img src="images/craft2.jpg">
-          <% } %>
-        </div>
-        <div class="business-home">
-          <section>
-              <% if (typeof attributes.avatar !=='undefined') { %>
-                <img src=<%= attributes.avatar._url %> >
-                <% } else { %>
-                <img src="images/default-avatar.png">
-              <% } %>
-
-              <h1><%=attributes.businessName%></h1>
-              <p><%=attributes.address%>, <%=attributes.City%>, <%=attributes.state%> <%=attributes.zip%></p>
-
-          </section>
-        </div>
-      </div>
-      <div class="wide-container">
-
-        <div class="business-tabs-container">
-          <div class="business-tabs">
-            <ul>
-              <a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>The Feed</h1><p>Post updates, photos and videos</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Bartenders</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
-            </ul>
+          <div class="profile-feed">
+            <ul></ul>
           </div>
-        </div>
-      </div>
-        <h1>Calendar Comments</h1>
-        <div class='calendar-standing'></div>
-        <div class='calendar-daily'></div>
+        </div
 
+        ><div class="right-column">
 
-        <h1>5 Recent Posts</h1>
-        <div class="profile-feed">
-          <ul></ul>
-        </div>
+          <div class="business-cover">
 
-        <h1>What's On Tap?</h1>
-        <div class="profile-beer-list">
-          <ul></ul>
+            <% if (typeof attributes.coverPhoto !=='undefined') { %>
+              <img src=<%= attributes.coverPhoto._url %> >
+              <% } else { %>
+              <img src="images/craft2.jpg">
+            <% } %>
+          </div>
+          <div class="business-home">
+            <section>
+                <% if (typeof attributes.avatar !=='undefined') { %>
+                  <img src=<%= attributes.avatar._url %> >
+                  <% } else { %>
+                  <img src="images/default-avatar.png">
+                <% } %>
+
+                <h1><%=attributes.businessName%></h1>
+                <p><%=attributes.address%>, <%=attributes.City%>, <%=attributes.state%> <%=attributes.zip%></p>
+
+            </section>
+          </div>
+          <div class="module-header">
+            <h1>Whats on Tap?</h1>
+            <p>Just a sample subtitle</p>
+          </div>
+          <div class="profile-beer-list">
+            <ul></ul>
+          </div>
+          <div class="module-header">
+            <h1>Friday, November 12th</h1>
+            <p>Just a sample subtitle</p>
+          </div>
+          <div class='calendar-standing'></div>
+          <div class='calendar-daily'></div>
         </div>
   </div>
 
@@ -1503,36 +1486,27 @@
 
 <script type="text/template" id="dashboard-home-view">
   <div class="dashboard-container">
-      <div class="business-tabs-container">
-        <div class="business-tabs">
+
+      <div class="left-column">
+        <div class="profile-feed">
           <ul>
-            <a href="#dashboard/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>The Feed</h1><p>Post updates, photos and videos</p></section></a
-            ><a href="#dashboard/favorites"><article><aside><span class="fa fa-heart"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
-            ><a href="#dashboard/listing"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Listing</h1><p>Set your draft and bottled lists</p></section></a
-            ><a href="#dashboard/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></section></a
-            ><a href="#dashboard/map"><article><aside><span class="fa fa-location-arrow"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
+          </ul>
+        </div><!-- END PROFILE FEED -->
+      </div
+      ><div class="right-column">
+        <div class="listing-container">
+          <ul>
           </ul>
         </div>
       </div>
-
-
   </div>
 </script>
 
 <script type="text/template" id="dashboard-feed-view">
-  <div class="one-column-container">
-      <div class="business-tabs-container">
-        <div class="business-tabs">
-          <ul>
-            <a href="#dashboard/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>The Feed</h1><p>Post updates, photos and videos</p></section></a
-            ><a href="#dashboard/favorites"><article><aside><span class="fa fa-heart"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
-            ><a href="#dashboard/listing"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Listing</h1><p>Set your draft and bottled lists</p></section></a
-            ><a href="#dashboard/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></section></a
-            ><a href="#dashboard/map"><article><aside><span class="fa fa-location-arrow"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
-          </ul>
-        </div>
-      </div>
 
+
+  <div class="one-column-container">
+      
         <div class="profile-feed">
           <ul>
           </ul>
@@ -1542,13 +1516,13 @@
           <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
           <p>Beseech Me®, LLC</p>
         </div>
+
   </div>
 </script>
 
 <script type="text/template" id="dashboard-beer-view">
-  <div class="dashboard-container">
-    <div class="left-container"></div
-    ><div class="middle-container"></div>
+  <div class="one-column-container">
+
   </div>
 </script>
 
