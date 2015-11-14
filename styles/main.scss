@@ -70,7 +70,7 @@ body {
 	width: 1000px;
     /*margin: 0 auto;*/
     margin-left: 225px;
-    margin-top: 90px;
+    margin-top: 75px;
     position:relative;
     z-index:1;
     padding-bottom: 20px;
@@ -79,7 +79,7 @@ body {
 .dashboard-container {
 	width: 1000px;
     margin: 0 auto;
-    margin-top: 90px;
+    margin-top: 75px;
     position:relative;
     z-index:1;
     padding-bottom: 20px;
@@ -88,7 +88,7 @@ body {
 .business-container {
 	width: 1000px;
     margin: 0 auto;
-    margin-top: 90px;
+    margin-top: 75px;
     position:relative;
     z-index:1;
     padding-bottom: 20px;
@@ -98,7 +98,7 @@ body {
 	width: 540px;
 	margin: 0 auto;
 	position: relative;
-	margin-top: 90px;
+	margin-top: 75px;
 	padding-bottom: 20px;
 }
 
@@ -161,7 +161,7 @@ header {
     top: 0;
     left: 0;
     background: #37465F;
-    border-bottom:1px solid #5E6B7F;
+    /*border-bottom:1px solid #5E6B7F;*/
     z-index: 9999999;
 }
 
@@ -496,14 +496,17 @@ header {
 .business-tabs-container {
 	width: 100%;
 	margin: 0 auto;
-	background: #444;
+	background: #fff;
 	position:relative;
 	transition: 250ms;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	padding: 10px 0;
 }
 
 .left-slideout {
 	width: 200px;
-	background: #333;
+	background: rgba(255,255,255,.05);
 	position:fixed;
 	left: 0;
 	top: 0;
@@ -535,7 +538,6 @@ header {
 		background: transparent;
 		/*padding-left: 20px;*/
 		padding-top: 10px;
-		display: none;
 	}
 
 	aside {
@@ -599,29 +601,29 @@ header {
 
 
 	a {
+		width: 16.6666666666667%;
 		display: inline-block;
 		cursor: pointer;
 		text-align:center;
-		padding: 20px 10px;
+		padding: 10px 0;
+		border-right: 1px solid #f0f0f0;
 
 		h1 {
-			font-size: .8em !important;
+			font-size: 1.2em !important;
 			display: inline-block;
 			vertical-align: top;
 			font-weight: 300;
-			color: #fff;
+			color: #333;
 
 		}
 
 		p {
 			font-size: .8em !important;
-			/*line-height: ;*/
-			display: none;
 			vertical-align: top;
 			font-weight: 300;
-			color: #fff;
+			color: #333;
 			margin-top: 5px;
-
+			display: none;
 		}
 	}
 
@@ -645,11 +647,15 @@ header {
 	a:nth-child(5) footer {
 		background: #4DB6AC;
 	}
+
+	a:last-child {
+		border-right: 0;
+	}
 }
 
 .slideout-user {
 	padding: 30px 0;
-	background: #444;
+	/*background: #444;*/
 	text-align: center;
 
 	img {
@@ -1543,7 +1549,7 @@ header {
 
 .beer-search {	
 	width: 100%;
-    background: #444;
+    background: rgba(255,255,255,.05);
     position: relative;
     transition: 250ms;
     margin-top: -70px;
