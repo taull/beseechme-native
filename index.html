@@ -922,8 +922,24 @@
   <div class="business-container">
 
       <div class="middle-column">
+        <div class="business-tabs-container">
+          <div class="business-tabs">
+            <ul>
+              <a href="#business/<%= attributes.handle %>"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
 
-          <div class="profile-feed">
+              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
+            </ul>
+          </div>
+        </div>          
+        <div class="profile-feed">
             <ul></ul>
           </div>
         </div
@@ -1025,11 +1041,13 @@
         <div class="business-tabs-container">
           <div class="business-tabs">
             <ul>
-              <a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>The Feed</h1><p>Post updates, photos and videos</p></section></a
+              <a href="#business/<%= attributes.handle %>"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
 
-              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></section></a
+              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
 
-              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Bartenders</h1><p>Set your draft and bottled lists</p></section></a
+              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
 
               ><a href="#business/<%= attributes.handle %>/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
 
@@ -1068,11 +1086,13 @@
         <div class="business-tabs-container">
           <div class="business-tabs">
             <ul>
-              <a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>The Feed</h1><p>Post updates, photos and videos</p></section></a
+              <a href="#business/<%= attributes.handle %>"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
 
-              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></section></a
+              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
 
-              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Bartenders</h1><p>Set your draft and bottled lists</p></section></a
+              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
 
               ><a href="#business/<%= attributes.handle %>/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
 
@@ -1183,14 +1203,16 @@
 
 <script type="text/template" id="business-calendar-view">
   <div class="one-column-container">
-         <div class="business-tabs-container">
+       <div class="business-tabs-container">
           <div class="business-tabs">
             <ul>
-              <a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>The Feed</h1><p>Post updates, photos and videos</p></section></a
+              <a href="#business/<%= attributes.handle %>"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
 
-              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></section></a
+              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
 
-              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Bartenders</h1><p>Set your draft and bottled lists</p></section></a
+              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
 
               ><a href="#business/<%= attributes.handle %>/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
 
