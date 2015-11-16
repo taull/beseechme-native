@@ -1738,10 +1738,10 @@ header {
 
 .module-header {
 	width: 100%;
-	/*background: rgba(255,255,255,.05);*/
+	background: rgba(255,255,255,.1);
 	padding: 20px 20px 10px;
 	cursor: pointer;
-	border-bottom: 1px solid #5E6B7F;
+	/*border-bottom: 1px solid #5E6B7F;*/
 	/*display: none;*/
 
 	p {
@@ -1756,6 +1756,14 @@ header {
 		font-size: 1.2em;
 		font-weight: 400;
 		color: #fff;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	a {
+		color: $secondary-color-light;
+		float: right;
+		font-size: 1.2em;
 	}
 
 	aside {
@@ -2736,7 +2744,7 @@ svg rect{
 
 	li, 
 	div {
-		padding: 20px 0;
+		padding: 20px 0 0;
 		margin-bottom: 15px;
 		background: #fff;
 		/*border-radius: 4px;*/
@@ -2847,7 +2855,6 @@ svg rect{
 
 .feed-photo {
 	background:$primary-color-light;
-	margin-bottom: 5px;
 	width: 100%;
 	max-height: 300px;
 	overflow: hidden;
@@ -2859,11 +2866,11 @@ svg rect{
 }
 
 .feed-ago {
-	width: 100%;
+	width: 25%;
 	display: inline-block;
-	text-align: left;
+	text-align: right;
 	vertical-align: top;
-	padding: 5px 30px;
+	padding: 5px 0px;
 
 	p {
 		font-size: 1em;
@@ -2922,18 +2929,16 @@ svg rect{
 
 .feed-controls {
 	width: 100%;
-	text-align: left;
-	/*background:#fff;*/
-	/*border-top:1px solid #dfdfdf;*/
-	/*text-align: center;*/
-	margin: 10px 0px;
+	text-align: right;
+	padding: 10px;
+	background: rgba(255,255,255,.2);
+	position: relative;
 
 	section {
-		padding: 5px 15px;
+		padding: 5px 10px;
 		display: inline-block;
 		vertical-align: top;
 		text-align: left;
-		border-right: 1px solid #f0f0f0;
 	}
 
 	section:last-child {
@@ -2942,8 +2947,8 @@ svg rect{
 
 
 	i {
-		font-size: 1.2em;
-		color: $secondary-color-dark;
+		font-size: 2em;
+		color: #ccc;
 		display: inline-block;
 		vertical-align: top;
 		cursor: pointer;
@@ -4618,7 +4623,14 @@ input[type="file"] {
 
 .fa-star:hover {
 	color: #FFC107;
+}
 
+.fa-heart {
+	transition:250ms;
+}
+
+.fa-heart:hover {
+	color: $red-dark;
 }
 
 .favorited-post {

@@ -1307,10 +1307,10 @@ header {
 /* Module Header */
 .module-header {
   width: 100%;
-  /*background: rgba(255,255,255,.05);*/
+  background: rgba(255, 255, 255, 0.1);
   padding: 20px 20px 10px;
   cursor: pointer;
-  border-bottom: 1px solid #5E6B7F;
+  /*border-bottom: 1px solid #5E6B7F;*/
   /*display: none;*/ }
   .module-header p {
     font-size: 1.2em;
@@ -1321,7 +1321,13 @@ header {
   .module-header h1 {
     font-size: 1.2em;
     font-weight: 400;
-    color: #fff; }
+    color: #fff;
+    display: inline-block;
+    vertical-align: top; }
+  .module-header a {
+    color: #03A9F4;
+    float: right;
+    font-size: 1.2em; }
   .module-header aside {
     display: inline-block;
     vertical-align: top;
@@ -2061,7 +2067,7 @@ svg rect {
     text-align: left; }
   .profile-feed li,
   .profile-feed div {
-    padding: 20px 0;
+    padding: 20px 0 0;
     margin-bottom: 15px;
     background: #fff;
     /*border-radius: 4px;*/ }
@@ -2146,7 +2152,6 @@ svg rect {
 
 .feed-photo {
   background: #f8f8f8;
-  margin-bottom: 5px;
   width: 100%;
   max-height: 300px;
   overflow: hidden; }
@@ -2155,11 +2160,11 @@ svg rect {
     height: auto; }
 
 .feed-ago {
-  width: 100%;
+  width: 25%;
   display: inline-block;
-  text-align: left;
+  text-align: right;
   vertical-align: top;
-  padding: 5px 30px; }
+  padding: 5px 0px; }
   .feed-ago p {
     font-size: 1em;
     color: #999;
@@ -2203,22 +2208,20 @@ svg rect {
 /* Feed Controls */
 .feed-controls {
   width: 100%;
-  text-align: left;
-  /*background:#fff;*/
-  /*border-top:1px solid #dfdfdf;*/
-  /*text-align: center;*/
-  margin: 10px 0px; }
+  text-align: right;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative; }
   .feed-controls section {
-    padding: 5px 15px;
+    padding: 5px 10px;
     display: inline-block;
     vertical-align: top;
-    text-align: left;
-    border-right: 1px solid #f0f0f0; }
+    text-align: left; }
   .feed-controls section:last-child {
     border-right: 0; }
   .feed-controls i {
-    font-size: 1.2em;
-    color: #01579B;
+    font-size: 2em;
+    color: #ccc;
     display: inline-block;
     vertical-align: top;
     cursor: pointer; }
@@ -3532,6 +3535,12 @@ input[type="file"] {
 
 .fa-star:hover {
   color: #FFC107; }
+
+.fa-heart {
+  transition: 250ms; }
+
+.fa-heart:hover {
+  color: #B71C1C; }
 
 .favorited-post {
   color: #FFC107 !important; }
