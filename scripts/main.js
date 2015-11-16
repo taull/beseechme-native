@@ -1525,7 +1525,7 @@ BeMe.Views.BarSearchResult = Parse.View.extend({
   }
 });
 
-// Consumer Dashboard
+// Consumer Dashboard Dependency View
 
 BeMe.Views.Dashboard = Parse.View.extend({
   initialize: function () {
@@ -1560,6 +1560,26 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
   initialize: function () {
     this.template = _.template($('#dashboard-home-view').text());
     this.render();
+    new BeMe.Views.DashboardFeedList();
+    this.loadListings();
+  },
+
+  loadListings: function () {
+    var user = Parse.User.current();
+
+    var query = new Parse.Query('User');
+    query.equalTo('userType', 'business');
+
+    /* CHANGE TO user.get('maxDistance') WHENEVER WE GET THE SLIDER FOR SETTING maxDistance WORKING */
+    query.withinMiles('location',user.get('location'), 100);
+    query.limit(5);
+    query.find().then(function (e) {
+      _.each(e, function (i) {
+        var newListingView = new BeMe.Views.DashboardIndividualListing({model:i});
+      });
+    }, function (error) {
+      console.log(error);
+    });
   }
 });
 
@@ -1630,7 +1650,7 @@ BeMe.Views.DashboardListing = BeMe.Views.DashboardBaseView.extend({
     var query = new Parse.Query('User');
     query.equalTo('userType', 'business');
 
-    /* CHANGE TO user.get('maxDistance') WHENEVER WE GET THE SLIDER WORKING */
+    /* CHANGE TO user.get('maxDistance') WHENEVER WE GET THE SLIDER FOR SETTING maxDistance WORKING */
     query.withinMiles('location',user.get('location'), 100);
     query.find().then(function (e) {
       BeMe.removeGroup(this.listingViews);
@@ -1718,7 +1738,7 @@ var Router = Parse.Router.extend({
     'business/:handle/feed' : 'businessFeed',
     'business/:handle/beer' : 'businessBeerList',
     'business/:handle/calendar' : 'businessCalendar',
-    'dashboard' : 'dashboard',
+    'dashboard' : 'dashboardHome',
     'dashboard/feed' : 'dashboardFeed',
     'dashboard/listing' : 'dashboardListing',
     'test' : 'test',
@@ -1887,7 +1907,7 @@ var Router = Parse.Router.extend({
     });
   }, 
 
-  dashboard: function () {
+  dashboardHome: function () {
     BeMe.removeAllViews();
     new BeMe.Views.DashboardHome();
   },
