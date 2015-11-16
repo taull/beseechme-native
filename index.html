@@ -274,7 +274,8 @@
           </section>
         </section
         ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></section
-        >
+        ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
+
 
       </section>
 
@@ -291,11 +292,10 @@
       </section>
       <% } %>
 
-      <section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
       <section class="feed-controls">
       <% if (Parse.User.current().get('userType') === 'consumer') { %>
-        <section><i class="fa fa-location-arrow"></i><p>Check In</p></section>
-        <section><i class="fa fa-check-square"></i><p>Like</p></section>
+        <section><i class="fa fa-heart"></i></section
+        ><section><i class="fa fa-location-arrow"></i></section>
       <% } %>
       </section>
     </article>
@@ -584,27 +584,6 @@
   <div class="backend-container">
     <div class="left-container">
       <% var user = Parse.User.current() %>
-
-        <div class="business-cover">
-          <% if (typeof user.get('coverPhoto') !=='undefined') { %>
-            <img src=<%= user.get('coverPhoto')._url %> >
-            <% } else { %>
-            <img src="images/craft2.jpg">
-          <% } %>
-        </div>
-        <div class="business-home">
-          <section>
-              <% if (typeof user.get('avatar') !=='undefined') { %>
-                <img src=<%= user.get('avatar')._url %> >
-                <% } else { %>
-                <img src="images/default-avatar.png">
-              <% } %>
-              <h1><%= user.get('businessName') %></h1><i class="fa fa-check-circle"></i>
-              <p><%= user.get('address') %>, <%= user.get('City') %>, <%= user.get('state') %> <%= user.get('zip') %></p>
-              <h2><%= user.get('phoneNumber') %></h2>
-          </section>
-          
-        </div>
 
 
     </div
@@ -919,34 +898,10 @@
 </script>
 
 <script type="text/template" id="business-home-view">
-  <div class="business-container">
+  <div class="one-column-container">
 
-      <div class="middle-column">
-        <div class="business-tabs-container">
-          <div class="business-tabs">
-            <ul>
-              <a href="#business/<%= attributes.handle %>"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
 
-              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
-            </ul>
-          </div>
-        </div>          
-        <div class="profile-feed">
-            <ul></ul>
-          </div>
-        </div
-
-        ><div class="right-column">
-
-          <div class="business-cover">
+        <div class="business-cover">
 
             <% if (typeof attributes.coverPhoto !=='undefined') { %>
               <img src=<%= attributes.coverPhoto._url %> >
@@ -967,9 +922,31 @@
 
             </section>
           </div>
+        <div class="business-tabs-container">
+          <div class="business-tabs">
+            <ul>
+              <a href="#business/<%= attributes.handle %>"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
+            </ul>
+          </div>
+        </div>          
+        <div class="profile-feed">
+            <ul></ul>
+        </div>
+
           <div class="module-header">
             <h1>Whats on Tap?</h1>
             <p>Just a sample subtitle</p>
+            <a>View All</a>
           </div>
           <div class="profile-beer-list">
             <ul></ul>
@@ -990,7 +967,7 @@
 
 <script type='text/template' id='business-post-view'>
 
-    <div class="feed-post">
+    <section class="feed-post">
       <aside>
         <span class="fa fa-star"></span>
       </aside
@@ -1006,7 +983,8 @@
                 <% } %>
             </section>
           </section
-          ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></section>
+          ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></section
+        ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
 
         </section>
 
@@ -1022,14 +1000,13 @@
           </a>
         </section>
         <% } %>
-        <section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></section>
         <section class="feed-controls">
         <% if (Parse.User.current().get('userType') === 'consumer') { %>
-          <section><i class="fa fa-location-arrow"></i><p>Check In</p></section>
-          <section><i class="fa fa-check-square"></i><p>Like</p></section>
+          <section><i class="fa fa-heart"></i></section
+          ><section><i class="fa fa-location-arrow"></i></section>
         <% } %>
         </section>
-      </div>
+      </section>
     </article>
 </script>
 
