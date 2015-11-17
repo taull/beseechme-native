@@ -565,64 +565,107 @@ header {
     color: #999; }
 
 .index-container {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   background: url("../images/bar-scene3.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
-  background: #e5e5e5; }
+  background-size: cover; }
+
+.login-welcome {
+  width: 400px;
+  margin: 100px auto 0px;
+  padding: 0px 25px; }
+  .login-welcome h1,
+  .login-welcome p {
+    display: inline-block;
+    vertical-align: top; }
+  .login-welcome h1 {
+    font-size: 1.4em;
+    font-weight: 400;
+    color: #333; }
+  .login-welcome p {
+    padding-top: 2px;
+    font-size: 1.4em;
+    font-weight: 300;
+    color: #333; }
+
+.register-link {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 75px; }
+  .register-link li {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    padding: 5px 15px; }
+    .register-link li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1.2em;
+      font-weight: 300; }
+  .register-link li:first-child {
+    border-right: 1px solid #2196F3; }
 
 .login-container {
   width: 400px;
-  margin: 100px auto;
-  padding: 25px 25px 25px; }
+  margin: 0px auto 25px;
+  padding: 15px 25px; }
   .login-container li {
     margin-bottom: 15px;
     width: 100%;
-    background: #f8f8f8; }
+    background: #f8f8f8;
+    border-radius: 3px; }
   .login-container li:last-child {
     margin-bottom: 0; }
   .login-container p {
     font-size: 1em;
-    color: #333;
+    color: #fff;
     display: inline-block;
     vertical-align: top;
     padding-left: 5px;
-    margin-top: 4px; }
+    margin-top: 0px;
+    display: none; }
   .login-container a {
     font-size: 1em;
     color: #333;
     display: inline-block;
     vertical-align: top;
     text-decoration: none;
-    cursor: pointer; }
+    cursor: pointer;
+    margin-top: 15px;
+    text-align: center; }
   .login-container input[type="text"],
   .login-container input[type="password"] {
     display: inline-block;
     font-size: 1.4em;
     color: #333;
-    width: 100%;
+    width: 85%;
     border: 0;
     outline: 0;
     background: transparent;
     font-weight: 300;
-    text-indent: 0;
-    padding: 10px;
-    height: 50px; }
+    text-indent: 15px;
+    height: 60px; }
   .login-container input::-webkit-input-placeholder {
     color: #333; }
   .login-container input[type="checkbox"] {
     width: auto;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    display: none; }
   .login-container span {
     display: inline-block;
-    color: #333;
+    vertical-align: top;
+    color: #999;
     font-size: 1.2em;
     width: 15%;
-    text-align: center; }
+    border-right: 1px solid #f0f0f0;
+    text-align: center;
+    height: 60px;
+    padding-top: 22.5px; }
   .login-container h1 {
     display: inline-block;
     color: #333;
@@ -636,17 +679,18 @@ header {
     margin-bottom: 15px; }
   .login-container button {
     display: block;
-    width: 30%;
-    height: 30px;
-    font-size: 1em;
+    width: 100%;
+    height: 60px;
+    font-size: 1.4em;
     border: 0;
     color: #f8f8f8;
-    font-weight: 300;
-    background: #01579B;
+    font-weight: 400;
+    background: #EF5350;
     outline: 0;
+    margin-top: 5px;
     font-weight: 300;
     border-radius: 3px;
-    margin-top: 20px; }
+    float: right; }
 
 /* Listings */
 .listing-container {
@@ -839,10 +883,21 @@ header {
     font-weight: 300;
     padding-top: 20px; }
 
+.current-location-info {
+  padding: 150px 0 0;
+  text-align: center; }
+  .current-location-info h1 {
+    font-size: 1.4em;
+    color: #333; }
+  .current-location-info p {
+    font-size: 1em;
+    color: #333;
+    margin-top: 10px; }
+
 .current-location {
   background: transparent;
   width: 100%;
-  padding: 100px 30px 30px;
+  padding: 30px;
   /*border-radius: 5px;*/ }
 
 .location-button {
@@ -1484,7 +1539,7 @@ header {
   margin: 0 auto;
   padding: 15px;
   text-align: center;
-  background: #1565C0;
+  background: #01579B;
   border-radius: 3px;
   margin-top: 15px; }
   .back-to-dashboard h1 {

@@ -34,21 +34,27 @@
 <!-- Index Route -->
 <script type='text/template' id='index-route'>
   <div class="index-container">
+    <div class="login-welcome"><h1>Welcome.</h1> <p>Please log in.</p></div>
     <div class="login-container">
-
+  
       <form action="">
 
         <li>
-          <input type="text" name="email" placeholder="Email Address">
+          <span class="fa fa-user"></span
+          ><input type="text" name="email" placeholder="Email Address">
+        </li>
+        <li>
+          <span class="fa fa-lock"></span
+          ><input type="password" name="password" placeholder="Password">
         </li>
         <input type="checkbox" value="signedIn"><p>Remember Me?</p>
-        <li>
-          <input type="password" name="password" placeholder="Password">
-        </li>
-        <a>Forgot Password?</a>
-
         <button>Sign In</button>
+
       </form>
+    </div>
+    <div class="register-link">
+      <li><a href="#forgot">Password</a></li
+      ><li><a href="#register">Register</a></li>
     </div>
   </div>
 
@@ -58,26 +64,34 @@
 <!-- Business Register Route -->
 <script type='text/template' id='business-register-route'>
   <div class="index-container">
+    <div class="login-welcome"><h1>Welcome.</h1> <p>Please register your business.</p></div>
 
     <div class="login-container">
       <form action="">
         <li>
-          <input type="text" name="business-name" placeholder="Business Name">
+          <span class="fa fa-bookmark"></span
+          ><input type="text" name="business-name" placeholder="Business Name">
         </li>
         <li>
-          <input type="text" name="first-name" placeholder="Name">
+          <span class="fa fa-user"></span
+          ><input type="text" name="first-name" placeholder="Name">
         </li>
         <li>
-          <input type="text" name="email" placeholder="Email">
+          <span class="fa fa-envelope"></span
+          ><input type="text" name="email" placeholder="Email">
         </li>
         <li>
-          <input type="text" name="handle" placeholder="Handle">
+          <span class="fa fa-at"></span
+          ><input type="text" name="handle" placeholder="Handle">
         </li>
         <li>
-          <input type="password" name="password" placeholder="Password">
+          <span class="fa fa-lock"></span
+          ><input type="password" name="password" placeholder="Password">
         </li>
         <li>
-          <input type="password" class="confirm-password" name="confirm-password" placeholder="Confirm Password">
+          <span class="fa fa-lock"></span
+
+          ><input type="password" class="confirm-password" name="confirm-password" placeholder="Confirm Password">
 
         </li>
 
@@ -92,25 +106,26 @@
 <!-- Consumer Register Route -->
 <script type='text/template' id='consumer-register-route'>
   <div class="index-container">
+    <div class="login-welcome"><h1>Welcome.</h1> <p>Please register your personal account.</p></div>
 
     <div class="login-container">
       <form action="">
 
         <li>
-          <h1>N</h1>
-          <input type="text" name="first-name" placeholder="Name">
+          <span class="fa fa-user"></span
+          ><input type="text" name="first-name" placeholder="Name">
         </li>
         <li>
-          <h1>@</h1>
-          <input type="text" name="email" placeholder="Email Address">
+          <span class="fa fa-envelope"></span
+          ><input type="text" name="email" placeholder="Email Address">
         </li>
         <li>
-          <span class="fa fa-lock"></span>
-          <input type="password" name="password" placeholder="Password">
+          <span class="fa fa-lock"></span
+          ><input type="password" name="password" placeholder="Password">
         </li>
         <li>
-          <span class="fa fa-lock"></span>
-          <input type="password" name="confirm-password" placeholder="Confirm Password">
+          <span class="fa fa-lock"></span
+          ><input type="password" name="confirm-password" placeholder="Confirm Password">
         </li>
 
         <button>Register</button>
@@ -1345,6 +1360,8 @@
   </header>
   <div class="one-column-container">
 
+    <div class="current-location-info"><h1>Current Location: Columbia, SC (29205)</h1><p>Last Updated: November 11th, 2015 at 9:36 pm</p></div>
+
     <div class="current-location">
           <% if (Parse.User.current().get('userType') === 'business') { %>
             <div class="set-location-warning">
@@ -1358,7 +1375,7 @@
           <% } else { %>
             <div class="location-button">
               <span class="fa fa-location-arrow"></span>
-              <p>Update Current Location</p>
+              <p>Set Location</p>
             </div>
             <div class="set-location-warning">
                 <a href="#dashboard">Cancel and return to Dashboard</a>

@@ -177,7 +177,7 @@ BeMe.Views.Index = Parse.View.extend({
 				console.log(userObject);
         BeMe.ApplicationView.render();
         if(userObject.get('userType') == 'consumer') {
-          BeMe.Router.navigate('dashboard/feed', true);
+          BeMe.Router.navigate('location', true);
         } else {
           BeMe.Router.navigate('backend/feed', true);
         }
