@@ -13,6 +13,8 @@ $secondary-color-dark: #01579B;
 $secondary-color-medium: #0277BD;
 $secondary-color-light: #03A9F4;
 
+$red-light: #EF5350;
+
 $red-medium: #F44336;
 $red-dark: #B71C1C;
 
@@ -770,7 +772,7 @@ header {
 }
 
 .index-container {
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	height: 100%;
 	background: url('../images/bar-scene3.jpg') no-repeat center center fixed; 
@@ -778,20 +780,70 @@ header {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;;
-  	background:#e5e5e5;
 
+}
+
+.login-welcome {
+	width: 400px;
+	margin: 100px auto 0px;
+	padding: 0px 25px;
+
+	h1, 
+	p {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	h1 {
+		font-size: 1.4em;
+		font-weight: 400;
+		color: #333;
+	}
+
+	p {
+		padding-top:2px;
+		font-size: 1.4em;
+		font-weight: 300;
+		color: #333;
+	}
+}
+
+.register-link {
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 75px;
+
+	li {
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+		padding: 5px 15px;
+
+		a {
+			text-decoration: none;
+			color: #333;
+			font-size: 1.2em;
+			font-weight: 300;
+		}
+	}
+
+	li:first-child {
+		border-right: 1px solid $blue-500;
+	}
 }
 
 
 .login-container {
 	width: 400px;
-	margin: 100px auto;
-	padding:25px 25px 25px;
+	margin: 0px auto 25px;
+	padding:15px 25px;
 
 	li {
 		margin-bottom: 15px;
 		width: 100%;
 		background: #f8f8f8;
+		border-radius: 3px;
 	}
 
 	li:last-child {
@@ -800,11 +852,12 @@ header {
 
 	p {
 		font-size: 1em;
-		color:#333;
+		color:#fff;
 		display: inline-block;
 		vertical-align: top;
 		padding-left: 5px;
-		margin-top:4px;
+		margin-top:0px;
+		display: none;
 	}
 
 	a {
@@ -814,6 +867,8 @@ header {
 		vertical-align: top;
 		text-decoration: none;
 		cursor: pointer;
+		margin-top: 15px;
+		text-align: center;
 	}
 
 	input[type="text"], 
@@ -821,14 +876,13 @@ header {
 		display: inline-block;
 		font-size: 1.4em;
 		color: #333;
-		width: 100%;
+		width: 85%;
 		border: 0;
 		outline: 0;
 		background: transparent;
 		font-weight: 300;
-		text-indent: 0;
-		padding: 10px;
-		height: 50px;
+		text-indent: 15px;
+		height: 60px;
 	}
 
 	input::-webkit-input-placeholder {
@@ -838,14 +892,19 @@ header {
 	input[type="checkbox"] {
 		width: auto;
 		margin-bottom: 20px;
+		display: none;
 	}
 
 	span {
 		display: inline-block;
-		color: #333;
+		vertical-align: top;
+		color: #999;
 		font-size: 1.2em;
 		width: 15%;
+		border-right: 1px solid #f0f0f0;
 		text-align: center;
+		height: 60px;
+		padding-top:22.5px;
 	}
 
 	h1 {
@@ -865,17 +924,18 @@ header {
 
 	button {
 		display: block;
-		width: 30%;
-		height: 30px;
-		font-size: 1em;
+		width: 100%;
+		height: 60px;
+		font-size: 1.4em;
 		border: 0;
 		color: $primary-color-light;
-		font-weight: 300;
-		background: $secondary-color-dark;
+		font-weight: 400;
+		background: $red-light;
 		outline: 0;
+		margin-top: 5px;
 		font-weight: 300;
 		border-radius: 3px;
-		margin-top: 20px;
+		float: right;
 	}
 
 }
@@ -1133,11 +1193,27 @@ header {
 	}
 }
 
+.current-location-info {
+	padding: 150px 0 0;
+	text-align: center;
+
+	h1 {
+		font-size: 1.4em;
+		color: #333;
+	}
+
+	p {
+		font-size: 1em;
+		color: #333;
+		margin-top: 10px;
+	}
+}
+
 
 .current-location {
 	background: transparent;
 	width: 100%;
-	padding: 100px 30px 30px;
+	padding: 30px;
 	/*border-radius: 5px;*/
 }
 
@@ -1978,7 +2054,7 @@ header {
 	margin: 0 auto;
 	padding: 15px;
 	text-align: center;
-	background: $blue-800;
+	background: $secondary-color-dark;
 	border-radius: 3px;
 	margin-top: 15px;
 
