@@ -14,7 +14,7 @@
 body {
   font-size: 12px;
   position: relative;
-  background: #37465F;
+  background: #e5e5e5;
   width: 100%;
   margin: 0 auto;
   overflow-x: hidden;
@@ -29,8 +29,7 @@ body {
 
 .backend-container {
   width: 1000px;
-  /*margin: 0 auto;*/
-  margin-left: 225px;
+  margin: 0 auto;
   margin-top: 75px;
   position: relative;
   z-index: 1;
@@ -58,6 +57,8 @@ body {
   position: relative;
   margin-top: 75px;
   padding-bottom: 20px; }
+  .one-column-container a {
+    text-decoration: none; }
 
 .left-container,
 .middle-container,
@@ -89,7 +90,7 @@ body {
 .right-container {
   padding-left: 25px;
   width: 400px;
-  position: fixed; }
+  /*position: fixed;*/ }
 
 .datepicker {
   position: relative;
@@ -572,21 +573,16 @@ header {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background: #f8f8f8; }
+  background: #e5e5e5; }
 
 .login-container {
   width: 400px;
   margin: 100px auto;
-  background: #fff;
-  border: 1px solid #d8d8d8;
-  border-radius: 4px;
   padding: 25px 25px 25px; }
   .login-container li {
     margin-bottom: 15px;
     width: 100%;
-    border: 1px solid #d8d8d8;
-    background: #f8f8f8;
-    border-radius: 4px; }
+    background: #f8f8f8; }
   .login-container li:last-child {
     margin-bottom: 0; }
   .login-container p {
@@ -606,15 +602,16 @@ header {
   .login-container input[type="text"],
   .login-container input[type="password"] {
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 1.4em;
     color: #333;
-    width: 85%;
+    width: 100%;
     border: 0;
     outline: 0;
     background: transparent;
     font-weight: 300;
     text-indent: 0;
-    padding: 10px; }
+    padding: 10px;
+    height: 50px; }
   .login-container input::-webkit-input-placeholder {
     color: #333; }
   .login-container input[type="checkbox"] {
@@ -654,17 +651,17 @@ header {
 /* Listings */
 .listing-container {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05); }
+  background: #fff; }
   .listing-container ul {
     list-style: none;
     padding-left: 0; }
   .listing-container li {
     display: inline-block;
     width: 100%;
-    padding: 15px;
+    padding: 20px;
     cursor: pointer; }
   .listing-container li:nth-child(even) {
-    /*background: #fff;*/ }
+    background: #f8f8f8; }
   .listing-container li:last-child {
     border-bottom: 0; }
   .listing-container aside {
@@ -678,30 +675,92 @@ header {
     display: inline-block;
     vertical-align: top;
     padding-left: 10px; }
+    .listing-container section a {
+      text-decoration: none; }
     .listing-container section h1 {
-      font-size: 1.3em;
+      font-size: 1.2em;
       font-weight: normal;
-      color: #03A9F4; }
+      color: #333; }
     .listing-container section p {
       font-size: 1em;
       font-weight: 300;
       display: block;
       font-style: italic;
-      color: #fff;
+      color: #333;
       margin-top: 3px; }
     .listing-container section h2 {
       font-size: 1em;
       font-weight: 400;
-      color: #fff; }
+      color: #333; }
   .listing-container article {
     width: 30%;
     text-align: right;
     display: inline-block;
     vertical-align: top; }
     .listing-container article h1 {
-      font-size: 1em;
-      font-weight: 300;
+      font-size: 1.2em;
+      font-weight: 400;
+      color: #333; }
+
+.dashboard-location-container {
+  padding: 20px;
+  background: #fff;
+  margin-bottom: 15px; }
+  .dashboard-location-container aside {
+    background: #1E88E5;
+    width: 25%;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 3px; }
+    .dashboard-location-container aside p {
       color: #fff; }
+
+.set-location-warning {
+  padding: 25px 15px;
+  text-align: center; }
+  .set-location-warning h1 {
+    font-size: 1.8em;
+    color: #333;
+    font-weight: 300;
+    margin-bottom: 10px; }
+  .set-location-warning a {
+    text-decoration: none;
+    padding: 2px;
+    border-bottom: 1px solid #01579B;
+    color: #1565C0;
+    font-weight: 400; }
+
+.to-location {
+  padding: 40px 25px 25px;
+  width: 100%;
+  margin: 0px auto 15px;
+  background: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  border-radius: 0px; }
+  .to-location a {
+    text-decoration: none; }
+  .to-location section {
+    width: 60%;
+    padding: 15px 40px;
+    text-align: center;
+    margin: 0 auto;
+    background: #01579B;
+    border-radius: 3px; }
+    .to-location section h1 {
+      font-size: 1.4em;
+      font-weight: 400;
+      color: #fff; }
+    .to-location section h2 {
+      font-size: .8em;
+      font-weight: 300;
+      color: #fff;
+      margin-top: 5px; }
+  .to-location p {
+    margin-top: 10px;
+    font-size: .8em;
+    font-weight: 300;
+    font-style: italic;
+    color: #555; }
 
 /* Search */
 .search-container,
@@ -783,7 +842,7 @@ header {
 .current-location {
   background: transparent;
   width: 100%;
-  padding: 30px 30px 30px;
+  padding: 100px 30px 30px;
   /*border-radius: 5px;*/ }
 
 .location-button {
@@ -793,8 +852,7 @@ header {
   background: #01579B;
   text-align: center;
   border-radius: 4px;
-  padding-top: 20px;
-  margin-bottom: 50px; }
+  padding-top: 20px; }
   .location-button span {
     color: #f8f8f8; }
   .location-button i {
@@ -1307,7 +1365,7 @@ header {
 /* Module Header */
 .module-header {
   width: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  /*background: rgba(255,255,255,.5);*/
   padding: 20px 20px 10px;
   cursor: pointer;
   /*border-bottom: 1px solid #5E6B7F;*/
@@ -1316,12 +1374,12 @@ header {
     font-size: 1.2em;
     font-weight: 300;
     margin-top: 5px;
-    color: #fff;
+    color: #333;
     display: none; }
   .module-header h1 {
     font-size: 1.2em;
     font-weight: 400;
-    color: #fff;
+    color: #333;
     display: inline-block;
     vertical-align: top; }
   .module-header a {
@@ -1412,13 +1470,34 @@ header {
 .backend-tabs-shift {
   top: 0px; }
 
+/*Back to Dashboard*/
+.error-container {
+  text-align: center;
+  padding-top: 100px; }
+  .error-container p {
+    font-size: 1.4em;
+    font-weight: 300;
+    color: #333; }
+
+.back-to-dashboard {
+  width: 50%;
+  margin: 0 auto;
+  padding: 15px;
+  text-align: center;
+  background: #1565C0;
+  border-radius: 3px;
+  margin-top: 15px; }
+  .back-to-dashboard h1 {
+    font-size: 1.4em;
+    color: #fff;
+    font-weight: 400; }
+
 /*Backend Beer Tab*/
 .profile-beer-list {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  /*background: rgba(255,255,255,.05)*/
   margin-top: 0px;
-  margin-bottom: 15px;
-  /*border:1px solid #d8d8d8;*/ }
+  margin-bottom: 15px; }
   .profile-beer-list ul {
     list-style: none;
     padding-left: 0; }
@@ -1427,52 +1506,38 @@ header {
     width: 100%;
     padding: 20px 0px;
     cursor: auto;
-    position: relative; }
+    position: relative;
+    background: #fff; }
   .profile-beer-list li:first-child {
     border-top: 0; }
   .profile-beer-list li:nth-child(even) {
-    /*background: #fff;*/ }
+    background: #f8f8f8; }
   .profile-beer-list div {
     width: 70%;
     display: inline-block;
     vertical-align: top;
-    padding-left: 10px;
-    /*span::before {
-    	content: "";
-    	color: #fff;
-    	background: #222;
-    	font-size: .8em;
-    	bottom: 10px;
-    	position: absolute;
-    	width: 10px;
-    	height: 10px;
-    	text-align: center;
-    	left: -10px;
-    	-ms-transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }*/ }
+    padding-left: 10px; }
     .profile-beer-list div h1 {
       display: inline-block;
       vertical-align: top;
       font-size: 1.2em;
-      color: #8BC34A; }
+      color: #01579B; }
     .profile-beer-list div p {
       font-size: 1em;
       font-weight: 300;
       margin-top: 1px;
-      color: #fff; }
+      color: #333; }
     .profile-beer-list div h2 {
       display: inline-block;
       vertical-align: top;
       font-size: .9em;
       font-weight: 400;
-      color: #fff; }
+      color: #333; }
     .profile-beer-list div h3 {
       font-size: .9em;
       font-weight: 400;
       margin-top: 5px;
-      color: #fff; }
+      color: #333; }
     .profile-beer-list div span {
       display: inline-block;
       vertical-align: top;
@@ -1500,10 +1565,7 @@ header {
     display: inline-block;
     vertical-align: top;
     width: 60px;
-    text-align: center;
-    /* margin-right: -30px; */
-    		/*top: 50%;
-      transform: translate(-50%,-50%);*/ }
+    text-align: center; }
     .profile-beer-list article span {
       font-size: 1.6em;
       width: 30px;
@@ -1699,23 +1761,6 @@ svg rect {
   .active-feed-type p {
     color: #fff; }
 
-/*#delete-beer {
-	border: 0;
-	outline: 0;
-	background: transparent;
-	font-size: 1em;
-	padding-left: 5px;
-	transition: 250ms;
-
-	span {
-		font-size: 1.2em;
-		color: #dfdfdf;
-	}
-}*/
-/*#delete-beer:hover span {
-	color: $red-dark;
-}
-*/
 .show-beer-controls {
   display: inline-block; }
 
@@ -3202,25 +3247,32 @@ svg rect {
   background: #fff;
   padding: 15px; }
   .settings-sublist li {
-    padding: 10px 0; }
+    padding: 0px 0;
+    background: #f0f0f0;
+    margin-bottom: 10px; }
   .settings-sublist h1,
   .settings-sublist span,
   .settings-sublist input {
     display: inline-block;
-    vertical-align: top; }
+    vertical-align: top;
+    height: 50px; }
   .settings-sublist span,
   .settings-sublist h1 {
     width: 10%;
     font-size: 1em;
-    font-weight: 400;
-    text-align: right;
-    padding-right: 10px; }
+    font-weight: 700;
+    text-align: center;
+    background: #dfdfdf;
+    padding-top: 17.5px; }
   .settings-sublist input {
     width: 70%;
     outline: 0;
     border: 0;
     text-indent: 10px;
-    padding: 0px 0; }
+    padding: 0px 0;
+    background: transparent;
+    font-size: 1.4em;
+    font-weight: 300; }
 
 .sublist-header {
   z-index: 10;
