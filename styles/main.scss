@@ -51,7 +51,7 @@ input [file] {
 body {
 	font-size: 12px;
 	position: relative;
-	background: #37465F;
+	background: #e5e5e5;
 	width: 100%;
 	margin: 0 auto;
 	overflow-x: hidden;
@@ -68,8 +68,7 @@ body {
 
 .backend-container {
 	width: 1000px;
-    /*margin: 0 auto;*/
-    margin-left: 225px;
+    margin: 0 auto;
     margin-top: 75px;
     position:relative;
     z-index:1;
@@ -100,6 +99,10 @@ body {
 	position: relative;
 	margin-top: 75px;
 	padding-bottom: 20px;
+
+	a {
+		text-decoration: none;
+	}
 }
 
 .left-container, 
@@ -140,7 +143,7 @@ body {
 .right-container {
 	padding-left: 25px;
 	width: 400px;
-    position: fixed;
+    /*position: fixed;*/
 }
 
 .datepicker {
@@ -775,7 +778,7 @@ header {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;;
-  	background:#f8f8f8;
+  	background:#e5e5e5;
 
 }
 
@@ -783,17 +786,12 @@ header {
 .login-container {
 	width: 400px;
 	margin: 100px auto;
-	background: #fff;
-	border: 1px solid #d8d8d8;
-	border-radius: 4px;
 	padding:25px 25px 25px;
 
 	li {
 		margin-bottom: 15px;
 		width: 100%;
-		border: 1px solid #d8d8d8;
-		background:#f8f8f8;
-		border-radius: 4px;
+		background: #f8f8f8;
 	}
 
 	li:last-child {
@@ -821,15 +819,16 @@ header {
 	input[type="text"], 
 	input[type="password"] {
 		display: inline-block;
-		font-size: 1.2em;
+		font-size: 1.4em;
 		color: #333;
-		width: 85%;
+		width: 100%;
 		border: 0;
 		outline: 0;
 		background: transparent;
 		font-weight: 300;
 		text-indent: 0;
 		padding: 10px;
+		height: 50px;
 	}
 
 	input::-webkit-input-placeholder {
@@ -885,7 +884,7 @@ header {
 
 .listing-container {
 	width: 100%;
-	background: rgba(255,255,255,.05);
+	background: #fff;
 
 	ul {
 		list-style: none;
@@ -895,12 +894,12 @@ header {
 	li {
 		display: inline-block;
 		width: 100%;
-		padding: 15px;
+		padding: 20px;
 		cursor:pointer;
 	}
 
 	li:nth-child(even) {
-		/*background: #fff;*/
+		background: #f8f8f8;
 	}
 
 	li:last-child {
@@ -923,10 +922,14 @@ header {
 		vertical-align: top;
 		padding-left: 10px;
 
+		a {
+			text-decoration: none;
+		}
+
 		h1 {
-			font-size: 1.3em;
+			font-size: 1.2em;
 			font-weight: normal;
-			color: $secondary-color-light;
+			color: #333;
 		}
 
 		p {
@@ -934,14 +937,14 @@ header {
 			font-weight: 300;
 			display: block;
 			font-style: italic;
-			color: #fff;
+			color: #333;
 			margin-top: 3px;
 		}
 
 		h2 {
 			font-size: 1em;
 			font-weight: 400;
-			color: #fff;
+			color: #333;
 		}
 	}
 
@@ -952,16 +955,96 @@ header {
 		vertical-align: top;
 
 		h1 {
-			font-size: 1em;
-			font-weight: 300;
+			font-size: 1.2em;
+			font-weight: 400;
+			color: #333;
+		}
+	}
+}
+
+.dashboard-location-container {
+	padding: 20px;
+	background: #fff;
+	margin-bottom: 15px;
+	aside {
+		background: $blue-600;
+		width: 25%;
+		text-align: center;
+		padding: 15px 0;
+		border-radius: 3px;
+
+		p {
 			color: #fff;
 		}
 	}
 }
 
+.set-location-warning {
+	padding: 25px 15px;
+	text-align: center;
 
+	h1 {
+		font-size: 1.8em;
+		color: #333;
+		font-weight: 300;
+		margin-bottom: 10px;
+	}
+
+	a {
+		text-decoration: none;
+		padding: 2px;
+		border-bottom: 1px solid $secondary-color-dark;
+		color: $blue-800;
+		font-weight: 400;
+	}
+}
+
+
+.to-location {
+	padding: 40px 25px 25px;
+	width: 100%;
+	margin: 0px auto 15px;
+	background: rgba(255,255,255,.5);
+	text-align: center;
+	border-radius: 0px;
+
+	a {
+		text-decoration: none;
+	}
+
+	section {
+		width: 60%;
+		padding: 15px 40px;
+		text-align: center;
+		margin: 0 auto;
+		background: $secondary-color-dark;
+		border-radius: 3px;
+
+		h1 {
+			font-size: 1.4em;
+			font-weight: 400;
+			color: #fff;
+		}
+
+		h2 {
+			font-size: .8em;
+			font-weight: 300;
+			color: #fff;
+			margin-top: 5px;
+		}
+	}
+
+	p {
+		margin-top: 10px;
+		font-size: .8em;
+		font-weight: 300;
+		font-style: italic;
+		color: #555;
+	}
+}
 
 /* Search */
+
 
 .search-container, 
 .search-location {
@@ -1054,7 +1137,7 @@ header {
 .current-location {
 	background: transparent;
 	width: 100%;
-	padding: 30px 30px 30px;
+	padding: 100px 30px 30px;
 	/*border-radius: 5px;*/
 }
 
@@ -1066,7 +1149,6 @@ header {
     text-align: center;
     border-radius: 4px;
     padding-top: 20px;
-    margin-bottom: 50px;
 
     span {
     	color: $primary-color-light;
@@ -1738,7 +1820,7 @@ header {
 
 .module-header {
 	width: 100%;
-	background: rgba(255,255,255,.1);
+	/*background: rgba(255,255,255,.5);*/
 	padding: 20px 20px 10px;
 	cursor: pointer;
 	/*border-bottom: 1px solid #5E6B7F;*/
@@ -1748,14 +1830,14 @@ header {
 		font-size: 1.2em;
 		font-weight: 300;
 		margin-top:5px;
-		color: #fff;
+		color: #333;
 		display: none;
 	}
 
 	h1 {
 		font-size: 1.2em;
 		font-weight: 400;
-		color: #fff;
+		color: #333;
 		display: inline-block;
 		vertical-align: top;
 	}
@@ -1879,17 +1961,43 @@ header {
 	top: 0px;
 }
 
+/*Back to Dashboard*/
+
+.error-container {
+	text-align: center;
+	padding-top: 100px;
+	p {
+		font-size: 1.4em;
+		font-weight: 300;
+		color: #333;
+	}
+}
+
+.back-to-dashboard {
+	width: 50%;
+	margin: 0 auto;
+	padding: 15px;
+	text-align: center;
+	background: $blue-800;
+	border-radius: 3px;
+	margin-top: 15px;
+
+	h1 {
+		font-size: 1.4em;
+		color: #fff;
+		font-weight: 400;
+	}
+}
+
 
 
 /*Backend Beer Tab*/
 
 .profile-beer-list {
 	width: 100%;
-	background: rgba(255,255,255,.05);
-
+	/*background: rgba(255,255,255,.05)*/;
 	margin-top:0px;
 	margin-bottom:15px;
-	/*border:1px solid #d8d8d8;*/
 
 	ul {
 		list-style: none;
@@ -1902,6 +2010,7 @@ header {
 		padding: 20px 0px;
 		cursor:auto;
 		position: relative;
+		background: #fff;
 	}
 
 	li:first-child {
@@ -1909,7 +2018,7 @@ header {
 	}
 
 	li:nth-child(even) {
-		/*background: #fff;*/
+		background: #f8f8f8;
 	}
 
 	
@@ -1924,14 +2033,14 @@ header {
 			display: inline-block;
 			vertical-align: top;
 			font-size: 1.2em;
-			color: $green-light;
+			color: $secondary-color-dark;
 		}
 
 		p {
 			font-size: 1em;
 			font-weight: 300;
 			margin-top: 1px;
-			color: #fff;
+			color: #333;
 		}
 
 		h2 {
@@ -1939,14 +2048,14 @@ header {
 			vertical-align: top;
 			font-size: .9em;
 			font-weight: 400;
-			color: #fff;
+			color: #333;
 		}
 
 		h3 {
 			font-size: .9em;
 			font-weight: 400;
 			margin-top: 5px;
-			color: #fff;
+			color: #333;
 		}
 
 		span {
@@ -1974,22 +2083,6 @@ header {
 			display: none;
 		}
 
-		/*span::before {
-			content: "";
-			color: #fff;
-			background: #222;
-			font-size: .8em;
-			bottom: 10px;
-			position: absolute;
-			width: 10px;
-			height: 10px;
-			text-align: center;
-			left: -10px;
-			-ms-transform: rotate(45deg);
-		    -webkit-transform: rotate(45deg);
-		    transform: rotate(45deg);
-		}*/
-
 		span:hover::after {
 			display: inline-block;
 		}
@@ -2001,9 +2094,6 @@ header {
 		vertical-align: top;
 		width: 60px;
 		text-align: center;
-		/* margin-right: -30px; */
-		/*top: 50%;
-  transform: translate(-50%,-50%);*/
 
 		span {
 			font-size: 1.6em;
@@ -2270,25 +2360,6 @@ svg rect{
 		color: #fff;
 	}
 }
-
-/*#delete-beer {
-	border: 0;
-	outline: 0;
-	background: transparent;
-	font-size: 1em;
-	padding-left: 5px;
-	transition: 250ms;
-
-	span {
-		font-size: 1.2em;
-		color: #dfdfdf;
-	}
-}*/
-
-/*#delete-beer:hover span {
-	color: $red-dark;
-}
-*/
 
 .show-beer-controls {
 	display: inline-block;
@@ -4182,7 +4253,9 @@ svg rect{
 	padding: 15px;
 
 	li {
-		padding: 10px 0;
+		padding: 0px 0;
+		background: #f0f0f0;
+		margin-bottom: 10px;
 	}
 
 	h1, 
@@ -4190,15 +4263,17 @@ svg rect{
 	input {
 		display: inline-block;
 		vertical-align: top;
+		height: 50px;
 	}
 
 	span, 
 	h1 {
 		width: 10%;
 		font-size: 1em;
-		font-weight: 400;
-		text-align: right;
-		padding-right: 10px;
+		font-weight: 700;
+		text-align: center;
+		background: #dfdfdf;
+		padding-top: 17.5px;
 	}
 
 	input {
@@ -4207,6 +4282,9 @@ svg rect{
 		border: 0;
 		text-indent: 10px;
 		padding: 0px 0;
+		background: transparent;
+		font-size: 1.4em;
+		font-weight: 300;
 	}
 }
 

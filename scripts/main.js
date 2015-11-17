@@ -1693,16 +1693,6 @@ BeMe.Views.Location = Parse.View.extend({
     this.$el.html(this.template(this.model));
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
-
-    var softSlider = document.getElementById('soft');
-
-    noUiSlider.create(softSlider, {
-      start: 50,
-      range: {
-        min: 0,
-        max: 100
-      }
-    });
   },
 
   events: {
