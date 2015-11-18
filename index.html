@@ -22,6 +22,73 @@
 
 <script type="text/template" id="application-view">
 
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <% if (Parse.User.current().get('userType') === 'business') { %>
+        <a href="#dashboard"><section class="active-view">
+          <span class="fa fa-dashboard"></span>
+          <h1>Dashboard</h1>
+        </section></a
+        ><a href="#backend"><section>
+          <span class="fa fa-cog"></span>
+          <h1>Backend</h1>
+        </section></a>
+        <% } else {%>
+          <a href="#dashboard"><section class="active-view">
+            <span class="fa fa-dashboard"></span>
+            <h1>Dashboard</h1>
+          </section></a>
+        <% } %>
+
+      </div
+
+      ><div class="header-right">
+        <ul>
+          <div>
+            <% if (Parse.User.current()) { %>
+              <i class="fa fa-power-off" id='logout'></i>
+              <% } else { %>
+              <p id='sign-in'>Sign In</p>
+            <% } %>
+          </div
+          ><li id="slideout-trigger">
+            <h1>Options</h1
+            ><span class="fa fa-chevron-down"></span>
+          </li><a href="#business/craftanddraft"><section>
+            <img src="images/default-avatar.png">
+          </section
+          ></a>
+
+        </ul>
+      </div
+
+      ><div class="header-center">
+
+      </div
+
+      ><div class="backend-slideout">
+        <aside>
+          <span class="fa fa-caret-up"></span>
+        </aside>
+        
+        <section>
+          <div class="backend-tabs">
+            <ul>
+              <a href="#dashboard/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
+              ><a href="#dashboard/beer"><li><span class="fa fa-beer"></span><h1>Beer Tracker</h1><p>Set your draft and bottled lists</p></li></a
+              ><a href="#dashboard/listing"><li><span class="fa fa-users"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
+              ><a href="#dashboard/favorites"><li><span class="fa fa-heart"></span><h1>Favorites</h1><p>Keep your customers up to date</p></li></a
+              ><a href="#dashboard/map"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
+            </ul>
+          </div>
+          
+        </section>
+        
+      </div>     
+
+    </div>
+  </header>
 
   <div class="body-container">
   </div>
@@ -33,7 +100,12 @@
 
 <!-- Index Route -->
 <script type='text/template' id='index-route'>
+
+
+
   <div class="index-container">
+
+
     <div class="login-welcome"><h1>Welcome.</h1> <p>Please log in.</p></div>
     <div class="login-container">
   
@@ -140,63 +212,7 @@
 <script type="text/template" id="backend-view">
 <% if (Parse.User.current().get('userType') === 'business') { %>
  
-    <header>
-      <div class="header-container">
-        <div class="header-left">
-          <h1></h1>
-        </div
 
-        ><div class="header-right">
-          <ul>
-            <div>
-              <% if (Parse.User.current()) { %>
-                <i class="fa fa-power-off" id='logout'></i>
-                <% } else { %>
-                <p id='sign-in'>Sign In</p>
-              <% } %>
-            </div
-            ><li id="slideout-trigger">
-              <h1>Options</h1
-              ><span class="fa fa-chevron-down"></span>
-            </li><a href="#business/<%= Parse.User.current().get('handle') %>"><section>
-              <img src="images/default-avatar.png">
-            </section
-            ></a>
-
-          </ul>
-        </div
-
-        ><div class="header-center">
-
-          
-        </div
-
-        ><div class="backend-slideout">
-          <aside>
-            <span class="fa fa-caret-up"></span>
-          </aside>
-          
-          <section>
-            <div class="backend-tabs">
-              <ul>
-                <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
-                ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
-                ><a href="#backend/competition"><li><span class="fa fa-users"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
-                ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
-                ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a
-                ><li id="logout"><span class="fa fa-power-off"></span><h1>Logout</h1></li>
-
-              </ul>
-            </div>
-            
-          </section>
-          
-        </div>
-        
-
-      </div>
-    </header>
-        
 
 <% } else { %>
   <div class="one-column-container">
@@ -376,7 +392,7 @@
 <script type="text/template" id="backend-beer-view">
 
   <div class="backend-container">
-   <div class="middle-container">
+   <div class="middle-column">
       <div class="narrow-container">
         <% var user = Parse.User.current(); %>
 
@@ -449,7 +465,7 @@
 
       </div>
     </div
-    ><div class="right-container">
+    ><div class="right-column">
       <div class="bar-search">
           <form action>
             <span class="fa fa-search"></span
@@ -478,8 +494,7 @@
 
   </section
   ><article class="comment-controls">
-      <button class="delete-comment"><span class="fa fa-ban"></span></button
-      ><% if (typeof attributes.dayOfWeek !== 'undefined') { %><i class='fa fa-thumb-tack'></i><% } else { %><i class='fa fa-bars'></i><% } %>
+      <button class="delete-comment"><i class="fa fa-close"></i></button>
     </article>
 </script>
 <!-- backend Calendar View -->
@@ -791,68 +806,6 @@
 <!-- Business Page View -->
 
 <script type="text/template" id="business-view">
-
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        <h1></h1>
-      </div
-
-      
-
-      ><div class="header-right">
-        <ul>
-          <div>
-            <% if (Parse.User.current()) { %>
-              <i class="fa fa-power-off" id='logout'></i>
-              <% } else { %>
-              <p id='sign-in'>Sign In</p>
-            <% } %>
-          </div
-          ><li id="slideout-trigger">
-            <h1>Options</h1
-            ><span class="fa fa-chevron-down"></span>
-          </li><a href="#business/<%= Parse.User.current().get('handle') %>"><section>
-            <img src="images/default-avatar.png">
-          </section
-          ></a>
-
-        </ul>
-      </div
-
-      ><div class="header-center">
-        <div class="bar-search">
-          <form name='bar-search' action>
-            <span class="fa fa-search"></span>
-            <input type="text" placeholder="Search Bars">
-            <button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
-          </form>
-        </div>
-      </div>
-      <div class="backend-slideout">
-        <aside>
-          <span class="fa fa-caret-up"></span>
-        </aside>
-        
-        <section>
-          <div class="backend-tabs">
-            <ul>
-              <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
-              ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
-              ><a href="#backend/competition"><li><span class="fa fa-users"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
-              ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
-              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
-            </ul>
-          </div>
-          
-        </section>
-        
-      </div>
-      
-
-    </div>
-  </header>
-  
 
 
   <div class="top-container">
@@ -1360,25 +1313,29 @@
   </header>
   <div class="one-column-container">
 
-    <div class="current-location-info"><h1>Current Location: Columbia, SC (29205)</h1><p>Last Updated: November 11th, 2015 at 9:36 pm</p></div>
+    
 
-    <div class="current-location">
           <% if (Parse.User.current().get('userType') === 'business') { %>
-            <div class="set-location-warning">
-              <h1>Are you at your place of Business?</h1>
-              <a href="#backend">If not, please skip step and set later</a>
-            </div>
-            <div class="location-button">
-              <span class="fa fa-location-arrow"></span>
-              <p>Set Location</p>
+            <div class="current-location">
+              <div class="set-location-warning">
+                <h1>Are you at your place of Business?</h1>
+                <a href="#backend">If not, please skip step and set later</a>
+              </div>
+              <div class="location-button">
+                <span class="fa fa-location-arrow"></span>
+                <p>Set Location</p>
+              </div>
             </div>
           <% } else { %>
-            <div class="location-button">
-              <span class="fa fa-location-arrow"></span>
-              <p>Set Location</p>
-            </div>
-            <div class="set-location-warning">
-                <a href="#dashboard">Cancel and return to Dashboard</a>
+            <div class="current-location-info"><h1>Columbia, SC (29205)</h1><p>Last Updated: November 11th, 2015 at 9:36 pm</p></div>
+            <div class="current-location">
+              <div class="location-button">
+                <span class="fa fa-location-arrow"></span>
+                <p>Set Location</p>
+              </div>
+              <div class="set-location-warning">
+                  <a href="#dashboard">Cancel and return to Dashboard</a>
+              </div>
             </div>
           <% } %>
 
@@ -1391,65 +1348,7 @@
 </script>
 
 <script type="text/template" id="dashboard-view">
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        <h1></h1>
-      </div
 
-      ><div class="header-right">
-        <ul>
-          <div>
-            <% if (Parse.User.current()) { %>
-              <i class="fa fa-power-off" id='logout'></i>
-              <% } else { %>
-              <p id='sign-in'>Sign In</p>
-            <% } %>
-          </div
-          ><li id="slideout-trigger">
-            <h1>Options</h1
-            ><span class="fa fa-chevron-down"></span>
-          </li><a href="#business/craftanddraft"><section>
-            <img src="images/default-avatar.png">
-          </section
-          ></a>
-
-        </ul>
-      </div
-
-      ><div class="header-center">
-
-        <div class="bar-search">
-          <form name='bar-search' action>
-            <span class="fa fa-search"></span>
-            <input type="text" placeholder="Search Bars">
-            <button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
-          </form>
-        </div>
-      </div
-
-      ><div class="backend-slideout">
-        <aside>
-          <span class="fa fa-caret-up"></span>
-        </aside>
-        
-        <section>
-          <div class="backend-tabs">
-            <ul>
-              <a href="#dashboard/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
-              ><a href="#dashboard/beer"><li><span class="fa fa-beer"></span><h1>Beer Tracker</h1><p>Set your draft and bottled lists</p></li></a
-              ><a href="#dashboard/listing"><li><span class="fa fa-users"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
-              ><a href="#dashboard/favorites"><li><span class="fa fa-heart"></span><h1>Favorites</h1><p>Keep your customers up to date</p></li></a
-              ><a href="#dashboard/map"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
-            </ul>
-          </div>
-          
-        </section>
-        
-      </div>     
-
-    </div>
-  </header>
 
 </script>
 
@@ -1470,11 +1369,18 @@
         </div><!-- END PROFILE FEED -->
       </div
       ><div class="right-column">
-        <div class="module-header">
-          <h1>Bars Near You</h1>
-          <p>Just a sample subtitle</p>
-          <a>View All</a>
+        <div class="bar-search">
+          <form action>
+            <span class="fa fa-search"></span
+            ><input type="text" placeholder="Search Bars"
+            ><button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
+          </form>
         </div>
+        <div class="module-header">
+            <h1>Bars near you</h1>
+            <p>Just a sample subtitle</p>
+            <a>View All</a>
+          </div>
         <div class="listing-container">
           <ul>
           </ul>

@@ -33,7 +33,7 @@ body {
   margin-top: 75px;
   position: relative;
   z-index: 1;
-  padding-bottom: 20px; }
+  padding: 20px 0; }
 
 .dashboard-container {
   width: 1000px;
@@ -70,11 +70,11 @@ body {
   vertical-align: top; }
 
 .middle-column {
-  width: 55%;
+  width: 60%;
   padding-right: 15px; }
 
 .right-column {
-  width: 45%; }
+  width: 40%; }
 
 .left-container {
   width: 60px;
@@ -138,7 +138,7 @@ header {
 .header-right {
   display: inline-block;
   vertical-align: top;
-  width: 100%;
+  width: 50%;
   position: relative;
   z-index: 999999999;
   text-align: right;
@@ -208,18 +208,33 @@ header {
       height: auto;
       border-radius: 20px; }
 
+.active-view {
+  background: rgba(0, 0, 0, 0.1); }
+
 .header-left {
   display: inline-block;
   vertical-align: top;
-  width: 45%;
-  text-align: center;
-  padding-top: 15px;
-  display: none; }
+  width: 50%;
+  text-align: left; }
+  .header-left section {
+    width: 150px;
+    height: 75px;
+    padding-top: 30px;
+    text-align: center; }
+  .header-left h1,
+  .header-left span,
+  .header-left section {
+    display: inline-block;
+    vertical-align: top; }
   .header-left h1 {
-    /*background: #f8f8f8;*/
-    width: 100%;
-    height: 45px;
-    padding-top: 15px; }
+    color: #fff;
+    font-size: 1.3em;
+    padding-left: 3px;
+    font-weight: 400; }
+  .header-left span {
+    font-size: 1.6em;
+    color: #fff;
+    padding-right: 3px; }
 
 .header-center {
   display: inline-block;
@@ -608,7 +623,7 @@ header {
       font-size: 1.2em;
       font-weight: 300; }
   .register-link li:first-child {
-    border-right: 1px solid #2196F3; }
+    border-right: 1px solid #ccc; }
 
 .login-container {
   width: 400px;
@@ -695,14 +710,15 @@ header {
 /* Listings */
 .listing-container {
   width: 100%;
-  background: #fff; }
+  background: #fff;
+  margin-bottom: 15px; }
   .listing-container ul {
     list-style: none;
     padding-left: 0; }
   .listing-container li {
     display: inline-block;
     width: 100%;
-    padding: 20px;
+    padding: 15px 20px;
     cursor: pointer; }
   .listing-container li:nth-child(even) {
     background: #f8f8f8; }
@@ -884,14 +900,15 @@ header {
     padding-top: 20px; }
 
 .current-location-info {
-  padding: 150px 0 0;
+  padding: 100px 0 0;
   text-align: center; }
   .current-location-info h1 {
-    font-size: 1.4em;
-    color: #333; }
-  .current-location-info p {
-    font-size: 1em;
+    font-size: 1.6em;
     color: #333;
+    font-weight: 300; }
+  .current-location-info p {
+    font-size: .8em;
+    color: #999;
     margin-top: 10px; }
 
 .current-location {
@@ -907,7 +924,8 @@ header {
   background: #01579B;
   text-align: center;
   border-radius: 4px;
-  padding-top: 20px; }
+  padding-top: 20px;
+  cursor: pointer; }
   .location-button span {
     color: #f8f8f8; }
   .location-button i {
@@ -1324,23 +1342,24 @@ header {
 
 .bar-search {
   width: 100%;
-  background: #333;
+  background: #fff;
   position: relative;
   transition: 250ms;
   z-index: 50;
-  height: 55px;
-  margin: 0 auto;
-  border-radius: 4px; }
+  height: 60px;
+  margin: 0px auto 15px;
+  /*border-radius: 0 0 5px 5px;*/ }
   .bar-search span {
     display: inline-block;
-    height: 55px;
+    height: 60px;
     vertical-align: top;
     width: 15%;
+    background: #f0f0f0;
     font-size: 1.4em;
-    color: #999;
-    text-align: right;
-    padding-right: 10px;
-    padding-top: 20px; }
+    color: #333;
+    text-align: center;
+    padding-top: 22.5px;
+    /*border-right: 1px solid #dfdfdf;*/ }
   .bar-search button {
     background: transparent;
     outline: 0;
@@ -1363,7 +1382,7 @@ header {
     display: inline-block;
     color: #333;
     vertical-align: top;
-    height: 55px;
+    height: 60px;
     width: 80%;
     border: 0;
     background: transparent;
@@ -1371,7 +1390,7 @@ header {
     border-radius: 0;
     font-size: 1.4em;
     font-weight: 300;
-    text-indent: 10px; }
+    text-indent: 15px; }
 
 .beer-search-shift {
   margin-top: 0; }
@@ -1420,7 +1439,7 @@ header {
 /* Module Header */
 .module-header {
   width: 100%;
-  /*background: rgba(255,255,255,.5);*/
+  background: rgba(255, 255, 255, 0.5);
   padding: 20px 20px 10px;
   cursor: pointer;
   /*border-bottom: 1px solid #5E6B7F;*/
@@ -2184,7 +2203,7 @@ svg rect {
   vertical-align: top;
   padding-left: 10px; }
   .feed-name h1 {
-    font-size: 1.4em;
+    font-size: 1.3em;
     color: #01579B;
     padding-top: 0px;
     display: inline-block;
@@ -2984,7 +3003,7 @@ svg rect {
   background: #fff;
   margin-bottom: 10px;
   position: relative;
-  overflow: scroll;
+  overflow: hidden;
   height: 80px;
   /*border-right:0;
   border-left:0;*/ }
@@ -3143,7 +3162,7 @@ svg rect {
       display: block;
       font-size: 0.8em;
       font-weight: 300;
-      color: #fff;
+      color: #333;
       margin-top: 3px; }
   .calendar-standing footer,
   .calendar-daily footer {
@@ -3158,7 +3177,7 @@ svg rect {
       vertical-align: top;
       font-size: 1.6em;
       text-align: center;
-      color: #dfdfdf;
+      color: #333;
       cursor: pointer; }
     .calendar-standing footer h1,
     .calendar-daily footer h1 {
@@ -3173,62 +3192,39 @@ svg rect {
   .calendar-daily div {
     display: inline-block;
     vertical-align: top;
-    width: 85%; }
+    width: 75%; }
   .calendar-standing li,
   .calendar-daily li {
     display: block;
     padding: 20px 20px;
-    background: rgba(255, 255, 255, 0.05);
-    /*border-bottom: 1px solid #f0f0f0;*/ }
+    background: #fff; }
   .calendar-standing li:last-child,
   .calendar-daily li:last-child {
     border-bottom: 0; }
   .calendar-standing li:hover,
   .calendar-daily li:hover {
     /*background:#fff;*/ }
-  .calendar-standing li:last-child,
-  .calendar-daily li:last-child {
-    /*padding-top:30px;*/ }
   .calendar-standing article,
   .calendar-daily article {
-    display: none;
+    display: inline-block;
     vertical-align: top;
-    width: 60px;
-    float: right; }
-    .calendar-standing article span,
-    .calendar-daily article span {
-      width: 30px;
-      height: 30px;
-      border: 0;
-      outline: 0;
-      background: #B71C1C;
-      font-size: 1.2em;
-      color: #f0f0f0;
-      cursor: pointer;
-      text-align: center;
-      padding-top: 7.5px; }
+    width: 25%;
+    text-align: right; }
     .calendar-standing article i,
     .calendar-daily article i {
-      font-size: 1.2em;
+      font-size: 2em;
       display: inline-block;
       vertical-align: top;
       width: 30%;
       text-align: center;
-      color: #f0f0f0;
-      background: #444;
-      padding-top: 7px;
-      width: 30px;
-      height: 30px; }
-  .calendar-standing footer,
-  .calendar-daily footer {
-    /*border-top:1px solid #dfdfdf;*/
-    /*margin-top:15px;*/ }
+      color: #ccc;
+      padding-top: 3px; }
   .calendar-standing p,
   .calendar-daily p {
     font-size: 1.2em;
     line-height: 20px;
     font-weight: 400;
-    color: #fff;
+    color: #333;
     width: 85%;
     display: inline-block;
     vertical-align: top; }
@@ -3286,18 +3282,20 @@ svg rect {
 .delete-comment {
   border: 0;
   outline: 0;
-  background: #B71C1C; }
+  background: transparent;
+  padding-right: 20px;
+  cursor: pointer; }
 
 .comment-controls {
   display: none; }
 
-.calendar-daily li:hover .delete-comment,
+/*.calendar-daily li:hover .delete-comment, 
 .calendar-standing li:hover .delete-comment,
-.calendar-daily li:hover .comment-controls,
+.calendar-daily li:hover .comment-controls, 
 .calendar-standing li:hover .comment-controls {
-  display: inline-block;
-  vertical-align: top; }
-
+	display:inline-block;
+	vertical-align: top;
+}*/
 .settings-sublist {
   background: #fff;
   padding: 15px; }
