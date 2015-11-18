@@ -875,7 +875,7 @@ header {
   .to-location section {
     position: absolute;
     width: 80%;
-    padding: 25px 20px 0;
+    padding: 20px 20px 0;
     text-align: center;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.05);
@@ -886,6 +886,11 @@ header {
       font-size: 1.4em;
       font-weight: 400;
       color: #fff; }
+    .to-location section p {
+      font-size: .8em;
+      font-weight: 400;
+      color: #f0f0f0;
+      margin-top: 5px; }
     .to-location section h2 {
       font-size: .8em;
       font-weight: 300;
