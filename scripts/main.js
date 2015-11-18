@@ -1603,7 +1603,9 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
   pullNearStatuses: function () {
     var self = this;
     var user = Parse.User.current();
-    Parse.Cloud.run('pullNearStatuses',{location: user.get('location'), maxDistance:user.get('maxDistance')}).then(function (e) {
+
+    //CHANGE maxDistance VARIABLE TO user.get('maxDistance') AFTER WE GET IT WORKING
+    Parse.Cloud.run('pullNearStatuses',{location: user.get('location'), maxDistance:100}).then(function (e) {
       self.collection.add(e);
       self.render();
     });
@@ -1701,11 +1703,36 @@ BeMe.Views.Location = Parse.View.extend({
 
   setCurrentLocation: function () {
     var user = Parse.User.current();
+
+
     new Parse.GeoPoint.current().then(function (currentLocation) {
       user.set('location', currentLocation);
       user.set('lastUpdatedLocation', new Date());
-      user.save();
-      BeMe.Router.navigate('dashboard', true);
+
+      var latlng = {lat:  currentLocation._latitude , lng: currentLocation._longitude};
+
+      var geocoder = new google.maps.Geocoder;
+
+
+      geocoder.geocode({'location': latlng}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          var accurateLocationComponents = results[0].address_components;
+          var address = [accurateLocationComponents[0].long_name, accurateLocationComponents[1].long_name].join(' ');
+          var city = accurateLocationComponents[2].long_name;
+          var state = accurateLocationComponents[4].short_name;
+          var zip = accurateLocationComponents[6].long_name;
+
+          user.set('address', address);
+          user.set('city', city);
+          user.set('state', state);
+          user.set('zip', zip);
+          user.save();
+          BeMe.Router.navigate('dashboard', true);
+        } else {
+          alert("Error: " + status);
+        }
+      });
+
     });
   },
 })
@@ -1778,13 +1805,11 @@ var Router = Parse.Router.extend({
 	},
 
 	home: function () {
-		console.log('Index route fired');
 		BeMe.removeAllViews();
 		new BeMe.Views.Index();
 	},
 
 	backend: function () {
-		console.log('Backend route fired');
 		BeMe.removeAllViews();
 		new BeMe.Views.Backend();
 	},
