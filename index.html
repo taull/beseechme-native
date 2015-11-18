@@ -34,22 +34,27 @@
 <!-- Index Route -->
 <script type='text/template' id='index-route'>
   <div class="index-container">
+    <div class="login-welcome"><h1>Welcome.</h1> <p>Please log in.</p></div>
     <div class="login-container">
-
-      <h2>Login</h2>
+  
       <form action="">
 
         <li>
-          <input type="text" name="email" placeholder="Email Address">
+          <span class="fa fa-user"></span
+          ><input type="text" name="email" placeholder="Email Address">
+        </li>
+        <li>
+          <span class="fa fa-lock"></span
+          ><input type="password" name="password" placeholder="Password">
         </li>
         <input type="checkbox" value="signedIn"><p>Remember Me?</p>
-        <li>
-          <input type="password" name="password" placeholder="Password">
-        </li>
-        <a>Forgot Password?</a>
-
         <button>Sign In</button>
+
       </form>
+    </div>
+    <div class="register-link">
+      <li><a href="#forgot">Password</a></li
+      ><li><a href="#register">Register</a></li>
     </div>
   </div>
 
@@ -58,34 +63,35 @@
 
 <!-- Business Register Route -->
 <script type='text/template' id='business-register-route'>
-  <div class="home-container">
+  <div class="index-container">
+    <div class="login-welcome"><h1>Welcome.</h1> <p>Please register your business.</p></div>
 
     <div class="login-container">
       <form action="">
         <li>
-          <span class="fa fa-bookmark"></span>
-          <input type="text" name="business-name" placeholder="Business Name">
+          <span class="fa fa-bookmark"></span
+          ><input type="text" name="business-name" placeholder="Business Name">
         </li>
         <li>
-          <h1>N</h1>
-          <input type="text" name="first-name" placeholder="Name">
+          <span class="fa fa-user"></span
+          ><input type="text" name="first-name" placeholder="Name">
         </li>
         <li>
-          <span class="fa fa-envelope"></span>
-          <input type="text" name="email" placeholder="Email">
+          <span class="fa fa-envelope"></span
+          ><input type="text" name="email" placeholder="Email">
         </li>
         <li>
-          <h1>@</h1>
-          <input type="text" name="handle" placeholder="Handle">
+          <span class="fa fa-at"></span
+          ><input type="text" name="handle" placeholder="Handle">
         </li>
         <li>
-          <span class="fa fa-lock"></span>
-          <input type="password" name="password" placeholder="Password">
-          <h1></h1>
+          <span class="fa fa-lock"></span
+          ><input type="password" name="password" placeholder="Password">
         </li>
         <li>
-          <span class="fa fa-lock"></span>
-          <input type="password" class="confirm-password" name="confirm-password" placeholder="Confirm Password">
+          <span class="fa fa-lock"></span
+
+          ><input type="password" class="confirm-password" name="confirm-password" placeholder="Confirm Password">
 
         </li>
 
@@ -99,26 +105,27 @@
 
 <!-- Consumer Register Route -->
 <script type='text/template' id='consumer-register-route'>
-  <div class="home-container">
+  <div class="index-container">
+    <div class="login-welcome"><h1>Welcome.</h1> <p>Please register your personal account.</p></div>
 
     <div class="login-container">
       <form action="">
 
         <li>
-          <h1>N</h1>
-          <input type="text" name="first-name" placeholder="Name">
+          <span class="fa fa-user"></span
+          ><input type="text" name="first-name" placeholder="Name">
         </li>
         <li>
-          <h1>@</h1>
-          <input type="text" name="email" placeholder="Email Address">
+          <span class="fa fa-envelope"></span
+          ><input type="text" name="email" placeholder="Email Address">
         </li>
         <li>
-          <span class="fa fa-lock"></span>
-          <input type="password" name="password" placeholder="Password">
+          <span class="fa fa-lock"></span
+          ><input type="password" name="password" placeholder="Password">
         </li>
         <li>
-          <span class="fa fa-lock"></span>
-          <input type="password" name="confirm-password" placeholder="Confirm Password">
+          <span class="fa fa-lock"></span
+          ><input type="password" name="confirm-password" placeholder="Confirm Password">
         </li>
 
         <button>Register</button>
@@ -131,90 +138,76 @@
 <!-- Bar Backend View -->
 
 <script type="text/template" id="backend-view">
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        <h1></h1>
-      </div
+<% if (Parse.User.current().get('userType') === 'business') { %>
+ 
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <h1></h1>
+        </div
 
-      ><div class="header-right">
-        <ul>
-          <div>
-            <% if (Parse.User.current()) { %>
-              <i class="fa fa-power-off" id='logout'></i>
-              <% } else { %>
-              <p id='sign-in'>Sign In</p>
-            <% } %>
-          </div
-          ><li id="slideout-trigger">
-            <h1>Options</h1
-            ><span class="fa fa-chevron-down"></span>
-          </li><a href="#business/<%= Parse.User.current().get('handle') %>"><section>
-            <img src="images/default-avatar.png">
-          </section
-          ></a>
+        ><div class="header-right">
+          <ul>
+            <div>
+              <% if (Parse.User.current()) { %>
+                <i class="fa fa-power-off" id='logout'></i>
+                <% } else { %>
+                <p id='sign-in'>Sign In</p>
+              <% } %>
+            </div
+            ><li id="slideout-trigger">
+              <h1>Options</h1
+              ><span class="fa fa-chevron-down"></span>
+            </li><a href="#business/<%= Parse.User.current().get('handle') %>"><section>
+              <img src="images/default-avatar.png">
+            </section
+            ></a>
 
-        </ul>
-      </div
+          </ul>
+        </div
 
-      ><div class="header-center">
+        ><div class="header-center">
 
-        
-      </div
-
-      ><div class="backend-slideout">
-        <aside>
-          <span class="fa fa-caret-up"></span>
-        </aside>
-        
-        <section>
-          <div class="backend-tabs">
-            <ul>
-              <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
-              ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
-              ><a href="#backend/competition"><li><span class="fa fa-users"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
-              ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
-              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a
-              ><li id="logout"><span class="fa fa-power-off"></span><h1>Logout</h1></li>
-
-            </ul>
-          </div>
           
-        </section>
+        </div
+
+        ><div class="backend-slideout">
+          <aside>
+            <span class="fa fa-caret-up"></span>
+          </aside>
+          
+          <section>
+            <div class="backend-tabs">
+              <ul>
+                <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
+                ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
+                ><a href="#backend/competition"><li><span class="fa fa-users"></span><h1>Competition</h1><p>See what your neighbors are up to</p></li></a
+                ><a href="#backend/calendar"><li><span class="fa fa-calendar-o"></span><h1>Calendar</h1><p>Keep your customers up to date</p></li></a
+                ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a
+                ><li id="logout"><span class="fa fa-power-off"></span><h1>Logout</h1></li>
+
+              </ul>
+            </div>
+            
+          </section>
+          
+        </div>
         
+
       </div>
-      
+    </header>
+        
 
-    </div>
-  </header>
-      
-  <% var user = Parse.User.current(); %>
+<% } else { %>
+  <div class="one-column-container">
 
-  <div class="left-slideout">
-
-
-    <div class="slideout-user">
-      <% if (typeof user.get('avatar') !=='undefined') { %>
-        <img src=<%= user.get('avatar')._url %> >
-        <% } else { %>
-        <img src="images/default-avatar.png">
-      <% } %>
-      <h1>Hey, Admin</h1>
-    </div
-    ><div class="sidebar-tabs">
-      <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1></li></a         
-      ><a href="#backend/beer"><li><span class="fa fa-th-list"></span><h1>Beer Menu</h1></li></a
-      ><a href="#backend/bartenders"><li><span class="fa fa-users"></span><h1>Bartenders</h1></li></a
-      ><a href="#backend/calendar"><li><span class="fa fa-calendar"></span><h1>Calendar</h1></li></a
-      ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1></li></a
-      ><a href=""><li><span class="fa fa-power-off"></span><h1>Logout</h1></li></a>
-
+    <div class="error-container">
+      <p>Sorry, you dont have access to this page</p>
+      <a href="#dashboard"><div class="back-to-dashboard"><h1>Back to Dashboard</h1></div></a>
     </div>
   </div>
+<% } %>
 
-  <div class="top-container">
-    
-  </div>
 
 </script>
 
@@ -222,34 +215,38 @@
 
 <script type="text/template" id="backend-home-view">
 
-  <div class="left-container">
+<% if (Parse.User.current().get('userType') === 'business') { %>
+
+    <div class="left-container">
 
 
-  </div
-  ><div class="middle-container">
-    <% var user = Parse.User.current(); %>
+    </div
+    ><div class="middle-container">
+      <% var user = Parse.User.current(); %>
 
-      <div class="business-cover">
-        <% if (typeof user.get('coverPhoto') !=='undefined') { %>
-          <img src=<%= user.get('coverPhoto')._url %> >
-          <% } else { %>
-          <img src="images/craft2.jpg">
-        <% } %>
-      </div>
-      <div class="business-home">
-        <section>
-            <% if (typeof user.get('avatar') !=='undefined') { %>
-              <img src=<%= user.get('avatar')._url %> >
-              <% } else { %>
-              <img src="images/default-avatar.png">
-            <% } %>
-            <h1><%= user.get('businessName') %></h1><i class="fa fa-check-circle"></i>
-            <p><%= user.get('address') %>, <%= user.get('City') %>, <%= user.get('state') %> <%= user.get('zip') %></p>
-            <h2><%= user.get('phoneNumber') %></h2>
-        </section>
-      </div>
+        <div class="business-cover">
+          <% if (typeof user.get('coverPhoto') !=='undefined') { %>
+            <img src=<%= user.get('coverPhoto')._url %> >
+            <% } else { %>
+            <img src="images/craft2.jpg">
+          <% } %>
+        </div>
+        <div class="business-home">
+          <section>
+              <% if (typeof user.get('avatar') !=='undefined') { %>
+                <img src=<%= user.get('avatar')._url %> >
+                <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+              <h1><%= user.get('businessName') %></h1><i class="fa fa-check-circle"></i>
+              <p><%= user.get('address') %>, <%= user.get('City') %>, <%= user.get('state') %> <%= user.get('zip') %></p>
+              <h2><%= user.get('phoneNumber') %></h2>
+          </section>
+        </div>
 
-  </div>
+    </div>
+
+<% } %>
 
 </script>
 
@@ -274,7 +271,8 @@
           </section>
         </section
         ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></section
-        >
+        ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
+
 
       </section>
 
@@ -291,23 +289,22 @@
       </section>
       <% } %>
 
-      <section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
       <section class="feed-controls">
       <% if (Parse.User.current().get('userType') === 'consumer') { %>
-        <section><i class="fa fa-location-arrow"></i><p>Check In</p></section>
-        <section><i class="fa fa-check-square"></i><p>Like</p></section>
+        <section><i class="fa fa-heart"></i></section
+        ><section><i class="fa fa-location-arrow"></i></section>
       <% } %>
       </section>
     </article>
 </script>
 
 <script type="text/template" id="backend-feed-view">
+<% if (Parse.User.current().get('userType') === 'business') { %>
 
   <div class="backend-container">
 
-    <div class="middle-container">
-      <div class="wide-container">
-
+    <div class="middle-column">
+        
         <div class="profile-feed">
           <ul>
           </ul>
@@ -318,10 +315,9 @@
           <p>Beseech Me®, LLC</p>
         </div>
 
-      </div>
     </div
 
-    ><div class="right-container">
+    ><div class="right-column">
 
         <div class="profile-tools profile-tools-desktop">
           <form action="">
@@ -343,6 +339,7 @@
 
   </div>
 
+<% } %>
 
 </script>
 
@@ -582,157 +579,103 @@
 <script type="text/template" id="backend-settings-view">
 
   <div class="backend-container">
-    <div class="left-container">
+    <div class="middle-container">
       <% var user = Parse.User.current() %>
-
-        <div class="business-cover">
-          <% if (typeof user.get('coverPhoto') !=='undefined') { %>
-            <img src=<%= user.get('coverPhoto')._url %> >
-            <% } else { %>
-            <img src="images/craft2.jpg">
-          <% } %>
-        </div>
-        <div class="business-home">
-          <section>
-              <% if (typeof user.get('avatar') !=='undefined') { %>
-                <img src=<%= user.get('avatar')._url %> >
-                <% } else { %>
-                <img src="images/default-avatar.png">
-              <% } %>
-              <h1><%= user.get('businessName') %></h1><i class="fa fa-check-circle"></i>
-              <p><%= user.get('address') %>, <%= user.get('City') %>, <%= user.get('state') %> <%= user.get('zip') %></p>
-              <h2><%= user.get('phoneNumber') %></h2>
-          </section>
-          
-        </div>
 
 
     </div
-    ><div class="middle-container">
-      <div class="narrow-container">
+    ><div class="right-container">
+
         <div class="module-header">
-          <span class="fa fa-cog"></span>
-          <p>Settings</p>
+          <h1>Settings</h1>
         </div>
 
-        <section id="backend-settings" data-accordion-group>
+        <div class="settings-sublist">
+          <form action="">
+            <ul>
+              <li><span class="fa fa-bookmark"></span><input type="text" name="business-name" value="<%=  attributes.businessName %>" placeholder="Business Name"></li>
+              <li><h1>@</h1><input type="text" name= "handle" value="<%=  attributes.handle %>"></li>
 
-            <section data-accordion>
-              <aside data-control><p>Basic Information</p></aside>
-              <div data-content>
-                <article>
-                  <div class="settings-sublist">
-                    <form action="">
-                      <ul>
-                        <li><span class="fa fa-bookmark"></span><input type="text" name="business-name" value="<%=  attributes.businessName %>"></li>
-                        <li><h1>@</h1><input type="text" name= "handle" value="<%=  attributes.handle %>"></li>
-
-                        <li><span class="fa fa-location-arrow"></span><input type="text" name="address" value="<%=  attributes.address %>"></li>
-                        <li><h1>C</h1><input type="text" name="city" value="<%=  attributes.City %>"></li>
-                        <li>
-                          <h1>S</h1>
-                          <!-- <input type="text" name="state" value="<%=  attributes.State %>"> -->
-                          <select name='state'>
-                            <option value="AL">Alabama</option>
-                            <option value="AK">Alaska</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="AR">Arkansas</option>
-                            <option value="CA">California</option>
-                            <option value="CO">Colorado</option>
-                            <option value="CT">Connecticut</option>
-                            <option value="DE">Delaware</option>
-                            <option value="DC">District Of Columbia</option>
-                            <option value="FL">Florida</option>
-                            <option value="GA">Georgia</option>
-                            <option value="HI">Hawaii</option>
-                            <option value="ID">Idaho</option>
-                            <option value="IL">Illinois</option>
-                            <option value="IN">Indiana</option>
-                            <option value="IA">Iowa</option>
-                            <option value="KS">Kansas</option>
-                            <option value="KY">Kentucky</option>
-                            <option value="LA">Louisiana</option>
-                            <option value="ME">Maine</option>
-                            <option value="MD">Maryland</option>
-                            <option value="MA">Massachusetts</option>
-                            <option value="MI">Michigan</option>
-                            <option value="MN">Minnesota</option>
-                            <option value="MS">Mississippi</option>
-                            <option value="MO">Missouri</option>
-                            <option value="MT">Montana</option>
-                            <option value="NE">Nebraska</option>
-                            <option value="NV">Nevada</option>
-                            <option value="NH">New Hampshire</option>
-                            <option value="NJ">New Jersey</option>
-                            <option value="NM">New Mexico</option>
-                            <option value="NY">New York</option>
-                            <option value="NC">North Carolina</option>
-                            <option value="ND">North Dakota</option>
-                            <option value="OH">Ohio</option>
-                            <option value="OK">Oklahoma</option>
-                            <option value="OR">Oregon</option>
-                            <option value="PA">Pennsylvania</option>
-                            <option value="RI">Rhode Island</option>
-                            <option value="SC">South Carolina</option>
-                            <option value="SD">South Dakota</option>
-                            <option value="TN">Tennessee</option>
-                            <option value="TX">Texas</option>
-                            <option value="UT">Utah</option>
-                            <option value="VT">Vermont</option>
-                            <option value="VA">Virginia</option>
-                            <option value="WA">Washington</option>
-                            <option value="WV">West Virginia</option>
-                            <option value="WI">Wisconsin</option>
-                            <option value="WY">Wyoming</option>
-                          </select>
-                        </li>
-                        <li><h1>Z</h1><input type="text" name="zip" value="<%=  attributes.zip %>"></li>
-                        <li><span class="fa fa-phone"></span><input type="text" name="phone-number" value="<%= attributes.phoneNumber %>"></li>
-                        <li><span class="fa fa-globe"></span><input type="text" name="website" value="<%=  attributes.website %>"></li>
-                        <li><button type="submit" class="save-button">Save</button></li>
-                      </ul>
-                    </form>
-                  </div>
-
-                </article>
-              </div>
-            </section>
+              <li><span class="fa fa-location-arrow"></span><input type="text" name="address" value="<%=  attributes.address %>" placeholder="Address"></li>
+              <li><h1>C</h1><input type="text" name="city" value="<%=  attributes.City %>" placeholder="City"></li>
+              <li>
+                <h1>S</h1>
+                <!-- <input type="text" name="state" value="<%=  attributes.State %>"> -->
+                <select name='state'>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District Of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+              </li>
+              <li><h1>Z</h1><input type="text" name="zip" value="<%=  attributes.zip %>"></li>
+              <li><span class="fa fa-phone"></span><input type="text" name="phone-number" value="<%= attributes.phoneNumber %>"></li>
+              <li><span class="fa fa-globe"></span><input type="text" name="website" value="<%=  attributes.website %>"></li>
+              <li><button type="submit" class="save-button">Save</button></li>
+            </ul>
+          </form>
+        </div>
+        <div class="settings-sublist">
+          <form action="">
+            <input name='avatar' type="file">
+            <button type="button" id='avatar-upload'>Avatar Upload</button>
+          </form>
+        </div>
+        <div class="settings-sublist">
+          <form action="">
+            <input name='cover' type="file">
+            <button type="button" id='cover-upload'>Cover Upload</button>
+          </form>
+        </div>
 
 
-            <section data-accordion>
-              <aside data-control><p>My Logo</p></aside>
-              <div data-content>
-                <article>
-                  <div class="settings-sublist">
-                    <form action="">
-                      <input name='avatar' type="file">
-                      <button type="button" id='avatar-upload'>Avatar Upload</button>
-                    </form>
-                  </div>
-
-                </article>
-              </div>
-            </section>
-            <section data-accordion>
-              <aside data-control><p>Cover Image</p></aside>
-              <div data-content>
-                <article>
-                  <div class="settings-sublist">
-
-                    <form action="">
-                      <input name='cover' type="file">
-                      <button type="button" id='cover-upload'>Cover Upload</button>
-                    </form>
-                  </div>
-
-                </article>
-              </div>
-            </section>
-
-          </section>
-      </div>
-
-      <div class="wide-container"></div>
     </div>
   </div>
 
@@ -919,34 +862,10 @@
 </script>
 
 <script type="text/template" id="business-home-view">
-  <div class="business-container">
+  <div class="one-column-container">
 
-      <div class="middle-column">
-        <div class="business-tabs-container">
-          <div class="business-tabs">
-            <ul>
-              <a href="#business/<%= attributes.handle %>"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
 
-              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
-            </ul>
-          </div>
-        </div>          
-        <div class="profile-feed">
-            <ul></ul>
-          </div>
-        </div
-
-        ><div class="right-column">
-
-          <div class="business-cover">
+        <div class="business-cover">
 
             <% if (typeof attributes.coverPhoto !=='undefined') { %>
               <img src=<%= attributes.coverPhoto._url %> >
@@ -967,9 +886,31 @@
 
             </section>
           </div>
+        <div class="business-tabs-container">
+          <div class="business-tabs">
+            <ul>
+              <a href="#business/<%= attributes.handle %>"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
+
+              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
+            </ul>
+          </div>
+        </div>          
+        <div class="profile-feed">
+            <ul></ul>
+        </div>
+
           <div class="module-header">
             <h1>Whats on Tap?</h1>
             <p>Just a sample subtitle</p>
+            <a>View All</a>
           </div>
           <div class="profile-beer-list">
             <ul></ul>
@@ -990,7 +931,7 @@
 
 <script type='text/template' id='business-post-view'>
 
-    <div class="feed-post">
+    <section class="feed-post">
       <aside>
         <span class="fa fa-star"></span>
       </aside
@@ -1006,7 +947,8 @@
                 <% } %>
             </section>
           </section
-          ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></section>
+          ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></section
+        ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
 
         </section>
 
@@ -1022,14 +964,13 @@
           </a>
         </section>
         <% } %>
-        <section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %></p></section>
         <section class="feed-controls">
         <% if (Parse.User.current().get('userType') === 'consumer') { %>
-          <section><i class="fa fa-location-arrow"></i><p>Check In</p></section>
-          <section><i class="fa fa-check-square"></i><p>Like</p></section>
+          <section><i class="fa fa-heart"></i></section
+          ><section><i class="fa fa-location-arrow"></i></section>
         <% } %>
         </section>
-      </div>
+      </section>
     </article>
 </script>
 
@@ -1108,7 +1049,6 @@
           </li
 
           ><li id="backend-add-beer" >
-            <i class="fa fa-search"></i>
           </li
 
           ><li id="backend-bottle-tab" class="active-beer-type tabs-loading">
@@ -1420,26 +1360,33 @@
   </header>
   <div class="one-column-container">
 
+    <div class="current-location-info"><h1>Current Location: Columbia, SC (29205)</h1><p>Last Updated: November 11th, 2015 at 9:36 pm</p></div>
 
     <div class="current-location">
+          <% if (Parse.User.current().get('userType') === 'business') { %>
+            <div class="set-location-warning">
+              <h1>Are you at your place of Business?</h1>
+              <a href="#backend">If not, please skip step and set later</a>
+            </div>
+            <div class="location-button">
+              <span class="fa fa-location-arrow"></span>
+              <p>Set Location</p>
+            </div>
+          <% } else { %>
+            <div class="location-button">
+              <span class="fa fa-location-arrow"></span>
+              <p>Set Location</p>
+            </div>
+            <div class="set-location-warning">
+                <a href="#dashboard">Cancel and return to Dashboard</a>
+            </div>
+          <% } %>
 
-      <div class="location-button">
-        <span class="fa fa-location-arrow"></span>
-        <p>Use Current Location</p>
-      </div>
-      <div id="soft"></div>
+        </div>
+      
 
     </div>
-    <div class="popular-locations">
-      <h1>Popular Locations</h1>
-      <p>Hoboken, NJ • Columbia, SC • Charleston, SC</p>
-    </div>
-    <div class="search-location">
-      <form action="">
-        <span class="fa fa-search"></span>
-        <input type="text" placeholder="Enter City or Zip Code">
-      </form>
-    </div>
+
   </div>
 </script>
 
@@ -1509,17 +1456,30 @@
 <script type="text/template" id="dashboard-home-view">
   <div class="dashboard-container">
 
-      <div class="left-column">
+      <div class="middle-column">
+
+        <div class="to-location">
+
+          <a href="#location"><section><h1>Columbia, SC (29205)</h1><h2>Change Location </h2></section></a>
+          <p>Last Updated: November 11th, 2015 at 9:36pm</p>
+        </div>
+
         <div class="profile-feed">
           <ul>
           </ul>
         </div><!-- END PROFILE FEED -->
       </div
       ><div class="right-column">
+        <div class="module-header">
+          <h1>Bars Near You</h1>
+          <p>Just a sample subtitle</p>
+          <a>View All</a>
+        </div>
         <div class="listing-container">
           <ul>
           </ul>
         </div>
+        
       </div>
   </div>
 </script>
@@ -1528,7 +1488,23 @@
 
 
   <div class="one-column-container">
-      
+        <div class="business-tabs-container">
+          <div class="business-tabs">
+            <ul>
+              <a href="#dashboard"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
+
+              ><a href="#dashboard/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
+
+              ><a href="#dashboard/listing"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#dashboard"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
+
+              ><a href="#dashboard"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
+
+              ><a href="#dashboard"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
+            </ul>
+          </div>
+        </div>
         <div class="profile-feed">
           <ul>
           </ul>
@@ -1560,7 +1536,7 @@
 
   </section
   ><article>
-    <h1><%= attributes.location.milesTo(Parse.User.current().get('location')).toFixed(1) %> miles</h1>
+    <h1><%= attributes.location.milesTo(Parse.User.current().get('location')).toFixed(1) %></h1>
   </article>
 </script>
 
@@ -1569,15 +1545,17 @@
         <div class="business-tabs-container">
           <div class="business-tabs">
             <ul>
-              <a href="#dashboard/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>The Feed</h1><p>Post updates, photos and videos</p></section></a
+              <a href="#dashboard"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
 
-              ><a href="#dashboard/favorites"><article><aside><span class="fa fa-heart"></span></aside><footer></footer></article><section><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></section></a
+              ><a href="#dashboard/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
 
-              ><a href="#dashboard/listing"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Bartenders</h1><p>Set your draft and bottled lists</p></section></a
+              ><a href="#dashboard/listing"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
 
-              ><a href="#dashboard/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
+              ><a href="#dashboard"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
 
-              ><a href="#dashboard/feed"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
+              ><a href="#dashboard"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
+
+              ><a href="#dashboard"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
             </ul>
           </div>
         </div>
