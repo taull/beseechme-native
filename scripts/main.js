@@ -1720,11 +1720,20 @@ BeMe.Views.Location = Parse.View.extend({
 
       geocoder.geocode({'location': latlng}, function(results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
-          var accurateLocationComponents = results[0].address_components;
-          var address = [accurateLocationComponents[0].long_name, accurateLocationComponents[1].long_name].join(' ');
-          var city = accurateLocationComponents[2].long_name;
-          var state = accurateLocationComponents[4].short_name;
-          var zip = accurateLocationComponents[6].long_name;
+
+          var locationComponents = results[0].address_components;
+
+          function searchByComponentType(string) {
+            return locationComponents.filter(function (i) {
+              return !i.types.toString().search(string);
+            })[0];
+          }
+
+          console.log(results[0]);
+          var address = [searchByComponentType('street_number').long_name, searchByComponentType('route').long_name].join(' ');
+          var city = searchByComponentType('locality').long_name;
+          var state = searchByComponentType('administrative_area_level_1').short_name;
+          var zip = searchByComponentType('postal_code').long_name;
 
           user.set('address', address);
           user.set('city', city);

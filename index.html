@@ -1276,8 +1276,9 @@
 
 
   <div class="one-column-container">
+      <% var user = Parse.User.current() %>
 
-      <% if (Parse.User.current().get('userType') === 'business') { %>
+      <% if (user.get('userType') === 'business') { %>
         <div class="current-location">
           <div class="set-location-warning">
             <h1>Are you at your place of Business?</h1>
@@ -1289,7 +1290,8 @@
           </div>
         </div>
       <% } else { %>
-       
+
+        <div class="current-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Last Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></div>
         <div class="current-location">
           <div class="location-button">
             <span class="fa fa-location-arrow"></span>
