@@ -314,7 +314,7 @@ header {
 	section {
 		width: 150px;
 		height: 75px;
-		padding-top: 30px;
+		padding-top: 27.5px;
 		text-align: center;
 	}
 
@@ -1162,11 +1162,46 @@ header {
 	}
 }
 
+.update-location {
+	width: 80%;
+	position: absolute;
+	height: 75px;
+	background: transparent;
+	right: -60%;
+	padding-top: 10px;
+	transition: 250ms;
+
+	footer {
+		width: 80%;
+		height: 55px;
+		background: $secondary-color-dark;
+		text-align: center;
+		margin: 0 auto;
+		padding-top: 15px;
+
+		h1 {
+			color: #fff;
+			font-size: 1.6em;
+			font-weight: 400;
+		}
+	}
+
+
+}
+
+.update-location-shift {
+	right: 20%;
+	transition: 250ms;
+}
+
 
 .to-location {
 	width: 100%;
 	text-align: center;
 	border-radius: 0px;
+	position: relative;
+	overflow: hidden;
+	height: 75px;
 
 	a {
 		text-decoration: none;
@@ -1180,25 +1215,29 @@ header {
 
 	aside {
 		width: 20%;
-		background: rgba(255,255,255,.15);
+		background: #ccc;
 		text-align: center;
 		padding-top: 20px;
 		height: 75px;
+		position: absolute;
+		right: 0;
 		
 		i {
-			font-size: 2em;
-			color: $secondary-color-light;
+			font-size: 2.6em;
+			color: $green-light;
 		}
 	}
 
 	section {
+		position: absolute;
 		width: 80%;
-		padding: 15px 30px;
+		padding: 25px 20px 0;
 		text-align: center;
 		margin: 0 auto;
 		background: rgba(255,255,255,.05);
 		/*border-radius: 3px;*/
 		height: 75px;
+		left: 0;
 
 		h1 {
 			font-size: 1.4em;
@@ -1335,6 +1374,7 @@ header {
 	background: transparent;
 	width: 100%;
 	padding: 30px;
+	padding-top:100px;
 	/*border-radius: 5px;*/
 }
 
@@ -4925,14 +4965,14 @@ input[type="file"] {
 
 	h1 {
 		font-size: 1em;
-		color: #fff;
+		color: #555;
 		font-weight: 300;
 	}
 
 	p {
 		display: block;
 		font-size: 1em;
-		color: #fff;	
+		color: #555;	
 		font-weight: 400;
 		padding-top:10px;
 	}
