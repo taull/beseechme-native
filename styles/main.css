@@ -875,7 +875,7 @@ header {
   .to-location section {
     position: absolute;
     width: 80%;
-    padding: 20px 20px 0;
+    padding: 25px 20px 0;
     text-align: center;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.05);
@@ -1026,7 +1026,7 @@ header {
   background: transparent;
   width: 100%;
   padding: 30px;
-  padding-top: 100px;
+  /*padding-top:100px;*/
   /*border-radius: 5px;*/ }
 
 .location-button {
