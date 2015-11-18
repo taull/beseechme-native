@@ -21,6 +21,7 @@
 <!-- Application View -->
 
 <script type="text/template" id="application-view">
+  <% var user = Parse.User.current() %>
 
   <header>
     <div class="header-container">
@@ -45,7 +46,7 @@
       ><div class="header-center">
         <% if (Parse.User.current().get('userType') === 'consumer') { %>
           <div class="to-location">
-            <section class="update-location-info"><h1>Columbia, SC (29205)</h1></section
+            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Last Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %></p></section
             ><div class="update-location"><footer><h1>Update Location</h1></footer></div
 
             ><aside id="location-trigger"><i class="fa fa-location-arrow"></i></aside>
