@@ -140,6 +140,10 @@ BeMe.Views.Application = Parse.View.extend({
 
 	render: function () {
 		this.$el.html(this.template(this.model));
+
+    $('#location-trigger').click(function(){
+      $('.update-location').toggleClass('update-location-shift');
+    });
 	}
 });
 
