@@ -1603,7 +1603,9 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
   pullNearStatuses: function () {
     var self = this;
     var user = Parse.User.current();
-    Parse.Cloud.run('pullNearStatuses',{location: user.get('location'), maxDistance:user.get('maxDistance')}).then(function (e) {
+
+    //CHANGE maxDistance VARIABLE TO user.get('maxDistance') AFTER WE GET IT WORKING
+    Parse.Cloud.run('pullNearStatuses',{location: user.get('location'), maxDistance:100}).then(function (e) {
       self.collection.add(e);
       self.render();
     });
