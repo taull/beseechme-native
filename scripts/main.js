@@ -217,7 +217,7 @@ BeMe.Views.BusinessRegister = Parse.View.extend({
      password = $('input[name="password"]').val(),
      confirmPassword = $('input[name="confirm-password"]').val(),
      businessName = $('input[name="business-name"]').val(),
-    firstName = $('input[name="first-name"]').val(),
+     firstName = $('input[name="first-name"]').val(),
      lastName = $('input[name="last-name"]').val();
 
 
@@ -229,7 +229,7 @@ BeMe.Views.BusinessRegister = Parse.View.extend({
         userType:"business"
       }, {
         success: function (e) {
-          console.log(e);
+          BeMe.Router.navigate('location', true);
         }, error: function (obj, error) {
           alert("Error " + error.code + ": " + error.message);
         }
@@ -263,7 +263,7 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
     var email = $('input[name="email"]').val(),
      password = $('input[name="password"]').val(),
      confirmPassword = $('input[name="confirm-password"]').val(),
-    firstName = $('input[name="first-name"]').val(),
+     firstName = $('input[name="first-name"]').val(),
      lastName = $('input[name="last-name"]').val();
 
      console.log(email, password, confirmPassword, firstName, lastName);
@@ -276,7 +276,7 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
         userType:"consumer"
       }, {
         success: function (e) {
-          console.log(e);
+          BeMe.Router.navigate('location', true);
         }, error: function (obj, error) {
           alert("Error " + error.code + ": " + error.message);
         }
