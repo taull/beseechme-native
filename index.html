@@ -1568,13 +1568,12 @@
 
 
 <script type="text/template" id="individual-listing-view">
-  <% var user = Parse.User.current() %>
 
   <aside>
 
 
-    <% if (typeof user.attributes.avatar !=='undefined') { %>
-      <img src=<%= user.attributes.avatar._url %> >
+    <% if (typeof attributes.avatar !=='undefined') { %>
+      <img src=<%= attributes.avatar._url %> >
     <% } else { %>
       <img src="images/default-avatar.png">
     <% } %>

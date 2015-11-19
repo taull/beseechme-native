@@ -1592,6 +1592,7 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
     query.withinMiles('location',user.get('location'), 100);
     query.limit(5);
     query.find().then(function (e) {
+      console.log(e);
       _.each(e, function (i) {
         var newListingView = new BeMe.Views.DashboardIndividualListing({model:i});
       });
