@@ -1601,6 +1601,11 @@ BeMe.Views.Dashboard = Parse.View.extend({
       $('.update-location').toggleClass('update-location-shift');
       $('.update-location-info').toggleClass('left-100');
     });
+
+    $('.update-location').click(function(){
+      $('.update-location').toggleClass('update-location-shift');
+      $('.update-location-info').toggleClass('left-100');
+    });
   },
 
   events: {
