@@ -88,6 +88,52 @@ BeMe.createImageFile = function ($fileContainer) {
   }
 
   return image;
+};
+
+//Pass 'true' to redirect to dashboard
+BeMe.setCurrentLocation = function (boolean) {
+  var user = Parse.User.current();
+
+
+    new Parse.GeoPoint.current().then(function (currentLocation) {
+      user.set('location', currentLocation);
+      user.set('lastUpdatedLocation', new Date());
+
+      var latlng = {lat:  currentLocation._latitude , lng: currentLocation._longitude};
+
+      var geocoder = new google.maps.Geocoder;
+
+
+      geocoder.geocode({'location': latlng}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+
+          var locationComponents = results[0].address_components;
+
+          function searchByComponentType(string) {
+            return locationComponents.filter(function (i) {
+              return !i.types.toString().search(string);
+            })[0];
+          }
+
+          var address = [searchByComponentType('street_number').long_name, searchByComponentType('route').long_name].join(' ');
+          var city = searchByComponentType('locality').long_name;
+          var state = searchByComponentType('administrative_area_level_1').short_name;
+          var zip = searchByComponentType('postal_code').long_name;
+
+          user.set('address', address);
+          user.set('city', city);
+          user.set('state', state);
+          user.set('zip', zip);
+          user.save();
+          if (boolean) {
+            BeMe.Router.navigate('dashboard', true);
+          }
+        } else {
+          alert("Error: " + status);
+        }
+      });
+
+    });
 }
 
 /*
@@ -1554,8 +1600,15 @@ BeMe.Views.Dashboard = Parse.View.extend({
     $('#location-trigger').click(function(){
       $('.update-location').toggleClass('update-location-shift');
       $('.update-location-info').toggleClass('left-100');
-
     });
+  },
+
+  events: {
+    'click .update-location' : 'updateLocationInfo'
+  },
+
+  updateLocationInfo: function () {
+    BeMe.setCurrentLocation();
   }
 });
 
@@ -1721,47 +1774,7 @@ BeMe.Views.Location = Parse.View.extend({
   },
 
   setCurrentLocation: function () {
-    var user = Parse.User.current();
-
-
-    new Parse.GeoPoint.current().then(function (currentLocation) {
-      user.set('location', currentLocation);
-      user.set('lastUpdatedLocation', new Date());
-
-      var latlng = {lat:  currentLocation._latitude , lng: currentLocation._longitude};
-
-      var geocoder = new google.maps.Geocoder;
-
-
-      geocoder.geocode({'location': latlng}, function(results, status) {
-        if (status === google.maps.GeocoderStatus.OK) {
-
-          var locationComponents = results[0].address_components;
-
-          function searchByComponentType(string) {
-            return locationComponents.filter(function (i) {
-              return !i.types.toString().search(string);
-            })[0];
-          }
-
-          console.log(results[0]);
-          var address = [searchByComponentType('street_number').long_name, searchByComponentType('route').long_name].join(' ');
-          var city = searchByComponentType('locality').long_name;
-          var state = searchByComponentType('administrative_area_level_1').short_name;
-          var zip = searchByComponentType('postal_code').long_name;
-
-          user.set('address', address);
-          user.set('city', city);
-          user.set('state', state);
-          user.set('zip', zip);
-          user.save();
-          BeMe.Router.navigate('dashboard', true);
-        } else {
-          alert("Error: " + status);
-        }
-      });
-
-    });
+    BeMe.setCurrentLocation(true);
   },
 })
 
