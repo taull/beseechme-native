@@ -1759,6 +1759,32 @@ BeMe.Views.DashboardIndividualListing = Parse.View.extend({
   }
 });
 
+/* Dashboard Map View */
+
+BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
+  initialize: function () {
+    this.template = _.template($('#dashboard-map-view').text());
+    this.render();
+    this.initializeMap();
+  },
+
+  initializeMap: function () {
+    var userLocation = {lat: Parse.User.current().get('location')._latitude, lng: Parse.User.current().get('location')._longitude};
+    
+    // Using this.map gives a reference to the map for the entire view
+    this.map = new google.maps.Map(document.getElementById('map'), {
+      center: userLocation,
+      zoom:14
+    });
+
+    var marker = new google.maps.Marker({
+      position: userLocation,
+      map: this.map,
+      title: "You are here"
+    });
+  }
+})
+
 /* Location View */
 
 BeMe.Views.Location = Parse.View.extend({
@@ -1804,6 +1830,7 @@ var Router = Parse.Router.extend({
     'dashboard' : 'dashboardHome',
     'dashboard/feed' : 'dashboardFeed',
     'dashboard/listing' : 'dashboardListing',
+    'dashboard/map' : 'dashboardMap',
     'test' : 'test',
     'search/:query' : 'search',
     'location' : 'location'
@@ -1981,6 +2008,11 @@ var Router = Parse.Router.extend({
   dashboardListing: function () {
     BeMe.removeAllViews();
     new BeMe.Views.DashboardListing();
+  },
+
+  dashboardMap: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.DashboardMap();
   },
 
   location: function () {
