@@ -1833,7 +1833,15 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
 
     });
   }
-})
+});
+
+BeMe.Views.DashboardFavorites = BeMe.Views.DashboardBaseView.extend({
+  initialize: function () {
+    this.template = _.template($('#dashboard-favorites-view').text());
+    this.render();
+    new BeMe.Views.DashboardFeedList();
+  }
+});
 
 /* Location View */
 
@@ -1881,6 +1889,7 @@ var Router = Parse.Router.extend({
     'dashboard/feed' : 'dashboardFeed',
     'dashboard/listing' : 'dashboardListing',
     'dashboard/map' : 'dashboardMap',
+    'dashboard/favorites' : 'dashboardFavorites',
     'test' : 'test',
     'search/:query' : 'search',
     'location' : 'location'
@@ -2063,6 +2072,11 @@ var Router = Parse.Router.extend({
   dashboardMap: function () {
     BeMe.removeAllViews();
     new BeMe.Views.DashboardMap();
+  },
+
+  dashboardFavorites: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.DashboardFavorites();
   },
 
   location: function () {
