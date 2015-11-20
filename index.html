@@ -1031,6 +1031,10 @@
         <% if (Parse.User.current().get('userType') === 'consumer') { %>
           <section><i class="fa fa-heart"></i></section
           ><section><i class="fa fa-location-arrow"></i></section>
+
+        <% } else { %>
+         <section><i class="fa fa-close"></i></section
+          ><section><i class="fa fa-location-arrow"></i></section>
         <% } %>
         </section>
       </section>
@@ -1514,11 +1518,9 @@
         <div class="module-header">
             <h1>Bars near you</h1>
             <p>Just a sample subtitle</p>
-            <a>View All</a>
+            <a href="#dashboard/listing">View All</a>
           </div>
         <div class="listing-container">
-          <ul>
-          </ul>
         </div>
         
       </div>
@@ -1570,8 +1572,6 @@
 <script type="text/template" id="individual-listing-view">
 
   <aside>
-
-
     <% if (typeof attributes.avatar !=='undefined') { %>
       <img src=<%= attributes.avatar._url %> >
     <% } else { %>
@@ -1608,8 +1608,7 @@
           </div>
         </div>
     <div class="listing-container">
-      <ul>
-      </ul>
+
     </div>
   </div>
 </script>
@@ -1622,8 +1621,8 @@
 </script>
 
 <script type="text/template" id="dashboard-map-view">
-  <div class="one-column-container">
-    <div id='map' style='height:500px'></div>
+  <div class="map-container">
+    <div id='map'></div>
   </div>
 </script>
 

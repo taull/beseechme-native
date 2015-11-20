@@ -107,6 +107,17 @@ body {
 	}
 }
 
+.map-container {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 75px;
+}
+
+#map {
+	height: 100%;
+}
+
 .left-container, 
 .middle-container, 
 .right-container, 
@@ -1969,12 +1980,12 @@ header {
 	    height: 60px;
 	    vertical-align: top;
 	    width: 15%;
-	    background: #f0f0f0;
+	    background: #fff;
 	    font-size: 1.4em;
 	    color: #333;
 	    text-align: center;
 	    padding-top: 22.5px;
-	    /*border-right: 1px solid #dfdfdf;*/
+	    border-right: 1px solid #f0f0f0;
 	}
 
 	button {
@@ -2007,7 +2018,7 @@ header {
 		color: #333;
 		vertical-align: top;
 		height: 60px;
-		width: 80%;
+		width: 75%;
 		border: 0;
 		background: transparent;
 		outline: 0;
@@ -2098,9 +2109,11 @@ header {
 	}
 
 	a {
-		color: $secondary-color-light;
+		color: $secondary-color-dark;
 		float: right;
 		font-size: 1.2em;
+		height: 40px;
+		text-decoration: none;
 	}
 
 	aside {
