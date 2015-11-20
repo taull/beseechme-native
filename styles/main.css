@@ -851,28 +851,28 @@ header {
       font-weight: 400;
       color: #333; }
 
-/* Favorites */
-.favorites-container li {
+/* following */
+.following-container li {
   display: inline-block;
   vertical-align: top; }
-.favorites-container aside {
+.following-container aside {
   width: 20%; }
-  .favorites-container aside img {
+  .following-container aside img {
     width: 100%; }
-.favorites-container section {
+.following-container section {
   width: 50%; }
-  .favorites-container section h1 {
+  .following-container section h1 {
     font-size: 1.2em;
     font-weight: 400;
     color: #01579B; }
-  .favorites-container section p {
+  .following-container section p {
     font-size: 1em;
     font-weight: 300;
     color: #333; }
-.favorites-container article {
+.following-container article {
   width: 30%;
   text-align: right; }
-  .favorites-container article h1 {
+  .following-container article h1 {
     font-size: 1em;
     font-weight: 700;
     color: #fff;
