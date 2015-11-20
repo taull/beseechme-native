@@ -1761,10 +1761,12 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
     this.template = _.template($('#dashboard-map-view').text());
     this.render();
     this.initializeMap();
+    this.loadBarMarkers();
   },
 
   initializeMap: function () {
-    var userLocation = {lat: Parse.User.current().get('location')._latitude, lng: Parse.User.current().get('location')._longitude};
+    var user = Parse.User.current();
+    var userLocation = {lat: user.get('location')._latitude, lng: user.get('location')._longitude};
     
     // Using this.map gives a reference to the map for the entire view
     this.map = new google.maps.Map(document.getElementById('map'), {
@@ -1776,6 +1778,28 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
       position: userLocation,
       map: this.map,
       title: "You are here"
+    });
+  },
+
+  loadBarMarkers: function () {
+    var self = this;
+
+    var query = new Parse.Query('User');
+    query.withinMiles("location", Parse.User.current().get('location'), 100);
+    query.equalTo('userType', 'business');
+    query.find().then(function (bars) {
+      console.log(bars);
+      _.each(bars, function (i) {
+        var userLocation = i.get('location');
+        var position = {lat: userLocation._latitude, lng: userLocation._longitude};
+
+        new google.maps.Marker({
+          position:position,
+          map: self.map,
+          title: i.get('businessName')
+        });
+
+      });
     });
   }
 })
