@@ -1808,7 +1808,6 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
     query.notEqualTo('businessName', user.get('businessName'));
     query.find().then(function (bars) {
 
-      console.log(bars);
       _.each(bars, function (i) {
         var userLocation = i.get('location');
         var position = {lat: userLocation._latitude, lng: userLocation._longitude};
@@ -1824,7 +1823,9 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
           console.log(markerObject.content);
 
           infoWindow.setPosition(position);
-          infoWindow.setContent("<a href='#business/" + i.get('handle') + "'>" + i.get('businessName') + "</a>");
+          var contentTemplate = _.template($("#map-popout-view").text());
+          var renderedContent = contentTemplate(i);
+          infoWindow.setContent(renderedContent);
           infoWindow.open(self.map);
         });
 
