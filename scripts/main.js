@@ -1839,7 +1839,6 @@ BeMe.Views.DashboardFavorites = BeMe.Views.DashboardBaseView.extend({
   initialize: function () {
     this.template = _.template($('#dashboard-favorites-view').text());
     this.render();
-    new BeMe.Views.DashboardFeedList();
   }
 });
 
