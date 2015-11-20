@@ -2310,16 +2310,6 @@ svg rect {
   .profile-feed ul {
     list-style: none;
     padding-left: 0; }
-  .profile-feed aside {
-    display: inline-block;
-    vertical-align: top;
-    width: 10%;
-    text-align: center;
-    padding-top: 10px;
-    display: none; }
-    .profile-feed aside span {
-      font-size: 1.8em;
-      color: #ccc; }
   .profile-feed article {
     display: inline-block;
     vertical-align: top;
@@ -2328,16 +2318,11 @@ svg rect {
     text-align: left; }
   .profile-feed li,
   .profile-feed div {
-    padding: 20px 0 0;
     margin-bottom: 15px;
-    background: #fff;
-    /*border-radius: 4px;*/ }
-  .profile-feed li:nth-child(odd),
-  .profile-feed div:nth-child(odd) {
-    /*background: #fff;*/ }
+    background: #fff; }
 
 .feed-info {
-  padding: 0 30px; }
+  padding: 20px; }
 
 .feed-name {
   width: 65%;
@@ -2351,7 +2336,12 @@ svg rect {
     display: inline-block;
     font-weight: 700; }
   .feed-name p {
-    font-size: 1.2em;
+    display: inline-block;
+    font-size: 1em;
+    color: #ccc;
+    padding-left: 5px; }
+  .feed-name h2 {
+    font-size: 1em;
     color: #999;
     font-weight: 300;
     padding-top: 3px;
@@ -2364,6 +2354,7 @@ svg rect {
 
 .feed-avatar {
   width: 45px;
+  height: 45px;
   display: inline-block;
   vertical-align: top; }
 
@@ -2436,7 +2427,7 @@ svg rect {
 .feed-status {
   width: 100%;
   display: inline-block;
-  padding: 15px 30px; }
+  padding: 0px 20px 20px; }
   .feed-status p {
     font-size: 1.3em;
     line-height: 24px;
@@ -2469,30 +2460,74 @@ svg rect {
 /* Feed Controls */
 .feed-controls {
   width: 100%;
+  padding: 15px 20px;
+  background: #f8f8f8;
+  position: relative;
   text-align: right;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  position: relative; }
+  z-index: 1;
+  	/*aside::before {
+  		position: absolute;
+  		content: "";
+  		top: 2px;
+  		bottom: -2px;
+  		left: 0;
+  		right: 0px;
+  		border-radius: 3px;
+  		background: #000;
+  		z-index: -1;
+  	}
+  */
+  	/*aside:hover {
+  		background: #333;
+  
+  		p {
+  			color: #fff;
+  		}
+  	}*/ }
+  .feed-controls aside,
   .feed-controls section {
-    padding: 5px 10px;
     display: inline-block;
-    vertical-align: top;
-    text-align: left; }
-  .feed-controls section:last-child {
-    border-right: 0; }
-  .feed-controls i {
-    font-size: 2em;
-    color: #ccc;
-    display: inline-block;
-    vertical-align: top;
-    cursor: pointer; }
-  .feed-controls p {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 1em;
-    font-weight: 700;
-    color: #01579B;
-    padding-left: 5px; }
+    vertical-align: top; }
+  .feed-controls aside {
+    position: relative;
+    width: 50%;
+    text-align: right;
+    transition: 250ms; }
+    .feed-controls aside p,
+    .feed-controls aside i {
+      display: inline-block;
+      vertical-align: top; }
+    .feed-controls aside p {
+      height: 35px;
+      color: #fff;
+      font-weight: 700;
+      background: #01579B;
+      padding: 10px 15px;
+      text-align: right;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-left: 5px; }
+  .feed-controls section {
+    text-align: left;
+    width: 50%;
+    padding-top: 8px; }
+    .feed-controls section p,
+    .feed-controls section i {
+      display: inline-block;
+      vertical-align: top; }
+    .feed-controls section p {
+      text-align: center;
+      color: #333;
+      font-size: 1em;
+      font-weight: 400;
+      display: none; }
+    .feed-controls section i {
+      text-align: center;
+      color: #333;
+      font-size: 1.4em;
+      font-weight: 700;
+      cursor: pointer;
+      margin-right: 5px; }
 
 /* View All */
 .load-all {
