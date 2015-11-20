@@ -118,6 +118,38 @@ body {
 	height: 100%;
 }
 
+.map-info {
+
+	aside, 
+	section {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	aside {
+		width: 20%;
+	}
+
+	section {
+		width: 80%;
+
+		h1 {
+			font-size: 1.2em;
+			color: $secondary-color-dark;
+			font-weight: 400;
+			display: block;
+		}
+
+		p {
+			font-size: 1em;
+			color: #333;
+			font-weight: 300;
+			margin-top: 3px;
+
+		}
+	}
+}
+
 .left-container, 
 .middle-container, 
 .right-container, 
