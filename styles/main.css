@@ -69,6 +69,25 @@ body {
 #map {
   height: 100%; }
 
+.map-info aside,
+.map-info section {
+  display: inline-block;
+  vertical-align: top; }
+.map-info aside {
+  width: 20%; }
+.map-info section {
+  width: 80%; }
+  .map-info section h1 {
+    font-size: 1.2em;
+    color: #01579B;
+    font-weight: 400;
+    display: block; }
+  .map-info section p {
+    font-size: 1em;
+    color: #333;
+    font-weight: 300;
+    margin-top: 3px; }
+
 .left-container,
 .middle-container,
 .right-container,
