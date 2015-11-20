@@ -289,7 +289,6 @@
 <!-- backend Feed View -->
 
 <script type='text/template' id='businessStatus-post-view'>
-  <article>
 
       <section class="feed-info">
         <% var user = attributes.createdBy %>
@@ -330,7 +329,6 @@
             ><aside><p>Follow</p></aside>
           <% } %>
       </section>
-    </article>
 </script>
 
 <script type="text/template" id="backend-feed-view">
@@ -1622,8 +1620,8 @@
 
 <script type="text/template" id="map-popout-view">
   <div class="map-info">
-    <aside><img src="<%= attributes.avatar._url %>"></aside>
-    <section><a href='#business/<%= attributes.handle %>'><h1><%= attributes.businessName %></h1></a><p><%= attributes.address %></p></section>
+    <aside><img src="<%= attributes.avatar._url %>"></aside
+    ><section><a href='#business/<%= attributes.handle %>'><h1><%= attributes.businessName %></h1></a><p><%= attributes.address %></p></section>
   </div>
 </script>
 

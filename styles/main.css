@@ -75,8 +75,11 @@ body {
   vertical-align: top; }
 .map-info aside {
   width: 20%; }
+  .map-info aside img {
+    width: 100%; }
 .map-info section {
-  width: 80%; }
+  width: 80%;
+  padding-left: 5px; }
   .map-info section h1 {
     font-size: 1.2em;
     color: #01579B;
