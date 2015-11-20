@@ -1835,10 +1835,45 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
   }
 });
 
+/* Dashboard Favorites Route */
+
 BeMe.Views.DashboardFavorites = BeMe.Views.DashboardBaseView.extend({
   initialize: function () {
     this.template = _.template($('#dashboard-favorites-view').text());
     this.render();
+    new BeMe.Views.DashboardFavoritesListing();
+  }
+});
+
+BeMe.Views.DashboardFavoritesListing = Parse.View.extend({
+  initialize: function () {
+    this.views = [];
+    this.render();
+  },
+
+  render: function () {
+    var self = this;
+
+    var query = Parse.User.current().relation('favoriteBars').query();
+    query.find().then(function (favoriteBarsList) {
+      console.log(favoriteBarsList);
+      _.each(favoriteBarsList, function (favoriteBar) {
+        self.views.push(new BeMe.Views.IndividualDashboardFavorites({model: favoriteBar}));
+      });
+    });
+  }
+});
+
+BeMe.Views.IndividualDashboardFavorites = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#individual-favorites-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.favorites-container').append(this.el);
   }
 });
 

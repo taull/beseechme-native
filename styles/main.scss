@@ -1173,6 +1173,53 @@ header {
 	}
 }
 
+/* Favorites */
+
+.favorites-container {
+
+	li {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	aside {
+		width: 20%;
+
+		img {
+		 	width: 100%;
+		}
+	}
+
+	section {
+		width: 50%;
+
+		h1 {
+			font-size: 1.2em;
+			font-weight: 400;
+			color: $secondary-color-dark;
+		}
+
+		p {
+			font-size: 1em;
+			font-weight: 300;
+			color: #333;
+		}
+	}
+
+	article {
+		width: 30%;
+		text-align: right;
+
+		h1 {
+			font-size: 1em;
+			font-weight: 700;
+			color: #fff;
+			padding: 10px 15px;
+			background: $red-dark;
+		}
+	}
+}
+
 .dashboard-location-container {
 	padding: 20px;
 	background: #fff;

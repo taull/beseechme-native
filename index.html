@@ -1582,33 +1582,25 @@
 
 <script type="text/template" id="dashboard-listing-view">
   <div class="one-column-container">
-        <div class="business-tabs-container">
-          <div class="business-tabs">
-            <ul>
-              <a href="#dashboard"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
 
-              ><a href="#dashboard/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
+    <div class="listing-container"></div>
 
-              ><a href="#dashboard/listing"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#dashboard"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#dashboard"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
-
-              ><a href="#dashboard"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
-            </ul>
-          </div>
-        </div>
-    <div class="listing-container">
-
-    </div>
   </div>
+</script>
+
+<script type="text/template" id="individual-favorites-view">
+
+  <aside><img src="<%= attributes.avatar._url %>"></aside
+  ><section><h1><%= attributes.businessName %></h1><p><%= attributes.address %></p></section
+  ><article><h1>Remove</h1></article>
+
 </script>
 
 <script type="text/template" id="dashboard-favorites-view">
   <div class="dashboard-container">
-    <div class="left-container"></div>
-    <div class="middle-container"></div>
+    <div class="one-column-container">
+      <div class="favorites-container"></div>
+    </div>
   </div>
 </script>
 
