@@ -128,10 +128,15 @@ body {
 
 	aside {
 		width: 20%;
+
+		img {
+			width: 100%;
+		}
 	}
 
 	section {
 		width: 80%;
+		padding-left: 5px;
 
 		h1 {
 			font-size: 1.2em;
@@ -3091,20 +3096,6 @@ svg rect{
 		padding-left: 0;
 	}
 
-	aside {
-		display: inline-block;
-		vertical-align: top;
-		width: 10%;
-		text-align: center;
-		padding-top: 10px;
-		display: none;
-
-		span {
-			font-size: 1.8em;
-			color: #ccc;
-		}
-	}
-
 	article {
 		display: inline-block;
 		vertical-align: top;
@@ -3115,21 +3106,18 @@ svg rect{
 
 	li, 
 	div {
-		padding: 20px 0 0;
 		margin-bottom: 15px;
 		background: #fff;
-		/*border-radius: 4px;*/
 	}
 	li:nth-child(odd), 
 	div:nth-child(odd) {
-		/*background: #fff;*/
 	}
 
 }
 
 
 .feed-info {
-	padding: 0 30px;
+	padding: 20px;
 }
 
 .feed-name {
@@ -3148,7 +3136,15 @@ svg rect{
 	}
 
 	p {
-		font-size: 1.2em;
+		display: inline-block;
+		font-size: 1em;
+		color: #ccc;
+		padding-left: 5px;
+
+	}
+
+	h2 {
+		font-size: 1em;
 		color: #999;
 		font-weight: 300;
 		padding-top: 3px;
@@ -3164,6 +3160,7 @@ svg rect{
 
 .feed-avatar {
 	width: 45px;
+	height: 45px;
 	display: inline-block;
 	vertical-align: top;
 }
@@ -3255,7 +3252,7 @@ svg rect{
 .feed-status {
 	width: 100%;
 	display: inline-block;
-	padding: 15px 30px;
+	padding: 0px 20px 20px;
 
 	p {
 		font-size: 1.3em;
@@ -3300,38 +3297,91 @@ svg rect{
 
 .feed-controls {
 	width: 100%;
-	text-align: right;
-	padding: 10px;
-	background: rgba(255,255,255,.2);
+	padding: 15px 20px;
+	background: #f8f8f8;
 	position: relative;
+	text-align: right;
+	z-index: 1;
+
+	aside, 
+	section {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	aside {
+		position: relative;
+		width: 50%;
+		text-align: right;
+		transition: 250ms;
+
+		p, 
+		i {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		p {
+			height: 35px;
+			color: #fff;
+			font-weight: 700;
+			background: $secondary-color-dark;
+			padding: 10px 15px;
+			text-align: right;
+			border-radius: 3px; 
+			cursor: pointer;
+			margin-left: 5px;
+		}
+
+	}
+
+	/*aside::before {
+		position: absolute;
+		content: "";
+		top: 2px;
+		bottom: -2px;
+		left: 0;
+		right: 0px;
+		border-radius: 3px;
+		background: #000;
+		z-index: -1;
+	}
+*/
+	/*aside:hover {
+		background: #333;
+
+		p {
+			color: #fff;
+		}
+	}*/
 
 	section {
-		padding: 5px 10px;
-		display: inline-block;
-		vertical-align: top;
 		text-align: left;
-	}
+		width: 50%;
+		padding-top: 8px;
 
-	section:last-child {
-		border-right: 0;
-	}
+		p, 
+		i {
+			display: inline-block;
+			vertical-align: top;
+		}
 
+		p {
+			text-align: center;
+			color: #333;
+			font-size:1em;
+			font-weight: 400;
+			display: none;
+		}
 
-	i {
-		font-size: 2em;
-		color: #ccc;
-		display: inline-block;
-		vertical-align: top;
-		cursor: pointer;
-	}
-
-	p {
-		display: inline-block;
-		vertical-align: top;
-		font-size: 1em;
-		font-weight: 700;
-		color: $secondary-color-dark;
-		padding-left:5px;
+		i {
+			text-align: center;
+			color: #333;
+			font-size:1.4em;
+			font-weight: 700;
+			cursor: pointer;
+			margin-right: 5px;
+		}
 	}
 
 }

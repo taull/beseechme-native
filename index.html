@@ -5,7 +5,7 @@
   <title>Beseech Me</title>
   <meta name="description" content="Beseech Me">
   <meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1, user-scalable=0/">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" type='text/css' href="styles/main.css">
   <link rel="stylesheet" type='text/css' href="bower_components/pickadate/lib/themes/default.css">
   <link rel="stylesheet" type='text/css' href="bower_components/pickadate/lib/themes/default.date.css">
@@ -289,11 +289,6 @@
 <!-- backend Feed View -->
 
 <script type='text/template' id='businessStatus-post-view'>
-    <aside>
-      <span class="fa fa-star"></span>
-    </aside
-
-    ><article>
 
       <section class="feed-info">
         <% var user = attributes.createdBy %>
@@ -306,7 +301,7 @@
               <% } %>
           </section>
         </section
-        ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></section
+        ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><h2><%= user.attributes.address %></h2></section
         ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
 
 
@@ -326,12 +321,14 @@
       <% } %>
 
       <section class="feed-controls">
-      <% if (Parse.User.current().get('userType') === 'consumer') { %>
-        <section><i class="fa fa-heart"></i></section
-        ><section><i class="fa fa-location-arrow"></i></section>
-      <% } %>
+          <% if (Parse.User.current().get('userType') === 'consumer') { %>
+            <section><p>18 Like this</p></section
+            ><aside><p>Follow</p></aside>
+          <% } else { %>
+            <section><i class="fa fa-flash"></i><p>18 people like this</p></section
+            ><aside><p>Follow</p></aside>
+          <% } %>
       </section>
-    </article>
 </script>
 
 <script type="text/template" id="backend-feed-view">
@@ -995,10 +992,7 @@
 <script type='text/template' id='business-post-view'>
 
     <section class="feed-post">
-      <aside>
-        <span class="fa fa-star"></span>
-      </aside
-      ><article>
+
         <section class="feed-info">
           <% var user = attributes.createdBy %>
           <section class="feed-avatar">
@@ -1010,7 +1004,7 @@
                 <% } %>
             </section>
           </section
-          ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><p>@<%= user.attributes.handle %></p></section
+          ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><h2><%= user.attributes.address %></h2></section
         ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
 
         </section>
@@ -1028,17 +1022,15 @@
         </section>
         <% } %>
         <section class="feed-controls">
-        <% if (Parse.User.current().get('userType') === 'consumer') { %>
-          <section><i class="fa fa-heart"></i></section
-          ><section><i class="fa fa-location-arrow"></i></section>
-
-        <% } else { %>
-         <section><i class="fa fa-close"></i></section
-          ><section><i class="fa fa-location-arrow"></i></section>
-        <% } %>
+          <% if (Parse.User.current().get('userType') === 'consumer') { %>
+            <section><p>18 Like this</p></section
+            ><aside><p>Follow</p></aside>
+          <% } else { %>
+            <section><i class="fa fa-flash"></i><p>18 people like this</p></section
+            ><aside><p>Follow</p></aside>
+          <% } %>
         </section>
       </section>
-    </article>
 </script>
 
 <!-- Business Feed View -->
@@ -1628,8 +1620,8 @@
 
 <script type="text/template" id="map-popout-view">
   <div class="map-info">
-    <aside><img src="<%= attributes.avatar._url %>"></aside>
-    <section><a href='#business/<%= attributes.handle %>'><h1><%= attributes.businessName %></h1></a><p><%= attributes.address %></p></section>
+    <aside><img src="<%= attributes.avatar._url %>"></aside
+    ><section><a href='#business/<%= attributes.handle %>'><h1><%= attributes.businessName %></h1></a><p><%= attributes.address %></p></section>
   </div>
 </script>
 
