@@ -1835,17 +1835,17 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
   }
 });
 
-/* Dashboard Favorites Route */
+/* Dashboard following Route */
 
-BeMe.Views.DashboardFavorites = BeMe.Views.DashboardBaseView.extend({
+BeMe.Views.Dashboardfollowing = BeMe.Views.DashboardBaseView.extend({
   initialize: function () {
-    this.template = _.template($('#dashboard-favorites-view').text());
+    this.template = _.template($('#dashboard-following-view').text());
     this.render();
-    new BeMe.Views.DashboardFavoritesListing();
+    new BeMe.Views.DashboardfollowingListing();
   }
 });
 
-BeMe.Views.DashboardFavoritesListing = Parse.View.extend({
+BeMe.Views.DashboardfollowingListing = Parse.View.extend({
   initialize: function () {
     this.views = [];
     this.render();
@@ -1858,22 +1858,22 @@ BeMe.Views.DashboardFavoritesListing = Parse.View.extend({
     query.find().then(function (favoriteBarsList) {
       console.log(favoriteBarsList);
       _.each(favoriteBarsList, function (favoriteBar) {
-        self.views.push(new BeMe.Views.IndividualDashboardFavorites({model: favoriteBar}));
+        self.views.push(new BeMe.Views.IndividualDashboardfollowing({model: favoriteBar}));
       });
     });
   }
 });
 
-BeMe.Views.IndividualDashboardFavorites = Parse.View.extend({
+BeMe.Views.IndividualDashboardfollowing = Parse.View.extend({
   initialize: function () {
     this.render();
   },
 
-  template: _.template($('#individual-favorites-view').text()),
+  template: _.template($('#individual-following-view').text()),
 
   render: function () {
     this.$el.html(this.template(this.model));
-    $('.favorites-container').append(this.el);
+    $('.following-container').append(this.el);
   }
 });
 
@@ -1923,7 +1923,7 @@ var Router = Parse.Router.extend({
     'dashboard/feed' : 'dashboardFeed',
     'dashboard/listing' : 'dashboardListing',
     'dashboard/map' : 'dashboardMap',
-    'dashboard/favorites' : 'dashboardFavorites',
+    'dashboard/following' : 'dashboardfollowing',
     'test' : 'test',
     'search/:query' : 'search',
     'location' : 'location'
@@ -2108,9 +2108,9 @@ var Router = Parse.Router.extend({
     new BeMe.Views.DashboardMap();
   },
 
-  dashboardFavorites: function () {
+  dashboardfollowing: function () {
     BeMe.removeAllViews();
-    new BeMe.Views.DashboardFavorites();
+    new BeMe.Views.Dashboardfollowing();
   },
 
   location: function () {

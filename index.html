@@ -220,7 +220,7 @@
               <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
               ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
               ><a href="#backend/calendar"><li><span class="fa fa-users"></span><h1>Calendar</h1><p>See what your neighbors are up to</p></li></a
-              ><a href="#backend/favorites"><li><span class="fa fa-heart"></span><h1>Favorites</h1><p>Keep your customers up to date</p></li></a
+              ><a href="#backend/following"><li><span class="fa fa-heart"></span><h1>following</h1><p>Keep your customers up to date</p></li></a
               ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
             </ul>
           </div>
@@ -905,7 +905,7 @@
               <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
               ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
               ><a href="#backend/calendar"><li><span class="fa fa-users"></span><h1>Calendar</h1><p>See what your neighbors are up to</p></li></a
-              ><a href="#backend/favorites"><li><span class="fa fa-heart"></span><h1>Favorites</h1><p>Keep your customers up to date</p></li></a
+              ><a href="#backend/following"><li><span class="fa fa-heart"></span><h1>following</h1><p>Keep your customers up to date</p></li></a
               ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
             </ul>
           </div>
@@ -1474,7 +1474,7 @@
               <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
               ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
               ><a href="#backend/calendar"><li><span class="fa fa-users"></span><h1>Calendar</h1><p>See what your neighbors are up to</p></li></a
-              ><a href="#backend/favorites"><li><span class="fa fa-heart"></span><h1>Favorites</h1><p>Keep your customers up to date</p></li></a
+              ><a href="#backend/following"><li><span class="fa fa-heart"></span><h1>following</h1><p>Keep your customers up to date</p></li></a
               ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
             </ul>
           </div>
@@ -1588,7 +1588,7 @@
   </div>
 </script>
 
-<script type="text/template" id="individual-favorites-view">
+<script type="text/template" id="individual-following-view">
 
   <aside><img src="<%= attributes.avatar._url %>"></aside
   ><section><h1><%= attributes.businessName %></h1><p><%= attributes.address %></p></section
@@ -1596,10 +1596,10 @@
 
 </script>
 
-<script type="text/template" id="dashboard-favorites-view">
+<script type="text/template" id="dashboard-following-view">
   <div class="dashboard-container">
     <div class="one-column-container">
-      <div class="favorites-container"></div>
+      <div class="following-container"></div>
     </div>
   </div>
 </script>
