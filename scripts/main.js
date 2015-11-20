@@ -1768,6 +1768,7 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
   },
 
   initializeMap: function () {
+    var self = this;
     var user = Parse.User.current();
     var userLocation = {lat: user.get('location')._latitude, lng: user.get('location')._longitude};
     
@@ -1781,6 +1782,13 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
       position: userLocation,
       map: this.map,
       title: "You are here"
+    });
+
+    marker.addListener('click', function () {
+      var infoWindow = self.infoWindow;
+      infoWindow.setPosition(userLocation);
+      infoWindow.setContent('You are here');
+      infoWindow.open(self.map);
     });
   },
 
