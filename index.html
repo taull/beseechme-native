@@ -509,7 +509,7 @@
 
     <aside>
       <p><%= attributes.content %></p
-      ><% if (typeof attributes.dayOfWeek !== 'undefined') { %><h1>Every Tuesday</h1><% } else { %><h1>Nov 3rd, 2015</h1><% } %>
+      ><% if (typeof attributes.dayOfWeek !== 'undefined') { %><h1>Every <%=moment().day( attributes.dayOfWeek ).format("dddd")%></h1><% } else { %><h1><%= moment(attributes.date).format("MMM Do, YYYY") %></h1><% } %>
     </aside>
 
   </section
