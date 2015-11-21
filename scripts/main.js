@@ -1372,6 +1372,18 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     this.$el.html(this.template(this.model));
     $('.profile-feed ul').append(this.el);
     BeMe.renderedViews.push(this);
+  },
+
+  events: {
+    'click .follow' : 'follow'
+  },
+
+  follow: function () {
+    var currentUser = Parse.User.current();
+    var relation = currentUser.relation('barsFollowing');
+    var createdBy = this.model.get('createdBy');
+    relation.add(createdBy);
+    currentUser.save();
   }
 })
 
