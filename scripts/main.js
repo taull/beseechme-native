@@ -1854,11 +1854,11 @@ BeMe.Views.DashboardfollowingListing = Parse.View.extend({
   render: function () {
     var self = this;
 
-    var query = Parse.User.current().relation('favoriteBars').query();
-    query.find().then(function (favoriteBarsList) {
-      console.log(favoriteBarsList);
-      _.each(favoriteBarsList, function (favoriteBar) {
-        self.views.push(new BeMe.Views.IndividualDashboardfollowing({model: favoriteBar}));
+    var query = Parse.User.current().relation('barsFollowing').query();
+    query.find().then(function (barFollowing) {
+      console.log(barFollowing);
+      _.each(barFollowing, function (barFollowing) {
+        self.views.push(new BeMe.Views.IndividualDashboardfollowing({model: barFollowing}));
       });
     });
   }
@@ -1907,26 +1907,33 @@ BeMe.Views.Location = Parse.View.extend({
 var Router = Parse.Router.extend({
 	routes: {
 		'' : 'home',
+
 		'register/business' : 'registerBusiness',
 		'register/consumer' : 'registerConsumer',
+
 		'backend' : 'backend',
 		'backend/feed' : 'backendFeed',
 		'backend/beer' : 'backendBeerList',
 		'backend/competition' : 'backendCompetition',
 		'backend/calendar' : 'backendCalendar',
 		'backend/settings' : 'backendSettings',
+
     'business/:handle' : 'businessHome',
     'business/:handle/feed' : 'businessFeed',
     'business/:handle/beer' : 'businessBeerList',
     'business/:handle/calendar' : 'businessCalendar',
+
     'dashboard' : 'dashboardHome',
     'dashboard/feed' : 'dashboardFeed',
     'dashboard/listing' : 'dashboardListing',
     'dashboard/map' : 'dashboardMap',
     'dashboard/following' : 'dashboardfollowing',
-    'test' : 'test',
+
     'search/:query' : 'search',
-    'location' : 'location'
+
+    'location' : 'location',
+
+    'test' : 'test',
 	},
 
   test: function () {
