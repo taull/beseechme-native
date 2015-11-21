@@ -1363,6 +1363,7 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
 BeMe.Views.BusinessPostView = Parse.View.extend({
   initialize: function () {
     this.render();
+    console.log('initialized a business post view');
   },
 
   template: _.template($('#business-post-view').text()),
@@ -1692,22 +1693,9 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
     var self = this;
     BeMe.removeGroup(this.views);
     this.collection.each(function (i) {
-      var newView = new BeMe.Views.DashboardFeedItem({model:i});
+      var newView = new BeMe.Views.BusinessPostView({model:i});
       self.views.push(this);
     });
-  }
-});
-
-BeMe.Views.DashboardFeedItem = Parse.View.extend({
-  initialize: function () {
-    this.render();
-  },
-
-  template: _.template($('#business-post-view').text()),
-
-  render: function () {
-    this.$el.html(this.template(this.model));
-    $('.profile-feed ul').append(this.el);
   }
 });
 
