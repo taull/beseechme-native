@@ -1590,9 +1590,20 @@
 
 <script type="text/template" id="individual-following-view">
 
-  <aside><img src="<%= attributes.avatar._url %>"></aside
-  ><section><h1><%= attributes.businessName %></h1><p><%= attributes.address %></p></section
-  ><article><h1>Remove</h1></article>
+  <aside>
+    <% if (typeof attributes.avatar !== 'undefined') {  %>
+    <img src="<%= attributes.avatar._url %>">
+    <% } else { %>
+    <img src="images/default-avatar.png">
+    <% } %>
+  </aside>
+  <section>
+    <h1><%= attributes.businessName %></h1>
+    <p><%= attributes.address %></p>
+  </section>
+  <article>
+    <h1>Remove</h1>
+  </article>
 
 </script>
 
