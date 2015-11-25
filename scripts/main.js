@@ -1363,7 +1363,6 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
 BeMe.Views.BusinessPostView = Parse.View.extend({
   initialize: function () {
     this.render();
-    console.log('initialized a business post view');
   },
 
   template: _.template($('#business-post-view').text()),
@@ -1382,8 +1381,12 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     var currentUser = Parse.User.current();
     var relation = currentUser.relation('barsFollowing');
     var createdBy = this.model.get('createdBy');
-    relation.add(createdBy);
-    currentUser.save();
+    if (currentUser.id !== createdBy.id) {
+      relation.add(createdBy);
+      currentUser.save();
+    } else {
+      alert("You can't follow yourself");
+    }
   }
 })
 
@@ -1855,9 +1858,9 @@ BeMe.Views.DashboardfollowingListing = Parse.View.extend({
     var self = this;
 
     var query = Parse.User.current().relation('barsFollowing').query();
-    query.find().then(function (barFollowing) {
-      console.log(barFollowing);
-      _.each(barFollowing, function (barFollowing) {
+    query.find().then(function (barsFollowing) {
+      console.log(barsFollowing);
+      _.each(barsFollowing, function (barFollowing) {
         self.views.push(new BeMe.Views.IndividualDashboardfollowing({model: barFollowing}));
       });
     });
