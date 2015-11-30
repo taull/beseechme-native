@@ -1387,6 +1387,15 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     } else {
       alert("You can't follow yourself");
     }
+  },
+
+  isFollowing: function () {
+    // Changes the follow button to unfollow button
+
+    var $followButton = this.$el.find('.follow');
+    $followButton.css('background', 'red');
+    $followButton.text('Unfollow');
+
   }
 })
 
@@ -1491,7 +1500,7 @@ BeMe.Views.BusinessBeerList = Parse.View.extend({
     //we are iterating in reverse order to make the ones added to the list most
     //recent appear first without having to store extra data in the array (addedAt date, etc...)
     var arrayOfIds = [];
-    for(var i = max; i >= realMin; i--) {
+    for (var i = max; i >= realMin; i--) {
       arrayOfIds.push(list[i]);
     }
     console.log("Id's in array that are going to hit the BreweryDB API");
@@ -1671,6 +1680,7 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
         var newListingView = new BeMe.Views.DashboardIndividualListing({model:i});
       });
     }, function (error) {
+      alert('Error. Check console for details');
       console.log(error);
     });
   }
@@ -1709,8 +1719,41 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
     BeMe.removeGroup(this.views);
     this.collection.each(function (i) {
       var newView = new BeMe.Views.BusinessPostView({model:i});
-      self.views.push(this);
+      self.views.push(newView);
     });
+    this.updateFollowButtons();
+  },
+
+  updateFollowButtons: function () {
+    var self = this;
+    console.log(this.views);
+
+    var user = Parse.User.current();
+    user.relation('barsFollowing').query().find().then(function (barsFollowing) {
+      console.log(barsFollowing);
+      var barsFollowingIds = [];
+
+      //push the ids of the bars that the user is following to the barsFollowingIds array
+      barsFollowing.forEach(function (i) {
+        barsFollowingIds.push(i.id);
+      });
+
+      _.each(self.views, function (view) {
+        console.log(view.model.get('createdBy').id);
+
+        if (barsFollowingIds.some(function (i) {return i === view.model.get('createdBy').id}) ) {
+          view.isFollowing();
+        }
+      })
+    });
+
+    // ** Need a method `updateFollowButton` that takes an argument
+    // to determine which element needs changed. Changes the follow 
+    // button to an unfollow button, changing the class as well to 
+    // make sure the event listener fires an unfollow event **
+
+    // Query to find the people the current user follows
+    // Iterate through that list and call 
   }
 });
 
