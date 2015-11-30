@@ -1374,19 +1374,39 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
   },
 
   events: {
-    'click .follow' : 'follow'
+    'click .follow' : 'follow',
+    'click .unfollow': 'unfollow'
   },
 
   follow: function () {
+    var self = this;
     var currentUser = Parse.User.current();
     var relation = currentUser.relation('barsFollowing');
     var createdBy = this.model.get('createdBy');
     if (currentUser.id !== createdBy.id) {
       relation.add(createdBy);
-      currentUser.save();
+      currentUser.save({},{success: function () {
+        self.isFollowing();
+      }, error: function (error) {
+        alert('Save failed');
+        console.log(error);
+      }});
     } else {
       alert("You can't follow yourself");
     }
+  },
+
+  unfollow: function () {
+    var self = this;
+    var currentUser = Parse.User.current();
+    var relation = currentUser.relation('barsFollowing');
+    var createdBy = this.model.get('createdBy');
+    relation.remove(createdBy);
+    currentUser.save({},{success: function () {
+      self.isNotFollowing();
+    }, error: function () {
+      alert('Error saving');
+    }})
   },
 
   isFollowing: function () {
@@ -1395,8 +1415,16 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     var $followButton = this.$el.find('.follow');
     $followButton.css('background', 'red');
     $followButton.text('Unfollow');
+    $followButton[0].className = 'unfollow';
+  },
 
+  isNotFollowing: function () {
+    var $unfollowButton = this.$el.find('.unfollow');
+    $unfollowButton.css('background', '#01579B');
+    $unfollowButton.text('Follow');
+    $unfollowButton[0].className = 'follow';
   }
+
 })
 
 /* Business Beer List */
@@ -1726,11 +1754,9 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
 
   updateFollowButtons: function () {
     var self = this;
-    console.log(this.views);
 
     var user = Parse.User.current();
     user.relation('barsFollowing').query().find().then(function (barsFollowing) {
-      console.log(barsFollowing);
       var barsFollowingIds = [];
 
       //push the ids of the bars that the user is following to the barsFollowingIds array
@@ -1739,7 +1765,6 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
       });
 
       _.each(self.views, function (view) {
-        console.log(view.model.get('createdBy').id);
 
         if (barsFollowingIds.some(function (i) {return i === view.model.get('createdBy').id}) ) {
           view.isFollowing();
