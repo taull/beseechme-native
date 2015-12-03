@@ -35,6 +35,7 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
 
   //route object
   BeMe.Calendar = {};
+  BeMe.Dashboard = {};
 })();
 
 /*
@@ -1729,6 +1730,7 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
     this.collection = new Parse.Collection();
     this.views = [];
     this.pullNearStatuses();
+    BeMe.Dashboard.FeedList = this;
   },
 
   pullNearStatuses: function () {
@@ -1757,12 +1759,7 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
 
     var user = Parse.User.current();
     user.relation('barsFollowing').query().find().then(function (barsFollowing) {
-      var barsFollowingIds = [];
-
-      //push the ids of the bars that the user is following to the barsFollowingIds array
-      barsFollowing.forEach(function (i) {
-        barsFollowingIds.push(i.id);
-      });
+      var barsFollowingIds = barsFollowing.map(function (i) {return i.id});
 
       _.each(self.views, function (view) {
         if (barsFollowingIds.some(function (i) {return i === view.model.get('createdBy').id}) ) {
@@ -1770,7 +1767,8 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
         }
       })
     });
-  }
+  },
+
 });
 
 /* Dashboard Listing */
