@@ -35,6 +35,7 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
 
   //route object
   BeMe.Calendar = {};
+  BeMe.Dashboard = {};
 })();
 
 /*
@@ -1371,7 +1372,69 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     this.$el.html(this.template(this.model));
     $('.profile-feed ul').append(this.el);
     BeMe.renderedViews.push(this);
+  },
+
+  events: {
+    'click .follow' : 'follow',
+    'click .unfollow': 'unfollow',
+  },
+
+  follow: function () {
+    var self = this;
+    var currentUser = Parse.User.current();
+    var relation = currentUser.relation('barsFollowing');
+    var createdBy = this.model.get('createdBy');
+    if (currentUser.id !== createdBy.id) {
+      relation.add(createdBy);
+      currentUser.save({},{success: function () {
+        // self.isFollowing();
+        self.updateFollowButtons();
+      }, error: function (error) {
+        alert('Save failed');
+        console.log(error);
+      }});
+    } else {
+      alert("You can't follow yourself");
+    }
+  },
+
+  unfollow: function () {
+    var self = this;
+    var currentUser = Parse.User.current();
+    var relation = currentUser.relation('barsFollowing');
+    var createdBy = this.model.get('createdBy');
+    relation.remove(createdBy);
+    currentUser.save({},{success: function () {
+      // self.isNotFollowing();
+      self.updateFollowButtons();
+    }, error: function () {
+      alert('Error saving');
+    }})
+  },
+
+  isFollowing: function () {
+    // Changes the follow button to unfollow button
+    var $followButton = this.$el.find('.follow');
+    if($followButton.length) {
+      $followButton.css('background', 'red');
+      $followButton.text('Unfollow');
+      $followButton[0].className = 'unfollow';
+    }
+  },
+
+  isNotFollowing: function () {
+    var $unfollowButton = this.$el.find('.unfollow');
+    if ($unfollowButton.length) {
+      $unfollowButton.css('background', '#01579B');
+      $unfollowButton.text('Follow');
+      $unfollowButton[0].className = 'follow';
+    }
+  },
+
+  updateFollowButtons: function () {
+    BeMe.Dashboard.FeedList.updateFollowButtons();
   }
+
 })
 
 /* Business Beer List */
@@ -1475,7 +1538,7 @@ BeMe.Views.BusinessBeerList = Parse.View.extend({
     //we are iterating in reverse order to make the ones added to the list most
     //recent appear first without having to store extra data in the array (addedAt date, etc...)
     var arrayOfIds = [];
-    for(var i = max; i >= realMin; i--) {
+    for (var i = max; i >= realMin; i--) {
       arrayOfIds.push(list[i]);
     }
     console.log("Id's in array that are going to hit the BreweryDB API");
@@ -1665,6 +1728,7 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
         var newListingView = new BeMe.Views.DashboardIndividualListing({model:i});
       });
     }, function (error) {
+      alert('Error. Check console for details');
       console.log(error);
     });
   }
@@ -1685,6 +1749,7 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
     this.collection = new Parse.Collection();
     this.views = [];
     this.pullNearStatuses();
+    BeMe.Dashboard.FeedList = this;
   },
 
   pullNearStatuses: function () {
@@ -1702,23 +1767,31 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
     var self = this;
     BeMe.removeGroup(this.views);
     this.collection.each(function (i) {
-      var newView = new BeMe.Views.DashboardFeedItem({model:i});
-      self.views.push(this);
+      var newView = new BeMe.Views.BusinessPostView({model:i});
+      self.views.push(newView);
     });
-  }
-});
-
-BeMe.Views.DashboardFeedItem = Parse.View.extend({
-  initialize: function () {
-    this.render();
+    this.updateFollowButtons();
   },
 
-  template: _.template($('#business-post-view').text()),
+  updateFollowButtons: function () {
+    var self = this;
+    console.log("updateFollowButtons is running");
 
-  render: function () {
-    this.$el.html(this.template(this.model));
-    $('.profile-feed ul').append(this.el);
-  }
+    var user = Parse.User.current();
+    user.relation('barsFollowing').query().find().then(function (barsFollowing) {
+      var barsFollowingIds = barsFollowing.map(function (i) {return i.id});
+
+      _.each(self.views, function (view) {
+        if (barsFollowingIds.some(function (i) {return i === view.model.get('createdBy').id}) ) {
+          view.isFollowing();
+        } else {
+          view.isNotFollowing();
+        }
+      })
+    });
+  },
+
+
 });
 
 /* Dashboard Listing */
@@ -1864,11 +1937,11 @@ BeMe.Views.DashboardfollowingListing = Parse.View.extend({
   render: function () {
     var self = this;
 
-    var query = Parse.User.current().relation('favoriteBars').query();
-    query.find().then(function (favoriteBarsList) {
-      console.log(favoriteBarsList);
-      _.each(favoriteBarsList, function (favoriteBar) {
-        self.views.push(new BeMe.Views.IndividualDashboardfollowing({model: favoriteBar}));
+    var query = Parse.User.current().relation('barsFollowing').query();
+    query.find().then(function (barsFollowing) {
+      console.log(barsFollowing);
+      _.each(barsFollowing, function (barFollowing) {
+        self.views.push(new BeMe.Views.IndividualDashboardfollowing({model: barFollowing}));
       });
     });
   }
@@ -1917,26 +1990,33 @@ BeMe.Views.Location = Parse.View.extend({
 var Router = Parse.Router.extend({
 	routes: {
 		'' : 'home',
+
 		'register/business' : 'registerBusiness',
 		'register/consumer' : 'registerConsumer',
+
 		'backend' : 'backend',
 		'backend/feed' : 'backendFeed',
 		'backend/beer' : 'backendBeerList',
 		'backend/competition' : 'backendCompetition',
 		'backend/calendar' : 'backendCalendar',
 		'backend/settings' : 'backendSettings',
+
     'business/:handle' : 'businessHome',
     'business/:handle/feed' : 'businessFeed',
     'business/:handle/beer' : 'businessBeerList',
     'business/:handle/calendar' : 'businessCalendar',
+
     'dashboard' : 'dashboardHome',
     'dashboard/feed' : 'dashboardFeed',
     'dashboard/listing' : 'dashboardListing',
     'dashboard/map' : 'dashboardMap',
     'dashboard/following' : 'dashboardfollowing',
-    'test' : 'test',
+
     'search/:query' : 'search',
-    'location' : 'location'
+
+    'location' : 'location',
+
+    'test' : 'test',
 	},
 
   test: function () {
