@@ -1660,14 +1660,23 @@ BeMe.Views.Dashboard = Parse.View.extend({
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
 
-    $('#location-trigger').click(function(){
-      $('.update-location').toggleClass('update-location-shift');
-      $('.update-location-info').toggleClass('left-100');
-    });
-
     $('.update-location').click(function(){
       $('.update-location').toggleClass('update-location-shift');
       $('.update-location-info').toggleClass('left-100');
+      $('.arrow').toggleClass('rotate-arrow');
+
+    });
+
+    $('#location-trigger').click(function(){
+      $('.update-location').toggleClass('update-location-shift');
+      $('.update-location-info').toggleClass('left-100');
+      $('.arrow').toggleClass('rotate-arrow');
+
+    });
+
+    $('.open-listing-container').click(function(){
+      $('.listing-container').toggleClass('top0');
+
     });
   },
 
@@ -1690,6 +1699,7 @@ BeMe.Views.DashboardBaseView = Parse.View.extend({
     this.$el.html(this.template(this.model));
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
+
   }
 });
 

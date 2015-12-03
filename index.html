@@ -145,89 +145,28 @@
   <header>
     <div class="header-container">
       <div class="header-left">
-        <% if (Parse.User.current().get('userType') === 'business') { %>
-          <a href="#dashboard"><section class="active-view">
-            <span class="fa fa-dashboard"></span>
-            <h1>Dashboard</h1>
-          </section></a
-          ><a href="#backend/feed"><section>
-            <span class="fa fa-cog"></span>
-            <h1>Backend</h1>
-          </section></a>
-        <% } else {%>
-          <a href="#dashboard"><section class="active-view">
-            <span class="fa fa-dashboard"></span>
-            <h1>Dashboard</h1>
-          </section></a>
-        <% } %>
 
       </div
       ><div class="header-center">
+        <% if (Parse.User.current().get('userType') === 'consumer') { %>
+
+          <a href="#dashboard/following"><div class="following-link"><section><i class="fa fa-star"></i><h1>Following</h1></section><aside><h1>21</h1></aside></div></a>
+        <% } else { %>
+        <% } %>
+      </div
+      ><div class="header-right">
         <% if (Parse.User.current().get('userType') === 'consumer') { %>
           <div class="to-location">
             <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
             ><div class="update-location"><footer><h1>Update Location</h1></footer></div
 
-            ><aside id="location-trigger"><i class="fa fa-location-arrow"></i></aside>
+            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
           </div>
+
         <% } else { %>
-          <ul>
-            <article>
-              <% if (Parse.User.current()) { %>
-                <i class="fa fa-power-off" id='logout'></i>
-                <% } else { %>
-                <p id='sign-in'>Sign In</p>
-              <% } %>
-            </article
-            ><li id="slideout-trigger">
-              <h1>Options</h1
-              ><span class="fa fa-chevron-down"></span>
-            </li><a href="#business/craftanddraft"><section>
-              <img src="images/default-avatar.png">
-            </section
-            ></a>
-
-          </ul>
         <% } %>
-      </div
-      ><div class="header-right">
-        <ul>
-          <div>
-            <% if (Parse.User.current()) { %>
-              <i class="fa fa-power-off" id='logout'></i>
-              <% } else { %>
-              <p id='sign-in'>Sign In</p>
-            <% } %>
-          </div
-          ><li id="slideout-trigger">
-            <h1>Options</h1
-            ><span class="fa fa-chevron-down"></span>
-          </li><a href="#business/craftanddraft"><section>
-            <img src="images/default-avatar.png">
-          </section
-          ></a>
 
-        </ul>
-      </div
-      ><div class="backend-slideout">
-        <aside>
-          <span class="fa fa-caret-up"></span>
-        </aside>
-        
-        <section>
-          <div class="backend-tabs">
-            <ul>
-              <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
-              ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
-              ><a href="#backend/calendar"><li><span class="fa fa-users"></span><h1>Calendar</h1><p>See what your neighbors are up to</p></li></a
-              ><a href="#backend/following"><li><span class="fa fa-heart"></span><h1>following</h1><p>Keep your customers up to date</p></li></a
-              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
-            </ul>
-          </div>
-          
-        </section>
-        
-      </div>     
+      </div>  
 
     </div>
   </header>
@@ -323,10 +262,10 @@
       <section class="feed-controls">
           <% if (Parse.User.current().get('userType') === 'consumer') { %>
             <section><p>18 Like this</p></section
-            ><aside><p>Follow</p></aside>
+            ><aside><i class="fa fa-star"></i><p>Follow</p></aside>
           <% } else { %>
             <section><i class="fa fa-flash"></i><p>18 people like this</p></section
-            ><aside><p>Follow</p></aside>
+            ><aside><i class="fa fa-star"></i><p>Follow</p></aside>
           <% } %>
       </section>
 </script>
@@ -335,24 +274,9 @@
 <% if (Parse.User.current().get('userType') === 'business') { %>
 
   <div class="backend-container">
-
-    <div class="middle-column">
+      <div class="middle-column">
         
-        <div class="profile-feed">
-          <ul>
-          </ul>
-        </div><!-- END PROFILE FEED -->
-
-        <div class="copyright-info">
-          <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-          <p>Beseech Me®, LLC</p>
-        </div>
-
-    </div
-
-    ><div class="right-column">
-
-        <div class="profile-tools profile-tools-desktop">
+         <div class="profile-tools profile-tools-desktop">
           <form action="">
 
             <textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea
@@ -368,7 +292,21 @@
           </form>
         </div>
 
-    </div>
+      </div
+      ><div class="right-column">
+
+
+
+        <div class="profile-feed">
+          <ul>
+          </ul>
+        </div><!-- END PROFILE FEED -->
+
+        <div class="copyright-info">
+          <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+          <p>Beseech Me®, LLC</p>
+        </div>
+      </div>
 
   </div>
 
@@ -409,7 +347,12 @@
 <script type="text/template" id="backend-beer-view">
 
   <div class="backend-container">
-   <div class="middle-column">
+    <div class="middle-column">
+
+    </div
+    ><div class="right-column">
+
+
       <div class="narrow-container">
         <% var user = Parse.User.current(); %>
 
@@ -481,15 +424,9 @@
         </div>
 
       </div>
-    </div
-    ><div class="right-column">
-      <div class="bar-search">
-          <form action>
-            <span class="fa fa-search"></span
-            ><input type="text" placeholder="Search Bars"
-            ><button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
-          </form>
-        </div>
+
+
+
     </div>
   </div>
 </script>
@@ -517,45 +454,13 @@
 <!-- backend Calendar View -->
 
 <script type="text/template" id="backend-calendar-view">
-  <div class="backend-container">
-    <div class="middle-container">
+  <div class="one-column-container">
  
 
         <div class="wide-container">
           <% var user = Parse.User.current(); %>
 
-          <div class="seven-day-nav">
-            <ul>
-              <!-- Appended DayViews go here -->
-            </ul>
-          </div>
-
-          <div class="calendar-day">
-            <div class="calendar-standing">
-              <form action="">
-                <ul>
-                  <!-- Comments Displayed/appended here -->
-                </ul>
-              </form>
-            </div>
-
-            <div class="calendar-daily">
-              <form action="">
-                <ul>
-                  <!-- Comments Displayed/appended here -->
-                </ul>
-              </form>
-            </div>
-          </div>
-          <div class="copyright-info">
-            <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-            <p>Beseech Me®, LLC</p>
-          </div>
-
-        </div>
-      </div
-      ><div class="right-container">
-        <div class="add-weekly-comment">
+          <div class="add-weekly-comment">
             <form action="">
 
               <li>
@@ -596,7 +501,37 @@
 
             </form>
           </div>
-      </div>
+
+          <div class="seven-day-nav">
+            <ul>
+              <!-- Appended DayViews go here -->
+            </ul>
+          </div>
+
+          <div class="calendar-day">
+            <div class="calendar-standing">
+              <form action="">
+                <ul>
+                  <!-- Comments Displayed/appended here -->
+                </ul>
+              </form>
+            </div>
+
+            <div class="calendar-daily">
+              <form action="">
+                <ul>
+                  <!-- Comments Displayed/appended here -->
+                </ul>
+              </form>
+            </div>
+          </div>
+          <div class="copyright-info">
+            <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+            <p>Beseech Me®, LLC</p>
+          </div>
+
+        </div>
+
   </div>
 
 
@@ -830,157 +765,71 @@
   <header>
     <div class="header-container">
       <div class="header-left">
-        <% if (Parse.User.current().get('userType') === 'business') { %>
-          <a href="#dashboard"><section class="active-view">
-            <span class="fa fa-dashboard"></span>
-            <h1>Dashboard</h1>
-          </section></a
-          ><a href="#backend"><section>
-            <span class="fa fa-cog"></span>
-            <h1>Backend</h1>
-          </section></a>
-        <% } else {%>
-          <a href="#dashboard"><section class="active-view">
-            <span class="fa fa-dashboard"></span>
-            <h1>Dashboard</h1>
-          </section></a>
-        <% } %>
 
       </div
       ><div class="header-center">
-        <% if (Parse.User.current().get('userType') === 'consumer') { %>
-          <div class="to-location">
-            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
-            ><div class="update-location"><footer><h1>Update Location</h1></footer></div
 
-            ><aside id="location-trigger"><i class="fa fa-location-arrow"></i></aside>
-          </div>
-        <% } else { %>
-          <ul>
-            <article>
-              <% if (Parse.User.current()) { %>
-                <i class="fa fa-power-off" id='logout'></i>
-                <% } else { %>
-                <p id='sign-in'>Sign In</p>
-              <% } %>
-            </article
-            ><li id="slideout-trigger">
-              <h1>Options</h1
-              ><span class="fa fa-chevron-down"></span>
-            </li><a href="#business/craftanddraft"><section>
+        <div class="business-header">
+          <aside>
+            <% if (typeof attributes.avatar !=='undefined') { %>
+              <img src=<%= attributes.avatar._url %> >
+              <% } else { %>
               <img src="images/default-avatar.png">
-            </section
-            ></a>
+            <% } %>
+          </aside
+          ><section><h1><%=attributes.businessName%></h1><p><%=attributes.address%></p></section>
+        </div>
 
-          </ul>
-        <% } %>
       </div
       ><div class="header-right">
-        <ul>
-          <div>
-            <% if (Parse.User.current()) { %>
-              <i class="fa fa-power-off" id='logout'></i>
-              <% } else { %>
-              <p id='sign-in'>Sign In</p>
-            <% } %>
-          </div
-          ><li id="slideout-trigger">
-            <h1>Options</h1
-            ><span class="fa fa-chevron-down"></span>
-          </li><a href="#business/craftanddraft"><section>
-            <img src="images/default-avatar.png">
-          </section
-          ></a>
 
-        </ul>
-      </div
-      ><div class="backend-slideout">
-        <aside>
-          <span class="fa fa-caret-up"></span>
-        </aside>
-        
-        <section>
-          <div class="backend-tabs">
-            <ul>
-              <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
-              ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
-              ><a href="#backend/calendar"><li><span class="fa fa-users"></span><h1>Calendar</h1><p>See what your neighbors are up to</p></li></a
-              ><a href="#backend/following"><li><span class="fa fa-heart"></span><h1>following</h1><p>Keep your customers up to date</p></li></a
-              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
-            </ul>
-          </div>
-          
-        </section>
-        
-      </div>     
+        <div class="open-listing-container"><section><i class="fa fa-bars"></i></section></div>
+      </div>  
 
     </div>
   </header>
 
 
 
+
 </script>
 
 <script type="text/template" id="business-home-view">
-  <div class="one-column-container">
+  <div class="dashboard-container">
 
+        <div class="left-column"></div
+        ><div class="middle-column">
+          <div class="business-cover">
 
-        <div class="business-cover">
+              <% if (typeof attributes.coverPhoto !=='undefined') { %>
+                <img src=<%= attributes.coverPhoto._url %> >
+                <% } else { %>
+                <img src="images/craft2.jpg">
+              <% } %>
+            </div>
 
-            <% if (typeof attributes.coverPhoto !=='undefined') { %>
-              <img src=<%= attributes.coverPhoto._url %> >
-              <% } else { %>
-              <img src="images/craft2.jpg">
-            <% } %>
+          <div class="profile-feed">
+              <ul></ul>
           </div>
-          <div class="business-home">
-            <section>
-                <% if (typeof attributes.avatar !=='undefined') { %>
-                  <img src=<%= attributes.avatar._url %> >
-                  <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
 
-                <h1><%=attributes.businessName%></h1>
-                <p><%=attributes.address%>, <%=attributes.City%>, <%=attributes.state%> <%=attributes.zip%></p>
+        </div
+        ><div class="right-column">
 
-            </section>
-          </div>
-        <div class="business-tabs-container">
-          <div class="business-tabs">
-            <ul>
-              <a href="#business/<%= attributes.handle %>"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
+            <div class="module-header">
+              <h1>Whats on Tap?</h1>
+              <p>Just a sample subtitle</p>
+              <a>View All</a>
+            </div>
+            <div class="profile-beer-list">
+              <ul></ul>
+            </div>
 
-              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
-            </ul>
-          </div>
-        </div>          
-        <div class="profile-feed">
-            <ul></ul>
-        </div>
-
-          <div class="module-header">
-            <h1>Whats on Tap?</h1>
-            <p>Just a sample subtitle</p>
-            <a>View All</a>
-          </div>
-          <div class="profile-beer-list">
-            <ul></ul>
-          </div>
-          <div class="module-header">
-            <h1><%= moment().format('dddd, MMMM Do') %></h1>
-            <p>Just a sample subtitle</p>
-          </div>
-          <div class='calendar-standing'></div>
-          <div class='calendar-daily'></div>
+            <div class="module-header">
+              <h1><%= moment().format('dddd, MMMM Do') %></h1>
+              <p>Just a sample subtitle</p>
+            </div>
+            <div class='calendar-standing'></div>
+            <div class='calendar-daily'></div>
         </div>
   </div>
 
@@ -1005,7 +854,7 @@
             </section>
           </section
           ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><h2><%= user.attributes.address %></h2></section
-        ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
+          ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
 
         </section>
 
@@ -1024,8 +873,9 @@
         <section class="feed-controls">
           <% if (Parse.User.current().get('userType') === 'consumer') { %>
             <section><p>18 Like this</p></section
-            ><aside><p>Follow</p></aside>
+            ><aside><i class="fa fa-check"></i><p>Follow</p></aside>
           <% } else { %>
+
             <section><i class="fa fa-flash"></i><p>18 people like this</p></section
             ><aside><p class='follow'>Follow</p></aside>
           <% } %>
@@ -1399,89 +1249,27 @@
   <header>
     <div class="header-container">
       <div class="header-left">
-        <% if (user.get('userType') === 'business') { %>
-          <a href="#dashboard"><section class="active-view">
-            <span class="fa fa-dashboard"></span>
-            <h1>Dashboard</h1>
-          </section></a
-          ><a href="#backend"><section>
-            <span class="fa fa-cog"></span>
-            <h1>Backend</h1>
-          </section></a>
-        <% } else {%>
-          <a href="#dashboard"><section class="active-view">
-            <span class="fa fa-dashboard"></span>
-            <h1>Dashboard</h1>
-          </section></a>
-        <% } %>
 
       </div
       ><div class="header-center">
-        <% if (user.get('userType') === 'consumer') { %>
+        <% if (Parse.User.current().get('userType') === 'consumer') { %>
           <div class="to-location">
             <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
             ><div class="update-location"><footer><h1>Update Location</h1></footer></div
 
-            ><aside id="location-trigger"><i class="fa fa-location-arrow"></i></aside>
+            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
           </div>
-        <% } else { %>
-          <ul>
-            <article>
-              <% if (user) { %>
-                <i class="fa fa-power-off" id='logout'></i>
-                <% } else { %>
-                <p id='sign-in'>Sign In</p>
-              <% } %>
-            </article
-            ><li id="slideout-trigger">
-              <h1>Options</h1
-              ><span class="fa fa-chevron-down"></span>
-            </li><a href="#business/craftanddraft"><section>
-              <img src="images/default-avatar.png">
-            </section
-            ></a>
 
-          </ul>
+        <% } else { %>
         <% } %>
+
+
+      
       </div
       ><div class="header-right">
-        <ul>
-          <div>
-            <% if (user) { %>
-              <i class="fa fa-power-off" id='logout'></i>
-              <% } else { %>
-              <p id='sign-in'>Sign In</p>
-            <% } %>
-          </div
-          ><li id="slideout-trigger">
-            <h1>Options</h1
-            ><span class="fa fa-chevron-down"></span>
-          </li><a href="#business/craftanddraft"><section>
-            <img src="images/default-avatar.png">
-          </section
-          ></a>
+        
 
-        </ul>
-      </div
-      ><div class="backend-slideout">
-        <aside>
-          <span class="fa fa-caret-up"></span>
-        </aside>
-        
-        <section>
-          <div class="backend-tabs">
-            <ul>
-              <a href="#backend/feed"><li><span class="fa fa-comments"></span><h1>My Feed</h1><p>Post updates, photos and videos</p></li></a
-              ><a href="#backend/beer"><li><span class="fa fa-beer"></span><h1>Beer Menu</h1><p>Set your draft and bottled lists</p></li></a
-              ><a href="#backend/calendar"><li><span class="fa fa-users"></span><h1>Calendar</h1><p>See what your neighbors are up to</p></li></a
-              ><a href="#backend/following"><li><span class="fa fa-heart"></span><h1>following</h1><p>Keep your customers up to date</p></li></a
-              ><a href="#backend/settings"><li><span class="fa fa-cog"></span><h1>Settings</h1><p>Keep your customers up to date</p></li></a>
-            </ul>
-          </div>
-          
-        </section>
-        
-      </div>     
+      </div>  
 
     </div>
   </header>
@@ -1491,30 +1279,28 @@
 </script>
 
 <script type="text/template" id="dashboard-home-view">
+  <% var user = Parse.User.current() %>
+
   <div class="dashboard-container">
 
-      <div class="middle-column">
+      <div class="left-column">
+
+        <div id='map'></div>
+      </div
+
+      ><div class="middle-column">
+        <div class="listing-container"></div>
+        <% if (Parse.User.current().get('userType') === 'consumer') { %>
+
+          <a href="#dashboard/following"><div class="following-link"><section><i class="fa fa-star"></i><h1>Following</h1></section><aside><h1>21</h1></aside></div></a>
+        <% } else { %>
+        <% } %>  
+      </div
+      ><div class="right-column">
         <div class="profile-feed">
           <ul>
           </ul>
         </div><!-- END PROFILE FEED -->
-      </div
-      ><div class="right-column">
-        <div class="bar-search">
-          <form action>
-            <span class="fa fa-search"></span
-            ><input type="text" placeholder="Search Bars"
-            ><button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
-          </form>
-        </div>
-        <div class="module-header">
-            <h1>Bars near you</h1>
-            <p>Just a sample subtitle</p>
-            <a href="#dashboard/listing">View All</a>
-          </div>
-        <div class="listing-container">
-        </div>
-        
       </div>
   </div>
 </script>
@@ -1576,15 +1362,17 @@
 
   </section
   ><article>
-    <h1><%= attributes.location.milesTo(Parse.User.current().get('location')).toFixed(1) %></h1>
+    <h1><%= attributes.location.milesTo(Parse.User.current().get('location')).toFixed(1) %> mi</h1>
   </article>
 </script>
 
 <script type="text/template" id="dashboard-listing-view">
-  <div class="one-column-container">
+  <div class="dashboard-container">
+    <div class="middle-column"></div
+    ><div class="right-column">
+      <div class="listing-container"></div>
 
-    <div class="listing-container"></div>
-
+    </div>
   </div>
 </script>
 
