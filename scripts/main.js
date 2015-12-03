@@ -1765,20 +1765,11 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
       });
 
       _.each(self.views, function (view) {
-
         if (barsFollowingIds.some(function (i) {return i === view.model.get('createdBy').id}) ) {
           view.isFollowing();
         }
       })
     });
-
-    // ** Need a method `updateFollowButton` that takes an argument
-    // to determine which element needs changed. Changes the follow 
-    // button to an unfollow button, changing the class as well to 
-    // make sure the event listener fires an unfollow event **
-
-    // Query to find the people the current user follows
-    // Iterate through that list and call 
   }
 });
 
