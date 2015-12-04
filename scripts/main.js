@@ -939,12 +939,12 @@ BeMe.Views.DaysView = Parse.View.extend({
       post.set('dayOfWeek', dayOfWeek);
     }
 
-    if (!anyChecked) {
-      alert("You must choose one of the date options");
+    if (!content) {
+      alert("You must write a comment");
     } else if(date.isBefore(moment(new Date()),'day')) {
       alert("You cannot post a past date");
-    } else if (!content) {
-      alert("You must write a comment");
+    } else if (!anyChecked) {
+      alert("You must choose one of the date options");
     } else {
      //if the set date is not before today
       post.save(null, {
