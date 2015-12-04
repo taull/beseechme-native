@@ -264,7 +264,7 @@
             <section><p>18 Like this</p></section
             ><aside><i class="fa fa-star"></i><p>Follow</p></aside>
           <% } else { %>
-            <section><i class="fa fa-flash"></i><p>18 people like this</p></section
+            <section><i class="fa fa-flash"></i><p>18</p></section
             ><aside><i class="fa fa-star"></i><p>Follow</p></aside>
           <% } %>
       </section>
@@ -841,21 +841,27 @@
 <script type='text/template' id='business-post-view'>
 
     <section class="feed-post">
+        <% var user = attributes.createdBy %>
 
-        <section class="feed-info">
-          <% var user = attributes.createdBy %>
-          <section class="feed-avatar">
-            <section class="feed-logo">
+        <section class="feed-controls">
+          <% if (Parse.User.current().get('userType') === 'consumer') { %>
+            <aside>
               <% if (typeof user.get('avatar') !=='undefined') { %>
-                  <img src=<%= user.get('avatar')._url %> >
-                  <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-            </section>
-          </section
-          ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><h2><%= user.attributes.address %></h2></section
-          ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
+                <img src=<%= user.get('avatar')._url %> >
+              <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+            </aside
 
+            ><section>
+              <h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
+
+            ><h2><%= moment(createdAt).fromNow(true) %></h2>
+          <% } else { %>
+
+            <section><i class="fa fa-flash"></i><p>18</p></section
+            ><aside><i class="fa fa-check-circle"></i><p class='follow'>Follow</p></aside>
+          <% } %>
         </section>
 
         <section class="feed-status">
@@ -863,23 +869,17 @@
             <p><%= attributes.content %></p>
           </aside>
         </section>
-        <% if (typeof attributes.image !== 'undefined') {%>
-        <section class="feed-photo">
-          <a href=<%= attributes.image._url %> >
-            <img src=<%= attributes.image._url %> />
-          </a>
-        </section>
-        <% } %>
-        <section class="feed-controls">
-          <% if (Parse.User.current().get('userType') === 'consumer') { %>
-            <section><p>18 Like this</p></section
-            ><aside><i class="fa fa-check"></i><p>Follow</p></aside>
-          <% } else { %>
 
-            <section><i class="fa fa-flash"></i><p>18 people like this</p></section
-            ><aside><p class='follow'>Follow</p></aside>
-          <% } %>
-        </section>
+        <% if (typeof attributes.image !== 'undefined') {%>
+          <section class="feed-photo">
+            <a href=<%= attributes.image._url %> >
+              <img src=<%= attributes.image._url %> />
+            </a>
+          </section>
+        <% } %>
+
+        <section class="feed-statistics"><h1>Like</h1><p class='follow'>Follow</p></section>
+
       </section>
 </script>
 
@@ -1249,9 +1249,8 @@
   <header>
     <div class="header-container">
       <div class="header-left">
+        
 
-      </div
-      ><div class="header-center">
         <% if (Parse.User.current().get('userType') === 'consumer') { %>
           <div class="to-location">
             <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
@@ -1262,12 +1261,25 @@
 
         <% } else { %>
         <% } %>
-
+      </div
+      ><div class="header-center">
+        
+        <div class="dashboard-tabs">
+          <a href="#dashboard"><i class="fa fa-comments"></i><h1>Home</h1></a>
+          <a href="#dashboard/listing"><i class="fa fa-th-list"></i><h1>Discover</h1></a>
+          <a href="#dashboard/following"><i class="fa fa-star"></i><h1>Following</h1></a>
+          <a href="#dashboard/map"><i class="fa fa-location-arrow"></i><h1>Map</h1></a>
+        </div>
 
       
       </div
       ><div class="header-right">
-        
+
+        <% if (Parse.User.current().get('userType') === 'consumer') { %>
+
+          <a href="#dashboard/following"><div class="following-link"><section><i class="fa fa-star"></i><h1>Following</h1></section><aside><h1>21</h1></aside></div></a>
+        <% } else { %>
+        <% } %> 
 
       </div>  
 
@@ -1289,18 +1301,14 @@
       </div
 
       ><div class="middle-column">
-        <div class="listing-container"></div>
-        <% if (Parse.User.current().get('userType') === 'consumer') { %>
+        <div class="profile-feed"><ul></ul></div>
 
-          <a href="#dashboard/following"><div class="following-link"><section><i class="fa fa-star"></i><h1>Following</h1></section><aside><h1>21</h1></aside></div></a>
-        <% } else { %>
-        <% } %>  
+        <div class="copyright-info">
+          <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+          <p>Beseech Me®, LLC</p>
+        </div> 
       </div
       ><div class="right-column">
-        <div class="profile-feed">
-          <ul>
-          </ul>
-        </div><!-- END PROFILE FEED -->
       </div>
   </div>
 </script>
@@ -1368,13 +1376,15 @@
 
 <script type="text/template" id="dashboard-listing-view">
   <div class="dashboard-container">
-    <div class="middle-column"></div
+    <div class="left-column"></div
+    ><div class="middle-column"><div class="listing-container"></div></div
     ><div class="right-column">
-      <div class="listing-container"></div>
 
     </div>
   </div>
 </script>
+
+<!-- Dashboard Following List -->
 
 <script type="text/template" id="individual-following-view">
 
@@ -1384,24 +1394,27 @@
     <% } else { %>
     <img src="images/default-avatar.png">
     <% } %>
-  </aside>
-  <section>
+  </aside
+  ><section>
     <h1><%= attributes.businessName %></h1>
     <p><%= attributes.address %></p>
-  </section>
-  <article>
-    <h1>Remove</h1>
+  </section
+  ><article>
+    <p class='follow'>Unfollow</p>
   </article>
 
 </script>
 
 <script type="text/template" id="dashboard-following-view">
   <div class="dashboard-container">
-    <div class="one-column-container">
-      <div class="following-container"></div>
-    </div>
+    <div class="left-column"></div
+
+    ><div class="middle-column"><div class="following-container"></div></div
+    ><div class="right-column"></div>
   </div>
 </script>
+
+<!-- Dashboard Map View -->
 
 <script type="text/template" id="dashboard-map-view">
   <div class="map-container">
