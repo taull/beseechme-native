@@ -1465,13 +1465,14 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     var likedBy = this.model.relation('likedBy');
     var currentTarget = e.currentTarget;
     var currentTargetClass = currentTarget.className;
+    var likeCount = this.$el.find('.likes');
 
     if (currentTargetClass == 'like-button') {
       this.likeCount += 1;
       //Update the UI
       currentTarget.className = 'dislike-button';
       currentTarget.textContent = 'Dislike';
-      $('.likes').text('Likes: ' + this.likeCount);
+      likeCount.text('Likes: ' + this.likeCount);
       // Add this user to the likedBy relation of this post and save
       likedBy.add(user);
       this.model.save();
@@ -1480,7 +1481,7 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
       //Update the UI
       currentTarget.className = 'like-button';
       currentTarget.textContent = 'Like';
-      $('.likes').text('Likes: ' + this.likeCount);
+      likeCount.text('Likes: ' + this.likeCount);
       // Remove this user from the likeBy relation of this post and save
       likedBy.remove(user);
       this.model.save();
