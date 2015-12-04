@@ -229,44 +229,56 @@
 
 <script type='text/template' id='businessStatus-post-view'>
 
-      <section class="feed-info">
+    <section class="feed-post">
         <% var user = attributes.createdBy %>
-        <section class="feed-avatar">
-          <section class="feed-logo">
-            <% if (typeof user.attributes.avatar !=='undefined') { %>
-                <img src=<%= user.attributes.avatar._url %> >
-                <% } else { %>
+
+        <section class="feed-controls">
+          <% if (Parse.User.current().get('userType') === 'consumer') { %>
+            <aside>
+              <% if (typeof user.get('avatar') !=='undefined') { %>
+                <img src=<%= user.get('avatar')._url %> >
+              <% } else { %>
                 <img src="images/default-avatar.png">
               <% } %>
-          </section>
-        </section
-        ><section class="feed-name"><h1><%= user.attributes.businessName %></h1><h2><%= user.attributes.address %></h2></section
-        ><section class="feed-ago"><p><%= moment(createdAt).fromNow(true) %> ago</p></section>
+            </aside
 
+            ><section>
+              <h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
 
-      </section>
-
-      <section class="feed-status">
-        <aside>
-          <p><%= attributes.content %></p>
-        </aside>
-      </section>
-      <% if (typeof attributes.image !== 'undefined') {%>
-      <section class="feed-photo">
-        <a href=<%= attributes.image._url %> >
-          <img src=<%= attributes.image._url %> />
-        </a>
-      </section>
-      <% } %>
-
-      <section class="feed-controls">
-          <% if (Parse.User.current().get('userType') === 'consumer') { %>
-            <section><p>18 Like this</p></section
-            ><aside><i class="fa fa-star"></i><p>Follow</p></aside>
+            ><h2><%= moment(createdAt).fromNow(true) %></h2>
           <% } else { %>
-            <section><i class="fa fa-flash"></i><p>18</p></section
-            ><aside><i class="fa fa-star"></i><p>Follow</p></aside>
+
+            <aside>
+              <% if (typeof user.get('avatar') !=='undefined') { %>
+                <img src=<%= user.get('avatar')._url %> >
+              <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+            </aside
+
+            ><section>
+              <h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
+
+            ><h2><%= moment(createdAt).fromNow(true) %></h2>
           <% } %>
+        </section>
+
+        <section class="feed-status">
+          <aside>
+            <p><%= attributes.content %></p>
+          </aside>
+        </section>
+
+        <% if (typeof attributes.image !== 'undefined') {%>
+          <section class="feed-photo">
+            <a href=<%= attributes.image._url %> >
+              <img src=<%= attributes.image._url %> />
+            </a>
+          </section>
+        <% } %>
+
+        <section class="feed-statistics"><h1>Like</h1><p class='follow'>Follow</p></section>
+
       </section>
 </script>
 
@@ -859,8 +871,18 @@
             ><h2><%= moment(createdAt).fromNow(true) %></h2>
           <% } else { %>
 
-            <section><i class="fa fa-flash"></i><p>18</p></section
-            ><aside><i class="fa fa-check-circle"></i><p class='follow'>Follow</p></aside>
+            <aside>
+              <% if (typeof user.get('avatar') !=='undefined') { %>
+                <img src=<%= user.get('avatar')._url %> >
+              <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+            </aside
+
+            ><section>
+              <h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
+
+            ><h2><%= moment(createdAt).fromNow(true) %></h2>
           <% } %>
         </section>
 
