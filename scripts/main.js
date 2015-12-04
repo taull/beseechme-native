@@ -1364,6 +1364,7 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
 BeMe.Views.BusinessPostView = Parse.View.extend({
   initialize: function () {
     this.render();
+    this.getLikes();
   },
 
   template: _.template($('#business-post-view').text()),
@@ -1377,6 +1378,7 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
   events: {
     'click .follow' : 'follow',
     'click .unfollow': 'unfollow',
+    'click .like' : 'toggleLike'
   },
 
   follow: function () {
@@ -1387,7 +1389,6 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     if (currentUser.id !== createdBy.id) {
       relation.add(createdBy);
       currentUser.save({},{success: function () {
-        // self.isFollowing();
         self.updateFollowButtons();
       }, error: function (error) {
         alert('Save failed');
@@ -1405,7 +1406,6 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     var createdBy = this.model.get('createdBy');
     relation.remove(createdBy);
     currentUser.save({},{success: function () {
-      // self.isNotFollowing();
       self.updateFollowButtons();
     }, error: function () {
       alert('Error saving');
@@ -1433,6 +1433,27 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
 
   updateFollowButtons: function () {
     BeMe.Dashboard.FeedList.updateFollowButtons();
+  },
+
+  getLikes: function () {
+    this.model.relation('likedBy').query().count().then(function (count) {
+      console.log("Likes: " + count);
+    })
+  },
+
+  toggleLike: function () {
+    var user = Parse.User.current();
+    var likedBy = this.relation('likedBy');
+
+    if (!liked) {
+      // Add this user to the likedBy relation of this post and save
+      likedBy.add(user);
+      this.save();
+    } else {
+      // Remove this user from the likeBy relation of this post and save
+      likedBy.remove(user);
+      this.save();
+    }
   }
 
 })
