@@ -1364,7 +1364,9 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
 BeMe.Views.BusinessPostView = Parse.View.extend({
   initialize: function () {
     this.render();
+    this.likeCount;
     this.getLikes();
+    this.doesUserLike();
   },
 
   template: _.template($('#business-post-view').text()),
@@ -1378,7 +1380,7 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
   events: {
     'click .follow' : 'follow',
     'click .unfollow': 'unfollow',
-    'click .like' : 'toggleLike'
+    'click .like-button, .dislike-button' : 'toggleLike'
   },
 
   follow: function () {
@@ -1437,23 +1439,51 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
   },
 
   getLikes: function () {
+    var self = this;
     this.model.relation('likedBy').query().count().then(function (count) {
-      console.log("Likes: " + count);
+      self.likeCount = count;
+      self.$el.find('.likes').append("Likes: " + count);
+    });
+  },
+
+  doesUserLike: function () {
+    var self = this;
+    var query = this.model.relation('likedBy').query();
+    query.equalTo('objectId',Parse.User.current().id);
+    query.first().then(function (i) {
+      if(i) {
+        //user does like
+        var likeButton = self.$el.find('.like-button')[0];
+        likeButton.className = 'dislike-button';
+        likeButton.textContent = 'Dislike';
+      }
     })
   },
 
-  toggleLike: function () {
+  toggleLike: function (e) {
     var user = Parse.User.current();
-    var likedBy = this.relation('likedBy');
+    var likedBy = this.model.relation('likedBy');
+    var currentTarget = e.currentTarget;
+    var currentTargetClass = currentTarget.className;
 
-    if (!liked) {
+    if (currentTargetClass == 'like-button') {
+      this.likeCount += 1;
+      //Update the UI
+      currentTarget.className = 'dislike-button';
+      currentTarget.textContent = 'Dislike';
+      $('.likes').text('Likes: ' + this.likeCount);
       // Add this user to the likedBy relation of this post and save
       likedBy.add(user);
-      this.save();
-    } else {
+      this.model.save();
+    } else if (currentTargetClass == 'dislike-button') {
+      this.likeCount -=1;
+      //Update the UI
+      currentTarget.className = 'like-button';
+      currentTarget.textContent = 'Like';
+      $('.likes').text('Likes: ' + this.likeCount);
       // Remove this user from the likeBy relation of this post and save
       likedBy.remove(user);
-      this.save();
+      this.model.save();
     }
   }
 
