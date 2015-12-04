@@ -1416,8 +1416,10 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     // Changes the follow button to unfollow button
     var $followButton = this.$el.find('.follow');
     if($followButton.length) {
-      $followButton.css('background', 'red');
-      $followButton.text('Unfollow');
+      // $followButton.css('background', '#01579B');
+      $followButton.css('color', '#ccc');
+
+      $followButton.text('Following');
       $followButton[0].className = 'unfollow';
     }
   },
@@ -1425,7 +1427,6 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
   isNotFollowing: function () {
     var $unfollowButton = this.$el.find('.unfollow');
     if ($unfollowButton.length) {
-      $unfollowButton.css('background', '#01579B');
       $unfollowButton.text('Follow');
       $unfollowButton[0].className = 'follow';
     }
