@@ -221,7 +221,6 @@ BeMe.Views.Index = Parse.View.extend({
 
 		Parse.User.logIn(email,password, {
 			success: function  (userObject) {
-				console.log(userObject);
         BeMe.ApplicationView.render();
         if(userObject.get('userType') == 'consumer') {
           BeMe.Router.navigate('dashboard', true);
@@ -1956,7 +1955,6 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
 
         marker.addListener('click', function (markerObject) {
           var infoWindow = self.infoWindow;
-          console.log(markerObject.content);
 
           infoWindow.setPosition(position);
           var contentTemplate = _.template($("#map-popout-view").text());
