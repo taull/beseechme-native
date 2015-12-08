@@ -1417,8 +1417,8 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     // Changes the follow button to unfollow button
     var $followButton = this.$el.find('.follow');
     if($followButton.length) {
-      // $followButton.css('background', '#01579B');
-      $followButton.css('color', '#ccc');
+      $followButton.css('color', '#0277BD');
+      $followButton.css('border', '1px solid #0277BD');
 
       $followButton.text('Following');
       $followButton[0].className = 'unfollow';
@@ -1428,6 +1428,8 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
   isNotFollowing: function () {
     var $unfollowButton = this.$el.find('.unfollow');
     if ($unfollowButton.length) {
+      $unfollowButton.css('color', '#ccc');
+
       $unfollowButton.text('Follow');
       $unfollowButton[0].className = 'follow';
     }
@@ -1441,7 +1443,7 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     var self = this;
     this.model.relation('likedBy').query().count().then(function (count) {
       self.likeCount = count;
-      self.$el.find('.likes').append("Likes: " + count);
+      self.$el.find('.likes').append(count);
     });
   },
 
@@ -1454,7 +1456,7 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
         //user does like
         var likeButton = self.$el.find('.like-button')[0];
         likeButton.className = 'dislike-button';
-        likeButton.textContent = 'Dislike';
+        likeButton.textContent = 'You like this';
       }
     })
   },
@@ -1470,8 +1472,8 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
       this.likeCount += 1;
       //Update the UI
       currentTarget.className = 'dislike-button';
-      currentTarget.textContent = 'Dislike';
-      likeCount.text('Likes: ' + this.likeCount);
+      currentTarget.textContent = 'You like this';
+      likeCount.text(this.likeCount);
       // Add this user to the likedBy relation of this post and save
       likedBy.add(user);
       this.model.save();
@@ -1480,7 +1482,7 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
       //Update the UI
       currentTarget.className = 'like-button';
       currentTarget.textContent = 'Like';
-      likeCount.text('Likes: ' + this.likeCount);
+      likeCount.text(this.likeCount);
       // Remove this user from the likeBy relation of this post and save
       likedBy.remove(user);
       this.model.save();
@@ -1940,7 +1942,9 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
     //CHANGE THE DISTANCE TO user.get('maxDistance') AFTER WE GET THE SLIDER WORKING
     query.withinMiles("location", user.get('location'), 100);
     query.equalTo('userType', 'business');
-    query.notEqualTo('businessName', user.get('businessName'));
+    if (user.get('userType') == 'business') {
+      query.notEqualTo('businessName', user.get('businessName'));
+    }
     query.find().then(function (bars) {
 
       _.each(bars, function (i) {
