@@ -2,7 +2,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,800,900,300italic,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lobster);
-
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700,700italic,400italic,300italic);
 /* Colors */
 
 $primary-color-dark: #263238;
@@ -52,7 +52,7 @@ input [file] {
 body {
 	font-size: 12px;
 	position: relative;
-	background: #f8f8f8;
+	background: #fff;
 	width: 100%;
 	margin: 0 auto;
 	/*overflow-x: hidden;*/
@@ -77,9 +77,9 @@ body {
 }
 
 .dashboard-container {
-	width: 1000px;
+	width: 1200px;
     margin: 0 auto;
-    margin-top: 65px;
+    margin-top: 55px;
     position:relative;
     z-index:1;
     padding: 0px 0;
@@ -165,17 +165,17 @@ body {
 }
 
 .left-column {
-	width: 25%;
+	width: 30%;
 }
 
 .right-column {
-	width: 25%;
+	width: 30%;
 	padding: 0 0 0 10px;
 }
 
 .middle-column {
 	position: relative;
-	width: 50%;
+	width: 40%;
 	padding: 0 10px;
 	/*background: #f0f0f0;*/
 	/*margin-top: -15px;*/
@@ -228,7 +228,7 @@ header {
     top: 0;
     left: 0;
     z-index: 9999999;
-    background: #444;
+    background: #333;
 }
 
 .header-container {
@@ -479,7 +479,6 @@ header {
 .dashboard-tabs {
 	width: 100%;
 	padding: 12.5px 15px;
-	background: #444;
 	height: 45px;
 	text-align: center;
 	/*border-radius: 3px;*/
@@ -1706,16 +1705,15 @@ header {
 
 .dashboard-statistics {
 	width: 100%;
-	background: #555;
+	background: #222;
 	padding: 30px 15px;
-	margin-bottom: 10px;
 
 	li {
 		width: 33.33333%;
 		display: inline-block;
 		vertical-align: top;
 		text-align: center;
-		border-right: 1px solid #666;
+		border-right: 1px solid #333;
 
 		h1 {
 			width: 100%;
@@ -1772,23 +1770,52 @@ header {
 	}
 }
 
-.dashboard-current-location-info {
-	padding: 15px; 
-	text-align: center;
-	background: #f8f8f8;
+.dashboard-tabs1 {
+	text-align: left;
 	width: 100%;
-	border-bottom: 1px solid #f0f0f0;
+	background: #333;
+
+	li {
+		padding: 15px 20px;
+	}
+
+	section, 
+	aside {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	aside {
+
+		span {
+			font-size: 1.4em;
+			color: #fff;
+			background: $secondary-color-medium;
+			padding-top: 9px;
+			height: 35px;
+			width: 35px;
+			text-align: center;
+			border-radius: 3px;
+		}
+	}
+
+	section {
+		padding-left: 10px;
+	}
 
 	h1 {
-		font-size: 1.4em;
-		color: #555;
+		font-size: 1em;
+		color: #f0f0f0;
 		font-weight: 500;
 	}
 
 	p {
+		display: inline-block;
+		vertical-align: top;
 		font-size: .8em;
-		color: #999;
-		margin-top: 5px;
+		font-weight: 300;
+		margin-top: 3px;
+		color: #ccc;
 	}
 }
 
@@ -3537,7 +3564,6 @@ svg rect{
 
 .profile-feed {
     width: 100%;
-    background: #f8f8f8;
 
 
 	ul {
@@ -3556,9 +3582,8 @@ svg rect{
 	li, 
 	div {
 		background: #fff;
-		/*border-bottom: 1px solid #f0f0f0;*/
+		border-bottom: 1px solid #f0f0f0;
 		padding: 15px;
-		margin-bottom: 10px;
 	}
 	li:nth-child(odd), 
 	div:nth-child(odd) {
@@ -3672,7 +3697,7 @@ svg rect{
 	width: 100%;
 	max-height: 300px;
 	overflow: hidden;
-	padding: 15px 0px 0 0px;
+	padding: 0px;
 
 	img {
 		width: 100%;
@@ -3683,7 +3708,7 @@ svg rect{
 .feed-status {
 	width: 100%;
 	display: inline-block;
-	padding: 15px 0px 0 0px;	
+	padding: 20px 0px;	
 
 	aside {
 		width: 100%;
@@ -3702,7 +3727,7 @@ svg rect{
 		p {
 			font-size: 1.2em;
 		    line-height: 1.4em;
-		    font-weight: 300;
+		    font-weight: 400;
 		    color: #555;
 		}
 	}
@@ -3732,7 +3757,7 @@ svg rect{
 }
 
 .feed-statistics {
-	padding: 10px 0 0;
+	padding: 0;
 
 	a {
 		height: 0;
@@ -5558,6 +5583,10 @@ svg rect{
 	.middle-column, 
 	.left-column {
 		width: 100%;
+	}
+
+	.middle-column {
+		padding: 0;
 	}
 
 

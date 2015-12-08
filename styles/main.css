@@ -1,6 +1,7 @@
 /* Fonts */
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,800,900,300italic,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700,700italic,400italic,300italic);
 /* Colors */
 /* Global Variables */
 * {
@@ -14,7 +15,7 @@
 body {
   font-size: 12px;
   position: relative;
-  background: #f8f8f8;
+  background: #fff;
   width: 100%;
   margin: 0 auto;
   /*overflow-x: hidden;*/
@@ -36,9 +37,9 @@ body {
   padding: 15px 0; }
 
 .dashboard-container {
-  width: 1000px;
+  width: 1200px;
   margin: 0 auto;
-  margin-top: 65px;
+  margin-top: 55px;
   position: relative;
   z-index: 1;
   padding: 0px 0; }
@@ -101,15 +102,15 @@ body {
   vertical-align: top; }
 
 .left-column {
-  width: 25%; }
+  width: 30%; }
 
 .right-column {
-  width: 25%;
+  width: 30%;
   padding: 0 0 0 10px; }
 
 .middle-column {
   position: relative;
-  width: 50%;
+  width: 40%;
   padding: 0 10px;
   /*background: #f0f0f0;*/
   /*margin-top: -15px;*/
@@ -151,7 +152,7 @@ header {
   top: 0;
   left: 0;
   z-index: 9999999;
-  background: #444; }
+  background: #333; }
 
 .header-container {
   width: 1000px;
@@ -342,7 +343,6 @@ header {
 .dashboard-tabs {
   width: 100%;
   padding: 12.5px 15px;
-  background: #444;
   height: 45px;
   text-align: center;
   /*border-radius: 3px;*/
@@ -1241,15 +1241,14 @@ header {
 
 .dashboard-statistics {
   width: 100%;
-  background: #555;
-  padding: 30px 15px;
-  margin-bottom: 10px; }
+  background: #222;
+  padding: 30px 15px; }
   .dashboard-statistics li {
     width: 33.33333%;
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    border-right: 1px solid #666; }
+    border-right: 1px solid #333; }
     .dashboard-statistics li h1 {
       width: 100%;
       font-size: 2.6em;
@@ -1288,20 +1287,38 @@ header {
     color: #999;
     margin-top: 10px; }
 
-.dashboard-current-location-info {
-  padding: 15px;
-  text-align: center;
-  background: #f8f8f8;
+.dashboard-tabs1 {
+  text-align: left;
   width: 100%;
-  border-bottom: 1px solid #f0f0f0; }
-  .dashboard-current-location-info h1 {
+  background: #333; }
+  .dashboard-tabs1 li {
+    padding: 15px 20px; }
+  .dashboard-tabs1 section,
+  .dashboard-tabs1 aside {
+    display: inline-block;
+    vertical-align: top; }
+  .dashboard-tabs1 aside span {
     font-size: 1.4em;
-    color: #555;
+    color: #fff;
+    background: #0277BD;
+    padding-top: 9px;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    border-radius: 3px; }
+  .dashboard-tabs1 section {
+    padding-left: 10px; }
+  .dashboard-tabs1 h1 {
+    font-size: 1em;
+    color: #f0f0f0;
     font-weight: 500; }
-  .dashboard-current-location-info p {
+  .dashboard-tabs1 p {
+    display: inline-block;
+    vertical-align: top;
     font-size: .8em;
-    color: #999;
-    margin-top: 5px; }
+    font-weight: 300;
+    margin-top: 3px;
+    color: #ccc; }
 
 .current-location {
   background: transparent;
@@ -2623,8 +2640,7 @@ svg rect {
 
 /* The Feed */
 .profile-feed {
-  width: 100%;
-  background: #f8f8f8; }
+  width: 100%; }
   .profile-feed ul {
     list-style: none;
     padding-left: 0; }
@@ -2637,9 +2653,8 @@ svg rect {
   .profile-feed li,
   .profile-feed div {
     background: #fff;
-    /*border-bottom: 1px solid #f0f0f0;*/
-    padding: 15px;
-    margin-bottom: 10px; }
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px; }
   .profile-feed li:nth-child(odd),
   .profile-feed div:nth-child(odd) {
     /*background: #f8f8f8;*/ }
@@ -2720,7 +2735,7 @@ svg rect {
   width: 100%;
   max-height: 300px;
   overflow: hidden;
-  padding: 15px 0px 0 0px; }
+  padding: 0px; }
   .feed-photo img {
     width: 100%;
     height: auto; }
@@ -2728,7 +2743,7 @@ svg rect {
 .feed-status {
   width: 100%;
   display: inline-block;
-  padding: 15px 0px 0 0px; }
+  padding: 20px 0px; }
   .feed-status aside {
     width: 100%;
     text-align: left;
@@ -2743,7 +2758,7 @@ svg rect {
     .feed-status aside p {
       font-size: 1.2em;
       line-height: 1.4em;
-      font-weight: 300;
+      font-weight: 400;
       color: #555; }
   .feed-status footer p,
   .feed-status footer span {
@@ -2762,7 +2777,7 @@ svg rect {
     padding: 0 0 0 10px; }
 
 .feed-statistics {
-  padding: 10px 0 0; }
+  padding: 0; }
   .feed-statistics a {
     height: 0; }
   .feed-statistics h1,
@@ -4188,6 +4203,9 @@ svg rect {
   .dashboard-container,
   .middle-column,
   .left-column {
-    width: 100%; } }
+    width: 100%; }
+
+  .middle-column {
+    padding: 0; } }
 
 /*# sourceMappingURL=main.css.map */

@@ -1319,6 +1319,18 @@
       <div class="left-column">
 
           
+          <div class="dashboard-statistics">
+            <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
+            ><li><h1>156</h1><p>Upvotes</p></li
+            ><li><h1>24</h1><p>Beers</p></li>
+          </div>
+
+          <div class="dashboard-tabs1">
+            
+            <li><aside><a href="#location"><span class="fa fa-location-arrow"></span></a></aside><section><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Last Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></section></li
+            ><li><aside><a href="#location"><span class="fa fa-location-arrow"></span></a></aside><section><h1>Following</h1><p>My favorite bars</p></section></li>
+
+          </div>
 
           <% var user = Parse.User.current() %>
 
@@ -1333,13 +1345,6 @@
       </div
 
       ><div class="middle-column">
-        <div class="dashboard-current-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Last Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></div>
-          <div class="dashboard-statistics">
-            <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
-            ><li><h1>156</h1><p>Upvotes</p></li
-            ><li><h1>24</h1><p>Beers</p></li>
-
-          </div>
           
         <div class="profile-feed"><ul></ul></div>
 
