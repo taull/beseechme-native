@@ -222,7 +222,7 @@ BeMe.Views.Index = Parse.View.extend({
 		Parse.User.logIn(email,password, {
 			success: function  (userObject) {
         BeMe.ApplicationView.render();
-        if(userObject.get('userType') == 'consumer') {
+        if (userObject.get('userType') == 'consumer') {
           BeMe.Router.navigate('dashboard', true);
         } else {
           BeMe.Router.navigate('backend/feed', true);
@@ -1765,6 +1765,11 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
     this.render();
     new BeMe.Views.DashboardFeedList();
     this.loadListings();
+    if (Parse.User.current().get('userType') == 'business') {
+      this.loadFollowers();
+    } else {
+      this.loadFollowing();
+    }
   },
 
   loadListings: function () {
@@ -1785,6 +1790,25 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
       alert('Error. Check console for details');
       console.log(error);
     });
+  },
+
+  loadFollowers: function () {
+    var query = new Parse.Query('User');
+    query.equalTo('barsFollowing', Parse.User.current());
+    query.count().then(function (followerCount) {
+      console.log(followerCount);
+      $('.follow-number').text(followerCount);
+      $('.follow-text').text('Followers');
+    });
+  },
+
+  loadFollowing: function () {
+    var query = Parse.User.current().relation('barsFollowing').query();
+    query.count().then(function (followingCount) {
+      console.log(followingCount);
+      $('.follow-number').text(followingCount);
+      $('.follow-text').text('Following');
+    })
   }
 });
 
