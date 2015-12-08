@@ -229,7 +229,7 @@
 
 <script type='text/template' id='businessStatus-post-view'>
 
-    <section class="feed-post">
+      <section class="feed-post">
         <% var user = attributes.createdBy %>
 
         <section class="feed-controls">
@@ -245,7 +245,7 @@
             ><section>
               <h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
 
-            ><h2><%= moment(createdAt).fromNow(true) %></h2>
+            ><footer><i class="fa fa-plus"></i><p class='follow'>Follow</p></footer>
           <% } else { %>
 
             <aside>
@@ -259,7 +259,7 @@
             ><section>
               <h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
 
-            ><h2><%= moment(createdAt).fromNow(true) %></h2>
+            ><footer><i class="fa fa-plus"></i><p class='follow'>Follow</p></footer>
           <% } %>
         </section>
 
@@ -267,6 +267,7 @@
           <aside>
             <p><%= attributes.content %></p>
           </aside>
+          <footer><p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p></footer>
         </section>
 
         <% if (typeof attributes.image !== 'undefined') {%>
@@ -277,7 +278,7 @@
           </section>
         <% } %>
 
-        <section class="feed-statistics"><h1>Like</h1><p class='follow'>Follow</p></section>
+        <section class="feed-statistics"><aside><h1 class='like-button'>Like</h1></aside></section>
 
       </section>
 </script>
@@ -286,9 +287,9 @@
 <% if (Parse.User.current().get('userType') === 'business') { %>
 
   <div class="backend-container">
-      <div class="middle-column">
-        
-         <div class="profile-tools profile-tools-desktop">
+      <div class="left-column">
+
+        <div class="profile-tools profile-tools-desktop">
           <form action="">
 
             <textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea
@@ -303,11 +304,8 @@
 
           </form>
         </div>
-
       </div
-      ><div class="right-column">
-
-
+      ><div class="middle-column">
 
         <div class="profile-feed">
           <ul>
@@ -318,6 +316,9 @@
           <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
           <p>Beseech Me®, LLC</p>
         </div>
+      </div
+      ><div class="right-column">
+
       </div>
 
   </div>
@@ -359,13 +360,10 @@
 <script type="text/template" id="backend-beer-view">
 
   <div class="backend-container">
-    <div class="middle-column">
-
+    <div class="left-column">
     </div
-    ><div class="right-column">
-
-
-      <div class="narrow-container">
+    ><div class="middle-column">
+            <div class="narrow-container">
         <% var user = Parse.User.current(); %>
 
         <div class="profile-beer-tabs">
@@ -436,6 +434,11 @@
         </div>
 
       </div>
+
+    </div
+    ><div class="right-column">
+
+
 
 
 
@@ -868,7 +871,7 @@
             ><section>
               <h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
 
-            ><h2><%= moment(createdAt).fromNow(true) %></h2>
+            ><footer><i class="fa fa-plus"></i><p class='follow'>Follow</p></footer>
           <% } else { %>
 
             <aside>
@@ -882,7 +885,7 @@
             ><section>
               <h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
 
-            ><h2><%= moment(createdAt).fromNow(true) %></h2>
+            ><footer><i class="fa fa-plus"></i><p class='follow'>Follow</p></footer>
           <% } %>
         </section>
 
@@ -890,6 +893,7 @@
           <aside>
             <p><%= attributes.content %></p>
           </aside>
+          <footer><p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p></footer>
         </section>
 
         <% if (typeof attributes.image !== 'undefined') {%>
@@ -900,7 +904,7 @@
           </section>
         <% } %>
 
-        <section class="feed-statistics"><h1 class='like-button'>Like</h1><span class='likes'></span><p class='follow'>Follow</p></section>
+        <section class="feed-statistics"><aside><h1 class='like-button'>Like</h1></aside></section>
 
       </section>
 </script>
@@ -1259,7 +1263,6 @@
         </div>
       <% } %>
 
-    </div>
 
   </div>
 </script>
@@ -1297,11 +1300,7 @@
       </div
       ><div class="header-right">
 
-        <% if (Parse.User.current().get('userType') === 'consumer') { %>
-
-          <a href="#dashboard/following"><div class="following-link"><section><i class="fa fa-star"></i><h1>Following</h1></section><aside><h1>21</h1></aside></div></a>
-        <% } else { %>
-        <% } %> 
+        
 
       </div>  
 
@@ -1319,10 +1318,29 @@
 
       <div class="left-column">
 
-        <div id='map'></div>
+          
+
+          <% var user = Parse.User.current() %>
+
+          <% if (user.get('userType') === 'consumer') { %>
+            
+
+          <% } else { %>
+
+            
+          <% } %>
+
       </div
 
       ><div class="middle-column">
+        <div class="dashboard-current-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Last Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></div>
+          <div class="dashboard-statistics">
+            <li><h1>12</h1><p>Following</p></li
+            ><li><h1>156</h1><p>Upvotes</p></li
+            ><li><h1>24</h1><p>Beers</p></li>
+
+          </div>
+          
         <div class="profile-feed"><ul></ul></div>
 
         <div class="copyright-info">
@@ -1431,7 +1449,18 @@
   <div class="dashboard-container">
     <div class="left-column"></div
 
-    ><div class="middle-column"><div class="following-container"></div></div
+    ><div class="middle-column">
+      <div class="dashboard-following">
+        <li><img src="images/bar-logo.png"></li
+        ><li><img src="images/bar-logo1.jpg"></li
+        ><li><img src="images/bar-logo2.jpg"></li
+        ><li><img src="images/bar-logo4.jpg"></li
+
+        ><li><img src="images/bar-logo3.jpg"></li>
+
+      </div>
+      <div class="following-container"></div>
+    </div
     ><div class="right-column"></div>
   </div>
 </script>
