@@ -221,9 +221,8 @@ BeMe.Views.Index = Parse.View.extend({
 
 		Parse.User.logIn(email,password, {
 			success: function  (userObject) {
-				console.log(userObject);
         BeMe.ApplicationView.render();
-        if(userObject.get('userType') == 'consumer') {
+        if (userObject.get('userType') == 'consumer') {
           BeMe.Router.navigate('dashboard', true);
         } else {
           BeMe.Router.navigate('backend/feed', true);
@@ -1430,8 +1429,13 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     var $unfollowButton = this.$el.find('.unfollow');
     if ($unfollowButton.length) {
       $unfollowButton.css('color', '#ccc');
+<<<<<<< HEAD
       $unfollowButton.css('border', '1px solid #f0f0f0');
  
+=======
+      $unfollowButton.css('border', '1px solid #ccc');
+
+>>>>>>> 6429effcd0780a68f3e94a93aa42e8b0e68bb6d8
       $unfollowButton.text('Follow');
       $unfollowButton[0].className = 'follow';
     }
@@ -1767,6 +1771,11 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
     this.render();
     new BeMe.Views.DashboardFeedList();
     this.loadListings();
+    if (Parse.User.current().get('userType') == 'business') {
+      this.loadFollowers();
+    } else {
+      this.loadFollowing();
+    }
   },
 
   loadListings: function () {
@@ -1787,6 +1796,25 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
       alert('Error. Check console for details');
       console.log(error);
     });
+  },
+
+  loadFollowers: function () {
+    var query = new Parse.Query('User');
+    query.equalTo('barsFollowing', Parse.User.current());
+    query.count().then(function (followerCount) {
+      console.log(followerCount);
+      $('.follow-number').text(followerCount);
+      $('.follow-text').text('Followers');
+    });
+  },
+
+  loadFollowing: function () {
+    var query = Parse.User.current().relation('barsFollowing').query();
+    query.count().then(function (followingCount) {
+      console.log(followingCount);
+      $('.follow-number').text(followingCount);
+      $('.follow-text').text('Following');
+    })
   }
 });
 
@@ -1961,7 +1989,6 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
 
         marker.addListener('click', function (markerObject) {
           var infoWindow = self.infoWindow;
-          console.log(markerObject.content);
 
           infoWindow.setPosition(position);
           var contentTemplate = _.template($("#map-popout-view").text());
