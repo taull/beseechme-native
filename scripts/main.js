@@ -1429,6 +1429,7 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     var $unfollowButton = this.$el.find('.unfollow');
     if ($unfollowButton.length) {
       $unfollowButton.css('color', '#ccc');
+      $unfollowButton.css('border', '1px solid #ccc');
 
       $unfollowButton.text('Follow');
       $unfollowButton[0].className = 'follow';
