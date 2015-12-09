@@ -2050,11 +2050,9 @@ BeMe.Views.DashboardfollowingListing = Parse.View.extend({
   render: function () {
     var self = this;
 
-    var query = Parse.User.current().relation('barsFollowing').query();
-    query.find().then(function (barsFollowing) {
-      console.log(barsFollowing);
-      _.each(barsFollowing, function (barFollowing) {
-        self.views.push(new BeMe.Views.IndividualDashboardfollowing({model: barFollowing}));
+    Parse.Cloud.run('pullFollowingStatuses').then(function(statuses) {
+      _.each(statuses, function (status) {
+        self.views.push(new BeMe.Views.BusinessPostView({model:status}));
       });
     });
   }
