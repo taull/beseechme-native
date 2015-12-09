@@ -803,8 +803,9 @@ header {
 /* Listings */
 .listing-container {
   width: 100%;
-  background: #f8f8f8;
+  background: #fff;
   margin-bottom: 15px;
+  /*padding: 15px 0;*/
   /*margin-top: -341px;*/
   transition: 250ms;
   /*border: 1px solid #d8d8d8;*/ }
@@ -814,7 +815,7 @@ header {
   .listing-container li {
     display: inline-block;
     width: 100%;
-    padding: 15px 15px;
+    padding: 15px;
     cursor: pointer; }
   .listing-container li:hover {
     background: #0277BD; }
@@ -869,7 +870,8 @@ header {
 
 /* following */
 .following-container {
-  background: #fff; }
+  background: #fff;
+  padding: 15px 0; }
   .following-container li,
   .following-container div,
   .following-container aside,
@@ -880,36 +882,44 @@ header {
   .following-container li,
   .following-container div {
     width: 100%;
-    padding: 10px 15px; }
+    padding: 15px 15px; }
   .following-container aside {
-    width: 10%; }
+    width: 50px; }
     .following-container aside img {
-      width: 100%; }
+      width: 40px;
+      height: 40px;
+      border-radius: 20px; }
   .following-container section {
-    width: 60%;
-    padding-left: 10px;
-    padding-top: 5px; }
+    padding-top: 2px; }
     .following-container section h1 {
       font-size: 1.2em;
       font-weight: 400;
       color: #01579B; }
     .following-container section p {
-      font-size: 1em;
+      font-size: .9em;
       font-weight: 300;
-      color: #333; }
+      color: #333;
+      padding-top: 3px; }
   .following-container article {
-    width: 30%;
-    text-align: right; }
+    text-align: right;
+    float: right;
+    padding-top: 10px; }
+    .following-container article i,
+    .following-container article p {
+      display: inline-block;
+      vertical-align: top; }
+    .following-container article i {
+      font-size: 1em;
+      color: #ccc;
+      padding-top: 2px;
+      text-align: right; }
     .following-container article p {
       font-size: 1em;
-      font-weight: 700;
-      color: #fff;
+      font-weight: 400;
+      color: #ccc;
       text-align: center;
       width: 80px;
-      padding: 10px 10px;
-      border-radius: 3px;
-      background: #B71C1C;
-      margin-left: auto; }
+      border-radius: 3px; }
 
 .following {
   color: #0277BD; }
