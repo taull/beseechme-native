@@ -832,20 +832,19 @@ header {
   .listing-container li:last-child {
     border-bottom: 0; }
   .listing-container aside {
-    width: 10%;
+    width: 50px;
     display: inline-block; }
     .listing-container aside img {
-      width: 100%;
-      height: auto; }
+      width: 40px;
+      height: 40px;
+      border-radius: 20px; }
   .listing-container section {
-    width: 60%;
     display: inline-block;
-    vertical-align: top;
-    padding-left: 10px; }
+    vertical-align: top; }
     .listing-container section a {
       text-decoration: none; }
     .listing-container section h1 {
-      font-size: 1.2em;
+      font-size: 1.1em;
       font-weight: 500;
       color: #0277BD; }
     .listing-container section p {
@@ -859,10 +858,10 @@ header {
       font-weight: 700;
       color: #0277BD; }
   .listing-container article {
-    width: 30%;
     text-align: right;
     display: inline-block;
-    vertical-align: top; }
+    vertical-align: top;
+    float: right; }
     .listing-container article h1 {
       font-size: 1em;
       font-weight: 400;
@@ -2749,6 +2748,11 @@ svg rect {
     text-align: left;
     padding-top: 0;
     display: inline-block; }
+    .feed-status aside p,
+    .feed-status aside h1,
+    .feed-status aside span {
+      display: inline-block;
+      vertical-align: top; }
     .feed-status aside span {
       font-size: 1.1em;
       line-height: 20px;
@@ -2759,7 +2763,15 @@ svg rect {
       font-size: 1.2em;
       line-height: 1.6em;
       font-weight: 300;
-      color: #555; }
+      color: #333; }
+    .feed-status aside h1 {
+      font-weight: 400;
+      font-size: 1.3em;
+      line-height: 1.4em;
+      color: #333;
+      margin-left: 5px;
+      /*border-bottom: 1px solid #333;*/
+      /*padding-bottom: 1px;*/ }
 
 .feed-caption {
   width: 100%;
@@ -2807,6 +2819,7 @@ svg rect {
 
 .feed-controls {
   padding: 0;
+  border-top: 1px solid #f0f0f0;
   width: 100%; }
   .feed-controls a {
     height: 0; }
@@ -2823,7 +2836,6 @@ svg rect {
     width: 33.33333%;
     text-align: center;
     padding: 10px;
-    border-top: 2px solid #f8f8f8;
     margin-bottom: 0; }
   .feed-controls h1 {
     font-size: 1em;

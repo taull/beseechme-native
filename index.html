@@ -872,7 +872,19 @@
         <% var user = attributes.createdBy %>
 
         <section class="feed-info">
-        <% if (attributes.statusType === 'Business') { %>
+        <% if (attributes.statusType !== 'Business') { %>
+
+            <aside>
+              <% if (typeof user.get('avatar') !=='undefined') { %>
+                <img src=<%= user.get('avatar')._url %> >
+              <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+            </aside
+
+            ><section><h1><%= user.attributes.firstName %></h1><h3><%= user.attributes.handle %></h3></section>
+
+          <% } else { %>
             <aside>
               <% if (typeof user.get('avatar') !=='undefined') { %>
                 <img src=<%= user.get('avatar')._url %> >
@@ -882,18 +894,6 @@
             </aside
 
             ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-
-          <% } else { %>
-
-            <aside>
-              <% if (typeof user.get('avatar') !=='undefined') { %>
-                <img src=<%= user.get('avatar')._url %> >
-              <% } else { %>
-                <img src="images/default-avatar.png">
-              <% } %>
-            </aside
-
-            ><section><h1><%= user.attributes.firstName %></h1><h3><%= user.attributes.address %></h3></section>
           <% } %>
         </section>
 
@@ -921,11 +921,18 @@
           <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
         </section>
 
-        <section class="feed-controls">
-          <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-          ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
-          ><li><span class="entypo-location"></span><h1 class='check-in'>Check In</h1></li>
-        </section>
+        <% if (attributes.statusType !== 'Business') { %>
+          <section class="feed-controls">
+            <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
+            ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li>
+          </section>
+        <% } else { %>
+          <section class="feed-controls">
+            <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
+            ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+            ><li><span class="entypo-location"></span><h1 class='check-in'>Check In</h1></li>
+          </section>
+        <% } %>
 
       </section>
 </script>
@@ -959,10 +966,7 @@
         </div>
 
       <div class="wide-container">
-        <div class="profile-feed">
-          <ul>
-          </ul>
-        </div><!-- END PROFILE FEED -->
+        <div class="profile-feed"><ul></ul></div>
 
         <div class="copyright-info">
           <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
@@ -1488,7 +1492,7 @@
     </div
 
     ><div class="middle-column">
-
+        <div class="profile-feed"><ul></ul></div>
     </div
     ><div class="right-column"></div>
   </div>
