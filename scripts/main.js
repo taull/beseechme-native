@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 
 // $('.barback-breadcrumbs').click(function(){
@@ -1418,8 +1418,6 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     var $followButton = this.$el.find('.follow');
     if($followButton.length) {
       $followButton.css('color', '#0277BD');
-      $followButton.css('border', '1px solid #0277BD');
-
       $followButton.text('Following');
       $followButton[0].className = 'unfollow';
     }
@@ -1429,13 +1427,9 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     var $unfollowButton = this.$el.find('.unfollow');
     if ($unfollowButton.length) {
       $unfollowButton.css('color', '#ccc');
-<<<<<<< HEAD
-      $unfollowButton.css('border', '1px solid #f0f0f0');
- 
-=======
-      $unfollowButton.css('border', '1px solid #ccc');
+      // $unfollowButton.css('border', '1px solid #f0f0f0');
 
->>>>>>> 6429effcd0780a68f3e94a93aa42e8b0e68bb6d8
+
       $unfollowButton.text('Follow');
       $unfollowButton[0].className = 'follow';
     }
@@ -1462,7 +1456,7 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
         //user does like
         var likeButton = self.$el.find('.like-button')[0];
         likeButton.className = 'dislike-button';
-        likeButton.textContent = 'You like this';
+        likeButton.textContent = 'Liked';
       }
     })
   },
@@ -1478,7 +1472,7 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
       this.likeCount += 1;
       //Update the UI
       currentTarget.className = 'dislike-button';
-      currentTarget.textContent = 'You like this';
+      currentTarget.textContent = 'Liked';
       likeCount.text(this.likeCount);
       // Add this user to the likedBy relation of this post and save
       likedBy.add(user);
@@ -1736,6 +1730,11 @@ BeMe.Views.Dashboard = Parse.View.extend({
 
     $('.open-listing-container').click(function(){
       $('.listing-container').toggleClass('top0');
+    });
+
+    $('#left-column-trigger').click(function(){
+      $('.left-column').toggleClass('left-column-shift');
+      $('.middle-column').toggleClass('middle-column-shift');
 
     });
   },
