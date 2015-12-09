@@ -872,7 +872,8 @@
         <% var user = attributes.createdBy %>
 
         <section class="feed-info">
-          <% if (Parse.User.current().get('userType') === 'consumer') { %>
+          <% if (attributes.get('statusType') === 'Business') { %>
+            <% if (attributes.statusType === ‘Business’) { %> 
             <aside>
               <% if (typeof user.get('avatar') !=='undefined') { %>
                 <img src=<%= user.get('avatar')._url %> >
