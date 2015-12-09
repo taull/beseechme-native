@@ -42,9 +42,9 @@ body {
   padding: 15px 0; }
 
 .dashboard-container {
-  width: 960px;
+  width: 1200px;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 75px;
   position: relative;
   z-index: 1;
   padding: 0px 0; }
@@ -108,9 +108,10 @@ body {
 
 .left-column {
   width: 400px;
-  padding: 0 20px;
+  padding: 0;
   position: fixed;
   z-index: 10;
+  padding: 0 20px;
   transition: 250ms; }
 
 .middle-column {
@@ -121,9 +122,10 @@ body {
   transition: 250ms; }
 
 .right-column {
-  width: 30%;
-  padding: 0 20px;
-  display: none; }
+  width: 380px;
+  left: 400px;
+  position: relative;
+  padding: 0 20px; }
 
 .top-column {
   width: 100%; }
@@ -156,12 +158,11 @@ header {
   width: 100%;
   margin: 0px auto 0;
   position: fixed;
-  height: 45px;
+  height: 55px;
   top: 0;
   left: 0;
   z-index: 9999999;
-  background: #333;
-  display: none; }
+  background: #333; }
 
 .header-container {
   width: 1000px;
@@ -363,10 +364,8 @@ header {
 .dashboard-tabs {
   width: 100%;
   padding: 12.5px 15px;
-  height: 45px;
+  height: 55px;
   text-align: center;
-  background: #fff;
-  border-bottom: 1px solid #f0f0f0;
   /*border-radius: 3px;*/
   	/*a:first-child i {
   		color: $secondary-color-light;
