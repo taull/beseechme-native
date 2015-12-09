@@ -1094,8 +1094,9 @@ header {
 
 .listing-container {
 	width: 100%;
-	background: #f8f8f8;
+	background: #fff;
 	margin-bottom: 15px;
+	/*padding: 15px 0;*/
     /*margin-top: -341px;*/
     transition: 250ms;
 	/*border: 1px solid #d8d8d8;*/
@@ -1108,7 +1109,7 @@ header {
 	li {
 		display: inline-block;
 		width: 100%;
-		padding: 15px 15px;
+		padding: 15px;
 		cursor:pointer;
 	}
 
@@ -1205,6 +1206,7 @@ header {
 .following-container {
 
 	background: #fff;
+	padding: 15px 0;
 
 	li, 
 	div,
@@ -1219,21 +1221,21 @@ header {
 	li, 
 	div {
 		width: 100%;
-		padding: 10px 15px;
+		padding: 15px 15px;
 	}
 
 	aside {
-		width: 10%;
+		width: 50px;
 
 		img {
-		 	width: 100%;
+		 	width: 40px;
+		 	height: 40px;
+		 	border-radius: 20px;
 		}
 	}
 
 	section {
-		width: 60%;
-		padding-left: 10px;
-		padding-top: 5px;
+		padding-top: 2px;
 
 		h1 {
 			font-size: 1.2em;
@@ -1242,26 +1244,38 @@ header {
 		}
 
 		p {
-			font-size: 1em;
+			font-size: .9em;
 			font-weight: 300;
 			color: #333;
+			padding-top: 3px;
 		}
 	}
 
 	article {
-		width: 30%;
 		text-align: right;
+		float: right;
+		padding-top: 10px;
+
+		i, 
+		p {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		i {
+			font-size: 1em;
+			color: #ccc;
+			padding-top: 2px;
+			text-align: right;
+		}
 
 		p {
 			font-size: 1em;
-			font-weight: 700;
-			color: #fff;
+			font-weight: 400;
+			color: #ccc;
 			text-align: center;
 			width: 80px;
-			padding: 10px 10px;
 			border-radius: 3px;
-			background: $red-dark;
-			margin-left: auto;
 		}
 	}
 }
