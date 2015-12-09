@@ -872,8 +872,7 @@
         <% var user = attributes.createdBy %>
 
         <section class="feed-info">
-          <% if (attributes.get('statusType') === 'Business') { %>
-            <% if (attributes.statusType === ‘Business’) { %> 
+        <% if (attributes.statusType === 'Business') { %>
             <aside>
               <% if (typeof user.get('avatar') !=='undefined') { %>
                 <img src=<%= user.get('avatar')._url %> >
@@ -894,7 +893,7 @@
               <% } %>
             </aside
 
-            ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+            ><section><h1><%= user.attributes.firstName %></h1><h3><%= user.attributes.address %></h3></section>
           <% } %>
         </section>
 
