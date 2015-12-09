@@ -1795,7 +1795,7 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
     this.template = _.template($('#dashboard-home-view').text());
     this.render();
     new BeMe.Views.DashboardFeedList();
-    this.loadListings();
+
     if (Parse.User.current().get('userType') == 'business') {
       this.loadFollowers();
     } else {
@@ -1863,9 +1863,14 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
     var self = this;
     var user = Parse.User.current();
 
-    //CHANGE maxDistance VARIABLE TO user.get('maxDistance') AFTER WE GET IT WORKING
-    Parse.Cloud.run('pullNearStatuses',{location: user.get('location'), maxDistance:100}).then(function (e) {
-      self.collection.add(e);
+    var query = new Parse.Query('status');
+    query.withinMiles('location', user.get('location') ,100);
+    query.descending('createdAt');
+    query.include('createdBy');
+    query.equalTo('statusType', 'Business');
+    query.limit(20);
+    query.find().then(function (statuses) {
+      self.collection.add(statuses);
       self.render();
     });
   },
