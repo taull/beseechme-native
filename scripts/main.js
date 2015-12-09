@@ -146,12 +146,12 @@ BeMe.CheckIn = function (user, business) {
     var thisMoment = new moment(new Date());
     var dateFormatted = thisMoment.format('h:mma [on] MMMM Do, YYYY');
 
-    var content = user.get('firstName') + ' ' + user.get('lastName') + ' has checked into ' + business.get('businessName') + ' at ' + dateFormatted;
+    var content = 'Checked into ' + business.get('businessName') + ' at ' + dateFormatted;
 
     checkInStatus.set('location', user.get('location'));
     checkInStatus.set('content', content);
     checkInStatus.set('createdBy', user);
-
+    checkInStatus.set('statusType', 'Check In');
 
     checkInStatus.save();
   }
@@ -430,10 +430,10 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 	},
 
 	events: {
-		'submit form': 'postBusinessStatus',
+		'submit form': 'postStatus',
 	},
 
-	postBusinessStatus: function (e) {
+	postStatus: function (e) {
 		e.preventDefault();
     var self = this;
     var $fileContainer = $("#camera-file");
@@ -459,6 +459,7 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 		status.set('image', image);
 		status.set('createdBy', user);
     status.set('location', user.get('location'));
+    status.set('statusType', 'Business');
 		status.save().then(function (e){
 			contentHolder.val('');
 			$('#camera-file').val('');
