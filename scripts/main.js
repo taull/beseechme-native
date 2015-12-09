@@ -140,9 +140,17 @@ BeMe.setCurrentLocation = function (boolean) {
 BeMe.CheckIn = function (user, business) {
   var checkInStatus = new Parse.Object('status');
 
-  var content = "";
+  var thisMoment = new moment(new Date());
+  var dateFormatted = thisMoment.format('h:mma [on] MMMM Do, YYYY');
 
+  var content = user.get('firstName') + ' ' + user.get('lastName') + ' has checked into ' + business.get('businessName') + ' at ' + dateFormatted;
+
+  checkInStatus.set('location', user.get('location'));
+  checkInStatus.set('content', content);
   checkInStatus.set('createdBy', user);
+
+
+  checkInStatus.save();
 }
 
 /*
@@ -1499,7 +1507,11 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
   },
 
   checkIn: function () {
-    BeMe.CheckIn(user,business);
+    var checkIn = confirm("Check In?");
+
+    if (checkIn === true) {
+      BeMe.CheckIn(Parse.User.current(),this.model.get('createdBy'));
+    }
   }
 
 })
