@@ -135,6 +135,14 @@ BeMe.setCurrentLocation = function (boolean) {
       });
 
     });
+};
+
+BeMe.CheckIn = function (user, business) {
+  var checkInStatus = new Parse.Object('status');
+
+  var content = "";
+
+  checkInStatus.set('createdBy', user);
 }
 
 /*
@@ -434,12 +442,12 @@ BeMe.Views.BackendFeed = Parse.View.extend({
     var user = Parse.User.current();
 
 		var content = contentHolder.val();
-		var businessStatus = new Parse.Object('businessStatus');
-		businessStatus.set('content', content);
-		businessStatus.set('image', image);
-		businessStatus.set('createdBy', user);
-    businessStatus.set('location', user.get('location'));
-		businessStatus.save().then(function (e){
+		var status = new Parse.Object('status');
+		status.set('content', content);
+		status.set('image', image);
+		status.set('createdBy', user);
+    status.set('location', user.get('location'));
+		status.save().then(function (e){
 			contentHolder.val('');
 			$('#camera-file').val('');
       console.log(e);
@@ -459,7 +467,7 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
     });
   },
 
-  query: new Parse.Query('businessStatus')
+  query: new Parse.Query('status')
         .equalTo('createdBy', Parse.User.current())
         .include('createdBy')
         .descending('createdAt'),
@@ -481,7 +489,7 @@ BeMe.Views.FeedPost = Parse.View.extend({
       this.render();
   },
 
-  template: _.template($('#businessStatus-post-view').text()),
+  template: _.template($('#status-post-view').text()),
 
   render: function () {
     this.$el.html(this.template(this.model));
@@ -1245,7 +1253,7 @@ BeMe.Views.BusinessHome = Parse.View.extend({
   },
 
   loadRecentPosts: function () {
-    var query = new Parse.Query('businessStatus');
+    var query = new Parse.Query('status');
     query.equalTo('createdBy', this.model);
     query.limit(5);
     query.include('createdBy');
@@ -1338,7 +1346,7 @@ BeMe.Views.BusinessFeed = Parse.View.extend({
 
   pullFeed: function () {
     var self = this;
-    var query = new Parse.Query('businessStatus');
+    var query = new Parse.Query('status');
     query.equalTo('createdBy',this.model);
     query.include('createdBy');
     query.find().then(function (e) {
@@ -1379,7 +1387,8 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
   events: {
     'click .follow' : 'follow',
     'click .unfollow': 'unfollow',
-    'click .like-button, .dislike-button' : 'toggleLike'
+    'click .like-button, .dislike-button' : 'toggleLike',
+    'click .check-in' : 'checkIn'
   },
 
   follow: function () {
@@ -1487,6 +1496,10 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
       likedBy.remove(user);
       this.model.save();
     }
+  },
+
+  checkIn: function () {
+    BeMe.CheckIn(user,business);
   }
 
 })
@@ -1801,7 +1814,6 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
     var query = new Parse.Query('User');
     query.equalTo('barsFollowing', Parse.User.current());
     query.count().then(function (followerCount) {
-      console.log(followerCount);
       $('.follow-number').text(followerCount);
       $('.follow-text').text('Followers');
     });
@@ -1810,7 +1822,6 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
   loadFollowing: function () {
     var query = Parse.User.current().relation('barsFollowing').query();
     query.count().then(function (followingCount) {
-      console.log(followingCount);
       $('.follow-number').text(followingCount);
       $('.follow-text').text('Following');
     })
