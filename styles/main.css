@@ -2449,8 +2449,9 @@ svg rect {
     position: relative; }
     .beer-search-results aside img,
     .bar-search-results aside img {
-      width: 100%;
-      height: auto;
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
       position: absolute;
       top: 0;
       left: 0; }
@@ -2459,7 +2460,8 @@ svg rect {
     width: 70%;
     display: inline-block;
     vertical-align: top;
-    padding-left: 10px; }
+    padding-left: 10px;
+    padding-top: 5px; }
     .beer-search-results section h1,
     .bar-search-results section h1 {
       width: 100%;
@@ -2470,7 +2472,8 @@ svg rect {
     .beer-search-results section p,
     .bar-search-results section p {
       font-size: 1em;
-      font-weight: 300; }
+      font-weight: 300;
+      padding-top: 3px; }
     .beer-search-results section h2,
     .bar-search-results section h2 {
       width: 100%;
@@ -2480,10 +2483,10 @@ svg rect {
       margin-top: 5px; }
   .beer-search-results div,
   .bar-search-results div {
-    width: 25%;
     display: inline-block;
     vertical-align: top;
     text-align: right;
+    float: right;
     		/*nav {
     			width: 200px;
     			position: absolute;
@@ -2509,7 +2512,8 @@ svg rect {
       width: 100%;
       display: inline-block;
       vertical-align: top;
-      font-size: 1.2em;
+      font-size: 1em;
+      font-weight: 400;
       color: #01579B; }
   .beer-search-results span,
   .bar-search-results span {
@@ -4098,31 +4102,6 @@ svg rect {
 
 }*/
 @media screen and (min-width: 0px) and (max-width: 736px) {
-  header,
-  .header-container,
-  .wide-container,
-  .main-container,
-  .home-container,
-  .header-logo,
-  .middle-column,
-  .settings-column,
-  body,
-  .location-container,
-  .sidebar,
-  .top-container,
-  .body-container,
-  .left-container,
-  .middle-container,
-  .backend-slideout,
-  .middle-column,
-  .right-column,
-  .dashboard-container {
-    width: 100%; }
-
-  body {
-    overflow-x: hidden;
-    font-size: 90%; }
-
   .dashboard-container,
   .backend-container,
   .middle-column,
@@ -4132,6 +4111,10 @@ svg rect {
   .header-left,
   .dashboard-tabs1 {
     width: 100%; }
+
+  body {
+    overflow-x: hidden;
+    font-size: 90%; }
 
   .profile-feed li,
   .profile-feed div {
