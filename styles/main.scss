@@ -2622,7 +2622,14 @@ header {
 	z-index: 50;
 	height: 55px;
 	margin: 0px auto;
-	border-radius: 0 0 3px 3px;
+	/*border-radius: 0 0 3px 3px;*/
+
+	span, 
+	button, 
+	input {
+		display: inline-block;
+		vertical-align: top;
+	}
 
 	span {
 		display: inline-block;
@@ -2655,7 +2662,6 @@ header {
 		    color: $green-light;
 		    width: 100%;
 		    text-align: center;
-		    display: none;
 
 		}
 	}
@@ -2666,7 +2672,7 @@ header {
 		color: #333;
 		vertical-align: top;
 		height: 55px;
-		width: 75%;
+		width: 70%;
 		border: 0;
 		background: transparent;
 		outline: 0;
@@ -3290,6 +3296,7 @@ svg rect{
 	width: 100%;
 	background: #f8f8f8;
 	border-bottom: 1px solid #f0f0f0;
+	margin-top: 15px;
 
 	li {
 		display: inline-block;
