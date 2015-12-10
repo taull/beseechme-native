@@ -21,6 +21,11 @@ body {
   font-size: 12px;
   position: relative;
   background: #dfdfdf;
+  /*background: url('../images/jack-daniels.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
   width: 100%;
   margin: 0 auto;
   /*overflow-x: hidden;*/
@@ -42,7 +47,7 @@ body {
   padding: 15px 0; }
 
 .dashboard-container {
-  width: 1200px;
+  width: 1180px;
   margin: 0 auto;
   margin-top: 75px;
   position: relative;
@@ -107,7 +112,7 @@ body {
   vertical-align: top; }
 
 .left-column {
-  width: 400px;
+  width: 380px;
   padding: 0;
   position: fixed;
   z-index: 10;
@@ -118,12 +123,12 @@ body {
   position: relative;
   width: 420px;
   padding: 0;
-  left: 400px;
+  left: 380px;
   transition: 250ms; }
 
 .right-column {
   width: 380px;
-  left: 400px;
+  left: 380px;
   position: relative;
   padding: 0 20px; }
 
@@ -162,10 +167,10 @@ header {
   top: 0;
   left: 0;
   z-index: 9999999;
-  background: #333; }
+  background: #01579B; }
 
 .header-container {
-  width: 1000px;
+  width: 1200px;
   height: 55px;
   margin: 0 auto;
   position: relative; }
@@ -203,8 +208,8 @@ header {
   vertical-align: top;
   width: 25%;
   height: 55px;
-  background: #111;
-  padding: 10px; }
+  /*background: #333;*/
+  padding: 10px 20px; }
   .header-left aside span {
     font-size: 1.4em;
     width: 35px;
@@ -220,7 +225,8 @@ header {
   vertical-align: top;
   text-align: left;
   width: 50%;
-  height: 55px; }
+  height: 55px;
+  padding-top: 5px; }
   .header-center li {
     display: inline-block;
     vertical-align: top;
@@ -393,15 +399,14 @@ header {
       vertical-align: top; }
     .dashboard-tabs a h1 {
       font-size: 1.2em;
-      color: #999;
+      color: #f0f0f0;
       padding-left: 10px;
       font-weight: 400; }
     .dashboard-tabs a i {
       font-size: 1em;
-      color: #999;
+      color: #f0f0f0;
       padding-top: 4px;
-      color: #ccc;
-      /*display: none;*/ }
+      display: none; }
 
 .backend-controls {
   width: 100%;
@@ -1272,27 +1277,29 @@ header {
 .dashboard-statistics,
 .backend-statistics {
   width: 100%;
-  background: #222;
-  padding: 30px 15px; }
+  background: #fff;
+  padding: 15px;
+  border-radius: 3px 3px 0 0;
+  border-bottom: 1px solid #f0f0f0; }
   .dashboard-statistics li,
   .backend-statistics li {
     width: 33.33333%;
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    border-right: 1px solid #333; }
+    border-right: 1px solid #dfdfdf; }
     .dashboard-statistics li h1,
     .backend-statistics li h1 {
       width: 100%;
       font-size: 2.6em;
-      font-weight: 100;
-      color: #f0f0f0; }
+      font-weight: 300;
+      color: #0277BD; }
     .dashboard-statistics li p,
     .backend-statistics li p {
       width: 100%;
       font-size: .9em;
       font-weight: 300;
-      color: #ccc; }
+      color: #555; }
   .dashboard-statistics li:last-child,
   .backend-statistics li:last-child {
     border-right: 0; }
@@ -1322,12 +1329,36 @@ header {
     color: #999;
     margin-top: 10px; }
 
+.current-user-info {
+  text-align: center;
+  width: 100%;
+  padding: 30px 0 30px;
+  border-bottom: 1px solid #dfdfdf;
+  background: #f0f0f0;
+  border-radius: 3px 3px 0 0; }
+  .current-user-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin-bottom: 5px; }
+  .current-user-info h1 {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #555; }
+  .current-user-info h2 {
+    font-size: 1em;
+    font-weight: 300;
+    color: #555;
+    padding-top: 2px; }
+
 .dashboard-tabs1 {
   display: inline-block;
   vertical-align: top;
   text-align: left;
   width: 100%;
-  background: #333; }
+  background: #f8f8f8;
+  border-radius: 0px 0px 3px 3px;
+  margin-bottom: 15px; }
   .dashboard-tabs1 li {
     padding: 15px 20px; }
   .dashboard-tabs1 li:nth-child(2) aside span {
@@ -1353,7 +1384,7 @@ header {
     padding-left: 10px; }
   .dashboard-tabs1 h1 {
     font-size: 1.2em;
-    color: #f0f0f0;
+    color: #333;
     font-weight: 500; }
   .dashboard-tabs1 p {
     display: inline-block;
@@ -1361,7 +1392,7 @@ header {
     font-size: .8em;
     font-weight: 300;
     margin-top: 3px;
-    color: #ccc; }
+    color: #333; }
 
 /* DASHBOARD DROPDOWN MENU */
 .dashboard-tabs-dropdown {
@@ -1888,15 +1919,14 @@ header {
 .bar-search {
   display: inline-block;
   vertical-align: top;
-  width: 60%;
+  width: 100%;
   background: #fafafa;
   position: relative;
   transition: 250ms;
   z-index: 50;
   height: 55px;
   margin: 0px auto;
-  border-radius: 3px;
-  border: 1px solid #d8d8d8; }
+  border-radius: 0 0 3px 3px; }
   .bar-search span {
     display: inline-block;
     height: 55px;
@@ -1905,7 +1935,7 @@ header {
     font-size: 1.4em;
     color: #ccc;
     text-align: center;
-    padding-top: 14.5px;
+    padding-top: 18px;
     /*border-right: 1px solid #f0f0f0;*/ }
   .bar-search button {
     background: transparent;

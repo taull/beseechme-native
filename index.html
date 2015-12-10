@@ -1342,22 +1342,43 @@
   <div class="dashboard-container">
 
       <div class="left-column">
-          <% var user = Parse.User.current() %>
 
+        <div class="current-user-info">
+
+          <% if (typeof user.avatar !=='undefined') { %>
+            <img src=<%= user.avatar._url %> >
+          <% } else { %>
+            <img src="images/default-avatar.png">
+          <% } %>
           
-          <div class="dashboard-statistics">
-            <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
-            ><li><h1>156</h1><p>Upvotes</p></li
-            ><li><h1>24</h1><p>Beers</p></li>
-          </div>
+          <% if (Parse.User.current().get('userType') === 'consumer') { %>
+            <h1><%= user.get('firstName') %> <%= user.get('lastName') %></h1>
+          <% } else { %>
+            <h1><%= user.get('businessName') %></h1>
+          <% } %>
+          <h2>@<%= user.get('handle') %></h2>
 
-          <div class="dashboard-tabs1">  
-            <a href="#location"><li><aside><span class="fa fa-location-arrow"></span></aside><section><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></section></li></a>
-          </div
-          ><div class="dashboard-tabs-dropdown">
-            <h1>Home</h1><i class="fa fa-caret-down"></i>
-          </div>
+        </div>
 
+        <div class="dashboard-tabs1">  
+          <a href="#location"><li><aside><span class="fa fa-location-arrow"></span></aside><section><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></section></li></a>
+        </div
+        ><div class="dashboard-tabs-dropdown">
+          <h1>Home</h1><i class="fa fa-caret-down"></i>
+        </div>
+        <div class="dashboard-statistics">
+          <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
+          ><li><h1>32</h1><p>Following</p></li
+          ><li><h1>24</h1><p>Beers</p></li>
+        </div>
+        
+        <div class="bar-search">
+          <form name='bar-search' action>
+            <span class="fa fa-search"></span>
+            <input type="text" placeholder="Search Bars">
+            <button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
+          </form>
+        </div>
       </div
 
       ><div class="middle-column">
@@ -1370,7 +1391,16 @@
         </div> 
       </div
       ><div class="right-column">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.886641979117!2d-81.00496074428047!3d33.995445332492615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f8bab67ebba093%3A0xfc896f51b392915c!2s2615+Wheat+St%2C+Columbia%2C+SC+29205!5e0!3m2!1sen!2sus!4v1449772532237" width="340" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+        
+
+
+          
+
           <div class="listing-container"></div> 
+
       </div>
   </div>
 </script>
@@ -1437,8 +1467,35 @@
 </script>
 
 <script type="text/template" id="dashboard-listing-view">
+  <% var user = Parse.User.current() %>
+
   <div class="dashboard-container">
-    <div class="left-column"></div
+    <div class="left-column">
+        <div class="current-user-info">
+
+          <% if (typeof user.avatar !=='undefined') { %>
+            <img src=<%= user.avatar._url %> >
+          <% } else { %>
+            <img src="images/default-avatar.png">
+          <% } %>
+          
+          <% if (Parse.User.current().get('userType') === 'consumer') { %>
+            <h1><%= user.get('firstName') %> <%= user.get('lastName') %></h1>
+          <% } else { %>
+            <h1><%= user.get('businessName') %></h1>
+          <% } %>
+          <h2>@<%= user.get('handle') %></h2>
+
+        </div>
+
+        <div class="dashboard-tabs1">  
+          <a href="#location"><li><aside><span class="fa fa-location-arrow"></span></aside><section><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></section></li></a>
+        </div
+        ><div class="dashboard-tabs-dropdown">
+          <h1>Home</h1><i class="fa fa-caret-down"></i>
+        </div>
+
+    </div
     ><div class="middle-column"><div class="listing-container"></div></div
     ><div class="right-column">
 
