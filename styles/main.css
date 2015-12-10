@@ -2423,6 +2423,23 @@ svg rect {
   .beer-order span {
     font-size: 1.2em; }
 
+.search-tabs {
+  width: 100%;
+  background: #f8f8f8;
+  border-bottom: 1px solid #f0f0f0; }
+  .search-tabs li {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 50%;
+    padding: 15px 0; }
+    .search-tabs li h1 {
+      font-size: 1.2em;
+      color: #333;
+      font-weight: 400; }
+  .search-tabs li:first-child {
+    border-right: 1px solid #f0f0f0; }
+
 .beer-search-results,
 .bar-search-results {
   width: 100%;
