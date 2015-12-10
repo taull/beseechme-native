@@ -1458,7 +1458,9 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
   },
 
   updateFollowButtons: function () {
-    BeMe.Dashboard.FeedList.updateFollowButtons();
+    if (BeMe.Dashboard.FeedList) {
+      BeMe.Dashboard.FeedList.updateFollowButtons();
+    }
   },
 
   getLikes: function () {
@@ -1695,6 +1697,7 @@ BeMe.Views.BarSearchResults = Parse.View.extend({
   initialize: function () {
     this.subViews = [];
     this.render();
+    this.displayType('business');
   },
 
   render: function () {
@@ -1706,8 +1709,25 @@ BeMe.Views.BarSearchResults = Parse.View.extend({
       this.collection.each(function (i) {
         var newView = new BeMe.Views.BarSearchResult({model:i});
         self.subViews.push(newView);
-    });
+      });
     }
+  },
+
+  displayType: function (type) {
+    var self = this;
+    var usersToRender = this.collection.filter(function (bar) {
+      return bar.get('userType') === type;
+    });
+
+    //remove the existing views from the screen
+    BeMe.removeGroup(this.subViews);
+
+    //render them to the screen
+    _.each(usersToRender, function(bar) {
+      self.subViews.push(new BeMe.Views.BarSearchResult({model:bar}));
+    });
+
+    //Will probably also need to manipulate the tabs
   }
 });
 
