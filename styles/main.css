@@ -1926,7 +1926,12 @@ header {
   z-index: 50;
   height: 55px;
   margin: 0px auto;
-  border-radius: 0 0 3px 3px; }
+  /*border-radius: 0 0 3px 3px;*/ }
+  .bar-search span,
+  .bar-search button,
+  .bar-search input {
+    display: inline-block;
+    vertical-align: top; }
   .bar-search span {
     display: inline-block;
     height: 55px;
@@ -1953,14 +1958,13 @@ header {
       font-size: 14px;
       color: #8BC34A;
       width: 100%;
-      text-align: center;
-      display: none; }
+      text-align: center; }
   .bar-search input {
     display: inline-block;
     color: #333;
     vertical-align: top;
     height: 55px;
-    width: 75%;
+    width: 70%;
     border: 0;
     background: transparent;
     outline: 0;
@@ -2426,7 +2430,8 @@ svg rect {
 .search-tabs {
   width: 100%;
   background: #f8f8f8;
-  border-bottom: 1px solid #f0f0f0; }
+  border-bottom: 1px solid #f0f0f0;
+  margin-top: 15px; }
   .search-tabs li {
     display: inline-block;
     vertical-align: top;
