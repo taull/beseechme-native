@@ -2328,9 +2328,11 @@ var Router = Parse.Router.extend({
 
     var firstNameQuery = new Parse.Query('User');
     firstNameQuery.contains('firstNameLowercase', queryString);
+    firstNameQuery.equalTo('userType', 'consumer');
 
     var lastNameQuery = new Parse.Query('User');
     lastNameQuery.contains('lastNameLowercase', queryString);
+    lastNameQuery.equalTo('userType', 'consumer');
 
     var query = Parse.Query.or(businessQuery, firstNameQuery, lastNameQuery);
     query.find().then(function (i) {
