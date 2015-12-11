@@ -1399,6 +1399,8 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
       return _.template($('#status-photo-view').text())(model);
     } else if (statusType === 'Event') {
       return _.template($('#status-event-view').text())(model);
+    } else if (statusType === 'Check In') {
+      return _.template($('#status-checkin-view').text())(model);
     }
   },
 
@@ -2105,6 +2107,7 @@ BeMe.Views.DashboardfollowingListing = Parse.View.extend({
 
     Parse.Cloud.run('pullFollowingStatuses').then(function(statuses) {
       _.each(statuses, function (status) {
+        console.log(status);
         self.views.push(new BeMe.Views.BusinessPostView({model:status}));
       });
     });
