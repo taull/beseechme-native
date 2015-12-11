@@ -1909,9 +1909,10 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
     query.withinMiles('location', user.get('location') ,100);
     query.descending('createdAt');
     query.include('createdBy');
-    query.equalTo('statusType', 'Business');
+    query.containedIn('statusType', ['Text', 'Photo', 'Event']);
     query.limit(20);
     query.find().then(function (statuses) {
+      console.log(statuses);
       self.collection.add(statuses);
       self.render();
     });
