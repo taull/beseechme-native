@@ -36,6 +36,7 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
   //route object
   BeMe.Calendar = {};
   BeMe.Dashboard = {};
+  BeMe.Search = {};
 })();
 
 /*
@@ -1683,7 +1684,17 @@ BeMe.Views.BarSearch = Parse.View.extend({
   },
 
   events: {
-    'submit form' : 'search'
+    'submit form' : 'search',
+    'click .search-tabs li' : 'tabClickHandler'
+  },
+
+  tabClickHandler: function (e) {
+    var $clickedElement = $(e.currentTarget);
+
+    var matchObject = {Bars:"business", People:"consumer"};
+    var type = matchObject[$clickedElement.text()];
+
+    BeMe.Search.BarSearchResults.displayType(type);
   },
 
   search: function (e) {
@@ -1697,7 +1708,6 @@ BeMe.Views.BarSearchResults = Parse.View.extend({
   initialize: function () {
     this.subViews = [];
     this.render();
-    this.displayType('business');
   },
 
   render: function () {
@@ -1706,15 +1716,29 @@ BeMe.Views.BarSearchResults = Parse.View.extend({
     if(this.collection.length === 0) {
       alert('No results found');
     } else {
-      this.collection.each(function (i) {
-        var newView = new BeMe.Views.BarSearchResult({model:i});
-        self.subViews.push(newView);
-      });
+      this.displayType('business');
     }
   },
 
   displayType: function (type) {
     var self = this;
+
+    var $tabs = $('.search-tabs li');
+    var barsTab = $tabs[0];
+    var peopleTab = $tabs[1];
+
+    var clickedTab;
+
+    if(type === 'business') {
+      clickedTab = barsTab;
+    } else {
+      clickedTab = peopleTab;
+    }
+
+    $tabs.removeClass('active-tab');
+    $(clickedTab).addClass('active-tab');
+
+
     var usersToRender = this.collection.filter(function (bar) {
       return bar.get('userType') === type;
     });
@@ -1722,12 +1746,10 @@ BeMe.Views.BarSearchResults = Parse.View.extend({
     //remove the existing views from the screen
     BeMe.removeGroup(this.subViews);
 
-    //render them to the screen
+    //render proper views to the screen
     _.each(usersToRender, function(bar) {
       self.subViews.push(new BeMe.Views.BarSearchResult({model:bar}));
     });
-
-    //Will probably also need to manipulate the tabs
   }
 });
 
@@ -2301,11 +2323,19 @@ var Router = Parse.Router.extend({
     new BeMe.Views.BarSearch({query:queryString});
     var queryString = queryString.toLowerCase();
 
-    var query = new Parse.Query('User');
-    query.contains('businessNameLowercase', queryString);
+    var businessQuery = new Parse.Query('User');
+    businessQuery.contains('businessNameLowercase', queryString);
+
+    var firstNameQuery = new Parse.Query('User');
+    firstNameQuery.contains('firstNameLowercase', queryString);
+
+    var lastNameQuery = new Parse.Query('User');
+    lastNameQuery.contains('lastNameLowercase', queryString);
+
+    var query = Parse.Query.or(businessQuery, firstNameQuery, lastNameQuery);
     query.find().then(function (i) {
       var collection = new Parse.Collection(i);
-      new BeMe.Views.BarSearchResults({collection:collection});
+      BeMe.Search.BarSearchResults = new BeMe.Views.BarSearchResults({collection:collection});
     });
   }, 
 
