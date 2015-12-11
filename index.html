@@ -917,6 +917,8 @@
 
 <script type='text/template' id='status-photo-view'>
   <% var user = attributes.createdBy %>
+  <section class="feed-header"><h1>Photos</h1></section>
+
   <section class="feed-info">
     <% if (Parse.User.current().get('userType') === 'consumer') { %>
       <aside>
@@ -979,6 +981,7 @@
 <script type='text/template' id='status-event-view'>
 
   <% var user = attributes.createdBy %>
+  <section class="feed-header"><h1>Events</h1></section>
   <section class="feed-info">
     <% if (Parse.User.current().get('userType') === 'consumer') { %>
       <aside>
@@ -1008,6 +1011,8 @@
   <section class="feed-event">
     <aside>
       <h2><%= attributes.title %></h2>
+      <h3><%= moment(user.get('eventDate')).format('MMMM Do, YYYY') %></h3>
+
       <p><%= attributes.content %></p>
     </aside>
   </section>
@@ -1019,11 +1024,13 @@
   <section class="feed-controls">
     <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
     ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
-    ><li><span class="entypo-envelope"></span><h1 class='rsvp'>RSVP</h1></li>
+    ><li><span class="entypo-feather"></span><h1 class='rsvp'>RSVP</h1></li>
   </section>
 
 </script>
 <script type='text/template' id='status-checkin-view'>
+  <section class="feed-header"><h1>Check In</h1></section>
+
   <% var user = attributes.createdBy %>
   <section class="feed-info">
     <% if (Parse.User.current().get('userType') === 'consumer') { %>
