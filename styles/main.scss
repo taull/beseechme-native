@@ -3819,6 +3819,18 @@ svg rect{
 
 }
 
+.feed-header {
+	width: 100%;
+	padding: 0px 10px 5px;
+	border-bottom: 1px solid #f0f0f0;
+
+	h1 {
+		font-size: 1em;
+		font-weight: 400;
+		color: #333;
+	}
+}
+
 .feed-event {
 	width: 100%;
 	display: inline-block;
@@ -3850,6 +3862,7 @@ svg rect{
 		    line-height: 1.6em;
 		    font-weight: 300;
 		    color: #333;
+		    margin-top: 15px;
 		}
 
 		h1 {
@@ -3866,6 +3879,13 @@ svg rect{
 			font-size: 1.2em;
 			font-weight: 500;
 			color: #333;
+		}
+
+		h3 {
+			font-size: 1em;
+			font-weight: 300;
+			color: #333;
+			margin-top: 5px;
 		}
 	}
 
@@ -3964,12 +3984,13 @@ svg rect{
 		cursor: pointer;
 		border-radius: 3px;
 		padding-left: 5px;
-		padding-top: 2px;
+		padding-top: 4px;
 	}
 
+
 	span {
-		color: #ccc;
-		font-size: 1.2em;
+		color: #555;
+		font-size: 1.4em;
 		padding-right: 5px;
 
 	}
