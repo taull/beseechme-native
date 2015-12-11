@@ -3320,7 +3320,7 @@ svg rect{
 .beer-search-results, 
 .bar-search-results {
 	width: 100%;
-	background:#f8f8f8;
+	background:#fff;
 	position: relative;
 
 	ul {
@@ -3335,7 +3335,7 @@ svg rect{
 	}
 
 	li:nth-child(odd) {
-		background: #fff;
+		/*background: #fff;*/
 	}
 
 	aside {
@@ -3390,6 +3390,7 @@ svg rect{
 		vertical-align: top;
 		text-align: right;
 		float: right;
+		padding-top: 5px;
 
 		h1 {
 			width: 100%;
@@ -3766,7 +3767,7 @@ svg rect{
 	}
 }
 
-.feed-status {
+.feed-content {
 	width: 100%;
 	display: inline-block;
 	padding: 0px 10px 10px;	
