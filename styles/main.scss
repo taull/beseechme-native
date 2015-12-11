@@ -3809,6 +3809,64 @@ svg rect{
 			/*border-bottom: 1px solid #333;*/
 			/*padding-bottom: 1px;*/
 		}
+
+		h2 {
+			font-size: 1.4em;
+			font-weight: 500;
+			color: #333;
+		}
+	}
+
+}
+
+.feed-event {
+	width: 100%;
+	display: inline-block;
+	padding: 0px 10px 10px;	
+
+	aside {
+		width: 100%;
+		text-align: left;
+		padding-top: 0;
+		display: inline-block;
+
+		p, 
+		h1, 
+		span {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		span {
+			font-size: 1.1em;
+			line-height: 20px;
+			font-weight: 300;
+			padding-top:15px;
+			color: $primary-color-medium;
+		}
+
+		p {
+			font-size: 1.1em;
+		    line-height: 1.6em;
+		    font-weight: 300;
+		    color: #333;
+		}
+
+		h1 {
+			font-weight: 400;
+			font-size: 1.2em;
+			line-height: 1.4em;
+			color: #333;
+			margin-left: 5px;
+			/*border-bottom: 1px solid #333;*/
+			/*padding-bottom: 1px;*/
+		}
+
+		h2 {
+			font-size: 1.2em;
+			font-weight: 500;
+			color: #333;
+		}
 	}
 
 }

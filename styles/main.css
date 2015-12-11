@@ -2828,6 +2828,48 @@ svg rect {
       margin-left: 5px;
       /*border-bottom: 1px solid #333;*/
       /*padding-bottom: 1px;*/ }
+    .feed-content aside h2 {
+      font-size: 1.4em;
+      font-weight: 500;
+      color: #333; }
+
+.feed-event {
+  width: 100%;
+  display: inline-block;
+  padding: 0px 10px 10px; }
+  .feed-event aside {
+    width: 100%;
+    text-align: left;
+    padding-top: 0;
+    display: inline-block; }
+    .feed-event aside p,
+    .feed-event aside h1,
+    .feed-event aside span {
+      display: inline-block;
+      vertical-align: top; }
+    .feed-event aside span {
+      font-size: 1.1em;
+      line-height: 20px;
+      font-weight: 300;
+      padding-top: 15px;
+      color: #37474F; }
+    .feed-event aside p {
+      font-size: 1.1em;
+      line-height: 1.6em;
+      font-weight: 300;
+      color: #333; }
+    .feed-event aside h1 {
+      font-weight: 400;
+      font-size: 1.2em;
+      line-height: 1.4em;
+      color: #333;
+      margin-left: 5px;
+      /*border-bottom: 1px solid #333;*/
+      /*padding-bottom: 1px;*/ }
+    .feed-event aside h2 {
+      font-size: 1.2em;
+      font-weight: 500;
+      color: #333; }
 
 .feed-caption {
   width: 100%;
