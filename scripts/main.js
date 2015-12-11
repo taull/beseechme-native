@@ -1390,7 +1390,17 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
     this.doesUserLike();
   },
 
-  template: _.template($('#business-post-view').text()),
+  template: function (model) {
+    var statusType = model.get('statusType');
+
+    if (statusType === 'Text') {
+      return _.template($('#status-text-view').text())(model);
+    } else if (statusType === 'Photo') {
+      return _.template($('#status-photo-view').text())(model);
+    } else if (statusType === 'Event') {
+      return _.template($('#status-event-view').text())(model);
+    }
+  },
 
   render: function ()  {
     this.$el.html(this.template(this.model));
