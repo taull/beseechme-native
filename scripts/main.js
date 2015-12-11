@@ -2325,17 +2325,18 @@ var Router = Parse.Router.extend({
 
     var businessQuery = new Parse.Query('User');
     businessQuery.contains('businessNameLowercase', queryString);
+    businessQuery.equalTo('userType', 'business');
 
-    var firstNameQuery = new Parse.Query('User');
-    firstNameQuery.contains('firstNameLowercase', queryString);
-    firstNameQuery.equalTo('userType', 'consumer');
+    var handleQuery = new Parse.Query('User');
+    handleQuery.contains('handle', queryString);
 
-    var lastNameQuery = new Parse.Query('User');
-    lastNameQuery.contains('lastNameLowercase', queryString);
-    lastNameQuery.equalTo('userType', 'consumer');
+    var consumerQuery = new Parse.Query('User');
+    consumerQuery.contains('fullNameLowercase', queryString);
+    consumerQuery.equalTo('userType', 'consumer');
 
-    var query = Parse.Query.or(businessQuery, firstNameQuery, lastNameQuery);
+    var query = Parse.Query.or(businessQuery, consumerQuery, handleQuery);
     query.find().then(function (i) {
+      console.log(i);
       var collection = new Parse.Collection(i);
       BeMe.Search.BarSearchResults = new BeMe.Views.BarSearchResults({collection:collection});
     });
