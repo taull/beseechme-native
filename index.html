@@ -1315,9 +1315,19 @@
 <!-- Bar Search View -->
 
 <script type="text/template" id="bar-search-results-view">
-  <aside><img src="<%= attributes.avatar._url %>"></aside>
+  <aside>
+    <% if (typeof attributes.avatar != 'undefined') { %>
+      <img src="<%= attributes.avatar._url %>">
+    <% } else { %>
+      <img src="images/default-avatar.png">
+    <% } %>
+  </aside>
   <section>
-    <h1><%= attributes.businessName %></h1>
+    <% if (attributes.userType == 'business') { %>
+      <h1><%= attributes.businessName %></h1>
+    <% } else { %>
+      <h1><%= attributes.firstName + ' ' + attributes.lastName %></h1>
+    <% } %>
     <p><%= attributes.address %>, <%= attributes.city %>, <%= attributes.state %> <%= attributes.zip %></p>
   </section>
   <div><h1 class='follow'>Follow</h1></div>
