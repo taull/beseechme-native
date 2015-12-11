@@ -866,229 +866,243 @@
 
 <!-- Business Feed View -->
 
-<script type='text/template' id='business-post-view'>
+<!-- TEXT VIEW -->
+
+<script type='text/template' id='status-text-view'>
+  <% var user = attributes.createdBy %>
+  <section class="feed-info">
+    <% if (Parse.User.current().get('userType') === 'consumer') { %>
+      <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>
+      </aside
+
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+
+    <% } else { %>
+
+      <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>
+      </aside
+
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+    <% } %>
+  </section>
+
+  <section class="feed-content">
+    <aside>
+      <p><%= attributes.content %></p>
+    </aside>
+  </section>
+
+  <section class="feed-statistics">
+    <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
+  </section>
+
+  <section class="feed-controls">
+    <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
+    ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+    ><li><span class="entypo-location"></span><h1 class='check-in'>Check In</h1></li>
+  </section>
+</script>
+
+<!-- Photo VIEW -->
+
+<script type='text/template' id='status-photo-view'>
+  <% var user = attributes.createdBy %>
+  <section class="feed-info">
+    <% if (Parse.User.current().get('userType') === 'consumer') { %>
+      <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>
+      </aside
+
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+
+    <% } else { %>
+
+      <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>
+      </aside
+
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+    <% } %>
+  </section>
+  <section class="feed-photo">
+    <a href=<%= attributes.image._url %> >
+      <img src=<%= attributes.image._url %> />
+    </a>
+  </section
+
+  ><section class="feed-caption">
+    <aside>
+      <p><%= attributes.content %></p>
+    </aside>
+  </section>
+
+  <section class="feed-statistics">
+    <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
+  </section>
+
+  <section class="feed-controls">
+    <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
+    ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+    ><li><span class="entypo-location"></span><h1 class='check-in'>RSVP</h1></li>
+  </section>
+
+</script>
+
+<!-- VIDEO VIEW -->
+
+<script type='text/template' id='status-video-view'>
   <% var user = attributes.createdBy %>
 
-
-
-    <section class="feed-post">
-
-        
-        <% if (attributes.statusType === 'Check In') { %>
-
-          <section class="feed-info">
-            <% if (Parse.User.current().get('userType') === 'consumer') { %>
-              <aside>
-                <% if (typeof user.get('avatar') !=='undefined') { %>
-                  <img src=<%= user.get('avatar')._url %> >
-                <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-              </aside
-
-              ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-
-            <% } else { %>
-
-              <aside>
-                <% if (typeof user.get('avatar') !=='undefined') { %>
-                  <img src=<%= user.get('avatar')._url %> >
-                <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-              </aside
-
-              ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-            <% } %>
-          </section>
-
-          <section class="feed-content">
-            <aside>
-              <p><%= attributes.content %></p>
-            </aside>
-          </section>
-
-          <section class="feed-statistics">
-            <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
-          </section>
-
-          <section class="feed-controls">
-            <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-            ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li>
-          </section>
-
-        <% } else if (attributes.statusType === 'Text') { %>
-
-          <section class="feed-info">
-            <% if (Parse.User.current().get('userType') === 'consumer') { %>
-              <aside>
-                <% if (typeof user.get('avatar') !=='undefined') { %>
-                  <img src=<%= user.get('avatar')._url %> >
-                <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-              </aside
-
-              ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-
-            <% } else { %>
-
-              <aside>
-                <% if (typeof user.get('avatar') !=='undefined') { %>
-                  <img src=<%= user.get('avatar')._url %> >
-                <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-              </aside
-
-              ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-            <% } %>
-          </section>
-
-          <section class="feed-content">
-            <aside>
-              <p><%= attributes.content %></p>
-            </aside>
-          </section>
-
-          <section class="feed-statistics">
-            <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
-          </section>
-
-          <section class="feed-controls">
-            <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-            ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
-            ><li><span class="entypo-location"></span><h1 class='check-in'>Check In</h1></li>
-          </section>
-
-        <% } else if (attributes.statusType === 'Event'){ %>
-
-          <section class="feed-info">
-            <% if (Parse.User.current().get('userType') === 'consumer') { %>
-              <aside>
-                <% if (typeof user.get('avatar') !=='undefined') { %>
-                  <img src=<%= user.get('avatar')._url %> >
-                <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-              </aside
-
-              ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-
-            <% } else { %>
-
-              <aside>
-                <% if (typeof user.get('avatar') !=='undefined') { %>
-                  <img src=<%= user.get('avatar')._url %> >
-                <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-              </aside
-
-              ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-            <% } %>
-          </section>
-          
-          <section class="feed-statistics">
-            <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
-          </section>
-
-          <section class="feed-controls">
-            <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-            ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
-            ><li><span class="entypo-location"></span><h1 class='check-in'>RSVP</h1></li>
-          </section>
-
-        <% } else if (attributes.statusType === 'Photo'){ %>
-          <section class="feed-info">
-            <% if (Parse.User.current().get('userType') === 'consumer') { %>
-              <aside>
-                <% if (typeof user.get('avatar') !=='undefined') { %>
-                  <img src=<%= user.get('avatar')._url %> >
-                <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-              </aside
-
-              ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-
-            <% } else { %>
-
-              <aside>
-                <% if (typeof user.get('avatar') !=='undefined') { %>
-                  <img src=<%= user.get('avatar')._url %> >
-                <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-              </aside
-
-              ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-            <% } %>
-          </section>
-          <section class="feed-photo">
-            <a href=<%= attributes.image._url %> >
-              <img src=<%= attributes.image._url %> />
-            </a>
-          </section
-
-          ><section class="feed-caption">
-            <aside>
-              <p><%= attributes.content %></p>
-            </aside>
-          </section>
-
-          <section class="feed-statistics">
-            <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
-          </section>
-
-          <section class="feed-controls">
-            <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-            ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
-            ><li><span class="entypo-location"></span><h1 class='check-in'>RSVP</h1></li>
-          </section>
-
-        <% } else if (attributes.statusType === 'RSVP'){ %>
-
-          <section class="feed-info">
-            <% if (Parse.User.current().get('userType') === 'consumer') { %>
-              <aside>
-                <% if (typeof user.get('avatar') !=='undefined') { %>
-                  <img src=<%= user.get('avatar')._url %> >
-                <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-              </aside
-
-              ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-
-            <% } else { %>
-
-              <aside>
-                <% if (typeof user.get('avatar') !=='undefined') { %>
-                  <img src=<%= user.get('avatar')._url %> >
-                <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-              </aside
-
-              ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-            <% } %>
-          </section>
-
-          <section class="feed-statistics">
-            <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
-          </section>
-
-          <section class="feed-controls">
-            <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-            ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
-            ><li><span class="entypo-location"></span><h1 class='check-in'>RSVP</h1></li>
-          </section>
-
-        <% } %>
-
-      </section>
 </script>
+
+
+<!-- EVENT VIEW -->
+
+<script type='text/template' id='status-event-view'>
+
+  <% var user = attributes.createdBy %>
+  <section class="feed-info">
+    <% if (Parse.User.current().get('userType') === 'consumer') { %>
+      <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>
+      </aside
+
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+
+    <% } else { %>
+
+      <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>
+      </aside
+
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+    <% } %>
+  </section>
+  
+  <section class="feed-statistics">
+    <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
+  </section>
+
+  <section class="feed-controls">
+    <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
+    ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+    ><li><span class="entypo-location"></span><h1 class='check-in'>RSVP</h1></li>
+  </section>
+
+</script>
+<script type='text/template' id='status-checkin-view'>
+  <% var user = attributes.createdBy %>
+  <section class="feed-info">
+    <% if (Parse.User.current().get('userType') === 'consumer') { %>
+      <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>
+      </aside
+
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+
+    <% } else { %>
+
+      <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>
+      </aside
+
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+    <% } %>
+  </section>
+
+  <section class="feed-content">
+    <aside>
+      <p><%= attributes.content %></p>
+    </aside>
+  </section>
+
+  <section class="feed-statistics">
+    <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
+  </section>
+
+  <section class="feed-controls">
+    <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
+    ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li>
+  </section>
+</script>
+
+<!-- RSVP VIEW -->
+
+<script type='text/template' id='status-rsvp-view'>
+  <% var user = attributes.createdBy %>
+
+  <section class="feed-info">
+    <% if (Parse.User.current().get('userType') === 'consumer') { %>
+      <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>
+      </aside
+
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+
+    <% } else { %>
+
+      <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>
+      </aside
+
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+    <% } %>
+  </section>
+
+  <section class="feed-statistics">
+    <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
+  </section>
+
+  <section class="feed-controls">
+    <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
+    ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+    ><li><span class="entypo-location"></span><h1 class='check-in'>RSVP</h1></li>
+  </section>
+
+</script>
+
 
 <!-- Business Feed View -->
 
