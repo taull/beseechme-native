@@ -158,6 +158,17 @@ BeMe.CheckIn = function (user, business) {
   }
 }
 
+BeMe.FollowUser = function (user, callback) {
+  var currentUser = Parse.User.current();
+  var relation = currentUser.relation("barsFollowing");
+  if(user.id !== currentUser.id) {
+    relation.add(user);
+    currentUser.save().then(function () {callback()});
+  } else {
+    alert("You can't follow yourself");
+  }
+}
+
 /*
 	Prototype Manipulation
 */
@@ -450,7 +461,6 @@ BeMe.Views.BackendFeed = Parse.View.extend({
     }
 
     //conditional where we check to see if there was a file chosen && it was processed correctly
-    //if fileIsChosen && image != 'undefined'....
 
     var user = Parse.User.current();
 
@@ -460,7 +470,7 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 		status.set('image', image);
 		status.set('createdBy', user);
     status.set('location', user.get('location'));
-    status.set('statusType', 'Business');
+    status.set('statusType', 'Text');
 		status.save().then(function (e){
 			contentHolder.val('');
 			$('#camera-file').val('');
@@ -1418,21 +1428,7 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
   },
 
   follow: function () {
-    var self = this;
-    var currentUser = Parse.User.current();
-    var relation = currentUser.relation('barsFollowing');
-    var createdBy = this.model.get('createdBy');
-    if (currentUser.id !== createdBy.id) {
-      relation.add(createdBy);
-      currentUser.save({},{success: function () {
-        self.updateFollowButtons();
-      }, error: function (error) {
-        alert('Save failed');
-        console.log(error);
-      }});
-    } else {
-      alert("You can't follow yourself");
-    }
+    BeMe.FollowUser(this.model.get('createdBy'), this.updateFollowButtons);
   },
 
   unfollow: function () {
