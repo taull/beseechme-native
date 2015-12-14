@@ -147,7 +147,7 @@ BeMe.CheckIn = function (user, business) {
     var thisMoment = new moment(new Date());
     var dateFormatted = thisMoment.format('h:mma [on] MMMM Do, YYYY');
 
-    var content = 'Checked into' + '<h1>' + business.get('businessName') + '</h1>';
+    var content = '<h1>' + business.get('firstName') + '</h1>' + ' ' + '<h1>' + business.get('lastName') + '</h1>' + ' ' + '<p>' + 'checked into' + '</p>' + ' ' + '<a>' + business.get('businessName') + '</a>';
 
     checkInStatus.set('location', user.get('location'));
     checkInStatus.set('content', content);
@@ -394,6 +394,9 @@ BeMe.Views.Backend = Parse.View.extend({
       $('.update-location-info').toggleClass('left-100');
 
     });
+
+    
+    
 	},
 
   events: {
@@ -438,7 +441,13 @@ BeMe.Views.BackendFeed = Parse.View.extend({
       $('.profile-tools').toggleClass('profile-tools-shift');
 
     });
-
+    $('#standalone').popup({
+      color: '#dfdfdf',
+      opacity: 1,
+      transition: '0.3s',
+      scrolllock: true,
+      autozindex: true
+    });
 	},
 
 	events: {
@@ -1411,6 +1420,8 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
       return _.template($('#status-event-view').text())(model);
     } else if (statusType === 'Check In') {
       return _.template($('#status-checkin-view').text())(model);
+    } else if (statusType === 'Beer') {
+      return _.template($('#status-beer-view').text())(model);
     }
   },
 
@@ -1834,6 +1845,7 @@ BeMe.Views.DashboardBaseView = Parse.View.extend({
     this.$el.html(this.template(this.model));
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
+
 
   }
 });

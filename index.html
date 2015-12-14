@@ -297,26 +297,48 @@
   <div class="backend-container">
       <div class="left-column">
 
-        <div class="profile-tools profile-tools-desktop">
-          <form action="">
-
-            <textarea id="business-status" rows="1" autoresize=true required=true placeholder="What's going on?"></textarea
-
-            ><div class="posting-options">
-              <button type="submit">Post</button
-              ><label for="camera-file">
-                <i class="fa fa-camera"></i>
-              </label
-              ><input type="file" id="camera-file" />
-            </div>
-
-          </form>
-        </div>
         <div class="backend-statistics">
           <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
           ><li><h1>156</h1><p>Status Updates</p></li
           ><li><h1>24</h1><p>Beers on Tap</p></li>
         </div>
+
+          <button class="standalone_open"><span class="entypo-feather"></span></button>
+
+
+        <!-- Add content to the popup -->
+          <div id="standalone">
+            <div class="popup-tabs">
+              <li><aside><span class="entypo-comment"></span></aside><section><p>Text</p></section></li
+              ><li><aside><span class="entypo-picture"></span></aside><section><p>Photo</p></section></li
+              ><li><aside><span class="entypo-video"></span></aside><section><p>Video</p></section></li
+              ><li><aside><span class="entypo-calendar"></span></aside><section><p>Event</p></section></li
+              ><li><aside><span class="entypo-calendar"></span></aside><section><p>Event</p></section></li>
+            </div>
+
+            <div class="post-status-text">
+              <form action="">
+                <header>
+                  <aside><img src="images/zas-logo.jpg"><h1>taull</h1></aside>
+                  <input type="text" placeholder="Title" />
+                </header>
+                <textarea id="business-status" rows="1" autoresize=true required=true placeholder="Your text here"></textarea
+                ><section>
+
+                  <input type="file" id="camera-file" />
+                </section
+                ><footer>
+                  <aside><button class="standalone_close"><p>Cancel</p></button></aside
+                  ><div>
+                    <button type="submit">Post</button
+                    
+                  </div>
+                </footer>
+
+              </form>
+            </div>
+
+          </div>
       </div
       ><div class="middle-column">
 
@@ -870,6 +892,8 @@
 
 <script type='text/template' id='status-text-view'>
   <% var user = attributes.createdBy %>
+  <section class="feed-header"><h1>Status Update</h1></section>
+
   <section class="feed-info">
     <% if (Parse.User.current().get('userType') === 'consumer') { %>
       <aside>
@@ -917,6 +941,8 @@
 
 <script type='text/template' id='status-photo-view'>
   <% var user = attributes.createdBy %>
+  <section class="feed-header"><h1>Photos</h1></section>
+
   <section class="feed-info">
     <% if (Parse.User.current().get('userType') === 'consumer') { %>
       <aside>
@@ -979,6 +1005,7 @@
 <script type='text/template' id='status-event-view'>
 
   <% var user = attributes.createdBy %>
+  <section class="feed-header"><h1>Events</h1></section>
   <section class="feed-info">
     <% if (Parse.User.current().get('userType') === 'consumer') { %>
       <aside>
@@ -1008,6 +1035,8 @@
   <section class="feed-event">
     <aside>
       <h2><%= attributes.title %></h2>
+      <h3><%= moment(user.get('eventDate')).format('MMMM Do, YYYY') %></h3>
+
       <p><%= attributes.content %></p>
     </aside>
   </section>
@@ -1019,47 +1048,31 @@
   <section class="feed-controls">
     <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
     ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
-    ><li><span class="entypo-envelope"></span><h1 class='rsvp'>RSVP</h1></li>
+    ><li><span class="entypo-feather"></span><h1 class='rsvp'>RSVP</h1></li>
   </section>
 
 </script>
 <script type='text/template' id='status-checkin-view'>
+  <section class="feed-header"><h1>Drunk History</h1></section>
+
   <% var user = attributes.createdBy %>
-  <section class="feed-info">
-    <% if (Parse.User.current().get('userType') === 'consumer') { %>
-      <aside>
-        <% if (typeof user.get('avatar') !=='undefined') { %>
-          <img src=<%= user.get('avatar')._url %> >
-        <% } else { %>
-          <img src="images/default-avatar.png">
-        <% } %>
-      </aside
 
-      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
 
-    <% } else { %>
-
-      <aside>
-        <% if (typeof user.get('avatar') !=='undefined') { %>
-          <img src=<%= user.get('avatar')._url %> >
-        <% } else { %>
-          <img src="images/default-avatar.png">
-        <% } %>
-      </aside
-
-      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-    <% } %>
-  </section>
-
-  <section class="feed-content">
+  <section class="feed-checkin-content">
     <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>
+    </aside
+    ><section>
       <p><%= attributes.content %></p>
-    </aside>
+      <h3><%= moment(createdAt).fromNow(true) %> ago</h3>
+
+    </section>
   </section>
 
-  <section class="feed-statistics">
-    <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
-  </section>
 
   <section class="feed-controls">
     <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
@@ -1067,7 +1080,7 @@
   </section>
 </script>
 
-<!-- RSVP VIEW -->
+<!-- RSVP STATUS VIEW -->
 
 <script type='text/template' id='status-rsvp-view'>
   <% var user = attributes.createdBy %>
@@ -1109,6 +1122,42 @@
   </section>
 
 </script>
+
+
+<!-- BEER STATUS VIEW -->
+
+<script type='text/template' id='status-beer-view'>
+
+  <section class="feed-header"><h1>Drunk History</h1></section>
+
+  <% var user = attributes.createdBy %>
+
+  <section class="feed-beer-content">
+    <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>    
+    </aside
+    ><section>
+      <h1>Taylor Aull</h1> 
+      <p>had a</p>
+      <a>Westbrook IPA</a>
+      <p>at</p>
+      <a>Craft and Draft</a>
+      <h3><%= moment(createdAt).fromNow(true) %> ago</h3>
+
+    </section>
+  </section>
+
+
+  <section class="feed-controls">
+    <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
+    ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li>
+  </section>
+</script>
+
 
 
 <!-- Business Feed View -->
@@ -1476,7 +1525,11 @@
       
       </div
       ><div class="header-right">
-
+        <div class="dashboard-statistics">
+          <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
+          ><li><h1>32</h1><p>Following</p></li
+          ><li><h1>24</h1><p>Beers</p></li>
+        </div>
         
 
       </div>  
@@ -1512,25 +1565,16 @@
 
         </div>
 
-        <div class="dashboard-tabs1">  
-          <a href="#location"><li><aside><span class="fa fa-location-arrow"></span></aside><section><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></section></li></a>
-        </div
-        ><div class="dashboard-tabs-dropdown">
+        
+        <div class="dashboard-tabs-dropdown">
           <h1>Home</h1><i class="fa fa-caret-down"></i>
         </div>
-        <div class="dashboard-statistics">
-          <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
-          ><li><h1>32</h1><p>Following</p></li
-          ><li><h1>24</h1><p>Beers</p></li>
+
+        <div class="dashboard-tabs1">  
+          <a href="#location"><li><aside><span class="fa fa-location-arrow"></span></aside><section><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></section></li></a>
         </div>
+
         
-        <div class="bar-search">
-          <form name='bar-search' action>
-            <span class="fa fa-search"></span>
-            <input type="text" placeholder="Search Bars">
-            <button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
-          </form>
-        </div>
       </div
 
       ><div class="middle-column">
@@ -1543,10 +1587,16 @@
         </div> 
       </div
       ><div class="right-column">
+        <div class="bar-search">
+          <form name='bar-search' action>
+            <span class="fa fa-search"></span>
+            <input type="text" placeholder="Search Bars">
+            <button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
+          </form>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.886641979117!2d-81.00496074428047!3d33.995445332492615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f8bab67ebba093%3A0xfc896f51b392915c!2s2615+Wheat+St%2C+Columbia%2C+SC+29205!5e0!3m2!1sen!2sus!4v1449772532237" width="340" height="250" frameborder="0" style="border:0; margin-top:10px" allowfullscreen></iframe>
 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.886641979117!2d-81.00496074428047!3d33.995445332492615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f8bab67ebba093%3A0xfc896f51b392915c!2s2615+Wheat+St%2C+Columbia%2C+SC+29205!5e0!3m2!1sen!2sus!4v1449772532237" width="340" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-        
+        <div class="map-container"></div>
 
 
           
@@ -1730,6 +1780,8 @@
 <script src='bower_components/pickadate/lib/picker.date.js'></script>
 <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 <script src='jquery-accordion.js'></script>
+<script src='jquery-popup-overlay/jquery.popupoverlay.js'></script>
+
 <script src='bower_components/autosize/dist/autosize.min.js'></script>
 <script src="bower_components/moment/min/moment.min.js"></script>
 <script src="noUiSlider/nouislider.min.js"></script>
