@@ -260,7 +260,7 @@
 
         <% if (typeof attributes.image !== 'undefined') { %>
           <section class="feed-photo">
-            <a href=<%= attributes.image._url %> >
+            <a target='_blank' href=<%= attributes.image._url %> >
               <img src=<%= attributes.image._url %> />
             </a>
           </section
@@ -968,7 +968,7 @@
     <% } %>
   </section>
   <section class="feed-photo">
-    <a href=<%= attributes.image._url %> >
+    <a target='_blank' href=<%= attributes.image._url %> >
       <img src=<%= attributes.image._url %> />
     </a>
   </section
