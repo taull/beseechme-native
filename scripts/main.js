@@ -1552,6 +1552,7 @@ BeMe.Views.BusinessBeerList = Parse.View.extend({
     this.collection = new BeMe.Collections.BeerResults();
     this.loadDraftBeers();
     this.addSpinner();
+    //added comment for test
   },
 
   template: _.template($('#business-beer-view').text()),
