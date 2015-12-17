@@ -169,7 +169,7 @@ header {
   background: #f0f0f0; }
 
 .header-container {
-  width: 1200px;
+  width: 100%;
   height: 55px;
   margin: 0 auto;
   position: relative; }
@@ -2827,36 +2827,55 @@ svg rect {
     vertical-align: top; }
 
 /* The Feed */
-.profile-feed {
+.bar-feed {
   width: 100%; }
-  .profile-feed ul {
+  .bar-feed ul {
     list-style: none;
     padding-left: 0; }
-  .profile-feed article {
+  .bar-feed article {
     display: inline-block;
     vertical-align: top;
     width: 100%;
     padding: 0px 0px 0px;
     text-align: left; }
-  .profile-feed li,
-  .profile-feed div {
+  .bar-feed li,
+  .bar-feed div {
     background: #fff;
-    padding: 10px 10px 0;
+    /*padding: 10px 10px 0;*/
     margin-bottom: 15px;
     border-radius: 2px; }
-  .profile-feed li:nth-child(odd),
-  .profile-feed div:nth-child(odd) {
+  .bar-feed li:nth-child(odd),
+  .bar-feed div:nth-child(odd) {
+    /*background: #f8f8f8;*/ }
+
+.friends-feed {
+  width: 100%; }
+  .friends-feed ul {
+    list-style: none;
+    padding-left: 0; }
+  .friends-feed article {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    padding: 0px 0px 0px;
+    text-align: left; }
+  .friends-feed li,
+  .friends-feed div {
+    background: #fff; }
+  .friends-feed li:nth-child(odd),
+  .friends-feed div:nth-child(odd) {
     /*background: #f8f8f8;*/ }
 
 .feed-info {
   width: 100%;
-  padding: 15px 10px;
+  padding: 15px 15px;
   position: relative;
   z-index: 1; }
   .feed-info aside,
   .feed-info section,
   .feed-info h2,
-  .feed-info div {
+  .feed-info div,
+  .feed-info h4 {
     display: inline-block;
     vertical-align: top; }
   .feed-info aside {
@@ -2891,19 +2910,60 @@ svg rect {
       color: #ccc;
       font-size: 1em;
       font-weight: 400; }
+  .feed-info h4 {
+    float: right;
+    padding: 5px 10px;
+    font-size: 1.2em;
+    font-weight: 400;
+    background: #f8f8f8;
+    border-radius: 3px;
+    border: 1px solid #dfdfdf; }
 
 .feed-photo {
   width: 100%;
-  overflow: hidden;
-  padding: 0; }
+  /*overflow: hidden;*/
+  padding: 0;
+  position: relative; }
   .feed-photo img {
     width: 100%;
-    height: auto; }
+    height: auto;
+    vertical-align: top; }
+  .feed-photo footer {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    height: 35px; }
+    .feed-photo footer aside,
+    .feed-photo footer section {
+      display: inline-block;
+      vertical-align: top; }
+    .feed-photo footer aside {
+      width: 20%;
+      position: absolute;
+      bottom: 10px;
+      left: 10px; }
+      .feed-photo footer aside img {
+        width: 30px;
+        height: 30px;
+        border-radius: 25px; }
+    .feed-photo footer section {
+      width: 80%;
+      position: absolute;
+      bottom: 10px;
+      left: 10px; }
+      .feed-photo footer section p {
+        color: #fff;
+        font-weight: 300;
+        font-size: 1.2em; }
 
 .feed-content {
   width: 100%;
   display: inline-block;
-  padding: 0px 10px 10px 10px; }
+  padding: 0px 15px 10px 15px; }
   .feed-content aside {
     width: 100%;
     text-align: left;
@@ -2941,7 +3001,7 @@ svg rect {
 .feed-checkin-content {
   width: 100%;
   display: inline-block;
-  padding: 20px 10px 10px; }
+  padding: 20px 15px 10px; }
   .feed-checkin-content section,
   .feed-checkin-content aside {
     display: inline-block;
@@ -3077,7 +3137,7 @@ svg rect {
 .feed-beer-content {
   width: 100%;
   display: inline-block;
-  padding: 20px 10px 10px; }
+  padding: 20px 15px 10px; }
   .feed-beer-content section,
   .feed-beer-content aside {
     display: inline-block;
@@ -3138,17 +3198,30 @@ svg rect {
 
 .feed-header {
   width: 100%;
-  padding: 0px 10px 5px;
-  border-bottom: 1px solid #f0f0f0; }
+  padding: 10px 15px 5px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #f8f8f8;
+  border-radius: 3px 3px 0 0; }
   .feed-header h1 {
     font-size: 1em;
     font-weight: 400;
     color: #333; }
 
+.feed-event-photo {
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  padding: 0;
+  position: relative; }
+  .feed-event-photo img {
+    width: 100%;
+    height: auto;
+    vertical-align: top; }
+
 .feed-event {
   width: 100%;
   display: inline-block;
-  padding: 0px 10px 10px; }
+  padding: 0px 15px 10px; }
   .feed-event aside {
     width: 100%;
     text-align: left;
@@ -3190,12 +3263,17 @@ svg rect {
       margin-top: 5px; }
 
 .feed-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   width: 100%;
   display: inline-block;
   padding: 10px;
-  border-left: 5px solid #f0f0f0;
-  margin-top: 5px;
-  background: #f8f8f8; }
+  border-left: 5px solid #0277BD;
+  margin-top: -3px;
+  background: #000; }
   .feed-caption aside {
     width: 100%;
     text-align: left;
@@ -3216,7 +3294,7 @@ svg rect {
 .feed-statistics {
   width: 100%;
   display: inline-block;
-  padding: 10px; }
+  padding: 10px 15px; }
   .feed-statistics p,
   .feed-statistics span {
     display: inline-block;
@@ -4443,8 +4521,8 @@ svg rect {
     overflow-x: hidden;
     font-size: 90%; }
 
-  .profile-feed li,
-  .profile-feed div {
+  .bar-feed li,
+  .bar-feed div {
     margin-bottom: 10px; }
 
   .feed-controls li {

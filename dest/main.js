@@ -822,11 +822,11 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 			$('.profile-tools').toggleClass('profile-tools-shift');
       $('#backend-myfeed-tab').removeClass('active-feed-type');
       $('#backend-mainfeed-tab').removeClass('active-feed-type');
-      $('.profile-feed').addClass('hidden');
+      $('.bar-feed').addClass('hidden');
 		});
 
     $('#backend-myfeed-tab').click(function(){
-      $('.profile-feed').removeClass('hidden');
+      $('.bar-feed').removeClass('hidden');
       $('#backend-myfeed-tab').addClass('active-feed-type');
       $('.profile-tools').toggleClass('profile-tools-shift');
 
@@ -916,7 +916,7 @@ BeMe.Views.FeedPost = Parse.View.extend({
 
   render: function () {
     this.$el.html(this.template(this.model));
-    $('.profile-feed ul').append(this.el);
+    $('.bar-feed ul').append(this.el);
   }
 });
 BeMe.Views.BackendSettings = Parse.View.extend({
@@ -1373,7 +1373,7 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
 
   render: function ()  {
     this.$el.html(this.template(this.model));
-    $('.profile-feed ul').append(this.el);
+    $('.bar-feed ul').append(this.el);
     BeMe.renderedViews.push(this);
   },
 
