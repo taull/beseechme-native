@@ -16,10 +16,8 @@ BeMe.Views.DashboardfollowingListing = Parse.View.extend({
     var self = this;
 
     Parse.Cloud.run('pullFollowingStatuses').then(function(statuses) {
-      _.each(statuses, function (status) {
-        console.log(status);
-        self.views.push(new BeMe.Views.BusinessPostView({model:status}));
-      });
+      var collection = new Parse.Collection(statuses);
+      new BeMe.Views.StatusListView({collection:collection, container:'.bar-feed'});
     });
   }
 });

@@ -32,28 +32,12 @@ var Router = Parse.Router.extend({
 
   test: function () {
     BeMe.removeAllViews();
-
-    //basic functionality for making our code more dry!!
-
-    var BaseView = Parse.View.extend({
-      render: function () {
-        this.$el.html(this.template(this.model));
-        $(this.destination).append(this.el);
-        BeMe.renderedViews.push(this);
-      }
+    var query = new Parse.Query('status');
+    query.limit(5);
+    query.find().then(function (e) {
+      var collection = new Parse.Collection(e);
+      var view = new BeMe.Views.StatusListView({collection:collection,container:'.body-container'});
     });
-
-    var ChildView = BaseView.extend({
-      initialize: function () {
-        this.template = _.template($("#dashboard-home-view").text());
-        this.destination = '.body-container';
-        this.render();
-      }
-    });
-
-    new ChildView({model:new Parse.Object({name:"Justin"})});
-
-    //end basic inheritance functionality
 
   },
 

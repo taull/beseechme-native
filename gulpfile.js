@@ -14,7 +14,7 @@ gulp.task('scripts', function () {
 //Watch for changes on main.js, and concat all scripts on save
 
 gulp.task('watch', function () {
-	gulp.watch('./scripts/main.js', ['scripts']);
+	gulp.watch('./scripts/**', ['scripts']);
 });
 
 

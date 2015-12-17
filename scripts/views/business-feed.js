@@ -63,7 +63,7 @@ BeMe.Views.BusinessPostView = Parse.View.extend({
 
   render: function ()  {
     this.$el.html(this.template(this.model));
-    $('.profile-feed ul').append(this.el);
+    $('.bar-feed ul').append(this.el);
     BeMe.renderedViews.push(this);
   },
 

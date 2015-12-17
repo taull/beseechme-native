@@ -55,7 +55,8 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
         } else {
           view.isNotFollowing();
         }
-      })
+      });
     });
-  },
+  }
+  
 });
