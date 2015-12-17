@@ -341,7 +341,7 @@
       </div
       ><div class="middle-column">
 
-        <div class="profile-feed">
+        <div class="bar-feed">
           <ul>
           </ul>
         </div><!-- END PROFILE FEED -->
@@ -857,7 +857,7 @@
               <% } %>
             </div>
 
-          <div class="profile-feed">
+          <div class="bar-feed">
               <ul></ul>
           </div>
 
@@ -967,23 +967,28 @@
       ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
     <% } %>
   </section>
+
   <section class="feed-photo">
-    <a target='_blank' href=<%= attributes.image._url %> >
-      <img src=<%= attributes.image._url %> />
-    </a>
+    <img src=<%= attributes.image._url %> /
+    ><footer>
+      <aside>
+        <% if (typeof user.get('avatar') !=='undefined') { %>
+          <img src=<%= user.get('avatar')._url %> >
+        <% } else { %>
+          <img src="images/default-avatar.png">
+        <% } %>
+      </aside
+      ><section>
+        <p><%= attributes.content %></p>
+      </section>
+    </footer>
   </section
 
-  ><section class="feed-caption">
-    <aside>
-      <p><%= attributes.content %></p>
-    </aside>
-  </section>
-
-  <section class="feed-statistics">
+  ><section class="feed-statistics">
     <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
-  </section>
+  </section
 
-  <section class="feed-controls">
+  ><section class="feed-controls">
     <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
     ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
     ><li><span class="entypo-location"></span><h1 class='check-in'>Check In</h1></li>
@@ -1016,7 +1021,7 @@
       </aside
 
       ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-
+      <h4>RSVP</h4>
     <% } else { %>
 
       <aside>
@@ -1030,6 +1035,7 @@
       ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
     <% } %>
   </section>
+
 
   <section class="feed-event">
     <aside>
@@ -1053,8 +1059,7 @@
 </script>
 
 <script type='text/template' id='status-checkin-view'>
-  <section class="feed-header"><h1>Drunk History</h1></section>
-
+ 
   <% var user = attributes.createdBy %>
 
 
@@ -1074,10 +1079,7 @@
   </section>
 
 
-  <section class="feed-controls">
-    <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-    ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li>
-  </section>
+
 </script>
 
 <!-- RSVP STATUS VIEW -->
@@ -1128,8 +1130,6 @@
 
 <script type='text/template' id='status-beer-view'>
 
-  <section class="feed-header"><h1>Drunk History</h1></section>
-
   <% var user = attributes.createdBy %>
 
   <section class="feed-beer-content">
@@ -1151,11 +1151,6 @@
     </section>
   </section>
 
-
-  <section class="feed-controls">
-    <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-    ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li>
-  </section>
 </script>
 
 
@@ -1189,7 +1184,7 @@
         </div>
 
       <div class="wide-container">
-        <div class="profile-feed"><ul></ul></div>
+        <div class="bar-feed"><ul></ul></div>
 
         <div class="copyright-info">
           <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
@@ -1574,12 +1569,14 @@
           <a href="#location"><li><aside><span class="fa fa-location-arrow"></span></aside><section><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></section></li></a>
         </div>
 
+        <div class="listing-container"></div>
+
         
       </div
 
       ><div class="middle-column">
 
-        <div class="profile-feed"><ul></ul></div>
+        <div class="bar-feed"><ul></ul></div>
 
         <div class="copyright-info">
           <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
@@ -1628,7 +1625,7 @@
             </ul>
           </div>
         </div>
-        <div class="profile-feed">
+        <div class="bar-feed">
           <ul>
           </ul>
         </div><!-- END PROFILE FEED -->
@@ -1745,11 +1742,11 @@
         <h1>Home</h1><i class="fa fa-caret-down"></i>
       </div>
 
-      <div class="following-container"></div>
+      <div class="friends-feed"></div>
     </div
 
     ><div class="middle-column">
-        <div class="profile-feed"><ul></ul></div>
+        <div class="bar-feed"><ul></ul></div>
     </div
     ><div class="right-column"></div>
   </div>
