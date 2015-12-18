@@ -47,9 +47,9 @@ body {
   padding: 15px 0; }
 
 .dashboard-container {
-  width: 800px;
+  width: 100%;
   margin: 0 auto;
-  margin-top: 75px;
+  margin-top: 55px;
   position: relative;
   z-index: 1;
   padding: 0px 0; }
@@ -112,24 +112,25 @@ body {
   vertical-align: top; }
 
 .left-column {
-  width: 380px;
+  width: 30%;
   position: fixed;
   z-index: 10;
-  padding: 0 20px 0 0px;
+  padding: 0 0 0 20px;
   transition: 250ms; }
 
 .middle-column {
   position: relative;
-  width: 420px;
-  left: 380px;
-  transition: 250ms; }
+  width: 40%;
+  left: 30%;
+  transition: 250ms;
+  /*background: #d8d8d8;*/
+  padding: 0 20px; }
 
 .right-column {
-  width: 380px;
-  left: 380px;
+  width: 30%;
+  left: 30%;
   position: relative;
-  padding: 0 20px 0 0px;
-  display: none; }
+  padding: 20px; }
 
 .top-column {
   width: 100%; }
@@ -165,8 +166,7 @@ header {
   height: 55px;
   top: 0;
   left: 0;
-  z-index: 9999999;
-  background: #f0f0f0; }
+  z-index: 9999999; }
 
 .header-container {
   width: 100%;
@@ -205,7 +205,7 @@ header {
 .header-left {
   display: inline-block;
   vertical-align: top;
-  width: 25%;
+  width: 30%;
   height: 55px;
   /*background: #333;*/
   padding: 10px 20px; }
@@ -217,15 +217,17 @@ header {
     color: #fff;
     text-align: center;
     border-radius: 3px;
-    padding-top: 9px; }
+    padding-top: 9px;
+    display: none; }
 
 .header-center {
   display: inline-block;
   vertical-align: top;
   text-align: left;
-  width: 50%;
+  width: 40%;
   height: 55px;
-  padding-top: 5px; }
+  padding-top: 5px;
+  background: #dfdfdf; }
   .header-center li {
     display: inline-block;
     vertical-align: top;
@@ -289,10 +291,12 @@ header {
 .header-right {
   display: inline-block;
   vertical-align: top;
-  width: 25%;
+  width: 30%;
   position: relative;
   z-index: 999999999;
-  text-align: right; }
+  text-align: right;
+  padding-top: 55px;
+  display: none; }
   .header-right img {
     width: 35px;
     height: 35px;
@@ -1275,18 +1279,17 @@ header {
 
 .dashboard-statistics,
 .backend-statistics {
-  width: 100%;
-  background: #fff;
+  width: 20%;
   height: 55px; }
   .dashboard-statistics li,
   .backend-statistics li {
-    width: 33.33333%;
+    width: 100%;
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    border-right: 1px solid #dfdfdf;
-    height: 55px;
-    padding-top: 10px; }
+    padding: 15px 0;
+    background: #fff;
+    border-bottom: 1px solid #f8f8f8; }
     .dashboard-statistics li h1,
     .backend-statistics li h1 {
       width: 100%;
@@ -2921,22 +2924,25 @@ svg rect {
 
 .feed-photo {
   width: 100%;
-  /*overflow: hidden;*/
   padding: 0;
-  position: relative; }
+  position: relative;
+  transition: 250ms; }
   .feed-photo img {
     width: 100%;
     height: auto;
     vertical-align: top; }
   .feed-photo footer {
     position: absolute;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
     left: 0;
     bottom: 0;
     right: 0;
     text-align: center;
     width: 100%;
-    height: 35px; }
+    height: 100%;
+    padding-top: 100px;
+    transition: 250ms; }
     .feed-photo footer aside,
     .feed-photo footer section {
       display: inline-block;
@@ -2945,20 +2951,24 @@ svg rect {
       width: 20%;
       position: absolute;
       bottom: 10px;
-      left: 10px; }
+      left: 10px;
+      display: none; }
       .feed-photo footer aside img {
         width: 30px;
         height: 30px;
         border-radius: 25px; }
     .feed-photo footer section {
-      width: 80%;
-      position: absolute;
-      bottom: 10px;
-      left: 10px; }
+      width: 100%;
+      position: relative;
+      text-align: center; }
       .feed-photo footer section p {
         color: #fff;
         font-weight: 300;
         font-size: 1.2em; }
+
+.feed-photo:hover footer {
+  opacity: 1;
+  transition: 250ms; }
 
 .feed-content {
   width: 100%;
@@ -3262,34 +3272,22 @@ svg rect {
       color: #333;
       margin-top: 5px; }
 
-.feed-caption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+.feed-caption aside {
   width: 100%;
-  display: inline-block;
-  padding: 10px;
-  border-left: 5px solid #0277BD;
-  margin-top: -3px;
-  background: #000; }
-  .feed-caption aside {
-    width: 100%;
-    text-align: left;
-    padding-top: 0;
-    display: inline-block; }
-    .feed-caption aside span {
-      font-size: 1.1em;
-      line-height: 20px;
-      font-weight: 300;
-      padding-top: 15px;
-      color: #37474F; }
-    .feed-caption aside p {
-      font-size: 1em;
-      line-height: 1.6em;
-      font-weight: 400;
-      color: #555; }
+  text-align: left;
+  padding-top: 0;
+  display: inline-block; }
+  .feed-caption aside span {
+    font-size: 1.1em;
+    line-height: 20px;
+    font-weight: 300;
+    padding-top: 15px;
+    color: #37474F; }
+  .feed-caption aside p {
+    font-size: 1em;
+    line-height: 1.6em;
+    font-weight: 400;
+    color: #555; }
 
 .feed-statistics {
   width: 100%;
