@@ -32,13 +32,7 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
   },
 
   render: function () {
-    var self = this;
-    BeMe.removeGroup(this.views);
-    this.collection.each(function (i) {
-      var newView = new BeMe.Views.BusinessPostView({model:i});
-      self.views.push(newView);
-    });
-    this.updateFollowButtons();
+    new BeMe.Views.StatusListView({collection:this.collection, container:'.bar-feed'})
   },
 
   updateFollowButtons: function () {

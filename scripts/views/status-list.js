@@ -32,7 +32,6 @@ BeMe.Views.StatusListView = Parse.View.extend({
 
 	initializeFollowButtons: function () {
     var self = this;
-    console.log("initializeFollowButtons is running");
 
     var user = Parse.User.current();
     user.relation('barsFollowing').query().find().then(function (barsFollowing) {

@@ -1636,12 +1636,13 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
 
   render: function () {
     var self = this;
-    BeMe.removeGroup(this.views);
-    this.collection.each(function (i) {
-      var newView = new BeMe.Views.BusinessPostView({model:i});
-      self.views.push(newView);
-    });
-    this.updateFollowButtons();
+    // BeMe.removeGroup(this.views);
+    new BeMe.Views.StatusListView({collection:this.collection, container:'.bar-feed'})
+    // this.collection.each(function (i) {
+    //   var newView = new BeMe.Views.BusinessPostView({model:i});
+    //   self.views.push(newView);
+    // });
+    // this.updateFollowButtons();
   },
 
   updateFollowButtons: function () {
@@ -2133,7 +2134,6 @@ BeMe.Views.StatusListView = Parse.View.extend({
 
 	initializeFollowButtons: function () {
     var self = this;
-    console.log("initializeFollowButtons is running");
 
     var user = Parse.User.current();
     user.relation('barsFollowing').query().find().then(function (barsFollowing) {
