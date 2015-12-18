@@ -41,7 +41,7 @@ BeMe.Views.DashboardfollowingListing = Parse.View.extend({
 
     var query = new Parse.Query('status');
     query.containedIn('createdBy', this.barsFollowing);
-    query.containedIn('statusType', ['Checkin', 'Beer']);
+    query.containedIn('statusType', ['Check In', 'Beer']);
     query.include('createdBy');
     query.descending('createdAt');
 

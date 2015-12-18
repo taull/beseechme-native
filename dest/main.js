@@ -1123,10 +1123,8 @@ BeMe.Views.BarSearchResults = Parse.View.extend({
       return bar.get('userType') === type;
     });
 
-    //remove the existing views from the screen
     BeMe.removeGroup(this.subViews);
 
-    //render proper views to the screen
     _.each(usersToRender, function(bar) {
       self.subViews.push(new BeMe.Views.BarSearchResult({model:bar}));
     });
@@ -1145,7 +1143,9 @@ BeMe.Views.BarSearchResult = Parse.View.extend({
   render: function () {
     this.$el.html(this.template(this.model));
     $('.bar-search-results ul').append(this.el);
-  }
+    BeMe.renderedViews.push(this);
+  },
+
 });
 BeMe.Views.BusinessBeerList = Parse.View.extend({
   initialize: function () {
@@ -1706,7 +1706,7 @@ BeMe.Views.DashboardfollowingListing = Parse.View.extend({
 
     var query = new Parse.Query('status');
     query.containedIn('createdBy', this.barsFollowing);
-    query.containedIn('statusType', ['Checkin', 'Beer']);
+    query.containedIn('statusType', ['Check In', 'Beer']);
     query.include('createdBy');
     query.descending('createdAt');
 
