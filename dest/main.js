@@ -839,6 +839,7 @@ BeMe.Views.BackendFeed = Parse.View.extend({
       $('.profile-tools').toggleClass('profile-tools-shift');
 
     });
+
     $('#standalone').popup({
       color: '#dfdfdf',
       opacity: 1,
@@ -907,26 +908,12 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
     var self = this;
     BeMe.removeGroup(this.views);
     this.each(function (i) {
-      var feedPost = new BeMe.Views.FeedPost({model:i});
+      var feedPost = new BeMe.Views.Status({model:i, container: '.bar-feed'});
       self.views.push(feedPost);
     });
   }
 });
 
-BeMe.Views.FeedPost = Parse.View.extend({
-  tagName:'li',
-
-  initialize: function () {
-      this.render();
-  },
-
-  template: _.template($('#status-post-view').text()),
-
-  render: function () {
-    this.$el.html(this.template(this.model));
-    $('.bar-feed ul').append(this.el);
-  }
-});
 BeMe.Views.BackendSettings = Parse.View.extend({
 	initialize: function () {
 		this.render();
@@ -1687,13 +1674,23 @@ BeMe.Views.Dashboardfollowing = BeMe.Views.DashboardBaseView.extend({
 BeMe.Views.DashboardfollowingListing = Parse.View.extend({
   initialize: function () {
     this.views = [];
-    this.render();
+    this.beginLoadingStatuses();
   },
 
-  render: function () {
+  beginLoadingStatuses: function () {
+    var self = this;
+    Parse.User.current().relation('barsFollowing').query().find().then(function (barsFollowing) {
+      self.barsFollowing = barsFollowing;
+      self.loadProfileFeed();
+      self.loadFriendsFeed();
+    });
+  },
+
+  loadProfileFeed: function () {
     var self = this;
 
     var query = new Parse.Query('status');
+    query.containedIn('createdBy', this.barsFollowing);
     query.containedIn('statusType', ['Text', 'Photo', 'Video', 'Event']);
     query.include('createdBy');
     query.descending('createdAt');
@@ -1701,6 +1698,22 @@ BeMe.Views.DashboardfollowingListing = Parse.View.extend({
     query.find().then(function(statuses) {
       var collection = new Parse.Collection(statuses);
       new BeMe.Views.StatusListView({collection:collection, container:'.bar-feed'});
+    });
+  },
+
+  loadFriendsFeed: function () {
+    var self = this;
+
+    var query = new Parse.Query('status');
+    query.containedIn('createdBy', this.barsFollowing);
+    query.containedIn('statusType', ['Checkin', 'Beer']);
+    query.include('createdBy');
+    query.descending('createdAt');
+
+    query.find().then(function(statuses) {
+      console.log(statuses);
+      var collection = new Parse.Collection(statuses);
+      new BeMe.Views.StatusListView({collection:collection, container:'.friends-feed'});
     });
   }
 });

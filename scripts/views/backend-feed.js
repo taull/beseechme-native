@@ -25,6 +25,7 @@ BeMe.Views.BackendFeed = Parse.View.extend({
       $('.profile-tools').toggleClass('profile-tools-shift');
 
     });
+
     $('#standalone').popup({
       color: '#dfdfdf',
       opacity: 1,
@@ -93,23 +94,8 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
     var self = this;
     BeMe.removeGroup(this.views);
     this.each(function (i) {
-      var feedPost = new BeMe.Views.FeedPost({model:i});
+      var feedPost = new BeMe.Views.Status({model:i, container: '.bar-feed'});
       self.views.push(feedPost);
     });
-  }
-});
-
-BeMe.Views.FeedPost = Parse.View.extend({
-  tagName:'li',
-
-  initialize: function () {
-      this.render();
-  },
-
-  template: _.template($('#status-post-view').text()),
-
-  render: function () {
-    this.$el.html(this.template(this.model));
-    $('.bar-feed ul').append(this.el);
   }
 });
