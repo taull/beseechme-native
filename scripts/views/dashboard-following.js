@@ -15,7 +15,12 @@ BeMe.Views.DashboardfollowingListing = Parse.View.extend({
   render: function () {
     var self = this;
 
-    Parse.Cloud.run('pullFollowingStatuses').then(function(statuses) {
+    var query = new Parse.Query('status');
+    query.containedIn('statusType', ['Text', 'Photo', 'Video', 'Event']);
+    query.include('createdBy');
+    query.descending('createdAt');
+
+    query.find().then(function(statuses) {
       var collection = new Parse.Collection(statuses);
       new BeMe.Views.StatusListView({collection:collection, container:'.bar-feed'});
     });

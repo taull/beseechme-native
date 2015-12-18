@@ -158,15 +158,23 @@ BeMe.CheckIn = function (user, business) {
   }
 }
 
-BeMe.FollowUser = function (user, callback) {
+BeMe.FollowUser = function (user) {
   var currentUser = Parse.User.current();
   var relation = currentUser.relation("barsFollowing");
   if(user.id !== currentUser.id) {
     relation.add(user);
-    currentUser.save().then(function () {callback()});
+    currentUser.save();
   } else {
     alert("You can't follow yourself");
   }
+};
+
+BeMe.UnfollowUser = function (user) {
+  var currentUser = Parse.User.current();
+  var relation = currentUser.relation('barsFollowing');
+
+  relation.remove(user);
+  currentUser.save();
 }
 
 /*
