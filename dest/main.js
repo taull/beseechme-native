@@ -1087,7 +1087,16 @@ BeMe.Views.BarSearch = Parse.View.extend({
 BeMe.Views.BarSearchResults = Parse.View.extend({
   initialize: function () {
     this.subViews = [];
-    this.render();
+    this.following = [];
+    this.start();
+  },
+
+  start: function () {
+    var self = this;
+    Parse.User.current().relation('barsFollowing').query().find().then(function (users) {
+      self.following = users;
+      self.render();
+    });
   },
 
   render: function () {
@@ -1125,8 +1134,13 @@ BeMe.Views.BarSearchResults = Parse.View.extend({
 
     BeMe.removeGroup(this.subViews);
 
-    _.each(usersToRender, function(bar) {
-      self.subViews.push(new BeMe.Views.BarSearchResult({model:bar}));
+    _.each(usersToRender, function(user) {
+      var followingStatus = false;
+      if (self.following.some(function(userFollowing) {return user.id === userFollowing.id})) {
+        var followingStatus = true;
+      }
+
+      self.subViews.push(new BeMe.Views.BarSearchResult({model:user, following:followingStatus}));
     });
   }
 });
@@ -1136,6 +1150,9 @@ BeMe.Views.BarSearchResult = Parse.View.extend({
 
   initialize: function () {
     this.render();
+    if (this.options.following) {
+      this.isFollowingUIUpdate();
+    }
   },
 
   template: _.template($('#bar-search-results-view').text()),
@@ -1145,6 +1162,35 @@ BeMe.Views.BarSearchResult = Parse.View.extend({
     $('.bar-search-results ul').append(this.el);
     BeMe.renderedViews.push(this);
   },
+
+  events: {
+    'click .follow' : 'follow',
+    'click .unfollow' : 'unfollow'
+  },
+
+  follow: function () {
+    BeMe.FollowUser(this.model);
+    this.isFollowingUIUpdate();
+  },
+
+  unfollow: function () {
+    BeMe.UnfollowUser(this.model);
+    this.isNotFollowingUIUpdate();
+  },
+
+  isFollowingUIUpdate: function () {
+    var $followButton = this.$el.find('.follow');
+    $followButton.css('color', 'rgba(1, 87, 155, 0.38)');
+    $followButton.text('Following');
+    $followButton[0].className = 'unfollow';
+  },
+
+  isNotFollowingUIUpdate: function () {
+    var $followButton = this.$el.find('.unfollow');
+    $followButton.css('color', 'rgba(1, 87, 155, 1)');
+    $followButton.text('Follow');
+    $followButton[0].className = 'follow';
+  }
 
 });
 BeMe.Views.BusinessBeerList = Parse.View.extend({
@@ -1635,14 +1681,7 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
   },
 
   render: function () {
-    var self = this;
-    // BeMe.removeGroup(this.views);
     new BeMe.Views.StatusListView({collection:this.collection, container:'.bar-feed'})
-    // this.collection.each(function (i) {
-    //   var newView = new BeMe.Views.BusinessPostView({model:i});
-    //   self.views.push(newView);
-    // });
-    // this.updateFollowButtons();
   },
 
   updateFollowButtons: function () {
