@@ -28,7 +28,7 @@ BeMe.Views.BarSearch = Parse.View.extend({
   search: function (e) {
     e.preventDefault();
     var searchString = $('input').val();
-    BeMe.searchBars(searchString);
+    BeMe.searchUsers(searchString);
   }
 });
 
