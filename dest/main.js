@@ -43,7 +43,7 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
 	Begin utility functions
 */
 
-BeMe.searchBars = function (searchString) {
+BeMe.searchUsers = function (searchString) {
   var encodedString = encodeURIComponent(searchString);
 
   BeMe.Router.navigate('search/' + encodedString, true);
@@ -1978,11 +1978,20 @@ BeMe.Views.Dashboard = Parse.View.extend({
   },
 
   events: {
-    'click .update-location' : 'updateLocationInfo'
+    'click .update-location' : 'updateLocationInfo',
+    'submit form[name="bar-search"]' : 'userSearch'
   },
 
   updateLocationInfo: function () {
     BeMe.setCurrentLocation();
+  },
+
+  userSearch: function (e) {
+    e.preventDefault();
+    var form = e.currentTarget;
+    var searchString = $(form).find('input').val();
+    console.log(searchString);
+    BeMe.searchUsers(searchString);
   }
 });
 BeMe.Views.Index = Parse.View.extend({
