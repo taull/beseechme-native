@@ -1402,6 +1402,46 @@
 <script type="text/template" id="bar-search-view">
   <% var user = Parse.User.current() %>
 
+    <header>
+    <div class="header-container">
+      <div class="header-left">
+        
+        <aside><span id="left-column-trigger" class="fa fa-bars"></span></aside>
+        <% if (Parse.User.current().get('userType') === 'consumer') { %>
+          <div class="to-location">
+            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
+            ><div class="update-location"><footer><h1>Update Location</h1></footer></div
+
+            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
+          </div>
+
+        <% } else { %>
+        <% } %>
+      </div
+      ><div class="header-center">
+      
+      </div
+      ><div class="header-right">
+        <div class="bar-search">
+          <form name='bar-search' action>
+            <span class="fa fa-search"></span
+            ><input type="text" placeholder="Search Bars and Friends"
+            ><button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
+          </form>
+        </div>        
+        <div class="dashboard-statistics">
+          <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
+          ><li><h1>32</h1><p>Following</p></li
+          ><li><h1>24</h1><p>Beers</p></li>
+        </div>
+        
+
+      </div>  
+
+    </div>
+  </header>
+
+
   <div class="dashboard-container">
     <div class="left-column">
         <div class="current-user-info">
@@ -1431,17 +1471,9 @@
     </div
     ><div class="middle-column">
 
-      
-      <div class="bar-search">
-        <form name='bar-search' action>
-          <span class="fa fa-search"></span>
-          <input type="text" placeholder="Bars & People">
-          <button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
-        </form>
-      </div>
       <div class="search-tabs">
         <li><h1>Bars</h1></li
-        ><li><h1>People</h1></li>
+        ><li><h1>Friends</h1></li>
       </div>
       <div class="bar-search-results"><ul></ul></div>
 
@@ -1496,28 +1528,19 @@
       <div class="header-left">
         
         <aside><span id="left-column-trigger" class="fa fa-bars"></span></aside>
-        <% if (Parse.User.current().get('userType') === 'consumer') { %>
-          <div class="to-location">
-            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
-            ><div class="update-location"><footer><h1>Update Location</h1></footer></div
 
-            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
-          </div>
-
-        <% } else { %>
-        <% } %>
       </div
       ><div class="header-center">
-      
-      </div
-      ><div class="header-right">
         <div class="bar-search">
           <form name='bar-search' action>
             <span class="fa fa-search"></span
-            ><input type="text" placeholder="Bars & People"
-            ><button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
+            ><input type="text" placeholder="Search Bars and Friends"
+            ><button id="bar-submit"></button>
           </form>
-        </div>        
+        </div> 
+      </div
+      ><div class="header-right">
+       
         <div class="dashboard-statistics">
           <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
           ><li><h1>32</h1><p>Following</p></li
@@ -1732,6 +1755,24 @@
 
     ><div class="middle-column">
         <div class="bar-feed"><ul></ul></div>
+    </div
+    ><div class="right-column">
+
+    </div>
+  </div>
+</script>
+
+
+<script type="text/template" id="dashboard-friends-view">
+  <% var user = Parse.User.current() %>
+
+  <div class="dashboard-container">
+    <div class="left-column">
+
+    </div
+
+    ><div class="middle-column">
+      <div class="friends-feed"></div>
     </div
     ><div class="right-column">
 
