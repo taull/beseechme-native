@@ -1508,17 +1508,16 @@
         <% } %>
       </div
       ><div class="header-center">
-        
-        <div class="dashboard-tabs">
-          <a href="#dashboard"><i class="fa fa-comments"></i><h1>Home</h1></a>
-          <a href="#dashboard/listing"><i class="fa fa-th-list"></i><h1>Discover</h1></a>
-          <a href="#dashboard/following"><i class="fa fa-star"></i><h1>Following</h1></a>
-          <a href="#dashboard/map"><i class="fa fa-location-arrow"></i><h1>Map</h1></a>
-        </div>
-
       
       </div
       ><div class="header-right">
+        <div class="bar-search">
+          <form name='bar-search' action>
+            <span class="fa fa-search"></span
+            ><input type="text" placeholder="Bars & People"
+            ><button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
+          </form>
+        </div>        
         <div class="dashboard-statistics">
           <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
           ><li><h1>32</h1><p>Following</p></li
@@ -1727,14 +1726,16 @@
       ><div class="dashboard-tabs-dropdown">
         <h1>Home</h1><i class="fa fa-caret-down"></i>
       </div>
-
       <div class="friends-feed"></div>
+
     </div
 
     ><div class="middle-column">
         <div class="bar-feed"><ul></ul></div>
     </div
-    ><div class="right-column"></div>
+    ><div class="right-column">
+
+    </div>
   </div>
 </script>
 
