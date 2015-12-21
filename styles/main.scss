@@ -16,7 +16,7 @@
 
 $primary-color-dark: #263238;
 $primary-color-medium: #37474F;
-$primary-color-light: #f8f8f8;
+$primary-color-light: #f0f0f0;
 
 $secondary-color-dark: #01579B;
 $secondary-color-medium: #0277BD;
@@ -61,7 +61,7 @@ input [file] {
 body {
 	font-size: 12px;
 	position: relative;
-	background: #dfdfdf;
+	background: #f0f0f0;
 	/*background: url('../images/jack-daniels.jpg') no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -182,8 +182,10 @@ body {
 	width: 30%;
 	position: fixed;
 	z-index: 10;
-	padding: 0 0 0 20px;
+	padding: 0;
 	transition: 250ms;
+	height: 100vh;
+	padding-top: 20px;
 }
 
 .middle-column {
@@ -191,15 +193,16 @@ body {
 	width: 40%;
 	left: 30%;
 	transition: 250ms;
-	/*background: #d8d8d8;*/
-	padding: 0 20px;
+	padding: 20px 0 20px 20px;
+
 }
 
 .right-column {
 	width: 30%;
 	left: 30%;
 	position: relative;
-	padding: 20px;
+	padding: 20px 20px 20px 0;
+	display: none;
 }
 
 .top-column {
@@ -246,6 +249,8 @@ header {
     top: 0;
     left: 0;
     z-index: 9999999;
+    background: #fff;
+    border-bottom: 1px solid #dfdfdf;
 }
 
 .header-container {
@@ -326,7 +331,6 @@ header {
     width: 40%;
     height: 55px;
     padding-top: 5px;
-    background: #dfdfdf;
 
     li {
 		display: inline-block;
@@ -416,9 +420,8 @@ header {
 	width: 30%;
 	position: relative;
     z-index: 999999999;
-    text-align: right;
-    padding-top: 55px;
-    display: none;
+    height: 55px;
+    padding: 10px 10px 0 0;
 
 	img {
 		width: 35px;
@@ -997,7 +1000,7 @@ header {
 	li {
 		margin-bottom: 15px;
 		width: 100%;
-		background: #f8f8f8;
+		background: #f0f0f0;
 		border-radius: 3px;
 	}
 
@@ -1334,10 +1337,9 @@ header {
 	text-align: center;
 	position: relative;
 	overflow: hidden;
-	height: 45px;
-	margin-bottom: 15px;
+	height: 35px;
 	background: #444;
-	display: none;
+	border-radius: 3px;
 
 	a {
 		text-decoration: none;
@@ -1353,12 +1355,12 @@ header {
 		width: 20%;
 		background: #444;
 		text-align: center;
-		padding-top: 10px;
-		height: 45px;
+		padding-top: 5px;
+		height: 35px;
 		position: absolute;
 		right: 0;
 		/*border-left: 1px solid #d8d8d8;*/
-		border-radius: 0px 3px 3px 0px;
+		/*border-radius: 0px 3px 3px 0px;*/
 		
 		i {
 			font-size: 2em;
@@ -1369,11 +1371,11 @@ header {
 	section {
 		position: absolute;
 		width: 80%;
-		padding: 15px 20px 0;
+		padding: 10px 20px 0;
 		text-align: left;
 		margin: 0 auto;
 		/*border-radius: 3px;*/
-		height: 45px;
+		height: 35px;
 		left: 0;
 
 		h1,
@@ -1579,7 +1581,7 @@ header {
 
 	aside {
 		height: 45px;
-		background: #f8f8f8;
+		background: #f0f0f0;
 		border-radius: 0 3px 3px 0px;
 		padding: 15px 20px;
 		/*border-left: 1px solid #d8d8d8;*/
@@ -1612,17 +1614,17 @@ header {
 .update-location {
 	width: 80%;
 	position: absolute;
-	height: 45px;
+	height: 35px;
 	/*background: rgba(255,255,255,.05);*/
 	right: -60%;
 	transition: 250ms;
 
 	footer {
 		width: 100%;
-		height: 45px;
+		height: 35px;
 		text-align: left;
 		margin: 0 auto;
-		padding: 15px 20px 0;
+		padding: 10px 20px 0;
 		/*border-radius: 3px 0px 0 3px;*/
 		background: #444;
 		border-right: 0;
@@ -1758,6 +1760,7 @@ header {
 .backend-statistics {
 	width: 20%;
 	height: 55px;
+	display: none;
 
 
 	li {
@@ -1767,7 +1770,7 @@ header {
 		text-align: center;
 		padding: 15px 0;
 		background: #fff;
-		border-bottom: 1px solid #f8f8f8;
+		border-bottom: 1px solid #f0f0f0;
 
 		h1 {
 			width: 100%;
@@ -1860,9 +1863,9 @@ header {
 	vertical-align: top;
 	text-align: left;
 	width: 100%;
-	background: #f8f8f8;
-	border-radius: 0px 0px 3px 3px;
-	margin-bottom: 15px; 
+	background: #f0f0f0;
+	display: none;
+	/*border-radius: 0px 0px 3px 3px;*/
 
 	li {
 		padding: 15px 20px;
@@ -2135,7 +2138,7 @@ header {
 }
 
 .sidebar-container-dark {
-	background:#f8f8f8;
+	background:#f0f0f0;
 	border-right:0;
 	border-left:1px solid #dfdfdf;
 }
@@ -2143,7 +2146,7 @@ header {
 .top-container, 
 .top-container2 {
     position: relative;
-    /*background: #f8f8f8;*/
+    /*background: #f0f0f0;*/
     width: 100%;
     top: 65px;
     margin: 0 auto;
@@ -2541,7 +2544,7 @@ header {
 }
 
 .bg-half {
-	background: #f8f8f8;
+	background: #f0f0f0;
 }
 
 .beer-search {	
@@ -2557,7 +2560,7 @@ header {
 		vertical-align: top;
 		width: 20%;
 		font-size: 1.2em;
-		color: #f8f8f8;
+		color: #f0f0f0;
 		text-align: right;
 		padding-right: 20px;
 		padding-top: 28px;
@@ -2578,7 +2581,7 @@ header {
 	}
 
 	input::-webkit-input-placeholder {
-		color: #f8f8f8;
+		color: #f0f0f0;
 	}
 
 	button {
@@ -2618,14 +2621,15 @@ header {
 .bar-search {
 	display: inline-block;
 	vertical-align: top;
-	width: 100%;
-	background: #fafafa;
+	width: 80%;
+	background: #f0f0f0;
 	position: relative;
 	transition: 250ms;
 	z-index: 50;
-	height: 55px;
+	height: 35px;
 	margin: 0px auto;
-	/*border-radius: 0 0 3px 3px;*/
+	border-radius: 3px;
+	border: 1px solid #dfdfdf;
 
 	span, 
 	button, 
@@ -2636,13 +2640,13 @@ header {
 
 	span {
 		display: inline-block;
-	    height: 55px;
+	    height: 35px;
 	    vertical-align: top;
 	    width: 15%;
-	    font-size: 1.4em;
+	    font-size: 1.2em;
 	    color: #ccc;
 	    text-align: center;
-	    padding-top: 18px;
+	    padding-top: 11px;
 	    /*border-right: 1px solid #f0f0f0;*/
 	}
 
@@ -2654,15 +2658,15 @@ header {
 		font-size: 1em;
 		font-weight: 300;
 		padding: 0;
-		height: 55px;
-		padding: 13px;
+		height: 35px;
+		width: 15%;
 
 
 		i {
 			display: inline-block;
 		    vertical-align: top;
-		    font-size: 14px;
-		    color: $green-light;
+		    font-size: 1em;
+		    color: $secondary-color-dark;
 		    width: 100%;
 		    text-align: center;
 
@@ -2674,7 +2678,7 @@ header {
 		display: inline-block;
 		color: #333;
 		vertical-align: top;
-		height: 55px;
+		height: 35px;
 		width: 70%;
 		border: 0;
 		background: transparent;
@@ -2709,7 +2713,7 @@ header {
 		h1 {
 			font-size: 1.2em;
 			font-weight: 400;
-			color: #f8f8f8;
+			color: #f0f0f0;
 			text-decoration: none;
 			/*text-transform: uppercase;*/
 		}
@@ -2944,7 +2948,7 @@ header {
 	}
 
 	li:nth-child(even) {
-		background: #f8f8f8;
+		background: #f0f0f0;
 	}
 
 	
@@ -3297,7 +3301,7 @@ svg rect{
 
 .search-tabs {
 	width: 100%;
-	background: #f8f8f8;
+	background: #f0f0f0;
 	border-bottom: 1px solid #f0f0f0;
 	margin-top: 15px;
 
@@ -3660,7 +3664,7 @@ svg rect{
 			display: inline-block;
 			/*background: $primary-color-light;*/
 			position:relative;
-			color: #f8f8f8;
+			color: #f0f0f0;
 			/*z-index:1;*/
 		}
     }
@@ -3834,17 +3838,22 @@ svg rect{
 		/*padding: 10px 10px 0;*/
 		margin-bottom: 15px;
 		border-radius: 2px;
+		border: 1px solid #dfdfdf;
 	}
 
 	li:nth-child(odd), 
 	div:nth-child(odd) {
-		/*background: #f8f8f8;*/
+		/*background: #f0f0f0;*/
 	}
 }
 
 
 .friends-feed {
     width: 100%;
+    max-height: 400px;
+    overflow: scroll;
+    padding:  0;
+    background: #fff;
 
 	ul {
 		list-style: none;
@@ -3861,12 +3870,14 @@ svg rect{
 
 	li, 
 	div {
-		background: #fff;
+		background: #f0f0f0;
+		border-bottom: 1px solid #f0f0f0;
+		padding-left: 20px;
 	}
 
 	li:nth-child(odd), 
 	div:nth-child(odd) {
-		/*background: #f8f8f8;*/
+		/*background: #f0f0f0;*/
 	}
 }
 
@@ -3941,7 +3952,7 @@ svg rect{
 		padding: 5px 10px;
 		font-size: 1.2em;
 		font-weight: 400;
-		background: #f8f8f8;
+		background: #f0f0f0;
 		border-radius: 3px;
 		border: 1px solid #dfdfdf;
 	}
@@ -4067,7 +4078,7 @@ svg rect{
 .feed-checkin-content {
 	width: 100%;
 	display: inline-block;
-	padding: 20px 15px 10px;	
+	padding: 10px 15px 10px;	
 
 	section, 
 	aside {
@@ -4090,34 +4101,34 @@ svg rect{
 		}
 
 		p {
-			font-size: 1.2em;
-		    line-height: 1.6em;
+			font-size: 1em;
+		    line-height: 1.7em;
 		    font-weight: 300;
 		    color: #555;
 		}
 
 		h1 {
 			font-weight: 400;
-			font-size: 1.2em;
+			font-size: 1em;
 			line-height: 1.5em;
 			color: #555;
 		}
 
 		h2 {
-			font-size: 1.2em;
+			font-size: 1em;
 			font-weight: 500;
 			color: #555;
 		}
 
 		h3 {
-			font-size: .9em;
+			font-size: .8em;
 		    line-height: 2em;
-		    font-weight: 400;
+		    font-weight: 300;
 		    color: #ccc;
 		}
 
 		span {
-			font-size: .9em;
+			font-size: .8em;
 		    line-height: 2em;
 		    font-weight: 400;
 		    color: #ccc;
@@ -4125,11 +4136,11 @@ svg rect{
 		}
 
 		a {
-			font-size: 1.2em;
+			font-size: 1em;
 			line-height: 1.5em;
-			border-bottom: 1px solid $secondary-color-medium;
-			color: $secondary-color-medium;
-			padding: 0 3px;
+			border-bottom: 0px solid $secondary-color-medium;
+			color: $secondary-color-dark;
+			padding: 0 2px;
 		}
 	}
 
@@ -4143,8 +4154,8 @@ svg rect{
 		}
 
 		img {
-			width: 25px;
-			height: 25px;
+			width: 20px;
+			height: 20px;
 			border-radius: 25px;
 		}
 	}
@@ -4206,7 +4217,7 @@ svg rect{
 	width: 100%;
 	text-align: center;
 	padding: 0;
-	background: #f8f8f8;
+	background: #f0f0f0;
 	/*display: none;*/
 
 	li {
@@ -4263,7 +4274,7 @@ svg rect{
 .feed-beer-content {
 	width: 100%;
 	display: inline-block;
-	padding: 20px 15px 10px;	
+	padding: 10px 15px 10px;	
 
 	section, 
 	aside {
@@ -4287,34 +4298,34 @@ svg rect{
 		}
 
 		p {
-			font-size: 1.2em;
-		    line-height: 1.6em;
+			font-size: 1em;
+		    line-height: 1.7em;
 		    font-weight: 300;
 		    color: #555;
 		}
 
 		h1 {
 			font-weight: 400;
-			font-size: 1.2em;
+			font-size: 1em;
 			line-height: 1.5em;
 			color: #555;
 		}
 
 		h2 {
-			font-size: 1.2em;
+			font-size: 1em;
 			font-weight: 500;
 			color: #555;
 		}
 
 		h3 {
-			font-size: .9em;
+			font-size: .8em;
 		    line-height: 2em;
-		    font-weight: 400;
+		    font-weight: 300;
 		    color: #ccc;
 		}
 
 		span {
-			font-size: .9em;
+			font-size: .8em;
 		    line-height: 2em;
 		    font-weight: 400;
 		    color: #ccc;
@@ -4322,11 +4333,11 @@ svg rect{
 		}
 
 		a {
-			font-size: 1.2em;
+			font-size: 1em;
 			line-height: 1.5em;
-			border-bottom: 1px solid $secondary-color-medium;
-			color: $secondary-color-medium;
-			padding: 0 3px;
+			border-bottom: 0px solid $secondary-color-medium;
+			color: $secondary-color-dark;
+			padding: 0 2px;
 		}
 	}
 
@@ -4340,8 +4351,8 @@ svg rect{
 		}
 
 		img {
-			width: 25px;
-			height: 25px;
+			width: 20px;
+			height: 20px;
 			border-radius: 25px;
 		}
 	}
@@ -4351,7 +4362,7 @@ svg rect{
 	width: 100%;
 	padding: 10px 15px 5px;
 	border-bottom: 1px solid #f0f0f0;
-	background: #f8f8f8;
+	background: #fff;
 	border-radius: 3px 3px 0 0;
 
 	h1 {
@@ -4514,6 +4525,7 @@ svg rect{
 		text-align: center;
 		padding: 10px;
 		margin-bottom: 0;
+		border: 0;
 	}
 	
 	h1 {
@@ -4840,7 +4852,7 @@ svg rect{
 
 	aside {
 		width: 100%;
-		background: #f8f8f8;
+		background: #f0f0f0;
 		border: 0;
 		border-bottom: 1px solid #d8d8d8;
 		padding: 15px;
@@ -4856,8 +4868,8 @@ svg rect{
 
 #backend-menu {
 	width: 100%;
-	border-bottom: 0px solid #f8f8f8;
-	/*border-top:1px solid #f8f8f8;*/
+	border-bottom: 0px solid #f0f0f0;
+	/*border-top:1px solid #f0f0f0;*/
 	/*margin-bottom:15px;*/
 
 	p {
@@ -4920,7 +4932,7 @@ svg rect{
 	}
 
 	button:hover {
-		/*background: #f8f8f8;*/
+		/*background: #f0f0f0;*/
 	}
 
 	h3 {
@@ -4994,7 +5006,7 @@ svg rect{
 	vertical-align: top;
 	padding: 10px;
 	background: #444;
-	color: #f8f8f8;
+	color: #f0f0f0;
 	border-radius: 4px;
 	font-weight: 300;
 }
@@ -5045,7 +5057,7 @@ svg rect{
 	}
 
 	li:nth-child(2) {
-		border-right: 0px solid #f8f8f8;
+		border-right: 0px solid #f0f0f0;
 	}
 
 	li:nth-child(2), 
@@ -5062,7 +5074,7 @@ svg rect{
 		width: 10%;
 		display: inline-block;
 		vertical-align: top;
-		border-right:0px solid #f8f8f8;
+		border-right:0px solid #f0f0f0;
 		text-align: center;
 		padding: 0;
 		height: 40px;
@@ -5204,7 +5216,7 @@ svg rect{
 	cursor: default;
 	text-align: right;
 	padding-right:10px;
-	background: #f8f8f8;
+	background: #f0f0f0;
 	height: 40px;
 	font-size: 1em;
 	z-index: 1;
@@ -5382,7 +5394,7 @@ svg rect{
 		vertical-align: top;
 		display: inline-block;
 		width: 20%;
-		background:#f8f8f8;
+		background:#f0f0f0;
 		/*border-left: 1px solid #f0f0f0;
 		border-right: 1px solid #fff;*/
 
