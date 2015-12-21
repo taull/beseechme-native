@@ -5,7 +5,7 @@ var uglify = require('gulp-uglify');
 //Concatenate (and minify) all scripts to dest/main.js
 
 gulp.task('scripts', function () {
-	return gulp.src(['./scripts/main.js','./scripts/views/*.js','./scripts/router.js'])
+	return gulp.src(['./scripts/router.js','./scripts/main.js','./scripts/views/*.js'])
 	.pipe(concat('main.js'))
 	// .pipe(uglify()) don't need to minify yet
 	.pipe(gulp.dest('./dest/'));
