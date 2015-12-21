@@ -969,7 +969,8 @@ header {
   overflow: hidden;
   height: 35px;
   background: #444;
-  border-radius: 3px; }
+  border-radius: 3px;
+  display: none; }
   .to-location a {
     text-decoration: none; }
   .to-location aside,
