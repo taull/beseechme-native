@@ -193,7 +193,7 @@ body {
 	width: 40%;
 	left: 30%;
 	transition: 250ms;
-	padding: 20px 0 20px 20px;
+	padding: 20px;
 
 }
 
@@ -327,10 +327,10 @@ header {
 .header-center {
 	display: inline-block;
     vertical-align: top;
-    text-align: left;
+    text-align: center;
     width: 40%;
     height: 55px;
-    padding-top: 5px;
+    padding: 10px 20px;
 
     li {
 		display: inline-block;
@@ -1834,6 +1834,7 @@ header {
 	border-bottom: 1px solid #dfdfdf;
 	background: #f0f0f0;
 	border-radius: 3px 3px 0 0;
+	display: none;
 
 	img {
 		width: 50px;
@@ -2621,8 +2622,8 @@ header {
 .bar-search {
 	display: inline-block;
 	vertical-align: top;
-	width: 80%;
-	background: #f0f0f0;
+	width: 100%;
+	background: #f8f8f8;
 	position: relative;
 	transition: 250ms;
 	z-index: 50;
@@ -3837,7 +3838,7 @@ svg rect{
 		background: #fff;
 		/*padding: 10px 10px 0;*/
 		margin-bottom: 15px;
-		border-radius: 2px;
+		border-radius: 3px;
 		border: 1px solid #dfdfdf;
 	}
 
