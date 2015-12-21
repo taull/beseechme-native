@@ -43,7 +43,7 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
 	Begin utility functions
 */
 
-BeMe.searchBars = function (searchString) {
+BeMe.searchUsers = function (searchString) {
   var encodedString = encodeURIComponent(searchString);
 
   BeMe.Router.navigate('search/' + encodedString, true);
