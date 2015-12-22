@@ -22,6 +22,7 @@ var Router = Parse.Router.extend({
     'dashboard/listing' : 'dashboardListing',
     'dashboard/map' : 'dashboardMap',
     'dashboard/following' : 'dashboardfollowing',
+    'dashboard/friends' : 'dashboarrdFriends',
 
     'search/:query' : 'search',
 
@@ -207,6 +208,11 @@ var Router = Parse.Router.extend({
   dashboardfollowing: function () {
     BeMe.removeAllViews();
     new BeMe.Views.Dashboardfollowing();
+  },
+
+  dashboardFriends: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.DashboardFriends();
   },
 
   location: function () {

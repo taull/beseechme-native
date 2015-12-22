@@ -17,7 +17,6 @@ BeMe.Views.DashboardfollowingListing = Parse.View.extend({
     Parse.User.current().relation('barsFollowing').query().find().then(function (barsFollowing) {
       self.barsFollowing = barsFollowing;
       self.loadProfileFeed();
-      self.loadFriendsFeed();
     });
   },
 

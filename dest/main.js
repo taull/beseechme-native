@@ -22,6 +22,7 @@ var Router = Parse.Router.extend({
     'dashboard/listing' : 'dashboardListing',
     'dashboard/map' : 'dashboardMap',
     'dashboard/following' : 'dashboardfollowing',
+    'dashboard/friends' : 'dashboardFriends',
 
     'search/:query' : 'search',
 
@@ -207,6 +208,11 @@ var Router = Parse.Router.extend({
   dashboardfollowing: function () {
     BeMe.removeAllViews();
     new BeMe.Views.Dashboardfollowing();
+  },
+
+  dashboardFriends: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.DashboardFriends();
   },
 
   location: function () {
@@ -1938,7 +1944,6 @@ BeMe.Views.DashboardfollowingListing = Parse.View.extend({
     Parse.User.current().relation('barsFollowing').query().find().then(function (barsFollowing) {
       self.barsFollowing = barsFollowing;
       self.loadProfileFeed();
-      self.loadFriendsFeed();
     });
   },
 
@@ -1985,6 +1990,16 @@ BeMe.Views.IndividualDashboardfollowing = Parse.View.extend({
     this.$el.html(this.template(this.model));
     $('.following-container').append(this.el);
   }
+});
+BeMe.Views.DashboardFriends = BeMe.Views.DashboardBaseView.extend({
+	initialize: function () {
+		this.template = _.template($('#dashboard-friends-view').text());
+		this.render();
+	},
+
+	loadFriendsFeed: function () {
+		console.log('something');
+	}
 });
 BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
   initialize: function () {
