@@ -49,6 +49,7 @@ $text-color: #f0f0f0;
 	margin: 0;
 	box-sizing: border-box;
 	list-style: none;
+	text-decoration: none;
 }
 
 
@@ -82,18 +83,16 @@ body {
 }
 
 .backend-container {
-	width: 1000px;
+	width: 100%;
     margin: 0 auto;
-    margin-top: 55px;
     position:relative;
     z-index:1;
-    padding: 15px 0;
+    padding: 0;
 }
 
 .dashboard-container {
 	width: 100%;
     margin: 0 auto;
-    margin-top: 55px;
     position:relative;
     z-index:1;
     padding: 0px 0;
@@ -185,7 +184,8 @@ body {
 	padding: 0;
 	transition: 250ms;
 	height: 100vh;
-	padding-top: 20px;
+	padding: 0 20px;
+
 }
 
 .middle-column {
@@ -193,7 +193,7 @@ body {
 	width: 40%;
 	left: 30%;
 	transition: 250ms;
-	padding: 20px;
+	padding: 20px 0;
 
 }
 
@@ -201,8 +201,7 @@ body {
 	width: 30%;
 	left: 30%;
 	position: relative;
-	padding: 20px 20px 20px 0;
-	display: none;
+	padding: 20px 0;
 }
 
 .top-column {
@@ -245,7 +244,6 @@ header {
 	width: 100%;
     margin: 0px auto 0;
     position: fixed;
-    height: 55px;
     top: 0;
     left: 0;
     z-index: 9999999;
@@ -304,8 +302,8 @@ header {
 	vertical-align: top;
 	width: 30%;
 	height: 55px;
-	/*background: #333;*/
-	padding: 10px 20px;
+	background: #f8f8f8;
+	padding: 0;
 
 	aside {
 
@@ -330,7 +328,15 @@ header {
     text-align: center;
     width: 40%;
     height: 55px;
-    padding: 10px 20px;
+    padding: 20px 20px;
+    border-left: 1px solid #dfdfdf;
+    border-right: 1px solid #dfdfdf;
+
+    img {
+    	width: auto;
+    	height: 20px;
+    	margin: 0 auto;
+    }
 
     li {
 		display: inline-block;
@@ -421,7 +427,7 @@ header {
 	position: relative;
     z-index: 999999999;
     height: 55px;
-    padding: 10px 10px 0 0;
+    padding: 0;
 
 	img {
 		width: 35px;
@@ -519,17 +525,20 @@ header {
 
 
 .dashboard-tabs {
-	width: 100%;
-	padding: 12.5px 15px;
-	height: 55px;
+	width: 40%;
+	margin: 0 auto;
+	border: 1px solid #dfdfdf;
+	margin-top: 55px;
+	padding: 10px 0;
+	background: #fff;
 	text-align: center;
-	/*border-radius: 3px;*/
 
 	a {
 		text-decoration: none;
 		display: inline-block;
 		vertical-align: top;
 		padding: 0 15px;
+		text-align: center;
 
 		h1, 
 		i {
@@ -538,14 +547,14 @@ header {
 		}
 
 		h1 {
-			font-size: 1.2em;
+			font-size: 1em;
 			color: #333;
-			padding-left: 10px;
+			padding-left: 5px;
 			font-weight: 400;
 		}
 
 		i {
-			font-size: 1em;
+			font-size: .9em;
 			color: #f0f0f0;
 			padding-top: 4px;
 			display: none;
@@ -1104,10 +1113,8 @@ header {
 	width: 100%;
 	background: #fff;
 	margin-bottom: 15px;
-	/*padding: 15px 0;*/
-    /*margin-top: -341px;*/
     transition: 250ms;
-	/*border: 1px solid #d8d8d8;*/
+	border: 1px solid #dfdfdf;
 
 	ul {
 		list-style: none;
@@ -2628,10 +2635,11 @@ header {
 	position: relative;
 	transition: 250ms;
 	z-index: 50;
-	height: 35px;
+	height: 55px;
 	margin: 0px auto;
-	border-radius: 3px;
-	border: 1px solid #dfdfdf;
+	/*border-radius: 3px;*/
+	/*border: 1px solid #dfdfdf;*/
+	margin-bottom: 10px;
 
 	span, 
 	button, 
@@ -2642,13 +2650,13 @@ header {
 
 	span {
 		display: inline-block;
-	    height: 35px;
+	    height: 55px;
 	    vertical-align: top;
 	    width: 15%;
 	    font-size: 1.2em;
 	    color: #ccc;
 	    text-align: center;
-	    padding-top: 11px;
+	    padding-top: 20px;
 	    /*border-right: 1px solid #f0f0f0;*/
 	}
 
@@ -2660,7 +2668,7 @@ header {
 		font-size: 1em;
 		font-weight: 300;
 		padding: 0;
-		height: 35px;
+		height: 55px;
 		width: 15%;
 
 
@@ -2680,7 +2688,7 @@ header {
 		display: inline-block;
 		color: #333;
 		vertical-align: top;
-		height: 35px;
+		height: 55px;
 		width: 70%;
 		border: 0;
 		background: transparent;
@@ -2906,16 +2914,17 @@ header {
 }
 
 .back-to-dashboard {
-	width: 50%;
-	margin: 0 auto;
-	padding: 15px;
 	text-align: center;
-	background: $secondary-color-dark;
+	background: $red-dark;
+	/*border: 1px solid $red-dark;*/
 	border-radius: 3px;
-	margin-top: 15px;
+	padding: 9px 15px;
+	height: 35px;
+	width: 100px;
+	margin-left: 10px;
 
 	h1 {
-		font-size: 1.4em;
+		font-size: 1em;
 		color: #fff;
 		font-weight: 400;
 	}
@@ -2945,13 +2954,6 @@ header {
 		background: #fff;
 	}
 
-	li:first-child {
-		border-top:0;
-	}
-
-	li:nth-child(even) {
-		background: #f0f0f0;
-	}
 
 	
 
@@ -3303,9 +3305,8 @@ svg rect{
 
 .search-tabs {
 	width: 100%;
-	background: #f0f0f0;
-	border-bottom: 1px solid #f0f0f0;
-	margin-top: 15px;
+	background: #fff;
+	border: 1px solid #dfdfdf;
 
 	li {
 		display: inline-block;
@@ -3331,6 +3332,8 @@ svg rect{
 	width: 100%;
 	background:#fff;
 	position: relative;
+	border: 1px solid #dfdfdf;
+	border-top: 0;
 
 	ul {
 		list-style: none;
@@ -3348,15 +3351,15 @@ svg rect{
 	}
 
 	aside {
-		width: 50px;
-		height: 50px;
+		width: 40px;
+		height: 40px;
 		display: inline-block;
 		vertical-align: top;
 		position: relative;
 
 		img {
-			width: 50px;
-			height: 50px;
+			width: 40px;
+			height: 40px;
 			border-radius: 25px;
 			position: absolute;
 			top: 0;
@@ -3375,12 +3378,12 @@ svg rect{
 			width: 100%;
 			display: inline-block;
 			vertical-align: top;
-			font-size: 1.2em;
+			font-size: 1.1em;
 			color: $secondary-color-dark;
 		}
 
 		p {
-			font-size: 1em;
+			font-size: .9em;
 			font-weight: 300;
 			padding-top: 3px;
 		}
@@ -3595,6 +3598,8 @@ svg rect{
  	position: relative;
     z-index: 50;
     margin-bottom: 15px;
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
 
     article {
     	background: #fff;
@@ -3874,7 +3879,7 @@ svg rect{
 	div {
 		background: #f0f0f0;
 		border-bottom: 1px solid #f0f0f0;
-		padding-left: 20px;
+		padding-left: 10px;
 	}
 
 	li:nth-child(odd), 
@@ -4220,7 +4225,7 @@ svg rect{
 	text-align: center;
 	padding: 0;
 	background: #f0f0f0;
-	/*display: none;*/
+	display: none;
 
 	li {
 		display: inline-block;
@@ -6044,6 +6049,7 @@ svg rect{
 	.header-container, 
 	.header-center, 
 	.header-left, 
+	.header-right,
 	.dashboard-tabs1 {
 		width: 100%;
 	}
@@ -6079,17 +6085,15 @@ svg rect{
 
 	header {
 		display: block;
-		height: 55px;
 	}
 
-	.header-right, 
-	.header-center, 
+	.header-left, 
 	.dashboard-tabs-dropdown {
 		display: none;
 	}
 
 	.dashboard-container {
-		margin-top: 55px;
+		margin-top: 95px;
 	}
 
 	.left-column-shift {
@@ -6098,6 +6102,15 @@ svg rect{
 
 	.middle-column-shift {
 		left: 100%;
+	}
+
+	.header-center {
+		border:0;
+	}
+
+	.bar-search {
+		border-top: 1px solid #dfdfdf;
+		border-bottom: 1px solid #dfdfdf;
 	}
 
 

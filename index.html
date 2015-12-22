@@ -21,6 +21,46 @@
 <!-- Application View -->
 
 <script type="text/template" id="application-view">
+
+  <% var user = Parse.User.current() %>
+
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        
+        <aside><span id="left-column-trigger" class="fa fa-bars"></span></aside>
+
+          <div class="to-location">
+            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
+            ><div class="update-location"><footer><h1>Update Location</h1></footer></div
+
+            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
+          </div>
+
+
+      </div
+      ><div class="header-center">
+        <img src="images/beme-logodark.png">
+      </div
+      ><div class="header-right">
+        <div class="bar-search">
+          <form name='bar-search' action>
+            <span class="fa fa-search"></span
+            ><input type="text" placeholder="Search Bars and Friends"
+            ><button id="bar-submit"></button>
+          </form>
+        </div>  
+        <div class="dashboard-statistics">
+          <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
+          ><li><h1>32</h1><p>Following</p></li
+          ><li><h1>24</h1><p>Beers</p></li>
+        </div>
+        
+
+      </div>  
+
+    </div>
+  </header>
   <div class="body-container">
   </div>
 </script>
@@ -140,36 +180,14 @@
 <script type="text/template" id="backend-view">
 <% if (Parse.User.current().get('userType') === 'business') { %>
  
-  <% var user = Parse.User.current() %>
 
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-
-      </div
-      ><div class="header-center">
-        <% if (Parse.User.current().get('userType') === 'consumer') { %>
-
-          <a href="#dashboard/following"><div class="following-link"><section><i class="fa fa-star"></i><h1>Following</h1></section><aside><h1>21</h1></aside></div></a>
-        <% } else { %>
-        <% } %>
-      </div
-      ><div class="header-right">
-        <% if (Parse.User.current().get('userType') === 'consumer') { %>
-          <div class="to-location">
-            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
-            ><div class="update-location"><footer><h1>Update Location</h1></footer></div
-
-            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
-          </div>
-
-        <% } else { %>
-        <% } %>
-
-      </div>  
-
+    <div class="dashboard-tabs">
+      <a href="#backend/feed"><i class="fa fa-home"></i><h1>Home</h1></a
+      ><a href="#backend/beer"><i class="fa fa-star"></i><h1>Beer</h1></a
+      ><a href="#backend/friends"><i class="fa fa-users"></i><h1>Friends</h1></a
+      ><a href="#backend/listing"><i class="fa fa-location-arrow"></i><h1>Listing</h1></a
+      ><a href="#backend/map"><i class="fa fa-location-arrow"></i><h1>Map</h1></a>
     </div>
-  </header>
 
 
 
@@ -296,6 +314,34 @@
 
   <div class="backend-container">
       <div class="left-column">
+            <div class="popup-tabs">
+              <li class="active-tab"><aside><span class="entypo-comment"></span></aside><section><p>Text</p></section></li
+              ><li><aside><span class="entypo-picture"></span></aside><section><p>Photo</p></section></li
+              ><li><aside><span class="entypo-video"></span></aside><section><p>Video</p></section></li
+              ><li><aside><span class="entypo-calendar"></span></aside><section><p>Event</p></section></li>
+            </div>
+
+            <div class="post-status-text">
+              <form action="">
+                <article>
+                  <aside><img src="images/zas-logo.jpg"><h1>taull</h1></aside>
+                  <input type="text" placeholder="Title" />
+                </article>
+                <textarea id="business-status" rows="1" autoresize=true required=true placeholder="Your text here"></textarea
+                ><section>
+
+                  <input type="file" id="camera-file" />
+                </section
+                ><footer>
+                  <aside><button class="standalone_close"><p>Cancel</p></button></aside
+                  ><div>
+                    <button type="submit">Post</button
+                    
+                  </div>
+                </footer>
+
+              </form>
+            </div>
 
         <div class="backend-statistics">
           <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
@@ -340,6 +386,7 @@
           </div>
       </div
       ><div class="middle-column">
+
 
         <div class="bar-feed">
           <ul>
@@ -1393,7 +1440,9 @@
     <% } else { %>
       <h1><%= attributes.firstName + ' ' + attributes.lastName %></h1>
     <% } %>
-    <p><%= attributes.address %>, <%= attributes.city %>, <%= attributes.state %> <%= attributes.zip %></p>
+    <p><%= attributes.address %></p>
+    <p><%= attributes.city %>, <%= attributes.state %> <%= attributes.zip %></p>
+
   </section>
   <div><h1 class='follow'>Follow</h1></div>
 
@@ -1419,22 +1468,25 @@
         <% } %>
       </div
       ><div class="header-center">
-      
+         <img src="images/beme-logodark.png">
+
       </div
       ><div class="header-right">
+
         <div class="bar-search">
           <form name='bar-search' action>
             <span class="fa fa-search"></span
             ><input type="text" placeholder="Search Bars and Friends"
-            ><button id="bar-submit"><i class="fa fa-arrow-circle-right"></i></button>
+            ><button id="bar-submit"></button>
           </form>
-        </div>        
+        </div>  
         <div class="dashboard-statistics">
           <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
           ><li><h1>32</h1><p>Following</p></li
           ><li><h1>24</h1><p>Beers</p></li>
         </div>
-        
+        <a href="#dashboard"><div class="back-to-dashboard"><h1>Cancel</h1></div></a>
+
 
       </div>  
 
@@ -1521,43 +1573,14 @@
 
 <script type="text/template" id="dashboard-view">
 
-  <% var user = Parse.User.current() %>
-
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        
-        <aside><span id="left-column-trigger" class="fa fa-bars"></span></aside>
-
-          <div class="to-location">
-            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
-            ><div class="update-location"><footer><h1>Update Location</h1></footer></div
-
-            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
-          </div>
-      </div
-      ><div class="header-center">
-        <div class="bar-search">
-          <form name='bar-search' action>
-            <span class="fa fa-search"></span
-            ><input type="text" placeholder="Search Bars and Friends"
-            ><button id="bar-submit"></button>
-          </form>
-        </div> 
-      </div
-      ><div class="header-right">
-       
-        <div class="dashboard-statistics">
-          <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
-          ><li><h1>32</h1><p>Following</p></li
-          ><li><h1>24</h1><p>Beers</p></li>
-        </div>
-        
-
-      </div>  
-
+    <div class="dashboard-tabs">
+      <a href="#dashboard"><i class="fa fa-home"></i><h1>Home</h1></a
+      ><a href="#dashboard/following"><i class="fa fa-star"></i><h1>Favorites</h1></a
+      ><a href="#dashboard/friends"><i class="fa fa-users"></i><h1>Friends</h1></a
+      ><a href="#dashboard/listing"><i class="fa fa-location-arrow"></i><h1>Listing</h1></a
+      ><a href="#dashboard/map"><i class="fa fa-location-arrow"></i><h1>Map</h1></a>
     </div>
-  </header>
+
 
 
 
@@ -1596,12 +1619,12 @@
           <a href="#location"><li><aside><span class="fa fa-location-arrow"></span></aside><section><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></section></li></a>
         </div>
 
-        <div class="listing-container"></div>
 
         
       </div
 
       ><div class="middle-column">
+
 
         <div class="bar-feed"><ul></ul></div>
 
@@ -1611,14 +1634,7 @@
         </div> 
       </div
       ><div class="right-column">
-
-
-        <div class="map-container"></div>
-
-
-          
-
-          <div class="listing-container"></div> 
+    
 
       </div>
   </div>
@@ -1715,7 +1731,9 @@
         </div>
 
     </div
-    ><div class="middle-column"><div class="listing-container"></div></div
+    ><div class="middle-column">
+ 
+      <div class="listing-container"></div></div
     ><div class="right-column">
 
     </div>
@@ -1755,14 +1773,16 @@
       ><div class="dashboard-tabs-dropdown">
         <h1>Home</h1><i class="fa fa-caret-down"></i>
       </div>
-      <div class="friends-feed"></div>
+
 
     </div
 
     ><div class="middle-column">
+
         <div class="bar-feed"><ul></ul></div>
     </div
     ><div class="right-column">
+      <div class="friends-feed"></div>
 
     </div>
   </div>
@@ -1778,6 +1798,8 @@
     </div
 
     ><div class="middle-column">
+
+
       <div class="friends-feed"></div>
     </div
     ><div class="right-column">
