@@ -22,7 +22,7 @@ var Router = Parse.Router.extend({
     'dashboard/listing' : 'dashboardListing',
     'dashboard/map' : 'dashboardMap',
     'dashboard/following' : 'dashboardfollowing',
-    'dashboard/friends' : 'dashboardFriends',
+    'dashboard/friends' : 'dashboarrdFriends',
 
     'search/:query' : 'search',
 
@@ -1293,7 +1293,7 @@ BeMe.Views.BarSearch = Parse.View.extend({
   tabClickHandler: function (e) {
     var $clickedElement = $(e.currentTarget);
 
-    var matchObject = {Bars:"business", People:"consumer"};
+    var matchObject = {Bars:"business", Friends:"consumer"};
     var type = matchObject[$clickedElement.text()];
 
     BeMe.Search.BarSearchResults.displayType(type);
@@ -2210,7 +2210,7 @@ BeMe.Views.Dashboard = Parse.View.extend({
 
   events: {
     'click .update-location' : 'updateLocationInfo',
-    'submit form[name="bar-search"]' : 'userSearch'
+    'submit form[name="bar-search"]' : 'userSearch',
   },
 
   updateLocationInfo: function () {
@@ -2221,7 +2221,6 @@ BeMe.Views.Dashboard = Parse.View.extend({
     e.preventDefault();
     var form = e.currentTarget;
     var searchString = $(form).find('input').val();
-    console.log(searchString);
     BeMe.searchUsers(searchString);
   }
 });
