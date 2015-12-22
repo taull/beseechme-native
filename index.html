@@ -140,7 +140,6 @@
 <!-- Bar Backend View -->
 
 <script type="text/template" id="backend-view">
-<% if (Parse.User.current().get('userType') === 'business') { %>
  
   <% var user = Parse.User.current() %>
 
@@ -191,18 +190,17 @@
 
 
 
-<% } else { %>
-  <div class="one-column-container">
+
+
+</script>
+
+<!-- <div class="one-column-container">
 
     <div class="error-container">
       <p>Sorry, you dont have access to this page</p>
       <a href="#dashboard"><div class="back-to-dashboard"><h1>Back to Dashboard</h1></div></a>
     </div>
-  </div>
-<% } %>
-
-
-</script>
+  </div> -->
 
 <!-- Backend Home View -->
 
@@ -251,7 +249,6 @@
         <% var user = attributes.createdBy %>
 
         <section class="feed-info">
-          <% if (Parse.User.current().get('userType') === 'consumer') { %>
             <aside>
               <% if (typeof user.get('avatar') !=='undefined') { %>
                 <img src=<%= user.get('avatar')._url %> >
@@ -260,20 +257,10 @@
               <% } %>
             </aside
 
-            ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+            ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
 
-          <% } else { %>
+            ><footer><span class='likes'></span></footer>
 
-            <aside>
-              <% if (typeof user.get('avatar') !=='undefined') { %>
-                <img src=<%= user.get('avatar')._url %> >
-              <% } else { %>
-                <img src="images/default-avatar.png">
-              <% } %>
-            </aside
-
-            ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-          <% } %>
         </section>
 
         <% if (typeof attributes.image !== 'undefined') { %>
@@ -951,7 +938,6 @@
   <section class="feed-header"><h1>Status Update</h1></section>
 
   <section class="feed-info">
-    <% if (Parse.User.current().get('userType') === 'consumer') { %>
       <aside>
         <% if (typeof user.get('avatar') !=='undefined') { %>
           <img src=<%= user.get('avatar')._url %> >
@@ -960,20 +946,10 @@
         <% } %>
       </aside
 
-      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
 
-    <% } else { %>
+      ><footer><h1>+</h1><span class='likes'></span></footer>
 
-      <aside>
-        <% if (typeof user.get('avatar') !=='undefined') { %>
-          <img src=<%= user.get('avatar')._url %> >
-        <% } else { %>
-          <img src="images/default-avatar.png">
-        <% } %>
-      </aside
-
-      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-    <% } %>
   </section>
 
   <section class="feed-content">
@@ -983,7 +959,7 @@
   </section>
 
   <section class="feed-statistics">
-    <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
+    <p><%= moment(createdAt).fromNow(true) %> ago</p>
   </section>
 
   <section class="feed-controls">
@@ -1000,7 +976,6 @@
   <section class="feed-header"><h1>Photos</h1></section>
 
   <section class="feed-info">
-    <% if (Parse.User.current().get('userType') === 'consumer') { %>
       <aside>
         <% if (typeof user.get('avatar') !=='undefined') { %>
           <img src=<%= user.get('avatar')._url %> >
@@ -1009,20 +984,10 @@
         <% } %>
       </aside
 
-      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
 
-    <% } else { %>
+      ><footer><h1>+</h1><span class='likes'></span></footer>
 
-      <aside>
-        <% if (typeof user.get('avatar') !=='undefined') { %>
-          <img src=<%= user.get('avatar')._url %> >
-        <% } else { %>
-          <img src="images/default-avatar.png">
-        <% } %>
-      </aside
-
-      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-    <% } %>
   </section>
 
   <section class="feed-photo">
@@ -1061,7 +1026,6 @@
   <% var user = attributes.createdBy %>
   <section class="feed-header"><h1>Events</h1></section>
   <section class="feed-info">
-    <% if (Parse.User.current().get('userType') === 'consumer') { %>
       <aside>
         <% if (typeof user.get('avatar') !=='undefined') { %>
           <img src=<%= user.get('avatar')._url %> >
@@ -1070,20 +1034,10 @@
         <% } %>
       </aside
 
-      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-      <h4>RSVP</h4>
-    <% } else { %>
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
 
-      <aside>
-        <% if (typeof user.get('avatar') !=='undefined') { %>
-          <img src=<%= user.get('avatar')._url %> >
-        <% } else { %>
-          <img src="images/default-avatar.png">
-        <% } %>
-      </aside
+      ><footer><h1>+</h1><span class='likes'></span></footer>
 
-      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section>
-    <% } %>
   </section>
 
 
@@ -1484,6 +1438,13 @@
     </div>
   </header>
 
+    <div class="dashboard-tabs">
+      <a href="#dashboard"><i class="fa fa-home"></i><h1>Home</h1></a
+      ><a href="#dashboard/following"><i class="fa fa-star"></i><h1>Favorites</h1></a
+      ><a href="#dashboard/friends"><i class="fa fa-users"></i><h1>Friends</h1></a
+      ><a href="#dashboard/listing"><i class="fa fa-location-arrow"></i><h1>Listing</h1></a
+      ><a href="#dashboard/map"><i class="fa fa-location-arrow"></i><h1>Map</h1></a>
+    </div>
 
   <div class="dashboard-container">
     <div class="left-column">
@@ -1802,7 +1763,6 @@
       ><div class="dashboard-tabs-dropdown">
         <h1>Home</h1><i class="fa fa-caret-down"></i>
       </div>
-      <div class="friends-feed"></div>
 
 
     </div

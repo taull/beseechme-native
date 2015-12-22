@@ -1112,10 +1112,7 @@ header {
 
 .listing-container {
 	width: 100%;
-	background: #fff;
-	margin-bottom: 15px;
     transition: 250ms;
-	border: 1px solid #dfdfdf;
 
 	ul {
 		list-style: none;
@@ -1127,6 +1124,10 @@ header {
 		width: 100%;
 		padding: 15px;
 		cursor:pointer;
+		margin-bottom: 10px;
+		background: #fff;
+		border: 1px solid #dfdfdf;
+		border-radius: 3px;
 	}
 
 	li:hover {
@@ -3844,10 +3845,10 @@ svg rect{
 	li, 
 	div {
 		background: #fff;
-		/*padding: 10px 10px 0;*/
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 		border-radius: 3px;
-		border: 1px solid #dfdfdf;
+		/*border: 1px solid #dfdfdf;*/
+		box-shadow: 0 0 10px -5px #ccc;
 	}
 
 	li:nth-child(odd), 
@@ -3903,7 +3904,8 @@ svg rect{
 	section, 
 	h2, 
 	div, 
-	h4 {
+	h4, 
+	footer {
 		display: inline-block;
 		vertical-align: top;
 	}
@@ -3955,7 +3957,31 @@ svg rect{
 			font-weight: 400;
 		}
 
-	}	
+	}
+
+	footer {
+		float: right;
+
+		h1, 
+		span {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		h1 {
+			color: $green-light;
+			font-size: 1.2em;
+			font-weight: 400;
+
+		}
+
+		span {
+			font-size: 1.2em;
+			font-weight: 400;
+			color: $green-light;
+			padding-left: 2px;
+		}
+	}
 
 	h4 {
 		float: right;

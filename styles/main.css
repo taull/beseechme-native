@@ -819,10 +819,7 @@ header {
 /* Listings */
 .listing-container {
   width: 100%;
-  background: #fff;
-  margin-bottom: 15px;
-  transition: 250ms;
-  border: 1px solid #dfdfdf; }
+  transition: 250ms; }
   .listing-container ul {
     list-style: none;
     padding-left: 0; }
@@ -830,7 +827,11 @@ header {
     display: inline-block;
     width: 100%;
     padding: 15px;
-    cursor: pointer; }
+    cursor: pointer;
+    margin-bottom: 10px;
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    border-radius: 3px; }
   .listing-container li:hover {
     background: #0277BD; }
     .listing-container li:hover section h1 {
@@ -2856,10 +2857,10 @@ svg rect {
   .bar-feed li,
   .bar-feed div {
     background: #fff;
-    /*padding: 10px 10px 0;*/
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border-radius: 3px;
-    border: 1px solid #dfdfdf; }
+    /*border: 1px solid #dfdfdf;*/
+    box-shadow: 0 0 10px -5px #ccc; }
   .bar-feed li:nth-child(odd),
   .bar-feed div:nth-child(odd) {
     /*background: #f0f0f0;*/ }
@@ -2898,7 +2899,8 @@ svg rect {
   .feed-info section,
   .feed-info h2,
   .feed-info div,
-  .feed-info h4 {
+  .feed-info h4,
+  .feed-info footer {
     display: inline-block;
     vertical-align: top; }
   .feed-info aside {
@@ -2933,6 +2935,21 @@ svg rect {
       color: #ccc;
       font-size: 1em;
       font-weight: 400; }
+  .feed-info footer {
+    float: right; }
+    .feed-info footer h1,
+    .feed-info footer span {
+      display: inline-block;
+      vertical-align: top; }
+    .feed-info footer h1 {
+      color: #8BC34A;
+      font-size: 1.2em;
+      font-weight: 400; }
+    .feed-info footer span {
+      font-size: 1.2em;
+      font-weight: 400;
+      color: #8BC34A;
+      padding-left: 2px; }
   .feed-info h4 {
     float: right;
     padding: 5px 10px;
