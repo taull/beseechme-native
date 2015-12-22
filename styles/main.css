@@ -117,7 +117,8 @@ body {
   padding: 0;
   transition: 250ms;
   height: 100vh;
-  padding: 0 20px; }
+  padding: 0 20px;
+  margin-top: -20px; }
 
 .middle-column {
   position: relative;
@@ -130,7 +131,7 @@ body {
   width: 30%;
   left: 30%;
   position: relative;
-  padding: 20px 0; }
+  padding: 20px; }
 
 .top-column {
   width: 100%; }
@@ -971,10 +972,9 @@ header {
   text-align: center;
   position: relative;
   overflow: hidden;
-  height: 35px;
-  background: #444;
-  border-radius: 3px;
-  display: none; }
+  height: 55px;
+  background: #fff;
+  /*border-radius: 3px;*/ }
   .to-location a {
     text-decoration: none; }
   .to-location aside,
@@ -983,10 +983,10 @@ header {
     vertical-align: top; }
   .to-location aside {
     width: 20%;
-    background: #444;
+    background: #fff;
     text-align: center;
-    padding-top: 5px;
-    height: 35px;
+    padding-top: 15px;
+    height: 55px;
     position: absolute;
     right: 0;
     /*border-left: 1px solid #d8d8d8;*/
@@ -997,11 +997,11 @@ header {
   .to-location section {
     position: absolute;
     width: 80%;
-    padding: 10px 20px 0;
+    padding: 20px 20px 0;
     text-align: left;
     margin: 0 auto;
     /*border-radius: 3px;*/
-    height: 35px;
+    height: 55px;
     left: 0; }
     .to-location section h1,
     .to-location section p,
@@ -1010,24 +1010,24 @@ header {
       vertical-align: top; }
     .to-location section h1 {
       font-size: 1.2em;
-      font-weight: 700;
-      color: #fff; }
+      font-weight: 400;
+      color: #333; }
     .to-location section p {
       font-size: .8em;
       font-weight: 400;
-      color: #fff;
+      color: #333;
       margin-top: 5px; }
     .to-location section h2 {
       font-size: 1em;
       font-weight: 300;
-      color: #fff;
+      color: #333;
       padding-right: 5px; }
   .to-location p {
     margin-top: 10px;
     font-size: .8em;
     font-weight: 300;
     font-style: italic;
-    color: #fff; }
+    color: #333; }
 
 .open-listing-container {
   display: inline-block;
@@ -1165,24 +1165,23 @@ header {
 .update-location {
   width: 80%;
   position: absolute;
-  height: 35px;
+  height: 55px;
   /*background: rgba(255,255,255,.05);*/
   right: -60%;
   transition: 250ms; }
   .update-location footer {
     width: 100%;
-    height: 35px;
+    height: 55px;
     text-align: left;
     margin: 0 auto;
-    padding: 10px 20px 0;
-    /*border-radius: 3px 0px 0 3px;*/
-    background: #444;
+    padding: 20px 20px 0;
+    background: #fff;
     border-right: 0;
     cursor: pointer; }
     .update-location footer h1 {
-      color: #fff;
+      color: #333;
       font-size: 1.2em;
-      font-weight: 700;
+      font-weight: 400;
       /*			padding-bottom: 5px;
       			border-bottom: 1px solid #333;*/ }
 
@@ -1790,7 +1789,8 @@ header {
   width: 100%;
   height: 200px;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  display: none; }
   .business-cover section {
     position: absolute;
     top: 15px;
@@ -2165,7 +2165,6 @@ header {
 /*Backend Beer Tab*/
 .profile-beer-list {
   width: 100%;
-  /*background: rgba(255,255,255,.05)*/
   margin-top: 0px;
   margin-bottom: 15px; }
   .profile-beer-list ul {
@@ -2174,10 +2173,13 @@ header {
   .profile-beer-list li {
     display: inline-block;
     width: 100%;
-    padding: 20px 0px;
+    padding: 20px 20px;
     cursor: auto;
     position: relative;
-    background: #fff; }
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
+    margin-bottom: 10px; }
   .profile-beer-list div {
     width: 70%;
     display: inline-block;
@@ -2855,7 +2857,7 @@ svg rect {
   .bar-feed div {
     background: #fff;
     /*padding: 10px 10px 0;*/
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border-radius: 3px;
     border: 1px solid #dfdfdf; }
   .bar-feed li:nth-child(odd),
@@ -2867,7 +2869,9 @@ svg rect {
   max-height: 400px;
   overflow: scroll;
   padding: 0;
-  background: #fff; }
+  background: #fff;
+  border: 1px solid #dfdfdf;
+  border-radius: 3px; }
   .friends-feed ul {
     list-style: none;
     padding-left: 0; }
@@ -2879,8 +2883,7 @@ svg rect {
     text-align: left; }
   .friends-feed li,
   .friends-feed div {
-    background: #f0f0f0;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f8f8f8;
     padding-left: 10px; }
   .friends-feed li:nth-child(odd),
   .friends-feed div:nth-child(odd) {
@@ -2983,10 +2986,10 @@ svg rect {
         font-weight: 300;
         font-size: 1.2em; }
 
-.feed-photo:hover footer {
-  opacity: 1;
-  transition: 250ms; }
-
+/*.feed-photo:hover footer {
+	opacity:1;
+	transition: 250ms;
+}*/
 .feed-content {
   width: 100%;
   display: inline-block;
@@ -3228,7 +3231,8 @@ svg rect {
   padding: 10px 15px 5px;
   border-bottom: 1px solid #f0f0f0;
   background: #fff;
-  border-radius: 3px 3px 0 0; }
+  border-radius: 3px 3px 0 0;
+  display: none; }
   .feed-header h1 {
     font-size: 1em;
     font-weight: 400;
