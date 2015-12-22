@@ -19,7 +19,7 @@ BeMe.Views.BarSearch = Parse.View.extend({
   tabClickHandler: function (e) {
     var $clickedElement = $(e.currentTarget);
 
-    var matchObject = {Bars:"business", People:"consumer"};
+    var matchObject = {Bars:"business", Friends:"consumer"};
     var type = matchObject[$clickedElement.text()];
 
     BeMe.Search.BarSearchResults.displayType(type);

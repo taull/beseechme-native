@@ -37,7 +37,7 @@ BeMe.Views.Dashboard = Parse.View.extend({
 
   events: {
     'click .update-location' : 'updateLocationInfo',
-    'submit form[name="bar-search"]' : 'userSearch'
+    'submit form[name="bar-search"]' : 'userSearch',
   },
 
   updateLocationInfo: function () {
@@ -48,7 +48,6 @@ BeMe.Views.Dashboard = Parse.View.extend({
     e.preventDefault();
     var form = e.currentTarget;
     var searchString = $(form).find('input').val();
-    console.log(searchString);
     BeMe.searchUsers(searchString);
   }
 });
