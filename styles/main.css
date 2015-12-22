@@ -40,17 +40,15 @@ body {
   transition: 250ms; }
 
 .backend-container {
-  width: 1000px;
+  width: 100%;
   margin: 0 auto;
-  margin-top: 30px;
   position: relative;
   z-index: 1;
-  padding: 15px 0; }
+  padding: 0; }
 
 .dashboard-container {
   width: 100%;
   margin: 0 auto;
-  margin-top: 33px;
   position: relative;
   z-index: 1;
   padding: 0px 0; }
@@ -119,7 +117,7 @@ body {
   padding: 0;
   transition: 250ms;
   height: 100vh;
-  padding-top: 20px; }
+  padding: 0 20px; }
 
 .middle-column {
   position: relative;
@@ -165,7 +163,6 @@ header {
   width: 100%;
   margin: 0px auto 0;
   position: fixed;
-  height: 55px;
   top: 0;
   left: 0;
   z-index: 9999999;
@@ -211,7 +208,7 @@ header {
   vertical-align: top;
   width: 30%;
   height: 55px;
-  /*background: #333;*/
+  background: #f8f8f8;
   padding: 0; }
   .header-left aside span {
     font-size: 1.4em;
@@ -379,9 +376,10 @@ header {
   /*border-bottom:0;*/ }
 
 .dashboard-tabs {
-  width: 100%;
+  width: 40%;
+  margin: 0 auto;
   border: 1px solid #dfdfdf;
-  margin-bottom: 10px;
+  margin-top: 55px;
   padding: 10px 0;
   background: #fff;
   text-align: center;
@@ -1936,7 +1934,7 @@ header {
   position: relative;
   transition: 250ms;
   z-index: 50;
-  height: 54px;
+  height: 55px;
   margin: 0px auto;
   /*border-radius: 3px;*/
   /*border: 1px solid #dfdfdf;*/
@@ -2180,10 +2178,6 @@ header {
     cursor: auto;
     position: relative;
     background: #fff; }
-  .profile-beer-list li:first-child {
-    border-top: 0; }
-  .profile-beer-list li:nth-child(even) {
-    background: #f0f0f0; }
   .profile-beer-list div {
     width: 70%;
     display: inline-block;
@@ -2480,15 +2474,15 @@ svg rect {
     /*background: #fff;*/ }
   .beer-search-results aside,
   .bar-search-results aside {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: inline-block;
     vertical-align: top;
     position: relative; }
     .beer-search-results aside img,
     .bar-search-results aside img {
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       border-radius: 25px;
       position: absolute;
       top: 0;
@@ -2505,11 +2499,11 @@ svg rect {
       width: 100%;
       display: inline-block;
       vertical-align: top;
-      font-size: 1.2em;
+      font-size: 1.1em;
       color: #01579B; }
     .beer-search-results section p,
     .bar-search-results section p {
-      font-size: 1em;
+      font-size: .9em;
       font-weight: 300;
       padding-top: 3px; }
     .beer-search-results section h2,
@@ -2676,7 +2670,9 @@ svg rect {
   background: #fff;
   position: relative;
   z-index: 50;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  border: 1px solid #dfdfdf;
+  border-radius: 3px; }
   .post-status-text article {
     background: #fff;
     padding: 10px 10px 0; }
@@ -2885,7 +2881,7 @@ svg rect {
   .friends-feed div {
     background: #f0f0f0;
     border-bottom: 1px solid #f0f0f0;
-    padding-left: 20px; }
+    padding-left: 10px; }
   .friends-feed li:nth-child(odd),
   .friends-feed div:nth-child(odd) {
     /*background: #f0f0f0;*/ }
@@ -3131,7 +3127,7 @@ svg rect {
   text-align: center;
   padding: 0;
   background: #f0f0f0;
-  /*display: none;*/ }
+  display: none; }
   .popup-tabs li {
     display: inline-block;
     vertical-align: top;
@@ -4534,6 +4530,7 @@ svg rect {
   .header-container,
   .header-center,
   .header-left,
+  .header-right,
   .dashboard-tabs1 {
     width: 100%; }
 
@@ -4557,21 +4554,26 @@ svg rect {
     padding: 0; }
 
   header {
-    display: block;
-    height: 55px; }
+    display: block; }
 
-  .header-right,
-  .header-center,
+  .header-left,
   .dashboard-tabs-dropdown {
     display: none; }
 
   .dashboard-container {
-    margin-top: 55px; }
+    margin-top: 95px; }
 
   .left-column-shift {
     left: 0; }
 
   .middle-column-shift {
-    left: 100%; } }
+    left: 100%; }
+
+  .header-center {
+    border: 0; }
+
+  .bar-search {
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf; } }
 
 /*# sourceMappingURL=main.css.map */
