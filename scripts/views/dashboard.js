@@ -6,6 +6,7 @@ BeMe.Views.Dashboard = Parse.View.extend({
   template: _.template($('#dashboard-view').text()),
 
   render: function () {
+    var self = this;
     this.$el.html(this.template(this.model));
     $('.body-container').append(this.el);
     BeMe.renderedViews.push(this);
@@ -32,6 +33,10 @@ BeMe.Views.Dashboard = Parse.View.extend({
       $('.left-column').toggleClass('left-column-shift');
       $('.middle-column').toggleClass('middle-column-shift');
 
+    });
+
+    $('header form[name="bar-search"').submit(function(e) {
+      self.userSearch(e);
     });
   },
 
