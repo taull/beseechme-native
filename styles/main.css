@@ -2859,7 +2859,7 @@ svg rect {
     background: #fff;
     margin-bottom: 20px;
     border-radius: 3px;
-    /*border: 1px solid #dfdfdf;*/
+    border: 1px solid #dfdfdf;
     box-shadow: 0 0 10px -5px #ccc; }
   .bar-feed li:nth-child(odd),
   .bar-feed div:nth-child(odd) {
