@@ -22,7 +22,7 @@ var Router = Parse.Router.extend({
     'dashboard/listing' : 'dashboardListing',
     'dashboard/map' : 'dashboardMap',
     'dashboard/following' : 'dashboardfollowing',
-    'dashboard/friends' : 'dashboarrdFriends',
+    'dashboard/friends' : 'dashboardFriends',
 
     'search/:query' : 'search',
 
