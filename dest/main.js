@@ -1773,7 +1773,8 @@ BeMe.Views.BusinessHome = Parse.View.extend({
     query.find().then(function (e) {
       console.log(e);
       _.each(e, function (i) {
-        new BeMe.Views.FeedPost({model:i});
+        var collection = new Parse.Collection(i);
+        new BeMe.Views.StatusListView({collection:collection,container:'.bar-feed'});
       });
     });
   },
