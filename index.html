@@ -159,7 +159,7 @@
 
       </div
       ><div class="header-center">
-        <img src="images/beme-logodark.png">
+        <img src="images/beme-logo-text.png">
       </div
       ><div class="header-right">
         <div class="bar-search">
@@ -857,7 +857,7 @@
 
       </div
       ><div class="header-center">
-        <img src="images/beme-logodark.png">
+        <img src="images/beme-logo-text.png">
       </div
       ><div class="header-right">
         <div class="bar-search">
@@ -1049,7 +1049,7 @@
   </section>
   
   <section class="feed-statistics">
-    <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
+    <p><%= moment(createdAt).fromNow(true) %> ago</p>
   </section>
 
   <section class="feed-controls">
@@ -1411,7 +1411,7 @@
         <% } %>
       </div
       ><div class="header-center">
-         <img src="images/beme-logodark.png">
+         <img src="images/beme-logo-text.png">
 
       </div
       ><div class="header-right">
@@ -1530,19 +1530,11 @@
         
         <aside><span id="left-column-trigger" class="fa fa-bars"></span></aside>
 
-          <div class="to-location">
-            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
-            ><div class="update-location"><footer><h1>Update Location</h1></footer></div
-
-            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
-          </div>
 
 
       </div
       ><div class="header-center">
-        <img src="images/beme-logodark.png">
-      </div
-      ><div class="header-right">
+
         <div class="bar-search">
           <form name='bar-search' action>
             <span class="fa fa-search"></span
@@ -1550,6 +1542,15 @@
             ><button id="bar-submit"></button>
           </form>
         </div>  
+      </div
+      ><div class="header-right">
+        <div class="to-location">
+          <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
+          ><div class="update-location"><footer><h1>Update Location</h1></footer></div
+
+          ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
+        </div>
+
         <div class="dashboard-statistics">
           <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
           ><li><h1>32</h1><p>Following</p></li
@@ -1561,13 +1562,7 @@
 
     </div>
   </header>
-    <div class="dashboard-tabs">
-      <a href="#dashboard"><i class="fa fa-home"></i><h1>Home</h1></a
-      ><a href="#dashboard/following"><i class="fa fa-star"></i><h1>Favorites</h1></a
-      ><a href="#dashboard/friends"><i class="fa fa-users"></i><h1>Friends</h1></a
-      ><a href="#dashboard/listing"><i class="fa fa-location-arrow"></i><h1>Listing</h1></a
-      ><a href="#dashboard/map"><i class="fa fa-location-arrow"></i><h1>Map</h1></a>
-    </div>
+
 
 
 
@@ -1581,6 +1576,19 @@
 
       <div class="left-column">
 
+          <div class="dashboard-tabs">
+            <a href="#dashboard" class="active-dashboard-tab"><span class="entypo-dot-3"></span><h1>Main Feed</h1></a
+            ><a href="#dashboard/following"><span class="entypo-bookmarks"></span><h1>Following</h1></a
+            ><a href="#dashboard/friends"><span class="entypo-user-add"></span><h1>My Friends</h1></a
+            ><a href="#dashboard/listing"><span class="entypo-sweden"></span><h1>Bar Listing</h1></a
+            ><a href="#dashboard/map"><span class="entypo-globe"></span><h1>Local Map</h1></a>
+          </div>
+
+          <div class="active-tabs">
+            <a href="#dashboard" class="active-main-tab"><span class="entypo-gauge"></span><h1>Dashboard</h1></a
+            ><a href="#backend"><span class="entypo-cog"></span><h1>Backend</h1></a>
+
+          </div>
         <div class="current-user-info">
 
           <% if (typeof user.avatar !=='undefined') { %>
@@ -1622,7 +1630,6 @@
         </div> 
       </div
       ><div class="right-column">
-    
 
       </div>
   </div>
