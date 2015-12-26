@@ -51,7 +51,8 @@ body {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-  padding: 0px 0; }
+  padding: 0px 0;
+  margin-top: 60px; }
 
 .business-container {
   width: 1000px;
@@ -111,19 +112,18 @@ body {
   vertical-align: top; }
 
 .left-column {
-  width: 30%;
+  width: 25%;
   position: fixed;
   z-index: 10;
   padding: 0;
   transition: 250ms;
   height: 100vh;
-  padding: 0 20px;
-  margin-top: -20px; }
+  padding: 0 20px 0 0; }
 
 .middle-column {
   position: relative;
   width: 40%;
-  left: 30%;
+  left: 25%;
   transition: 250ms;
   padding: 20px 0; }
 
@@ -167,12 +167,12 @@ header {
   top: 0;
   left: 0;
   z-index: 9999999;
-  background: #fff;
-  border-bottom: 1px solid #dfdfdf; }
+  background: #D64631;
+  box-shadow: 0 0 15px 0px #999; }
 
 .header-container {
   width: 100%;
-  height: 55px;
+  height: 60px;
   margin: 0 auto;
   position: relative; }
 
@@ -207,9 +207,8 @@ header {
 .header-left {
   display: inline-block;
   vertical-align: top;
-  width: 30%;
-  height: 55px;
-  background: #f8f8f8;
+  width: 25%;
+  height: 60px;
   padding: 0; }
   .header-left aside span {
     font-size: 1.4em;
@@ -226,11 +225,9 @@ header {
   display: inline-block;
   vertical-align: top;
   text-align: center;
-  width: 40%;
-  height: 55px;
-  padding: 20px 20px;
-  border-left: 1px solid #dfdfdf;
-  border-right: 1px solid #dfdfdf; }
+  width: 50%;
+  height: 60px;
+  padding: 5px 0; }
   .header-center img {
     width: auto;
     height: 20px;
@@ -257,7 +254,7 @@ header {
       font-size: 16px;
       color: #fff;
       width: 25%;
-      height: 55px;
+      height: 60px;
       text-align: center;
       padding-top: 18px; }
     .header-center li h1 {
@@ -283,7 +280,7 @@ header {
       font-size: 16px;
       color: #333;
       width: 100%;
-      height: 55px;
+      height: 60px;
       text-align: center;
       padding-top: 20px;
       padding-left: 3px; }
@@ -298,11 +295,10 @@ header {
 .header-right {
   display: inline-block;
   vertical-align: top;
-  width: 30%;
+  width: 25%;
   position: relative;
   z-index: 999999999;
-  height: 55px;
-  padding: 0; }
+  height: 60px; }
   .header-right img {
     width: 35px;
     height: 35px;
@@ -366,59 +362,92 @@ header {
   position: relative;
   top: 0px;
   background: #f0f0f0;
-  border: 1px solid #dfdfdf;
+  border: 1px solid #ededed;
   margin-bottom: 15px; }
 
 .dashboard-location {
-  border: 1px solid #dfdfdf;
+  border: 1px solid #ededed;
   border-bottom: 0;
   background: #f0f0f0;
   margin-bottom: 15px;
   /*border-bottom:0;*/ }
 
 .dashboard-tabs {
-  width: 40%;
+  width: 100%;
   margin: 0 auto;
-  border: 1px solid #dfdfdf;
-  margin-top: 55px;
-  padding: 10px 0;
-  background: #fff;
   text-align: center;
-  	/*a:first-child i {
-  		color: $secondary-color-light;
-  	}
-  
-  	a:nth-child(2) i {
-  		color: $green-light;
-  	}
-  
-  	a:nth-child(3) i {
-  		color: $gold-medium;
-  	}
-  
-  	a:nth-child(4) i {
-  		color: $red-medium;
-  	}*/ }
+  border-bottom: 1px solid #ededed;
+  padding-top: 20px; }
   .dashboard-tabs a {
     text-decoration: none;
     display: inline-block;
     vertical-align: top;
-    padding: 0 15px;
-    text-align: center; }
+    padding: 20px 15px;
+    text-align: left;
+    width: 100%;
+    border-left: 5px solid #dfdfdf;
+    transition: 250ms; }
     .dashboard-tabs a h1,
-    .dashboard-tabs a i {
+    .dashboard-tabs a span {
       display: inline-block;
       vertical-align: top; }
     .dashboard-tabs a h1 {
-      font-size: 1em;
-      color: #333;
-      padding-left: 5px;
-      font-weight: 400; }
-    .dashboard-tabs a i {
-      font-size: .9em;
-      color: #f0f0f0;
-      padding-top: 4px;
-      display: none; }
+      font-size: 1.2em;
+      color: #3F3F3F;
+      font-weight: 400;
+      padding-top: 5px; }
+    .dashboard-tabs a span {
+      font-size: 1.8em;
+      color: #878787;
+      width: 60px;
+      text-align: center; }
+  .dashboard-tabs a:hover {
+    background: #ededed; }
+
+.active-tabs {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  /*border-bottom: 1px solid #ededed;*/ }
+  .active-tabs a {
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px 15px;
+    text-align: left;
+    background: #ededed;
+    width: 100%;
+    border-left: 5px solid #dfdfdf;
+    transition: 250ms; }
+    .active-tabs a h1,
+    .active-tabs a span {
+      display: inline-block;
+      vertical-align: top; }
+    .active-tabs a h1 {
+      font-size: 1.2em;
+      color: #3F3F3F;
+      font-weight: 400;
+      padding-top: 5px; }
+    .active-tabs a span {
+      font-size: 1.8em;
+      color: #878787;
+      width: 60px;
+      text-align: center; }
+  .active-tabs a:first-child {
+    /*border-bottom: 1px solid #ededed;*/ }
+  .active-tabs a:hover {
+    background: #ededed; }
+
+.active-dashboard-tab {
+  background: #ededed;
+  border-left: 5px solid #D64631 !important; }
+  .active-dashboard-tab span,
+  .active-dashboard-tab h1 {
+    color: #D64631 !important; }
+
+.active-main-tab {
+  background: #ededed;
+  border-left: 5px solid #D64631 !important; }
 
 .backend-controls {
   width: 100%;
@@ -426,7 +455,7 @@ header {
   display: block;
   /*margin-top: 15px;*/
   background: #fff;
-  /*border-bottom: 1px solid #dfdfdf;*/
+  /*border-bottom: 1px solid #ededed;*/
   position: relative;
   z-index: 999999; }
 
@@ -561,7 +590,7 @@ header {
     -webkit-transform: rotate(45deg);
     transform: rotate(-45deg);
     /* position: absolute; */
-    margin-top: -55px;
+    margin-top: -60px;
     display: none; }
   .business-tabs article {
     overflow: hidden;
@@ -660,7 +689,7 @@ header {
   position: fixed;
   bottom: 0;
   /*margin-top: 15px;*/
-  /*border: 1px solid #dfdfdf;*/
+  /*border: 1px solid #ededed;*/
   border-top: 0;
   border-bottom: 0;
   margin-bottom: 0px;
@@ -830,7 +859,7 @@ header {
     cursor: pointer;
     margin-bottom: 10px;
     background: #fff;
-    border: 1px solid #dfdfdf;
+    border: 1px solid #ededed;
     border-radius: 3px; }
   .listing-container li:hover {
     background: #0277BD; }
@@ -973,8 +1002,8 @@ header {
   text-align: center;
   position: relative;
   overflow: hidden;
-  height: 55px;
-  background: #fff;
+  height: 60px;
+  background: #D64631;
   /*border-radius: 3px;*/ }
   .to-location a {
     text-decoration: none; }
@@ -984,17 +1013,17 @@ header {
     vertical-align: top; }
   .to-location aside {
     width: 20%;
-    background: #fff;
+    background: #D64631;
     text-align: center;
     padding-top: 15px;
-    height: 55px;
+    height: 60px;
     position: absolute;
     right: 0;
     /*border-left: 1px solid #d8d8d8;*/
     /*border-radius: 0px 3px 3px 0px;*/ }
     .to-location aside i {
       font-size: 2em;
-      color: #ccc; }
+      color: #f0f0f0; }
   .to-location section {
     position: absolute;
     width: 80%;
@@ -1002,7 +1031,7 @@ header {
     text-align: left;
     margin: 0 auto;
     /*border-radius: 3px;*/
-    height: 55px;
+    height: 60px;
     left: 0; }
     .to-location section h1,
     .to-location section p,
@@ -1012,28 +1041,28 @@ header {
     .to-location section h1 {
       font-size: 1.2em;
       font-weight: 400;
-      color: #333; }
+      color: #f0f0f0; }
     .to-location section p {
       font-size: .8em;
       font-weight: 400;
-      color: #333;
+      color: #f0f0f0;
       margin-top: 5px; }
     .to-location section h2 {
       font-size: 1em;
       font-weight: 300;
-      color: #333;
+      color: #f0f0f0;
       padding-right: 5px; }
   .to-location p {
     margin-top: 10px;
     font-size: .8em;
     font-weight: 300;
     font-style: italic;
-    color: #333; }
+    color: #f0f0f0; }
 
 .open-listing-container {
   display: inline-block;
   vertical-align: top;
-  height: 55px;
+  height: 60px;
   width: 15%;
   /*background: $green-dark;*/
   cursor: pointer;
@@ -1046,7 +1075,7 @@ header {
     vertical-align: top; }
   .open-listing-container section {
     padding: 15px 0 0;
-    height: 55px;
+    height: 60px;
     text-align: center; }
     .open-listing-container section h1 {
       color: #fff;
@@ -1058,7 +1087,7 @@ header {
       margin-top: 0px;
       color: #fff; }
   .open-listing-container aside {
-    height: 55px;
+    height: 60px;
     background: #689F38;
     border-radius: 0 3px 3px 0px; }
     .open-listing-container aside p {
@@ -1073,7 +1102,7 @@ header {
 .to-following {
   display: inline-block;
   vertical-align: top;
-  height: 55px;
+  height: 60px;
   width: 10%;
   background: #555;
   cursor: pointer;
@@ -1086,7 +1115,7 @@ header {
     vertical-align: top; }
   .to-following section {
     padding: 17px 0 0;
-    height: 55px;
+    height: 60px;
     text-align: center; }
     .to-following section h1 {
       color: #fff;
@@ -1098,7 +1127,7 @@ header {
       margin-top: 2px;
       color: #FFC107; }
   .to-following aside {
-    height: 55px;
+    height: 60px;
     background: #689F38;
     border-radius: 0 3px 3px 0px; }
     .to-following aside p {
@@ -1113,7 +1142,7 @@ header {
 .following-link {
   display: inline-block;
   vertical-align: top;
-  height: 45px;
+  height: 50px;
   /*width: 100%;*/
   background: #fff;
   /*border: 1px solid #d8d8d8;*/
@@ -1132,7 +1161,7 @@ header {
     color: #fff; }
   .following-link section {
     padding: 15px 20px 0;
-    height: 45px;
+    height: 50px;
     text-align: center; }
     .following-link section h1 {
       color: #333;
@@ -1145,7 +1174,7 @@ header {
       color: #FFC107;
       display: none; }
   .following-link aside {
-    height: 45px;
+    height: 50px;
     background: #f0f0f0;
     border-radius: 0 3px 3px 0px;
     padding: 15px 20px;
@@ -1166,13 +1195,13 @@ header {
 .update-location {
   width: 80%;
   position: absolute;
-  height: 55px;
+  height: 60px;
   /*background: rgba(255,255,255,.05);*/
   right: -60%;
   transition: 250ms; }
   .update-location footer {
     width: 100%;
-    height: 55px;
+    height: 60px;
     text-align: left;
     margin: 0 auto;
     padding: 20px 20px 0;
@@ -1243,7 +1272,7 @@ header {
     width: 70%;
     background: transparent;
     font-weight: 300;
-    color: #37474F; }
+    color: #D64631; }
   .search-container button,
   .search-location button {
     width: 15%;
@@ -1286,7 +1315,7 @@ header {
 .dashboard-statistics,
 .backend-statistics {
   width: 20%;
-  height: 55px;
+  height: 60px;
   display: none; }
   .dashboard-statistics li,
   .backend-statistics li {
@@ -1342,7 +1371,7 @@ header {
   text-align: center;
   width: 100%;
   padding: 30px 0 30px;
-  border-bottom: 1px solid #dfdfdf;
+  border-bottom: 1px solid #ededed;
   background: #f0f0f0;
   border-radius: 3px 3px 0 0;
   display: none; }
@@ -1509,7 +1538,7 @@ header {
     display: block;
     vertical-align: top;
     font-size: 1em;
-    color: #37474F;
+    color: #D64631;
     font-weight: 300; }
 
 .change-location {
@@ -1565,12 +1594,12 @@ header {
   vertical-align: top;
   height: 100vh;
   background: #fff;
-  border-right: 1px solid #dfdfdf; }
+  border-right: 1px solid #ededed; }
 
 .sidebar-container-dark {
   background: #f0f0f0;
   border-right: 0;
-  border-left: 1px solid #dfdfdf; }
+  border-left: 1px solid #ededed; }
 
 .top-container,
 .top-container2 {
@@ -1594,7 +1623,7 @@ header {
   /*margin-right: 20bpx;*/
   /*margin-top: 20px;*/
   background: #263238;
-  /*border-right: 1px solid #dfdfdf;*/ }
+  /*border-right: 1px solid #ededed;*/ }
 
 .main-container {
   display: block;
@@ -1603,7 +1632,7 @@ header {
   margin: 50px auto;
   position: relative;
   background: #f0f0f0;
-  border: 1px solid #dfdfdf;
+  border: 1px solid #ededed;
   padding-bottom: 30px;
   transition: 250ms; }
 
@@ -1634,7 +1663,7 @@ header {
   .profile-options li {
     width: 25%;
     display: inline-block;
-    color: #37474F;
+    color: #D64631;
     font-size: 1em;
     text-align: center;
     padding: 15px 0;
@@ -1665,14 +1694,14 @@ header {
 .profile-info {
   width: 100%;
   text-align: center;
-  background: #37474F;
+  background: #D64631;
   border-top: 1px solid #455A64;
   margin-bottom: 0px;
   height: 50px;
   margin-bottom: 25px; }
   .profile-info span {
     font-size: 36px;
-    color: #37474F;
+    color: #D64631;
     position: relative;
     left: 0;
     margin: 0 auto;
@@ -1683,7 +1712,7 @@ header {
 
 .profile-statistics {
   width: 100%;
-  background: #37474F;
+  background: #D64631;
   border-top: 1px solid #455A64;
   margin-bottom: 0px;
   margin-bottom: 25px; }
@@ -1765,14 +1794,14 @@ header {
     display: inline-block;
     vertical-align: top; }
   .business-header aside {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     /*padding: 5px;*/ }
     .business-header aside img {
-      height: 55px;
-      width: 55px; }
+      height: 60px;
+      width: 60px; }
   .business-header section {
-    height: 55px;
+    height: 60px;
     /*width: 90%;*/
     text-align: left;
     padding: 20px 15px; }
@@ -1835,13 +1864,13 @@ header {
   .bar-page-options li {
     width: 25%;
     display: inline-block;
-    color: #37474F;
+    color: #D64631;
     font-size: 1em;
     text-align: center;
     padding: 20px 0;
     font-weight: 300;
     border-right: 1px solid #000;
-    border-left: 1px solid #37474F;
+    border-left: 1px solid #D64631;
     /*border-bottom: 1px solid $primary-color-dark;*/ }
   .bar-page-options li:last-child {
     border-right: 0; }
@@ -1931,15 +1960,13 @@ header {
   display: inline-block;
   vertical-align: top;
   width: 100%;
-  background: #f8f8f8;
+  background: rgba(255, 255, 255, 0.15);
   position: relative;
   transition: 250ms;
   z-index: 50;
-  height: 55px;
+  height: 50px;
   margin: 0px auto;
-  /*border-radius: 3px;*/
-  /*border: 1px solid #dfdfdf;*/
-  margin-bottom: 10px; }
+  border-radius: 3px; }
   .bar-search span,
   .bar-search button,
   .bar-search input {
@@ -1947,14 +1974,12 @@ header {
     vertical-align: top; }
   .bar-search span {
     display: inline-block;
-    height: 55px;
+    height: 50px;
     vertical-align: top;
-    width: 15%;
     font-size: 1.2em;
-    color: #ccc;
+    color: #f0f0f0;
     text-align: center;
-    padding-top: 20px;
-    /*border-right: 1px solid #f0f0f0;*/ }
+    padding-top: 17.5px; }
   .bar-search button {
     background: transparent;
     outline: 0;
@@ -1963,7 +1988,7 @@ header {
     font-size: 1em;
     font-weight: 300;
     padding: 0;
-    height: 55px;
+    height: 60px;
     width: 15%; }
     .bar-search button i {
       display: inline-block;
@@ -1972,19 +1997,21 @@ header {
       color: #01579B;
       width: 100%;
       text-align: center; }
+  .bar-search input::-webkit-input-placeholder {
+    color: #f0f0f0; }
   .bar-search input {
     display: inline-block;
     color: #333;
     vertical-align: top;
-    height: 55px;
+    height: 50px;
     width: 70%;
     border: 0;
     background: transparent;
     outline: 0;
     border-radius: 0;
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: 300;
-    /*text-indent: 15px;*/ }
+    text-indent: 15px; }
 
 .beer-search-shift {
   margin-top: 0; }
@@ -2178,7 +2205,7 @@ header {
     cursor: auto;
     position: relative;
     background: #fff;
-    border: 1px solid #dfdfdf;
+    border: 1px solid #ededed;
     border-radius: 3px;
     margin-bottom: 10px; }
   .profile-beer-list div {
@@ -2442,7 +2469,7 @@ svg rect {
 .search-tabs {
   width: 100%;
   background: #fff;
-  border: 1px solid #dfdfdf; }
+  border: 1px solid #ededed; }
   .search-tabs li {
     display: inline-block;
     vertical-align: top;
@@ -2461,7 +2488,7 @@ svg rect {
   width: 100%;
   background: #fff;
   position: relative;
-  border: 1px solid #dfdfdf;
+  border: 1px solid #ededed;
   border-top: 0; }
   .beer-search-results ul,
   .bar-search-results ul {
@@ -2629,7 +2656,7 @@ svg rect {
 
 .competition-module {
   width: 100%;
-  border: 1px solid #dfdfdf;
+  border: 1px solid #ededed;
   /*border-top:0;*/
   border-bottom: 0;
   /*margin-bottom:15px;*/
@@ -2642,8 +2669,8 @@ svg rect {
     padding: 10px;
     display: inline-block;
     width: 25%;
-    /*border:1px solid #dfdfdf;*/
-    /*border-right:1px solid #dfdfdf;*/
+    /*border:1px solid #ededed;*/
+    /*border-right:1px solid #ededed;*/
     height: 100%; }
   .competition-module img {
     width: 100%;
@@ -2653,8 +2680,8 @@ svg rect {
   padding: 10px;
   display: inline-block;
   width: 25%;
-  /*border:1px solid #dfdfdf;*/
-  /*border-right:1px solid #dfdfdf;*/
+  /*border:1px solid #ededed;*/
+  /*border-right:1px solid #ededed;*/
   height: 100%;
   background: #f0f0f0; }
 
@@ -2674,7 +2701,7 @@ svg rect {
   position: relative;
   z-index: 50;
   margin-bottom: 15px;
-  border: 1px solid #dfdfdf;
+  border: 1px solid #ededed;
   border-radius: 3px; }
   .post-status-text article {
     background: #fff;
@@ -2823,8 +2850,8 @@ svg rect {
 .addcomment-container {
   display: inline-block;
   background: #f0f0f0;
-  border-top: 1px solid #dfdfdf;
-  /*border-bottom: 1px solid #dfdfdf;*/
+  border-top: 1px solid #ededed;
+  /*border-bottom: 1px solid #ededed;*/
   vertical-align: top;
   width: 100%;
   cursor: pointer;
@@ -2859,7 +2886,7 @@ svg rect {
     background: #fff;
     margin-bottom: 20px;
     border-radius: 3px;
-    border: 1px solid #dfdfdf;
+    border: 1px solid #ededed;
     box-shadow: 0 0 10px -5px #ccc; }
   .bar-feed li:nth-child(odd),
   .bar-feed div:nth-child(odd) {
@@ -2867,11 +2894,9 @@ svg rect {
 
 .friends-feed {
   width: 100%;
-  max-height: 400px;
-  overflow: scroll;
   padding: 0;
   background: #fff;
-  border: 1px solid #dfdfdf;
+  border: 1px solid #ededed;
   border-radius: 3px; }
   .friends-feed ul {
     list-style: none;
@@ -2957,7 +2982,7 @@ svg rect {
     font-weight: 400;
     background: #f0f0f0;
     border-radius: 3px;
-    border: 1px solid #dfdfdf; }
+    border: 1px solid #ededed; }
 
 .feed-photo {
   width: 100%;
@@ -3026,7 +3051,7 @@ svg rect {
       line-height: 20px;
       font-weight: 300;
       padding-top: 15px;
-      color: #37474F; }
+      color: #D64631; }
     .feed-content aside p {
       font-size: 1.2em;
       line-height: 1.6em;
@@ -3285,7 +3310,7 @@ svg rect {
       line-height: 20px;
       font-weight: 300;
       padding-top: 15px;
-      color: #37474F; }
+      color: #D64631; }
     .feed-event aside p {
       font-size: 1.1em;
       line-height: 1.6em;
@@ -3320,7 +3345,7 @@ svg rect {
     line-height: 20px;
     font-weight: 300;
     padding-top: 15px;
-    color: #37474F; }
+    color: #D64631; }
   .feed-caption aside p {
     font-size: 1em;
     line-height: 1.6em;
@@ -3330,22 +3355,19 @@ svg rect {
 .feed-statistics {
   width: 100%;
   display: inline-block;
-  padding: 10px 15px; }
+  padding: 0px 15px 10px; }
   .feed-statistics p,
   .feed-statistics span {
     display: inline-block;
     vertical-align: top; }
   .feed-statistics p {
     font-size: .9em;
-    line-height: 2em;
-    font-weight: 400;
+    font-weight: 300;
     color: #ccc; }
   .feed-statistics span {
     font-size: .9em;
-    line-height: 2em;
     font-weight: 400;
-    color: #ccc;
-    padding: 0 0 0 10px; }
+    color: #ccc; }
 
 .feed-controls {
   padding: 0;
@@ -3397,7 +3419,7 @@ svg rect {
 
 .view-all {
   width: 100%;
-  /*border:1px solid #dfdfdf;*/
+  /*border:1px solid #ededed;*/
   border-top: 0;
   background: #fff;
   text-align: center;
@@ -3412,7 +3434,7 @@ svg rect {
 
 .view-all-dark {
   width: 100%;
-  border-top: 1px solid #37474F;
+  border-top: 1px solid #D64631;
   background: #263238;
   text-align: center;
   padding: 15px 0;
@@ -3429,7 +3451,7 @@ svg rect {
   width: 100%;
   text-align: center;
   padding: 100px 0;
-  background: #37474F; }
+  background: #D64631; }
 
 /* Slideout Panel */
 .settings-slideout {
@@ -3722,7 +3744,7 @@ svg rect {
     color: #8BC34A;
     float: right; }
   #backend-menu button:last-child {
-    border-bottom: 1px solid #dfdfdf; }
+    border-bottom: 1px solid #ededed; }
   #backend-menu span {
     font-size: 1.2em; }
 
@@ -3873,7 +3895,7 @@ svg rect {
       vertical-align: top;
       font-size: 1em;
       padding: 0 10px;
-      border-right: 1px solid #dfdfdf; }
+      border-right: 1px solid #ededed; }
     .add-weekly-comment nav li:last-child {
       border-right: 0;
       padding-right: 0; }
@@ -3980,7 +4002,7 @@ svg rect {
     width: 80%;
     height: 50px;
     font-size: 1em;
-    border: 1px solid #dfdfdf;
+    border: 1px solid #ededed;
     border-left: 0;
     border-right: 0;
     text-indent: 15px;
@@ -3995,7 +4017,7 @@ svg rect {
     display: inline-block;
     vertical-align: top;
     padding-top: 15px;
-    border: 1px solid #dfdfdf;
+    border: 1px solid #ededed;
     border-right: 0;
     border-left: 0; }
 
@@ -4011,7 +4033,7 @@ svg rect {
   display: inline-block;
   padding: 15px;
   text-align: left;
-  border: 1px solid #dfdfdf;
+  border: 1px solid #ededed;
   border-bottom: 0;
   background: #f0f0f0; }
   .calendar-nav ul {
@@ -4022,7 +4044,7 @@ svg rect {
     vertical-align: top;
     font-size: 1em;
     padding: 0 10px;
-    border-right: 1px solid #dfdfdf; }
+    border-right: 1px solid #ededed; }
   .calendar-nav li:last-child {
     border-right: 0;
     padding-right: 0; }
@@ -4127,14 +4149,14 @@ svg rect {
   .calendar-container li {
     padding: 20px 30px;
     display: block;
-    border-bottom: 1px solid #37474F;
+    border-bottom: 1px solid #D64631;
     transition: 250ms;
     cursor: pointer; }
   .settings-container li:hover,
   .settings-container li:focus,
   .calendar-container li:hover,
   .calendar-container li:focus {
-    background: #37474F; }
+    background: #D64631; }
   .settings-container p,
   .calendar-container p {
     display: inline-block;
@@ -4256,7 +4278,7 @@ svg rect {
     color: #333;
     background: #fff;
     /*border-radius:4px;*/
-    /*border:1px solid #dfdfdf;*/ }
+    /*border:1px solid #ededed;*/ }
     .calendar-standing input:focus,
     .calendar-daily input:focus {
       outline: none; }
@@ -4336,7 +4358,7 @@ svg rect {
   .settings-avatar li {
     display: block;
     padding: 15px 30px;
-    border-bottom: 1px solid #dfdfdf; }
+    border-bottom: 1px solid #ededed; }
   .settings-avatar input {
     width: 80%;
     display: inline-block;
@@ -4594,7 +4616,7 @@ svg rect {
     border: 0; }
 
   .bar-search {
-    border-top: 1px solid #dfdfdf;
-    border-bottom: 1px solid #dfdfdf; } }
+    border-top: 1px solid #ededed;
+    border-bottom: 1px solid #ededed; } }
 
 /*# sourceMappingURL=main.css.map */

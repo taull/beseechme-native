@@ -15,7 +15,7 @@
 /* Colors */
 
 $primary-color-dark: #263238;
-$primary-color-medium: #37474F;
+$primary-color-medium: #D64631;
 $primary-color-light: #f0f0f0;
 
 $secondary-color-dark: #01579B;
@@ -96,6 +96,7 @@ body {
     position:relative;
     z-index:1;
     padding: 0px 0;
+    margin-top: 60px;
 }
 
 .business-container {
@@ -178,21 +179,20 @@ body {
 }
 
 .left-column {
-	width: 30%;
+	width: 25%;
 	position: fixed;
 	z-index: 10;
 	padding: 0;
 	transition: 250ms;
 	height: 100vh;
-	padding: 0 20px;
-	margin-top: -20px;
+	padding: 0 20px 0 0;
 
 }
 
 .middle-column {
 	position: relative;
 	width: 40%;
-	left: 30%;
+	left: 25%;
 	transition: 250ms;
 	padding: 20px 0;
 
@@ -248,13 +248,13 @@ header {
     top: 0;
     left: 0;
     z-index: 9999999;
-    background: #fff;
-    border-bottom: 1px solid #dfdfdf;
+    background: $primary-color-medium;
+    box-shadow: 0 0 15px 0px #999;
 }
 
 .header-container {
 	width: 100%;
-	height: 55px;
+	height: 60px;
 	margin: 0 auto;
 	position:relative;
 }
@@ -301,9 +301,8 @@ header {
 .header-left {
 	display: inline-block;
 	vertical-align: top;
-	width: 30%;
-	height: 55px;
-	background: #f8f8f8;
+	width: 25%;
+	height: 60px;
 	padding: 0;
 
 	aside {
@@ -327,11 +326,9 @@ header {
 	display: inline-block;
     vertical-align: top;
     text-align: center;
-    width: 40%;
-    height: 55px;
-    padding: 20px 20px;
-    border-left: 1px solid #dfdfdf;
-    border-right: 1px solid #dfdfdf;
+    width: 50%;
+    height: 60px;
+    padding: 5px 0;
 
     img {
     	width: auto;
@@ -364,7 +361,7 @@ header {
 		    font-size: 16px;
 		    color: #fff;
 		    width: 25%;
-		    height: 55px;
+		    height: 60px;
 		    text-align: center;
 		    padding-top: 18px;
 		}
@@ -398,7 +395,7 @@ header {
 		    font-size: 16px;
 		    color: #333;
 		    width: 100%;
-		    height: 55px;
+		    height: 60px;
 		    text-align: center;
 		    padding-top: 20px;
 		    padding-left:3px;
@@ -424,11 +421,10 @@ header {
 .header-right {
 	display: inline-block;
 	vertical-align: top;
-	width: 30%;
+	width: 25%;
 	position: relative;
     z-index: 999999999;
-    height: 55px;
-    padding: 0;
+    height: 60px;
 
 	img {
 		width: 35px;
@@ -512,12 +508,12 @@ header {
 	position: relative;
 	top: 0px;
 	background: $primary-color-light;
-	border:1px solid #dfdfdf;
+	border:1px solid #ededed;
 	margin-bottom: 15px;
 }
 
 .dashboard-location {
-	border: 1px solid #dfdfdf;
+	border: 1px solid #ededed;
 	border-bottom: 0;
 	background: $primary-color-light;
 	margin-bottom: 15px;
@@ -526,57 +522,108 @@ header {
 
 
 .dashboard-tabs {
-	width: 40%;
+	width: 100%;
 	margin: 0 auto;
-	border: 1px solid #dfdfdf;
-	margin-top: 55px;
-	padding: 10px 0;
-	background: #fff;
 	text-align: center;
+	border-bottom: 1px solid #ededed;
+	padding-top: 20px;
 
 	a {
 		text-decoration: none;
 		display: inline-block;
 		vertical-align: top;
-		padding: 0 15px;
-		text-align: center;
+		padding: 20px 15px;
+		text-align: left;
+		width: 100%;
+		border-left: 5px solid #dfdfdf;
+		transition: 250ms;
 
 		h1, 
-		i {
+		span {
 			display: inline-block;
 			vertical-align: top;
 		}
 
 		h1 {
-			font-size: 1em;
-			color: #333;
-			padding-left: 5px;
+			font-size: 1.2em;
+			color: #3F3F3F;
 			font-weight: 400;
+			padding-top: 5px;
 		}
 
-		i {
-			font-size: .9em;
-			color: #f0f0f0;
-			padding-top: 4px;
-			display: none;
+		span {
+			font-size: 1.8em;
+			color: #878787;
+			width: 60px;
+			text-align: center;
 		}
 	}
 
-	/*a:first-child i {
-		color: $secondary-color-light;
+	a:hover {
+		background: #ededed;
+	}
+}
+
+.active-tabs {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	/*border-bottom: 1px solid #ededed;*/
+
+	a {
+		text-decoration: none;
+		display: inline-block;
+		vertical-align: top;
+		padding: 20px 15px;
+		text-align: left;
+		background: #ededed;
+		width: 100%;
+		border-left: 5px solid #dfdfdf;
+		transition: 250ms;
+
+		h1, 
+		span {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		h1 {
+			font-size: 1.2em;
+			color: #3F3F3F;
+			font-weight: 400;
+			padding-top: 5px;
+		}
+
+		span {
+			font-size: 1.8em;
+			color: #878787;
+			width: 60px;
+			text-align: center;
+		}
 	}
 
-	a:nth-child(2) i {
-		color: $green-light;
+	a:first-child {
+		/*border-bottom: 1px solid #ededed;*/
 	}
 
-	a:nth-child(3) i {
-		color: $gold-medium;
+	a:hover {
+		background: #ededed;
 	}
+}
 
-	a:nth-child(4) i {
-		color: $red-medium;
-	}*/
+.active-dashboard-tab {
+	background: #ededed;
+	border-left: 5px solid $primary-color-medium !important;
+
+	span, 
+	h1 {
+		color: $primary-color-medium !important;
+	}
+}
+
+.active-main-tab {
+	background: #ededed;
+	border-left: 5px solid $primary-color-medium !important;
 }
 
 .backend-controls {
@@ -585,7 +632,7 @@ header {
 	display: block;
 	/*margin-top: 15px;*/
 	background: #fff;
-	/*border-bottom: 1px solid #dfdfdf;*/
+	/*border-bottom: 1px solid #ededed;*/
 	position:relative;
 	z-index:999999;
 }
@@ -758,7 +805,7 @@ header {
 		-webkit-transform: rotate(45deg);
 		transform: rotate(-45deg);
 		/* position: absolute; */
-		margin-top: -55px;
+		margin-top: -60px;
 		display: none;
 
 	}
@@ -902,7 +949,7 @@ header {
 	position:fixed;
 	bottom: 0;
 	/*margin-top: 15px;*/
-	/*border: 1px solid #dfdfdf;*/
+	/*border: 1px solid #ededed;*/
 	border-top:0;
 	border-bottom: 0;
     margin-bottom: 0px;
@@ -1126,7 +1173,7 @@ header {
 		cursor:pointer;
 		margin-bottom: 10px;
 		background: #fff;
-		border: 1px solid #dfdfdf;
+		border: 1px solid #ededed;
 		border-radius: 3px;
 	}
 
@@ -1346,8 +1393,8 @@ header {
 	text-align: center;
 	position: relative;
 	overflow: hidden;
-	height: 55px;
-	background: #fff;
+	height: 60px;
+	background: $primary-color-medium;
 	/*border-radius: 3px;*/
 
 	a {
@@ -1362,10 +1409,10 @@ header {
 
 	aside {
 		width: 20%;
-		background: #fff;
+		background: $primary-color-medium;
 		text-align: center;
 		padding-top: 15px;
-		height: 55px;
+		height: 60px;
 		position: absolute;
 		right: 0;
 		/*border-left: 1px solid #d8d8d8;*/
@@ -1373,7 +1420,7 @@ header {
 		
 		i {
 			font-size: 2em;
-			color: #ccc;
+			color: #f0f0f0;
 		}
 	}
 
@@ -1384,7 +1431,7 @@ header {
 		text-align: left;
 		margin: 0 auto;
 		/*border-radius: 3px;*/
-		height: 55px;
+		height: 60px;
 		left: 0;
 
 		h1,
@@ -1397,20 +1444,20 @@ header {
 		h1 {
 			font-size: 1.2em;
 			font-weight: 400;
-			color: #333; 
+			color: #f0f0f0; 
 		}
 
 		p {
 			font-size: .8em;
 			font-weight: 400;
-			color: #333;
+			color: #f0f0f0;
 			margin-top: 5px;
 		}
 
 		h2 {
 			font-size: 1em;
 			font-weight: 300;
-			color: #333;
+			color: #f0f0f0;
 			padding-right: 5px;
 		}
 	}
@@ -1420,14 +1467,14 @@ header {
 		font-size: .8em;
 		font-weight: 300;
 		font-style: italic;
-		color: #333;
+		color: #f0f0f0;
 	}
 }
 
 .open-listing-container {
 	display: inline-block;
 	vertical-align: top;
-	height: 55px;
+	height: 60px;
 	width: 15%;
 	/*background: $green-dark;*/
 	cursor: pointer;
@@ -1443,7 +1490,7 @@ header {
 
 	section {
 		padding: 15px 0 0;
-		height: 55px;
+		height: 60px;
 		text-align: center;
 
 		h1 {
@@ -1461,7 +1508,7 @@ header {
 	}
 
 	aside {
-		height: 55px;
+		height: 60px;
 		background: $green-dark;
 		border-radius: 0 3px 3px 0px;
 
@@ -1486,7 +1533,7 @@ header {
 .to-following {
 	display: inline-block;
 	vertical-align: top;
-	height: 55px;
+	height: 60px;
 	width: 10%;
 	background: #555;
 	cursor: pointer;
@@ -1502,7 +1549,7 @@ header {
 
 	section {
 		padding: 17px 0 0;
-		height: 55px;
+		height: 60px;
 		text-align: center;
 
 		h1 {
@@ -1520,7 +1567,7 @@ header {
 	}
 
 	aside {
-		height: 55px;
+		height: 60px;
 		background: $green-dark;
 		border-radius: 0 3px 3px 0px;
 
@@ -1546,7 +1593,7 @@ header {
 .following-link {
 	display: inline-block;
 	vertical-align: top;
-	height: 45px;
+	height: 50px;
 	/*width: 100%;*/
 	background: #fff;
 	/*border: 1px solid #d8d8d8;*/
@@ -1570,7 +1617,7 @@ header {
 
 	section {
 		padding: 15px 20px 0;
-		height: 45px;
+		height: 50px;
 		text-align: center;
 
 		h1 {
@@ -1589,7 +1636,7 @@ header {
 	}
 
 	aside {
-		height: 45px;
+		height: 50px;
 		background: #f0f0f0;
 		border-radius: 0 3px 3px 0px;
 		padding: 15px 20px;
@@ -1623,14 +1670,14 @@ header {
 .update-location {
 	width: 80%;
 	position: absolute;
-	height: 55px;
+	height: 60px;
 	/*background: rgba(255,255,255,.05);*/
 	right: -60%;
 	transition: 250ms;
 
 	footer {
 		width: 100%;
-		height: 55px;
+		height: 60px;
 		text-align: left;
 		margin: 0 auto;
 		padding: 20px 20px 0;
@@ -1767,7 +1814,7 @@ header {
 .dashboard-statistics, 
 .backend-statistics {
 	width: 20%;
-	height: 55px;
+	height: 60px;
 	display: none;
 
 
@@ -1839,7 +1886,7 @@ header {
 	text-align: center;
 	width: 100%;
 	padding: 30px 0 30px;
-	border-bottom: 1px solid #dfdfdf;
+	border-bottom: 1px solid #ededed;
 	background: #f0f0f0;
 	border-radius: 3px 3px 0 0;
 	display: none;
@@ -2143,13 +2190,13 @@ header {
 	vertical-align: top;
 	height:100vh;
 	background:#fff;	
-	border-right:1px solid #dfdfdf;
+	border-right:1px solid #ededed;
 }
 
 .sidebar-container-dark {
 	background:#f0f0f0;
 	border-right:0;
-	border-left:1px solid #dfdfdf;
+	border-left:1px solid #ededed;
 }
 
 .top-container, 
@@ -2176,7 +2223,7 @@ header {
 	/*margin-right: 20bpx;*/
 	/*margin-top: 20px;*/
 	background: $primary-color-dark;
-	/*border-right: 1px solid #dfdfdf;*/
+	/*border-right: 1px solid #ededed;*/
 }
 
 .main-container {
@@ -2186,7 +2233,7 @@ header {
 	margin: 50px auto;
 	position: relative;
 	background:$primary-color-light;
-	border:1px solid #dfdfdf;
+	border:1px solid #ededed;
 	padding-bottom:30px;
 	transition: 250ms;
 }
@@ -2408,18 +2455,18 @@ header {
 	}
 
 	aside {
-		width: 55px;
-		height: 55px;
+		width: 60px;
+		height: 60px;
 		/*padding: 5px;*/
 
 		img {
-			height: 55px;
-			width: 55px;		
+			height: 60px;
+			width: 60px;		
 		}
 	}
 
 	section {
-		height: 55px;
+		height: 60px;
 		/*width: 90%;*/
 		text-align: left;
 		padding: 20px 15px;
@@ -2632,15 +2679,13 @@ header {
 	display: inline-block;
 	vertical-align: top;
 	width: 100%;
-	background: #f8f8f8;
+	background:rgba(255,255,255,.15);
 	position: relative;
 	transition: 250ms;
 	z-index: 50;
-	height: 55px;
+	height: 50px;
 	margin: 0px auto;
-	/*border-radius: 3px;*/
-	/*border: 1px solid #dfdfdf;*/
-	margin-bottom: 10px;
+	border-radius: 3px;
 
 	span, 
 	button, 
@@ -2651,14 +2696,12 @@ header {
 
 	span {
 		display: inline-block;
-	    height: 55px;
+	    height: 50px;
 	    vertical-align: top;
-	    width: 15%;
 	    font-size: 1.2em;
-	    color: #ccc;
+	    color: #f0f0f0;
 	    text-align: center;
-	    padding-top: 20px;
-	    /*border-right: 1px solid #f0f0f0;*/
+	    padding-top: 17.5px;
 	}
 
 	button {
@@ -2669,7 +2712,7 @@ header {
 		font-size: 1em;
 		font-weight: 300;
 		padding: 0;
-		height: 55px;
+		height: 60px;
 		width: 15%;
 
 
@@ -2684,20 +2727,26 @@ header {
 		}
 	}
 
+	input::-webkit-input-placeholder {
+		color: #f0f0f0;
+	}
+
+
 
 	input {
 		display: inline-block;
 		color: #333;
 		vertical-align: top;
-		height: 55px;
+		height: 50px;
 		width: 70%;
 		border: 0;
 		background: transparent;
 		outline: 0;
 		border-radius: 0;
-		font-size: 1.2em;
+		font-size: 1.3em;
 		font-weight: 300;
-		/*text-indent: 15px;*/
+		text-indent: 15px;
+
 	}
 }
 
@@ -2952,7 +3001,7 @@ header {
 		cursor:auto;
 		position: relative;
 		background: #fff;
-		border: 1px solid #dfdfdf;
+		border: 1px solid #ededed;
 		border-radius: 3px;
 		margin-bottom: 10px;
 	}
@@ -3309,7 +3358,7 @@ svg rect{
 .search-tabs {
 	width: 100%;
 	background: #fff;
-	border: 1px solid #dfdfdf;
+	border: 1px solid #ededed;
 
 	li {
 		display: inline-block;
@@ -3335,7 +3384,7 @@ svg rect{
 	width: 100%;
 	background:#fff;
 	position: relative;
-	border: 1px solid #dfdfdf;
+	border: 1px solid #ededed;
 	border-top: 0;
 
 	ul {
@@ -3543,7 +3592,7 @@ svg rect{
 
 .competition-module {
 	width: 100%;
-	border:1px solid #dfdfdf;
+	border:1px solid #ededed;
 	/*border-top:0;*/
 	border-bottom:0;
 	/*margin-bottom:15px;*/
@@ -3559,8 +3608,8 @@ svg rect{
 		padding: 10px;
 		display: inline-block;
 		width: 25%;
-		/*border:1px solid #dfdfdf;*/
-		/*border-right:1px solid #dfdfdf;*/
+		/*border:1px solid #ededed;*/
+		/*border-right:1px solid #ededed;*/
 		height: 100%;
 	}
 
@@ -3575,8 +3624,8 @@ svg rect{
 	padding: 10px;
 	display: inline-block;
 	width: 25%;
-	/*border:1px solid #dfdfdf;*/
-	/*border-right:1px solid #dfdfdf;*/
+	/*border:1px solid #ededed;*/
+	/*border-right:1px solid #ededed;*/
 	height: 100%;
 	background: $primary-color-light;
 
@@ -3601,7 +3650,7 @@ svg rect{
  	position: relative;
     z-index: 50;
     margin-bottom: 15px;
-    border: 1px solid #dfdfdf;
+    border: 1px solid #ededed;
     border-radius: 3px;
 
     article {
@@ -3799,8 +3848,8 @@ svg rect{
 .addcomment-container {
 	display: inline-block;
 	background:#f0f0f0;
-	border-top:1px solid #dfdfdf;
-	/*border-bottom: 1px solid #dfdfdf;*/
+	border-top:1px solid #ededed;
+	/*border-bottom: 1px solid #ededed;*/
 	vertical-align: top;
 	width: 100%;
 	cursor: pointer;
@@ -3847,7 +3896,7 @@ svg rect{
 		background: #fff;
 		margin-bottom: 20px;
 		border-radius: 3px;
-		border: 1px solid #dfdfdf;
+		border: 1px solid #ededed;
 		box-shadow: 0 0 10px -5px #ccc;
 	}
 
@@ -3860,11 +3909,9 @@ svg rect{
 
 .friends-feed {
     width: 100%;
-    max-height: 400px;
-    overflow: scroll;
     padding:  0;
     background: #fff;
-    border: 1px solid #dfdfdf;
+    border: 1px solid #ededed;
     border-radius: 3px;
 
 	ul {
@@ -3990,7 +4037,7 @@ svg rect{
 		font-weight: 400;
 		background: #f0f0f0;
 		border-radius: 3px;
-		border: 1px solid #dfdfdf;
+		border: 1px solid #ededed;
 	}
 
 }
@@ -4515,7 +4562,7 @@ svg rect{
 .feed-statistics {
 	width: 100%;
 	display: inline-block;
-	padding: 10px 15px;	
+	padding: 0px 15px 10px;	
 
 
 	p, 
@@ -4525,17 +4572,14 @@ svg rect{
 	}
 	p {
 		font-size: .9em;
-	    line-height: 2em;
-	    font-weight: 400;
+	    font-weight: 300;
 	    color: #ccc;
 	}
 
 	span {
 		font-size: .9em;
-	    line-height: 2em;
 	    font-weight: 400;
 	    color: #ccc;
-	    padding: 0 0 0 10px; 
 	}
 }
 
@@ -4609,7 +4653,7 @@ svg rect{
 
 .view-all {
 	width: 100%;
-	/*border:1px solid #dfdfdf;*/
+	/*border:1px solid #ededed;*/
 	border-top:0;
 	background:#fff;
 	text-align: center;
@@ -5022,7 +5066,7 @@ svg rect{
 	}
 
 	button:last-child {
-		border-bottom: 1px solid #dfdfdf;
+		border-bottom: 1px solid #ededed;
 	}
 
 	span {
@@ -5219,7 +5263,7 @@ svg rect{
 			vertical-align: top;
 			font-size: 1em;
 			padding: 0 10px;
-			border-right: 1px solid #dfdfdf;
+			border-right: 1px solid #ededed;
 		}
 
 		li:last-child {
@@ -5348,7 +5392,7 @@ svg rect{
 		width: 80%;
 		height: 50px;
 		font-size: 1em;
-		border: 1px solid #dfdfdf;
+		border: 1px solid #ededed;
 		border-left: 0;
 		border-right: 0;
 		text-indent: 15px;
@@ -5365,7 +5409,7 @@ svg rect{
 		display:inline-block;
 		vertical-align: top;
 		padding-top: 15px;
-		border: 1px solid #dfdfdf;
+		border: 1px solid #ededed;
 		border-right: 0;
 		border-left: 0;
 	}
@@ -5386,7 +5430,7 @@ svg rect{
 	display: inline-block;
 	padding: 15px;
 	text-align: left;
-	border:1px solid #dfdfdf;
+	border:1px solid #ededed;
 	border-bottom:0;
 	background: $primary-color-light;
 
@@ -5400,7 +5444,7 @@ svg rect{
 		vertical-align: top;
 		font-size: 1em;
 		padding: 0 10px;
-		border-right: 1px solid #dfdfdf;
+		border-right: 1px solid #ededed;
 	}
 
 	li:last-child {
@@ -5694,7 +5738,7 @@ svg rect{
 		color: #333;
 		background:#fff;
 		/*border-radius:4px;*/
-		/*border:1px solid #dfdfdf;*/
+		/*border:1px solid #ededed;*/
 
 		&:focus {
 			outline:none;
@@ -5802,7 +5846,7 @@ svg rect{
 	li {
 		display: block;
 		padding: 15px 30px;
-		border-bottom: 1px solid #dfdfdf;
+		border-bottom: 1px solid #ededed;
 
 	}
 
@@ -6141,8 +6185,8 @@ svg rect{
 	}
 
 	.bar-search {
-		border-top: 1px solid #dfdfdf;
-		border-bottom: 1px solid #dfdfdf;
+		border-top: 1px solid #ededed;
+		border-bottom: 1px solid #ededed;
 	}
 
 
