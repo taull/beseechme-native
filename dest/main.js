@@ -452,6 +452,10 @@ BeMe.Views.Application = Parse.View.extend({
 
 	render: function () {
 		this.$el.html(this.template(this.model));
+
+    $('#search-trigger').click(function(){
+      $('.bar-search-wrap').toggleClass('bar-search-shift');
+    });
 	}
 });
 BeMe.Views.BackendBeerList = Parse.View.extend({

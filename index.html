@@ -21,6 +21,44 @@
 <!-- Application View -->
 
 <script type="text/template" id="application-view">
+
+  <% var user = Parse.User.current() %>
+
+
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <aside><img src="images/nextap-logo-white.png"></aside
+        ><section><a class="active-tab" href="#dashboard"><i class="fa fa-dashboard"></i></a><a href="#backend"><i class="fa fa-cog"></i></a><li id="search-trigger"><i class="fa fa-search"></i></li></section>
+
+      </div
+      ><div class="header-center">
+ 
+      </div
+      ><div class="header-right">
+
+        <div class="dashboard-statistics">
+          <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
+          ><li><h1>32</h1><p>Following</p></li
+          ><li><h1>24</h1><p>Beers</p></li>
+        </div>
+        
+
+      </div>  
+
+    </div>
+  </header>
+  <div class="bar-search-wrap">
+    <div class="bar-search-container">
+      <div class="bar-search">
+        <form name='bar-search' action>
+          <span class="fa fa-angle-right"></span
+          ><input type="text" placeholder="Search for Bars, Restaurants or Friends"
+          ><button id="bar-submit"></button>
+        </form>
+      </div> 
+    </div>
+  </div>
   <div class="body-container"></div>
 </script>
 
@@ -136,43 +174,6 @@
 
 <script type="text/template" id="backend-view">
  
-  <% var user = Parse.User.current() %>
-
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        <aside><img src="images/nextap-logo-white.png"></aside
-        ><section><a class="active-tab" href="#dashboard"><i class="fa fa-dashboard"></i></a><a href="#backend"><i class="fa fa-cog"></i></a><li id="search-trigger"><i class="fa fa-search"></i></li></section>
-
-      </div
-      ><div class="header-center">
- 
-      </div
-      ><div class="header-right">
-
-        <div class="dashboard-statistics">
-          <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
-          ><li><h1>32</h1><p>Following</p></li
-          ><li><h1>24</h1><p>Beers</p></li>
-        </div>
-        
-
-      </div>  
-
-    </div>
-  </header>
-  <div class="bar-search-wrap">
-    <div class="bar-search-container">
-      <div class="bar-search">
-        <form name='bar-search' action>
-          <span class="fa fa-angle-right"></span
-          ><input type="text" placeholder="Search for Bars, Restaurants or Friends"
-          ><button id="bar-submit"></button>
-        </form>
-      </div> 
-    </div>
-  </div>
-
 
 </script>
 
@@ -190,11 +191,11 @@
 
 <% if (Parse.User.current().get('userType') === 'business') { %>
 
-    <div class="left-container">
+    <div class="left-column">
 
 
     </div
-    ><div class="middle-container">
+    ><div class="middle-column">
       <% var user = Parse.User.current(); %>
 
         <div class="business-cover">
@@ -227,57 +228,57 @@
 
 <script type='text/template' id='status-post-view'>
 
-      <section class="feed-post">
-        <% var user = attributes.createdBy %>
+  <section class="feed-post">
+    <% var user = attributes.createdBy %>
 
-        <section class="feed-info">
-            <aside>
-              <% if (typeof user.get('avatar') !=='undefined') { %>
-                <img src=<%= user.get('avatar')._url %> >
-              <% } else { %>
-                <img src="images/default-avatar.png">
-              <% } %>
-            </aside
+    <section class="feed-info">
+        <aside>
+          <% if (typeof user.get('avatar') !=='undefined') { %>
+            <img src=<%= user.get('avatar')._url %> >
+          <% } else { %>
+            <img src="images/default-avatar.png">
+          <% } %>
+        </aside
 
-            ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
+        ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
 
-            ><footer><span class='likes'></span></footer>
+        ><footer><span class='likes'></span></footer>
 
-        </section>
+    </section>
 
-        <% if (typeof attributes.image !== 'undefined') { %>
-          <section class="feed-photo">
-            <a target='_blank' href=<%= attributes.image._url %> >
-              <img src=<%= attributes.image._url %> />
-            </a>
-          </section
-          ><section class="feed-caption">
-            <aside>
-              <p><%= attributes.content %></p>
-            </aside>
-          </section>
-        <% } else { %>
-          <section class="feed-content">
-            <aside>
-              <p><%= attributes.content %></p>
-            </aside>
-          </section>
-
-        <% } %>
-        
-        <section class="feed-statistics">
-          <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
-        </section>
-        <% if (Parse.User.current().get('userType') === 'consumer') { %>
-          <section class="feed-controls">
-            <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-            ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
-            ><li><span class="entypo-trash"></span><h1 class='delete-status'>Remove</h1></li>
-          </section>
-        <% } else { %>
-        <% } %>
-
+    <% if (typeof attributes.image !== 'undefined') { %>
+      <section class="feed-photo">
+        <a target='_blank' href=<%= attributes.image._url %> >
+          <img src=<%= attributes.image._url %> />
+        </a>
+      </section
+      ><section class="feed-caption">
+        <aside>
+          <p><%= attributes.content %></p>
+        </aside>
       </section>
+    <% } else { %>
+      <section class="feed-content">
+        <aside>
+          <p><%= attributes.content %></p>
+        </aside>
+      </section>
+
+    <% } %>
+    
+    <section class="feed-statistics">
+      <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
+    </section>
+    <% if (Parse.User.current().get('userType') === 'consumer') { %>
+      <section class="feed-controls">
+        <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
+        ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+        ><li><span class="entypo-trash"></span><h1 class='delete-status'>Remove</h1></li>
+      </section>
+    <% } else { %>
+    <% } %>
+
+  </section>
 </script>
 
 <script type="text/template" id="backend-feed-view">
@@ -329,8 +330,6 @@
               ><li><aside><span class="entypo-video"></span></aside><section><p>Video</p></section></li
               ><li><aside><span class="entypo-calendar"></span></aside><section><p>Event</p></section></li>
             </div>
-
-
 
           </div>
       </div
@@ -1528,43 +1527,7 @@
 </script>
 
 <script type="text/template" id="dashboard-view">
-  <% var user = Parse.User.current() %>
 
-
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        <aside><img src="images/nextap-logo-white.png"></aside
-        ><section><a class="active-tab" href="#dashboard"><i class="fa fa-dashboard"></i></a><a href="#backend"><i class="fa fa-cog"></i></a><li id="search-trigger"><i class="fa fa-search"></i></li></section>
-
-      </div
-      ><div class="header-center">
- 
-      </div
-      ><div class="header-right">
-
-        <div class="dashboard-statistics">
-          <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
-          ><li><h1>32</h1><p>Following</p></li
-          ><li><h1>24</h1><p>Beers</p></li>
-        </div>
-        
-
-      </div>  
-
-    </div>
-  </header>
-  <div class="bar-search-wrap">
-    <div class="bar-search-container">
-      <div class="bar-search">
-        <form name='bar-search' action>
-          <span class="fa fa-angle-right"></span
-          ><input type="text" placeholder="Search for Bars, Restaurants or Friends"
-          ><button id="bar-submit"></button>
-        </form>
-      </div> 
-    </div>
-  </div>
 
 
 
