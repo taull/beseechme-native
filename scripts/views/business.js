@@ -14,10 +14,13 @@ BeMe.Views.Business = Parse.View.extend({
       $('.backend-slideout').toggleClass('show');
     });
 
+    $('#search-trigger').click(function(){
+      $('.bar-search-wrap').toggleClass('bar-search-shift');
+    });
+
     $('#location-trigger').click(function(){
       $('.update-location').toggleClass('update-location-shift');
       $('.update-location-info').toggleClass('left-100');
-
     });
   }
 });

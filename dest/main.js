@@ -1260,6 +1260,10 @@ BeMe.Views.Backend = Parse.View.extend({
 
     });
 
+    $('#search-trigger').click(function(){
+      $('.bar-search-wrap').toggleClass('bar-search-shift');
+    });
+
 	},
 
   events: {
@@ -1855,10 +1859,13 @@ BeMe.Views.Business = Parse.View.extend({
       $('.backend-slideout').toggleClass('show');
     });
 
+    $('#search-trigger').click(function(){
+      $('.bar-search-wrap').toggleClass('bar-search-shift');
+    });
+
     $('#location-trigger').click(function(){
       $('.update-location').toggleClass('update-location-shift');
       $('.update-location-info').toggleClass('left-100');
-
     });
   }
 });
@@ -2209,6 +2216,10 @@ BeMe.Views.Dashboard = Parse.View.extend({
       $('.update-location-info').toggleClass('left-100');
       $('.arrow').toggleClass('rotate-arrow');
 
+    });
+
+    $('#search-trigger').click(function(){
+      $('.bar-search-wrap').toggleClass('bar-search-shift');
     });
 
     $('#location-trigger').click(function(){

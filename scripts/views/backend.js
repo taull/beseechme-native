@@ -24,6 +24,10 @@ BeMe.Views.Backend = Parse.View.extend({
 
     });
 
+    $('#search-trigger').click(function(){
+      $('.bar-search-wrap').toggleClass('bar-search-shift');
+    });
+
 	},
 
   events: {

@@ -21,42 +21,37 @@
 <!-- Application View -->
 
 <script type="text/template" id="application-view">
-
-
-  <div class="body-container">
-  </div>
+  <div class="body-container"></div>
 </script>
 
 
 <!-- Index Route -->
 <script type='text/template' id='index-route'>
 
-
-
-  <div class="index-container">
-
-
-    <div class="login-welcome"><h1>Welcome.</h1> <p>Please log in.</p></div>
+  <div class="dashboard-container">
     <div class="login-container">
-  
-      <form action="">
 
-        <li>
-          <span class="fa fa-user"></span
-          ><input type="text" name="email" placeholder="Email Address">
-        </li>
-        <li>
-          <span class="fa fa-lock"></span
-          ><input type="password" name="password" placeholder="Password">
-        </li>
-        <input type="checkbox" value="signedIn"><p>Remember Me?</p>
-        <button>Sign In</button>
+      <div class="login-welcome"><h1>Welcome.</h1> <p>Please log in.</p></div>
+      <div class="login-form">
+    
+        <form action="">
 
-      </form>
-    </div>
-    <div class="register-link">
-      <li><a href="#forgot">Password</a></li
-      ><li><a href="#register">Register</a></li>
+          <li>
+            <input type="text" name="email" placeholder="Email Address">
+          </li>
+          <li>
+            <input type="password" name="password" placeholder="Password">
+          </li>
+          <input type="checkbox" value="signedIn"><p>Remember Me?</p>
+          <button>Sign In</button>
+
+        </form>
+      </div>
+      <div class="register-link">
+        <li><a href="#forgot">Forget your email or password?</a></li>
+        <button>Register</button>
+      </div>
+
     </div>
   </div>
 
@@ -146,29 +141,15 @@
   <header>
     <div class="header-container">
       <div class="header-left">
-        
-        <aside><span id="left-column-trigger" class="fa fa-bars"></span></aside>
-
-          <div class="to-location">
-            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
-            ><div class="update-location"><footer><h1>Update Location</h1></footer></div
-
-            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
-          </div>
-
+        <aside><img src="images/nextap-logo-white.png"></aside
+        ><section><a class="active-tab" href="#dashboard"><i class="fa fa-dashboard"></i></a><a href="#backend"><i class="fa fa-cog"></i></a><li id="search-trigger"><i class="fa fa-search"></i></li></section>
 
       </div
       ><div class="header-center">
-        <img src="images/beme-logo-text.png">
+ 
       </div
       ><div class="header-right">
-        <div class="bar-search">
-          <form name='bar-search' action>
-            <span class="fa fa-search"></span
-            ><input type="text" placeholder="Search Bars and Friends"
-            ><button id="bar-submit"></button>
-          </form>
-        </div>  
+
         <div class="dashboard-statistics">
           <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
           ><li><h1>32</h1><p>Following</p></li
@@ -180,16 +161,17 @@
 
     </div>
   </header>
-    <div class="dashboard-tabs">
-      <a href="#backend/feed"><i class="fa fa-home"></i><h1>Home</h1></a
-      ><a href="#backend/beer"><i class="fa fa-star"></i><h1>Beer</h1></a
-      ><a href="#backend/friends"><i class="fa fa-users"></i><h1>Friends</h1></a
-      ><a href="#backend/listing"><i class="fa fa-location-arrow"></i><h1>Listing</h1></a
-      ><a href="#backend/map"><i class="fa fa-location-arrow"></i><h1>Map</h1></a>
+  <div class="bar-search-wrap">
+    <div class="bar-search-container">
+      <div class="bar-search">
+        <form name='bar-search' action>
+          <span class="fa fa-angle-right"></span
+          ><input type="text" placeholder="Search for Bars, Restaurants or Friends"
+          ><button id="bar-submit"></button>
+        </form>
+      </div> 
     </div>
-
-
-
+  </div>
 
 
 </script>
@@ -286,20 +268,21 @@
         <section class="feed-statistics">
           <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
         </section>
-
-        <section class="feed-controls">
-          <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-          ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
-          ><li><span class="entypo-trash"></span><h1 class='delete-status'>Remove</h1></li>
-        </section>
+        <% if (Parse.User.current().get('userType') === 'consumer') { %>
+          <section class="feed-controls">
+            <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
+            ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+            ><li><span class="entypo-trash"></span><h1 class='delete-status'>Remove</h1></li>
+          </section>
+        <% } else { %>
+        <% } %>
 
       </section>
 </script>
 
 <script type="text/template" id="backend-feed-view">
-<% if (Parse.User.current().get('userType') === 'business') { %>
 
-  <div class="backend-container">
+  <div class="dashboard-container">
       <div class="left-column">
             <div class="popup-tabs">
               <li class="active-tab"><aside><span class="entypo-comment"></span></aside><section><p>Text</p></section></li
@@ -347,32 +330,45 @@
               ><li><aside><span class="entypo-calendar"></span></aside><section><p>Event</p></section></li>
             </div>
 
-            <div class="post-status-text">
-              <form action="">
-                <article>
-                  <aside><img src="images/zas-logo.jpg"><h1>taull</h1></aside>
-                  <input type="text" placeholder="Title" />
-                </article>
-                <textarea id="business-status" rows="1" autoresize=true required=true placeholder="Your text here"></textarea
-                ><section>
 
-                  <input type="file" id="camera-file" />
-                </section
-                ><footer>
-                  <aside><button class="standalone_close"><p>Cancel</p></button></aside
-                  ><div>
-                    <button type="submit">Post</button
-                    
-                  </div>
-                </footer>
-
-              </form>
-            </div>
 
           </div>
       </div
       ><div class="middle-column">
 
+        <div class="business-tabs-container">
+          <div class="business-tabs">
+            <ul>
+              <a href="#backend"><section><h1>Backend</h1></section></a
+              ><a href="#backend/feed"><section><h1>Feed</h1></section></a
+              ><a href="#backend/beer"><section><h1>Beer Menu</h1></section></a
+              ><a href="#backend/calendar"><section><h1>Calendar</h1></section></a
+              ><a href="#backend/settings"><section><h1>Settings</h1></section></a>
+            </ul>
+          </div>
+        </div>
+
+        <div class="post-status-text">
+          <form action="">
+            <article>
+              <aside><img src="images/zas-logo.jpg"><h1>taull</h1></aside>
+              <input type="text" placeholder="Title" />
+            </article>
+            <textarea id="business-status" rows="1" autoresize=true required=true placeholder="Your text here"></textarea
+            ><section>
+
+              <input type="file" id="camera-file" />
+            </section
+            ><footer>
+              <aside><button class="standalone_close"><p>Cancel</p></button></aside
+              ><div>
+                <button type="submit">Post</button
+                
+              </div>
+            </footer>
+
+          </form>
+        </div>
 
         <div class="bar-feed">
           <ul>
@@ -390,7 +386,6 @@
 
   </div>
 
-<% } %>
 
 </script>
 
@@ -413,23 +408,36 @@
       <% if (typeof breweries !== 'undefined') { %>
       <p><%= breweries[0].name %> | <%= abv %>% abv</p>
       <% } %>
-      <h3><%= style.name %></h3>
     </div>
 
 </script>
 
+<!-- <h3><%= style.name %></h3> -->
 
 <!-- backend Beer View -->
 
 <script type="text/template" id="backend-beer-view">
 
-  <div class="backend-container">
+  <div class="dashboard-container">
     <div class="left-column">
     </div
     ><div class="middle-column">
-            <div class="narrow-container">
-        <% var user = Parse.User.current(); %>
 
+
+
+      <div class="narrow-container">
+        <% var user = Parse.User.current(); %>
+        <div class="business-tabs-container">
+          <div class="business-tabs">
+            <ul>
+              <a href="#backend"><section><h1>Backend</h1></section></a
+              ><a href="#backend/feed"><section><h1>Feed</h1></section></a
+              ><a href="#backend/beer"><section><h1>Beer Menu</h1></section></a
+              ><a href="#backend/calendar"><section><h1>Calendar</h1></section></a
+              ><a href="#backend/settings"><section><h1>Settings</h1></section></a>
+            </ul>
+          </div>
+        </div>
         <div class="profile-beer-tabs">
           <li id="backend-draft-tab" class="active-beer-type tabs-loading">
             <h1>Draft Beer</h1>
@@ -533,9 +541,19 @@
 <!-- backend Calendar View -->
 
 <script type="text/template" id="backend-calendar-view">
-  <div class="one-column-container">
- 
-
+  <div class="dashboard-container">
+      <div class="middle-column">
+        <div class="business-tabs-container">
+          <div class="business-tabs">
+            <ul>
+              <a href="#backend"><section><h1>Backend</h1></section></a
+              ><a href="#backend/feed"><section><h1>Feed</h1></section></a
+              ><a href="#backend/beer"><section><h1>Beer Menu</h1></section></a
+              ><a href="#backend/calendar"><section><h1>Calendar</h1></section></a
+              ><a href="#backend/settings"><section><h1>Settings</h1></section></a>
+            </ul>
+          </div>
+        </div>
         <div class="wide-container">
           <% var user = Parse.User.current(); %>
 
@@ -610,6 +628,7 @@
           </div>
 
         </div>
+      </div>
 
   </div>
 
@@ -624,18 +643,20 @@
 
 <script type="text/template" id="backend-settings-view">
 
-  <div class="backend-container">
-    <div class="middle-container">
+  <div class="dashboard-container">
+    <div class="middle-column">
       <% var user = Parse.User.current() %>
-
-
-    </div
-    ><div class="right-container">
-
-        <div class="module-header">
-          <h1>Settings</h1>
+        <div class="business-tabs-container">
+          <div class="business-tabs">
+            <ul>
+              <a href="#backend"><section><h1>Backend</h1></section></a
+              ><a href="#backend/feed"><section><h1>Feed</h1></section></a
+              ><a href="#backend/beer"><section><h1>Beer Menu</h1></section></a
+              ><a href="#backend/calendar"><section><h1>Calendar</h1></section></a
+              ><a href="#backend/settings"><section><h1>Settings</h1></section></a>
+            </ul>
+          </div>
         </div>
-
         <div class="settings-sublist">
           <form action="">
             <ul>
@@ -721,8 +742,8 @@
           </form>
         </div>
 
-
     </div>
+
   </div>
 
 </script>
@@ -834,98 +855,7 @@
 
 <!-- BUSINESS PAGES -->
 
-<!-- Business Page View -->
 
-<script type="text/template" id="business-view">
-
-
-  <% var user = Parse.User.current() %>
-
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        
-        <aside><span id="left-column-trigger" class="fa fa-bars"></span></aside>
-
-          <div class="to-location">
-            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
-            ><div class="update-location"><footer><h1>Update Location</h1></footer></div
-
-            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
-          </div>
-
-
-      </div
-      ><div class="header-center">
-        <img src="images/beme-logo-text.png">
-      </div
-      ><div class="header-right">
-        <div class="bar-search">
-          <form name='bar-search' action>
-            <span class="fa fa-search"></span
-            ><input type="text" placeholder="Search Bars and Friends"
-            ><button id="bar-submit"></button>
-          </form>
-        </div>  
-        <div class="dashboard-statistics">
-          <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
-          ><li><h1>32</h1><p>Following</p></li
-          ><li><h1>24</h1><p>Beers</p></li>
-        </div>
-        
-
-      </div>  
-
-    </div>
-  </header>
-    <div class="dashboard-tabs">
-      <a href="#dashboard"><i class="fa fa-home"></i><h1>Home</h1></a
-      ><a href="#dashboard/following"><i class="fa fa-star"></i><h1>Favorites</h1></a
-      ><a href="#dashboard/friends"><i class="fa fa-users"></i><h1>Friends</h1></a
-      ><a href="#dashboard/listing"><i class="fa fa-location-arrow"></i><h1>Listing</h1></a
-      ><a href="#dashboard/map"><i class="fa fa-location-arrow"></i><h1>Map</h1></a>
-    </div>
-
-
-
-
-</script>
-
-<script type="text/template" id="business-home-view">
-  <div class="dashboard-container">
-
-        <div class="left-column"></div
-        ><div class="middle-column">
-          <div class="business-cover">
-
-              <% if (typeof attributes.coverPhoto !=='undefined') { %>
-                <img src=<%= attributes.coverPhoto._url %> >
-                <% } else { %>
-                <img src="images/craft2.jpg">
-              <% } %>
-            </div>
-
-          <div class="bar-feed">
-              <ul></ul>
-          </div>
-
-        </div
-        ><div class="right-column">
-            <div class="profile-beer-list">
-              <ul></ul>
-            </div>
-
-            <div class="module-header">
-              <h1><%= moment().format('dddd, MMMM Do') %></h1>
-              <p>Just a sample subtitle</p>
-            </div>
-            <div class='calendar-standing'></div>
-            <div class='calendar-daily'></div>
-        </div>
-  </div>
-
-
-</script>
 
 <!-- Business Feed View -->
 
@@ -933,7 +863,6 @@
 
 <script type='text/template' id='status-text-view'>
   <% var user = attributes.createdBy %>
-  <section class="feed-header"><h1>Status Update</h1></section>
 
   <section class="feed-info">
       <aside>
@@ -959,19 +888,20 @@
   <section class="feed-statistics">
     <p><%= moment(createdAt).fromNow(true) %> ago</p>
   </section>
-
-  <section class="feed-controls">
-    <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-    ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
-    ><li><span class="entypo-location"></span><h1 class='check-in'>Check In</h1></li>
-  </section>
+  <% if (Parse.User.current().get('userType') === 'consumer') { %>
+    <section class="feed-controls">
+      <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
+      ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+      ><li><span class="entypo-location"></span><h1 class='check-in'>Check In</h1></li>
+    </section>
+  <% } else { %>
+  <% } %>
 </script>
 
 <!-- Photo VIEW -->
 
 <script type='text/template' id='status-photo-view'>
   <% var user = attributes.createdBy %>
-  <section class="feed-header"><h1>Photos</h1></section>
 
   <section class="feed-info">
       <aside>
@@ -982,7 +912,7 @@
         <% } %>
       </aside
 
-      ><section><h1><%= user.attributes.businessName %></h1><h3><%= user.attributes.address %></h3></section
+      ><section><h1><%= user.attributes.businessName %></h1><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer><h1>+</h1><span class='likes'></span></footer>
 
@@ -999,13 +929,16 @@
         <% } %>
       </aside>
     </footer>
-  </section
-
-  ><section class="feed-controls">
-    <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-    ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
-    ><li><span class="entypo-location"></span><h1 class='check-in'>Check In</h1></li>
   </section>
+
+  <% if (Parse.User.current().get('userType') === 'consumer') { %>
+    <section class="feed-controls">
+      <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
+      ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+      ><li><span class="entypo-location"></span><h1 class='check-in'>Check In</h1></li>
+    </section>
+  <% } else { %>
+  <% } %>
 
 </script>
 
@@ -1022,7 +955,6 @@
 <script type='text/template' id='status-event-view'>
 
   <% var user = attributes.createdBy %>
-  <section class="feed-header"><h1>Events</h1></section>
   <section class="feed-info">
       <aside>
         <% if (typeof user.get('avatar') !=='undefined') { %>
@@ -1060,6 +992,8 @@
 
 </script>
 
+<!-- CHECKIN STATUS -->
+
 <script type='text/template' id='status-checkin-view'>
  
   <% var user = attributes.createdBy %>
@@ -1075,12 +1009,13 @@
     </aside
     ><section>
       <p><%= attributes.content %></p>
-      <h3><%= moment(createdAt).fromNow(true) %> ago</h3>
+      <li>
+        <h3><%= moment(createdAt).fromNow(true) %> ago </h3><h3 class='like-button'>Like</h3>
+      </li>
+    </section
+    ><footer><h1>+</h1><span class='likes'></span></footer>
 
-    </section>
   </section>
-
-
 
 </script>
 
@@ -1150,49 +1085,154 @@
       <a>Craft and Draft</a>
       <h3><%= moment(createdAt).fromNow(true) %> ago</h3>
 
-    </section>
+    </section
+    ><footer><h1>+</h1><span class='likes'></span></footer>
+
   </section>
 
 </script>
 
 
+<!-- Business Page View -->
+
+<script type="text/template" id="business-view">
+
+
+  <% var user = Parse.User.current() %>
+
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <aside><img src="images/nextap-logo-white.png"></aside
+        ><section><a class="active-tab" href="#dashboard"><i class="fa fa-dashboard"></i></a><a href="#backend"><i class="fa fa-cog"></i></a><li id="search-trigger"><i class="fa fa-search"></i></li></section>
+
+      </div
+      ><div class="header-center">
+ 
+      </div
+      ><div class="header-right">
+
+        <div class="dashboard-statistics">
+          <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
+          ><li><h1>32</h1><p>Following</p></li
+          ><li><h1>24</h1><p>Beers</p></li>
+        </div>
+        
+
+      </div>  
+
+    </div>
+  </header>
+  <div class="bar-search-wrap">
+    <div class="bar-search-container">
+      <div class="bar-search">
+        <form name='bar-search' action>
+          <span class="fa fa-angle-right"></span
+          ><input type="text" placeholder="Search for Bars, Restaurants or Friends"
+          ><button id="bar-submit"></button>
+        </form>
+      </div> 
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="business-home-view">
+
+  <% var user = Parse.User.current() %>
+
+  <div class="dashboard-container">
+
+        <div class="left-column">
+
+          <div class="to-location">
+            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
+            ><div class="update-location"><footer><h1>Update Location</h1></footer></div
+
+            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
+          </div>
+
+          <div class="dashboard-tabs">
+            <a href="#business/" class="active-dashboard-tab"><span class="entypo-dot-3"></span><h1>Main Feed</h1></a
+            ><a href="#business/<%= attributes.handle %>/beer"><span class="entypo-bookmarks"></span><h1>Beer List</h1></a
+            ><a href="#business/<%= attributes.handle %>/friends"><span class="entypo-user-add"></span><h1>My Friends</h1></a
+            ><a href="#business/<%= attributes.handle %>/calendar"><span class="entypo-calendar"></span><h1>Calendar</h1></a>
+
+          </div>
+
+        </div
+        ><div class="middle-column">
+          <div class="feed-header-wrap">
+            <section class="feed-header"><h1>Craft and Draft</h1></section>
+          </div>
+
+          <div class="business-tabs-container">
+            <div class="business-tabs">
+              <ul>
+                <a href="#business/<%= attributes.handle %>"><section><h1><%= attributes.businessName %></h1></section></a
+                ><a href="#business/<%= attributes.handle %>/feed"><section><h1>Feed</h1></section></a
+                ><a href="#business/<%= attributes.handle %>/beer"><section><h1>Beer</h1></section></a
+                ><a href="#business/<%= attributes.handle %>/calendar"><section><h1>Calendar</h1></section></a>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="bar-feed">
+              <ul></ul>
+          </div>
+
+        </div
+        ><div class="right-column">
+
+          <div class="business-cover">
+            <% if (typeof attributes.coverPhoto !=='undefined') { %>
+              <img src=<%= attributes.coverPhoto._url %> >
+              <% } else { %>
+              <img src="images/craft2.jpg">
+            <% } %>
+          </div>
+          <section class="feed-header"><h1>Draft List</h1></section>
+
+            <div class="profile-beer-list">
+              <ul></ul>
+            </div>
+            <section class="feed-header"><h1><%= moment().format('dddd, MMMM Do') %></h1></section>
+
+            <div class='calendar-standing'></div>
+            <div class='calendar-daily'></div>
+        </div>
+  </div>
+
+
+</script>
 
 <!-- Business Feed View -->
 
 <script type="text/template" id="business-feed-view">
 
-  <div class="one-column-container">
+  <div class="dashboard-container">
+    <div class="middle-column">
+        <div class="feed-header-wrap">
+          <section class="feed-header"><h1>Craft and Draft</h1><i class="fa fa-angle-right"></i><h1>Feed</h1></section>
+        </div>
         <div class="business-tabs-container">
           <div class="business-tabs">
             <ul>
-              <a href="#business/<%= attributes.handle %>"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
+              <a href="#business/<%= attributes.handle %>"><section><h1><%= attributes.businessName %></h1></section></a
+              ><a href="#business/<%= attributes.handle %>/feed"><section><h1>Feed</h1></section></a
+              ><a href="#business/<%= attributes.handle %>/beer"><section><h1>Beer Menu</h1></section></a
+              ><a href="#business/<%= attributes.handle %>/calendar"><section><h1>Calendar</h1></section></a>
             </ul>
           </div>
         </div>
-        <div class="business-return-home">
-          <section>
-            <a><p>Go Back</p></a>
-          </section>
-        </div>
 
-      <div class="wide-container">
         <div class="bar-feed"><ul></ul></div>
 
         <div class="copyright-info">
           <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
           <p>Beseech Me®, LLC</p>
         </div>
-      </div>
+    </div>
 
   </div>
 
@@ -1203,11 +1243,25 @@
 
 <script type="text/template" id="business-beer-view">
 
-  <div class="backend-container">
+  <div class="dashboard-container">
     <div class="left-column">
     </div
     ><div class="middle-column">
-      <div class="narrow-container">
+        <div class="feed-header-wrap">
+          <section class="feed-header"><h1>Craft and Draft</h1><i class="fa fa-angle-right"></i><h1>Beer Menu</h1></section>
+        </div>
+
+        <div class="business-tabs-container">
+          <div class="business-tabs">
+            <ul>
+              <a href="#business/<%= attributes.handle %>"><section><h1><%= attributes.businessName %></h1></section></a
+              ><a href="#business/<%= attributes.handle %>/feed"><section><h1>Feed</h1></section></a
+              ><a href="#business/<%= attributes.handle %>/beer"><section><h1>Beer Menu</h1></section></a
+              ><a href="#business/<%= attributes.handle %>/calendar"><section><h1>Calendar</h1></section></a>
+            </ul>
+          </div>
+        </div>
+
 
         <div class="profile-beer-tabs">
           <li id="backend-draft-tab" class="active-beer-type tabs-loading">
@@ -1222,30 +1276,29 @@
           </li>
         </div>
 
-      </div>
-      <div class="wide-container">
-        <div class="beer-loading hidden">
-          <!-- 1 -->
-          <div class="loader" title="0">
-            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             width="30px" height="30px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-            <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
-              s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
-              c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
-            <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
-              C22.32,8.481,24.301,9.057,26.013,10.047z">
-              <animateTransform attributeType="xml"
-                attributeName="transform"
-                type="rotate"
-                from="0 20 20"
-                to="360 20 20"
-                dur="0.5s"
-                repeatCount="indefinite"/>
-              </path>
-            </svg>
+          <div class="beer-loading hidden">
+            <!-- 1 -->
+            <div class="loader" title="0">
+              <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="30px" height="30px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+              <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+                s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+                c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+              <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+                C22.32,8.481,24.301,9.057,26.013,10.047z">
+                <animateTransform attributeType="xml"
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 20 20"
+                  to="360 20 20"
+                  dur="0.5s"
+                  repeatCount="indefinite"/>
+                </path>
+              </svg>
+            </div>
           </div>
 
-        </div>
+
         <div class="profile-beer-list">
           <ul>
 
@@ -1255,7 +1308,6 @@
           </div>
         </div>
 
-      </div>
     </div
     ><div class="right-column"></div>
   </div>
@@ -1310,21 +1362,20 @@
 <!-- backend Calendar View -->
 
 <script type="text/template" id="business-calendar-view">
-  <div class="one-column-container">
-       <div class="business-tabs-container">
+  <div class="dashboard-container">
+    <div class="middle-column">
+
+        <div class="feed-header-wrap">
+          <section class="feed-header"><h1>Craft and Draft</h1><i class="fa fa-angle-right"></i><h1>Calendar</h1></section>
+        </div>
+
+        <div class="business-tabs-container">
           <div class="business-tabs">
             <ul>
-              <a href="#business/<%= attributes.handle %>"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/beer"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/bartenders"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/calendar"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
-
-              ><a href="#business/<%= attributes.handle %>/feed"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
+              <a href="#business/<%= attributes.handle %>"><section><h1><%= attributes.businessName %></h1></section></a
+              ><a href="#business/<%= attributes.handle %>/feed"><section><h1>Feed</h1></section></a
+              ><a href="#business/<%= attributes.handle %>/beer"><section><h1>Beer Menu</h1></section></a
+              ><a href="#business/<%= attributes.handle %>/calendar"><section><h1>Calendar</h1></section></a>
             </ul>
           </div>
         </div>
@@ -1336,10 +1387,6 @@
               <!-- Appended DayViews go here -->
             </ul>
           </div>
-
-
-
-
 
           <div class="calendar-day">
             <div class="calendar-standing">
@@ -1364,6 +1411,7 @@
           </div>
 
         </div>
+      </div>
   </div>
 </script>
 
@@ -1394,84 +1442,44 @@
 <script type="text/template" id="bar-search-view">
   <% var user = Parse.User.current() %>
 
-    <header>
+  <header>
     <div class="header-container">
       <div class="header-left">
-        
-        <aside><span id="left-column-trigger" class="fa fa-bars"></span></aside>
-        <% if (Parse.User.current().get('userType') === 'consumer') { %>
-          <div class="to-location">
-            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
-            ><div class="update-location"><footer><h1>Update Location</h1></footer></div
+        <aside><img src="images/nextap-logo-white.png"></aside
+        ><section><a class="active-tab" href="#dashboard"><i class="fa fa-dashboard"></i></a><a href="#backend"><i class="fa fa-cog"></i></a><li id="search-trigger"><i class="fa fa-search"></i></li></section>
 
-            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
-          </div>
-
-        <% } else { %>
-        <% } %>
       </div
       ><div class="header-center">
-         <img src="images/beme-logo-text.png">
-
+ 
       </div
       ><div class="header-right">
 
-        <div class="bar-search">
-          <form name='bar-search' action>
-            <span class="fa fa-search"></span
-            ><input type="text" placeholder="Search Bars and Friends"
-            ><button id="bar-submit"></button>
-          </form>
-        </div>  
         <div class="dashboard-statistics">
           <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
           ><li><h1>32</h1><p>Following</p></li
           ><li><h1>24</h1><p>Beers</p></li>
         </div>
-        <a href="#dashboard"><div class="back-to-dashboard"><h1>Cancel</h1></div></a>
-
+        
 
       </div>  
 
     </div>
   </header>
-
-    <div class="dashboard-tabs">
-      <a href="#dashboard"><i class="fa fa-home"></i><h1>Home</h1></a
-      ><a href="#dashboard/following"><i class="fa fa-star"></i><h1>Favorites</h1></a
-      ><a href="#dashboard/friends"><i class="fa fa-users"></i><h1>Friends</h1></a
-      ><a href="#dashboard/listing"><i class="fa fa-location-arrow"></i><h1>Listing</h1></a
-      ><a href="#dashboard/map"><i class="fa fa-location-arrow"></i><h1>Map</h1></a>
+  <div class="bar-search-wrap">
+    <div class="bar-search-container">
+      <div class="bar-search">
+        <form name='bar-search' action>
+          <span class="fa fa-angle-right"></span
+          ><input type="text" placeholder="Search for Bars, Restaurants or Friends"
+          ><button id="bar-submit"></button>
+        </form>
+      </div> 
     </div>
+  </div>
 
   <div class="dashboard-container">
-    <div class="left-column">
-        <div class="current-user-info">
 
-          <% if (typeof user.avatar !=='undefined') { %>
-            <img src=<%= user.avatar._url %> >
-          <% } else { %>
-            <img src="images/default-avatar.png">
-          <% } %>
-          
-          <% if (Parse.User.current().get('userType') === 'consumer') { %>
-            <h1><%= user.get('firstName') %> <%= user.get('lastName') %></h1>
-          <% } else { %>
-            <h1><%= user.get('businessName') %></h1>
-          <% } %>
-          <h2>@<%= user.get('handle') %></h2>
-
-        </div>
-
-        <div class="dashboard-tabs1">  
-          <a href="#location"><li><aside><span class="fa fa-location-arrow"></span></aside><section><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></section></li></a>
-        </div
-        ><div class="dashboard-tabs-dropdown">
-          <h1>Home</h1><i class="fa fa-caret-down"></i>
-        </div>
-
-    </div
-    ><div class="middle-column">
+    <div class="middle-column">
 
       <div class="search-tabs">
         <li><h1>Bars</h1></li
@@ -1479,9 +1487,7 @@
       </div>
       <div class="bar-search-results"><ul></ul></div>
 
-    </div
-    ><div class="right-column"></div>
-
+    </div>
 
   </div>
 </script>
@@ -1524,32 +1530,18 @@
 <script type="text/template" id="dashboard-view">
   <% var user = Parse.User.current() %>
 
+
   <header>
     <div class="header-container">
       <div class="header-left">
-        
-        <aside><span id="left-column-trigger" class="fa fa-bars"></span></aside>
-
-
+        <aside><img src="images/nextap-logo-white.png"></aside
+        ><section><a class="active-tab" href="#dashboard"><i class="fa fa-dashboard"></i></a><a href="#backend"><i class="fa fa-cog"></i></a><li id="search-trigger"><i class="fa fa-search"></i></li></section>
 
       </div
       ><div class="header-center">
-
-        <div class="bar-search">
-          <form name='bar-search' action>
-            <span class="fa fa-search"></span
-            ><input type="text" placeholder="Search Bars and Friends"
-            ><button id="bar-submit"></button>
-          </form>
-        </div>  
+ 
       </div
       ><div class="header-right">
-        <div class="to-location">
-          <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
-          ><div class="update-location"><footer><h1>Update Location</h1></footer></div
-
-          ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
-        </div>
 
         <div class="dashboard-statistics">
           <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
@@ -1562,75 +1554,59 @@
 
     </div>
   </header>
-
+  <div class="bar-search-wrap">
+    <div class="bar-search-container">
+      <div class="bar-search">
+        <form name='bar-search' action>
+          <span class="fa fa-angle-right"></span
+          ><input type="text" placeholder="Search for Bars, Restaurants or Friends"
+          ><button id="bar-submit"></button>
+        </form>
+      </div> 
+    </div>
+  </div>
 
 
 
 
 </script>
 
+<!-- <div class="dashboard-tabs">
+  <a href="#dashboard" class="active-dashboard-tab"><span class="entypo-dot-3"></span><h1>Main Feed</h1></a
+  ><a href="#dashboard/following"><span class="entypo-bookmarks"></span><h1>Following</h1></a
+  ><a href="#dashboard/friends"><span class="entypo-user-add"></span><h1>My Friends</h1></a
+  ><a href="#dashboard/listing"><span class="entypo-sweden"></span><h1>Bar Listing</h1></a
+  ><a href="#dashboard/map"><span class="entypo-globe"></span><h1>Local Map</h1></a>
+</div> -->
+
+
 <script type="text/template" id="dashboard-home-view">
   <% var user = Parse.User.current() %>
 
   <div class="dashboard-container">
 
-      <div class="left-column">
 
-          <div class="dashboard-tabs">
-            <a href="#dashboard" class="active-dashboard-tab"><span class="entypo-dot-3"></span><h1>Main Feed</h1></a
-            ><a href="#dashboard/following"><span class="entypo-bookmarks"></span><h1>Following</h1></a
-            ><a href="#dashboard/friends"><span class="entypo-user-add"></span><h1>My Friends</h1></a
-            ><a href="#dashboard/listing"><span class="entypo-sweden"></span><h1>Bar Listing</h1></a
-            ><a href="#dashboard/map"><span class="entypo-globe"></span><h1>Local Map</h1></a>
+      <div class="middle-column">
+        <div class="feed-header-wrap">
+          <section class="feed-header"><h1>Dashboard</h1><span class="fa fa-caret-down"></span></section>
+        </div>
+        <div class="business-tabs-container">
+          <div class="business-tabs">
+            <ul>
+              <a href="#dashboard"><section><h1>Home</h1></section></a
+              ><a href="#dashboard/following"><section><h1>Following</h1></section></a
+              ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
+              ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a
+              ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
+            </ul>
           </div>
-
-          <div class="active-tabs">
-            <a href="#dashboard" class="active-main-tab"><span class="entypo-gauge"></span><h1>Dashboard</h1></a
-            ><a href="#backend"><span class="entypo-cog"></span><h1>Backend</h1></a>
-
-          </div>
-        <div class="current-user-info">
-
-          <% if (typeof user.avatar !=='undefined') { %>
-            <img src=<%= user.avatar._url %> >
-          <% } else { %>
-            <img src="images/default-avatar.png">
-          <% } %>
-          
-          <% if (Parse.User.current().get('userType') === 'consumer') { %>
-            <h1><%= user.get('firstName') %> <%= user.get('lastName') %></h1>
-          <% } else { %>
-            <h1><%= user.get('businessName') %></h1>
-          <% } %>
-          <h2>@<%= user.get('handle') %></h2>
-
         </div>
-
-        
-        <div class="dashboard-tabs-dropdown">
-          <h1>Home</h1><i class="fa fa-caret-down"></i>
-        </div>
-
-        <div class="dashboard-tabs1">  
-          <a href="#location"><li><aside><span class="fa fa-location-arrow"></span></aside><section><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></section></li></a>
-        </div>
-
-
-        
-      </div
-
-      ><div class="middle-column">
-
-
         <div class="bar-feed"><ul></ul></div>
 
         <div class="copyright-info">
           <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
           <p>Beseech Me®, LLC</p>
         </div> 
-      </div
-      ><div class="right-column">
-
       </div>
   </div>
 </script>
@@ -1638,24 +1614,23 @@
 <script type="text/template" id="dashboard-feed-view">
 
 
-  <div class="one-column-container">
+  <div class="dashboard-container">
+    <div class="middle-column">
+
+        <section class="feed-header"><a href="#dashboard">Dashboard</a><i class="fa fa-angle-right"></i><h1>Feed</h1></section>
+
         <div class="business-tabs-container">
           <div class="business-tabs">
             <ul>
-              <a href="#dashboard"><article><aside><span class="fa fa-home"></span></aside><footer></footer></article><section><h1>Home</h1><p>Post updates, photos and videos</p></section></a
-
-              ><a href="#dashboard/feed"><article><aside><span class="fa fa-comments"></span></aside><footer></footer></article><section><h1>Feed</h1><p>Post updates, photos and videos</p></section></a
-
-              ><a href="#dashboard/listing"><article><aside><span class="fa fa-th-list"></span></aside><footer></footer></article><section><h1>Beer</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#dashboard"><article><aside><span class="fa fa-users"></span></aside><footer></footer></article><section><h1>Staff</h1><p>Set your draft and bottled lists</p></section></a
-
-              ><a href="#dashboard"><article><aside><span class="fa fa-calendar"></span></aside><footer></footer></article><section><h1>Calendar</h1><p>Keep your customers up to date</p></section></a
-
-              ><a href="#dashboard"><article><aside><span class="fa fa-cog"></span></aside><footer></footer></article><section><h1>Settings</h1><p>Keep your customers up to date</p></section></a>
+              <a href="#dashboard"><section><h1>Home</h1></section></a
+              ><a href="#dashboard/following"><section><h1>Following</h1></section></a
+              ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
+              ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a
+              ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
             </ul>
           </div>
         </div>
+
         <div class="bar-feed">
           <ul>
           </ul>
@@ -1665,6 +1640,7 @@
           <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
           <p>Beseech Me®, LLC</p>
         </div>
+    </div>
 
   </div>
 </script>
@@ -1727,8 +1703,24 @@
 
     </div
     ><div class="middle-column">
- 
-      <div class="listing-container"></div></div
+
+     <section class="feed-header"><a href="#dashboard">Dashboard</a><i class="fa fa-angle-right"></i><h1>Listing</h1></section>
+
+      <div class="business-tabs-container">
+        <div class="business-tabs">
+          <ul>
+            <a href="#dashboard"><section><h1>Home</h1></section></a
+            ><a href="#dashboard/following"><section><h1>Following</h1></section></a
+            ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
+            ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a
+            ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="listing-container"></div>
+    </div
     ><div class="right-column">
 
     </div>
@@ -1774,7 +1766,22 @@
 
     ><div class="middle-column">
 
-        <div class="bar-feed"><ul></ul></div>
+      <section class="feed-header"><a href="#dashboard">Dashboard</a><i class="fa fa-angle-right"></i><h1>Favorite Bars</h1></section>
+
+      <div class="business-tabs-container">
+        <div class="business-tabs">
+          <ul>
+            <a href="#dashboard"><section><h1>Home</h1></section></a
+            ><a href="#dashboard/following"><section><h1>Following</h1></section></a
+            ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
+            ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a
+            ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bar-feed"><ul></ul></div>
+
     </div
     ><div class="right-column">
 
@@ -1793,6 +1800,18 @@
 
     ><div class="middle-column">
 
+      <section class="feed-header"><a href="#dashboard">Dashboard</a><i class="fa fa-angle-right"></i><h1>Friends</h1></section>
+      <div class="business-tabs-container">
+        <div class="business-tabs">
+          <ul>
+            <a href="#dashboard"><section><h1>Home</h1></section></a
+            ><a href="#dashboard/following"><section><h1>Following</h1></section></a
+            ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
+            ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a
+            ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
+          </ul>
+        </div>
+      </div>
 
       <div class="friends-feed"></div>
     </div
@@ -1805,8 +1824,24 @@
 <!-- Dashboard Map View -->
 
 <script type="text/template" id="dashboard-map-view">
-  <div class="map-container">
-    <div id='map'></div>
+  <div class="dashboard-container">
+    <div class="middle-column">
+      <section class="feed-header"><a href="#dashboard">Dashboard</a><i class="fa fa-angle-right"></i><h1>Map</h1></section>
+
+      <div class="business-tabs-container">
+        <div class="business-tabs">
+          <ul>
+            <a href="#dashboard"><section><h1>Home</h1></section></a
+            ><a href="#dashboard/following"><section><h1>Following</h1></section></a
+            ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
+            ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a
+            ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
+          </ul>
+        </div>
+      </div>
+
+      <div id='map'></div>
+    </div>
   </div>
 </script>
 
