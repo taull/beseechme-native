@@ -2024,6 +2024,7 @@ BeMe.Views.DashboardFriends = BeMe.Views.DashboardBaseView.extend({
 	loadFriendsFeed: function () {
 		var query = new Parse.Query('status');
 		query.containedIn('createdBy', this.usersFollowing);
+		query.include('createdBy');
 		query.descending('createdAt');
 		query.find().then(function (statuses) {
 			console.log(statuses);
