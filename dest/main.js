@@ -1264,10 +1264,6 @@ BeMe.Views.Backend = Parse.View.extend({
 
     });
 
-    $('#search-trigger').click(function(){
-      $('.bar-search-wrap').toggleClass('bar-search-shift');
-    });
-
 	},
 
   events: {
@@ -2220,10 +2216,6 @@ BeMe.Views.Dashboard = Parse.View.extend({
       $('.update-location-info').toggleClass('left-100');
       $('.arrow').toggleClass('rotate-arrow');
 
-    });
-
-    $('#search-trigger').click(function(){
-      $('.bar-search-wrap').toggleClass('bar-search-shift');
     });
 
     $('#location-trigger').click(function(){
