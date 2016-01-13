@@ -119,14 +119,13 @@ body {
   height: 100vh;
   padding: 0px 0px 0 0;
   left: -25%;
-  border-right: 1px solid #d8d8d8;
-  /*background: #f8f8f8;*/ }
+  border-right: 1px solid #d8d8d8; }
 
 .middle-column {
   position: relative;
   width: 100%;
   transition: 250ms;
-  padding: 60px 0 20px;
+  padding: 0px 0 20px;
   background: transparent;
   height: 100vh; }
 
@@ -557,8 +556,8 @@ header {
   transition: 250ms; }
 
 .business-tabs-container {
-  width: 100%;
-  margin: 0 auto;
+  width: 480px;
+  margin: 60px auto 0;
   /*background: #fff;*/
   position: relative;
   transition: 250ms;
@@ -817,8 +816,7 @@ header {
 /* Listings */
 .listing-container {
   width: 100%;
-  transition: 250ms;
-  background: #fff; }
+  transition: 250ms; }
   .listing-container ul {
     list-style: none;
     padding-left: 0; }
@@ -827,17 +825,31 @@ header {
     width: 100%;
     padding: 15px;
     cursor: pointer;
-    border-bottom: 1px solid #f8f8f8; }
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 3px; }
   .listing-container li:hover {
-    background: #0277BD; }
-    .listing-container li:hover section h1 {
-      color: #fff; }
-    .listing-container li:hover section p {
-      color: #fff; }
-    .listing-container li:hover section h2 {
-      color: #fff; }
-    .listing-container li:hover article h1 {
-      color: #fff; }
+    /*background: #f8f8f8;*/
+    		/*section {
+    
+    			h1 {
+    				color: #fff;
+    			}
+    
+    			p {
+    				color: #fff;
+    			}
+    
+    			h2 {
+    				color: #fff;
+    			}
+    		}
+    
+    		article {
+    			h1 {
+    				color: #fff;
+    			}
+    		}*/ }
   .listing-container li:nth-child(even) {
     /*background: #333;*/ }
   .listing-container li:last-child {
@@ -857,7 +869,7 @@ header {
     .listing-container section h1 {
       font-size: 1.1em;
       font-weight: 500;
-      color: #0277BD; }
+      color: #333; }
     .listing-container section p {
       font-size: .9em;
       font-weight: 300;
@@ -1281,12 +1293,13 @@ header {
 
 .dashboard-statistics,
 .backend-statistics {
-  width: 20%;
+  width: 480px;
+  margin: 60px auto 0;
   height: 60px;
   display: none; }
   .dashboard-statistics li,
   .backend-statistics li {
-    width: 100%;
+    width: 33.33333%;
     display: inline-block;
     vertical-align: top;
     text-align: center;
@@ -1710,7 +1723,7 @@ header {
 /* Business Tabs */
 .business-home {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  background: #fff;
   position: relative;
   padding: 0 20px 0px;
   margin-bottom: 15px; }
@@ -1726,20 +1739,20 @@ header {
       box-shadow: 0 0 30px -20px #000;
       display: block; }
     .business-home section h1 {
-      color: #fff;
+      color: #333;
       font-size: 1.4em;
       font-weight: 700;
       margin-top: 15px;
       display: inline-block; }
     .business-home section p {
-      color: #fff;
+      color: #333;
       font-size: 1em;
-      font-weight: 300;
+      font-weight: 400;
       margin-top: 5px;
       width: 100%; }
     .business-home section h2 {
       font-size: 1em;
-      font-weight: 300;
+      font-weight: 400;
       margin-top: 5px;
       width: 100%; }
     .business-home section i {
@@ -1784,10 +1797,10 @@ header {
 
 .business-cover {
   width: 100%;
-  height: 200px;
+  height: 250px;
   position: relative;
   overflow: hidden;
-  display: none; }
+  border-radius: 3px; }
   .business-cover section {
     position: absolute;
     top: 15px;
@@ -1930,13 +1943,14 @@ header {
   position: fixed;
   top: 100vh;
   transition: 250ms;
-  z-index: 999999999999; }
+  z-index: 999999999999;
+  /*background: #f8f8f8;*/ }
 
 .bar-search-container {
   width: 480px;
   height: 100vh;
   position: relative;
-  background: #f0f0f0;
+  background: #f8f8f8;
   margin: 0 auto; }
 
 .bar-search {
@@ -1962,7 +1976,7 @@ header {
     font-size: 1.2em;
     color: #333;
     text-align: right;
-    padding-top: 22px; }
+    padding-top: 24px; }
   .bar-search button {
     background: transparent;
     outline: 0;
@@ -1992,8 +2006,8 @@ header {
     background: transparent;
     outline: 0;
     border-radius: 0;
-    font-size: 1.3em;
-    font-weight: 300;
+    font-size: 1.2em;
+    font-weight: 400;
     text-indent: 15px; }
 
 .bar-search-shift {
@@ -2181,10 +2195,8 @@ header {
 .profile-beer-list {
   width: 100%;
   margin-top: 0px;
-  margin-bottom: 15px;
   border-bottom: 1px solid #d8d8d8;
-  padding-bottom: 10px;
-  background: #fff; }
+  padding-bottom: 10px; }
   .profile-beer-list ul {
     list-style: none;
     padding-left: 0; }
@@ -2193,9 +2205,10 @@ header {
     width: 100%;
     padding: 15px;
     cursor: auto;
-    position: relative; }
+    position: relative;
+    background: #fff;
+    margin-bottom: 15px; }
   .profile-beer-list div {
-    width: 90%;
     display: inline-block;
     vertical-align: top;
     padding-left: 10px; }
@@ -2248,12 +2261,11 @@ header {
   .profile-beer-list aside {
     display: inline-block;
     vertical-align: top;
-    width: 10%;
+    width: 30px;
     position: relative; }
     .profile-beer-list aside img {
-      width: 100%;
-      height: auto;
-      top: 1px;
+      width: 30px;
+      height: 30px;
       position: absolute;
       left: 0; }
 
@@ -2769,8 +2781,7 @@ svg rect {
 
 /* The Feed */
 .bar-feed {
-  width: 100%;
-  margin-top: 15px; }
+  width: 100%; }
   .bar-feed ul {
     list-style: none;
     padding-left: 0; }
@@ -2791,10 +2802,7 @@ svg rect {
 
 .friends-feed {
   width: 100%;
-  padding: 0;
-  background: #fff;
-  /*border: 1px solid #ededed;
-  border-radius: 3px;*/ }
+  padding: 0; }
   .friends-feed ul {
     list-style: none;
     padding-left: 0; }
@@ -2805,8 +2813,10 @@ svg rect {
     padding: 0px 0px 0px;
     text-align: left; }
   .friends-feed div {
-    border-bottom: 1px solid #f8f8f8;
-    padding: 10px; }
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 3px; }
   .friends-feed li:nth-child(odd),
   .friends-feed div:nth-child(odd) {
     /*background: #f0f0f0;*/ }
@@ -2992,7 +3002,8 @@ svg rect {
       display: inline-block;
       vertical-align: top; }
     .feed-checkin-content section li {
-      width: 100%; }
+      width: 100%;
+      margin-bottom: 0; }
       .feed-checkin-content section li h3 {
         font-size: .8em;
         line-height: 1.6em;
@@ -3369,7 +3380,7 @@ svg rect {
     cursor: pointer;
     border-radius: 3px;
     padding-left: 5px;
-    padding-top: 4px; }
+    /*padding-top: 4px;*/ }
   .feed-controls span {
     color: #555;
     font-size: 1.4em;
@@ -3764,10 +3775,10 @@ svg rect {
 .add-weekly-comment {
   width: 100%;
   text-align: left;
-  background: #f0f0f0;
+  background: #fff;
+  border-radius: 3px;
   padding-top: 15px;
   z-index: 1;
-  border: 1px solid #d8d8d8;
   margin-bottom: 15px; }
   .add-weekly-comment li:first-child {
     border-bottom: 0px solid #d8d8d8; }
@@ -3779,7 +3790,7 @@ svg rect {
     width: 45%;
     display: inline-block;
     vertical-align: top;
-    background: #f0f0f0;
+    background: #fff;
     padding-top: 0px; }
   .add-weekly-comment li:nth-child(3) {
     width: 10%;
@@ -3790,7 +3801,7 @@ svg rect {
     padding: 0;
     height: 40px;
     padding-top: 12px;
-    background: #f0f0f0; }
+    background: #fff; }
   .add-weekly-comment li:nth-child(5) {
     text-align: center;
     width: 100%;
@@ -4026,7 +4037,6 @@ svg rect {
 /* Seven Day Nav */
 .seven-day-nav {
   width: 100%;
-  /*border: 1px solid #d8d8d8;*/
   background: #fff;
   margin-bottom: 10px;
   position: relative;
@@ -4039,7 +4049,7 @@ svg rect {
     vertical-align: top;
     display: inline-block;
     width: 20%;
-    background: #f0f0f0;
+    background: #f8f8f8;
     /*border-left: 1px solid #f0f0f0;
     border-right: 1px solid #fff;*/
     text-align: center;
