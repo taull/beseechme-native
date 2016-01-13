@@ -75,7 +75,6 @@ BeMe.Views.BarSearchResults = Parse.View.extend({
     $tabs.removeClass('active-tab');
     $(clickedTab).addClass('active-tab');
 
-
     var usersToRender = this.collection.filter(function (bar) {
       return bar.get('userType') === type;
     });
@@ -107,7 +106,7 @@ BeMe.Views.BarSearchResult = Parse.View.extend({
 
   render: function () {
     this.$el.html(this.template(this.model));
-    $('.bar-search-results ul').append(this.el);
+    $('.bar-search-container').append(this.el);
     BeMe.renderedViews.push(this);
   },
 
