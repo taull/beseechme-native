@@ -53,8 +53,21 @@ BeMe.Views.BarSearchResults = Parse.View.extend({
     if(this.collection.length === 0) {
       alert('No results found');
     } else {
-      this.displayType('business');
+      this.showAll();
     }
+  },
+
+  showAll: function () {
+    BeMe.removeGroup(this.subViews);
+    var self = this;
+
+    this.collection.each(function (user) {
+      var followingStatus = false;
+      if (self.following.some(function(userFollowing) {return user.id === userFollowing.id})) {
+        var followingStatus = true;
+      }
+      self.subViews.push(new BeMe.Views.BarSearchResult({model:user, following:followingStatus}));
+    });
   },
 
   displayType: function (type) {

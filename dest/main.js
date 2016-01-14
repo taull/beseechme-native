@@ -24,7 +24,7 @@ var Router = Parse.Router.extend({
     'dashboard/following' : 'dashboardfollowing',
     'dashboard/friends' : 'dashboardFriends',
 
-    'search/:query' : 'search',
+    // 'search/:query' : 'search',
 
     'location' : 'location',
 
@@ -466,20 +466,26 @@ BeMe.Views.Application = Parse.View.extend({
         self.barSearchResultsView.removeRenderedView();
       }
 
+      var userType = $('select[name="user-type"]').val();
       var queryString = $('.bar-search input').val();
 
-      var businessQuery = new Parse.Query('User');
-      businessQuery.contains('businessNameLowercase', queryString);
-      businessQuery.equalTo('userType', 'business');
+      var lowercaseField;
+      if (userType === 'business') {
+        lowerCaseField = 'businessNameLowercase';
+      } else {
+        lowerCaseField = 'fullNameLowercase';
+      }
+
+      var nameQuery = new Parse.Query('User');
+      nameQuery.contains(lowerCaseField, queryString);
+      nameQuery.equalTo('userType', userType);
 
       var handleQuery = new Parse.Query('User');
       handleQuery.contains('handle', queryString);
+      handleQuery.equalTo('userType', userType);
 
-      var consumerQuery = new Parse.Query('User');
-      consumerQuery.contains('fullNameLowercase', queryString);
-      consumerQuery.equalTo('userType', 'consumer');
+      var query = Parse.Query.or(nameQuery, handleQuery);
 
-      var query = Parse.Query.or(businessQuery, consumerQuery, handleQuery);
       query.find().then(function (i) {
         console.log(i);
         var collection = new Parse.Collection(i);
@@ -1374,8 +1380,21 @@ BeMe.Views.BarSearchResults = Parse.View.extend({
     if(this.collection.length === 0) {
       alert('No results found');
     } else {
-      this.displayType('business');
+      this.showAll();
     }
+  },
+
+  showAll: function () {
+    BeMe.removeGroup(this.subViews);
+    var self = this;
+
+    this.collection.each(function (user) {
+      var followingStatus = false;
+      if (self.following.some(function(userFollowing) {return user.id === userFollowing.id})) {
+        var followingStatus = true;
+      }
+      self.subViews.push(new BeMe.Views.BarSearchResult({model:user, following:followingStatus}));
+    });
   },
 
   displayType: function (type) {

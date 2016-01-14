@@ -24,7 +24,7 @@ var Router = Parse.Router.extend({
     'dashboard/following' : 'dashboardfollowing',
     'dashboard/friends' : 'dashboardFriends',
 
-    'search/:query' : 'search',
+    // 'search/:query' : 'search',
 
     'location' : 'location',
 

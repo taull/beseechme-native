@@ -41,20 +41,26 @@ BeMe.Views.Application = Parse.View.extend({
         self.barSearchResultsView.removeRenderedView();
       }
 
+      var userType = $('select[name="user-type"]').val();
       var queryString = $('.bar-search input').val();
 
-      var businessQuery = new Parse.Query('User');
-      businessQuery.contains('businessNameLowercase', queryString);
-      businessQuery.equalTo('userType', 'business');
+      var lowercaseField;
+      if (userType === 'business') {
+        lowerCaseField = 'businessNameLowercase';
+      } else {
+        lowerCaseField = 'fullNameLowercase';
+      }
+
+      var nameQuery = new Parse.Query('User');
+      nameQuery.contains(lowerCaseField, queryString);
+      nameQuery.equalTo('userType', userType);
 
       var handleQuery = new Parse.Query('User');
       handleQuery.contains('handle', queryString);
+      handleQuery.equalTo('userType', userType);
 
-      var consumerQuery = new Parse.Query('User');
-      consumerQuery.contains('fullNameLowercase', queryString);
-      consumerQuery.equalTo('userType', 'consumer');
+      var query = Parse.Query.or(nameQuery, handleQuery);
 
-      var query = Parse.Query.or(businessQuery, consumerQuery, handleQuery);
       query.find().then(function (i) {
         console.log(i);
         var collection = new Parse.Collection(i);
