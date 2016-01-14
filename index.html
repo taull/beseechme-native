@@ -1252,7 +1252,7 @@
 <script type="text/template" id="bar-search-results-view">
   <aside>
     <% if (typeof attributes.avatar != 'undefined') { %>
-      <img src="<%= attributes.avatar._url %>">
+      <img src="<%= attributes.avatar.url() %>">
     <% } else { %>
       <img src="images/default-avatar.png">
     <% } %>

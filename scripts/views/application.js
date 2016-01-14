@@ -32,9 +32,14 @@ BeMe.Views.Application = Parse.View.extend({
       $('.bar-search-wrap').toggleClass('bar-search-shift');
     });
 
+    var self = this;
     //The search overlay feature
     $('.bar-search').submit(function(e) {
       e.preventDefault();
+
+      if (self.barSearchResultsView) {
+        self.barSearchResultsView.removeRenderedView();
+      }
 
       var queryString = $('.bar-search input').val();
 
@@ -53,7 +58,7 @@ BeMe.Views.Application = Parse.View.extend({
       query.find().then(function (i) {
         console.log(i);
         var collection = new Parse.Collection(i);
-        BeMe.Search.BarSearchResults = new BeMe.Views.BarSearchResults({collection:collection});
+        self.barSearchResultsView = BeMe.Search.BarSearchResults = new BeMe.Views.BarSearchResults({collection:collection});
       });
     });
   }
