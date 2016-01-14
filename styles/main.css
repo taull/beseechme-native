@@ -977,13 +977,15 @@ header {
 .to-location {
   display: inline-block;
   vertical-align: top;
-  width: 100%;
+  width: 480px;
   text-align: center;
   position: relative;
   overflow: hidden;
   height: 60px;
+  margin: 0 auto 0;
   background: #f8f8f8;
-  /*border-radius: 3px;*/ }
+  border-radius: 3px;
+  margin-bottom: 15px; }
   .to-location a {
     text-decoration: none; }
   .to-location aside,
@@ -2936,14 +2938,10 @@ svg rect {
         font-weight: 300;
         font-size: 1.2em; }
 
-/*.feed-photo:hover footer {
-	opacity:1;
-	transition: 250ms;
-}*/
 .feed-content {
   width: 100%;
   display: inline-block;
-  padding: 0px 15px 10px 15px; }
+  padding: 0px 15px 15px; }
   .feed-content aside {
     width: 100%;
     text-align: left;
@@ -2961,7 +2959,7 @@ svg rect {
       padding-top: 15px;
       color: #333; }
     .feed-content aside p {
-      font-size: 1.2em;
+      font-size: 1.1em;
       line-height: 1.6em;
       font-weight: 300;
       color: #333; }

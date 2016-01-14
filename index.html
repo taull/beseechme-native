@@ -1364,12 +1364,25 @@
 </script>
 
 <script type="text/template" id="dashboard-view">
+
+    <% var user = Parse.User.current() %>
+
     <div class="dashboard-statistics">
       <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
       ><li><h1>32</h1><p>Following</p></li
       ><li><h1>24</h1><p>Beers</p></li>
     </div>
+
+
+
     <div class="business-tabs-container">
+
+      <div class="to-location">
+        <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
+        ><div class="update-location"><footer><h1>Update Location</h1></footer></div
+
+        ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
+      </div>
       <div class="business-tabs">
         <ul>
           <a href="#dashboard"><section><h1>Home</h1></section></a
