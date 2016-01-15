@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1, user-scalable=0/">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" type='text/css' href="styles/main.css">
+  <link rel="stylesheet" type='text/css' href="CustomDropDownListStyling/css/style.css">
+
   <link rel="stylesheet" type='text/css' href="bower_components/pickadate/lib/themes/default.css">
   <link rel="stylesheet" type='text/css' href="bower_components/pickadate/lib/themes/default.date.css">
   <link rel="stylesheet" type='text/css' href="noUiSlider/nouislider.css">
@@ -41,19 +43,33 @@
 
     </div>
   </header>
-  <div class="bar-search-wrap">
-    <div class="bar-search-container">
-      <div class="bar-search">
-        <form name='bar-search' action>
+  <div class="search-container">
+    <div class="bar-search">
+      <form name='bar-search' action>
+        <section>
           <span class="fa fa-search"></span
-          ><input type="text" placeholder="Search for Bars, Restaurants or Friends"
-          ><button id="bar-submit"></button>
+          ><input type="text" placeholder="Search"
+          ><i class="fa fa-times-circle"></i>
+        </section
+        ><aside>
           <select name='user-type'>
             <option value='business'>Bars</option>
             <option value='consumer'>Users</option>
-          </select>
-        </form>
-      </div> 
+          </select
+          ><div id="dd" class="wrapper-dropdown-2">
+            <span>User Type</span>
+            <ul class="dropdown">
+              <li><i class="icon-bookmark icon-large"></i>Business</li>
+              <li><i class="icon-user icon-large"></i>Friends</li>
+            </ul>
+          </div
+          ><button id="bar-submit"><i class="fa fa-search"></i></button>
+        </aside>
+      </form>
+    </div> 
+  </div>
+  <div class="bar-search-wrap">
+    <div class="bar-search-container">
     </div>
   </div>
   <div class="body-container"></div>
@@ -1617,6 +1633,8 @@
 <script src='bower_components/pickadate/lib/picker.date.js'></script>
 <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 <script src='jquery-accordion.js'></script>
+<script src='CustomDropDownListStyling/js/modernizr.custom.79639.js'></script>
+
 <script src='jquery-popup-overlay/jquery.popupoverlay.js'></script>
 
 <script src='bower_components/autosize/dist/autosize.min.js'></script>
