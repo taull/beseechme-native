@@ -31,7 +31,7 @@
     <div class="header-container">
       <div class="header-left">
         <aside><img src="images/nextap-logo-white.png"></aside
-        ><section><a class="active-tab" href="#dashboard"><i class="fa fa-dashboard"></i></a><a href="#backend/feed"><i class="fa fa-cog"></i></a><li id="search-trigger"><i class="fa fa-search"></i></li></section>
+        ><section><li id="search-trigger"><i class="fa fa-search"></i></li></section>
 
       </div
       ><div class="header-center">
@@ -68,7 +68,7 @@
       </form>
     </div> 
   </div>
-  <div class="bar-search-wrap">
+  <div class="search-results-wrap">
     <div class="bar-search-container">
     </div>
   </div>
@@ -1391,24 +1391,33 @@
 
 
 
-    <div class="business-tabs-container">
+      <div class="header-options-container">
+        <div class="to-location">
+          <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
+          ><div class="update-location"><footer><h1>Update Location</h1></footer></div
 
-      <div class="to-location">
-        <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
-        ><div class="update-location"><footer><h1>Update Location</h1></footer></div
+          ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
+        </div
+        ><div id="ddAlt" class="wrapper-dropdown-6">
+          <span>Go to...</span>
+          <ul class="dropdown">
+            <li><a href="#dashboard"><i class="icon-dashboard icon-large"></i>Dashboard</a></li>
+            <li><a href="#backend/feed"><i class="icon-cog icon-large"></i>Backend</a></li>
+          </ul>
+        </div>
+      </div>
 
-        ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
+      <div class="business-tabs-container">
+        <div class="business-tabs">
+          <ul>
+            <a href="#dashboard"><section><h1>Home</h1></section></a
+            ><a href="#dashboard/following"><section><h1>Following</h1></section></a
+            ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
+            ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a
+            ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
+          </ul>
+        </div>
       </div>
-      <div class="business-tabs">
-        <ul>
-          <a href="#dashboard"><section><h1>Home</h1></section></a
-          ><a href="#dashboard/following"><section><h1>Following</h1></section></a
-          ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
-          ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a
-          ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
-        </ul>
-      </div>
-    </div>
 
 </script>
 

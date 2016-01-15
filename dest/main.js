@@ -454,9 +454,14 @@ BeMe.Views.Application = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 
     $('#search-trigger').click(function(){
-      $('.bar-search-wrap').toggleClass('bar-search-shift');
       $('.search-container').toggleClass('search-container-shift');
       $('.wrapper-dropdown-2').removeClass('active');
+      $('.body-container').toggleClass('body-container-shift');
+
+      $('.search-results-wrap').toggleClass('search-results-fade');
+      // setTimeout(function() {
+      //   $('.search-results-wrap').toggleClass('search-results-shift');
+      // }, 250);
 
     })
 
@@ -2354,6 +2359,32 @@ BeMe.Views.Dashboard = Parse.View.extend({
     $('header form[name="bar-search"').submit(function(e) {
       self.userSearch(e);
     });
+
+    $(function() {
+
+      var ddAlt = new DropDown( $('#ddAlt') );
+
+      $(document).click(function() {
+        // all dropdowns
+        $('.wrapper-dropdown-1').removeClass('active');
+      });
+
+    });
+
+    function DropDown(el) {
+        this.ddAlt = el;
+        this.initEvents();
+    }
+    DropDown.prototype = {
+        initEvents : function() {
+            var obj = this;
+
+            obj.ddAlt.on('click', function(event){
+                $(this).toggleClass('active');
+                event.stopPropagation();
+            }); 
+        }
+    }
   },
 
   events: {
