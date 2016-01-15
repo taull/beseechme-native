@@ -38,6 +38,32 @@ BeMe.Views.Dashboard = Parse.View.extend({
     $('header form[name="bar-search"').submit(function(e) {
       self.userSearch(e);
     });
+
+    $(function() {
+
+      var ddAlt = new DropDown( $('#ddAlt') );
+
+      $(document).click(function() {
+        // all dropdowns
+        $('.wrapper-dropdown-1').removeClass('active');
+      });
+
+    });
+
+    function DropDown(el) {
+        this.ddAlt = el;
+        this.initEvents();
+    }
+    DropDown.prototype = {
+        initEvents : function() {
+            var obj = this;
+
+            obj.ddAlt.on('click', function(event){
+                $(this).toggleClass('active');
+                event.stopPropagation();
+            }); 
+        }
+    }
   },
 
   events: {

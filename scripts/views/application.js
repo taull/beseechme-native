@@ -29,9 +29,14 @@ BeMe.Views.Application = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 
     $('#search-trigger').click(function(){
-      $('.bar-search-wrap').toggleClass('bar-search-shift');
       $('.search-container').toggleClass('search-container-shift');
       $('.wrapper-dropdown-2').removeClass('active');
+      $('.body-container').toggleClass('body-container-shift');
+
+      $('.search-results-wrap').toggleClass('search-results-fade');
+      // setTimeout(function() {
+      //   $('.search-results-wrap').toggleClass('search-results-shift');
+      // }, 250);
 
     })
 

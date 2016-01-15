@@ -1,6 +1,7 @@
 @import url('demo.css');
 @import url('font-awesome.css');
 
+
 /* GLOBALS */
 
 *,
@@ -12,6 +13,8 @@
     padding: 0;
     margin: 0;
 }
+
+
 
 ::selection {
     background: transparent; 
@@ -141,13 +144,15 @@
     padding: 11px 15px;
     text-align: left;
     /* Styles */
-    background: #fff;
+    background: #f8f8f8;
     /*border-radius: 3px;*/
     /*border-left: 5px solid #ff;*/
     cursor: pointer;
     outline: none;
     height: 40px;
     font-size: 1.1em;
+    display: inline-block;
+    color: #333;
 }
 
 .wrapper-dropdown-2:after {
@@ -160,7 +165,7 @@
     margin-top: -3px;
     border-width: 6px 6px 0 6px;
     border-style: solid;
-    border-color: grey transparent;
+    border-color: #ddd transparent;
 }
 
 .wrapper-dropdown-2 .dropdown {
@@ -243,6 +248,134 @@
 
 .no-opacity       .wrapper-dropdown-2.active .dropdown,
 .no-pointerevents .wrapper-dropdown-2.active .dropdown {
+    display: block;
+}
+
+
+/* DEMO 6 */
+
+.wrapper-dropdown-6 {
+    /* Size and position */
+    position: relative; /* Enable absolute positionning for children and pseudo elements */
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    margin: 0 auto;
+    padding: 11px 15px;
+    text-align: left;
+    /* Styles */
+    background: #555;
+    border-radius: 3px;
+    /*border-left: 5px solid #ff;*/
+    cursor: pointer;
+    outline: none;
+    height: 40px;
+    font-size: 1.1em;
+    display: inline-block;
+    color: #f8f8f8;
+    margin-left: 10px;
+}
+
+.wrapper-dropdown-6:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #ccc transparent;
+}
+
+.wrapper-dropdown-6 .dropdown {
+  /* Size & position */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0px;
+    margin-top: 5px;
+    border-radius: 3px;
+
+    /* Styles */
+    background: #555;
+    color: #f8f8f8;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    list-style: none;
+
+    /* Hiding */
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wrapper-dropdown-6 .dropdown li {
+    display: block;
+    text-decoration: none;
+    color: #f8f8f8;
+    /*border-left: 5px solid;*/
+    padding: 10px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper-dropdown-6 .dropdown li a {
+    color: #f8f8f8;
+}
+
+.wrapper-dropdown-6 .dropdown li:nth-child(1) a { 
+    border-left-color: #00ACED;
+}
+
+.wrapper-dropdown-6 .dropdown li:nth-child(2) a {
+    border-left-color: #4183C4;
+}
+
+.wrapper-dropdown-6 .dropdown li:nth-child(3) a {
+    border-left-color: #3B5998;
+}
+
+.wrapper-dropdown-6 .dropdown li i {
+    margin-right: 5px;
+    color: inherit;
+    vertical-align: middle;
+}
+
+/* Hover state */
+
+.wrapper-dropdown-6 .dropdown li:hover a {
+    color: #fff;
+}
+
+/* Active state */
+
+.wrapper-dropdown-6.active:after {
+    border-width: 0 6px 6px 6px;
+}
+
+.wrapper-dropdown-6.active .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* No CSS3 support */
+
+.no-opacity       .wrapper-dropdown-6 .dropdown,
+.no-pointerevents .wrapper-dropdown-6 .dropdown {
+    display: none;
+    opacity: 1; /* If opacity support but no pointer-events support */
+    pointer-events: auto; /* If pointer-events support but no pointer-events support */
+}
+
+.no-opacity       .wrapper-dropdown-6.active .dropdown,
+.no-pointerevents .wrapper-dropdown-6.active .dropdown {
     display: block;
 }
 
@@ -537,7 +670,7 @@
 .wrapper-dropdown-5 {
     /* Size & position */
     position: relative;
-    width: 200px;
+    width: 100px;
     margin: 0 auto;
     padding: 12px 15px;
 
