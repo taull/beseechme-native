@@ -77,7 +77,8 @@ body {
 .body-container {
     position: relative;
     width: 100%;
-    margin: 0 auto;
+    margin: 60px auto;
+
     /*padding-bottom:15px;*/
     transition: 250ms;
 }
@@ -764,12 +765,9 @@ header {
 
 .business-tabs-container {
 	width: 480px;
-	margin: 60px auto 0;
-	/*background: #fff;*/
+	margin: 120px auto 15px;
 	position:relative;
 	transition: 250ms;
-	/*border-radius: 3px;*/
-	margin-bottom: 15px;
 	padding: 15px 0 0;
 }
 
@@ -1340,7 +1338,7 @@ header {
 .to-location {
 	display: inline-block;
 	vertical-align: top;
-	width: 480px;
+	width: 240px;
 	text-align: center;
 	position: relative;
 	overflow: hidden;
@@ -1674,73 +1672,10 @@ header {
 }
 
 
-/* Search */
 
 
-.search-container, 
-.search-location {
-	display: inline-block;
-	vertical-align: top;
-	width: 100%;
-	height: 60px;
-	position: relative;
-	background: rgba(255,255,255,.1);
-	margin-left: auto;
-	/*border-radius: 4px;*/
-	padding-right: 5px;
 
-	span {
-		display: inline-block;
-		font-size: 18px;
-		color: #B0BEC5;
-		width: 15%;
-		text-align: center;
-	}
 
-	li {
-		width: 15%;
-		display: inline-block;
-		vertical-align: top;
-		padding-top:18px;
-		cursor: pointer;
-	}
-
-	input {
-		display: inline-block;
-		height: 60px;
-		font-size: 18px;
-		border:0;
-		outline:0;
-		border-radius:0;
-		width: 70%;
-		background: transparent;
-		font-weight: 300;
-		color: $primary-color-medium;
-	}
-
-	button {
-		width: 15%;
-		display: inline-block;
-		vertical-align: top;
-		font-size: 1em;
-		background: $secondary-color-dark;
-		color: $primary-color-light;
-		height: 50px;
-		margin-top: 5px;
-		border: 0;
-		cursor: pointer;
-		border-radius: 3px;
-		outline: 0;
-
-		&:focus {
-			outline: 0;
-		}	
-	}
-
-	input::-webkit-input-placeholder {
-		color: #B0BEC5;
-	}
-}
 
 .search-location {
 	width: 100%;
@@ -2631,21 +2566,135 @@ header {
 .bar-search-wrap {
 	width: 100%;
 	height: 100vh;
-	text-align: center;
 	position: fixed;
 	top: 100vh;
 	transition: 250ms;
 	z-index: 999999999999;
-	/*background: #f8f8f8;*/
+	background: #f0f0f0;
+	z-index: 150;
 }
 
 .bar-search-container {
 	width: 480px;
 	height: 100vh;
 	position: relative;
-	background: #f8f8f8;
+	background: #f0f0f0;
 	margin: 0 auto;
+	overflow: scroll;
+
+	li {
+		display: inline-block;
+		width: 100%;
+		padding: 15px;
+		background: #fff;
+		margin-top: 10px;
+		border-radius: 3px;
+	}
+
+	li:nth-child(odd) {
+		/*background: #fff;*/
+	}
+
+	aside {
+		width: 40px;
+		height: 40px;
+		display: inline-block;
+		vertical-align: top;
+		position: relative;
+
+		img {
+			width: 40px;
+			height: 40px;
+			border-radius: 25px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	section {
+		width: 70%;
+		display: inline-block;
+		vertical-align: top;
+		padding-left: 10px;
+		padding-top: 5px;
+
+		h1 {
+			width: 100%;
+			display: inline-block;
+			vertical-align: top;
+			font-size: 1.1em;
+			color: $secondary-color-dark;
+		}
+
+		p {
+			font-size: .9em;
+			font-weight: 300;
+			padding-top: 3px;
+		}
+
+		h2 {
+			width: 100%;
+			display: inline-block;
+			font-size: 1em;
+			font-weight: 400;
+			margin-top: 5px;
+		}
+	}
+
+	div {
+		display: inline-block;
+		vertical-align: top;
+		text-align: right;
+		float: right;
+		padding-top: 5px;
+
+		h1 {
+			width: 100%;
+			display: inline-block;
+			vertical-align: top;
+			font-size: 1em;
+			font-weight: 400;
+			color: $secondary-color-dark;
+		}
+
+	}
+
+	span {
+		font-size: 18px;
+		display: inline-block;
+		vertical-align: top;
+		color: $secondary-color-medium;
+	}
+
 }
+
+.bar-search-shift {
+	bottom: 0px;
+	top: 120px;
+}
+
+
+/* SEARCH CONTAINER */
+
+.search-container {	
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	height: 60px;
+	top: 0;
+	position: fixed;
+	text-align: center;
+	transition: 250ms;
+	z-index: 200;
+}
+
+.search-container-shift {
+	margin-top: 60px;
+}
+
+/* Search Input*/
+
 
 .bar-search {
 	display: inline-block;
@@ -2653,84 +2702,119 @@ header {
 	position: relative;	
 	width: 480px;
 	height: 100vh;
-	background: #fff;
+	background: #dfdfdf;
 	transition: 250ms;
 	height: 60px;
 	margin: 0 auto;
-	/*border-radius: 3px;*/
+	padding: 10px;
 
+	aside,
+	section,
 	span, 
 	button, 
-	input {
+	input, 
+	select, 
+	div, 
+	i {
 		display: inline-block;
 		vertical-align: top;
 	}
 
-	span {
-		display: inline-block;
-	    width: 30px;
-	    vertical-align: top;
-	    font-size: 1.2em;
-	    color: #333;
-	    text-align: right;
-	    padding-top: 24px;
-	}
 
-	button {
-		background: transparent;
-		outline: 0;
-		border: 0;
-		color: #999;
-		font-size: 1em;
-		font-weight: 300;
+	section {
+		width: 50%;
 		padding: 0;
-		height: 60px;
-		width: 15%;
+		height: 40px;
+		background: #fff;
 
+		span {
+		    width: 15%;
+		    vertical-align: top;
+		    font-size: 1.2em;
+		    color: #333;
+		    text-align: right;
+		    padding-top: 16px;
+		}
 
 		i {
-			display: inline-block;
-		    vertical-align: top;
-		    font-size: 1em;
-		    color: $secondary-color-dark;
-		    width: 100%;
-		    text-align: center;
+			width: 15%;
+			font-size: 1.4em;
+			color: #f0f0f0;
+			text-align: center;
+			background: #fff;
+			padding-top: 13px;
+			height: 40px;
+			cursor: pointer;
 
+
+		}
+
+		input {
+			display: inline-block;
+			color: #333;
+			vertical-align: top;
+			height: 40px;
+			width: 70%;
+			border: 0;
+			background: transparent;
+			outline: 0;
+			border-radius: 0;
+			font-size: 1.2em;
+			font-weight: 400;
+			text-indent: 15px;
+
+		}
+
+		input::-webkit-input-placeholder {
+			color: #333;
 		}
 	}
 
-	input::-webkit-input-placeholder {
-		color: #333;
+
+
+	aside {
+		width: 50%;
+		padding: 0 0 0 10px;
+
+		button {
+			background: $blue-500;
+			outline: 0;
+			border: 0;
+			color: #fff;
+			font-size: 1em;
+			font-weight: 400;
+			padding: 15px 0;
+			width: 20%;
+			height: 40px;
+
+
+			i {
+				display: inline-block;
+			    vertical-align: top;
+			    font-size: 1em;
+			    color: #fff;
+			    width: 100%;
+			    text-align: center;
+
+			}
+		}
+
+		select {
+			width: 45%;
+			margin-right: 5%;
+			display: none;
+		}
+		div {
+			width: 80%;
+		}
 	}
 
 
-
-	input {
-		display: inline-block;
-		color: #333;
-		vertical-align: top;
-		height: 60px;
-		width: 85%;
-		border: 0;
-		background: transparent;
-		outline: 0;
-		border-radius: 0;
-		font-size: 1.2em;
-		font-weight: 400;
-		text-indent: 15px;
-
-	}
-}
-
-.bar-search-shift {
-	bottom: 0px;
-	top: 60px;
 }
 
 
-.beer-search-shift {
-	margin-top: 0;
-}
+
+
 
 .beer-results-cancel {
 	text-decoration: none;
@@ -6064,7 +6148,7 @@ svg rect{
 
 }*/
 
-@media screen and (min-width : 0px) and (max-width : 736px) {
+@media screen and (min-width : 0px) and (max-width : 480px) {
 
 
 
