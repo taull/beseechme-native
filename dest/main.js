@@ -434,7 +434,8 @@ BeMe.Views.Application = Parse.View.extend({
 
   events: {
     'click #logout' : 'logOut',
-    'click #sign-in' : 'signIn'
+    'click #sign-in' : 'signIn',
+    'click .bar-search .fa-times-circle' : 'clear'
   },
 
   logOut: function () {
@@ -447,6 +448,11 @@ BeMe.Views.Application = Parse.View.extend({
 
   signIn: function () {
     BeMe.Router.navigate('', true);
+  },
+
+  clear: function () {
+    this.$el.find('.bar-search input').val('');
+    this.barSearchResultsView.removeRenderedView();
   },
 
 	render: function () {
@@ -462,13 +468,7 @@ BeMe.Views.Application = Parse.View.extend({
       //   $('.search-results-wrap').toggleClass('search-results-shift');
       // }, 250);
 
-    })
-
-
-    // obj.dd.on('click', function(event){
-    //   $(this).toggleClass('active');
-    //   return false;
-    // });
+    });
 
 
     function DropDown(el) {
@@ -528,7 +528,7 @@ BeMe.Views.Application = Parse.View.extend({
         alert('Please select a userType');
         return;
       }
-      console.log(userType);
+
       var queryString = $('.bar-search input').val();
 
       var lowercaseField;
@@ -556,19 +556,6 @@ BeMe.Views.Application = Parse.View.extend({
     });
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 BeMe.Views.BackendBeerList = Parse.View.extend({
 	initialize: function () {
     this.beerType = null;
