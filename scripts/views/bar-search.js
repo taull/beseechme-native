@@ -119,7 +119,7 @@ BeMe.Views.BarSearchResult = Parse.View.extend({
 
   render: function () {
     this.$el.html(this.template(this.model));
-    $('.bar-search-container').append(this.el);
+    $('.search-results-container').append(this.el);
     BeMe.renderedViews.push(this);
   },
 
