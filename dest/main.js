@@ -457,6 +457,8 @@ BeMe.Views.Application = Parse.View.extend({
 
 	render: function () {
 		this.$el.html(this.template(this.model));
+    this.opened = false;
+    var self = this;
 
     $('#search-trigger').click(function(){
       $('.search-container').toggleClass('search-container-shift');
@@ -468,6 +470,14 @@ BeMe.Views.Application = Parse.View.extend({
       //   $('.search-results-wrap').toggleClass('search-results-shift');
       // }, 250);
 
+      if(self.opened == false) {
+        //opened
+        self.opened = true;
+      } else {
+        //closed
+        self.clear()
+        self.opened = false;
+      }
     });
 
 
