@@ -529,7 +529,7 @@ BeMe.Views.Application = Parse.View.extend({
         return;
       }
 
-      var queryString = $('.bar-search input').val();
+      var queryString = $('.bar-search input').val().toLowerCase();
 
       var lowercaseField;
       if (userType === 'business') {
