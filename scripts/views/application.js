@@ -47,18 +47,6 @@ BeMe.Views.Application = Parse.View.extend({
     // });
 
 
-    $(function() {
-
-      var dd = new DropDown( $('#dd') );
-
-      $(document).click(function() {
-        // all dropdowns
-        $('.wrapper-dropdown-1').removeClass('active');
-      });
-
-    });
-
-
     function DropDown(el) {
         this.dd = el;
         this.placeholder = this.dd.children('span');
@@ -91,6 +79,13 @@ BeMe.Views.Application = Parse.View.extend({
         }
     }
 
+    var dd = new DropDown( $('#dd') );
+
+    $(document).click(function() {
+      // all dropdowns
+      $('.wrapper-dropdown-1').removeClass('active');
+    });
+
     var self = this;
     //The search overlay feature
     $('.bar-search').submit(function(e) {
@@ -100,7 +95,16 @@ BeMe.Views.Application = Parse.View.extend({
         self.barSearchResultsView.removeRenderedView();
       }
 
-      var userType = $('select[name="user-type"]').val();
+      var userType;
+      if (dd.getValue() === 'Business') {
+        userType = 'business';
+      } else if (dd.getValue() === 'Friends') {
+        userType = 'consumer';
+      } else {
+        alert('Please select a userType');
+        return;
+      }
+      console.log(userType);
       var queryString = $('.bar-search input').val();
 
       var lowercaseField;
