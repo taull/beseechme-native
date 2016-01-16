@@ -36,7 +36,6 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
   //route object
   BeMe.Calendar = {};
   BeMe.Dashboard = {};
-  BeMe.Search = {};
 })();
 
 /*

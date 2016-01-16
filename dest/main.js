@@ -258,7 +258,6 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
   //route object
   BeMe.Calendar = {};
   BeMe.Dashboard = {};
-  BeMe.Search = {};
 })();
 
 /*
@@ -552,7 +551,7 @@ BeMe.Views.Application = Parse.View.extend({
       query.find().then(function (i) {
         console.log(i);
         var collection = new Parse.Collection(i);
-        self.barSearchResultsView = BeMe.Search.BarSearchResults = new BeMe.Views.BarSearchResults({collection:collection});
+        self.barSearchResultsView = new BeMe.Views.BarSearchResults({collection:collection});
       });
     });
   }
