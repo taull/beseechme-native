@@ -1120,7 +1120,9 @@ header {
 
 .listing-container {
 	width: 100%;
-    transition: 250ms;
+	background: #fff;
+	border-radius: 3px;    
+	transition: 250ms;
 
 
 	ul {
@@ -1133,9 +1135,7 @@ header {
 		width: 100%;
 		padding: 15px;
 		cursor:pointer;
-		background: #fff;
-		margin-bottom: 15px;
-		border-radius: 3px;
+
 
 	}
 
@@ -1654,7 +1654,7 @@ header {
 
 		h1 {
 			color: #333;
-			font-size: 1.2em;
+			font-size: 1.1em;
 			font-weight: 400;
 /*			padding-bottom: 5px;
 			border-bottom: 1px solid #333;*/
@@ -3071,8 +3071,8 @@ header {
 .profile-beer-list {
 	width: 100%;
 	margin-top:0px;
-	border-bottom: 1px solid #d8d8d8;
-	padding-bottom: 10px;
+	background: #fff;
+	border-radius: 3px;
 
 	ul {
 		list-style: none;
@@ -3085,8 +3085,6 @@ header {
 		padding: 15px;
 		cursor:auto;
 		position: relative;
-		background: #fff;
-		margin-bottom: 15px;
 	}
 
 	div {
@@ -3868,6 +3866,8 @@ svg rect{
 .friends-feed {
     width: 100%;
     padding:  0;
+    background: #fff;
+    border-radius: 3px;
 
 	ul {
 		list-style: none;
@@ -3883,10 +3883,7 @@ svg rect{
 	}
 
 	div {
-	    background: #fff;
 		padding: 10px;
-		margin-bottom: 15px;
-		border-radius: 3px;
 	}
 
 	li:nth-child(odd), 
