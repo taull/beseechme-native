@@ -72,6 +72,7 @@
     <div class="search-results-container">
     </div>
   </div>
+
   <div class="body-container"></div>
 </script>
 
@@ -187,6 +188,17 @@
 
 <script type="text/template" id="backend-view">
 
+  <% var user = Parse.User.current() %>
+
+  <div class="header-options-container">
+    <div id="ddAlt" class="wrapper-dropdown-6">
+      <span>Backend</span>
+      <ul class="dropdown">
+        <li><a href="#dashboard"><i class="icon-dashboard icon-large"></i>Dashboard</a></li>
+        <li><a href="#backend/feed"><i class="icon-cog icon-large"></i>Backend</a></li>
+      </ul>
+    </div>
+  </div>
   <div class="business-tabs-container">
     <div class="business-tabs">
       <ul>
@@ -443,12 +455,19 @@
             <h1>Bottled Beer</h1>
           </li>
         </div
-        ><div class="beer-search">
-          <form action>
-            <span class="fa fa-search"></span
-            ><input type="text" placeholder="Search by Name or Brewery"
-            ><button id="beer-submit">Search</button>
-          </form>
+        ><div class="beer-search-container">
+          <div class="beer-search">
+            <form action>
+              <section>
+                <span class="fa fa-search"></span
+                ><input type="text" placeholder="Search by Name or Brewery"
+                ><i class="fa fa-times-circle"></i>
+              </section
+              ><aside>
+                <button id="beer-submit">Search</button>
+              </aside>
+            </form>
+          </div>
         </div>
 
       </div
@@ -1383,6 +1402,10 @@
 
     <% var user = Parse.User.current() %>
 
+    <div class="confirm-message-container">
+      <div class="confirm-message"><h1>You followed Craft and Draft!</h1><i id="confirm-message-close" class="fa fa-close"></i></div>
+    </div>
+
     <div class="dashboard-statistics">
       <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
       ><li><h1>32</h1><p>Following</p></li
@@ -1392,18 +1415,20 @@
 
 
       <div class="header-options-container">
-        <div class="to-location">
-          <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
-          ><div class="update-location"><footer><h1>Update Location</h1></footer></div
 
-          ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
-        </div
-        ><div id="ddAlt" class="wrapper-dropdown-6">
-          <span>Go to...</span>
+        <div id="ddAlt" class="wrapper-dropdown-6">
+          <span>Dashboard</span>
           <ul class="dropdown">
             <li><a href="#dashboard"><i class="icon-dashboard icon-large"></i>Dashboard</a></li>
             <li><a href="#backend/feed"><i class="icon-cog icon-large"></i>Backend</a></li>
           </ul>
+        </div
+
+        ><div class="to-location">
+          <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
+          ><div class="update-location"><footer><h1>Update Location</h1></footer></div
+
+          ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
         </div>
       </div>
 
@@ -1417,6 +1442,10 @@
             ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
           </ul>
         </div>
+      </div>
+
+      <div class="location-container">
+
       </div>
 
 </script>
