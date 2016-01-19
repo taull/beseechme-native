@@ -54,7 +54,7 @@ body {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-  padding: 0px 0; }
+  padding: 15px 0; }
 
 .business-container {
   width: 1000px;
@@ -128,7 +128,7 @@ body {
   position: relative;
   width: 100%;
   transition: 250ms;
-  padding: 0px 0 20px;
+  padding: 0;
   background: transparent;
   height: 100vh; }
 
@@ -175,7 +175,7 @@ header {
   top: 0;
   left: 0;
   z-index: 9999999;
-  background: #444;
+  background: #37474F;
   /*box-shadow: 0 0 15px 0px #999;*/ }
 
 .header-container {
@@ -217,7 +217,7 @@ header {
   vertical-align: top;
   width: 100%;
   height: 60px;
-  background: #444; }
+  background: #37474F; }
   .header-left aside,
   .header-left section,
   .header-left a,
@@ -391,23 +391,53 @@ header {
     top: -15px;
     right: 20px; }
 
+/* Confirm Message */
+.confirm-message-container {
+  width: 100%;
+  position: fixed;
+  top: 60px;
+  height: 40px;
+  background: #66BB6A;
+  transition: 250ms;
+  z-index: 300; }
+
+.confirm-message {
+  width: 480px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 12px; }
+  .confirm-message h1,
+  .confirm-message span {
+    display: inline-block;
+    vertical-align: top; }
+  .confirm-message h1 {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 300; }
+  .confirm-message i {
+    font-size: 1.2em;
+    color: #fff;
+    padding-left: 10px; }
+
+.confirm-message-shift {
+  top: 20px; }
+
 /* Login/Register */
 .location-container {
-  width: 100%;
+  width: 480px;
   margin: 0 auto;
-  padding: 0px 0px 15px;
+  padding: 0px;
   position: relative;
-  top: 0px;
-  background: #f0f0f0;
-  border: 1px solid #ededed;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  padding: 10px 0;
+  display: none;
+  /*text-align: center;*/ }
 
 .dashboard-location {
   border: 1px solid #ededed;
   border-bottom: 0;
   background: #f0f0f0;
-  margin-bottom: 15px;
-  /*border-bottom:0;*/ }
+  margin-bottom: 15px; }
 
 .dashboard-tabs {
   width: 100%;
@@ -477,7 +507,7 @@ header {
   /*border-left: 5px solid $primary-color-medium !important;*/ }
   .active-dashboard-tab span,
   .active-dashboard-tab h1 {
-    color: #333 !important; }
+    color: #37474F !important; }
 
 .active-main-tab {
   background: #ededed;
@@ -558,9 +588,17 @@ header {
   z-index: 999999999999999999999999;
   transition: 250ms; }
 
+.section-header {
+  width: 60%;
+  display: inline-block;
+  vertical-align: top; }
+  .section-header h1 {
+    font-size: 1.6em;
+    font-weight: 400; }
+
 .header-options-container {
   width: 480px;
-  margin: 0 auto;
+  margin: 40px auto 0;
   position: relative;
   transition: 250ms;
   /*	padding: 10px;
@@ -572,7 +610,7 @@ header {
   margin: 0px auto;
   position: relative;
   transition: 250ms;
-  padding: 15px 0; }
+  padding: 15px 0 0; }
 
 .business-tabs-container-expand {
   width: 150px; }
@@ -582,7 +620,16 @@ header {
   transition: 250ms;
   z-index: 25;
   width: 100%;
-  padding: 0; }
+  padding: 0;
+  background: #f8f8f8;
+  /*	a:first-child, 
+  	li:first-child {
+  		background: $blue-700;
+  
+  		h1 {
+  			color: #fff;
+  		}
+  	}*/ }
   .business-tabs ul {
     list-style: none;
     padding-left: 0; }
@@ -590,11 +637,7 @@ header {
   .business-tabs li {
     display: inline-block;
     cursor: pointer;
-    padding: 0;
-    text-align: center;
-    background: #fff;
-    padding: 10px;
-    width: 20%; }
+    padding: 15px 0 15px 20px; }
     .business-tabs a section,
     .business-tabs li section {
       display: inline-block;
@@ -616,12 +659,6 @@ header {
       display: none; }
   .business-tabs li {
     background: #f8f8f8; }
-  .business-tabs a:first-child,
-  .business-tabs li:first-child {
-    background: #2196F3; }
-    .business-tabs a:first-child h1,
-    .business-tabs li:first-child h1 {
-      color: #fff; }
 
 .slideout-user {
   padding: 30px 0;
@@ -833,9 +870,7 @@ header {
     width: 100%;
     padding: 15px;
     cursor: pointer;
-    background: #fff;
-    margin-bottom: 15px;
-    border-radius: 3px; }
+    background: #fff; }
   .listing-container li:hover {
     /*background: #f8f8f8;*/
     		/*section {
@@ -995,7 +1030,8 @@ header {
   height: 40px;
   margin: 0 auto;
   background: #fff;
-  border-radius: 3px; }
+  border-radius: 3px;
+  margin-left: 10px; }
   .to-location a {
     text-decoration: none; }
   .to-location aside,
@@ -1006,7 +1042,7 @@ header {
     width: 20%;
     background: #fff;
     text-align: center;
-    padding-top: 11px;
+    padding-top: 12px;
     height: 40px;
     position: absolute;
     right: 0;
@@ -1018,7 +1054,7 @@ header {
   .to-location section {
     position: absolute;
     width: 80%;
-    padding: 13px 20px 0;
+    padding: 11px 20px 0;
     text-align: left;
     margin: 0 auto;
     height: 40px;
@@ -1195,13 +1231,13 @@ header {
     height: 40px;
     text-align: left;
     margin: 0 auto;
-    padding: 13px 20px 0;
+    padding: 11px 20px 0;
     background: #fff;
     border-right: 0;
     cursor: pointer; }
     .update-location footer h1 {
       color: #333;
-      font-size: 1.2em;
+      font-size: 1.1em;
       font-weight: 400;
       /*			padding-bottom: 5px;
       			border-bottom: 1px solid #333;*/ }
@@ -1471,7 +1507,7 @@ header {
     display: block;
     vertical-align: top;
     font-size: 1em;
-    color: #333;
+    color: #37474F;
     font-weight: 300; }
 
 .change-location {
@@ -1596,7 +1632,7 @@ header {
   .profile-options li {
     width: 25%;
     display: inline-block;
-    color: #333;
+    color: #37474F;
     font-size: 1em;
     text-align: center;
     padding: 15px 0;
@@ -1627,14 +1663,14 @@ header {
 .profile-info {
   width: 100%;
   text-align: center;
-  background: #333;
+  background: #37474F;
   border-top: 1px solid #455A64;
   margin-bottom: 0px;
   height: 50px;
   margin-bottom: 25px; }
   .profile-info span {
     font-size: 36px;
-    color: #333;
+    color: #37474F;
     position: relative;
     left: 0;
     margin: 0 auto;
@@ -1645,7 +1681,7 @@ header {
 
 .profile-statistics {
   width: 100%;
-  background: #333;
+  background: #37474F;
   border-top: 1px solid #455A64;
   margin-bottom: 0px;
   margin-bottom: 25px; }
@@ -1797,13 +1833,13 @@ header {
   .bar-page-options li {
     width: 25%;
     display: inline-block;
-    color: #333;
+    color: #37474F;
     font-size: 1em;
     text-align: center;
     padding: 20px 0;
     font-weight: 300;
     border-right: 1px solid #000;
-    border-left: 1px solid #333;
+    border-left: 1px solid #37474F;
     /*border-bottom: 1px solid $primary-color-dark;*/ }
   .bar-page-options li:last-child {
     border-right: 0; }
@@ -1835,46 +1871,66 @@ header {
 
 .beer-search {
   width: 100%;
-  background: #333;
+  background: #ddd;
   position: relative;
   transition: 250ms;
-  margin-top: -70px;
-  z-index: 50; }
-  .beer-search span {
-    display: inline-block;
-    vertical-align: top;
-    width: 20%;
-    font-size: 1.2em;
-    color: #f0f0f0;
-    text-align: right;
-    padding-right: 20px;
-    padding-top: 28px; }
-  .beer-search input {
-    display: inline-block;
-    color: #fff;
-    vertical-align: top;
-    height: 70px;
-    width: 60%;
-    border: 0;
-    background: transparent;
-    outline: 0;
-    border-radius: 0;
-    font-size: 1.4em;
-    font-weight: 300; }
-  .beer-search input::-webkit-input-placeholder {
-    color: #f0f0f0; }
+  z-index: 50;
+  margin-bottom: 15px;
+  padding: 10px;
+  height: 60px; }
+  .beer-search section,
+  .beer-search aside,
+  .beer-search span,
+  .beer-search i,
+  .beer-search input,
   .beer-search button {
-    background: rgba(255, 255, 255, 0.1);
-    outline: 0;
-    border: 0;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 1em;
-    font-weight: 300;
-    padding: 10px;
-    margin-top: 18px; }
-  .beer-search i {
-    font-size: 1em; }
+    display: inline-block;
+    vertical-align: top; }
+  .beer-search section {
+    width: 60%;
+    background: #f8f8f8; }
+    .beer-search section span {
+      width: 15%;
+      font-size: 1.2em;
+      color: #ddd;
+      text-align: right;
+      padding-right: 10px;
+      padding-top: 15px; }
+    .beer-search section input {
+      color: #333;
+      background: #f8f8f8;
+      height: 40px;
+      width: 70%;
+      border: 0;
+      background: transparent;
+      outline: 0;
+      border-radius: 0;
+      font-size: 1.1em;
+      font-weight: 400; }
+    .beer-search section input::-webkit-input-placeholder {
+      color: #333; }
+    .beer-search section i {
+      width: 15%;
+      font-size: 1.4em;
+      color: #ddd;
+      text-align: center;
+      padding-top: 13px;
+      height: 40px;
+      cursor: pointer; }
+  .beer-search aside {
+    width: 40%;
+    text-align: left;
+    padding-left: 10px; }
+    .beer-search aside button {
+      background: #1976D2;
+      outline: 0;
+      border: 0;
+      color: #fff;
+      border-radius: 3px;
+      font-size: 1em;
+      font-weight: 300;
+      padding: 0 15px;
+      height: 40px; }
   .beer-search a {
     width: 15%;
     display: inline-block;
@@ -1908,75 +1964,84 @@ header {
   bottom: 0px;
   top: 120px; }
 
-.bar-search-container {
+.search-results-container {
   width: 480px;
   height: 100vh;
   position: relative;
   background: #f0f0f0;
   margin: 0 auto;
   overflow: scroll; }
-  .bar-search-container li {
+  .search-results-container li {
     display: inline-block;
     width: 100%;
     padding: 15px;
-    background: #fff;
-    margin-top: 10px;
-    border-radius: 3px; }
-  .bar-search-container li:nth-child(odd) {
+    background: #fff; }
+  .search-results-container li:nth-child(odd) {
     /*background: #fff;*/ }
-  .bar-search-container aside {
+  .search-results-container aside {
     width: 40px;
     height: 40px;
     display: inline-block;
     vertical-align: top;
     position: relative; }
-    .bar-search-container aside img {
+    .search-results-container aside img {
       width: 40px;
       height: 40px;
       border-radius: 25px;
       position: absolute;
       top: 0;
       left: 0; }
-  .bar-search-container section {
+  .search-results-container section {
     width: 70%;
     display: inline-block;
     vertical-align: top;
     padding-left: 10px;
     padding-top: 5px; }
-    .bar-search-container section h1 {
+    .search-results-container section h1 {
       width: 100%;
       display: inline-block;
       vertical-align: top;
       font-size: 1.1em;
       color: #01579B; }
-    .bar-search-container section p {
+    .search-results-container section p {
       font-size: .9em;
       font-weight: 300;
       padding-top: 3px; }
-    .bar-search-container section h2 {
+    .search-results-container section h2 {
       width: 100%;
       display: inline-block;
       font-size: 1em;
       font-weight: 400;
       margin-top: 5px; }
-  .bar-search-container div {
+  .search-results-container div {
     display: inline-block;
     vertical-align: top;
     text-align: right;
     float: right;
     padding-top: 5px; }
-    .bar-search-container div h1 {
+    .search-results-container div h1 {
       width: 100%;
       display: inline-block;
       vertical-align: top;
       font-size: 1em;
       font-weight: 400;
       color: #01579B; }
-  .bar-search-container span {
+  .search-results-container span {
     font-size: 18px;
     display: inline-block;
     vertical-align: top;
     color: #0277BD; }
+
+/* Beer Search Container */
+.beer-search-container {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  transition: 250ms;
+  z-index: 400;
+  margin-bottom: 15px; }
 
 /* SEARCH CONTAINER */
 .search-container {
@@ -2000,7 +2065,7 @@ header {
   position: relative;
   width: 480px;
   height: 100vh;
-  background: #ddd;
+  background: #fff;
   transition: 250ms;
   height: 60px;
   margin: 0 auto;
@@ -2036,9 +2101,7 @@ header {
       height: 40px;
       cursor: pointer; }
     .bar-search section input {
-      display: inline-block;
       color: #333;
-      vertical-align: top;
       height: 40px;
       width: 70%;
       border: 0;
@@ -2255,7 +2318,6 @@ header {
 .profile-beer-list {
   width: 100%;
   margin-top: 0px;
-  border-bottom: 1px solid #d8d8d8;
   padding-bottom: 10px; }
   .profile-beer-list ul {
     list-style: none;
@@ -2266,8 +2328,7 @@ header {
     padding: 15px;
     cursor: auto;
     position: relative;
-    background: #fff;
-    margin-bottom: 15px; }
+    background: #fff; }
   .profile-beer-list div {
     display: inline-block;
     vertical-align: top;
@@ -2328,6 +2389,10 @@ header {
       height: 30px;
       position: absolute;
       left: 0; }
+  .profile-beer-list article {
+    display: none; }
+  .profile-beer-list section {
+    display: none; }
 
 .loader {
   margin: 0 0 2em;
@@ -2875,8 +2940,8 @@ svg rect {
   .friends-feed div {
     background: #fff;
     padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 3px; }
+    /*margin-bottom: 15px;
+    border-radius: 3px;*/ }
   .friends-feed li:nth-child(odd),
   .friends-feed div:nth-child(odd) {
     /*background: #f0f0f0;*/ }
@@ -3015,7 +3080,7 @@ svg rect {
       line-height: 20px;
       font-weight: 300;
       padding-top: 15px;
-      color: #333; }
+      color: #37474F; }
     .feed-content aside p {
       font-size: 1.1em;
       line-height: 1.6em;
@@ -3348,7 +3413,7 @@ svg rect {
       line-height: 20px;
       font-weight: 300;
       padding-top: 15px;
-      color: #333; }
+      color: #37474F; }
     .feed-event aside p {
       font-size: 1.1em;
       line-height: 1.6em;
@@ -3383,7 +3448,7 @@ svg rect {
     line-height: 20px;
     font-weight: 300;
     padding-top: 15px;
-    color: #333; }
+    color: #37474F; }
   .feed-caption aside p {
     font-size: 1em;
     line-height: 1.6em;
@@ -3473,7 +3538,7 @@ svg rect {
 
 .view-all-dark {
   width: 100%;
-  border-top: 1px solid #333;
+  border-top: 1px solid #37474F;
   background: #263238;
   text-align: center;
   padding: 15px 0;
@@ -3490,7 +3555,7 @@ svg rect {
   width: 100%;
   text-align: center;
   padding: 100px 0;
-  background: #333; }
+  background: #37474F; }
 
 /* Slideout Panel */
 .settings-slideout {
@@ -4187,14 +4252,14 @@ svg rect {
   .calendar-container li {
     padding: 20px 30px;
     display: block;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #37474F;
     transition: 250ms;
     cursor: pointer; }
   .settings-container li:hover,
   .settings-container li:focus,
   .calendar-container li:hover,
   .calendar-container li:focus {
-    background: #333; }
+    background: #37474F; }
   .settings-container p,
   .calendar-container p {
     display: inline-block;

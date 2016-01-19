@@ -2356,6 +2356,17 @@ BeMe.Views.Dashboard = Parse.View.extend({
 
     });
 
+    $('.follow').click(function(){
+      $('.confirm-message-container').toggleClass('confirm-message-shift');
+      $('#confirm-message-close').toggleClass('confirm-message-shift');
+    });
+
+    $('#confirm-message-close').click(function(){
+      $('.confirm-message-container').toggleClass('confirm-message-shift');
+      // $('.body-container').toggleClass('body-container-shift');
+
+    });
+
     $('header form[name="bar-search"').submit(function(e) {
       self.userSearch(e);
     });
