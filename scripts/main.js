@@ -155,7 +155,7 @@ BeMe.CheckIn = function (user, business) {
 
     checkInStatus.save({
       success: function () {
-        BeMe.showConfirmation("You checked into " + business.get('businessName'));
+        BeMe.showConfirmation("You checked into " + business.get('businessName') + "!");
       }, error: function () {
         alert('Error saving object');
       }
@@ -169,11 +169,10 @@ BeMe.FollowUser = function (user) {
   if(user.id !== currentUser.id) {
     relation.add(user);
     currentUser.save().then(function () {
-      console.log(user.userType);
       if (user.get('userType') == 'business') {
-        BeMe.showConfirmation("You followed " + user.get('businessName'));
+        BeMe.showConfirmation("You followed " + user.get('businessName') + "!");
       } else {
-        BeMe.showConfirmation("You followed " + user.get('firstName') + " " + user.get('lastName'));
+        BeMe.showConfirmation("You followed " + user.get('firstName') + " " + user.get('lastName') + "!");
       }
     });
   } else {
