@@ -38,9 +38,29 @@ BeMe.Views.Dashboard = Parse.View.extend({
       self.userSearch(e);
     });
 
+
+
     $(function() {
 
-      var ddAlt = new DropDown( $('#ddAlt') );
+      function DropDown(el) {
+        this.ddAlt = el;
+        this.initEvents();
+      }
+      DropDown.prototype = {
+          initEvents : function() {
+              var obj = this;
+
+              obj.ddAlt.on('click', function(event){
+                  $(this).toggleClass('active');
+                  event.stopPropagation();
+              }); 
+          }
+      }
+
+      if (!BeMe.dd) {
+        var ddAlt = new DropDown( $('#ddAlt') );
+        BeMe.dd = true;
+      }
 
       $(document).click(function() {
         // all dropdowns
@@ -49,20 +69,7 @@ BeMe.Views.Dashboard = Parse.View.extend({
 
     });
 
-    function DropDown(el) {
-        this.ddAlt = el;
-        this.initEvents();
-    }
-    DropDown.prototype = {
-        initEvents : function() {
-            var obj = this;
-
-            obj.ddAlt.on('click', function(event){
-                $(this).toggleClass('active');
-                event.stopPropagation();
-            }); 
-        }
-    }
+    
   },
 
   events: {
