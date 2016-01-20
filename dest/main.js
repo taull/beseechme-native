@@ -418,7 +418,6 @@ BeMe.showConfirmation = function (string) {
 
   function closeConfirmation () {
     $confirmMessageContainer.css('top','20px');
-    $confirmMessageContainer.off('click','#confirm-message-close');
     BeMe.confirmationMessage.isActive = false;
   };
 
@@ -436,11 +435,6 @@ BeMe.showConfirmation = function (string) {
     //update the text and move the notification into view
     $('.confirm-message h1').text(string);
     $confirmMessageContainer.css('top', '60px');
-
-    //set up an event handler to close the notification
-    $confirmMessageContainer.on('click','#confirm-message-close', function () {
-      closeConfirmation();
-    });
 
     //set up a timeout for 2 seconds to automatically close
     BeMe.confirmationMessage.timerId = setTimeout(function () {
@@ -2768,7 +2762,7 @@ BeMe.Views.Status = Parse.View.extend({
     var likedBy = this.model.relation('likedBy');
     var currentTarget = e.currentTarget;
     var currentTargetClass = currentTarget.className;
-    var likeCount = this.$el.find('.likes');
+    var $likeCount = this.$el.find('.likes');
     var self = this;
 
     if (currentTargetClass == 'like-button') {
@@ -2776,7 +2770,7 @@ BeMe.Views.Status = Parse.View.extend({
       //Update the UI
       currentTarget.className = 'dislike-button';
       currentTarget.textContent = 'Liked';
-      likeCount.text(this.likeCount);
+      $likeCount.text(this.likeCount);
       // Add this user to the likedBy relation of this post and save
       likedBy.add(user);
       this.model.save().then(function () {
@@ -2792,7 +2786,7 @@ BeMe.Views.Status = Parse.View.extend({
       //Update the UI
       currentTarget.className = 'like-button';
       currentTarget.textContent = 'Like';
-      likeCount.text(this.likeCount);
+      $likeCount.text(this.likeCount);
       // Remove this user from the likeBy relation of this post and save
       likedBy.remove(user);
       this.model.save();

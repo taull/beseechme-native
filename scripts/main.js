@@ -196,7 +196,6 @@ BeMe.showConfirmation = function (string) {
 
   function closeConfirmation () {
     $confirmMessageContainer.css('top','20px');
-    $confirmMessageContainer.off('click','#confirm-message-close');
     BeMe.confirmationMessage.isActive = false;
   };
 
@@ -214,11 +213,6 @@ BeMe.showConfirmation = function (string) {
     //update the text and move the notification into view
     $('.confirm-message h1').text(string);
     $confirmMessageContainer.css('top', '60px');
-
-    //set up an event handler to close the notification
-    $confirmMessageContainer.on('click','#confirm-message-close', function () {
-      closeConfirmation();
-    });
 
     //set up a timeout for 2 seconds to automatically close
     BeMe.confirmationMessage.timerId = setTimeout(function () {
