@@ -94,15 +94,21 @@ BeMe.Views.Status = Parse.View.extend({
     var likedBy = this.model.relation('likedBy');
     var currentTarget = e.currentTarget;
     var currentTargetClass = currentTarget.className;
-    var likeCount = this.$el.find('.likes');
+    var $likeCount = this.$el.find('.likes');
     var self = this;
+
+    var initialFontSize = $likeCount.css('font-size');
+	$likeCount.css('font-size', '2em');
+	setTimeout(function () {
+		$likeCount.css('font-size', initialFontSize);
+	},250);
 
     if (currentTargetClass == 'like-button') {
       this.likeCount += 1;
       //Update the UI
       currentTarget.className = 'dislike-button';
       currentTarget.textContent = 'Liked';
-      likeCount.text(this.likeCount);
+      $likeCount.text(this.likeCount);
       // Add this user to the likedBy relation of this post and save
       likedBy.add(user);
       this.model.save().then(function () {
@@ -118,7 +124,7 @@ BeMe.Views.Status = Parse.View.extend({
       //Update the UI
       currentTarget.className = 'like-button';
       currentTarget.textContent = 'Like';
-      likeCount.text(this.likeCount);
+      $likeCount.text(this.likeCount);
       // Remove this user from the likeBy relation of this post and save
       likedBy.remove(user);
       this.model.save();
