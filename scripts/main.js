@@ -36,6 +36,9 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
   //route object
   BeMe.Calendar = {};
   BeMe.Dashboard = {};
+
+  //misc objects
+  BeMe.confirmationMessage = {};
 })();
 
 /*
@@ -189,21 +192,39 @@ BeMe.UnfollowUser = function (user) {
 };
 
 BeMe.showConfirmation = function (string) {
-  $('.confirm-message h1').text(string);
-  $('.confirm-message-container').css('top', '60px');
+  var $confirmMessageContainer = $('.confirm-message-container');
 
   function closeConfirmation () {
-    $('.confirm-message-container').css('top','20px');
-    $('.confirm-message-container').off('click','#confirm-message-close');
+    $confirmMessageContainer.css('top','20px');
+    $confirmMessageContainer.off('click','#confirm-message-close');
+    BeMe.confirmationMessage.isActive = false;
   };
 
-  $('.confirm-message-container').on('click','#confirm-message-close', function () {
-    closeConfirmation();
-  });
+  //If the notification is already being displayed
+  if (BeMe.confirmationMessage.isActive) {
+    clearInterval(BeMe.confirmationMessage.timerId); //clear the interval
+    $('.confirm-message h1').text(string);
+    BeMe.confirmationMessage.timerId = setTimeout(function () {
+      closeConfirmation();
+    },2000);
+  } else { //if it's not been displayed yet
+    //make sure the application knows it is active
+    BeMe.confirmationMessage.isActive = true;
 
-  setTimeout(function () {
-    closeConfirmation();
-  },3000);
+    //update the text and move the notification into view
+    $('.confirm-message h1').text(string);
+    $confirmMessageContainer.css('top', '60px');
+
+    //set up an event handler to close the notification
+    $confirmMessageContainer.on('click','#confirm-message-close', function () {
+      closeConfirmation();
+    });
+
+    //set up a timeout for 2 seconds to automatically close
+    BeMe.confirmationMessage.timerId = setTimeout(function () {
+      closeConfirmation();
+    },2000);
+  }
 };
 
 /*
