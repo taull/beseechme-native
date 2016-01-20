@@ -2346,7 +2346,6 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
     });
   }
 });
-
 BeMe.Views.Dashboard = Parse.View.extend({
   initialize: function () {
     this.render();
@@ -2430,8 +2429,6 @@ BeMe.Views.Dashboard = Parse.View.extend({
     BeMe.searchUsers(searchString);
   }
 });
-
-
 BeMe.Views.Index = Parse.View.extend({
 	initialize: function () {
 		this.render();
