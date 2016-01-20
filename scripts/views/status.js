@@ -108,7 +108,7 @@ BeMe.Views.Status = Parse.View.extend({
       this.model.save().then(function () {
       	var createdBy = self.model.get('createdBy')
       	if (createdBy.get('userType') == 'consumer') {
-      		BeMe.showConfirmation('You have liked ' + createdBy.get('firstName') + createdBy.get('lastName') + "'s post!");
+      		BeMe.showConfirmation('You have liked ' + createdBy.get('firstName') + " " + createdBy.get('lastName') + "'s post!");
       	} else {
       		BeMe.showConfirmation('You have liked ' + createdBy.get('businessName') + "'s post!");
       	}
