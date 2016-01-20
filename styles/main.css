@@ -395,7 +395,7 @@ header {
 .confirm-message-container {
   width: 100%;
   position: fixed;
-  top: 60px;
+  top: 20px;
   height: 40px;
   background: #66BB6A;
   transition: 250ms;

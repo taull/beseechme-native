@@ -1011,21 +1011,21 @@
 
 <script type="text/template" id="business-home-view">
 
-  <% var user = Parse.User.current() %>
-
   <div class="dashboard-container">
+
+  <% var user = Parse.User.current() %>
 
         <div class="left-column">
 
           <div class="to-location">
-            <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
+            <section class="update-location-info"><h1><%= attributes.city %>, <%= attributes.state %> (<%= attributes.zip %>)</h1></section
             ><div class="update-location"><footer><h1>Update Location</h1></footer></div
 
             ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
           </div>
 
           <div class="dashboard-tabs">
-            <a href="#business/" class="active-dashboard-tab"><span class="entypo-dot-3"></span><h1>Main Feed</h1></a
+            <a href="#business/<%= attributes.handle %>" class="active-dashboard-tab"><span class="entypo-dot-3"></span><h1>Main Feed</h1></a
             ><a href="#business/<%= attributes.handle %>/beer"><span class="entypo-bookmarks"></span><h1>Beer List</h1></a
             ><a href="#business/<%= attributes.handle %>/friends"><span class="entypo-user-add"></span><h1>My Friends</h1></a
             ><a href="#business/<%= attributes.handle %>/calendar"><span class="entypo-calendar"></span><h1>Calendar</h1></a>
@@ -1038,8 +1038,8 @@
             <section class="feed-header"><h1>Craft and Draft</h1></section>
           </div>
           <div class="business-cover">
-            <% if (typeof user.get('coverPhoto') !=='undefined') { %>
-              <img src=<%= user.get('coverPhoto')._url %> >
+            <% if (typeof attributes.coverPhoto !=='undefined') { %>
+              <img src=<%= attributes.coverPhoto._url %> >
               <% } else { %>
               <img src="images/craft2.jpg">
             <% } %>
@@ -1047,14 +1047,14 @@
 
           <div class="business-home">
             <section>
-                <% if (typeof user.get('avatar') !=='undefined') { %>
-                  <img src=<%= user.get('avatar')._url %> >
+                <% if (typeof attributes.avatar !=='undefined') { %>
+                  <img src=<%= attributes.avatar._url %> >
                   <% } else { %>
                   <img src="images/default-avatar.png">
                 <% } %>
-                <h1><%= user.get('businessName') %></h1><i class="fa fa-check-circle"></i>
-                <p><%= user.get('address') %>, <%= user.get('City') %>, <%= user.get('state') %> <%= user.get('zip') %></p>
-                <h2><%= user.get('phoneNumber') %></h2>
+                <h1><%= attributes.businessName %></h1><i class="fa fa-check-circle"></i>
+                <p><%= attributes.address %>, <%= attributes.City %>, <%= attributes.state %> <%= attributes.zip %></p>
+                <h2><%= attributes.phoneNumber %></h2>
             </section>
           </div>
 

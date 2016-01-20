@@ -21,7 +21,6 @@ BeMe.Views.BusinessHome = Parse.View.extend({
     query.include('createdBy');
     query.descending('createdAt');
     query.find().then(function (e) {
-      console.log(e);
       _.each(e, function (i) {
         var collection = new Parse.Collection(i);
         new BeMe.Views.StatusListView({collection:collection,container:'.bar-feed'});
@@ -48,7 +47,6 @@ BeMe.Views.BusinessHome = Parse.View.extend({
       }
 
       Parse.Cloud.run('getBeers', {array:array}).then(function (e) {
-        console.log(e);
         _.each(e, function (i) {
           new BeMe.Views.BackendBeer({model:i});
         });
@@ -79,7 +77,6 @@ BeMe.Views.BusinessHome = Parse.View.extend({
 
     var query = Parse.Query.or(timeBasedQuery, standingCommentQuery);
     query.find().then(function (e) {
-      console.log(e);
       _.each(e, function (i) {
         new BeMe.Views.CommentDisplay({model:i});
       });

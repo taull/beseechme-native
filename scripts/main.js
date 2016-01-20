@@ -192,17 +192,17 @@ BeMe.showConfirmation = function (string) {
   $('.confirm-message h1').text(string);
   $('.confirm-message-container').css('top', '60px');
 
-  function close () {
+  function closeConfirmation () {
     $('.confirm-message-container').css('top','20px');
     $('.confirm-message-container').off('click','#confirm-message-close');
   };
 
   $('.confirm-message-container').on('click','#confirm-message-close', function () {
-    close();
+    closeConfirmation();
   });
 
   setTimeout(function () {
-    close();
+    closeConfirmation();
   },3000);
 };
 

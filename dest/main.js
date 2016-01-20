@@ -414,17 +414,17 @@ BeMe.showConfirmation = function (string) {
   $('.confirm-message h1').text(string);
   $('.confirm-message-container').css('top', '60px');
 
-  function close () {
+  function closeConfirmation () {
     $('.confirm-message-container').css('top','20px');
     $('.confirm-message-container').off('click','#confirm-message-close');
   };
 
   $('.confirm-message-container').on('click','#confirm-message-close', function () {
-    close();
+    closeConfirmation();
   });
 
   setTimeout(function () {
-    close();
+    closeConfirmation();
   },3000);
 };
 
@@ -1925,7 +1925,6 @@ BeMe.Views.BusinessHome = Parse.View.extend({
     query.include('createdBy');
     query.descending('createdAt');
     query.find().then(function (e) {
-      console.log(e);
       _.each(e, function (i) {
         var collection = new Parse.Collection(i);
         new BeMe.Views.StatusListView({collection:collection,container:'.bar-feed'});
@@ -1952,7 +1951,6 @@ BeMe.Views.BusinessHome = Parse.View.extend({
       }
 
       Parse.Cloud.run('getBeers', {array:array}).then(function (e) {
-        console.log(e);
         _.each(e, function (i) {
           new BeMe.Views.BackendBeer({model:i});
         });
@@ -1983,7 +1981,6 @@ BeMe.Views.BusinessHome = Parse.View.extend({
 
     var query = Parse.Query.or(timeBasedQuery, standingCommentQuery);
     query.find().then(function (e) {
-      console.log(e);
       _.each(e, function (i) {
         new BeMe.Views.CommentDisplay({model:i});
       });
