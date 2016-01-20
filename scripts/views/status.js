@@ -112,7 +112,7 @@ BeMe.Views.Status = Parse.View.extend({
       // Add this user to the likedBy relation of this post and save
       likedBy.add(user);
       this.model.save().then(function () {
-      	var createdBy = self.model.get('createdBy')
+      	var createdBy = self.model.get('createdBy');
       	if (createdBy.get('userType') == 'consumer') {
       		BeMe.showConfirmation('You have liked ' + createdBy.get('firstName') + " " + createdBy.get('lastName') + "'s post!");
       	} else {
@@ -127,7 +127,9 @@ BeMe.Views.Status = Parse.View.extend({
       $likeCount.text(this.likeCount);
       // Remove this user from the likeBy relation of this post and save
       likedBy.remove(user);
-      this.model.save();
+      this.model.save().then(function () {
+      	var createdBy = self.model.get('createdBy');
+      });
     }
   },
 

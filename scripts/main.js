@@ -173,9 +173,9 @@ BeMe.FollowUser = function (user) {
     relation.add(user);
     currentUser.save().then(function () {
       if (user.get('userType') == 'business') {
-        BeMe.showConfirmation("You followed " + user.get('businessName'));
+        BeMe.showConfirmation("You followed " + user.get('businessName') + "!");
       } else {
-        BeMe.showConfirmation("You followed " + user.get('firstName') + " " + user.get('lastName'));
+        BeMe.showConfirmation("You followed " + user.get('firstName') + " " + user.get('lastName') + "!");
       }
     });
   } else {
@@ -188,10 +188,16 @@ BeMe.UnfollowUser = function (user) {
   var relation = currentUser.relation('barsFollowing');
 
   relation.remove(user);
-  currentUser.save();
+  currentUser.save().then(function () {
+    if (user.get('userType') == 'business') {
+      BeMe.showConfirmation("You have unfollowed " + user.get('businessName'),true);
+    } else {
+      BeMe.showConfirmation("You have unfollowed " + user.get('firstName') + " " + user.get('lastName'),true);
+    }
+  });
 };
 
-BeMe.showConfirmation = function (string) {
+BeMe.showConfirmation = function (string, isBad) {
   var $confirmMessageContainer = $('.confirm-message-container');
 
   function closeConfirmation () {
@@ -199,9 +205,17 @@ BeMe.showConfirmation = function (string) {
     BeMe.confirmationMessage.isActive = false;
   };
 
+
+  if (isBad) {
+    var backgroundColor = "#EF5350";
+  } else {
+    var backgroundColor = "#66BB6A";
+  }
+
   //If the notification is already being displayed
   if (BeMe.confirmationMessage.isActive) {
     clearInterval(BeMe.confirmationMessage.timerId); //clear the interval
+    $confirmMessageContainer.css('background-color', backgroundColor);
     $('.confirm-message h1').text(string);
     BeMe.confirmationMessage.timerId = setTimeout(function () {
       closeConfirmation();
@@ -211,6 +225,7 @@ BeMe.showConfirmation = function (string) {
     BeMe.confirmationMessage.isActive = true;
 
     //update the text and move the notification into view
+    $confirmMessageContainer.css('background-color', backgroundColor);
     $('.confirm-message h1').text(string);
     $confirmMessageContainer.css('top', '60px');
 
