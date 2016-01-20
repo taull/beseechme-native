@@ -16,10 +16,10 @@
 
 $primary-color-dark: #263238;
 $primary-color-medium: #37474F;
-$primary-color-light: #f0f0f0;
+$primary-color-light: #ECEFF1;
 
 $secondary-color-dark: #01579B;
-$secondary-color-medium: #0277BD;
+$secondary-color-medium: #66BB6A;
 $secondary-color-light: #03A9F4;
 
 $red-light: #EF5350;
@@ -62,7 +62,7 @@ input [file] {
 body {
 	font-size: 12px;
 	position: relative;
-	background: #f0f0f0;
+	background: $primary-color-light;
 	/*background: url('../images/jack-daniels.jpg') no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -834,6 +834,7 @@ header {
 	position:relative;
 	transition: 250ms;
 	padding: 15px 0 0;
+	display: none;
 }
 
 .business-tabs-container-expand {
@@ -846,7 +847,6 @@ header {
     z-index: 25;
     width: 100%;
     padding: 0;
-    background: #f8f8f8;
 
 	ul {
 		list-style: none;
@@ -858,7 +858,10 @@ header {
 	li {
 		display: inline-block;
 		cursor: pointer;
-		padding: 15px 0 15px 20px;
+		padding: 10px 15px;
+		margin-right: 10px;
+		background: #fff;
+		border-radius: 3px;
 
 		section {
 			display: inline-block;
@@ -1398,14 +1401,10 @@ header {
 	width: 45% !important;
 }
 
-.to-location-container {
-
-}
-
 .to-location {
 	display: inline-block;
 	vertical-align: top;
-	width: 60%;
+	width: 68%;
 	text-align: center;
 	position: relative;
 	overflow: hidden;
@@ -1413,7 +1412,7 @@ header {
 	margin: 0 auto;
 	background: #fff;
 	border-radius: 3px;
-	margin-left: 10px;
+	margin-left: 2%;
 
 	a {
 		text-decoration: none;
@@ -4025,7 +4024,8 @@ svg rect{
 		p, 
 		i, 
 		h1,
-		h2 {
+		h2, 
+		div {
 			display: inline-block;
 			vertical-align: top;
 		}
@@ -4035,7 +4035,7 @@ svg rect{
 			font-size:1.1em;
 			font-weight: 500;
 			padding-left: 3px;
-			padding-right: 10px;
+			padding-right: 5px;
 		}
 
 
@@ -4048,10 +4048,10 @@ svg rect{
 			padding-top: 3px;
 		}
 
-		h2 {
-			color: #ccc;
-			font-size:1em;
-			font-weight: 400;
+		i {
+			font-size: 1.3em;
+			color: $secondary-color-medium;			
+			margin-top: 3px;
 		}
 
 	}
