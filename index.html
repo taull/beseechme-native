@@ -810,7 +810,7 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><i class="fa fa-check-circle"></i><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer><h1>+</h1><span class='likes'></span></footer>
 
@@ -1403,7 +1403,7 @@
     <% var user = Parse.User.current() %>
 
     <div class="confirm-message-container">
-      <div class="confirm-message"><h1>You followed Craft and Draft!</h1><i id="confirm-message-close" class="fa fa-close"></i></div>
+      <div class="confirm-message"><h1>You followed Craft and Draft</h1><i id="confirm-message-close" class="fa fa-close"></i></div>
     </div>
 
     <div class="dashboard-statistics">
@@ -1417,10 +1417,14 @@
       <div class="header-options-container">
 
         <div id="ddAlt" class="wrapper-dropdown-6">
-          <span>Dashboard</span>
+          <span>Home</span>
           <ul class="dropdown">
-            <li><a href="#dashboard"><i class="icon-dashboard icon-large"></i>Dashboard</a></li>
-            <li><a href="#backend/feed"><i class="icon-cog icon-large"></i>Backend</a></li>
+            <li><a href="#dashboard"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="#dashboard/following"><i class="fa fa-users"></i>Following</a></li>
+            <li><a href="#dashboard/friends"><i class="fa fa-users"></i>Friends</a></li>
+            <li><a href="#dashboard/listing"><i class="fa fa-th-list"></i>Listing</a></li>
+            <li><a href="#dashboard/map"><i class="fa fa-location-arrow"></i>Map</a></li>
+
           </ul>
         </div
 
