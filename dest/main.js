@@ -2749,6 +2749,7 @@ BeMe.Views.Status = Parse.View.extend({
     var currentTarget = e.currentTarget;
     var currentTargetClass = currentTarget.className;
     var likeCount = this.$el.find('.likes');
+    var self = this;
 
     if (currentTargetClass == 'like-button') {
       this.likeCount += 1;
@@ -2758,7 +2759,14 @@ BeMe.Views.Status = Parse.View.extend({
       likeCount.text(this.likeCount);
       // Add this user to the likedBy relation of this post and save
       likedBy.add(user);
-      this.model.save();
+      this.model.save().then(function () {
+      	var createdBy = self.model.get('createdBy')
+      	if (createdBy.get('userType') == 'consumer') {
+      		BeMe.showConfirmation('You have liked ' + createdBy.get('firstName') + createdBy.get('lastName') + "'s post!");
+      	} else {
+      		BeMe.showConfirmation('You have liked ' + createdBy.get('businessName') + "'s post!");
+      	}
+      });
     } else if (currentTargetClass == 'dislike-button') {
       this.likeCount -=1;
       //Update the UI
