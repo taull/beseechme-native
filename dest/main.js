@@ -2765,6 +2765,12 @@ BeMe.Views.Status = Parse.View.extend({
     var $likeCount = this.$el.find('.likes');
     var self = this;
 
+    var initialFontSize = $likeCount.css('font-size');
+	$likeCount.css('font-size', '2em');
+	setTimeout(function () {
+		$likeCount.css('font-size', initialFontSize);
+	},250);
+
     if (currentTargetClass == 'like-button') {
       this.likeCount += 1;
       //Update the UI
