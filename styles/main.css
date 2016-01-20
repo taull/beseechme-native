@@ -395,7 +395,7 @@ header {
 .confirm-message-container {
   width: 100%;
   position: fixed;
-  top: 60px;
+  top: 20px;
   height: 40px;
   background: #66BB6A;
   transition: 250ms;
@@ -418,9 +418,6 @@ header {
     font-size: 1.2em;
     color: #fff;
     padding-left: 10px; }
-
-.confirm-message-shift {
-  top: 20px; }
 
 /* Login/Register */
 .location-container {
@@ -610,8 +607,7 @@ header {
   margin: 0px auto;
   position: relative;
   transition: 250ms;
-  padding: 15px 0 0;
-  display: none; }
+  padding: 15px 0 0; }
 
 .business-tabs-container-expand {
   width: 150px; }
