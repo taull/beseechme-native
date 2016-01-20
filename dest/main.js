@@ -380,7 +380,7 @@ BeMe.CheckIn = function (user, business) {
 
     checkInStatus.save({
       success: function () {
-        BeMe.showConfirmation("You checked into " + business.get('businessName') + "!");
+        BeMe.showConfirmation("You checked into " + business.get('businessName'));
       }, error: function () {
         alert('Error saving object');
       }
@@ -395,9 +395,9 @@ BeMe.FollowUser = function (user) {
     relation.add(user);
     currentUser.save().then(function () {
       if (user.get('userType') == 'business') {
-        BeMe.showConfirmation("You followed " + user.get('businessName') + "!");
+        BeMe.showConfirmation("You followed " + user.get('businessName'));
       } else {
-        BeMe.showConfirmation("You followed " + user.get('firstName') + " " + user.get('lastName') + "!");
+        BeMe.showConfirmation("You followed " + user.get('firstName') + " " + user.get('lastName'));
       }
     });
   } else {
@@ -2401,7 +2401,6 @@ BeMe.Views.Dashboard = Parse.View.extend({
     $('#left-column-trigger').click(function(){
       $('.left-column').toggleClass('left-column-shift');
       $('.middle-column').toggleClass('middle-column-shift');
-
     });
 
     $('header form[name="bar-search"').submit(function(e) {
