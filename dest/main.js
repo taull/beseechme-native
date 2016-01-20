@@ -377,7 +377,7 @@ BeMe.CheckIn = function (user, business) {
 
     checkInStatus.save({
       success: function () {
-        BeMe.showConfirmation("You checked into " + business.get('businessName') + "!");
+        BeMe.showConfirmation("You checked into " + business.get('businessName'));
       }, error: function () {
         alert('Error saving object');
       }
@@ -392,9 +392,9 @@ BeMe.FollowUser = function (user) {
     relation.add(user);
     currentUser.save().then(function () {
       if (user.get('userType') == 'business') {
-        BeMe.showConfirmation("You followed " + user.get('businessName') + "!");
+        BeMe.showConfirmation("You followed " + user.get('businessName'));
       } else {
-        BeMe.showConfirmation("You followed " + user.get('firstName') + " " + user.get('lastName') + "!");
+        BeMe.showConfirmation("You followed " + user.get('firstName') + " " + user.get('lastName'));
       }
     });
   } else {
@@ -2346,6 +2346,92 @@ BeMe.Views.DashboardMap = BeMe.Views.DashboardBaseView.extend({
     });
   }
 });
+
+BeMe.Views.Dashboard = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#dashboard-view').text()),
+
+  render: function () {
+    var self = this;
+    this.$el.html(this.template(this.model));
+    $('.body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+
+    $('.update-location').click(function(){
+      $('.update-location').toggleClass('update-location-shift');
+      $('.update-location-info').toggleClass('left-100');
+      $('.arrow').toggleClass('rotate-arrow');
+
+    });
+
+    $('#location-trigger').click(function(){
+      $('.update-location').toggleClass('update-location-shift');
+      $('.update-location-info').toggleClass('left-100');
+      $('.arrow').toggleClass('rotate-arrow');
+
+    });
+
+    $('.open-listing-container').click(function(){
+      $('.listing-container').toggleClass('top0');
+    });
+
+    $('#left-column-trigger').click(function(){
+      $('.left-column').toggleClass('left-column-shift');
+      $('.middle-column').toggleClass('middle-column-shift');
+    });
+
+    $('header form[name="bar-search"').submit(function(e) {
+      self.userSearch(e);
+    });
+
+    $(function() {
+
+      var ddAlt = new DropDown( $('#ddAlt') );
+
+      $(document).click(function() {
+        // all dropdowns
+        $('.wrapper-dropdown-1').removeClass('active');
+      });
+
+    });
+
+    function DropDown(el) {
+        this.ddAlt = el;
+        this.initEvents();
+    }
+    DropDown.prototype = {
+        initEvents : function() {
+            var obj = this;
+
+            obj.ddAlt.on('click', function(event){
+                $(this).toggleClass('active');
+                event.stopPropagation();
+            }); 
+        }
+    }
+  },
+
+  events: {
+    'click .update-location' : 'updateLocationInfo',
+    'submit form[name="bar-search"]' : 'userSearch',
+  },
+
+  updateLocationInfo: function () {
+    BeMe.setCurrentLocation();
+  },
+
+  userSearch: function (e) {
+    e.preventDefault();
+    var form = e.currentTarget;
+    var searchString = $(form).find('input').val();
+    BeMe.searchUsers(searchString);
+  }
+});
+
+
 BeMe.Views.Index = Parse.View.extend({
 	initialize: function () {
 		this.render();
@@ -2665,6 +2751,7 @@ BeMe.Views.Status = Parse.View.extend({
     var currentTarget = e.currentTarget;
     var currentTargetClass = currentTarget.className;
     var likeCount = this.$el.find('.likes');
+    var self = this;
 
     if (currentTargetClass == 'like-button') {
       this.likeCount += 1;
@@ -2674,7 +2761,14 @@ BeMe.Views.Status = Parse.View.extend({
       likeCount.text(this.likeCount);
       // Add this user to the likedBy relation of this post and save
       likedBy.add(user);
-      this.model.save();
+      this.model.save().then(function () {
+      	var createdBy = self.model.get('createdBy')
+      	if (createdBy.get('userType') == 'consumer') {
+      		BeMe.showConfirmation('You have liked ' + createdBy.get('firstName') + " " + createdBy.get('lastName') + "'s post!");
+      	} else {
+      		BeMe.showConfirmation('You have liked ' + createdBy.get('businessName') + "'s post!");
+      	}
+      });
     } else if (currentTargetClass == 'dislike-button') {
       this.likeCount -=1;
       //Update the UI

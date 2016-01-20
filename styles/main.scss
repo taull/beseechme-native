@@ -16,7 +16,7 @@
 
 $primary-color-dark: #263238;
 $primary-color-medium: #37474F;
-$primary-color-light: #ECEFF1;
+$primary-color-light: #CFD8DC;
 
 $secondary-color-dark: #01579B;
 $secondary-color-medium: #66BB6A;
@@ -322,22 +322,10 @@ header {
 		vertical-align: top;
 	}
 	aside {
-		width: 50%;
+		width: 30%;
 		height: 60px;
-		padding: 18px 0px 7px 20px;
 		z-index: 100;
-
-		span {
-			font-size: 1.4em;
-			width: 35px;
-			height: 35px;
-			background: $secondary-color-medium;
-			color: #fff;
-			text-align: center;
-			border-radius: 3px;
-			padding-top: 9px;
-			display: none;
-		}
+		padding-top: 10px;
 
 		img {
 			height: 24px;
@@ -347,7 +335,7 @@ header {
 	}
 
 	section {
-		width: 50%;
+		width: 70%;
 		text-align: right;
 
 		a, 
@@ -551,7 +539,7 @@ header {
 	height: 40px;
 	background: #66BB6A;
 	transition: 250ms;
-	z-index: 300;
+	z-index: 500;
 }
 
 .confirm-message {
@@ -689,12 +677,12 @@ header {
 }
 
 .active-dashboard-tab {
-	background: #ededed;
+	background: $secondary-color-medium !important;
 	/*border-left: 5px solid $primary-color-medium !important;*/
 
 	span, 
 	h1 {
-		color: $primary-color-medium !important;
+		color: #fff !important;
 	}
 }
 
@@ -1406,7 +1394,6 @@ header {
 	margin: 0 auto;
 	background: #fff;
 	border-radius: 3px;
-	margin-left: 2%;
 
 	a {
 		text-decoration: none;
@@ -2632,12 +2619,6 @@ header {
 
     }
 
-
-
-
-
-
-
 	a {
 		width: 15%;
 		display: inline-block;
@@ -2660,9 +2641,10 @@ header {
 	height: 100vh;
 	position: fixed;
 	top: 120px;
+	padding-top: 15px;
 	transition: 250ms;
 	z-index: 999999999999;
-	background: #f0f0f0;
+	background: $primary-color-light;
 	z-index: 0;
 	opacity: 0;	
 }
@@ -2681,7 +2663,7 @@ header {
 	width: 480px;
 	height: 100vh;
 	position: relative;
-	background: #f0f0f0;
+	background: $primary-color-light;
 	margin: 0 auto;
 	overflow: scroll;
 
@@ -2789,6 +2771,7 @@ header {
 .search-container {	
 	display: inline-block;
 	vertical-align: top;
+	/*background: $secondary-color-medium; */
 	width: 100%;
 	height: 60px;
 	top: 0;
@@ -4067,13 +4050,6 @@ svg rect{
 			font-weight: 400;
 
 		}
-
-		span {
-			font-size: 1.6em;
-			font-weight: 700;
-			color: $green-light;
-			padding-left: 2px;
-		}
 	}
 
 	h4 {
@@ -4086,6 +4062,18 @@ svg rect{
 		border: 1px solid #ededed;
 	}
 
+}
+
+.likes {
+	font-size: 1.6em;
+	font-weight: 700;
+	color: $secondary-color-medium;
+	padding-left: 2px;
+	transition: 250ms;
+}
+
+.likes-animation {
+	font-size: 2em;
 }
 
 .feed-photo {
