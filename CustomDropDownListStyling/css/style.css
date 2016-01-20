@@ -259,12 +259,12 @@
     position: relative; /* Enable absolute positionning for children and pseudo elements */
     display: inline-block;
     vertical-align: top;
-    width: 30%;
+    width: 100%;
     margin: 0 auto;
     padding: 11px 15px;
     text-align: left;
     /* Styles */
-    background: #37474F;
+    background: transparent;
     /*border-left: 5px solid #ff;*/
     cursor: pointer;
     outline: none;
@@ -293,6 +293,7 @@
     top: 100%;
     left: 0;
     right: 0px;
+    margin-top: 10px;
 
     /* Styles */
     background: #455A64;
