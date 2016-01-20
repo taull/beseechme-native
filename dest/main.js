@@ -375,7 +375,13 @@ BeMe.CheckIn = function (user, business) {
     checkInStatus.set('createdBy', user);
     checkInStatus.set('statusType', 'Check In');
 
-    checkInStatus.save();
+    checkInStatus.save({
+      success: function () {
+        BeMe.showConfirmation("You checked into " + business.get('businessName'));
+      }, error: function () {
+        alert('Error saving object');
+      }
+    });
   }
 }
 
