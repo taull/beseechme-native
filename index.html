@@ -30,7 +30,15 @@
   <header>
     <div class="header-container">
       <div class="header-left">
-        <aside><img src="images/nextap-logo-white.png"></aside
+        <aside>        
+          <div id="ddAlt" class="wrapper-dropdown-6">
+            <span>Dashboard</span>
+            <ul class="dropdown">
+              <li><a href="#dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+              <li><a href="#backend/feed"><i class="fa fa-cog"></i>Following</a></li>
+            </ul>
+          </div>
+        </aside
         ><section><li id="search-trigger"><i class="fa fa-search"></i></li></section>
 
       </div
@@ -1403,7 +1411,7 @@
     <% var user = Parse.User.current() %>
 
     <div class="confirm-message-container">
-      <div class="confirm-message"><h1>You followed Craft and Draft</h1><i id="confirm-message-close" class="fa fa-close"></i></div>
+      <div class="confirm-message"><h1></h1></div>
     </div>
 
     <div class="dashboard-statistics">
@@ -1416,19 +1424,9 @@
 
       <div class="header-options-container">
 
-        <div id="ddAlt" class="wrapper-dropdown-6">
-          <span>Home</span>
-          <ul class="dropdown">
-            <li><a href="#dashboard"><i class="fa fa-home"></i>Home</a></li>
-            <li><a href="#dashboard/following"><i class="fa fa-users"></i>Following</a></li>
-            <li><a href="#dashboard/friends"><i class="fa fa-users"></i>Friends</a></li>
-            <li><a href="#dashboard/listing"><i class="fa fa-th-list"></i>Listing</a></li>
-            <li><a href="#dashboard/map"><i class="fa fa-location-arrow"></i>Map</a></li>
 
-          </ul>
-        </div
 
-        ><div class="to-location">
+        <div class="to-location">
           <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
           ><div class="update-location"><footer><h1>Update Location</h1></footer></div
 
@@ -1439,7 +1437,7 @@
       <div class="business-tabs-container">
         <div class="business-tabs">
           <ul>
-            <a href="#dashboard"><section><h1>Home</h1></section></a
+            <a href="#dashboard" class="active-dashboard-tab"><section><h1>Home</h1></section></a
             ><a href="#dashboard/following"><section><h1>Following</h1></section></a
             ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
             ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a

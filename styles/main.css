@@ -21,7 +21,7 @@
 body {
   font-size: 12px;
   position: relative;
-  background: #ECEFF1;
+  background: #CFD8DC;
   /*background: url('../images/jack-daniels.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -225,26 +225,16 @@ header {
     display: inline-block;
     vertical-align: top; }
   .header-left aside {
-    width: 50%;
+    width: 30%;
     height: 60px;
-    padding: 18px 0px 7px 20px;
-    z-index: 100; }
-    .header-left aside span {
-      font-size: 1.4em;
-      width: 35px;
-      height: 35px;
-      background: #66BB6A;
-      color: #fff;
-      text-align: center;
-      border-radius: 3px;
-      padding-top: 9px;
-      display: none; }
+    z-index: 100;
+    padding-top: 10px; }
     .header-left aside img {
       height: 24px;
       width: auto;
       display: none; }
   .header-left section {
-    width: 50%;
+    width: 70%;
     text-align: right; }
     .header-left section a,
     .header-left section li {
@@ -308,7 +298,7 @@ header {
     width: 15%;
     /*border-radius: 2px;*/
     /*border-radius: 4px;*/
-    background: #ECEFF1; }
+    background: #CFD8DC; }
     .header-center article i {
       display: inline-block;
       vertical-align: top;
@@ -399,7 +389,7 @@ header {
   height: 40px;
   background: #66BB6A;
   transition: 250ms;
-  z-index: 300; }
+  z-index: 500; }
 
 .confirm-message {
   width: 480px;
@@ -433,7 +423,7 @@ header {
 .dashboard-location {
   border: 1px solid #ededed;
   border-bottom: 0;
-  background: #ECEFF1;
+  background: #CFD8DC;
   margin-bottom: 15px; }
 
 .dashboard-tabs {
@@ -500,11 +490,11 @@ header {
     background: #ededed; }
 
 .active-dashboard-tab {
-  background: #ededed;
+  background: #66BB6A !important;
   /*border-left: 5px solid $primary-color-medium !important;*/ }
   .active-dashboard-tab span,
   .active-dashboard-tab h1 {
-    color: #37474F !important; }
+    color: #fff !important; }
 
 .active-main-tab {
   background: #ededed;
@@ -1031,8 +1021,7 @@ header {
   height: 40px;
   margin: 0 auto;
   background: #fff;
-  border-radius: 3px;
-  margin-left: 2%; }
+  border-radius: 3px; }
   .to-location a {
     text-decoration: none; }
   .to-location aside,
@@ -1277,7 +1266,7 @@ header {
   margin: 0 auto; }
   .search-button p {
     font-size: 16px;
-    color: #ECEFF1;
+    color: #CFD8DC;
     font-weight: 300;
     padding-top: 20px; }
 
@@ -1452,16 +1441,16 @@ header {
   padding-top: 20px;
   cursor: pointer; }
   .location-button span {
-    color: #ECEFF1; }
+    color: #CFD8DC; }
   .location-button i {
-    color: #ECEFF1;
+    color: #CFD8DC;
     font-size: 18px;
     display: inline-block;
     padding-top: 3px; }
   .location-button p {
     display: inline-block;
     vertical-align: top;
-    color: #ECEFF1;
+    color: #CFD8DC;
     font-size: 18px;
     font-weight: 300;
     padding-left: 10px; }
@@ -1480,16 +1469,16 @@ header {
   margin-top: 10px;
   cursor: pointer; }
   .dashboard-location-button span {
-    color: #ECEFF1; }
+    color: #CFD8DC; }
   .dashboard-location-button i {
-    color: #ECEFF1;
+    color: #CFD8DC;
     font-size: 18px;
     display: inline-block;
     padding-top: 3px; }
   .dashboard-location-button p {
     display: inline-block;
     vertical-align: top;
-    color: #ECEFF1;
+    color: #CFD8DC;
     font-size: 18px;
     font-weight: 300;
     padding-left: 10px; }
@@ -1527,7 +1516,7 @@ header {
   margin-top: 15px; }
   .or-button p {
     font-size: 36px;
-    color: #ECEFF1;
+    color: #CFD8DC;
     font-style: italic;
     text-transform: lowercase;
     font-family: 'Lobster', cursive; }
@@ -1601,7 +1590,7 @@ header {
   width: 420px;
   margin: 50px auto;
   position: relative;
-  background: #ECEFF1;
+  background: #CFD8DC;
   border: 1px solid #ededed;
   padding-bottom: 30px;
   transition: 250ms; }
@@ -1610,7 +1599,7 @@ header {
   width: 360px;
   margin: 0 auto;
   position: relative;
-  background: #ECEFF1;
+  background: #CFD8DC;
   transition: 250ms;
   top: 100px; }
 
@@ -1697,7 +1686,7 @@ header {
   .profile-statistics p {
     font-size: 1em;
     font-weight: 300;
-    color: #ECEFF1; }
+    color: #CFD8DC; }
 
 /*Business Error Page*/
 .business-error {
@@ -1951,9 +1940,10 @@ header {
   height: 100vh;
   position: fixed;
   top: 120px;
+  padding-top: 15px;
   transition: 250ms;
   z-index: 999999999999;
-  background: #f0f0f0;
+  background: #CFD8DC;
   z-index: 0;
   opacity: 0; }
 
@@ -1969,7 +1959,7 @@ header {
   width: 480px;
   height: 100vh;
   position: relative;
-  background: #f0f0f0;
+  background: #CFD8DC;
   margin: 0 auto;
   overflow: scroll; }
   .search-results-container li {
@@ -2048,6 +2038,7 @@ header {
 .search-container {
   display: inline-block;
   vertical-align: top;
+  /*background: $secondary-color-medium; */
   width: 100%;
   height: 60px;
   top: 0;
@@ -2145,7 +2136,7 @@ header {
   text-decoration: none;
   display: none;
   width: 100%;
-  background: #ECEFF1;
+  background: #CFD8DC;
   padding: 20px; }
   .beer-results-cancel div {
     width: 20%;
@@ -2720,7 +2711,7 @@ svg rect {
   /*border:1px solid #ededed;*/
   /*border-right:1px solid #ededed;*/
   height: 100%;
-  background: #ECEFF1; }
+  background: #CFD8DC; }
 
 .post-status-header {
   padding: 10px 15px 0;
@@ -3005,11 +2996,6 @@ svg rect {
       color: #8BC34A;
       font-size: 1.2em;
       font-weight: 400; }
-    .feed-info footer span {
-      font-size: 1.6em;
-      font-weight: 700;
-      color: #8BC34A;
-      padding-left: 2px; }
   .feed-info h4 {
     float: right;
     padding: 5px 10px;
@@ -3018,6 +3004,16 @@ svg rect {
     background: #f0f0f0;
     border-radius: 3px;
     border: 1px solid #ededed; }
+
+.likes {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: #66BB6A;
+  padding-left: 2px;
+  transition: 250ms; }
+
+.likes-animation {
+  font-size: 2em; }
 
 .feed-photo {
   width: 100%;
@@ -3513,7 +3509,7 @@ svg rect {
 .load-all {
   width: 100%;
   /*border-top:1px solid #f0f0f0;*/
-  background: #ECEFF1;
+  background: #CFD8DC;
   text-align: center;
   padding: 15px 0;
   /*margin-bottom: 25px;*/ }
@@ -3576,7 +3572,7 @@ svg rect {
   height: 100%;
   width: 480px;
   transition: 250ms;
-  background: #ECEFF1;
+  background: #CFD8DC;
   overflow: scroll;
   padding-bottom: 80px; }
 
@@ -3620,7 +3616,7 @@ svg rect {
   min-height: 100vh;
   width: 100%;
   transition: 250ms;
-  background: #ECEFF1;
+  background: #CFD8DC;
   overflow-x: hidden;
   overflow-y: scroll;
   padding-bottom: 80px; }
@@ -4102,7 +4098,7 @@ svg rect {
 
 .calendar-comment {
   padding: 0px 0 0;
-  background: #ECEFF1; }
+  background: #CFD8DC; }
   .calendar-comment input {
     background: #fff;
     width: 80%;
@@ -4141,7 +4137,7 @@ svg rect {
   text-align: left;
   border: 1px solid #ededed;
   border-bottom: 0;
-  background: #ECEFF1; }
+  background: #CFD8DC; }
   .calendar-nav ul {
     list-style: none;
     padding-left: 0; }
@@ -4267,7 +4263,7 @@ svg rect {
     display: inline-block;
     vertical-align: top;
     font-size: 1.2em;
-    color: #ECEFF1;
+    color: #CFD8DC;
     padding-left: 10px;
     font-weight: 300;
     width: 80%; }
@@ -4457,7 +4453,7 @@ svg rect {
 
 .settings-avatar {
   display: block;
-  background: #ECEFF1; }
+  background: #CFD8DC; }
   .settings-avatar ul {
     list-style: none;
     padding-left: 0; }
@@ -4491,7 +4487,7 @@ svg rect {
     cursor: pointer !Important;
     font-weight: 300;
     width: 100%;
-    background: #ECEFF1;
+    background: #CFD8DC;
     height: 50px;
     overflow: hidden;
     -webkit-appearance: none;
@@ -4502,7 +4498,7 @@ svg rect {
       border: 0;
       cursor: pointer;
       padding: 16px 15px 17px 25px;
-      color: #ECEFF1;
+      color: #CFD8DC;
       border-radius: 4px 0 0 4px;
       font-weight: 300;
       font-size: 1.2em;
@@ -4516,7 +4512,7 @@ svg rect {
       border: 0;
       padding: 11px;
       cursor: pointer;
-      color: #ECEFF1;
+      color: #CFD8DC;
       border-radius: 4px 0 0 4px;
       font-weight: 300; }
 
@@ -4540,7 +4536,7 @@ svg rect {
 .avatar-preview {
   width: 150px;
   height: 150px;
-  background: #ECEFF1;
+  background: #CFD8DC;
   padding: 5px;
   /*border-radius: 75px;*/ }
   .avatar-preview img {
@@ -4597,7 +4593,7 @@ svg rect {
       border-color: transparent; }
   .avatar-options label {
     display: inline-block;
-    background: #ECEFF1;
+    background: #CFD8DC;
     position: relative;
     z-index: 1; }
 
