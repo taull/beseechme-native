@@ -384,7 +384,14 @@ BeMe.FollowUser = function (user) {
   var relation = currentUser.relation("barsFollowing");
   if(user.id !== currentUser.id) {
     relation.add(user);
-    currentUser.save();
+    currentUser.save().then(function () {
+      console.log(user.userType);
+      if (user.get('userType') == 'business') {
+        BeMe.showConfirmation("You followed " + user.get('businessName'));
+      } else {
+        BeMe.showConfirmation("You followed " + user.get('firstName') + " " + user.get('lastName'));
+      }
+    });
   } else {
     alert("You can't follow yourself");
   }
@@ -396,7 +403,25 @@ BeMe.UnfollowUser = function (user) {
 
   relation.remove(user);
   currentUser.save();
-}
+};
+
+BeMe.showConfirmation = function (string) {
+  $('.confirm-message h1').text(string);
+  $('.confirm-message-container').css('top', '60px');
+
+  function close () {
+    $('.confirm-message-container').css('top','20px');
+    $('.confirm-message-container').off('click','#confirm-message-close');
+  };
+
+  $('.confirm-message-container').on('click','#confirm-message-close', function () {
+    close();
+  });
+
+  setTimeout(function () {
+    close();
+  },3000);
+};
 
 /*
 	Prototype Manipulation
@@ -2353,17 +2378,6 @@ BeMe.Views.Dashboard = Parse.View.extend({
     $('#left-column-trigger').click(function(){
       $('.left-column').toggleClass('left-column-shift');
       $('.middle-column').toggleClass('middle-column-shift');
-
-    });
-
-    $('.follow').click(function(){
-      $('.confirm-message-container').toggleClass('confirm-message-shift');
-      $('#confirm-message-close').toggleClass('confirm-message-shift');
-    });
-
-    $('#confirm-message-close').click(function(){
-      $('.confirm-message-container').toggleClass('confirm-message-shift');
-      // $('.body-container').toggleClass('body-container-shift');
 
     });
 
