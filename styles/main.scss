@@ -2754,32 +2754,20 @@ header {
 
 /* Like Results */
 
-.likes-results-wrap {
-	width: 100%;
-	height: 100vh;
-	position: fixed;
-	bottom: -100%;
-	padding-top: 15px;
-	transition: 250ms;
-	background: #fff;
-	z-index: 500;
-}
-
 .likes-results-container {
-	width: 480px;
-	height: 100vh;
-	position: relative;
-	background: $primary-color-light;
-	margin: 0 auto;
-	overflow: scroll;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    background: #f0f0f0;
+    margin-top: -50px;
+    transition: 250ms;
 }
 
 .likes-results {
-
 }
 
 .likes-results-shift {
-	bottom: 0px;
+	margin-top: 0px;
 }
 
 
@@ -4004,6 +3992,7 @@ svg rect{
     padding: 15px 15px;
     position: relative;
     z-index: 1;
+    background: #fff;
 
 	aside, 
 	section, 

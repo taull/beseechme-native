@@ -2024,26 +2024,16 @@ header {
     color: #66BB6A; }
 
 /* Like Results */
-.likes-results-wrap {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  bottom: -100%;
-  padding-top: 15px;
-  transition: 250ms;
-  background: #fff;
-  z-index: 500; }
-
 .likes-results-container {
-  width: 480px;
-  height: 100vh;
+  width: 100%;
+  height: 50px;
   position: relative;
-  background: #CFD8DC;
-  margin: 0 auto;
-  overflow: scroll; }
+  background: #f0f0f0;
+  margin-top: -50px;
+  transition: 250ms; }
 
 .likes-results-shift {
-  bottom: 0px; }
+  margin-top: 0px; }
 
 /* Beer Search Container */
 .beer-search-container {
@@ -2964,7 +2954,8 @@ svg rect {
   width: 100%;
   padding: 15px 15px;
   position: relative;
-  z-index: 1; }
+  z-index: 1;
+  background: #fff; }
   .feed-info aside,
   .feed-info section,
   .feed-info h2,
