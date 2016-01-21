@@ -747,17 +747,22 @@
 </script>
 <!-- END BACKEND TEMPLATES -->
 
+<!-- Likes Results -->
 
+<script type="text/template" id="likes-results-view">
 
+  <% var user = attributes.createdBy %>
 
+    <% if (typeof user.get('avatar') !=='undefined') { %>
+      <img src=<%= user.get('avatar')._url %> >
+    <% } else { %>
+      <img src="images/default-avatar.png">
+    <% } %>
+    <h1><%= user.attributes.firstName %></h1>
+    
+</script>
 
-
-
-<!-- BUSINESS PAGES -->
-
-
-
-<!-- Business Feed View -->
+<!-- Feed View -->
 
 <!-- TEXT VIEW -->
 

@@ -2764,6 +2764,25 @@ header {
 }
 
 .likes-results {
+	width: 100%;
+
+	a {
+		width: 20%;
+		text-align: center;
+
+		img {
+			width: 50%;
+			height: auto;
+			border-radius: 100px;
+		}
+
+		h1 {
+			font-size: 1em;
+			font-weight: 300;
+			color: #333;
+			margin-top: 3px;
+		}
+	}
 }
 
 .likes-results-shift {

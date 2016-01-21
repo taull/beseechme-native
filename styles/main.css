@@ -2032,6 +2032,21 @@ header {
   margin-top: -50px;
   transition: 250ms; }
 
+.likes-results {
+  width: 100%; }
+  .likes-results a {
+    width: 20%;
+    text-align: center; }
+    .likes-results a img {
+      width: 50%;
+      height: auto;
+      border-radius: 100px; }
+    .likes-results a h1 {
+      font-size: 1em;
+      font-weight: 300;
+      color: #333;
+      margin-top: 3px; }
+
 .likes-results-shift {
   margin-top: 0px; }
 
