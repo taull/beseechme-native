@@ -2723,7 +2723,8 @@ BeMe.Views.Status = Parse.View.extend({
     'click .follow' : 'follow',
     'click .unfollow': 'unfollow',
     'click .like-button, .dislike-button' : 'toggleLike',
-    'click .check-in' : 'checkIn'
+    'click .check-in' : 'checkIn',
+    'click .likes' : 'loadUsersWhoLiked'
 	},
 
 	follow: function () {
@@ -2779,52 +2780,70 @@ BeMe.Views.Status = Parse.View.extend({
 	    });
   	},
 
-  toggleLike: function (e) {
-    var user = Parse.User.current();
-    var likedBy = this.model.relation('likedBy');
-    var currentTarget = e.currentTarget;
-    var currentTargetClass = currentTarget.className;
-    var $likeCount = this.$el.find('.likes');
-    var self = this;
+  	toggleLike: function (e) {
+	    var user = Parse.User.current();
+	    var likedBy = this.model.relation('likedBy');
+	    var currentTarget = e.currentTarget;
+	    var currentTargetClass = currentTarget.className;
+	    var $likeCount = this.$el.find('.likes');
+	    var self = this;
 
-    var initialFontSize = $likeCount.css('font-size');
-	$likeCount.css('font-size', '2em');
-	setTimeout(function () {
-		$likeCount.css('font-size', initialFontSize);
-	},250);
+	    var initialFontSize = $likeCount.css('font-size');
+		$likeCount.css('font-size', '2em');
+		setTimeout(function () {
+			$likeCount.css('font-size', initialFontSize);
+		},250);
 
-    if (currentTargetClass == 'like-button') {
-      this.likeCount += 1;
-      //Update the UI
-      currentTarget.className = 'dislike-button';
-      currentTarget.textContent = 'Liked';
-      $likeCount.text(this.likeCount);
-      // Add this user to the likedBy relation of this post and save
-      likedBy.add(user);
-      this.model.save().then(function () {
-      	var createdBy = self.model.get('createdBy');
-      	if (createdBy.get('userType') == 'consumer') {
-      		BeMe.showConfirmation('You have liked ' + createdBy.get('firstName') + " " + createdBy.get('lastName') + "'s post!");
-      	} else {
-      		BeMe.showConfirmation('You have liked ' + createdBy.get('businessName') + "'s post!");
-      	}
-      });
-    } else if (currentTargetClass == 'dislike-button') {
-      this.likeCount -=1;
-      //Update the UI
-      currentTarget.className = 'like-button';
-      currentTarget.textContent = 'Like';
-      $likeCount.text(this.likeCount);
-      // Remove this user from the likeBy relation of this post and save
-      likedBy.remove(user);
-      this.model.save().then(function () {
-      	var createdBy = self.model.get('createdBy');
-      });
-    }
-  },
+	    if (currentTargetClass == 'like-button') {
+	      this.likeCount += 1;
+	      //Update the UI
+	      currentTarget.className = 'dislike-button';
+	      currentTarget.textContent = 'Liked';
+	      $likeCount.text(this.likeCount);
+	      // Add this user to the likedBy relation of this post and save
+	      likedBy.add(user);
+	      this.model.save().then(function () {
+	      	var createdBy = self.model.get('createdBy');
+	      	if (createdBy.get('userType') == 'consumer') {
+	      		BeMe.showConfirmation('You have liked ' + createdBy.get('firstName') + " " + createdBy.get('lastName') + "'s post!");
+	      	} else {
+	      		BeMe.showConfirmation('You have liked ' + createdBy.get('businessName') + "'s post!");
+	      	}
+	      });
+	    } else if (currentTargetClass == 'dislike-button') {
+	      this.likeCount -=1;
+	      //Update the UI
+	      currentTarget.className = 'like-button';
+	      currentTarget.textContent = 'Like';
+	      $likeCount.text(this.likeCount);
+	      // Remove this user from the likeBy relation of this post and save
+	      likedBy.remove(user);
+	      this.model.save().then(function () {
+	      	var createdBy = self.model.get('createdBy');
+	      });
+	    }
+	  },
 
-  checkIn: function () {
-    BeMe.CheckIn(Parse.User.current(),this.model.get('createdBy'));
-  }
+	checkIn: function () {
+		BeMe.CheckIn(Parse.User.current(),this.model.get('createdBy'));
+	},
+
+	loadUsersWhoLiked: function () {
+		var self = this;
+		$('.likes-results-container').addClass('likes-results-shift');
+	    var query = this.model.relation('likedBy').query()
+	    query.limit(5);
+	    query.select('avatar');
+	    query.select('firstName');
+	    query.select('lastName');
+	    query.select('businessName');
+	    query.find().then(function (users) {
+	      console.log(users);
+	      var $likes = $('.likes-results-container');
+	      _.each(users, function (user) {
+	      	$likes.append('<b>' + user.get('firstName') + '</b> ');
+	      });
+	    });
+	},
 
 });
