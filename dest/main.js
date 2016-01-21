@@ -2830,7 +2830,8 @@ BeMe.Views.Status = Parse.View.extend({
 
 	loadUsersWhoLiked: function () {
 		var self = this;
-		$('.likes-results-container').addClass('likes-results-shift');
+		var $likesContainer = this.$el.find('.likes-results-container');
+		$likesContainer.addClass('likes-results-shift');
 	    var query = this.model.relation('likedBy').query()
 	    query.limit(5);
 	    query.select('avatar');
@@ -2840,14 +2841,13 @@ BeMe.Views.Status = Parse.View.extend({
 	    query.select('handle');
 	    query.find().then(function (users) {
 	    	console.log(users);
-	    	var $likes = $('.likes-results-container');
 	    	_.each(users, function (user) {
 	    		if (user.get('handle') == undefined) {
 		    		user.set('handle', 'testHandle');
 		    	}
 		    	var templateFunction = _.template($('#likes-results-view').text());
 		    	var compiledTemplate = templateFunction(user.attributes);
-		    	$likes.append(compiledTemplate);
+		    	$likesContainer.append(compiledTemplate);
 	    	});
 	    });
 	},
