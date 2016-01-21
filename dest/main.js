@@ -2837,14 +2837,18 @@ BeMe.Views.Status = Parse.View.extend({
 	    query.select('firstName');
 	    query.select('lastName');
 	    query.select('businessName');
+	    query.select('handle');
 	    query.find().then(function (users) {
-	      console.log(users);
-	      var $likes = $('.likes-results-container');
-	      _.each(users, function (user) {
-	      	var templateFunction = _.template($('#likes-results-view').text());
-	      	var compiledTemplate = templateFunction(user.attributes);
-	      	$likes.append(compiledTemplate);
-	      });
+	    	console.log(users);
+	    	var $likes = $('.likes-results-container');
+	    	_.each(users, function (user) {
+	    		if (user.get('handle') == undefined) {
+		    		user.set('handle', 'testHandle');
+		    	}
+		    	var templateFunction = _.template($('#likes-results-view').text());
+		    	var compiledTemplate = templateFunction(user.attributes);
+		    	$likes.append(compiledTemplate);
+	    	});
 	    });
 	},
 

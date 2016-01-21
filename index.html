@@ -751,15 +751,15 @@
 
 <script type="text/template" id="likes-results-view">
 
-  <% var user = attributes.createdBy %>
-
-    <% if (typeof user.get('avatar') !=='undefined') { %>
-      <img src=<%= user.get('avatar')._url %> >
+  <a href='#consumer/<%= handle %>'>
+    <% if (typeof avatar !=='undefined') { %>
+      <img style='height:20px; width:20px;' src=<%= avatar.url() %> >
     <% } else { %>
-      <img src="images/default-avatar.png">
+      <img style='height:20px; width:20px;' src="images/default-avatar.png">
     <% } %>
-    <h1><%= user.attributes.firstName %></h1>
-    
+    <h1 style='display:inline-block'><%= firstName %></h1>
+  </a>
+
 </script>
 
 <!-- Feed View -->
