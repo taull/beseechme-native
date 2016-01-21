@@ -2841,7 +2841,9 @@ BeMe.Views.Status = Parse.View.extend({
 	      console.log(users);
 	      var $likes = $('.likes-results-container');
 	      _.each(users, function (user) {
-	      	$likes.append('<b>' + user.get('firstName') + '</b> ');
+	      	var templateFunction = _.template($('#likes-results-view').text());
+	      	var compiledTemplate = templateFunction(user.attributes);
+	      	$likes.append(compiledTemplate);
 	      });
 	    });
 	},
