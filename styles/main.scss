@@ -16,7 +16,7 @@
 
 $primary-color-dark: #263238;
 $primary-color-medium: #37474F;
-$primary-color-light: #CFD8DC;
+$primary-color-light: #ECEFF1;
 
 $secondary-color-dark: #01579B;
 $secondary-color-medium: #66BB6A;
@@ -2752,46 +2752,6 @@ header {
 
 }
 
-/* Like Results */
-
-.likes-results-container {
-    width: 100%;
-    height: 50px;
-    position: relative;
-    background: #f0f0f0;
-    margin-top: -50px;
-    transition: 250ms;
-}
-
-.likes-results {
-	width: 100%;
-	padding: 10px;
-
-	a {
-		display: inline-block;
-		vertical-align: top;
-		text-align: center;
-		margin-right: 10px;
-
-		img {
-			width: 30px;
-			height: 30px;
-		}
-
-		h1 {
-			font-size: .9em;
-			font-weight: 400;
-			color: #333;
-			margin-top: 3px;
-			display: none;
-		}
-	}
-}
-
-.likes-results-shift {
-	margin-top: 0px;
-}
-
 
 
 /* Beer Search Container */
@@ -3966,7 +3926,6 @@ svg rect{
 
 	li, 
 	div {
-		background: #fff;
 		border-radius: 3px;
 		margin-bottom: 15px;
 	}
@@ -4007,14 +3966,191 @@ svg rect{
 	}
 }
 
+.feed-likes {
+	height: 50px;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	background: #fff;
+	z-index: 600;
+	/*border-radius: 0 0 3px 3px;*/
+
+	aside, 
+	section, 
+	h1, 
+	span, 
+	i, 
+	h2 {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	aside {
+	    width: 120px;
+	    height: 50px;
+	    background: transparent;
+	    z-index: 50;
+	    padding: 10px 5px 10px 15px;
+	    text-align: left;
+
+	    i {
+	    	font-size: 1em;
+	    	color: $secondary-color-medium;
+	    }
+
+	    h1 {
+	    	font-size: 1em;
+	    	font-weight: 400;
+	    	color: #333;
+	    	padding: 5px 0 0 0;
+	    	width: 70px;
+	    	height: 30px;
+	    	background: #f3f3f3;
+	    	border-radius: 3px 0 0 3px;
+	    	border: 1px solid #ddd;
+	    	border-right: 0;
+	    	text-align: center;
+	    	cursor: pointer;
+	    }
+
+
+	}
+
+	section {
+		width: 360px;
+		height: 50px;
+		padding: 10px 10px 0;
+		background: transparent;
+		text-align: right;
+
+		h2 {
+	    	font-size: 1em;
+	    	font-weight: 400;
+	    	color: #333;
+	    	padding: 3px 0 0 0;
+	    	width: 70px;
+	    	height: 25px;
+	    	background: #f3f3f3;
+	    	border-radius: 3px;
+	    	border: 1px solid #ddd;
+	    	cursor: pointer;
+	    	text-align: center;
+	    	margin-left: 5px;
+	    }
+	}
+}
+
+.likes {
+	text-align: center;
+	width: 30px;
+	height: 30px;
+	padding-top: 4px;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 0 3px 3px 0;
+	font-size: 1.2em;
+	font-weight: 400;
+	color: $secondary-color-medium;
+	cursor: pointer;
+	float: right; 
+	transition: 250ms;
+}
+
+.likes-animation {
+	font-size: 2em;
+}
+
+
+/* Like Results */
+
+.likes-results-container {
+    width: 480px;
+    height: 50px;
+    position: relative;
+    /* margin-top: -40px; */
+    text-align: left;
+    transition: 250ms;
+    border-radius: 0 0 3px 3px;
+    margin-bottom: 0 !important;
+    background: #f8f8f8;
+    margin-top: -50px;
+
+    aside, 
+    footer {
+    	width: 50px;
+    	display: inline-block;
+    	vertical-align: top;
+    	padding: 10px;
+
+    	i {
+    		font-size: 1.2em;
+    		width: 30px;
+    		height: 30px;
+    		text-align: center;
+    		background: #fff;
+    		color: #555;
+    		border-radius: 3px;
+    		padding-top: 9px;
+    	}
+    }
+
+    aside {
+    	text-align: left;
+    }
+
+    footer {
+    	text-align: right;
+    }
+
+}
+
+.likes-results {
+	display: inline-block;
+	vertical-align: top;
+	width: 380px;
+	padding: 10px 0;
+	font-size: 0;
+
+	a {
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+		margin-right: 5px;
+
+		img {
+			width: 30px;
+			height: 30px;
+			background: #fff;
+		}
+
+		h1 {
+			font-size: .9em;
+			font-weight: 400;
+			color: #333;
+			margin-top: 3px;
+			display: none;
+		}
+	}
+}
+
+.likes-results-shift {
+	margin-top: 0px;
+}
+
+
+
+
+/* Feed Info */
 
 
 .feed-info {
 	width: 100%;
-    padding: 15px 15px;
     position: relative;
     z-index: 1;
     background: #fff;
+    height: 70px;
+    width: 480px;
+    overflow: hidden;
 
 	aside, 
 	section, 
@@ -4028,6 +4164,7 @@ svg rect{
 
 	aside {
 		position: relative;
+		padding: 15px 5px 15px 15px;
 
 		img {
 			width: 40px;
@@ -4039,8 +4176,7 @@ svg rect{
 
 	section {
 		text-align: left;
-		padding-left: 5px;
-
+		padding-top: 15px;
 		p, 
 		i, 
 		h1,
@@ -4078,21 +4214,45 @@ svg rect{
 
 	footer {
 		float: right;
-		padding-top: 2px;
-		padding-right: 5px;
+		padding: 10px;
+
+		div {
+			padding: 20px;
+			background: #fff;
+			border-radius: 0;
+			margin-bottom: 0;
+
+			h1 {
+				color: $green-light;
+				font-size: 1.2em;
+				font-weight: 400;
+			}
+		}
 
 		h1, 
-		span {
+		span, 
+		div, 
+		h2, 
+		i {
 			display: inline-block;
 			vertical-align: top;
 		}
 
-		h1 {
-			color: $green-light;
-			font-size: 1.2em;
-			font-weight: 400;
+		i {
+	    	font-size: 1em;
+	    	font-weight: 400;
+	    	color: #333;
+	    	padding: 6px 0 0 0;
+	    	width: 25px;
+	    	height: 25px;
+	    	background: #f3f3f3;
+	    	border-radius: 3px;
+	    	border: 1px solid #ddd;
+	    	cursor: pointer;
+	    	text-align: center;
+	    	margin-left: 5px;
+	    }
 
-		}
 	}
 
 	h4 {
@@ -4107,17 +4267,7 @@ svg rect{
 
 }
 
-.likes {
-	font-size: 1.6em;
-	font-weight: 700;
-	color: $secondary-color-medium;
-	padding-left: 2px;
-	transition: 250ms;
-}
 
-.likes-animation {
-	font-size: 2em;
-}
 
 .feed-photo {
 	width: 100%;
@@ -4182,7 +4332,8 @@ svg rect{
 .feed-content {
 	width: 100%;
 	display: inline-block;
-	padding: 0px 15px 15px;	
+	padding: 0 15px 15px;	
+	background: #fff;
 
 	aside {
 		width: 100%;
@@ -4235,6 +4386,7 @@ svg rect{
 	width: 100%;
 	display: inline-block;
 	padding: 10px 15px 10px;	
+	background: #fff;
 
 	section, 
 	aside, 
@@ -4652,6 +4804,7 @@ svg rect{
 	width: 100%;
 	display: inline-block;
 	padding: 0px 15px 10px;	
+	background: #fff;
 
 	aside {
 		width: 100%;
@@ -4739,7 +4892,6 @@ svg rect{
 	display: inline-block;
 	padding: 0px 15px 10px;	
 
-
 	p, 
 	span {
 		display: inline-block;
@@ -4762,6 +4914,7 @@ svg rect{
 	padding: 0;
 	border-top: 1px solid #f8f8f8;
 	width: 100%;
+	display: none;
 
 	a {
 		height: 0;
