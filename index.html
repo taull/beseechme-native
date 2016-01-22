@@ -753,11 +753,11 @@
 
   <a href='#consumer/<%= handle %>'>
     <% if (typeof avatar !=='undefined') { %>
-      <img style='height:20px; width:20px;' src=<%= avatar.url() %> >
+      <img src=<%= avatar.url() %> >
     <% } else { %>
-      <img style='height:20px; width:20px;' src="images/default-avatar.png">
+      <img src="images/default-avatar.png">
     <% } %>
-    <h1 style='display:inline-block'><%= firstName %></h1>
+    <h1><%= firstName %></h1>
   </a>
 
 </script>

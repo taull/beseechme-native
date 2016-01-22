@@ -2033,19 +2033,22 @@ header {
   transition: 250ms; }
 
 .likes-results {
-  width: 100%; }
+  width: 100%;
+  padding: 10px; }
   .likes-results a {
-    width: 20%;
-    text-align: center; }
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-right: 10px; }
     .likes-results a img {
-      width: 50%;
-      height: auto;
-      border-radius: 100px; }
+      width: 30px;
+      height: 30px; }
     .likes-results a h1 {
-      font-size: 1em;
-      font-weight: 300;
+      font-size: .9em;
+      font-weight: 400;
       color: #333;
-      margin-top: 3px; }
+      margin-top: 3px;
+      display: none; }
 
 .likes-results-shift {
   margin-top: 0px; }
