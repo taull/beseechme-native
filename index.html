@@ -780,15 +780,38 @@
 
       ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
-      ><footer><h1>+</h1><span class='likes'></span></footer>
+      ><footer>
+        <i class="fa fa-star"></i
+        ><i class="fa fa-sign-in"></i>
+      </footer>
 
   </section>
+
+
 
   <section class="feed-content">
     <aside>
       <p><%= attributes.content %></p>
     </aside>
   </section>
+
+  <section class="feed-likes">
+    <aside>
+      <h1 class="like-button">Like</h1
+      ><span class='likes'></span>
+
+    </aside
+
+    ><section>
+
+    </section>
+  </section>
+
+  <div class="likes-results-container">
+    <aside><i class="fa fa-chevron-left"></i></aside
+    ><div class="likes-results"></div
+    ><footer><i class="fa fa-chevron-right"></i></footer>
+  </div>
 
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
     <section class="feed-controls">
@@ -816,13 +839,14 @@
 
       ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><i class="fa fa-check-circle"></i><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
-      ><footer><h1>+</h1><span class='likes'></span></footer>
+      ><footer>
+        <i class="fa fa-star"></i
+        ><i class="fa fa-sign-in"></i>
+      </footer>
 
   </section>
 
-  <section class="likes-results-container">
-    <section class="likes-results"></section>
-  </section>
+
 
   <section class="feed-photo">
     <img src=<%= attributes.image._url %> /
@@ -836,6 +860,23 @@
       </aside>
     </footer>
   </section>
+
+  <section class="feed-likes">
+    <aside>
+      <h1 class="like-button">Like</h1
+      ><span class='likes'></span>
+    </aside
+
+    ><section>
+
+    </section>
+  </section>
+
+  <div class="likes-results-container">
+    <aside><i class="fa fa-chevron-left"></i></aside
+    ><div class="likes-results"></div
+    ><footer><i class="fa fa-chevron-right"></i></footer>
+  </div>
 
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
     <section class="feed-controls">
