@@ -778,11 +778,10 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
-        <i class="fa fa-star"></i
-        ><i class="fa fa-sign-in"></i>
+        <span class='likes'></span>
       </footer>
 
   </section>
@@ -797,20 +796,23 @@
 
   <section class="feed-likes">
     <aside>
-      <h1 class="like-button">Like</h1
-      ><span class='likes'></span>
-
+      <h1 class="like-button">Like</h1>
     </aside
 
     ><section>
 
-    </section>
+      <span class="entypo-dot-3 likes-trigger"></span>
+    </section
+    ><aside><i class="fa fa-star"></i><i class="fa fa-sign-in"></i></aside>
   </section>
 
   <div class="likes-results-container">
-    <aside><i class="fa fa-chevron-left"></i></aside
-    ><div class="likes-results"></div
-    ><footer><i class="fa fa-chevron-right"></i></footer>
+    <aside><i class="fa fa-chevron-left"></i></aside>
+    <div class="likes-module">
+      <div class="likes-results"></div>
+      <div class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></div>
+    </div>
+    <footer><i class="fa fa-chevron-right"></i></footer>    
   </div>
 
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
@@ -837,11 +839,10 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><i class="fa fa-check-circle"></i><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
-        <i class="fa fa-star"></i
-        ><i class="fa fa-sign-in"></i>
+        <span class='likes'></span>
       </footer>
 
   </section>
@@ -863,19 +864,23 @@
 
   <section class="feed-likes">
     <aside>
-      <h1 class="like-button">Like</h1
-      ><span class='likes'></span>
+      <h1 class="like-button">Like</h1>
     </aside
 
     ><section>
 
-    </section>
+      <span class="entypo-dot-3 likes-trigger"></span>
+    </section
+    ><aside><i class="fa fa-star"></i><i class="fa fa-sign-in"></i></aside>
   </section>
 
   <div class="likes-results-container">
-    <aside><i class="fa fa-chevron-left"></i></aside
-    ><div class="likes-results"></div
-    ><footer><i class="fa fa-chevron-right"></i></footer>
+    <aside><i class="fa fa-chevron-left"></i></aside>
+    <div class="likes-module">
+      <div class="likes-results"></div>
+      <div class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></div>
+    </div>
+    <footer><i class="fa fa-chevron-right"></i></footer>    
   </div>
 
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
@@ -911,9 +916,11 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><h3><%= user.attributes.address %></h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
-      ><footer><h1>+</h1><span class='likes'></span></footer>
+      ><footer>
+        <span class='likes'></span>
+      </footer>
 
   </section>
 
@@ -927,9 +934,26 @@
     </aside>
   </section>
   
-  <section class="feed-statistics">
-    <p><%= moment(createdAt).fromNow(true) %> ago</p>
+  <section class="feed-likes">
+    <aside>
+      <h1 class="like-button">Like</h1>
+    </aside
+
+    ><section>
+
+      <span class="entypo-dot-3 likes-trigger"></span>
+    </section
+    ><aside><i class="fa fa-star"></i><i class="fa fa-sign-in"></i></aside>
   </section>
+
+  <div class="likes-results-container">
+    <aside><i class="fa fa-chevron-left"></i></aside>
+    <div class="likes-module">
+      <div class="likes-results"></div>
+      <div class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></div>
+    </div>
+    <footer><i class="fa fa-chevron-right"></i></footer>    
+  </div>
 
   <section class="feed-controls">
     <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
@@ -1135,16 +1159,6 @@
         <div class="feed-header-wrap">
           <section class="feed-header"><h1>Craft and Draft</h1><i class="fa fa-angle-right"></i><h1>Feed</h1></section>
         </div>
-        <div class="business-tabs-container">
-          <div class="business-tabs">
-            <ul>
-              <a href="#business/<%= attributes.handle %>"><section><h1><%= attributes.businessName %></h1></section></a
-              ><a href="#business/<%= attributes.handle %>/feed"><section><h1>Feed</h1></section></a
-              ><a href="#business/<%= attributes.handle %>/beer"><section><h1>Beer Menu</h1></section></a
-              ><a href="#business/<%= attributes.handle %>/calendar"><section><h1>Calendar</h1></section></a>
-            </ul>
-          </div>
-        </div>
 
         <div class="bar-feed"><ul></ul></div>
 
@@ -1171,16 +1185,6 @@
           <section class="feed-header"><h1>Craft and Draft</h1><i class="fa fa-angle-right"></i><h1>Beer Menu</h1></section>
         </div>
 
-        <div class="business-tabs-container">
-          <div class="business-tabs">
-            <ul>
-              <a href="#business/<%= attributes.handle %>"><section><h1><%= attributes.businessName %></h1></section></a
-              ><a href="#business/<%= attributes.handle %>/feed"><section><h1>Feed</h1></section></a
-              ><a href="#business/<%= attributes.handle %>/beer"><section><h1>Beer Menu</h1></section></a
-              ><a href="#business/<%= attributes.handle %>/calendar"><section><h1>Calendar</h1></section></a>
-            </ul>
-          </div>
-        </div>
 
 
         <div class="profile-beer-tabs">
@@ -1289,16 +1293,7 @@
           <section class="feed-header"><h1>Craft and Draft</h1><i class="fa fa-angle-right"></i><h1>Calendar</h1></section>
         </div>
 
-        <div class="business-tabs-container">
-          <div class="business-tabs">
-            <ul>
-              <a href="#business/<%= attributes.handle %>"><section><h1><%= attributes.businessName %></h1></section></a
-              ><a href="#business/<%= attributes.handle %>/feed"><section><h1>Feed</h1></section></a
-              ><a href="#business/<%= attributes.handle %>/beer"><section><h1>Beer Menu</h1></section></a
-              ><a href="#business/<%= attributes.handle %>/calendar"><section><h1>Calendar</h1></section></a>
-            </ul>
-          </div>
-        </div>
+
 
         <div class="wide-container">
 
