@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,800,900,300italic,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lobster);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700,700italic,400italic,300italic);
-/*@import url(http://weloveiconfonts.com/api/?family=entypo);*/
+@import url(http://weloveiconfonts.com/api/?family=entypo);
 /* entypo */
 [class*="entypo-"]:before {
   font-family: 'entypo', sans-serif; }
@@ -2943,8 +2943,7 @@ svg rect {
   overflow: hidden;
   position: relative;
   background: #fff;
-  z-index: 600;
-  /*border-radius: 0 0 3px 3px;*/ }
+  z-index: 600; }
   .feed-likes aside,
   .feed-likes section,
   .feed-likes h1,
@@ -2958,57 +2957,38 @@ svg rect {
     height: 50px;
     background: transparent;
     z-index: 50;
-    padding: 10px 5px 10px 15px;
+    padding: 17px 15px 0;
     text-align: left; }
-    .feed-likes aside i {
-      font-size: 1em;
-      color: #66BB6A; }
     .feed-likes aside h1 {
       font-size: 1em;
       font-weight: 400;
       color: #333;
-      padding: 5px 0 0 0;
-      width: 70px;
-      height: 30px;
-      background: #f3f3f3;
-      border-radius: 3px 0 0 3px;
-      border: 1px solid #ddd;
-      border-right: 0;
-      text-align: center;
       cursor: pointer; }
-  .feed-likes section {
-    width: 360px;
-    height: 50px;
-    padding: 10px 10px 0;
-    background: transparent;
+    .feed-likes aside i {
+      font-size: 1.4em;
+      color: #ddd;
+      margin-left: 10px; }
+  .feed-likes aside:last-child {
     text-align: right; }
-    .feed-likes section h2 {
-      font-size: 1em;
-      font-weight: 400;
-      color: #333;
-      padding: 3px 0 0 0;
-      width: 70px;
-      height: 25px;
-      background: #f3f3f3;
-      border-radius: 3px;
-      border: 1px solid #ddd;
-      cursor: pointer;
-      text-align: center;
-      margin-left: 5px; }
+  .feed-likes section {
+    width: 240px;
+    height: 50px;
+    padding: 13px 15px 0;
+    background: transparent;
+    text-align: center; }
+    .feed-likes section span {
+      font-size: 1.4em;
+      color: #66BB6A;
+      cursor: pointer; }
 
 .likes {
   text-align: center;
-  width: 30px;
-  height: 30px;
-  padding-top: 4px;
   background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 0 3px 3px 0;
-  font-size: 1.2em;
-  font-weight: 400;
-  color: #66BB6A;
+  font-size: 1.6em;
+  font-weight: 300;
+  color: #555;
+  padding: 10px 10px 0 0;
   cursor: pointer;
-  float: right;
   transition: 250ms; }
 
 .likes-animation {
@@ -3020,39 +3000,48 @@ svg rect {
   height: 50px;
   position: relative;
   /* margin-top: -40px; */
-  text-align: left;
+  text-align: center;
   transition: 250ms;
-  border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px !important;
   margin-bottom: 0 !important;
   background: #f8f8f8;
+  box-shadow: 0px 10px 30px -10px #f0f0f0 inset;
   margin-top: -50px; }
   .likes-results-container aside,
   .likes-results-container footer {
-    width: 50px;
+    width: 40px;
     display: inline-block;
     vertical-align: top;
-    padding: 10px; }
+    padding: 10px 0px 0; }
     .likes-results-container aside i,
     .likes-results-container footer i {
       font-size: 1.2em;
       width: 30px;
       height: 30px;
-      text-align: center;
-      background: #fff;
-      color: #555;
       border-radius: 3px;
+      text-align: center;
+      color: #ddd;
       padding-top: 9px; }
   .likes-results-container aside {
-    text-align: left; }
-  .likes-results-container footer {
     text-align: right; }
+  .likes-results-container footer {
+    text-align: left; }
+
+.likes-module {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 170px; }
 
 .likes-results {
   display: inline-block;
   vertical-align: top;
-  width: 380px;
   padding: 10px 0;
-  font-size: 0; }
+  font-size: 0;
+  z-index: 20;
+  position: relative;
+  text-align: left;
+  width: 170px; }
   .likes-results a {
     display: inline-block;
     vertical-align: top;
@@ -3068,6 +3057,24 @@ svg rect {
       color: #333;
       margin-top: 3px;
       display: none; }
+  .likes-results a:nth-child(5n) {
+    margin-right: 0; }
+
+.likes-results-background {
+  position: absolute;
+  top: 10px;
+  z-index: 10; }
+  .likes-results-background li {
+    display: inline-block;
+    vertical-align: top;
+    width: 30px;
+    height: 30px;
+    background: #f0f0f0;
+    margin-right: 5px;
+    border-radius: 0;
+    margin-bottom: 0; }
+  .likes-results-background li:nth-child(5) {
+    margin-right: 0; }
 
 .likes-results-shift {
   margin-top: 0px; }
@@ -3086,7 +3093,8 @@ svg rect {
   .feed-info h2,
   .feed-info div,
   .feed-info h4,
-  .feed-info footer {
+  .feed-info footer,
+  .feed-info h1 {
     display: inline-block;
     vertical-align: top; }
   .feed-info aside {
@@ -3155,6 +3163,11 @@ svg rect {
       cursor: pointer;
       text-align: center;
       margin-left: 5px; }
+    .feed-info footer h1 {
+      font-size: 1em;
+      font-weight: 400;
+      padding-top: 12px;
+      padding-right: 10px; }
   .feed-info h4 {
     float: right;
     padding: 5px 10px;

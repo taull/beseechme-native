@@ -34,7 +34,7 @@ BeMe.Views.Status = Parse.View.extend({
     'click .unfollow': 'unfollow',
     'click .like-button, .dislike-button' : 'toggleLike',
     'click .check-in' : 'checkIn',
-    'click .likes' : 'loadUsersWhoLiked'
+    'click .likes-trigger' : 'loadUsersWhoLiked'
 	},
 
 	follow: function () {
@@ -99,10 +99,10 @@ BeMe.Views.Status = Parse.View.extend({
 	    var self = this;
 
 	    var initialFontSize = $likeCount.css('font-size');
-		$likeCount.css('font-size', '2em');
+		$likeCount.css('font-size', '1.7em');
 		setTimeout(function () {
 			$likeCount.css('font-size', initialFontSize);
-		},250);
+		},150);
 
 	    if (currentTargetClass == 'like-button') {
 	      this.likeCount += 1;
@@ -115,9 +115,9 @@ BeMe.Views.Status = Parse.View.extend({
 	      this.model.save().then(function () {
 	      	var createdBy = self.model.get('createdBy');
 	      	if (createdBy.get('userType') == 'consumer') {
-	      		BeMe.showConfirmation('You have liked ' + createdBy.get('firstName') + " " + createdBy.get('lastName') + "'s post!");
+	      		BeMe.showConfirmation('You liked ' + createdBy.get('firstName') + " " + createdBy.get('lastName') + "'s post!");
 	      	} else {
-	      		BeMe.showConfirmation('You have liked ' + createdBy.get('businessName') + "'s post!");
+	      		BeMe.showConfirmation('You liked ' + createdBy.get('businessName') + "'s post");
 	      	}
 	      });
 	    } else if (currentTargetClass == 'dislike-button') {
