@@ -779,10 +779,10 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
-        <i class="fa fa-heart like-button"></i>
+        <i class="fa fa-chevron-up like-button"></i>
         <span class='likes'></span>
       </footer>
 
@@ -798,8 +798,8 @@
     <aside>
     </aside
 
-    ><section>
-      <span class="entypo-dot-3 likes-trigger"></span>
+    ><section class="likes-trigger">
+      <span class="entypo-dot-3"></span>
     </section
     ><aside></aside>
   </section>
@@ -838,10 +838,10 @@
       </aside
 
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
-        <i class="fa fa-heart like-button"></i>
+        <i class="fa fa-chevron-up like-button"></i>
         <span class='likes'></span>
       </footer>
 
@@ -864,9 +864,8 @@
     <aside>
     </aside
 
-    ><section>
-
-      <span class="entypo-dot-3 likes-trigger"></span>
+    ><section class="likes-trigger">
+      <span class="entypo-dot-3"></span>
     </section
     ><aside></aside>
   </section>
@@ -913,10 +912,10 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
-        <i class="fa fa-heart like-button"></i>
+        <i class="fa fa-chevron-up like-button"></i>
         <span class='likes'></span>
       </footer>
 
@@ -937,11 +936,10 @@
     <aside>
     </aside
 
-    ><section>
-
-      <span class="entypo-dot-3 likes-trigger"></span>
+    ><section class="likes-trigger">
+      <span class="entypo-dot-3"></span>
     </section
-    ><aside><i class="fa fa-star"></i><i class="fa fa-sign-in"></i></aside>
+    ><aside></aside>
   </section>
 
   <div class="likes-results-container">

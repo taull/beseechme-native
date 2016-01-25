@@ -2975,11 +2975,15 @@ svg rect {
     height: 50px;
     padding: 13px 15px 0;
     background: transparent;
-    text-align: center; }
+    text-align: center;
+    cursor: pointer; }
     .feed-likes section span {
       font-size: 1.4em;
-      color: #66BB6A;
+      color: #ddd;
       cursor: pointer; }
+    .feed-likes section img {
+      width: 20px;
+      height: auto; }
 
 .likes {
   font-size: 1.4em;
@@ -3093,7 +3097,6 @@ svg rect {
   z-index: 1;
   background: #fff;
   height: 70px;
-  width: 480px;
   overflow: hidden; }
   .feed-info aside,
   .feed-info section,
@@ -3135,9 +3138,10 @@ svg rect {
       padding-left: 3px;
       padding-top: 3px; }
     .feed-info section span {
-      font-size: 1.3em;
+      font-size: 1.4em;
       color: #ddd;
-      margin-top: 3px; }
+      margin-top: 2px;
+      margin-right: 5px; }
     .feed-info section i {
       font-size: 1.3em;
       color: #66BB6A;
@@ -3145,7 +3149,7 @@ svg rect {
       margin-right: 5px; }
   .feed-info footer {
     float: right;
-    padding: 15px; }
+    padding: 15px 20px; }
     .feed-info footer h1,
     .feed-info footer span,
     .feed-info footer div,
@@ -3154,12 +3158,13 @@ svg rect {
       display: inline-block;
       vertical-align: top; }
     .feed-info footer i {
-      font-size: 1.4em;
+      height: 25px;
+      width: 25px;
+      padding-top: 4px;
+      font-size: 1.3em;
       color: #ddd;
       cursor: pointer;
-      text-align: center;
-      margin-right: 5px;
-      margin-top: 5px; }
+      text-align: center; }
     .feed-info footer h1 {
       font-size: 1em;
       font-weight: 400;
@@ -4773,9 +4778,6 @@ input[type="file"] {
 
 .fa-heart {
   transition: 250ms; }
-
-.fa-heart:hover {
-  color: #B71C1C; }
 
 /*Copyright Info*/
 .copyright-info {
