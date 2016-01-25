@@ -3127,10 +3127,15 @@ svg rect {
       font-weight: 300;
       padding-left: 3px;
       padding-top: 3px; }
+    .feed-info section span {
+      font-size: 1.3em;
+      color: #ddd;
+      margin-top: 3px; }
     .feed-info section i {
       font-size: 1.3em;
       color: #66BB6A;
-      margin-top: 3px; }
+      margin-top: 3px;
+      margin-right: 5px; }
   .feed-info footer {
     float: right;
     padding: 10px; }

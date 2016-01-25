@@ -778,15 +778,13 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="follow fa fa-check-circle"></i><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <span class='likes'></span>
       </footer>
 
   </section>
-
-
 
   <section class="feed-content">
     <aside>
@@ -803,7 +801,7 @@
 
       <span class="entypo-dot-3 likes-trigger"></span>
     </section
-    ><aside><i class="fa fa-star"></i><i class="fa fa-sign-in"></i></aside>
+    ><aside></aside>
   </section>
 
   <div class="likes-results-container">
@@ -839,15 +837,14 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="follow fa fa-check-circle"></i><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <span class='likes'></span>
       </footer>
 
   </section>
-
-
 
   <section class="feed-photo">
     <img src=<%= attributes.image._url %> /
@@ -871,7 +868,7 @@
 
       <span class="entypo-dot-3 likes-trigger"></span>
     </section
-    ><aside><i class="fa fa-star"></i><i class="fa fa-sign-in"></i></aside>
+    ><aside></aside>
   </section>
 
   <div class="likes-results-container">
@@ -916,8 +913,8 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="follow fa fa-check-circle"></i><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
-
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      
       ><footer>
         <span class='likes'></span>
       </footer>
