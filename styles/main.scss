@@ -4016,11 +4016,17 @@ svg rect{
 		padding: 13px 15px 0;
 		background: transparent;
 		text-align: center;
+		cursor: pointer;
 
 		span {
 			font-size: 1.4em;
-			color: $secondary-color-medium;
+			color: #ddd;
 			cursor:pointer;
+		}
+
+		img {
+			width: 20px;
+			height: auto;
 		}
 	}
 }
@@ -4177,7 +4183,6 @@ svg rect{
     z-index: 1;
     background: #fff;
     height: 70px;
-    width: 480px;
     overflow: hidden;
 
 	aside, 
@@ -4234,9 +4239,11 @@ svg rect{
 		}
 
 		span {
-			font-size: 1.3em;
+			font-size: 1.4em;
 			color: #ddd;			
-			margin-top: 3px;
+			margin-top: 2px;
+			margin-right: 5px;
+
 		}
 
 		i {
@@ -4250,7 +4257,7 @@ svg rect{
 
 	footer {
 		float: right;
-		padding: 15px;
+		padding: 15px 20px;
 
 		h1, 
 		span, 
@@ -4262,12 +4269,13 @@ svg rect{
 		}
 
 		i {
-	    	font-size: 1.4em;
+			height: 25px;
+			width: 25px;
+			padding-top: 4px;
+	    	font-size: 1.3em;
 	    	color: #ddd;
 	    	cursor: pointer;
 	    	text-align: center;
-	    	margin-right: 5px;
-	    	margin-top: 5px;
 	    }
 
 	    h1 {
@@ -6396,7 +6404,6 @@ input[type="file"] {
 }
 
 .fa-heart:hover {
-	color: $red-dark;
 }
 
 /*Copyright Info*/
