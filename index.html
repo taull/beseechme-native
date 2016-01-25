@@ -296,7 +296,7 @@
     <% if (Parse.User.current().get('userType') === 'consumer') { %>
       <section class="feed-controls">
         <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-        ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+        ><li><span class="entypo-star"></span><h1>Follow</h1></li
         ><li><span class="entypo-trash"></span><h1 class='delete-status'>Remove</h1></li>
       </section>
     <% } else { %>
@@ -778,7 +778,8 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><i class="fa fa-check-circle"></i><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="follow fa fa-check-circle"></i><% } else { %><% } %><i class="fa fa-star follow"></i><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+
 
       ><footer>
         <span class='likes'></span>
@@ -816,7 +817,7 @@
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
     <section class="feed-controls">
       <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-      ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+      ><li><span class="entypo-star"></span><h1>Follow</h1></li
       ><li><span class="entypo-location"></span><h1 class='check-in'>Check In</h1></li>
     </section>
   <% } else { %>
@@ -837,7 +838,8 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><i class="fa fa-check-circle"></i><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="follow fa fa-check-circle"></i><% } else { %><% } %><i class="fa fa-star follow"></i><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <span class='likes'></span>
@@ -882,7 +884,7 @@
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
     <section class="feed-controls">
       <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-      ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+      ><li><span class="entypo-star"></span><h1>Follow</h1></li
       ><li><span class="entypo-location"></span><h1 class='check-in'>Check In</h1></li>
     </section>
   <% } else { %>
@@ -912,7 +914,7 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="follow fa fa-check-circle"></i><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <span class='likes'></span>
@@ -953,7 +955,7 @@
 
   <section class="feed-controls">
     <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-    ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+    ><li><span class="entypo-star"></span><h1>Follow</h1></li
     ><li><span class="entypo-feather"></span><h1 class='rsvp'>RSVP</h1></li>
   </section>
 
@@ -1022,7 +1024,7 @@
 
   <section class="feed-controls">
     <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
-    ><li><span class="entypo-star"></span><h1 class='follow'>Follow</h1></li
+    ><li><span class="entypo-star"></span><h1>Follow</h1></li
     ><li><span class="entypo-location"></span><h1 class='check-in'>RSVP</h1></li>
   </section>
 

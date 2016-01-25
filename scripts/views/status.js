@@ -34,7 +34,7 @@ BeMe.Views.Status = Parse.View.extend({
     'click .unfollow': 'unfollow',
     'click .like-button, .dislike-button' : 'toggleLike',
     'click .check-in' : 'checkIn',
-    'click .likes-trigger' : 'loadUsersWhoLiked'
+    'click .likes-trigger' : 'likesTriggerHandler'
 	},
 
 	follow: function () {
@@ -51,20 +51,19 @@ BeMe.Views.Status = Parse.View.extend({
 		// Changes the follow button to unfollow button
 		var $followButton = this.$el.find('.follow');
 		if ($followButton.length) {
-		  $followButton.css('color', '#0277BD');
-		  $followButton.text('Following');
-		  $followButton[0].className = 'unfollow';
+		  $followButton.css('color', '#FFC107');
+		  $followButton.removeClass('follow');
+	      $followButton.addClass('unfollow');
 		}
 	},
 
   	isNotFollowing: function () {
 	    var $unfollowButton = this.$el.find('.unfollow');
 	    if ($unfollowButton.length) {
-	      $unfollowButton.css('color', '#ccc');
+	      $unfollowButton.css('color', '#ddd');
 	      // $unfollowButton.css('border', '1px solid #f0f0f0');
-
-	      $unfollowButton.text('Follow');
-	      $unfollowButton[0].className = 'follow';
+	      $unfollowButton.removeClass('unfollow');
+	      $unfollowButton.addClass('follow');
 	    }
  	},
 
@@ -138,9 +137,16 @@ BeMe.Views.Status = Parse.View.extend({
 		BeMe.CheckIn(Parse.User.current(),this.model.get('createdBy'));
 	},
 
+	likesTriggerHandler: function () {
+		this.$el.find('.likes-results-container').toggleClass('likes-results-shift'); // open/close
+
+  		if (!this.usersWhoLikedData) { //if we don't already have the data
+  			this.loadUsersWhoLiked();
+  		}
+  	},
+
 	loadUsersWhoLiked: function () {
 		var self = this;
-		this.$el.find('.likes-results-container').addClass('likes-results-shift');
 	    var query = this.model.relation('likedBy').query()
 	    query.limit(5);
 	    query.select('avatar');
@@ -149,16 +155,23 @@ BeMe.Views.Status = Parse.View.extend({
 	    query.select('businessName');
 	    query.select('handle');
 	    query.find().then(function (users) {
-	    	console.log(users);
-	    	_.each(users, function (user) {
-	    		if (user.get('handle') == undefined) {
-		    		user.set('handle', 'testHandle');
-		    	}
-		    	var templateFunction = _.template($('#likes-results-view').text());
-		    	var compiledTemplate = templateFunction(user.attributes);
-		    	self.$el.find('.likes-results').append(compiledTemplate);
-	    	});
+	    	self.usersWhoLikedData = users;
+	    	self.renderUsersWhoLiked();
 	    });
 	},
+
+	renderUsersWhoLiked: function () {
+		var $likesResults = this.$el.find('.likes-results');
+		_.each(this.usersWhoLikedData, function (user) {
+			//fallback for those users without a handle (temporary)
+    		if (user.get('handle') == undefined) {
+	    		user.set('handle', 'testHandle');
+	    	}
+
+	    	var templateFunction = _.template($('#likes-results-view').text());
+	    	var compiledTemplate = templateFunction(user.attributes);
+	    	$likesResults.append(compiledTemplate);
+    	});
+	}
 
 });
