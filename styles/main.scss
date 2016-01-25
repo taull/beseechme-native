@@ -4098,16 +4098,19 @@ svg rect{
 	text-align: left;
 	width: 170px;
 
-	a {
+	a { 
 		display: inline-block;
 		vertical-align: top;
 		text-align: center;
 		margin-right: 5px;
+		position: relative;
 
 		img {
 			width: 30px;
 			height: 30px;
 			background: #fff;
+			z-index: 10;
+			position: relative;
 		}
 
 		h1 {
@@ -4116,12 +4119,25 @@ svg rect{
 			color: #333;
 			margin-top: 3px;
 			display: none;
+		} 
+
+		span {
+			position: absolute;
+			color: $blue-500;
+			bottom: 10px;
+			right: 15px;
+			font-size:1em;
+			z-index: 30;
 		}
+		
+
 	}
 
 	a:nth-child(5n) {
 		margin-right: 0;
 	}
+
+
 }
 
 .likes-results-background {
