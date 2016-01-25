@@ -2982,12 +2982,9 @@ svg rect {
       cursor: pointer; }
 
 .likes {
-  text-align: center;
-  background: #fff;
-  font-size: 1.6em;
-  font-weight: 300;
+  font-size: 1.4em;
+  font-weight: 400;
   color: #555;
-  padding: 10px 10px 0 0;
   cursor: pointer;
   transition: 250ms; }
 
@@ -3138,16 +3135,7 @@ svg rect {
       margin-right: 5px; }
   .feed-info footer {
     float: right;
-    padding: 10px; }
-    .feed-info footer div {
-      padding: 20px;
-      background: #fff;
-      border-radius: 0;
-      margin-bottom: 0; }
-      .feed-info footer div h1 {
-        color: #8BC34A;
-        font-size: 1.2em;
-        font-weight: 400; }
+    padding: 15px; }
     .feed-info footer h1,
     .feed-info footer span,
     .feed-info footer div,
@@ -3156,31 +3144,17 @@ svg rect {
       display: inline-block;
       vertical-align: top; }
     .feed-info footer i {
-      font-size: 1em;
-      font-weight: 400;
-      color: #333;
-      padding: 6px 0 0 0;
-      width: 25px;
-      height: 25px;
-      background: #f3f3f3;
-      border-radius: 3px;
-      border: 1px solid #ddd;
+      font-size: 1.4em;
+      color: #ddd;
       cursor: pointer;
       text-align: center;
-      margin-left: 5px; }
+      margin-right: 5px;
+      margin-top: 5px; }
     .feed-info footer h1 {
       font-size: 1em;
       font-weight: 400;
       padding-top: 12px;
       padding-right: 10px; }
-  .feed-info h4 {
-    float: right;
-    padding: 5px 10px;
-    font-size: 1.2em;
-    font-weight: 400;
-    background: #f0f0f0;
-    border-radius: 3px;
-    border: 1px solid #ededed; }
 
 .feed-photo {
   width: 100%;
