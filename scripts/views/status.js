@@ -51,7 +51,7 @@ BeMe.Views.Status = Parse.View.extend({
 		// Changes the follow button to unfollow button
 		var $followButton = this.$el.find('.follow');
 		if ($followButton.length) {
-		  $followButton.css('color', '#66BB6A');
+		  $followButton.css('color', '#FFC107');
 		  $followButton.removeClass('follow');
 	      $followButton.addClass('unfollow');
 		}
