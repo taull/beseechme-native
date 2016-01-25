@@ -757,7 +757,8 @@
     <% } else { %>
       <img src="images/default-avatar.png">
     <% } %>
-    
+    <span class="fa fa-star"></span>
+
     <h1><%= firstName %></h1>
   </a>
 
@@ -769,6 +770,7 @@
 
 <script type='text/template' id='status-text-view'>
   <% var user = attributes.createdBy %>
+  <section class="feed-info-details"></section>
 
   <section class="feed-info">
       <aside>
@@ -804,14 +806,14 @@
     ><aside></aside>
   </section>
 
-  <div class="likes-results-container">
+  <section class="likes-results-container">
     <aside><i class="fa fa-chevron-left"></i></aside>
-    <div class="likes-module">
-      <div class="likes-results"></div>
-      <div class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></div>
-    </div>
+    <section class="likes-module">
+      <section class="likes-results"></section>
+      <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
+    </section>
     <footer><i class="fa fa-chevron-right"></i></footer>    
-  </div>
+  </section>
 
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
     <section class="feed-controls">
@@ -827,6 +829,7 @@
 
 <script type='text/template' id='status-photo-view'>
   <% var user = attributes.createdBy %>
+  <section class="feed-info-details"></section>
 
   <section class="feed-info">
       <aside>
@@ -870,14 +873,14 @@
     ><aside></aside>
   </section>
 
-  <div class="likes-results-container">
+  <section class="likes-results-container">
     <aside><i class="fa fa-chevron-left"></i></aside>
-    <div class="likes-module">
-      <div class="likes-results"></div>
-      <div class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></div>
-    </div>
+    <section class="likes-module">
+      <section class="likes-results"></section>
+      <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
+    </section>
     <footer><i class="fa fa-chevron-right"></i></footer>    
-  </div>
+  </section>
 
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
     <section class="feed-controls">
@@ -903,6 +906,7 @@
 <script type='text/template' id='status-event-view'>
 
   <% var user = attributes.createdBy %>
+  <section class="feed-info-details"></section>
   <section class="feed-info">
       <aside>
         <% if (typeof user.get('avatar') !=='undefined') { %>
@@ -942,14 +946,14 @@
     ><aside></aside>
   </section>
 
-  <div class="likes-results-container">
+  <section class="likes-results-container">
     <aside><i class="fa fa-chevron-left"></i></aside>
-    <div class="likes-module">
-      <div class="likes-results"></div>
-      <div class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></div>
-    </div>
+    <section class="likes-module">
+      <section class="likes-results"></section>
+      <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
+    </section>
     <footer><i class="fa fa-chevron-right"></i></footer>    
-  </div>
+  </section>
 
   <section class="feed-controls">
     <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li
@@ -1076,6 +1080,51 @@
       </ul>
     </div>
   </div>
+</script>
+
+
+<script type="text/template" id="consumer-home-view">
+
+  <div class="dashboard-container">
+
+  <% var user = Parse.User.current() %>
+
+        <div class="left-column">
+
+        </div
+        ><div class="middle-column">
+          <div class="feed-header-wrap">
+            <section class="feed-header"><h1>Taylor Aull</h1></section>
+          </div>
+          <div class="business-cover">
+            <% if (typeof attributes.coverPhoto !=='undefined') { %>
+              <img src=<%= attributes.coverPhoto._url %> >
+              <% } else { %>
+              <img src="images/craft2.jpg">
+            <% } %>
+          </div>
+
+          <div class="business-home">
+            <section>
+                <% if (typeof attributes.avatar !=='undefined') { %>
+                  <img src=<%= attributes.avatar._url %> >
+                  <% } else { %>
+                  <img src="images/default-avatar.png">
+                <% } %>
+                <h1><%= attributes.businessName %></h1><i class="fa fa-check-circle"></i>
+                <p><%= attributes.address %>, <%= attributes.City %>, <%= attributes.state %> <%= attributes.zip %></p>
+                <h2><%= attributes.phoneNumber %></h2>
+            </section>
+          </div>
+
+
+        </div
+        ><div class="right-column">
+
+        </div>
+  </div>
+
+
 </script>
 
 <script type="text/template" id="business-home-view">

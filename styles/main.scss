@@ -3928,6 +3928,8 @@ svg rect{
 	div {
 		border-radius: 3px;
 		margin-bottom: 15px;
+		overflow: hidden;
+		position: relative;	 
 	}
 
 	li:nth-child(odd), 
@@ -3935,6 +3937,7 @@ svg rect{
 		/*background: #f0f0f0;*/
 	}
 }
+
 
 
 .friends-feed {
@@ -4129,11 +4132,13 @@ svg rect{
 
 		span {
 			position: absolute;
-			color: $blue-500;
-			bottom: 10px;
-			right: 15px;
-			font-size:1em;
-			z-index: 30;
+			color: $gold-medium;
+			border-radius: 5px;
+			bottom: 0px;
+			right: 2px;
+			font-size: 12px;
+			z-index: 20;
+			display: none;
 		}
 		
 
@@ -4176,14 +4181,34 @@ svg rect{
 
 /* Feed Info */
 
+.feed-info-shift {
+	right: -50%;
+	transition: 250ms;
+}
+
+.feed-info-details {
+	position: absolute;
+	width: 50%;
+	left: -50%;
+	background: #f8f8f8;
+	height: 70px;
+	transition: 250ms;
+}
+
+.feed-info-details-shift {
+	left: 0;
+}
 
 .feed-info {
 	width: 100%;
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
     z-index: 1;
     background: #fff;
     height: 70px;
     overflow: hidden;
+    transition: 250ms;
 
 	aside, 
 	section, 
@@ -4239,10 +4264,13 @@ svg rect{
 		}
 
 		span {
-			font-size: 1.4em;
+			font-size: 1.3em;
 			color: #ddd;			
-			margin-top: 2px;
-			margin-right: 5px;
+			text-align: center;
+			width: 20px;
+			height: 20px;
+			padding-top: 2px;
+			cursor: pointer;
 
 		}
 
@@ -4296,6 +4324,7 @@ svg rect{
 	padding: 0; 
 	position: relative;
 	transition: 250ms;
+	margin-top: 70px;
 
 	img {
 		width: 100%;
@@ -4356,6 +4385,7 @@ svg rect{
 	display: inline-block;
 	padding: 0 15px 15px;	
 	background: #fff;
+	margin-top: 70px;
 
 	aside {
 		width: 100%;
@@ -4827,6 +4857,7 @@ svg rect{
 	display: inline-block;
 	padding: 0px 15px 10px;	
 	background: #fff;
+	margin-top: 70px;
 
 	aside {
 		width: 100%;
