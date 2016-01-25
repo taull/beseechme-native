@@ -1082,6 +1082,51 @@
   </div>
 </script>
 
+
+<script type="text/template" id="consumer-home-view">
+
+  <div class="dashboard-container">
+
+  <% var user = Parse.User.current() %>
+
+        <div class="left-column">
+
+        </div
+        ><div class="middle-column">
+          <div class="feed-header-wrap">
+            <section class="feed-header"><h1>Taylor Aull</h1></section>
+          </div>
+          <div class="business-cover">
+            <% if (typeof attributes.coverPhoto !=='undefined') { %>
+              <img src=<%= attributes.coverPhoto._url %> >
+              <% } else { %>
+              <img src="images/craft2.jpg">
+            <% } %>
+          </div>
+
+          <div class="business-home">
+            <section>
+                <% if (typeof attributes.avatar !=='undefined') { %>
+                  <img src=<%= attributes.avatar._url %> >
+                  <% } else { %>
+                  <img src="images/default-avatar.png">
+                <% } %>
+                <h1><%= attributes.businessName %></h1><i class="fa fa-check-circle"></i>
+                <p><%= attributes.address %>, <%= attributes.City %>, <%= attributes.state %> <%= attributes.zip %></p>
+                <h2><%= attributes.phoneNumber %></h2>
+            </section>
+          </div>
+
+
+        </div
+        ><div class="right-column">
+
+        </div>
+  </div>
+
+
+</script>
+
 <script type="text/template" id="business-home-view">
 
   <div class="dashboard-container">
