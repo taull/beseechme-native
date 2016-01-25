@@ -2790,9 +2790,10 @@ BeMe.Views.Status = Parse.View.extend({
 			$likeCount.css('font-size', initialFontSize);
 		},150);
 
-	    if (currentTargetClass == 'like-button') {
+	    if (currentTargetClass == 'like-button') { //like
 	      this.likeCount += 1;
 	      //Update the UI
+	      currentTarget.style.color = '#EF5350';
 	      currentTarget.className = 'dislike-button';
 	      currentTarget.textContent = 'Liked';
 	      $likeCount.text(this.likeCount);
@@ -2800,15 +2801,16 @@ BeMe.Views.Status = Parse.View.extend({
 	      likedBy.add(user);
 	      this.model.save().then(function () {
 	      	var createdBy = self.model.get('createdBy');
-	      	if (createdBy.get('userType') == 'consumer') {
+	      	if (createdBy.get('userType') == 'consumer') { 
 	      		BeMe.showConfirmation('You liked ' + createdBy.get('firstName') + " " + createdBy.get('lastName') + "'s post!");
 	      	} else {
 	      		BeMe.showConfirmation('You liked ' + createdBy.get('businessName') + "'s post");
 	      	}
 	      });
-	    } else if (currentTargetClass == 'dislike-button') {
+	    } else if (currentTargetClass == 'dislike-button') { //dislike
 	      this.likeCount -=1;
 	      //Update the UI
+	      currentTarget.style.color = '#ddd';
 	      currentTarget.className = 'like-button';
 	      currentTarget.textContent = 'Like';
 	      $likeCount.text(this.likeCount);
