@@ -62,7 +62,4 @@ BeMe.Views.StatusListView = Parse.View.extend({
   		}
   	});
   },
-
-
-
 });

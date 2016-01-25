@@ -2684,9 +2684,6 @@ BeMe.Views.StatusListView = Parse.View.extend({
   		}
   	});
   },
-
-
-
 });
 BeMe.Views.Status = Parse.View.extend({
 	initialize: function () {
@@ -2741,20 +2738,19 @@ BeMe.Views.Status = Parse.View.extend({
 		// Changes the follow button to unfollow button
 		var $followButton = this.$el.find('.follow');
 		if ($followButton.length) {
-		  $followButton.css('color', '#0277BD');
-		  $followButton.text('Following');
-		  $followButton[0].className = 'unfollow';
+		  $followButton.css('color', '#66BB6A');
+		  $followButton.removeClass('follow');
+	      $followButton.addClass('unfollow');
 		}
 	},
 
   	isNotFollowing: function () {
 	    var $unfollowButton = this.$el.find('.unfollow');
 	    if ($unfollowButton.length) {
-	      $unfollowButton.css('color', '#ccc');
+	      $unfollowButton.css('color', '#ddd');
 	      // $unfollowButton.css('border', '1px solid #f0f0f0');
-
-	      $unfollowButton.text('Follow');
-	      $unfollowButton[0].className = 'follow';
+	      $unfollowButton.removeClass('unfollow');
+	      $unfollowButton.addClass('follow');
 	    }
  	},
 
