@@ -2707,7 +2707,6 @@ BeMe.Views.Status = Parse.View.extend({
 	        //user does like
 	        var likeButton = self.$el.find('.like-button')[0];
 	        likeButton.className = 'dislike-button';
-	        likeButton.textContent = 'Liked';
 	      }
 	    });
   	},
@@ -2731,7 +2730,6 @@ BeMe.Views.Status = Parse.View.extend({
 	      //Update the UI
 	      currentTarget.style.color = '#EF5350';
 	      currentTarget.className = 'dislike-button';
-	      currentTarget.textContent = 'Liked';
 	      $likeCount.text(this.likeCount);
 	      // Add this user to the likedBy relation of this post and save
 	      likedBy.add(user);
@@ -2748,7 +2746,6 @@ BeMe.Views.Status = Parse.View.extend({
 	      //Update the UI
 	      currentTarget.style.color = '#ddd';
 	      currentTarget.className = 'like-button';
-	      currentTarget.textContent = 'Like';
 	      $likeCount.text(this.likeCount);
 	      // Remove this user from the likeBy relation of this post and save
 	      likedBy.remove(user);
