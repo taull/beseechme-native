@@ -757,7 +757,8 @@
     <% } else { %>
       <img src="images/default-avatar.png">
     <% } %>
-    
+    <span class="fa fa-star"></span>
+
     <h1><%= firstName %></h1>
   </a>
 
@@ -769,6 +770,7 @@
 
 <script type='text/template' id='status-text-view'>
   <% var user = attributes.createdBy %>
+  <section class="feed-info-details"></section>
 
   <section class="feed-info">
       <aside>
@@ -804,14 +806,14 @@
     ><aside></aside>
   </section>
 
-  <div class="likes-results-container">
+  <section class="likes-results-container">
     <aside><i class="fa fa-chevron-left"></i></aside>
-    <div class="likes-module">
-      <div class="likes-results"></div>
-      <div class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></div>
-    </div>
+    <section class="likes-module">
+      <section class="likes-results"></section>
+      <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
+    </section>
     <footer><i class="fa fa-chevron-right"></i></footer>    
-  </div>
+  </section>
 
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
     <section class="feed-controls">
@@ -827,6 +829,7 @@
 
 <script type='text/template' id='status-photo-view'>
   <% var user = attributes.createdBy %>
+  <section class="feed-info-details"></section>
 
   <section class="feed-info">
       <aside>
@@ -870,14 +873,14 @@
     ><aside></aside>
   </section>
 
-  <div class="likes-results-container">
+  <section class="likes-results-container">
     <aside><i class="fa fa-chevron-left"></i></aside>
-    <div class="likes-module">
-      <div class="likes-results"></div>
-      <div class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></div>
-    </div>
+    <section class="likes-module">
+      <section class="likes-results"></section>
+      <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
+    </section>
     <footer><i class="fa fa-chevron-right"></i></footer>    
-  </div>
+  </section>
 
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
     <section class="feed-controls">
@@ -903,6 +906,7 @@
 <script type='text/template' id='status-event-view'>
 
   <% var user = attributes.createdBy %>
+  <section class="feed-info-details"></section>
   <section class="feed-info">
       <aside>
         <% if (typeof user.get('avatar') !=='undefined') { %>
@@ -942,14 +946,14 @@
     ><aside></aside>
   </section>
 
-  <div class="likes-results-container">
+  <section class="likes-results-container">
     <aside><i class="fa fa-chevron-left"></i></aside>
-    <div class="likes-module">
-      <div class="likes-results"></div>
-      <div class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></div>
-    </div>
+    <section class="likes-module">
+      <section class="likes-results"></section>
+      <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
+    </section>
     <footer><i class="fa fa-chevron-right"></i></footer>    
-  </div>
+  </section>
 
   <section class="feed-controls">
     <li><span class="entypo-thumbs-up"></span><h1 class='like-button'>Like</h1></li

@@ -2912,7 +2912,9 @@ svg rect {
   .bar-feed li,
   .bar-feed div {
     border-radius: 3px;
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    overflow: hidden;
+    position: relative; }
   .bar-feed li:nth-child(odd),
   .bar-feed div:nth-child(odd) {
     /*background: #f0f0f0;*/ }
@@ -3063,11 +3065,13 @@ svg rect {
       display: none; }
     .likes-results a span {
       position: absolute;
-      color: #2196F3;
-      bottom: 10px;
-      right: 15px;
-      font-size: 1em;
-      z-index: 30; }
+      color: #FFC107;
+      border-radius: 5px;
+      bottom: 0px;
+      right: 2px;
+      font-size: 12px;
+      z-index: 20;
+      display: none; }
   .likes-results a:nth-child(5n) {
     margin-right: 0; }
 
@@ -3091,13 +3095,31 @@ svg rect {
   margin-top: 0px; }
 
 /* Feed Info */
+.feed-info-shift {
+  right: -50%;
+  transition: 250ms; }
+
+.feed-info-details {
+  position: absolute;
+  width: 50%;
+  left: -50%;
+  background: #f8f8f8;
+  height: 70px;
+  transition: 250ms; }
+
+.feed-info-details-shift {
+  left: 0; }
+
 .feed-info {
   width: 100%;
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
   z-index: 1;
   background: #fff;
   height: 70px;
-  overflow: hidden; }
+  overflow: hidden;
+  transition: 250ms; }
   .feed-info aside,
   .feed-info section,
   .feed-info h2,
@@ -3138,10 +3160,13 @@ svg rect {
       padding-left: 3px;
       padding-top: 3px; }
     .feed-info section span {
-      font-size: 1.4em;
+      font-size: 1.3em;
       color: #ddd;
-      margin-top: 2px;
-      margin-right: 5px; }
+      text-align: center;
+      width: 20px;
+      height: 20px;
+      padding-top: 2px;
+      cursor: pointer; }
     .feed-info section i {
       font-size: 1.3em;
       color: #66BB6A;
@@ -3175,7 +3200,8 @@ svg rect {
   width: 100%;
   padding: 0;
   position: relative;
-  transition: 250ms; }
+  transition: 250ms;
+  margin-top: 70px; }
   .feed-photo img {
     width: 100%;
     height: auto;
@@ -3219,7 +3245,8 @@ svg rect {
   width: 100%;
   display: inline-block;
   padding: 0 15px 15px;
-  background: #fff; }
+  background: #fff;
+  margin-top: 70px; }
   .feed-content aside {
     width: 100%;
     text-align: left;
@@ -3554,7 +3581,8 @@ svg rect {
   width: 100%;
   display: inline-block;
   padding: 0px 15px 10px;
-  background: #fff; }
+  background: #fff;
+  margin-top: 70px; }
   .feed-event aside {
     width: 100%;
     text-align: left;
