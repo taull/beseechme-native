@@ -132,8 +132,8 @@ BeMe.Views.Status = Parse.View.extend({
 	      $likeCount.text(this.likeCount);
 	      // Add this user to the likedBy relation of this post and save
 	      likedBy.add(user);
-	      this.model.save()\*.then(function () {
-	      	var createdBy = self.model.get('createdBy');
+	      this.model.save().then(function () {
+	      	/*var createdBy = self.model.get('createdBy');
 	      	if (createdBy.get('userType') == 'consumer') { 
 	      		BeMe.showConfirmation('You liked ' + createdBy.get('firstName') + " " + createdBy.get('lastName') + "'s post!");
 	      	} else {
