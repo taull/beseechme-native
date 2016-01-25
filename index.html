@@ -778,8 +778,7 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="follow fa fa-check-circle"></i><% } else { %><% } %><i class="fa fa-star follow"></i><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
-
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <span class='likes'></span>
@@ -839,7 +838,7 @@
       </aside
 
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="follow fa fa-check-circle"></i><% } else { %><% } %><i class="fa fa-star follow"></i><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <span class='likes'></span>
@@ -914,8 +913,8 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="follow fa fa-check-circle"></i><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
-
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (typeof user.get('isVerified') !=='undefined') { %><i class="fa fa-check-circle"></i><% } else { %><% } %><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      
       ><footer>
         <span class='likes'></span>
       </footer>

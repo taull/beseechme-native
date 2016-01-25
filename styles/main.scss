@@ -4220,10 +4220,17 @@ svg rect{
 			padding-top: 3px;
 		}
 
-		i {
+		span {
 			font-size: 1.3em;
 			color: #ddd;			
 			margin-top: 3px;
+		}
+
+		i {
+			font-size: 1.3em;
+			color: $secondary-color-medium;			
+			margin-top: 3px;
+			margin-right: 5px;
 		}
 
 	}
