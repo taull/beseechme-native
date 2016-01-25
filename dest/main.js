@@ -2770,7 +2770,9 @@ BeMe.Views.Status = Parse.View.extend({
 	      if(i) {
 	        //user does like
 	        var likeButton = self.$el.find('.like-button')[0];
-	        likeButton.className = 'dislike-button';
+	        $(likeButton).addClass('dislike-button');
+	      	$(likeButton).removeClass('like-button');
+	      	likeButton.style.color = '#EF5350';
 	      }
 	    });
   	},
@@ -2789,11 +2791,31 @@ BeMe.Views.Status = Parse.View.extend({
 			$likeCount.css('font-size', initialFontSize);
 		},150);
 
-	    if (currentTargetClass == 'like-button') { //like
+		/*
+			This if statement has the dislike section first because of the .includes()
+			method on the currentTargetClass string. Searching for just 'like-button'
+			matches on both 'dislike-button' and 'like-button' alike. Searching for
+			'dislike-button' first ensures we don't get a false match because it will
+			only run the dislike section if it matches the entire 'dislike-button' phrase.
+		*/
+	    if (currentTargetClass.includes('dislike-button')) { //dislike
+	      this.likeCount -=1;
+	      //Update the UI
+	      currentTarget.style.color = '#ddd';
+	      $(currentTarget).removeClass('dislike-button');
+	      $(currentTarget).addClass('like-button');
+	      $likeCount.text(this.likeCount);
+	      // Remove this user from the likeBy relation of this post and save
+	      likedBy.remove(user);
+	      this.model.save().then(function () {
+	      	var createdBy = self.model.get('createdBy');
+	      });
+	    } else if (currentTargetClass.includes('like-button')) { //like
 	      this.likeCount += 1;
 	      //Update the UI
 	      currentTarget.style.color = '#EF5350';
-	      currentTarget.className = 'dislike-button';
+	      $(currentTarget).removeClass('like-button');
+	      $(currentTarget).addClass('dislike-button');
 	      $likeCount.text(this.likeCount);
 	      // Add this user to the likedBy relation of this post and save
 	      likedBy.add(user);
@@ -2804,17 +2826,6 @@ BeMe.Views.Status = Parse.View.extend({
 	      	} else {
 	      		BeMe.showConfirmation('You liked ' + createdBy.get('businessName') + "'s post");
 	      	}
-	      });
-	    } else if (currentTargetClass == 'dislike-button') { //dislike
-	      this.likeCount -=1;
-	      //Update the UI
-	      currentTarget.style.color = '#ddd';
-	      currentTarget.className = 'like-button';
-	      $likeCount.text(this.likeCount);
-	      // Remove this user from the likeBy relation of this post and save
-	      likedBy.remove(user);
-	      this.model.save().then(function () {
-	      	var createdBy = self.model.get('createdBy');
 	      });
 	    }
 	  },
