@@ -138,7 +138,7 @@ BeMe.Views.Status = Parse.View.extend({
 	      		BeMe.showConfirmation('You liked ' + createdBy.get('firstName') + " " + createdBy.get('lastName') + "'s post!");
 	      	} else {
 	      		BeMe.showConfirmation('You liked ' + createdBy.get('businessName') + "'s post");
-	      	}*\
+	      	}*/
 	      });
 	    }
 	  },
