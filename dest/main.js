@@ -371,7 +371,7 @@ BeMe.CheckIn = function (user, business) {
     var thisMoment = new moment(new Date());
     var dateFormatted = thisMoment.format('h:mma [on] MMMM Do, YYYY');
 
-    var content = '<h1>' + user.get('firstName') + '</h1>' + ' ' + '<h1>' + user.get('lastName') + '</h1>' + ' ' + '<p>' + 'checked into' + '</p>' + ' ' + '<a>' + business.get('businessName') + '</a>';
+    var content = '<p>' + 'Checked into' + '</p>' + ' ' + '<a>' + business.get('businessName') + '</a>';
 
     checkInStatus.set('location', user.get('location'));
     checkInStatus.set('content', content);
