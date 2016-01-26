@@ -769,7 +769,7 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (attributes.userType == 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (Parse.User.current().get('userType') === 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <i class="fa fa-chevron-up like-button"></i>
@@ -829,7 +829,7 @@
       </aside
 
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (attributes.userType == 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (Parse.User.current().get('userType') === 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <i class="fa fa-chevron-up like-button"></i>
@@ -853,7 +853,6 @@
 
   <section class="feed-likes">
     <aside>
-      <h1 class='check-in'>Check In</h1>
     </aside
 
     ><section class="likes-trigger">
@@ -905,7 +904,7 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (attributes.userType == 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (Parse.User.current().get('userType') === 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <i class="fa fa-chevron-up like-button"></i>
@@ -1094,13 +1093,13 @@
         ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= attributes.businessName %></h1></a><span class="fa fa-star follow"></span><h3>@<%= attributes.handle %></h3></section
 
         ><footer>
-          <i class="fa fa-ellipsis-h"></i>
+          <h1 class="check-in">Check In</h1>
         </footer>
 
     </section>
     <section class="user-details"><h1><%= attributes.address %> • <%= attributes.city %>, <%= attributes.state %> <%= attributes.zip %></h1></section>
 
-      <section class="user-functions"><h1 class="check-in">Check In</h1></section>
+      <section class="user-functions"></section>
 
   </div>
 
@@ -1116,7 +1115,6 @@
   </div>
 </script>
 
-
 <script type="text/template" id="consumer-home-view">
 
   <div class="dashboard-container">
@@ -1126,28 +1124,30 @@
 
         </div
         ><div class="middle-column">
-          <div class="feed-header-wrap">
-            <section class="feed-header"><h1>Taylor Aull</h1></section>
-          </div>
-          <div class="business-cover">
-            <% if (typeof attributes.coverPhoto !=='undefined') { %>
-              <img src=<%= attributes.coverPhoto._url %> >
-              <% } else { %>
-              <img src="images/craft2.jpg">
-            <% } %>
-          </div>
+            <% var user = Parse.User.current() %>
 
-          <div class="business-home">
-            <section>
-                <% if (typeof attributes.avatar !=='undefined') { %>
-                  <img src=<%= attributes.avatar._url %> >
-                  <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-                <h1><%= attributes.businessName %></h1><i class="fa fa-check-circle"></i>
-                <p><%= attributes.address %>, <%= attributes.City %>, <%= attributes.state %> <%= attributes.zip %></p>
-                <h2><%= attributes.phoneNumber %></h2>
-            </section>
+            <div class="user-info-container">
+              <section class="user-info">
+                  <aside>
+                    <% if (typeof attributes.avatar !=='undefined') { %>
+                      <img src=<%= attributes.avatar._url %> >
+                      <% } else { %>
+                      <img src="images/default-avatar.png">
+                    <% } %>
+                  </aside
+
+                  ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= attributes.firstName + ' ' + attributes.lastName %></h1></a><span class="fa fa-star follow"></span><h3>@<%= attributes.handle %></h3></section
+
+                  ><footer>
+                    <h1>Send Request</h1>
+                  </footer>
+
+              </section>
+              <section class="user-details"><span class="fa fa-lock"></span><h1>Activity is protected. Please send <%= attributes.firstName %> a friend request.</h1></section>
+
+              <section class="user-functions"></section>
+
+            </div>
           </div>
 
 
@@ -1744,6 +1744,38 @@
     <aside><img src="<%= attributes.avatar._url %>"></aside
     ><section><a href='#business/<%= attributes.handle %>'><h1><%= attributes.businessName %></h1></a><p><%= attributes.address %></p></section>
   </div>
+</script>
+
+<script type="text/template" id="friend-inbox-view">
+
+  <div class="dashboard-container">
+    <div class="left-column"></div
+    ><div class="middle-column">
+      <div class="friend-requests"><ul></ul></div>
+    </div>
+  </div>
+
+</script>
+
+<script type="text/template" id="friend-request-view">
+
+  <section class="user-info">
+    <aside>
+      <% if (typeof attributes.avatar !=='undefined') { %>
+        <img src=<%= attributes.avatar._url %> >
+        <% } else { %>
+        <img src="images/default-avatar.png">
+      <% } %>
+    </aside
+
+    ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= attributes.firstName + ' ' + attributes.lastName %></h1></a><span class="fa fa-star follow"></span><h3>@<%= attributes.handle %></h3></section
+
+    ><footer>
+      <span class="fa fa-check"></span><span class="fa fa-close"></span>
+    </footer>
+
+  </section>
+
 </script>
 
 <script type="text/template" id="error-page-view">

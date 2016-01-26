@@ -326,6 +326,7 @@ header {
 		height: 60px;
 		z-index: 100;
 		padding-top: 10px;
+		display: none;
 
 		img {
 			height: 24px;
@@ -335,7 +336,7 @@ header {
 	}
 
 	section {
-		width: 70%;
+		width: 100%;
 		text-align: right;
 
 		a, 
@@ -818,6 +819,7 @@ header {
 	position:relative;
 	transition: 250ms;
 	padding: 15px 0 0;
+	display: none;
 }
 
 .business-tabs-container-expand {
@@ -4231,6 +4233,8 @@ svg rect{
 .user-info-container {
 	width: 480px;
 	margin: 0 auto;
+	overflow: hidden;
+	border-radius: 3px;
 }
 
 .user-details {
@@ -4243,7 +4247,8 @@ svg rect{
 	z-index: 50;
 
 	li, 
-	h1 {
+	h1, 
+	span {
 		display: inline-block;
 		vertical-align: top;
 	}
@@ -4252,6 +4257,12 @@ svg rect{
 		font-size: 1em;
 		color: #999;
 		font-weight: 300;
+	}
+
+	span {
+		color: #999;
+		padding-right: 5px;
+		padding-top: 2px;
 	}
 }
 
@@ -4262,6 +4273,7 @@ svg rect{
 	background: $primary-color-light;
 	z-index:100;
 	position: relative;
+	display: none;
 
 	li, 
 	h1 {
@@ -4412,13 +4424,27 @@ svg rect{
 	    	text-align: center;
 	    }
 
-	    h1 {
-		    font-size: 1em;
-		    font-weight: 400;
-		    padding-top: 12px;
-		    padding-right: 10px;
-	    }
+		span {
+			padding: 10px;
+			border-radius: 3px;
+			font-size: 1.4em;
+			color: #fff;
+			background: $blue-700;
+			margin-left: 15px;
+		}
 
+		span:nth-child(2) {
+			background: $red-medium;
+		}
+
+		h1 {
+			padding: 10px 15px;
+			border-radius: 3px;
+			font-size: 1em;
+			color: #fff;
+			background: $blue-700;
+			font-weight: 300;
+		}
 	}
 
 }

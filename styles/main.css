@@ -228,13 +228,14 @@ header {
     width: 30%;
     height: 60px;
     z-index: 100;
-    padding-top: 10px; }
+    padding-top: 10px;
+    display: none; }
     .header-left aside img {
       height: 24px;
       width: auto;
       display: none; }
   .header-left section {
-    width: 70%;
+    width: 100%;
     text-align: right; }
     .header-left section a,
     .header-left section li {
@@ -598,7 +599,8 @@ header {
   margin: 0px auto;
   position: relative;
   transition: 250ms;
-  padding: 15px 0 0; }
+  padding: 15px 0 0;
+  display: none; }
 
 .business-tabs-container-expand {
   width: 150px; }
@@ -3134,7 +3136,9 @@ svg rect {
 
 .user-info-container {
   width: 480px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 3px; }
 
 .user-details {
   width: 100%;
@@ -3145,13 +3149,18 @@ svg rect {
   position: relative;
   z-index: 50; }
   .user-details li,
-  .user-details h1 {
+  .user-details h1,
+  .user-details span {
     display: inline-block;
     vertical-align: top; }
   .user-details h1 {
     font-size: 1em;
     color: #999;
     font-weight: 300; }
+  .user-details span {
+    color: #999;
+    padding-right: 5px;
+    padding-top: 2px; }
 
 .user-functions {
   width: 100%;
@@ -3159,7 +3168,8 @@ svg rect {
   text-align: left;
   background: #ECEFF1;
   z-index: 100;
-  position: relative; }
+  position: relative;
+  display: none; }
   .user-functions li,
   .user-functions h1 {
     display: inline-block;
@@ -3301,12 +3311,25 @@ svg rect {
       color: #ddd;
       cursor: pointer;
       text-align: center; }
+    .feed-info footer span,
+    .user-info footer span {
+      padding: 10px;
+      border-radius: 3px;
+      font-size: 1.4em;
+      color: #fff;
+      background: #1976D2;
+      margin-left: 15px; }
+    .feed-info footer span:nth-child(2),
+    .user-info footer span:nth-child(2) {
+      background: #F44336; }
     .feed-info footer h1,
     .user-info footer h1 {
+      padding: 10px 15px;
+      border-radius: 3px;
       font-size: 1em;
-      font-weight: 400;
-      padding-top: 12px;
-      padding-right: 10px; }
+      color: #fff;
+      background: #1976D2;
+      font-weight: 300; }
 
 .feed-photo {
   width: 100%;
