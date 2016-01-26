@@ -209,13 +209,6 @@
 
 </script>
 
-<!-- <div class="one-column-container">
-
-    <div class="error-container">
-      <p>Sorry, you dont have access to this page</p>
-      <a href="#dashboard"><div class="back-to-dashboard"><h1>Back to Dashboard</h1></div></a>
-    </div>
-  </div> -->
 
 <!-- Backend Home View -->
 
@@ -1105,7 +1098,10 @@
         </footer>
 
     </section>
-    <section class="user-functions"><h1><%= attributes.address %> • <%= attributes.city %>, <%= attributes.state %> <%= attributes.zip %></h1></section>
+    <section class="user-details"><h1><%= attributes.address %> • <%= attributes.city %>, <%= attributes.state %> <%= attributes.zip %></h1></section>
+
+      <section class="user-functions"><h1 class="check-in">Check In</h1></section>
+
   </div>
 
   <div class="business-tabs-container">
@@ -1750,6 +1746,14 @@
   </div>
 </script>
 
+<script type="text/template" id="error-page-view">
+
+    <div class="error-container">
+      <p>Sorry, this page does not exist.</p>
+      <a href="#dashboard"><div class="back-to-dashboard"><h1>Back to Dashboard</h1></div></a>
+    </div>
+
+</script>
 
 
 <script src='bower_components/jquery/dist/jquery.min.js'></script>
