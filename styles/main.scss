@@ -3942,7 +3942,7 @@ svg rect{
 
 .friends-feed {
     width: 100%;
-    padding:  0;
+    padding: 0;
     background: #fff;
     border-radius: 3px;
 
@@ -3960,7 +3960,7 @@ svg rect{
 	}
 
 	div {
-		padding: 10px;
+		padding: 0;
 	}
 
 	li:nth-child(odd), 
@@ -4201,9 +4201,7 @@ svg rect{
 
 .feed-info {
 	width: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: relative;
     z-index: 1;
     background: #fff;
     height: 70px;
@@ -4240,7 +4238,8 @@ svg rect{
 		i, 
 		h1,
 		h2, 
-		div {
+		div,
+		a {
 			display: inline-block;
 			vertical-align: top;
 		}
@@ -4251,6 +4250,13 @@ svg rect{
 			font-weight: 500;
 			padding-left: 3px;
 			padding-right: 5px;
+			margin-top: 0 ;
+		}
+
+		p {
+			font-weight: 300;
+			margin-top: 2px;
+			padding-left: 2px;
 		}
 
 
@@ -4259,8 +4265,7 @@ svg rect{
 			color: #999;
 			font-size:.9em;
 			font-weight: 300;
-			padding-left: 3px;
-			padding-top: 3px;
+			padding: 3px 3px 10px;
 		}
 
 		span {
@@ -4324,7 +4329,6 @@ svg rect{
 	padding: 0; 
 	position: relative;
 	transition: 250ms;
-	margin-top: 70px;
 
 	img {
 		width: 100%;
@@ -4385,7 +4389,6 @@ svg rect{
 	display: inline-block;
 	padding: 0 15px 15px;	
 	background: #fff;
-	margin-top: 70px;
 
 	aside {
 		width: 100%;
@@ -4437,7 +4440,7 @@ svg rect{
 .feed-checkin-content {
 	width: 100%;
 	display: inline-block;
-	padding: 10px 15px 10px;	
+	padding: 0px 15px 10px 10px;	
 	background: #fff;
 
 	section, 
@@ -4449,9 +4452,7 @@ svg rect{
 
 	section {
 		text-align: left;
-		padding-top: 0;
 		display: inline-block;
-		padding-top: 0px;
 		padding-left: 10px;
 		width: 75%;
 
@@ -4479,7 +4480,7 @@ svg rect{
 
 		p {
 			font-size: 1em;
-		    line-height: 1.7em;
+		    line-height: 1.5em;
 		    font-weight: 300;
 		    color: #555;
 		}
@@ -4492,12 +4493,10 @@ svg rect{
 		}
 
 		h2 {
-			font-size: 1em;
+			font-size: 1.2em;
 			font-weight: 500;
 			color: #555;
 		}
-
-
 
 		span {
 			font-size: .8em;
@@ -4509,10 +4508,10 @@ svg rect{
 
 		a {
 			font-size: 1em;
-			line-height: 1.5em;
 			border-bottom: 0px solid $secondary-color-medium;
-			color: $secondary-color-dark;
+			color: #333;
 			padding: 0 2px;
+			font-weight: 400;
 		}
 	}
 
@@ -4857,7 +4856,6 @@ svg rect{
 	display: inline-block;
 	padding: 0px 15px 10px;	
 	background: #fff;
-	margin-top: 70px;
 
 	aside {
 		width: 100%;

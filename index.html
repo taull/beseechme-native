@@ -8,24 +8,21 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" type='text/css' href="styles/main.css">
   <link rel="stylesheet" type='text/css' href="CustomDropDownListStyling/css/style.css">
-
   <link rel="stylesheet" type='text/css' href="bower_components/pickadate/lib/themes/default.css">
   <link rel="stylesheet" type='text/css' href="bower_components/pickadate/lib/themes/default.date.css">
   <link rel="stylesheet" type='text/css' href="noUiSlider/nouislider.css">
-
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900,100italic,300italic,400italic,500italic,700italic,900italic" rel="stylesheet" type="text/css">
 </head>
+
 <body>
 
 <div id='application'></div>
-
 
 <!-- Application View -->
 
 <script type="text/template" id="application-view">
 
   <% var user = Parse.User.current() %>
-
 
   <header>
     <div class="header-container">
@@ -228,7 +225,6 @@
 
     <div class="left-column">
 
-
     </div
     ><div class="middle-column">
       <% var user = Parse.User.current(); %>
@@ -240,7 +236,6 @@
             <img src="images/craft2.jpg">
           <% } %>
         </div>
-
 
     </div>
 
@@ -865,6 +860,7 @@
 
   <section class="feed-likes">
     <aside>
+      <h1 class='check-in'>Check In</h1>
     </aside
 
     ><section class="likes-trigger">
@@ -968,23 +964,45 @@
 <script type='text/template' id='status-checkin-view'>
  
   <% var user = attributes.createdBy %>
-
-  <section class="feed-checkin-content">
-    <aside>
+  <section class="feed-info">
+      <aside>
         <% if (typeof user.get('avatar') !=='undefined') { %>
           <img src=<%= user.get('avatar')._url %> >
         <% } else { %>
           <img src="images/default-avatar.png">
         <% } %>
-    </aside
-    ><section>
-      <p><%= attributes.content %></p>
-      <li>
-        <h3><%= moment(createdAt).fromNow(true) %> ago </h3><h3 class='like-button'>Like</h3>
-      </li>
-    </section
-    ><footer><h1>+</h1><span class='likes'></span></footer>
+      </aside
 
+
+      ><section><a href='#consumer/<%= user.attributes.handle %>'><h1><%= user.attributes.firstName %> <%= user.attributes.lastName %></h1></a><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+
+      ><footer>
+        <i class="fa fa-chevron-up like-button"></i>
+        <span class='likes'></span>
+      </footer>
+
+  </section>
+  <section class="feed-checkin-content">
+    <section><p><%= attributes.content %></p></section>
+  </section>
+
+  <section class="feed-likes">
+    <aside>
+    </aside
+
+    ><section class="likes-trigger">
+      <span class="entypo-dot-3"></span>
+    </section
+    ><aside></aside>
+  </section>
+
+  <section class="likes-results-container">
+    <aside><i class="fa fa-chevron-left"></i></aside>
+    <section class="likes-module">
+      <section class="likes-results"></section>
+      <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
+    </section>
+    <footer><i class="fa fa-chevron-right"></i></footer>    
   </section>
 
 </script>

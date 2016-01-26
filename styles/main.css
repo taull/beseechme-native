@@ -2934,7 +2934,7 @@ svg rect {
     padding: 0px 0px 0px;
     text-align: left; }
   .friends-feed div {
-    padding: 10px; }
+    padding: 0; }
   .friends-feed li:nth-child(odd),
   .friends-feed div:nth-child(odd) {
     /*background: #f0f0f0;*/ }
@@ -3112,9 +3112,7 @@ svg rect {
 
 .feed-info {
   width: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: relative;
   z-index: 1;
   background: #fff;
   height: 70px;
@@ -3143,7 +3141,8 @@ svg rect {
     .feed-info section i,
     .feed-info section h1,
     .feed-info section h2,
-    .feed-info section div {
+    .feed-info section div,
+    .feed-info section a {
       display: inline-block;
       vertical-align: top; }
     .feed-info section h1 {
@@ -3151,14 +3150,18 @@ svg rect {
       font-size: 1.1em;
       font-weight: 500;
       padding-left: 3px;
-      padding-right: 5px; }
+      padding-right: 5px;
+      margin-top: 0; }
+    .feed-info section p {
+      font-weight: 300;
+      margin-top: 2px;
+      padding-left: 2px; }
     .feed-info section h3 {
       display: block;
       color: #999;
       font-size: .9em;
       font-weight: 300;
-      padding-left: 3px;
-      padding-top: 3px; }
+      padding: 3px 3px 10px; }
     .feed-info section span {
       font-size: 1.3em;
       color: #ddd;
@@ -3200,8 +3203,7 @@ svg rect {
   width: 100%;
   padding: 0;
   position: relative;
-  transition: 250ms;
-  margin-top: 70px; }
+  transition: 250ms; }
   .feed-photo img {
     width: 100%;
     height: auto;
@@ -3245,8 +3247,7 @@ svg rect {
   width: 100%;
   display: inline-block;
   padding: 0 15px 15px;
-  background: #fff;
-  margin-top: 70px; }
+  background: #fff; }
   .feed-content aside {
     width: 100%;
     text-align: left;
@@ -3284,7 +3285,7 @@ svg rect {
 .feed-checkin-content {
   width: 100%;
   display: inline-block;
-  padding: 10px 15px 10px;
+  padding: 0px 15px 10px 10px;
   background: #fff; }
   .feed-checkin-content section,
   .feed-checkin-content aside,
@@ -3293,9 +3294,7 @@ svg rect {
     vertical-align: top; }
   .feed-checkin-content section {
     text-align: left;
-    padding-top: 0;
     display: inline-block;
-    padding-top: 0px;
     padding-left: 10px;
     width: 75%; }
     .feed-checkin-content section p,
@@ -3316,7 +3315,7 @@ svg rect {
         padding-right: 10px; }
     .feed-checkin-content section p {
       font-size: 1em;
-      line-height: 1.7em;
+      line-height: 1.5em;
       font-weight: 300;
       color: #555; }
     .feed-checkin-content section h1 {
@@ -3325,7 +3324,7 @@ svg rect {
       line-height: 1.5em;
       color: #555; }
     .feed-checkin-content section h2 {
-      font-size: 1em;
+      font-size: 1.2em;
       font-weight: 500;
       color: #555; }
     .feed-checkin-content section span {
@@ -3336,10 +3335,10 @@ svg rect {
       padding: 0 0 0 10px; }
     .feed-checkin-content section a {
       font-size: 1em;
-      line-height: 1.5em;
       border-bottom: 0px solid #66BB6A;
-      color: #01579B;
-      padding: 0 2px; }
+      color: #333;
+      padding: 0 2px;
+      font-weight: 400; }
   .feed-checkin-content aside {
     width: 10%;
     text-align: right; }
@@ -3581,8 +3580,7 @@ svg rect {
   width: 100%;
   display: inline-block;
   padding: 0px 15px 10px;
-  background: #fff;
-  margin-top: 70px; }
+  background: #fff; }
   .feed-event aside {
     width: 100%;
     text-align: left;
