@@ -590,7 +590,8 @@ header {
   transition: 250ms;
   /*	padding: 10px;
   	background: #f8f8f8;*/
-  z-index: 100; }
+  z-index: 100;
+  display: none; }
 
 .business-tabs-container {
   width: 480px;
@@ -1965,63 +1966,88 @@ header {
   .search-results-container li {
     display: inline-block;
     width: 100%;
-    padding: 15px;
     background: #fff; }
   .search-results-container li:nth-child(odd) {
     /*background: #fff;*/ }
-  .search-results-container aside {
-    width: 40px;
-    height: 40px;
+  .search-results-container aside,
+  .search-results-container section,
+  .search-results-container h2,
+  .search-results-container div,
+  .search-results-container h4,
+  .search-results-container footer,
+  .search-results-container h1 {
     display: inline-block;
-    vertical-align: top;
-    position: relative; }
+    vertical-align: top; }
+  .search-results-container aside {
+    position: relative;
+    padding: 15px 5px 15px 15px; }
     .search-results-container aside img {
       width: 40px;
       height: 40px;
-      border-radius: 25px;
-      position: absolute;
-      top: 0;
-      left: 0; }
+      border-radius: 25px; }
   .search-results-container section {
-    width: 70%;
-    display: inline-block;
-    vertical-align: top;
-    padding-left: 10px;
-    padding-top: 5px; }
-    .search-results-container section h1 {
-      width: 100%;
+    text-align: left;
+    padding-top: 15px; }
+    .search-results-container section i,
+    .search-results-container section h1,
+    .search-results-container section h2,
+    .search-results-container section div,
+    .search-results-container section a {
       display: inline-block;
-      vertical-align: top;
+      vertical-align: top; }
+    .search-results-container section h1 {
+      color: #555;
       font-size: 1.1em;
-      color: #01579B; }
+      font-weight: 500;
+      padding-left: 3px;
+      padding-right: 5px;
+      margin-top: 0; }
     .search-results-container section p {
+      font-weight: 300;
+      margin-top: 2px;
+      padding-left: 2px; }
+    .search-results-container section h3 {
+      display: block;
+      color: #999;
       font-size: .9em;
       font-weight: 300;
-      padding-top: 3px; }
-    .search-results-container section h2 {
-      width: 100%;
-      display: inline-block;
-      font-size: 1em;
-      font-weight: 400;
-      margin-top: 5px; }
-  .search-results-container div {
-    display: inline-block;
-    vertical-align: top;
-    text-align: right;
+      padding: 3px 3px 10px; }
+    .search-results-container section span {
+      font-size: 1.3em;
+      color: #ddd;
+      text-align: center;
+      width: 20px;
+      height: 20px;
+      padding-top: 2px;
+      cursor: pointer; }
+    .search-results-container section i {
+      font-size: 1.3em;
+      color: #66BB6A;
+      margin-top: 3px;
+      margin-right: 5px; }
+  .search-results-container footer {
     float: right;
-    padding-top: 5px; }
-    .search-results-container div h1 {
-      width: 100%;
+    padding: 15px 20px; }
+    .search-results-container footer h1,
+    .search-results-container footer span,
+    .search-results-container footer div,
+    .search-results-container footer h2,
+    .search-results-container footer i {
       display: inline-block;
-      vertical-align: top;
+      vertical-align: top; }
+    .search-results-container footer i {
+      height: 25px;
+      width: 25px;
+      padding-top: 4px;
+      font-size: 1.3em;
+      color: #ddd;
+      cursor: pointer;
+      text-align: center; }
+    .search-results-container footer h1 {
       font-size: 1em;
       font-weight: 400;
-      color: #01579B; }
-  .search-results-container span {
-    font-size: 18px;
-    display: inline-block;
-    vertical-align: top;
-    color: #66BB6A; }
+      padding-top: 12px;
+      padding-right: 10px; }
 
 /* Beer Search Container */
 .beer-search-container {
@@ -2899,7 +2925,19 @@ svg rect {
 
 /* The Feed */
 .bar-feed {
-  width: 100%; }
+  width: 100%;
+  /*	div::before {
+  		position:absolute;
+  		content:'';
+  		left: 0;
+  		top:5px;
+  		bottom: -2px;
+  		right:0;
+  		background: #dfdfdf;
+  		z-index:0;
+  		border-radius: 3px;
+  
+  	}*/ }
   .bar-feed ul {
     list-style: none;
     padding-left: 0; }
@@ -2913,8 +2951,8 @@ svg rect {
   .bar-feed div {
     border-radius: 3px;
     margin-bottom: 15px;
-    overflow: hidden;
-    position: relative; }
+    position: relative;
+    overflow: hidden; }
   .bar-feed li:nth-child(odd),
   .bar-feed div:nth-child(odd) {
     /*background: #f0f0f0;*/ }
@@ -3094,6 +3132,25 @@ svg rect {
 .likes-results-shift {
   margin-top: 0px; }
 
+.user-info-container {
+  width: 480px;
+  margin: 0 auto; }
+
+.user-functions {
+  width: 100%;
+  background: #f8f8f8;
+  padding: 10px 15px;
+  box-shadow: 0px 10px 30px -10px #f0f0f0 inset;
+  text-align: center; }
+  .user-functions li,
+  .user-functions h1 {
+    display: inline-block;
+    vertical-align: top; }
+  .user-functions h1 {
+    font-size: 1em;
+    color: #999;
+    font-weight: 300; }
+
 /* Feed Info */
 .feed-info-shift {
   right: -50%;
@@ -3105,12 +3162,14 @@ svg rect {
   left: -50%;
   background: #f8f8f8;
   height: 70px;
-  transition: 250ms; }
+  transition: 250ms;
+  display: none; }
 
 .feed-info-details-shift {
   left: 0; }
 
-.feed-info {
+.feed-info,
+.user-info {
   width: 100%;
   position: relative;
   z-index: 1;
@@ -3124,17 +3183,27 @@ svg rect {
   .feed-info div,
   .feed-info h4,
   .feed-info footer,
-  .feed-info h1 {
+  .feed-info h1,
+  .user-info aside,
+  .user-info section,
+  .user-info h2,
+  .user-info div,
+  .user-info h4,
+  .user-info footer,
+  .user-info h1 {
     display: inline-block;
     vertical-align: top; }
-  .feed-info aside {
+  .feed-info aside,
+  .user-info aside {
     position: relative;
     padding: 15px 5px 15px 15px; }
-    .feed-info aside img {
+    .feed-info aside img,
+    .user-info aside img {
       width: 40px;
       height: 40px;
       border-radius: 25px; }
-  .feed-info section {
+  .feed-info section,
+  .user-info section {
     text-align: left;
     padding-top: 15px; }
     .feed-info section p,
@@ -3142,27 +3211,37 @@ svg rect {
     .feed-info section h1,
     .feed-info section h2,
     .feed-info section div,
-    .feed-info section a {
+    .feed-info section a,
+    .user-info section p,
+    .user-info section i,
+    .user-info section h1,
+    .user-info section h2,
+    .user-info section div,
+    .user-info section a {
       display: inline-block;
       vertical-align: top; }
-    .feed-info section h1 {
+    .feed-info section h1,
+    .user-info section h1 {
       color: #555;
       font-size: 1.1em;
       font-weight: 500;
       padding-left: 3px;
       padding-right: 5px;
       margin-top: 0; }
-    .feed-info section p {
+    .feed-info section p,
+    .user-info section p {
       font-weight: 300;
       margin-top: 2px;
       padding-left: 2px; }
-    .feed-info section h3 {
+    .feed-info section h3,
+    .user-info section h3 {
       display: block;
       color: #999;
       font-size: .9em;
       font-weight: 300;
       padding: 3px 3px 10px; }
-    .feed-info section span {
+    .feed-info section span,
+    .user-info section span {
       font-size: 1.3em;
       color: #ddd;
       text-align: center;
@@ -3170,22 +3249,30 @@ svg rect {
       height: 20px;
       padding-top: 2px;
       cursor: pointer; }
-    .feed-info section i {
+    .feed-info section i,
+    .user-info section i {
       font-size: 1.3em;
       color: #66BB6A;
       margin-top: 3px;
       margin-right: 5px; }
-  .feed-info footer {
+  .feed-info footer,
+  .user-info footer {
     float: right;
     padding: 15px 20px; }
     .feed-info footer h1,
     .feed-info footer span,
     .feed-info footer div,
     .feed-info footer h2,
-    .feed-info footer i {
+    .feed-info footer i,
+    .user-info footer h1,
+    .user-info footer span,
+    .user-info footer div,
+    .user-info footer h2,
+    .user-info footer i {
       display: inline-block;
       vertical-align: top; }
-    .feed-info footer i {
+    .feed-info footer i,
+    .user-info footer i {
       height: 25px;
       width: 25px;
       padding-top: 4px;
@@ -3193,7 +3280,8 @@ svg rect {
       color: #ddd;
       cursor: pointer;
       text-align: center; }
-    .feed-info footer h1 {
+    .feed-info footer h1,
+    .user-info footer h1 {
       font-size: 1em;
       font-weight: 400;
       padding-top: 12px;

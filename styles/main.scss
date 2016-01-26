@@ -809,6 +809,7 @@ header {
 /*	padding: 10px;
 	background: #f8f8f8;*/
 	z-index: 100;
+	display: none;
 }
 
 .business-tabs-container {
@@ -2670,84 +2671,121 @@ header {
 	li {
 		display: inline-block;
 		width: 100%;
-		padding: 15px;
 		background: #fff;
 	}
 
 	li:nth-child(odd) {
 		/*background: #fff;*/
 	}
-
-	aside {
-		width: 40px;
-		height: 40px;
+	aside, 
+	section, 
+	h2, 
+	div, 
+	h4, 
+	footer, 
+	h1 {
 		display: inline-block;
 		vertical-align: top;
+	}
+
+	aside {
 		position: relative;
+		padding: 15px 5px 15px 15px;
 
 		img {
 			width: 40px;
 			height: 40px;
 			border-radius: 25px;
-			position: absolute;
-			top: 0;
-			left: 0;
 		}
+
 	}
 
 	section {
-		width: 70%;
-		display: inline-block;
-		vertical-align: top;
-		padding-left: 10px;
-		padding-top: 5px;
+		text-align: left;
+		padding-top: 15px;
 
-		h1 {
-			width: 100%;
+		i, 
+		h1,
+		h2, 
+		div,
+		a {
 			display: inline-block;
 			vertical-align: top;
-			font-size: 1.1em;
-			color: $secondary-color-dark;
+		}
+
+		h1 {
+			color: #555;
+			font-size:1.1em;
+			font-weight: 500;
+			padding-left: 3px;
+			padding-right: 5px;
+			margin-top: 0 ;
 		}
 
 		p {
-			font-size: .9em;
 			font-weight: 300;
-			padding-top: 3px;
+			margin-top: 2px;
+			padding-left: 2px;
 		}
 
-		h2 {
-			width: 100%;
-			display: inline-block;
-			font-size: 1em;
-			font-weight: 400;
-			margin-top: 5px;
+
+		h3 {
+			display: block;
+			color: #999;
+			font-size:.9em;
+			font-weight: 300;
+			padding: 3px 3px 10px;
 		}
+
+		span {
+			font-size: 1.3em;
+			color: #ddd;			
+			text-align: center;
+			width: 20px;
+			height: 20px;
+			padding-top: 2px;
+			cursor: pointer;
+		}
+
+		i {
+			font-size: 1.3em;
+			color: $secondary-color-medium;			
+			margin-top: 3px;
+			margin-right: 5px;
+		}
+
 	}
 
-	div {
-		display: inline-block;
-		vertical-align: top;
-		text-align: right;
+	footer {
 		float: right;
-		padding-top: 5px;
+		padding: 15px 20px;
 
-		h1 {
-			width: 100%;
+		h1, 
+		span, 
+		div, 
+		h2, 
+		i {
 			display: inline-block;
 			vertical-align: top;
-			font-size: 1em;
-			font-weight: 400;
-			color: $secondary-color-dark;
 		}
 
-	}
+		i {
+			height: 25px;
+			width: 25px;
+			padding-top: 4px;
+	    	font-size: 1.3em;
+	    	color: #ddd;
+	    	cursor: pointer;
+	    	text-align: center;
+	    }
 
-	span {
-		font-size: 18px;
-		display: inline-block;
-		vertical-align: top;
-		color: $secondary-color-medium;
+	    h1 {
+		    font-size: 1em;
+		    font-weight: 400;
+		    padding-top: 12px;
+		    padding-right: 10px;
+	    }
+
 	}
 
 }
@@ -3928,9 +3966,22 @@ svg rect{
 	div {
 		border-radius: 3px;
 		margin-bottom: 15px;
-		overflow: hidden;
-		position: relative;	 
+		position: relative;	
+		overflow: hidden; 
 	}
+
+/*	div::before {
+		position:absolute;
+		content:'';
+		left: 0;
+		top:5px;
+		bottom: -2px;
+		right:0;
+		background: #dfdfdf;
+		z-index:0;
+		border-radius: 3px;
+
+	}*/
 
 	li:nth-child(odd), 
 	div:nth-child(odd) {
@@ -4177,7 +4228,30 @@ svg rect{
 }
 
 
+.user-info-container {
+	width: 480px;
+	margin: 0 auto;
+}
 
+.user-functions {
+	width: 100%;
+	background: #f8f8f8;
+	padding: 10px 15px;
+	box-shadow: 0px 10px 30px -10px #f0f0f0 inset;
+	text-align: center;
+
+	li, 
+	h1 {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	h1 {
+		font-size: 1em;
+		color: #999;
+		font-weight: 300;
+	}
+}
 
 /* Feed Info */
 
@@ -4193,13 +4267,15 @@ svg rect{
 	background: #f8f8f8;
 	height: 70px;
 	transition: 250ms;
+	display: none;
 }
 
 .feed-info-details-shift {
 	left: 0;
 }
 
-.feed-info {
+.feed-info, 
+.user-info {
 	width: 100%;
     position: relative;
     z-index: 1;
@@ -4276,7 +4352,6 @@ svg rect{
 			height: 20px;
 			padding-top: 2px;
 			cursor: pointer;
-
 		}
 
 		i {
