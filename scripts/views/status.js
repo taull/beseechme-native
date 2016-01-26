@@ -56,7 +56,7 @@ BeMe.Views.Status = Parse.View.extend({
 	      $followButton.addClass('unfollow');
 		}
 	},
-
+ 
   	isNotFollowing: function () {
 	    var $unfollowButton = this.$el.find('.unfollow');
 	    if ($unfollowButton.length) {
