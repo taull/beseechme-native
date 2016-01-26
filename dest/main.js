@@ -17,6 +17,8 @@ var Router = Parse.Router.extend({
     'business/:handle/beer' : 'businessBeerList',
     'business/:handle/calendar' : 'businessCalendar',
 
+    'consumer/:handle' : 'consumerHome',
+
     'dashboard' : 'dashboardHome',
     'dashboard/feed' : 'dashboardFeed',
     'dashboard/listing' : 'dashboardListing',
@@ -157,6 +159,16 @@ var Router = Parse.Router.extend({
         new BeMe.Views.BusinessError(handle);
       }
       console.log(i);
+    });
+  },
+
+  consumerHome: function (handle) {
+    BeMe.removeAllViews();
+
+    var query = new Parse.Query('User');
+    query.equalTo('handle', handle);
+    query.first().then(function (user) {
+      new BeMe.Views.ConsumerHome({model:user});
     });
   },
 
@@ -2045,6 +2057,19 @@ BeMe.Views.Business = Parse.View.extend({
       $('.update-location-info').toggleClass('left-100');
     });
   }
+});
+BeMe.Views.ConsumerHome = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#consumer-home-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
 });
 BeMe.Views.DashboardBaseView = Parse.View.extend({
   render: function () {
