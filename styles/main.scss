@@ -4424,6 +4424,122 @@ svg rect{
 	    	text-align: center;
 	    }
 
+		h1 {
+			padding: 10px 15px;
+			border-radius: 3px;
+			font-size: 1em;
+			color: #fff;
+			background: $blue-700;
+			font-weight: 300;
+		}
+	}
+
+}
+
+
+.request-info {
+	width: 100%;
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    height: 70px;
+    overflow: hidden;
+    transition: 250ms;
+
+	aside, 
+	section, 
+	h2, 
+	div, 
+	h4, 
+	footer, 
+	h1 {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	aside {
+		position: relative;
+		padding: 15px 5px 15px 15px;
+
+		img {
+			width: 40px;
+			height: 40px;
+			border-radius: 25px;
+		}
+
+	}
+
+	section {
+		text-align: left;
+		padding-top: 15px;
+		p, 
+		i, 
+		h1,
+		h2, 
+		div,
+		a {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		h1 {
+			color: #555;
+			font-size:1.1em;
+			font-weight: 500;
+			padding-left: 3px;
+			padding-right: 5px;
+			margin-top: 0 ;
+		}
+
+		p {
+			font-weight: 300;
+			margin-top: 2px;
+			padding-left: 2px;
+		}
+
+
+		h3 {
+			display: block;
+			color: #999;
+			font-size:.9em;
+			font-weight: 300;
+			padding: 3px 3px 10px;
+		}
+
+		span {
+			font-size: 1.3em;
+			color: #ddd;			
+			text-align: center;
+			width: 20px;
+			height: 20px;
+			padding-top: 2px;
+			cursor: pointer;
+		}
+
+		i {
+			font-size: 1.3em;
+			color: $secondary-color-medium;			
+			margin-top: 3px;
+			margin-right: 5px;
+		}
+
+	}
+
+	footer {
+		float: right;
+		padding: 15px 20px;
+
+		h1, 
+		span, 
+		div, 
+		h2, 
+		i {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+
+
 		span {
 			padding: 10px;
 			border-radius: 3px;
@@ -4437,14 +4553,6 @@ svg rect{
 			background: $red-medium;
 		}
 
-		h1 {
-			padding: 10px 15px;
-			border-radius: 3px;
-			font-size: 1em;
-			color: #fff;
-			background: $blue-700;
-			font-weight: 300;
-		}
 	}
 
 }

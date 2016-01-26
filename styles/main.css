@@ -3311,17 +3311,6 @@ svg rect {
       color: #ddd;
       cursor: pointer;
       text-align: center; }
-    .feed-info footer span,
-    .user-info footer span {
-      padding: 10px;
-      border-radius: 3px;
-      font-size: 1.4em;
-      color: #fff;
-      background: #1976D2;
-      margin-left: 15px; }
-    .feed-info footer span:nth-child(2),
-    .user-info footer span:nth-child(2) {
-      background: #F44336; }
     .feed-info footer h1,
     .user-info footer h1 {
       padding: 10px 15px;
@@ -3330,6 +3319,91 @@ svg rect {
       color: #fff;
       background: #1976D2;
       font-weight: 300; }
+
+.request-info {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  height: 70px;
+  overflow: hidden;
+  transition: 250ms; }
+  .request-info aside,
+  .request-info section,
+  .request-info h2,
+  .request-info div,
+  .request-info h4,
+  .request-info footer,
+  .request-info h1 {
+    display: inline-block;
+    vertical-align: top; }
+  .request-info aside {
+    position: relative;
+    padding: 15px 5px 15px 15px; }
+    .request-info aside img {
+      width: 40px;
+      height: 40px;
+      border-radius: 25px; }
+  .request-info section {
+    text-align: left;
+    padding-top: 15px; }
+    .request-info section p,
+    .request-info section i,
+    .request-info section h1,
+    .request-info section h2,
+    .request-info section div,
+    .request-info section a {
+      display: inline-block;
+      vertical-align: top; }
+    .request-info section h1 {
+      color: #555;
+      font-size: 1.1em;
+      font-weight: 500;
+      padding-left: 3px;
+      padding-right: 5px;
+      margin-top: 0; }
+    .request-info section p {
+      font-weight: 300;
+      margin-top: 2px;
+      padding-left: 2px; }
+    .request-info section h3 {
+      display: block;
+      color: #999;
+      font-size: .9em;
+      font-weight: 300;
+      padding: 3px 3px 10px; }
+    .request-info section span {
+      font-size: 1.3em;
+      color: #ddd;
+      text-align: center;
+      width: 20px;
+      height: 20px;
+      padding-top: 2px;
+      cursor: pointer; }
+    .request-info section i {
+      font-size: 1.3em;
+      color: #66BB6A;
+      margin-top: 3px;
+      margin-right: 5px; }
+  .request-info footer {
+    float: right;
+    padding: 15px 20px; }
+    .request-info footer h1,
+    .request-info footer span,
+    .request-info footer div,
+    .request-info footer h2,
+    .request-info footer i {
+      display: inline-block;
+      vertical-align: top; }
+    .request-info footer span {
+      padding: 10px;
+      border-radius: 3px;
+      font-size: 1.4em;
+      color: #fff;
+      background: #1976D2;
+      margin-left: 15px; }
+    .request-info footer span:nth-child(2) {
+      background: #F44336; }
 
 .feed-photo {
   width: 100%;
