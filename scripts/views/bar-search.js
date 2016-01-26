@@ -131,7 +131,7 @@ BeMe.Views.BarSearchResult = Parse.View.extend({
   follow: function () {
     BeMe.FollowUser(this.model);
     this.isFollowingUIUpdate();
-  },
+  }, 
 
   unfollow: function () {
     BeMe.UnfollowUser(this.model);
@@ -140,16 +140,16 @@ BeMe.Views.BarSearchResult = Parse.View.extend({
 
   isFollowingUIUpdate: function () {
     var $followButton = this.$el.find('.follow');
-    $followButton.css('color', 'rgba(1, 87, 155, 0.38)');
-    $followButton.text('Following');
-    $followButton[0].className = 'unfollow';
+    $followButton.css('color', '#FFC107');
+    $followButton.removeClass('follow');
+    $followButton.addClass('unfollow');
   },
 
   isNotFollowingUIUpdate: function () {
     var $followButton = this.$el.find('.unfollow');
-    $followButton.css('color', 'rgba(1, 87, 155, 1)');
-    $followButton.text('Follow');
-    $followButton[0].className = 'follow';
+    $followButton.css('color', '#ddd');
+    $unfollowButton.removeClass('unfollow');
+    $unfollowButton.addClass('follow');
   }
 
 });

@@ -776,7 +776,7 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (attributes.userType == 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <i class="fa fa-chevron-up like-button"></i>
@@ -836,7 +836,7 @@
       </aside
 
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (attributes.userType == 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <i class="fa fa-chevron-up like-button"></i>
@@ -912,7 +912,7 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (attributes.userType == 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <i class="fa fa-chevron-up like-button"></i>
@@ -1088,6 +1088,26 @@
 
   <% var user = Parse.User.current() %>
 
+  <div class="user-info-container">
+    <section class="user-info">
+        <aside>
+          <% if (typeof attributes.avatar !=='undefined') { %>
+            <img src=<%= attributes.avatar._url %> >
+            <% } else { %>
+            <img src="images/default-avatar.png">
+          <% } %>
+        </aside
+
+        ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= attributes.businessName %></h1></a><span class="fa fa-star follow"></span><h3>@<%= attributes.handle %></h3></section
+
+        ><footer>
+          <i class="fa fa-ellipsis-h"></i>
+        </footer>
+
+    </section>
+    <section class="user-functions"><h1><%= attributes.address %> • <%= attributes.city %>, <%= attributes.state %> <%= attributes.zip %></h1></section>
+  </div>
+
   <div class="business-tabs-container">
     <div class="business-tabs">
       <ul>
@@ -1152,46 +1172,16 @@
 
         <div class="left-column">
 
-          <div class="to-location">
-            <section class="update-location-info"><h1><%= attributes.city %>, <%= attributes.state %> (<%= attributes.zip %>)</h1></section
-            ><div class="update-location"><footer><h1>Update Location</h1></footer></div
-
-            ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
-          </div>
-
           <div class="dashboard-tabs">
             <a href="#business/<%= attributes.handle %>" class="active-dashboard-tab"><span class="entypo-dot-3"></span><h1>Main Feed</h1></a
             ><a href="#business/<%= attributes.handle %>/beer"><span class="entypo-bookmarks"></span><h1>Beer List</h1></a
             ><a href="#business/<%= attributes.handle %>/friends"><span class="entypo-user-add"></span><h1>My Friends</h1></a
             ><a href="#business/<%= attributes.handle %>/calendar"><span class="entypo-calendar"></span><h1>Calendar</h1></a>
-
           </div>
 
         </div
         ><div class="middle-column">
-          <div class="feed-header-wrap">
-            <section class="feed-header"><h1>Craft and Draft</h1></section>
-          </div>
-          <div class="business-cover">
-            <% if (typeof attributes.coverPhoto !=='undefined') { %>
-              <img src=<%= attributes.coverPhoto._url %> >
-              <% } else { %>
-              <img src="images/craft2.jpg">
-            <% } %>
-          </div>
 
-          <div class="business-home">
-            <section>
-                <% if (typeof attributes.avatar !=='undefined') { %>
-                  <img src=<%= attributes.avatar._url %> >
-                  <% } else { %>
-                  <img src="images/default-avatar.png">
-                <% } %>
-                <h1><%= attributes.businessName %></h1><i class="fa fa-check-circle"></i>
-                <p><%= attributes.address %>, <%= attributes.City %>, <%= attributes.state %> <%= attributes.zip %></p>
-                <h2><%= attributes.phoneNumber %></h2>
-            </section>
-          </div>
 
 
         </div
@@ -1199,9 +1189,9 @@
 
           <section class="feed-header"><h1>Draft List</h1></section>
 
-            <div class="profile-beer-list">
-              <ul></ul>
-            </div>
+          <div class="profile-beer-list">
+            <ul></ul>
+          </div>
             <section class="feed-header"><h1><%= moment().format('dddd, MMMM Do') %></h1></section>
 
             <div class='calendar-standing'></div>
@@ -1404,15 +1394,14 @@
   </aside>
   <section>
     <% if (attributes.userType == 'business') { %>
-      <h1><%= attributes.businessName %></h1>
+      <h1><%= attributes.businessName %></h1><span class="fa fa-star follow"></span>
     <% } else { %>
-      <h1><%= attributes.firstName + ' ' + attributes.lastName %></h1>
+      <h1><%= attributes.firstName + ' ' + attributes.lastName %></h1><span class="fa fa-star follow"></span>
     <% } %>
-    <p><%= attributes.address %></p>
-    <p><%= attributes.city %>, <%= attributes.state %> <%= attributes.zip %></p>
+    <p>@<%= attributes.handle %></p>
 
   </section>
-  <div><h1 class='follow'>Follow</h1></div>
+  <div></div>
 
 </script>
 
