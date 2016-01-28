@@ -27,16 +27,12 @@
   <header>
     <div class="header-container">
       <div class="header-left">
-        <aside>        
-          <div id="ddAlt" class="wrapper-dropdown-6">
-            <span>Dashboard</span>
-            <ul class="dropdown">
-              <li><a href="#dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
-              <li><a href="#backend/feed"><i class="fa fa-cog"></i>Following</a></li>
-            </ul>
-          </div>
+        <aside>
+          <img src="images/nextap-temp.png">    
         </aside
-        ><section><li id="search-trigger"><i class="fa fa-search"></i></li></section>
+        ><section>
+          <li id="search-trigger"><span class="entypo-search"></span></li>
+        </section>
 
       </div
       ><div class="header-center">
@@ -1503,54 +1499,50 @@
       ><li><h1>24</h1><p>Beers</p></li>
     </div>
 
-
-
-      <div class="header-options-container">
-
-
-
-        <div class="to-location">
-          <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
-          ><div class="update-location"><footer><h1>Update Location</h1></footer></div
-
-          ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
-        </div>
+    <div class="business-tabs-container">
+      <div class="business-tabs">
+        <ul>
+          <a href="#dashboard" class="active-dashboard-tab"><section><h1>Home</h1></section></a
+          ><a href="#dashboard/following"><section><h1>Following</h1></section></a
+          ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
+          ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a
+          ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
+        </ul>
       </div>
+    </div>
 
-      <div class="business-tabs-container">
-        <div class="business-tabs">
-          <ul>
-            <a href="#dashboard" class="active-dashboard-tab"><section><h1>Home</h1></section></a
-            ><a href="#dashboard/following"><section><h1>Following</h1></section></a
-            ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
-            ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a
-            ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
-          </ul>
-        </div>
-      </div>
+    <div class="location-container">
 
-      <div class="location-container">
-
-      </div>
+    </div>
 
 </script>
-
-<!-- <div class="dashboard-tabs">
-  <a href="#dashboard" class="active-dashboard-tab"><span class="entypo-dot-3"></span><h1>Main Feed</h1></a
-  ><a href="#dashboard/following"><span class="entypo-bookmarks"></span><h1>Following</h1></a
-  ><a href="#dashboard/friends"><span class="entypo-user-add"></span><h1>My Friends</h1></a
-  ><a href="#dashboard/listing"><span class="entypo-sweden"></span><h1>Bar Listing</h1></a
-  ><a href="#dashboard/map"><span class="entypo-globe"></span><h1>Local Map</h1></a>
-</div> -->
 
 
 <script type="text/template" id="dashboard-home-view">
   <% var user = Parse.User.current() %>
 
+  <div class="header-options-container">
+    <div class="header-options">
+    
+      <h1>Local Feed</h1>
+
+      <div class="to-location">
+        <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
+        ><div class="update-location"><footer><h1>Update Location</h1></footer></div
+
+        ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
+      </div>
+
+    </div>
+  </div>
+  
   <div class="dashboard-container">
 
 
       <div class="middle-column">
+
+
+
         <div class="feed-header-wrap">
           <section class="feed-header"><h1>Dashboard</h1><span class="fa fa-caret-down"></span></section>
         </div>
