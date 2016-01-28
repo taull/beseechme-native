@@ -35,8 +35,7 @@ body {
 .body-container {
   position: relative;
   width: 100%;
-  margin: 75px auto;
-  /*padding-bottom:15px;*/
+  margin: 60px auto;
   transition: 250ms; }
 
 .body-container-shift {
@@ -54,7 +53,7 @@ body {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-  padding: 15px 0; }
+  padding-top: 65px; }
 
 .business-container {
   width: 1000px;
@@ -175,14 +174,16 @@ header {
   top: 0;
   left: 0;
   z-index: 9999999;
-  background: #37474F;
+  background: #ECEFF1;
   /*box-shadow: 0 0 15px 0px #999;*/ }
 
 .header-container {
-  width: 480px;
+  width: 100%;
   height: 60px;
   margin: 0 auto;
-  position: relative; }
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  text-align: center; }
 
 .one-column-header {
   width: 540px;
@@ -215,9 +216,9 @@ header {
 .header-left {
   display: inline-block;
   vertical-align: top;
-  width: 100%;
-  height: 60px;
-  background: #37474F; }
+  width: 480px;
+  margin: 0 auto;
+  height: 60px; }
   .header-left aside,
   .header-left section,
   .header-left a,
@@ -228,23 +229,35 @@ header {
     width: 30%;
     height: 60px;
     z-index: 100;
-    padding-top: 10px;
-    display: none; }
+    padding: 10px;
+    text-align: left; }
+    .header-left aside a {
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      padding-top: 10px; }
+      .header-left aside a h1 {
+        font-size: 1.2em;
+        color: #555;
+        font-weight: 400; }
+      .header-left aside a span {
+        font-size: 1.6em;
+        color: #555; }
     .header-left aside img {
-      height: 24px;
+      height: 36px;
       width: auto;
       display: none; }
   .header-left section {
-    width: 100%;
+    width: 70%;
     text-align: right; }
     .header-left section a,
     .header-left section li {
       height: 60px;
       padding: 20px 20px 0; }
-      .header-left section a i,
-      .header-left section li i {
+      .header-left section a span,
+      .header-left section li span {
         font-size: 1.6em;
-        color: #f8f8f8; }
+        color: #555; }
 
 .header-center {
   display: inline-block;
@@ -386,17 +399,20 @@ header {
 .confirm-message-container {
   width: 100%;
   position: fixed;
-  top: 20px;
-  height: 40px;
-  background: #66BB6A;
+  top: 7px;
+  height: 53px;
   transition: 250ms;
   z-index: 500; }
 
 .confirm-message {
   width: 480px;
+  height: 50px;
   margin: 0 auto;
   text-align: center;
-  padding-top: 12px; }
+  padding-top: 17px;
+  border-radius: 0 0 3px 3px;
+  position: relative;
+  transition: 250ms; }
   .confirm-message h1,
   .confirm-message span {
     display: inline-block;
@@ -492,14 +508,14 @@ header {
 
 .active-dashboard-tab {
   background: #37474F !important;
-  /*border-left: 5px solid $primary-color-medium !important;*/ }
+  /*border-left: 5px solid $primary-color-800 !important;*/ }
   .active-dashboard-tab span,
   .active-dashboard-tab h1 {
     color: #fff !important; }
 
 .active-main-tab {
   background: #ededed;
-  /*border-left: 5px solid $primary-color-medium !important;*/ }
+  /*border-left: 5px solid $primary-color-800 !important;*/ }
 
 .backend-controls {
   width: 100%;
@@ -585,14 +601,53 @@ header {
     font-weight: 400; }
 
 .header-options-container {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  z-index: 250; }
+
+.header-options {
   width: 480px;
-  margin: 40px auto 0;
+  height: 50px;
+  margin: 0 auto 15px;
+  padding: 15px;
   position: relative;
-  transition: 250ms;
-  /*	padding: 10px;
-  	background: #f8f8f8;*/
-  z-index: 100;
-  display: none; }
+  text-align: center;
+  background: #546E7A;
+  border-radius: 0 0 3px 3px;
+  top: 0;
+  transition: 250ms; }
+  .header-options h1,
+  .header-options i {
+    display: inline-block;
+    vertical-align: middle; }
+  .header-options::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: -3px;
+    right: 0;
+    border-radius: 3px;
+    background: #455A64;
+    z-index: -1;
+    transition: 250ms; }
+  .header-options:active {
+    top: 1px; }
+  .header-options h1 {
+    color: #ECEFF1;
+    font-weight: 400;
+    font-size: 1.2em; }
+  .header-options i {
+    color: #fff;
+    font-size: 1.2em;
+    padding-left: 5px; }
+
+.header-options-pressed {
+  top: 3px; }
+  .header-options-pressed::before {
+    position: absolute;
+    bottom: 0; }
 
 .business-tabs-container {
   width: 480px;
@@ -1024,7 +1079,8 @@ header {
   height: 40px;
   margin: 0 auto;
   background: #fff;
-  border-radius: 3px; }
+  border-radius: 3px;
+  display: none; }
   .to-location a {
     text-decoration: none; }
   .to-location aside,
@@ -1618,9 +1674,9 @@ header {
 
 .profile-options {
   width: 100%;
-  /*background:$primary-color-medium;*/
+  /*background:$primary-color-800;*/
   position: relative;
-  /*border-top: 1px solid $primary-color-dark;*/
+  /*border-top: 1px solid $primary-color-900;*/
   transition: 250ms; }
   .profile-options li {
     width: 25%;
@@ -1833,7 +1889,7 @@ header {
     font-weight: 300;
     border-right: 1px solid #000;
     border-left: 1px solid #37474F;
-    /*border-bottom: 1px solid $primary-color-dark;*/ }
+    /*border-bottom: 1px solid $primary-color-900;*/ }
   .bar-page-options li:last-child {
     border-right: 0; }
   .bar-page-options li:first-child {
@@ -2257,7 +2313,7 @@ header {
 .top-header {
   width: 100%;
   background: #263238;
-  /*border-bottom: 1px solid $primary-color-dark;*/
+  /*border-bottom: 1px solid $primary-color-900;*/
   height: 80px;
   padding-top: 40px;
   /*position: fixed;*/ }
@@ -2810,7 +2866,7 @@ svg rect {
         border-color: transparent; }
     .post-status-text section label {
       display: inline-block;
-      /*background: $primary-color-light;*/
+      /*background: $primary-color-50;*/
       position: relative;
       color: #f0f0f0;
       /*z-index:1;*/ }
@@ -3507,9 +3563,10 @@ svg rect {
     .feed-checkin-content section h1,
     .feed-checkin-content section span,
     .feed-checkin-content section li,
-    .feed-checkin-content section h3 {
+    .feed-checkin-content section h3,
+    .feed-checkin-content section a {
       display: inline-block;
-      vertical-align: top; }
+      vertical-align: bottom; }
     .feed-checkin-content section li {
       width: 100%;
       margin-bottom: 0; }
@@ -3520,14 +3577,12 @@ svg rect {
         color: #ccc;
         padding-right: 10px; }
     .feed-checkin-content section p {
-      font-size: 1em;
-      line-height: 1.5em;
+      font-size: 1.2em;
       font-weight: 300;
       color: #555; }
     .feed-checkin-content section h1 {
       font-weight: 400;
-      font-size: 1em;
-      line-height: 1.5em;
+      font-size: 1.2em;
       color: #555; }
     .feed-checkin-content section h2 {
       font-size: 1.2em;
@@ -3540,10 +3595,10 @@ svg rect {
       color: #ccc;
       padding: 0 0 0 10px; }
     .feed-checkin-content section a {
-      font-size: 1em;
+      font-size: 1.2em;
       border-bottom: 0px solid #66BB6A;
       color: #333;
-      padding: 0 2px;
+      padding: 0;
       font-weight: 400; }
   .feed-checkin-content aside {
     width: 10%;
@@ -4071,7 +4126,7 @@ svg rect {
   cursor: pointer;
   padding-top: 20px;
   padding-left: 5px;
-  /*background: $primary-color-dark;*/
+  /*background: $primary-color-900;*/
   border-radius: 3px;
   /*margin-left:10px;*/ }
 

@@ -14,9 +14,16 @@
 
 /* Colors */
 
-$primary-color-dark: #263238;
-$primary-color-medium: #37474F;
-$primary-color-light: #ECEFF1;
+$primary-color-900: #263238;
+$primary-color-800: #37474F;
+$primary-color-700: #455A64;
+$primary-color-600: #546E7A;
+$primary-color-500: #607D8B;
+$primary-color-400: #78909C;
+$primary-color-300: #90A4AE;
+$primary-color-200: #B0BEC5;
+$primary-color-100: #CFD8DC;
+$primary-color-50: #ECEFF1;
 
 $secondary-color-dark: #01579B;
 $secondary-color-medium: #66BB6A;
@@ -62,7 +69,7 @@ input [file] {
 body {
 	font-size: 12px;
 	position: relative;
-	background: $primary-color-light;
+	background: $primary-color-50;
 	/*background: url('../images/jack-daniels.jpg') no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -77,9 +84,7 @@ body {
 .body-container {
     position: relative;
     width: 100%;
-    margin: 75px auto;
-
-    /*padding-bottom:15px;*/
+    margin: 60px auto;
     transition: 250ms;
 }
 
@@ -100,7 +105,7 @@ body {
     margin: 0 auto;
     position:relative;
     z-index:1;
-    padding: 15px 0;
+    padding-top: 65px;
 }
 
 .business-container {
@@ -256,15 +261,17 @@ header {
     top: 0;
     left: 0;
     z-index: 9999999;
-    background: $primary-color-medium;
+    background: $primary-color-50;
     /*box-shadow: 0 0 15px 0px #999;*/
 }
 
 .header-container {
-	width: 480px;
+	width: 100%;
 	height: 60px;
 	margin: 0 auto;
 	position:relative;
+	background: rgba(255,255,255,.5);
+	text-align: center;
 }
 
 .one-column-header {
@@ -309,10 +316,9 @@ header {
 .header-left {
 	display: inline-block;
 	vertical-align: top;
-	width: 100%;
+	width: 480px;
+	margin: 0 auto; 
 	height: 60px;
-	background: $primary-color-medium;
-
 
 	aside, 
 	section, 
@@ -325,18 +331,37 @@ header {
 		width: 30%;
 		height: 60px;
 		z-index: 100;
-		padding-top: 10px;
-		display: none;
+		padding: 10px;
+		text-align: left;
+
+		a {
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			padding-top: 10px;
+
+			h1 {
+				font-size: 1.2em;
+				color: #555;
+				font-weight: 400;
+
+			}
+
+			span {
+				font-size: 1.6em;
+				color: #555;
+			}
+		}
 
 		img {
-			height: 24px;
+			height: 36px;
 			width: auto;
 			display: none;
 		}
 	}
 
 	section {
-		width: 100%;
+		width: 70%;
 		text-align: right;
 
 		a, 
@@ -344,9 +369,9 @@ header {
 			height: 60px;
 			padding: 20px 20px 0;
 
-			i {
+			span {
 				font-size: 1.6em;
-				color: #f8f8f8;
+				color: #555;
 			}
 		}
 	}
@@ -418,7 +443,7 @@ header {
 		width: 15%;
 		/*border-radius: 2px;*/
 		/*border-radius: 4px;*/
-		background: $primary-color-light;
+		background: $primary-color-50;
 
 
 		i {
@@ -536,18 +561,21 @@ header {
 .confirm-message-container {
 	width: 100%;
 	position: fixed;
-	top: 20px;
-	height: 40px;
-	background: #66BB6A;
+	top: 7px;
+	height: 53px;
 	transition: 250ms;
 	z-index: 500;
 }
 
 .confirm-message {
 	width: 480px;
+	height: 50px;
 	margin: 0 auto;
 	text-align: center;
-	padding-top: 12px;
+	padding-top: 17px;
+	border-radius: 0 0 3px 3px;
+	position: relative;
+	transition: 250ms;
 
 	h1, 
 	span {
@@ -585,7 +613,7 @@ header {
 .dashboard-location {
 	border: 1px solid #ededed;
 	border-bottom: 0;
-	background: $primary-color-light;
+	background: $primary-color-50;
 	margin-bottom: 15px;
 }
 
@@ -678,8 +706,8 @@ header {
 }
 
 .active-dashboard-tab {
-	background: $primary-color-medium !important;
-	/*border-left: 5px solid $primary-color-medium !important;*/
+	background: $primary-color-800 !important;
+	/*border-left: 5px solid $primary-color-800 !important;*/
 
 	span, 
 	h1 {
@@ -689,7 +717,7 @@ header {
 
 .active-main-tab {
 	background: #ededed;
-	/*border-left: 5px solid $primary-color-medium !important;*/
+	/*border-left: 5px solid $primary-color-800 !important;*/
 }
 
 .backend-controls {
@@ -803,15 +831,70 @@ header {
 }
 
 .header-options-container {
-	width: 480px;
-	margin: 40px auto 0; 
-	position:relative;
-	transition: 250ms;
-/*	padding: 10px;
-	background: #f8f8f8;*/
-	z-index: 100;
-	display: none;
+	width: 100%;
+	text-align: center;
+	position: fixed;
+	z-index: 250;
 }
+
+.header-options {
+	width: 480px;
+	height: 50px;
+	margin: 0 auto 15px; 
+	padding: 15px;
+	position:relative;
+	text-align: center;
+	background: $primary-color-600;
+	border-radius: 0 0 3px 3px;
+	top:0;
+	transition: 250ms;
+
+	h1, 
+	i {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&::before {
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		bottom: -3px;
+		right: 0;
+		border-radius: 3px;
+		background: $primary-color-700;
+		z-index: -1;
+		transition: 250ms;
+	}
+
+	&:active {
+		top: 1px;
+	}
+
+	h1 {
+		color: $primary-color-50;
+		font-weight: 400;
+		font-size: 1.2em;
+	}
+
+	i {
+		color: #fff;
+		font-size: 1.2em;
+		padding-left: 5px;
+	}
+}
+
+.header-options-pressed {
+	top: 3px;
+
+	&::before {
+		position: absolute;
+		bottom: 0;
+	}
+}
+
+
 
 .business-tabs-container {
 	width: 480px;
@@ -1397,6 +1480,7 @@ header {
 	margin: 0 auto;
 	background: #fff;
 	border-radius: 3px;
+	display: none;
 
 	a {
 		text-decoration: none;
@@ -1743,7 +1827,7 @@ header {
 
 	p {
 		font-size: 16px;
-		color: $primary-color-light;
+		color: $primary-color-50;
 		font-weight: 300;
 		padding-top: 20px;
 	}
@@ -1981,11 +2065,11 @@ header {
     cursor: pointer;
 
     span {
-    	color: $primary-color-light;
+    	color: $primary-color-50;
     }
 
 	i {
-		color: $primary-color-light;
+		color: $primary-color-50;
 		font-size: 18px;
 		display: inline-block;
 		padding-top:3px;
@@ -1995,7 +2079,7 @@ header {
 	p {
 		display: inline-block;
 		vertical-align: top;
-		color: $primary-color-light;
+		color: $primary-color-50;
 		font-size: 18px;
 		font-weight: 300;
 		padding-left: 10px;
@@ -2019,11 +2103,11 @@ header {
     cursor: pointer;
 
     span {
-    	color: $primary-color-light;
+    	color: $primary-color-50;
     }
 
 	i {
-		color: $primary-color-light;
+		color: $primary-color-50;
 		font-size: 18px;
 		display: inline-block;
 		padding-top:3px;
@@ -2033,7 +2117,7 @@ header {
 	p {
 		display: inline-block;
 		vertical-align: top;
-		color: $primary-color-light;
+		color: $primary-color-50;
 		font-size: 18px;
 		font-weight: 300;
 		padding-left: 10px;
@@ -2057,7 +2141,7 @@ header {
 		display: block;
 		vertical-align: top;
 		font-size: 1em;
-		color: $primary-color-medium;
+		color: $primary-color-800;
 		font-weight: 300;
 	}
 }
@@ -2084,7 +2168,7 @@ header {
 
 	p {
 		font-size: 36px;
-		color:$primary-color-light;
+		color:$primary-color-50;
 		font-style:italic;
 		text-transform: lowercase;
 		font-family: 'Lobster', cursive;
@@ -2160,7 +2244,7 @@ header {
 	vertical-align: top;
 	/*margin-right: 20bpx;*/
 	/*margin-top: 20px;*/
-	background: $primary-color-dark;
+	background: $primary-color-900;
 	/*border-right: 1px solid #ededed;*/
 }
 
@@ -2170,7 +2254,7 @@ header {
 	width: 420px;
 	margin: 50px auto;
 	position: relative;
-	background:$primary-color-light;
+	background:$primary-color-50;
 	border:1px solid #ededed;
 	padding-bottom:30px;
 	transition: 250ms;
@@ -2181,7 +2265,7 @@ header {
 	width: 360px;
 	margin: 0 auto;
 	position: relative;
-	background:$primary-color-light;
+	background:$primary-color-50;
 	transition: 250ms;
 	top:100px;
 }
@@ -2197,25 +2281,25 @@ header {
 
 .profile-heading {
 	width: 100%;
-	background:$primary-color-dark;
+	background:$primary-color-900;
 }
 
 .profile-options {
 	width: 100%;
-	/*background:$primary-color-medium;*/
+	/*background:$primary-color-800;*/
 	position: relative;
-	/*border-top: 1px solid $primary-color-dark;*/
+	/*border-top: 1px solid $primary-color-900;*/
 	transition:250ms;
 
 	li {
 		width: 25%;
 		display: inline-block;
-		color:$primary-color-medium;
+		color:$primary-color-800;
 		font-size: 1em;
 		text-align: center;
 		padding: 15px 0;
 		font-weight: 300;
-		border-right: 1px solid $primary-color-dark;
+		border-right: 1px solid $primary-color-900;
 		border-left: 1px solid #455A64;
 		/*border-top: 1px solid #455A64;*/
 	}
@@ -2231,7 +2315,7 @@ header {
 	span {
 		width: 30px;
 		top:-25px;
-		color:$primary-color-dark;
+		color:$primary-color-900;
 		font-size:48px;
 		text-align: center;
 		position: absolute;
@@ -2253,7 +2337,7 @@ header {
 .profile-info {
 	width: 100%;
 	text-align:center;
-	background: $primary-color-medium;
+	background: $primary-color-800;
 	border-top:1px solid #455A64;
 	margin-bottom: 0px;
 	height: 50px;
@@ -2261,7 +2345,7 @@ header {
 
 	span {
 		font-size: 36px;
-		color: $primary-color-medium;
+		color: $primary-color-800;
 		position: relative;
 		left: 0;
 		margin: 0 auto;
@@ -2274,7 +2358,7 @@ header {
 
 .profile-statistics {
 	width: 100%;
-	background: $primary-color-medium;
+	background: $primary-color-800;
 	border-top:1px solid #455A64;
 	margin-bottom: 0px;
 	margin-bottom:25px;
@@ -2294,7 +2378,7 @@ header {
 	p {
 		font-size: 1em;
 		font-weight: 300;
-		color: $primary-color-light;
+		color: $primary-color-50;
 	}
 
 }
@@ -2485,7 +2569,7 @@ header {
 
 .bar-page-options {
 	width: 480px;
-	background:$primary-color-dark;
+	background:$primary-color-900;
 	position: fixed;
 	bottom: 0;
 	z-index: 99999;
@@ -2493,14 +2577,14 @@ header {
 	li {
 		width: 25%;
 		display: inline-block;
-		color:$primary-color-medium;
+		color:$primary-color-800;
 		font-size: 1em;
 		text-align: center;
 		padding: 20px 0;
 		font-weight: 300;
 		border-right: 1px solid #000;
-		border-left: 1px solid $primary-color-medium;
-		/*border-bottom: 1px solid $primary-color-dark;*/
+		border-left: 1px solid $primary-color-800;
+		/*border-bottom: 1px solid $primary-color-900;*/
 	}
 
 	li:last-child {
@@ -2514,7 +2598,7 @@ header {
 	span {
 		width: 30px;
 		top:-25px;
-		color:$primary-color-dark;
+		color:$primary-color-900;
 		font-size:48px;
 		text-align: center;
 		position: absolute;
@@ -2647,7 +2731,7 @@ header {
 	padding-top: 15px;
 	transition: 250ms;
 	z-index: 999999999999;
-	background: $primary-color-light;
+	background: $primary-color-50;
 	z-index: 0;
 	opacity: 0;	
 }
@@ -2666,7 +2750,7 @@ header {
 	width: 480px;
 	height: 100vh;
 	position: relative;
-	background: $primary-color-light;
+	background: $primary-color-50;
 	margin: 0 auto;
 	overflow: scroll;
 
@@ -2949,7 +3033,7 @@ header {
 	text-decoration: none;
 	display: none;
 	width: 100%;
-	background: $primary-color-light;
+	background: $primary-color-50;
 	padding: 20px;
 
 	div {
@@ -3068,8 +3152,8 @@ header {
 
 .top-header {
 	width: 100%;
-	background: $primary-color-dark;
-	/*border-bottom: 1px solid $primary-color-dark;*/
+	background: $primary-color-900;
+	/*border-bottom: 1px solid $primary-color-900;*/
 	height: 80px;
 	padding-top:40px;
 	/*position: fixed;*/
@@ -3702,7 +3786,7 @@ svg rect{
 	/*border:1px solid #ededed;*/
 	/*border-right:1px solid #ededed;*/
 	height: 100%;
-	background: $primary-color-light;
+	background: $primary-color-50;
 
 }
 
@@ -3794,7 +3878,7 @@ svg rect{
 
 		label {
 			display: inline-block;
-			/*background: $primary-color-light;*/
+			/*background: $primary-color-50;*/
 			position:relative;
 			color: #f0f0f0;
 			/*z-index:1;*/
@@ -4270,7 +4354,7 @@ svg rect{
 	width: 100%;
 	padding: 10px;
 	text-align: left;
-	background: $primary-color-light;
+	background: $primary-color-50;
 	z-index:100;
 	position: relative;
 	display: none;
@@ -4643,7 +4727,7 @@ svg rect{
 			line-height: 20px;
 			font-weight: 300;
 			padding-top:15px;
-			color: $primary-color-medium;
+			color: $primary-color-800;
 		}
 
 		p {
@@ -4695,9 +4779,10 @@ svg rect{
 		h1,
 		span, 
 		li, 
-		h3 {
+		h3, 
+		a {
 			display: inline-block;
-			vertical-align: top;
+			vertical-align: bottom;
 		}
 
 		li {
@@ -4714,16 +4799,14 @@ svg rect{
 		}
 
 		p {
-			font-size: 1em;
-		    line-height: 1.5em;
+			font-size: 1.2em;
 		    font-weight: 300;
 		    color: #555;
 		}
 
 		h1 {
 			font-weight: 400;
-			font-size: 1em;
-			line-height: 1.5em;
+			font-size: 1.2em;
 			color: #555;
 		}
 
@@ -4742,10 +4825,10 @@ svg rect{
 		}
 
 		a {
-			font-size: 1em;
+			font-size: 1.2em;
 			border-bottom: 0px solid $secondary-color-medium;
 			color: #333;
-			padding: 0 2px;
+			padding: 0;
 			font-weight: 400;
 		}
 	}
@@ -5110,7 +5193,7 @@ svg rect{
 			line-height: 20px;
 			font-weight: 300;
 			padding-top:15px;
-			color: $primary-color-medium;
+			color: $primary-color-800;
 		}
 
 		p {
@@ -5160,7 +5243,7 @@ svg rect{
 			line-height: 20px;
 			font-weight: 300;
 			padding-top:15px;
-			color: $primary-color-medium;
+			color: $primary-color-800;
 		}
 
 		p {
@@ -5252,7 +5335,7 @@ svg rect{
 .load-all {
 	width: 100%;
 	/*border-top:1px solid #f0f0f0;*/
-	background:$primary-color-light;
+	background:$primary-color-50;
 	text-align: center;
 	padding: 15px 0;
 	/*margin-bottom: 25px;*/
@@ -5286,8 +5369,8 @@ svg rect{
 
 .view-all-dark {
 	width: 100%;
-	border-top:1px solid $primary-color-medium;
-	background:$primary-color-dark;
+	border-top:1px solid $primary-color-800;
+	background:$primary-color-900;
 	text-align: center;
 	padding: 15px 0;
 	margin-bottom:15px;
@@ -5307,7 +5390,7 @@ svg rect{
 	width: 100%;
 	text-align: center;
 	padding: 100px 0;
-	background:$primary-color-medium;
+	background:$primary-color-800;
 }
 
 /* Slideout Panel */
@@ -5318,7 +5401,7 @@ svg rect{
 	height: 100%;
 	width: 100%;
 	transition: 250ms;
-	background: $primary-color-dark;
+	background: $primary-color-900;
 }
 
 /* Bar Slideout */
@@ -5330,7 +5413,7 @@ svg rect{
 	height: 100%;
 	width: 480px;
 	transition: 250ms;
-	background: $primary-color-light;
+	background: $primary-color-50;
 	overflow: scroll;
 	padding-bottom: 80px;
 }
@@ -5343,7 +5426,7 @@ svg rect{
 	height: 100%;
 	width: 360px;
 	transition: 250ms;
-	background: $primary-color-dark;
+	background: $primary-color-900;
 	overflow-x: hidden;
 	overflow-y: scroll;	
 	padding-bottom: 80px;
@@ -5362,7 +5445,7 @@ svg rect{
 	height: 100%;
 	width: 100%;
 	transition: 250ms;
-	background: $primary-color-dark;
+	background: $primary-color-900;
 	overflow: scroll;
 	padding-bottom: 80px;
 }
@@ -5380,7 +5463,7 @@ svg rect{
 	min-height: 100vh;
 	width: 100%;
 	transition: 250ms;
-	background: $primary-color-light;
+	background: $primary-color-50;
 	overflow-x: hidden;
 	overflow-y: scroll;	
 	padding-bottom: 80px;
@@ -5459,7 +5542,7 @@ svg rect{
 	cursor: pointer;
     padding-top: 20px;
     padding-left:5px;
-	/*background: $primary-color-dark;*/
+	/*background: $primary-color-900;*/
 	border-radius: 3px;
 	/*margin-left:10px;*/
 }
@@ -5626,7 +5709,7 @@ svg rect{
 		/*border-top:1px solid #f5f5f5;*/
 		font-weight:300;
 		cursor: pointer;
-		color: $primary-color-dark;
+		color: $primary-color-900;
 	}
 
 	button:hover {
@@ -6000,7 +6083,7 @@ svg rect{
 
 .calendar-comment {
 	padding: 0px 0 0;
-	background: $primary-color-light;
+	background: $primary-color-50;
 	
 	input {
 		background: #fff;
@@ -6047,7 +6130,7 @@ svg rect{
 	text-align: left;
 	border:1px solid #ededed;
 	border-bottom:0;
-	background: $primary-color-light;
+	background: $primary-color-50;
 
 	ul {
 		list-style: none;
@@ -6185,7 +6268,7 @@ svg rect{
 .settings-container, 
 .calendar-container {
 
-	background: $primary-color-dark;
+	background: $primary-color-900;
 
 	ul {
 		list-style: none;
@@ -6195,7 +6278,7 @@ svg rect{
 	li {
 		padding: 20px 30px;
 		display: block;
-		border-bottom:1px solid $primary-color-medium;
+		border-bottom:1px solid $primary-color-800;
 		transition:250ms;
 		cursor: pointer;
 
@@ -6203,14 +6286,14 @@ svg rect{
 
 	li:hover, 
 	li:focus {
-		background: $primary-color-medium;
+		background: $primary-color-800;
 	}
 
 	p {
 		display: inline-block;
 		vertical-align: top;
 		font-size: 1.2em;
-		color: $primary-color-light;
+		color: $primary-color-50;
 		padding-left: 10px;
 		font-weight: 300;
 		width: 80%;
@@ -6451,7 +6534,7 @@ svg rect{
 
 .settings-avatar {
 	display: block;
-	background: $primary-color-light;
+	background: $primary-color-50;
 
 	ul {
 		list-style: none;
@@ -6497,7 +6580,7 @@ svg rect{
 		cursor: pointer !Important;
 		font-weight: 300;
 		width: 100%;
-		background: $primary-color-light;
+		background: $primary-color-50;
 		height: 50px;
 		overflow:hidden;
 		-webkit-appearance: none;
@@ -6510,7 +6593,7 @@ svg rect{
 	    border: 0;
 	    cursor: pointer;
 	    padding: 16px 15px 17px 25px;
-	    color: $primary-color-light;
+	    color: $primary-color-50;
 	    border-radius: 4px 0 0 4px;
 	    font-weight: 300;
 	    font-size: 1.2em;
@@ -6528,7 +6611,7 @@ svg rect{
 	    border: 0;
 	    padding: 11px;
 	    cursor: pointer;
-	    color: $primary-color-light;
+	    color: $primary-color-50;
 	    border-radius: 4px 0 0 4px;
 	    font-weight: 300;
 	  }
@@ -6562,7 +6645,7 @@ svg rect{
 .avatar-preview {
 	width: 150px;
 	height: 150px;
-	background: $primary-color-light;
+	background: $primary-color-50;
 	padding: 5px;
 	/*border-radius: 75px;*/
 
@@ -6604,7 +6687,7 @@ svg rect{
 		height: 40px;
 		display: inline-block;
 		font-size: 16px;
-		color: $primary-color-dark;
+		color: $primary-color-900;
 		margin-top:5px;
 		padding-top: 12px;
 		padding-left: 12px;
@@ -6632,7 +6715,7 @@ svg rect{
 
 	label {
 		display: inline-block;
-		background:$primary-color-light;
+		background:$primary-color-50;
 		position:relative;
 		z-index:1;
 	}

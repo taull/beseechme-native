@@ -34,8 +34,6 @@ BeMe.Views.Dashboard = Parse.View.extend({
       $('.middle-column').toggleClass('middle-column-shift');
     });
 
-    
-
     $('header form[name="bar-search"').submit(function(e) {
       self.userSearch(e);
     });

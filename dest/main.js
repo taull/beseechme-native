@@ -435,7 +435,7 @@ BeMe.showConfirmation = function (string, isBad) {
   var $confirmMessageContainer = $('.confirm-message-container');
 
   function closeConfirmation () {
-    $confirmMessageContainer.css('top','20px');
+    $confirmMessageContainer.css('top','7px');
     BeMe.confirmationMessage.isActive = false;
   };
 
@@ -2436,8 +2436,6 @@ BeMe.Views.Dashboard = Parse.View.extend({
       $('.left-column').toggleClass('left-column-shift');
       $('.middle-column').toggleClass('middle-column-shift');
     });
-
-    
 
     $('header form[name="bar-search"').submit(function(e) {
       self.userSearch(e);
