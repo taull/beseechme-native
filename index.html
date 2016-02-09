@@ -28,11 +28,11 @@
     <div class="header-container">
       <div class="header-left">
         <aside>
-          <img src="images/nextap-temp.png">    
+          <a href="#backend/settings"><span class="entypo-cog"></span></a>
         </aside
-        ><section>
-          <li id="search-trigger"><span class="entypo-search"></span></li>
-        </section>
+
+        ><section></section
+        ><div><li id="search-trigger"><span class="entypo-search"></span></li></div>
 
       </div
       ><div class="header-center">
@@ -48,8 +48,7 @@
     <div class="bar-search">
       <form name='bar-search' action>
         <section>
-          <span class="fa fa-search"></span
-          ><input type="text" placeholder="Search"
+          <input type="text" placeholder="Search"
           ><i class="fa fa-times-circle"></i>
         </section
         ><aside>
@@ -80,11 +79,23 @@
 
 <!-- Index Route -->
 <script type='text/template' id='index-route'>
+  <% var user = Parse.User.current() %>
+  <div class="user-info-wrap">
+    <div class="user-info-container">
+      <section class="user-info">
+          <section><h1>NEXTAP</h1></a><span class="fa fa-check-circle"></span><h3>@nextap</h3></section
+          ><footer>
+            <h1>0.9</h1><p>mi</p>
+          </footer>
+      </section>
+      <section class="user-functions"></section>
+
+    </div>
+  </div>
 
   <div class="dashboard-container">
     <div class="login-container">
 
-      <div class="login-welcome"><h1>Welcome.</h1> <p>Please log in.</p></div>
       <div class="login-form">
     
         <form action="">
@@ -113,43 +124,28 @@
 
 <!-- Business Register Route -->
 <script type='text/template' id='business-register-route'>
+  <% var user = Parse.User.current() %>
+  <div class="user-info-wrap">
+    <div class="user-info-container">
+      <section class="user-info">
+          <section><h1>Register</h1></a><div class="step-nav"><li></li><li class="active-step"></li><li></li></div></section
+          ><footer>
+          </footer>
+      </section>
+      <section class="user-functions"></section>
+
+    </div>
+  </div>
+
   <div class="index-container">
-    <div class="login-welcome"><h1>Welcome.</h1> <p>Please register your business.</p></div>
-
-    <div class="login-container">
+    <div class="login-form">
       <form action="">
-        <li>
-          <span class="fa fa-bookmark"></span
-          ><input type="text" name="business-name" placeholder="Business Name">
-        </li>
-        <li>
-          <span class="fa fa-user"></span
-          ><input type="text" name="first-name" placeholder="Name">
-        </li>
-        <li>
-          <span class="fa fa-envelope"></span
-          ><input type="text" name="email" placeholder="Email">
-        </li>
-        <li>
-          <span class="fa fa-at"></span
-          ><input type="text" name="handle" placeholder="Handle">
-        </li>
-        <li>
-          <span class="fa fa-lock"></span
-          ><input type="password" name="password" placeholder="Password">
-        </li>
-        <li>
-          <span class="fa fa-lock"></span
-
-          ><input type="password" class="confirm-password" name="confirm-password" placeholder="Confirm Password">
-
-        </li>
-
+        <li><input type="text" name="business-name" placeholder="Business Name"></li>
+        <li><input type="text" name="email" placeholder="Email"></li>
+        <li><input type="password" name="password" placeholder="Password"></li>
         <button>Register</button>
       </form>
     </div>
-
-
   </div>
 </script>
 
@@ -190,6 +186,36 @@
 <script type="text/template" id="backend-view">
 
   <% var user = Parse.User.current() %>
+
+
+  <div class="user-info-wrap">
+    <div class="user-info-container">
+      <section class="user-info">
+
+          <aside>
+            <a href="#dashboard"><i class="fa fa-chevron-left"></i></a>
+          </aside
+
+          ><section><span class="entypo-cog"></span></section
+
+          ><footer>
+            <h1>0.9</h1><p>mi</p>
+          </footer>
+
+      </section>
+
+    </div>
+  </div>
+
+  <div class="breadcrumbs-wrap">
+    <div class="breadcrumbs">
+      <a href="#backend/feed" class="active-bc"><span class="entypo-comment"></span><h1>Activity</h1></a
+      ><a href="#backend/beer"><span class="entypo-flash"></span><h1>Beer Menu</h1></a
+      ><a href="#backend/calendar"><span class="entypo-calendar"></span><h1>Calendar</h1></a
+      ><a href="#backend/followers"><span class="entypo-users"></span><h1>Followers</h1></a
+      ><a href="#backend/listing"><span class="entypo-layout"></span><h1>Listing</h1></a>
+    </div>
+  </div>
 
   <div class="business-tabs-container">
     <div class="business-tabs">
@@ -293,33 +319,6 @@
 
   <div class="dashboard-container">
       <div class="left-column">
-            <div class="popup-tabs">
-              <li class="active-tab"><aside><span class="entypo-comment"></span></aside><section><p>Text</p></section></li
-              ><li><aside><span class="entypo-picture"></span></aside><section><p>Photo</p></section></li
-              ><li><aside><span class="entypo-video"></span></aside><section><p>Video</p></section></li
-              ><li><aside><span class="entypo-calendar"></span></aside><section><p>Event</p></section></li>
-            </div>
-
-            <div class="post-status-text">
-              <form action="">
-                <article>
-                  <aside><img src="images/zas-logo.jpg"><h1>taull</h1></aside>
-                  <input type="text" placeholder="Title" />
-                </article>
-                <textarea id="business-status" rows="1" autoresize=true required=true placeholder="Your text here"></textarea
-                ><section>
-
-                  <input type="file" id="camera-file" />
-                </section
-                ><footer>
-                  <div>
-                    <button type="submit">Post</button
-                    
-                  </div>
-                </footer>
-
-              </form>
-            </div>
 
         <div class="backend-statistics">
           <li><h1 class='follow-number'></h1><p class='follow-text'></p></li
@@ -327,19 +326,6 @@
           ><li><h1>24</h1><p>Beers on Tap</p></li>
         </div>
 
-          <button class="standalone_open"><span class="entypo-feather"></span></button>
-
-
-        <!-- Add content to the popup -->
-          <div id="standalone">
-            <div class="popup-tabs">
-              <li class="active-tab"><aside><span class="entypo-comment"></span></aside><section><p>Text</p></section></li
-              ><li><aside><span class="entypo-picture"></span></aside><section><p>Photo</p></section></li
-              ><li><aside><span class="entypo-video"></span></aside><section><p>Video</p></section></li
-              ><li><aside><span class="entypo-calendar"></span></aside><section><p>Event</p></section></li>
-            </div>
-
-          </div>
       </div
       ><div class="middle-column">
 
@@ -357,10 +343,8 @@
               <input type="file" id="camera-file" />
             </section
             ><footer>
-              <aside><button class="standalone_close"><p>Cancel</p></button></aside
-              ><div>
-                <button type="submit">Post</button
-                
+              <div>
+                <button type="submit">Post</button>
               </div>
             </footer>
 
@@ -401,7 +385,7 @@
           <% } %>
     </aside
     ><div>
-      <h1><%= name%></h1><span class="fa fa-minus-circle" id="delete-beer"></span>
+      <h1><%= name%></h1><span class="fa fa-minus-circle" id="delete-beer"></span><i class="fa fa-info-circle"></i>
       <% if (typeof breweries !== 'undefined') { %>
       <p><%= breweries[0].name %> | <%= abv %>% abv</p>
       <% } %>
@@ -503,10 +487,6 @@
 
     </div
     ><div class="right-column">
-
-
-
-
 
     </div>
   </div>
@@ -623,13 +603,69 @@
 
 
 
-<!-- backend Settings View View -->
+<!--  Settings View -->
 
-<script type="text/template" id="backend-settings-view">
+<script type="text/template" id="settings-view">
 
   <div class="dashboard-container">
     <div class="middle-column">
+
       <% var user = Parse.User.current() %>
+
+      <% if (attributes.userType == 'business') { %>
+        <a href="#settings/basic">
+          <div class="settings-basic">
+            <aside><span class="entypo-user"></span></aside
+            ><section><h1><%= user.get('businessName') %></h1><p>@<%= user.get('handle') %></p></section
+            ><div><span class="fa fa-chevron-right"></span></div>
+          </div>
+        </a>
+
+        <a href="#settings/address">
+          <div class="settings-address">
+            <aside><span class="entypo-location"></span></aside
+            ><section><h1><%= user.get('address') %></h1><p><%= user.get('city') %>, <%= user.get('state') %> <%= user.get('zip') %></p></section
+            ><div><span class="fa fa-chevron-right"></span></div>
+          </div>
+        </a>
+
+      <% } else { %>
+
+        <a href="#settings/basic">
+          <div class="settings-basic">
+            <aside><span class="entypo-user"></span></aside
+            ><section><h1><%= user.get('firstName') %> <%= user.get('lastName') %></h1><p>@<%= user.get('handle') %></p></section
+            ><div><span class="fa fa-chevron-right"></span></div>
+          </div>
+        </a>
+
+        <a href="#location">
+          <div class="settings-location">
+            <aside><span class="entypo-location"></span></aside
+            ><section><h1>My Current Location</h1><p>Columbia, SC</p></section
+            ><div><span class="fa fa-chevron-right"></span></div>
+          </div>
+        </a>
+
+        <div class="settings-distance">
+          <li>
+            <section><h1>Maximum Distance</h1></section
+            ><aside><h1>23mi.</h1></aside>
+          </li>
+          <li>
+            <input type="range" value="50"/>
+          </li>
+        </div>
+
+      <% } %>
+
+      <a href="#settings/logos">
+        <div class="settings-logos">
+          <aside><span class="entypo-picture"></span></aside
+          ><section><h1>My Logos</h1><p>Edit Images</p></section
+          ><div><span class="fa fa-chevron-right"></span></div>
+        </div>
+      </a>
 
         <div class="settings-sublist">
           <form action="">
@@ -721,6 +757,16 @@
   </div>
 
 </script>
+
+<script type="text/template" id="settings-basic-view">
+</script>
+
+<script type="text/template" id="settings-address-view">
+</script>
+
+<script type="text/template" id="settings-logos-view">
+</script>
+
 
 
 <!-- backend Competition View -->
@@ -1068,35 +1114,88 @@
 
 </script>
 
+<!-- Consumer View -->
+
+<script type="text/template" id="consumer-home-view">
+
+  <div class="header-options-container">
+    <div class="header-options">
+      <h1><%= attributes.firstName + ' ' + attributes.lastName %></h1>
+    </div>
+  </div>
+
+  <div class="dashboard-container">
+
+    <div class="left-column">
+
+    </div
+    ><div class="middle-column">
+        <% var user = Parse.User.current() %>
+
+        <div class="user-info-container">
+          <section class="user-info">
+              <aside>
+                <% if (typeof attributes.avatar !=='undefined') { %>
+                  <img src=<%= attributes.avatar._url %> >
+                  <% } else { %>
+                  <img src="images/default-avatar.png">
+                <% } %>
+              </aside
+
+              ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= attributes.firstName + ' ' + attributes.lastName %></h1></a><span class="fa fa-star follow"></span><h3>@<%= attributes.handle %></h3></section
+
+              ><footer>
+                <h1>Send Request</h1>
+              </footer>
+
+          </section>
+          <section class="user-details"><span class="fa fa-lock"></span><h1>Activity is protected. Please send <%= attributes.firstName %> a friend request.</h1></section>
+
+          <section class="user-functions"></section>
+
+        </div>
+      </div>
+
+    </div
+    ><div class="right-column">
+
+    </div>
+  </div>
+
+</script>
+
+
 
 <!-- Business Page View -->
 
 <script type="text/template" id="business-view">
-
-
   <% var user = Parse.User.current() %>
+  <div class="user-info-wrap">
+    <div class="user-info-container">
+      <section class="user-info">
 
-  <div class="user-info-container">
-    <section class="user-info">
-        <aside>
-          <% if (typeof attributes.avatar !=='undefined') { %>
-            <img src=<%= attributes.avatar._url %> >
-            <% } else { %>
-            <img src="images/default-avatar.png">
-          <% } %>
-        </aside
+          <aside>
+            <a href="#dashboard"><i class="fa fa-chevron-left"></i></a>
+          </aside
 
-        ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= attributes.businessName %></h1></a><span class="fa fa-star follow"></span><h3>@<%= attributes.handle %></h3></section
+          ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= attributes.businessName %></h1></a><span class="fa fa-check-circle"></span></section
 
-        ><footer>
-          <h1 class="check-in">Check In</h1>
-        </footer>
+          ><footer>
+            <h1>0.9</h1><p>mi</p>
+          </footer>
 
-    </section>
-    <section class="user-details"><h1><%= attributes.address %> • <%= attributes.city %>, <%= attributes.state %> <%= attributes.zip %></h1></section>
+      </section>
 
-      <section class="user-functions"></section>
+    </div>
+  </div>
 
+
+  <div class="breadcrumbs">
+    <a href="#business/<%= attributes.handle %>" class="active-bc">Home</a
+    ><a href="#business/<%= attributes.handle %>/feed">Activity</a
+    ><a href="#business/<%= attributes.handle %>/beer">Beer Menu</a
+    ><a href="#business/<%= attributes.handle %>/calendar">Calendar</a
+    ><a href="#business/<%= attributes.handle %>/listing">Listing</a>
   </div>
 
   <div class="business-tabs-container">
@@ -1111,56 +1210,11 @@
   </div>
 </script>
 
-<script type="text/template" id="consumer-home-view">
-
-  <div class="dashboard-container">
-
-
-        <div class="left-column">
-
-        </div
-        ><div class="middle-column">
-            <% var user = Parse.User.current() %>
-
-            <div class="user-info-container">
-              <section class="user-info">
-                  <aside>
-                    <% if (typeof attributes.avatar !=='undefined') { %>
-                      <img src=<%= attributes.avatar._url %> >
-                      <% } else { %>
-                      <img src="images/default-avatar.png">
-                    <% } %>
-                  </aside
-
-                  ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= attributes.firstName + ' ' + attributes.lastName %></h1></a><span class="fa fa-star follow"></span><h3>@<%= attributes.handle %></h3></section
-
-                  ><footer>
-                    <h1>Send Request</h1>
-                  </footer>
-
-              </section>
-              <section class="user-details"><span class="fa fa-lock"></span><h1>Activity is protected. Please send <%= attributes.firstName %> a friend request.</h1></section>
-
-              <section class="user-functions"></section>
-
-            </div>
-          </div>
-
-
-        </div
-        ><div class="right-column">
-
-        </div>
-  </div>
-
-
-</script>
 
 <script type="text/template" id="business-home-view">
 
   <div class="dashboard-container">
 
-  <% var user = Parse.User.current() %>
 
         <div class="left-column">
 
@@ -1170,20 +1224,42 @@
             ><a href="#business/<%= attributes.handle %>/friends"><span class="entypo-user-add"></span><h1>My Friends</h1></a
             ><a href="#business/<%= attributes.handle %>/calendar"><span class="entypo-calendar"></span><h1>Calendar</h1></a>
           </div>
+          <div class="user-options">
+            <a><span class="fa fa-phone"></span><h1>Call</h1></a
+            ><a><span class="fa fa-reply"></span><h1>Directions</h1></a
+            ><a href=""><img src="images/uber-logo.png"></span><h1>Order Uber</h1></a>
 
+          </div>
+          <div class="user-address">
+            <li><span class="fa fa-location-arrow"></span><h1><%= attributes.address %>,</h1> <h2><%= attributes.city %> <%= attributes.state %>, <%= attributes.zip %></h2></li
+            ><li><span class="fa fa-globe"></span><h1><%= attributes.website %></h1></li>
+          </div>
         </div
         ><div class="middle-column">
+          <% var user = Parse.User.current() %>
+
+          <section class="user-details">
+            <section class="following-results-container">
+              <section class="following-module">
+                <section class="following-results"></section>
+                <section class="following-results-background"><li></li><li></li><li></li><li></li><li></li></section>
+              </section
+              ><footer><i class="fa fa-plus"></i></footer>    
+            </section>
+          </section>
 
 
+          <div class="copyright-info">
+            <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+            <p>Nextap®, LLC</p>
+          </div>
 
         </div
         ><div class="right-column">
 
           <section class="feed-header"><h1>Draft List</h1></section>
 
-          <div class="profile-beer-list">
-            <ul></ul>
-          </div>
+
             <section class="feed-header"><h1><%= moment().format('dddd, MMMM Do') %></h1></section>
 
             <div class='calendar-standing'></div>
@@ -1488,9 +1564,10 @@
 <script type="text/template" id="dashboard-view">
 
     <% var user = Parse.User.current() %>
-
-    <div class="confirm-message-container">
-      <div class="confirm-message"><h1></h1></div>
+    <div class="confirm-message-wrap">
+      <div class="confirm-message-container">
+        <div class="confirm-message"><h1></h1></div>
+      </div>
     </div>
 
     <div class="dashboard-statistics">
@@ -1499,21 +1576,31 @@
       ><li><h1>24</h1><p>Beers</p></li>
     </div>
 
-    <div class="business-tabs-container">
-      <div class="business-tabs">
-        <ul>
-          <a href="#dashboard" class="active-dashboard-tab"><section><h1>Home</h1></section></a
-          ><a href="#dashboard/following"><section><h1>Following</h1></section></a
-          ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
-          ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a
-          ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
-        </ul>
-      </div>
+  <div class="breadcrumbs-wrap">
+    <div class="breadcrumbs">
+      <a href="#dashboard" class="active-bc"><span class="entypo-comment"></span><h1>Activity</h1></a
+      ><a href="#dashboard/following"><span class="entypo-star"></span><h1>Following</h1></a
+      ><a href="#dashboard/friends"><span class="entypo-flash"></span><h1>Friends</h1></a
+      ><a href="#dashboard/listing"><span class="entypo-layout"></span><h1>Listing</h1></a
+      ><a href="#dashboard/me"><span class="entypo-user"></span><h1>Me</h1></a>
     </div>
+  </div>
 
-    <div class="location-container">
-
+  <div class="business-tabs-container">
+    <div class="business-tabs">
+      <ul>
+        <a href="#dashboard" class="active-dashboard-tab"><section><h1>Home</h1></section></a
+        ><a href="#dashboard/following"><section><h1>Following</h1></section></a
+        ><a href="#dashboard/friends"><section><h1>Friends</h1></section></a
+        ><a href="#dashboard/listing"><section><h1>Listing</h1></section></a
+        ><a href="#dashboard/map"><section><h1>Map View</h1></section></a>
+      </ul>
     </div>
+  </div>
+
+  <div class="location-container">
+
+  </div>
 
 </script>
 
@@ -1524,7 +1611,7 @@
   <div class="header-options-container">
     <div class="header-options">
     
-      <h1>Local Feed</h1>
+      <h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1>
 
       <div class="to-location">
         <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
@@ -1535,12 +1622,11 @@
 
     </div>
   </div>
-  
+
   <div class="dashboard-container">
 
 
       <div class="middle-column">
-
 
 
         <div class="feed-header-wrap">
@@ -1559,6 +1645,20 @@
 
 <script type="text/template" id="dashboard-feed-view">
 
+  <div class="header-options-container">
+    <div class="header-options">
+    
+      <h1>Local Feed</h1>
+
+      <div class="to-location">
+        <section class="update-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1></section
+        ><div class="update-location"><footer><h1>Update Location</h1></footer></div
+
+        ><aside id="location-trigger"><i class="fa fa-location-arrow arrow"></i></aside>
+      </div>
+
+    </div>
+  </div>
 
   <div class="dashboard-container">
     <div class="middle-column">
@@ -1608,6 +1708,11 @@
 
 <script type="text/template" id="dashboard-listing-view">
   <% var user = Parse.User.current() %>
+  <div class="header-options-container">
+    <div class="header-options">
+      <h1>Local Listing</h1>
+    </div>
+  </div>
 
   <div class="dashboard-container">
     <div class="left-column">
@@ -1671,6 +1776,13 @@
 
 <script type="text/template" id="dashboard-following-view">
   <% var user = Parse.User.current() %>
+  <div class="header-options-container">
+    <div class="header-options">
+    
+      <h1>Following</h1>
+
+    </div>
+  </div>
 
   <div class="dashboard-container">
     <div class="left-column">
@@ -1701,6 +1813,13 @@
 
 <script type="text/template" id="dashboard-friends-view">
   <% var user = Parse.User.current() %>
+  <div class="header-options-container">
+    <div class="header-options">
+    
+      <h1>Friends</h1>
+
+    </div>
+  </div>
 
   <div class="dashboard-container">
     <div class="left-column">
