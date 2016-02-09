@@ -201,7 +201,7 @@ BeMe.showConfirmation = function (string, isBad) {
   var $confirmMessageContainer = $('.confirm-message-container');
 
   function closeConfirmation () {
-    $confirmMessageContainer.css('top','7px');
+    $confirmMessageContainer.css('top','0px');
     BeMe.confirmationMessage.isActive = false;
   };
 

@@ -39,7 +39,7 @@ BeMe.Views.Application = Parse.View.extend({
     $('#search-trigger').click(function(){
       $('.search-container').toggleClass('search-container-shift');
       $('.wrapper-dropdown-2').removeClass('active');
-      $('.body-container').toggleClass('body-container-shift');
+      $('.dashboard-container').toggleClass('dashboard-container-shift');
 
       $('.search-results-wrap').toggleClass('search-results-fade');
       // setTimeout(function() {
