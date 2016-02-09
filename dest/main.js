@@ -27,7 +27,10 @@ var Router = Parse.Router.extend({
 
     // 'search/:query' : 'search',
 		
-    'settings' : 'backendSettings',
+    'settings' : 'settings',
+    'settings/basic' : 'settingsBasic',
+    'settings/address' : 'settingsAddress',
+    'settings/logos' : 'settingsLogos',
 
     'location' : 'location',
 
@@ -91,12 +94,6 @@ var Router = Parse.Router.extend({
 		BeMe.removeAllViews();
 		new BeMe.Views.Backend();
 		BeMe.Calendar.CalendarView = new BeMe.Views.BackendCalendar();
-	},
-
-	backendSettings: function () {
-		BeMe.removeAllViews();
-		new BeMe.Views.Backend();
-		new BeMe.Views.BackendSettings();
 	},
 
   businessHome: function (handle) {
@@ -226,6 +223,26 @@ var Router = Parse.Router.extend({
   dashboardFriends: function () {
     BeMe.removeAllViews();
     new BeMe.Views.DashboardFriends();
+  },
+
+  settings: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Settings();
+  },
+
+  settingsBasic: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsBasic();
+  },
+
+  settingsAddress: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsAddress();
+  },
+
+  settingsLogos: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsLogos();
   },
 
   location: function () {
@@ -1319,104 +1336,6 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
       self.views.push(feedPost);
     });
   }
-});
-
-BeMe.Views.BackendSettings = Parse.View.extend({
-	initialize: function () {
-		this.render();
-		$('#backend-settings [data-accordion]').accordion();
-
-	},
-
-	template: _.template($('#settings-view').text()),
-
-	render: function () {
-    var self = this;
-    var user = Parse.User.current();
-    user.fetch().then(function (i) {
-      console.log(i);
-      self.$el.html(self.template(i));
-      $('.body-container').append(self.el);
-      $('option[value=' + user.get("state") + ']').attr('selected', true);
-    });
-		
-		BeMe.renderedViews.push(this);
-	},
-
-  events: {
-    'click #avatar-upload' : 'uploadAvatar',
-    'click #cover-upload' : 'uploadCover',
-    'click .save-button' : 'updateProfile'
-  },
-
-  updateProfile: function (e) {
-    e.preventDefault();
-    var user = Parse.User.current();
-
-    var businessName = $('input[type="business-name"]').val();
-    var handle = $('input[name="handle"]').val();
-    var city = $('input[name="city"]').val();
-    var state = $('select[name="state"]').val();
-    var zip = $('input[name="zip"]').val();
-    var phoneNumber = $('input[name="phone-number"]').val();
-    var website = $('input[name="website"]').val();
-
-    user.set('businessName', businessName);
-    user.set('handle', handle);
-    user.set('City',city);
-    user.set('state',state);
-    user.set('zip',zip);
-    user.set('phoneNumber',phoneNumber);
-    user.set('website',website);
-
-    user.save().then(function() {
-      alert('Saved!');
-    });
-  },
-
-  uploadAvatar: function () {
-    var image = BeMe.createImageFile($('input[name="avatar"]'));
-
-    var user = Parse.User.current();
-
-    user.set('avatar', image);
-    //save and sync
-    user.save().then(function () {
-      user.fetch();
-      var div = document.createElement('div');
-      div.className = 'upload-confirm';
-      $(div).html('<i class=“fa fa-check-circle”></i>');
-
-      $('.settings-sublist form').append(div);
-
-      _.delay(function () {
-        $(div).fadeOut();
-        div.remove();
-      }, 4000);
-    });
-  },
-
-  uploadCover: function () {
-    var image = BeMe.createImageFile($('input[name="cover"]'));
-
-    var user = Parse.User.current();
-
-    user.set('coverPhoto', image);
-    //save and sync
-    user.save().then(function () {
-      user.fetch();
-      var div = document.createElement('div');
-      div.className = 'upload-confirm';
-      $(div).html('<i class=“fa fa-check-circle”></i>');
-
-      $('.settings-sublist form').append(div);
-
-      _.delay(function () {
-        $(div).fadeOut();
-        div.remove();
-      }, 4000);
-    });
-  },
 });
 
 BeMe.Views.Backend = Parse.View.extend({
@@ -2646,6 +2565,143 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
     }
 	}
 });
+BeMe.Views.SettingsBasic = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#settings-address-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+BeMe.Views.SettingsBasic = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#settings-basic-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+BeMe.Views.SettingsBasic = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#settings-logos-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+BeMe.Views.Settings = Parse.View.extend({
+	initialize: function () {
+		this.render();
+		$('#backend-settings [data-accordion]').accordion();
+
+	},
+
+	template: _.template($('#settings-view').text()),
+
+	render: function () {
+    var self = this;
+    var user = Parse.User.current();
+    user.fetch().then(function (i) {
+      console.log(i);
+      self.$el.html(self.template(i));
+      $('.body-container').append(self.el);
+      $('option[value=' + user.get("state") + ']').attr('selected', true);
+    });
+		
+		BeMe.renderedViews.push(this);
+	},
+
+  events: {
+    'click #avatar-upload' : 'uploadAvatar',
+    'click #cover-upload' : 'uploadCover',
+    'click .save-button' : 'updateProfile'
+  },
+
+  updateProfile: function (e) {
+    e.preventDefault();
+    var user = Parse.User.current();
+
+    var businessName = $('input[type="business-name"]').val();
+    var handle = $('input[name="handle"]').val();
+    var city = $('input[name="city"]').val();
+    var state = $('select[name="state"]').val();
+    var zip = $('input[name="zip"]').val();
+    var phoneNumber = $('input[name="phone-number"]').val();
+    var website = $('input[name="website"]').val();
+
+    user.set('businessName', businessName);
+    user.set('handle', handle);
+    user.set('City',city);
+    user.set('state',state);
+    user.set('zip',zip);
+    user.set('phoneNumber',phoneNumber);
+    user.set('website',website);
+
+    user.save().then(function() {
+      alert('Saved!');
+    });
+  },
+
+  uploadAvatar: function () {
+    var image = BeMe.createImageFile($('input[name="avatar"]'));
+
+    var user = Parse.User.current();
+
+    user.set('avatar', image);
+    //save and sync
+    user.save().then(function () {
+      user.fetch();
+      var div = document.createElement('div');
+      div.className = 'upload-confirm';
+      $(div).html('<i class=“fa fa-check-circle”></i>');
+
+      $('.settings-sublist form').append(div);
+
+      _.delay(function () {
+        $(div).fadeOut();
+        div.remove();
+      }, 4000);
+    });
+  },
+
+  uploadCover: function () {
+    var image = BeMe.createImageFile($('input[name="cover"]'));
+
+    var user = Parse.User.current();
+
+    user.set('coverPhoto', image);
+    //save and sync
+    user.save().then(function () {
+      user.fetch();
+      var div = document.createElement('div');
+      div.className = 'upload-confirm';
+      $(div).html('<i class=“fa fa-check-circle”></i>');
+
+      $('.settings-sublist form').append(div);
+
+      _.delay(function () {
+        $(div).fadeOut();
+        div.remove();
+      }, 4000);
+    });
+  },
+});
+
 //accepts a collection of status models and a container
 //renders them 
 

@@ -27,7 +27,10 @@ var Router = Parse.Router.extend({
 
     // 'search/:query' : 'search',
 		
-    'settings' : 'backendSettings',
+    'settings' : 'settings',
+    'settings/basic' : 'settingsBasic',
+    'settings/address' : 'settingsAddress',
+    'settings/logos' : 'settingsLogos',
 
     'location' : 'location',
 
@@ -91,12 +94,6 @@ var Router = Parse.Router.extend({
 		BeMe.removeAllViews();
 		new BeMe.Views.Backend();
 		BeMe.Calendar.CalendarView = new BeMe.Views.BackendCalendar();
-	},
-
-	backendSettings: function () {
-		BeMe.removeAllViews();
-		new BeMe.Views.Backend();
-		new BeMe.Views.BackendSettings();
 	},
 
   businessHome: function (handle) {
@@ -226,6 +223,26 @@ var Router = Parse.Router.extend({
   dashboardFriends: function () {
     BeMe.removeAllViews();
     new BeMe.Views.DashboardFriends();
+  },
+
+  settings: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Settings();
+  },
+
+  settingsBasic: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsBasic();
+  },
+
+  settingsAddress: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsAddress();
+  },
+
+  settingsLogos: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsLogos();
   },
 
   location: function () {

@@ -1,4 +1,4 @@
-BeMe.Views.BackendSettings = Parse.View.extend({
+BeMe.Views.Settings = Parse.View.extend({
 	initialize: function () {
 		this.render();
 		$('#backend-settings [data-accordion]').accordion();
