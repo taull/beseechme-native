@@ -5,7 +5,7 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 
 	},
 
-	template: _.template($('#backend-settings-view').text()),
+	template: _.template($('#settings-view').text()),
 
 	render: function () {
     var self = this;

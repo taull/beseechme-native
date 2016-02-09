@@ -10,7 +10,6 @@ var Router = Parse.Router.extend({
 		'backend/beer' : 'backendBeerList',
 		'backend/competition' : 'backendCompetition',
 		'backend/calendar' : 'backendCalendar',
-		'backend/settings' : 'backendSettings',
 
     'business/:handle' : 'businessHome',
     'business/:handle/feed' : 'businessFeed',
@@ -27,6 +26,8 @@ var Router = Parse.Router.extend({
     'dashboard/friends' : 'dashboardFriends',
 
     // 'search/:query' : 'search',
+		
+    'settings' : 'backendSettings',
 
     'location' : 'location',
 
@@ -1327,7 +1328,7 @@ BeMe.Views.BackendSettings = Parse.View.extend({
 
 	},
 
-	template: _.template($('#backend-settings-view').text()),
+	template: _.template($('#settings-view').text()),
 
 	render: function () {
     var self = this;

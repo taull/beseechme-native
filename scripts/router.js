@@ -10,7 +10,6 @@ var Router = Parse.Router.extend({
 		'backend/beer' : 'backendBeerList',
 		'backend/competition' : 'backendCompetition',
 		'backend/calendar' : 'backendCalendar',
-		'backend/settings' : 'backendSettings',
 
     'business/:handle' : 'businessHome',
     'business/:handle/feed' : 'businessFeed',
@@ -27,6 +26,8 @@ var Router = Parse.Router.extend({
     'dashboard/friends' : 'dashboardFriends',
 
     // 'search/:query' : 'search',
+		
+    'settings' : 'backendSettings',
 
     'location' : 'location',
 
