@@ -1,4 +1,4 @@
-BeMe.Views.SettingsBasic = Parse.View.extend({
+BeMe.Views.SettingsLogos = Parse.View.extend({
 	initialize: function () {
 		this.render();
 	},

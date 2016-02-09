@@ -1,4 +1,4 @@
-BeMe.Views.SettingsBasic = Parse.View.extend({
+BeMe.Views.SettingsAddress = Parse.View.extend({
 	initialize: function () {
 		this.render();
 	},

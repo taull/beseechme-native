@@ -2565,7 +2565,7 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
     }
 	}
 });
-BeMe.Views.SettingsBasic = Parse.View.extend({
+BeMe.Views.SettingsAddress = Parse.View.extend({
 	initialize: function () {
 		this.render();
 	},
@@ -2591,7 +2591,7 @@ BeMe.Views.SettingsBasic = Parse.View.extend({
 		BeMe.renderedViews.push(this);
 	}
 });
-BeMe.Views.SettingsBasic = Parse.View.extend({
+BeMe.Views.SettingsLogos = Parse.View.extend({
 	initialize: function () {
 		this.render();
 	},
