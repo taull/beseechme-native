@@ -36,8 +36,8 @@ var Router = Backbone.Router.extend({
     'settings/basic' : 'settingsBasic',
     'settings/address' : 'settingsAddress',
     'settings/logos' : 'settingsLogos',
+    'settings/location' : 'settingsLocation',
 
-    'location' : 'location',
 
     'test' : 'test',
 	},
@@ -262,8 +262,8 @@ var Router = Backbone.Router.extend({
     $('.header-left')[0].className = 'header-left header-left-3';
   },
 
-  location: function () {
+  settingsLocation: function () {
     BeMe.removeAllViews();
-    new BeMe.Views.Location();
+    new BeMe.Views.SettingsLocation();
   }
 });

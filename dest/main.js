@@ -36,8 +36,8 @@ var Router = Backbone.Router.extend({
     'settings/basic' : 'settingsBasic',
     'settings/address' : 'settingsAddress',
     'settings/logos' : 'settingsLogos',
+    'settings/location' : 'settingsLocation',
 
-    'location' : 'location',
 
     'test' : 'test',
 	},
@@ -262,9 +262,9 @@ var Router = Backbone.Router.extend({
     $('.header-left')[0].className = 'header-left header-left-3';
   },
 
-  location: function () {
+  settingsLocation: function () {
     BeMe.removeAllViews();
-    new BeMe.Views.Location();
+    new BeMe.Views.SettingsLocation();
   }
 });
 // 'use strict';
@@ -2467,27 +2467,6 @@ BeMe.Views.Index = Parse.View.extend({
 		});
 	}
 });
-BeMe.Views.Location = Parse.View.extend({
-  initialize: function () {
-    this.render();
-  },
-
-  template: _.template($('#location-view').text()),
-
-  render: function () {
-    this.$el.html(this.template(this.model));
-    $('.body-container').append(this.el);
-    BeMe.renderedViews.push(this);
-  },
-
-  events: {
-    'click .location-button' : 'setCurrentLocation'
-  },
-
-  setCurrentLocation: function () {
-    BeMe.setCurrentLocation(true);
-  },
-});
 BeMe.Views.BusinessRegister = Parse.View.extend({
 	initialize: function () {
 		this.render();
@@ -2606,6 +2585,27 @@ BeMe.Views.SettingsBasic = Parse.View.extend({
 		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
 	}
+});
+BeMe.Views.SettingsLocation = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#settings-location-view').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('.body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+  },
+
+  events: {
+    'click .location-button' : 'setCurrentLocation'
+  },
+
+  setCurrentLocation: function () {
+    BeMe.setCurrentLocation(true);
+  },
 });
 BeMe.Views.SettingsLogos = Parse.View.extend({
 	initialize: function () {

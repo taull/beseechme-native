@@ -1,9 +1,9 @@
-BeMe.Views.Location = Parse.View.extend({
+BeMe.Views.SettingsLocation = Parse.View.extend({
   initialize: function () {
     this.render();
   },
 
-  template: _.template($('#location-view').text()),
+  template: _.template($('#settings-location-view').text()),
 
   render: function () {
     this.$el.html(this.template(this.model));
