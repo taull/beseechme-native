@@ -652,7 +652,7 @@
         <a href="#settings/basic">
           <div class="settings-basic">
             <aside><span class="entypo-user"></span></aside
-            ><section><h1><%= user.get('businessName') %></h1><p>@<%= user.get('handle') %></p></section
+            ><section><h1>Business Info</h1><p>Name, Handle & More</p></section
             ><div><span class="fa fa-chevron-right"></span></div>
           </div>
         </a>
@@ -660,7 +660,15 @@
         <a href="#settings/address">
           <div class="settings-address">
             <aside><span class="entypo-location"></span></aside
-            ><section><h1><%= user.get('address') %></h1><p><%= user.get('city') %>, <%= user.get('state') %> <%= user.get('zip') %></p></section
+            ><section><h1>Business Address</h1><p>City, State & Zip</p></section
+            ><div><span class="fa fa-chevron-right"></span></div>
+          </div>
+        </a>
+
+        <a href="#location">
+          <div class="settings-location">
+            <aside><span class="entypo-globe"></span></aside
+            ><section><h1>Geolocation</h1><p>Make your business discoverable</p></section
             ><div><span class="fa fa-chevron-right"></span></div>
           </div>
         </a>
@@ -737,7 +745,7 @@
 
       <div class="settings-basic">
         <aside><span class="entypo-user"></span></aside
-        ><section><h1>Basic Information</h1><p>Name, Handle and more</p></section
+        ><section><h1>Business Info</h1><p>Name, Handle & More</p></section
         ><div><span class="fa fa-chevron-down"></span></div>
       </div>
 
@@ -746,6 +754,9 @@
           <ul>
             <li><input type="text" name="business-name" value="<%=  user.get('businessName') %>" placeholder="Business Name"></li>
             <li><input type="text" name= "handle" value="<%=  user.get('handle') %>"></li>
+            <li><input type="text" name="phone-number" value="<%= user.get('phoneNumber') %>" placeholder="Phone Number"></li>
+            <li><input type="text" name="website" value="<%= user.get('website') %>" placeholder="Website"></li>
+
             <li><button type="submit" class="save-button">Save</button></li>
           </ul>
         </form>
@@ -786,7 +797,7 @@
 
       <div class="settings-address">
         <aside><span class="entypo-location"></span></aside
-        ><section><h1>Business Information</h1><p><%= user.get('city') %>, <%= user.get('state') %> <%= user.get('zip') %></p></section
+        ><section><h1>Business Address</h1><p>City, State & Zip</p></section
         ><div><span class="fa fa-chevron-right"></span></div>
       </div>
 
@@ -797,8 +808,6 @@
               <li><input type="text" name="city" value="<%=  user.get('city') %>" placeholder="City"></li>
               <li><input type="text" name="city" value="<%=  user.get('state') %>" placeholder="State"></li>
 
-              <li><input type="text" name="phone-number" value="<%= user.get('phoneNumber') %>" placeholder="Phone Number"></li>
-              <li><input type="text" name="website" value="<%= user.get('website') %>" placeholder="Website"></li>
               <li><button type="submit" class="save-button">Save</button></li>
           </ul>
         </form>
