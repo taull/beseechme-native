@@ -272,9 +272,9 @@ header {
 	height: 60px;
 	margin: 0 auto;
 	position:relative;
-	background: rgba(255,255,255,.1);
 	text-align: center;
 	overflow: hidden;
+	left: -160px;
 
 }
 
@@ -317,6 +317,12 @@ header {
 	background: rgba(255,255,255,.1);
 }
 
+.header-window {
+	overflow: hidden;
+	width: 480px;
+	margin: 0 auto;
+	height: 60px;
+}
 .header-left {
 	display: inline-block;
 	vertical-align: top;
