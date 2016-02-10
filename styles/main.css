@@ -234,10 +234,6 @@ header {
     z-index: 100;
     padding: 20px 10px 0;
     text-align: center; }
-    .header-left li span,
-    .header-left a span {
-      font-size: 1.6em;
-      color: #CFD8DC; }
 
 .header-left-1 {
   left: 160px; }
@@ -249,6 +245,21 @@ header {
   left: 0px; }
   .header-left-3 li:nth-child(2) span {
     color: #EF5350 !important; }
+
+.dashboard-logo,
+.settings-logo,
+.search-logo {
+  font-size: 1.6em;
+  color: #CFD8DC;
+  transition: 250ms; }
+
+.dashboard-logo-active {
+  color: #03A9F4;
+  font-size: 2em; }
+
+.settings-logo-active {
+  color: #EF5350;
+  font-size: 2em; }
 
 .header-center {
   display: inline-block;

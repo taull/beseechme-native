@@ -342,11 +342,6 @@ header {
 		z-index: 100;
 		padding: 20px 10px 0;
 		text-align: center;
-
-		span {
-			font-size: 1.6em;
-			color: $primary-color-100;
-		}
 	}
 
 }
@@ -363,12 +358,30 @@ header {
 	left: 0px;
 
 	li {
-		
+
 	}
 
 	li:nth-child(2) span {
 		color: $red-light !important;
 	}
+}
+
+.dashboard-logo, 
+.settings-logo, 
+.search-logo {
+	font-size: 1.6em;
+	color: $primary-color-100;
+	transition: 250ms;
+}
+
+.dashboard-logo-active {
+	color: $secondary-color-light;
+	font-size: 2em;
+}
+
+.settings-logo-active {
+	color: $red-light;
+	font-size: 2em;
 }
 
 
