@@ -268,12 +268,14 @@ header {
 }
 
 .header-container {
-	width: 100%;
+	width: 800px;
 	height: 60px;
 	margin: 0 auto;
 	position:relative;
-	/*background: rgba(255,255,255,.5);*/
+	background: rgba(255,255,255,.1);
 	text-align: center;
+	overflow: hidden;
+
 }
 
 .one-column-header {
@@ -319,8 +321,10 @@ header {
 	display: inline-block;
 	vertical-align: top;
 	width: 480px;
-	margin: 0 auto; 
 	height: 60px;
+	position: absolute;
+	left: 160px;
+	transition: 250ms;
 
 	aside, 
 	section, 
@@ -330,30 +334,14 @@ header {
 		display: inline-block;
 		vertical-align: top;
 	}
-	aside {
-		width: 25%;
+
+	li, 
+	a {
+		width: 33.33333%;
 		height: 60px;
 		z-index: 100;
 		padding: 20px 10px 0;
-		text-align: left;
-
-		a {
-
-			h1 {
-				font-size: 1.4em;
-				color: $primary-color-50;
-				font-weight: 400;
-
-			}
-
-
-		}
-
-		img {
-			height: 36px;
-			width: auto;
-			display: none;
-		}
+		text-align: center;
 
 		span {
 			font-size: 1.6em;
@@ -361,51 +349,25 @@ header {
 		}
 	}
 
-	section {
-		width: 50%;
-		text-align: center;
-		padding: 12px 0 0;
+}
 
-		img {
-			width: 25px;
-			height: auto;
-		}
+.header-left-1 {
+	left: 160px;
+}
 
-		span {
-			font-size: 2.5em;
-			color: $secondary-color-light;
-		}
+.header-left-2 {
+	left: 320px;
+}
+
+.header-left-3 {
+	left: 0px;
+
+	li {
+		
 	}
 
-	div {
-		width: 25%;
-		text-align: right;
-
-		a, 
-		li {
-			height: 60px;
-			padding: 20px 10px 0;
-
-			span {
-				font-size: 1.6em;
-				color: $primary-color-100;
-			}
-
-			i {
-				font-size: 1.6em;
-				color: $primary-color-100;
-				padding-top: 5px
-			}
-
-			img {
-				height: 30px;
-				width: auto;
-				display: inline-block;
-				vertical-align: top;
-			}
-		}
-
-
+	li:nth-child(2) span {
+		color: $red-light !important;
 	}
 }
 
@@ -651,8 +613,8 @@ header {
 	background: #fff;
 	margin-bottom: 15px;
 	width: 480px;
-	margin: 10px auto 0;
-	padding: 10px;
+	margin: 0 auto 0;
+	padding: 20px 0;
 	border-bottom: 1px solid #f8f8f8;
 
 	aside, 
@@ -663,7 +625,7 @@ header {
 	}
 
 	aside {
-		width: 10%;
+		width: 15%;
 		text-align: center;
 
 		span {
@@ -690,7 +652,7 @@ header {
 
 	div {
 		float: right;
-		padding: 5px 10px;
+		padding: 5px 20px 5px 0;
 
 		span {
 			color: #ddd;
@@ -701,8 +663,8 @@ header {
 
 .settings-distance {
 	background: #fff;
-	margin-bottom: 10px;
 	padding: 10px;
+	border-bottom: 1px solid #f8f8f8;
 
 	section, 
 	aside,
@@ -755,10 +717,10 @@ header {
 
 		input[type="range"]::-webkit-slider-thumb{
 			-webkit-appearance:none;
-			width:20px;
-			height:20px;
+			width:15px;
+			height:15px;
 			border-radius: 3px;
-			background:$red-light;
+			background: $red-dark;
 			position:relative;
 			z-index:3;
 			/*box-shadow:0 0 5px 0 rgba(0,0,0,0.3);*/
@@ -2664,10 +2626,11 @@ header {
 
 .business-cover {
 	width: 100%;
-	height: 250px;
+	height: 200px;
 	position: relative;
 	overflow: hidden;
-	border-radius:3px;
+	border-radius:3px; 
+	background: #333;
 
 	section {
 		position: absolute;
@@ -2692,11 +2655,49 @@ header {
 		i {
 			color: $secondary-color-light;
 			font-size: 1.4em;
-		}
+		} 
 	}
 	img {
+		position: absolute;
 		width: 100%;
 		height: auto;
+		top: -50px;
+
+		-webkit-filter: blur(3px);
+		filter: blur(3px);
+	}
+}
+
+
+.user-info {
+	position: relative;
+}
+
+.user-logo {
+	width: 100%;
+	position: absolute;
+	top: 60px;
+	text-align: center;
+
+	img {
+		width: 75px;
+		height: 75px;
+		border-radius: 50px;
+		border: 2px solid #fff;
+	}
+
+	h1 {
+		color: #fff;
+		font-size: 1.4em;
+		font-weight: 400;
+	}
+
+	a {
+		display: block;
+		font-size: 1em;
+		color: #fff;
+		font-weight: 300;
+		margin-top: 3px;
 	}
 }
 
@@ -4642,7 +4643,7 @@ svg rect{
 }
 
 
-.user-info-wrap {
+.header-info-wrap {
 	width: 100%;
 	position: fixed;
 	/*background: $primary-color-800;*/
@@ -4650,9 +4651,10 @@ svg rect{
 	z-index:500;
 	top: 0;
 	background: $primary-color-800;
+	display: none;
 }
 
-.user-info-container {
+.header-info-container {
 	width: 480px;
 	height: 60px;
 	margin: 0 auto;
@@ -4660,7 +4662,7 @@ svg rect{
 	border-radius: 3px;
 }
 
-.user-info {
+.header-info {
 	display: inline-block;
 	vertical-align: top;
 	width: 100%;
@@ -7083,12 +7085,9 @@ svg rect{
 
 .settings-sublist {
 	background: #fff;
-	padding: 15px;
-	display: none;
 
 	li {
-		padding: 0px 0;
-		margin-bottom: 10px;
+		padding: 10px 0 10px 15%;
 		border-bottom: 1px solid #f8f8f8;
 	}
 
@@ -7105,18 +7104,30 @@ svg rect{
 		font-size: 1em;
 		font-weight: 700;
 		text-align: center;
-		padding: 10px 15px;
+		padding: 10px;
+		width: 10%;
 	}
 
 	input {
 		width: 70%;
 		outline: 0;
 		border: 0;
-		text-indent: 10px;
 		padding: 0px 0;
 		background: transparent;
 		font-size: 1.2em;
 		font-weight: 300;
+	}
+
+	button {
+		height: 40px;
+		padding: 10px 20px;
+		background: $blue-700;
+		color: #fff;
+		font-weight: 400;
+		font-size: 1em;
+		border: 0;
+		outline: 0;
+		border-radius: 3px;
 	}
 }
 

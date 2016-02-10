@@ -27,12 +27,9 @@
   <header>
     <div class="header-container">
       <div class="header-left">
-        <aside>
-          <a href="#backend/settings"><span class="entypo-cog"></span></a>
-        </aside
-
-        ><section></section
-        ><div><li id="search-trigger"><span class="entypo-search"></span></li></div>
+        <li id="search-trigger"><span class="entypo-search" ></span></li
+        ><a href="#dashboard" id="dashboard-trigger"><span class="entypo-twitter" ></span></a
+        ><a href="#settings" id="settings-trigger"><span class="entypo-cog"></span></a>
 
       </div
       ><div class="header-center">
@@ -606,11 +603,48 @@
 <!--  Settings View -->
 
 <script type="text/template" id="settings-view">
+  <div class="header-info-wrap">
+    <div class="header-info-container">
+      <section class="header-info">
+
+          <aside>
+            <a href="#dashboard"><i class="fa fa-chevron-left"></i></a>
+          </aside
+
+          ><section><span class="entypo-cog"></span></section
+
+          ><footer>
+            <h1>0.9</h1><p>mi</p>
+          </footer>
+
+      </section>
+
+    </div>
+  </div>
 
   <div class="dashboard-container">
     <div class="middle-column">
 
       <% var user = Parse.User.current() %>
+
+      <div class="user-info">
+        <div class="business-cover">
+          <% if (typeof user.get('coverPhoto') !=='undefined') { %>
+            <img src=<%= user.get('coverPhoto')._url %> >
+            <% } else { %>
+            <img src="images/craft2.jpg">
+          <% } %>
+        </div>
+        <div class="user-logo">
+          <% if (typeof user.get('avatar') !=='undefined') { %>
+            <img src=<%= user.get('avatar')._url %> >
+          <% } else { %>
+            <img src="images/default-avatar.png">
+          <% } %>
+          <h1><%= user.get('firstName') %></h1>
+          <a>View Profile</a>
+        </div>
+      </div>
 
       <% if (attributes.userType == 'business') { %>
         <a href="#settings/basic">
@@ -634,7 +668,7 @@
         <a href="#settings/basic">
           <div class="settings-basic">
             <aside><span class="entypo-user"></span></aside
-            ><section><h1><%= user.get('firstName') %> <%= user.get('lastName') %></h1><p>@<%= user.get('handle') %></p></section
+            ><section><h1>Basic Information</h1><p>Name, Handle and more</p></section
             ><div><span class="fa fa-chevron-right"></span></div>
           </div>
         </a>
@@ -647,16 +681,6 @@
           </div>
         </a>
 
-        <div class="settings-distance">
-          <li>
-            <section><h1>Maximum Distance</h1></section
-            ><aside><h1>23mi.</h1></aside>
-          </li>
-          <li>
-            <input type="range" value="50"/>
-          </li>
-        </div>
-
       <% } %>
 
       <a href="#settings/logos">
@@ -667,90 +691,13 @@
         </div>
       </a>
 
-        <div class="settings-sublist">
-          <form action="">
-            <ul>
-              <li><span class="fa fa-bookmark"></span><input type="text" name="business-name" value="<%=  attributes.businessName %>" placeholder="Business Name"></li>
-              <li><h1>@</h1><input type="text" name= "handle" value="<%=  attributes.handle %>"></li>
-
-              <li><span class="fa fa-location-arrow"></span><input type="text" name="address" value="<%=  attributes.address %>" placeholder="Address"></li>
-              <li><h1>C</h1><input type="text" name="city" value="<%=  attributes.City %>" placeholder="City"></li>
-              <li>
-                <h1>S</h1>
-                <!-- <input type="text" name="state" value="<%=  attributes.State %>"> -->
-                <select name='state'>
-                  <option value="AL">Alabama</option>
-                  <option value="AK">Alaska</option>
-                  <option value="AZ">Arizona</option>
-                  <option value="AR">Arkansas</option>
-                  <option value="CA">California</option>
-                  <option value="CO">Colorado</option>
-                  <option value="CT">Connecticut</option>
-                  <option value="DE">Delaware</option>
-                  <option value="DC">District Of Columbia</option>
-                  <option value="FL">Florida</option>
-                  <option value="GA">Georgia</option>
-                  <option value="HI">Hawaii</option>
-                  <option value="ID">Idaho</option>
-                  <option value="IL">Illinois</option>
-                  <option value="IN">Indiana</option>
-                  <option value="IA">Iowa</option>
-                  <option value="KS">Kansas</option>
-                  <option value="KY">Kentucky</option>
-                  <option value="LA">Louisiana</option>
-                  <option value="ME">Maine</option>
-                  <option value="MD">Maryland</option>
-                  <option value="MA">Massachusetts</option>
-                  <option value="MI">Michigan</option>
-                  <option value="MN">Minnesota</option>
-                  <option value="MS">Mississippi</option>
-                  <option value="MO">Missouri</option>
-                  <option value="MT">Montana</option>
-                  <option value="NE">Nebraska</option>
-                  <option value="NV">Nevada</option>
-                  <option value="NH">New Hampshire</option>
-                  <option value="NJ">New Jersey</option>
-                  <option value="NM">New Mexico</option>
-                  <option value="NY">New York</option>
-                  <option value="NC">North Carolina</option>
-                  <option value="ND">North Dakota</option>
-                  <option value="OH">Ohio</option>
-                  <option value="OK">Oklahoma</option>
-                  <option value="OR">Oregon</option>
-                  <option value="PA">Pennsylvania</option>
-                  <option value="RI">Rhode Island</option>
-                  <option value="SC">South Carolina</option>
-                  <option value="SD">South Dakota</option>
-                  <option value="TN">Tennessee</option>
-                  <option value="TX">Texas</option>
-                  <option value="UT">Utah</option>
-                  <option value="VT">Vermont</option>
-                  <option value="VA">Virginia</option>
-                  <option value="WA">Washington</option>
-                  <option value="WV">West Virginia</option>
-                  <option value="WI">Wisconsin</option>
-                  <option value="WY">Wyoming</option>
-                </select>
-              </li>
-              <li><h1>Z</h1><input type="text" name="zip" value="<%=  attributes.zip %>"></li>
-              <li><span class="fa fa-phone"></span><input type="text" name="phone-number" value="<%= attributes.phoneNumber %>"></li>
-              <li><span class="fa fa-globe"></span><input type="text" name="website" value="<%=  attributes.website %>"></li>
-              <li><button type="submit" class="save-button">Save</button></li>
-            </ul>
-          </form>
+      <a href="#logout">
+        <div class="settings-logos">
+          <aside><span class="entypo-logout"></span></aside
+          ><section><h1>Logout</h1><p></p></section
+          ><div><span class="fa fa-chevron-right"></span></div>
         </div>
-        <div class="settings-sublist">
-          <form action="">
-            <input name='avatar' type="file">
-            <button type="button" id='avatar-upload'>Avatar Upload</button>
-          </form>
-        </div>
-        <div class="settings-sublist">
-          <form action="">
-            <input name='cover' type="file">
-            <button type="button" id='cover-upload'>Cover Upload</button>
-          </form>
-        </div>
+      </a>
 
     </div>
 
@@ -759,12 +706,157 @@
 </script>
 
 <script type="text/template" id="settings-basic-view">
+  <% var user = Parse.User.current() %>
+
+  <div class="header-info-wrap">
+    <div class="header-info-container">
+      <section class="header-info">
+
+          <aside>
+            <a href="#settings"><span class="entypo-cog"></span></a>
+          </aside
+
+          ><section><h1>Basic Info</h1></section
+
+          ><footer>
+            <h1>0.9</h1><p>mi</p>
+          </footer>
+
+      </section>
+
+    </div>
+  </div>
+
+  <div class="dashboard-container">
+
+    <div class="left-column"></div>
+
+    <div class="middle-column">
+
+      <div class="settings-basic">
+        <aside><span class="entypo-user"></span></aside
+        ><section><h1>Basic Information</h1><p>Name, Handle and more</p></section
+        ><div><span class="fa fa-chevron-down"></span></div>
+      </div>
+
+      <div class="settings-sublist">
+        <form action="">
+          <ul>
+            <li><input type="text" name="business-name" value="<%=  user.get('businessName') %>" placeholder="Business Name"></li>
+            <li><input type="text" name= "handle" value="<%=  user.get('handle') %>"></li>
+            <li><button type="submit" class="save-button">Save</button></li>
+          </ul>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
 </script>
 
 <script type="text/template" id="settings-address-view">
+  <% var user = Parse.User.current() %>
+
+  <div class="header-info-wrap">
+    <div class="header-info-container">
+      <section class="header-info">
+
+          <aside>
+            <a href="#settings"><span class="entypo-cog"></span></a>
+          </aside
+
+          ><section><h1>Address</h1></section
+
+          ><footer>
+            <h1>0.9</h1><p>mi</p>
+          </footer>
+
+      </section>
+
+    </div>
+  </div>
+
+  <div class="dashboard-container">
+
+    <div class="left-column"></div>
+
+    <div class="middle-column">
+
+      <div class="settings-address">
+        <aside><span class="entypo-location"></span></aside
+        ><section><h1>Business Information</h1><p><%= user.get('city') %>, <%= user.get('state') %> <%= user.get('zip') %></p></section
+        ><div><span class="fa fa-chevron-right"></span></div>
+      </div>
+
+      <div class="settings-sublist">
+        <form action="">
+          <ul>
+              <li><input type="text" name="address" value="<%=  user.get('address') %>" placeholder="Address"></li>
+              <li><input type="text" name="city" value="<%=  user.get('city') %>" placeholder="City"></li>
+              <li><input type="text" name="city" value="<%=  user.get('state') %>" placeholder="State"></li>
+
+              <li><input type="text" name="phone-number" value="<%= user.get('phoneNumber') %>" placeholder="Phone Number"></li>
+              <li><input type="text" name="website" value="<%= user.get('website') %>" placeholder="Website"></li>
+              <li><button type="submit" class="save-button">Save</button></li>
+          </ul>
+        </form>
+      </div>
+
+    </div>
+  </div>
 </script>
 
 <script type="text/template" id="settings-logos-view">
+
+  <% var user = Parse.User.current() %>
+
+  <div class="header-info-wrap">
+    <div class="header-info-container">
+      <section class="header-info">
+
+          <aside>
+            <a href="#settings"><span class="entypo-cog"></span></a>
+          </aside
+
+          ><section><h1>My Logos</h1></section
+
+          ><footer>
+            <h1>0.9</h1><p>mi</p>
+          </footer>
+
+      </section>
+
+    </div>
+  </div>
+
+  <div class="dashboard-container">
+
+    <div class="left-column"></div>
+
+    <div class="middle-column">
+
+      <div class="settings-logos">
+        <aside><span class="entypo-picture"></span></aside
+        ><section><h1>My Logos</h1><p>Edit Images</p></section
+        ><div><span class="fa fa-chevron-down"></span></div>
+      </div>
+
+      <div class="settings-sublist">
+        <form action="">
+          <input name='avatar' type="file">
+          <button type="button" id='avatar-upload'>Avatar Upload</button>
+        </form>
+      </div>
+      <div class="settings-sublist">
+        <form action="">
+          <input name='cover' type="file">
+          <button type="button" id='cover-upload'>Cover Upload</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
 </script>
 
 
@@ -1170,15 +1262,15 @@
 
 <script type="text/template" id="business-view">
   <% var user = Parse.User.current() %>
-  <div class="user-info-wrap">
-    <div class="user-info-container">
-      <section class="user-info">
+  <div class="header-info-wrap">
+    <div class="header-info-container">
+      <section class="header-info">
 
           <aside>
             <a href="#dashboard"><i class="fa fa-chevron-left"></i></a>
           </aside
 
-          ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= attributes.businessName %></h1></a><span class="fa fa-check-circle"></span></section
+          ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= attributes.businessName %></h1></a></section
 
           ><footer>
             <h1>0.9</h1><p>mi</p>
@@ -1529,34 +1621,54 @@
 <script type="text/template" id="location-view">
 
 
-  <div class="one-column-container">
+  <div class="dashboard-container">
       <% var user = Parse.User.current() %>
 
-      <% if (user.get('userType') === 'business') { %>
-        <div class="current-location">
-          <div class="set-location-warning">
-            <h1>Are you at your place of Business?</h1>
-            <a href="#backend">If not, please skip step and set later</a>
-          </div>
-          <div class="location-button">
-            <span class="fa fa-location-arrow"></span>
-            <p>Set Location</p>
-          </div>
-        </div>
-      <% } else { %>
+      <div class="left-column"></div>
 
-        <div class="current-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Last Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></div>
-        <div class="current-location">
-          <div class="location-button">
-            <span class="fa fa-location-arrow"></span>
-            <p>Set Location</p>
+      <div class="middle-column">
+        <a href="#location">
+          <div class="settings-location">
+            <aside><span class="entypo-location"></span></aside
+            ><section><h1>My Current Location</h1><p>Columbia, SC</p></section
+            ><div><span class="fa fa-chevron-right"></span></div>
           </div>
-          <div class="set-location-warning">
-              <a href="#dashboard">Cancel and return to Dashboard</a>
-          </div>
-        </div>
-      <% } %>
+        </a>
 
+        <div class="settings-distance">
+          <li>
+            <section><h1>Maximum Distance</h1></section
+            ><aside><h1>23mi.</h1></aside>
+          </li>
+          <li>
+            <input type="range" value="50"/>
+          </li>
+        </div>
+        <% if (user.get('userType') === 'business') { %>
+          <div class="current-location">
+            <div class="set-location-warning">
+              <h1>Are you at your place of Business?</h1>
+              <a href="#backend">If not, please skip step and set later</a>
+            </div>
+            <div class="location-button">
+              <span class="fa fa-location-arrow"></span>
+              <p>Set Location</p>
+            </div>
+          </div>
+        <% } else { %>
+
+          <div class="current-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Last Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></div>
+          <div class="current-location">
+            <div class="location-button">
+              <span class="fa fa-location-arrow"></span>
+              <p>Set Location</p>
+            </div>
+            <div class="set-location-warning">
+                <a href="#dashboard">Cancel and return to Dashboard</a>
+            </div>
+          </div>
+        <% } %>
+      </div>
 
   </div>
 </script>
