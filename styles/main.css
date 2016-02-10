@@ -180,9 +180,9 @@ header {
   height: 60px;
   margin: 0 auto;
   position: relative;
-  background: rgba(255, 255, 255, 0.1);
   text-align: center;
-  overflow: hidden; }
+  overflow: hidden;
+  left: -160px; }
 
 .one-column-header {
   width: 540px;
@@ -212,6 +212,12 @@ header {
 .active-view {
   background: rgba(255, 255, 255, 0.1); }
 
+.header-window {
+  overflow: hidden;
+  width: 480px;
+  margin: 0 auto;
+  height: 60px; }
+
 .header-left {
   display: inline-block;
   vertical-align: top;
@@ -234,21 +240,30 @@ header {
     z-index: 100;
     padding: 20px 10px 0;
     text-align: center; }
-    .header-left li span,
-    .header-left a span {
-      font-size: 1.6em;
-      color: #CFD8DC; }
 
 .header-left-1 {
   left: 160px; }
 
 .header-left-2 {
-  left: 320px; }
+  left: 0px; }
 
 .header-left-3 {
-  left: 0px; }
-  .header-left-3 li:nth-child(2) span {
-    color: #EF5350 !important; }
+  left: 320px; }
+
+.dashboard-logo,
+.settings-logo,
+.search-logo {
+  font-size: 1.6em;
+  color: #CFD8DC;
+  transition: 250ms; }
+
+.dashboard-logo-active {
+  color: #03A9F4;
+  font-size: 2em; }
+
+.settings-logo-active {
+  color: #EF5350;
+  font-size: 2em; }
 
 .header-center {
   display: inline-block;
