@@ -257,5 +257,5 @@ Parse.View.prototype.removeRenderedView = _.wrap(
 
 $(document).ready(function () {
 	BeMe.Router = new Router();
-	Parse.history.start();
+	Backbone.history.start();
 });

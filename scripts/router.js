@@ -1,4 +1,9 @@
-var Router = Parse.Router.extend({
+var Router = Backbone.Router.extend({
+  initialize: function () {
+    BeMe.ApplicationView = new BeMe.Views.Application();
+    this.listenTo(this, 'route', this.secondaryRouteHandler);
+  },
+
 	routes: {
 		'' : 'home',
 
@@ -48,9 +53,13 @@ var Router = Parse.Router.extend({
 
   },
 
-	initialize: function () {
-		BeMe.ApplicationView = new BeMe.Views.Application();
-	},
+  secondaryRouteHandler: function (routeName) {
+    if (!!routeName.match(/dashboard\w*/g)) { //if it is one of the dashboard routes
+      this.dashboardGlobal();
+    } else if (!!routeName.match(/settings\w*/g)) { // if it is one of the settings routes
+      this.settingsGlobal();
+    } 
+  },
 
 	registerBusiness: function () {
 		BeMe.removeAllViews();
@@ -225,6 +234,10 @@ var Router = Parse.Router.extend({
     new BeMe.Views.DashboardFriends();
   },
 
+  dashboardGlobal: function () {
+    $('.header-left')[0].className = 'header-left header-left-1';
+  },
+
   settings: function () {
     BeMe.removeAllViews();
     new BeMe.Views.Settings();
@@ -243,6 +256,10 @@ var Router = Parse.Router.extend({
   settingsLogos: function () {
     BeMe.removeAllViews();
     new BeMe.Views.SettingsLogos();
+  },
+
+  settingsGlobal: function () {
+    $('.header-left')[0].className = 'header-left header-left-3';
   },
 
   location: function () {
