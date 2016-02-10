@@ -665,7 +665,7 @@
           </div>
         </a>
 
-        <a href="#location">
+        <a href="#settings/location">
           <div class="settings-location">
             <aside><span class="entypo-globe"></span></aside
             ><section><h1>Geolocation</h1><p>Make your business discoverable</p></section
@@ -683,7 +683,7 @@
           </div>
         </a>
 
-        <a href="#location">
+        <a href="#settings/location">
           <div class="settings-location">
             <aside><span class="entypo-location"></span></aside
             ><section><h1>My Current Location</h1><p>Columbia, SC</p></section
@@ -714,6 +714,9 @@
   </div>
 
 </script>
+
+
+<!-- Settings Basic -->
 
 <script type="text/template" id="settings-basic-view">
   <% var user = Parse.User.current() %>
@@ -767,6 +770,8 @@
 
 </script>
 
+<!-- Settings Address -->
+
 <script type="text/template" id="settings-address-view">
   <% var user = Parse.User.current() %>
 
@@ -816,6 +821,8 @@
     </div>
   </div>
 </script>
+
+<!-- Settings Logo -->
 
 <script type="text/template" id="settings-logos-view">
 
@@ -868,6 +875,64 @@
     </div>
   </div>
 
+</script>
+
+
+<!-- Settings Location -->
+
+<script type="text/template" id="settings-location-view">
+
+
+  <div class="dashboard-container">
+      <% var user = Parse.User.current() %>
+
+      <div class="left-column"></div>
+
+      <div class="middle-column">
+        <a href="#location">
+          <div class="settings-location">
+            <aside><span class="entypo-location"></span></aside
+            ><section><h1>My Current Location</h1><p>Columbia, SC</p></section
+            ><div><span class="fa fa-chevron-right"></span></div>
+          </div>
+        </a>
+
+        <div class="settings-distance">
+          <li>
+            <section><h1>Maximum Distance</h1></section
+            ><aside><h1>23mi.</h1></aside>
+          </li>
+          <li>
+            <input type="range" value="50"/>
+          </li>
+        </div>
+        <% if (user.get('userType') === 'business') { %>
+          <div class="current-location">
+            <div class="set-location-warning">
+              <h1>Are you at your place of Business?</h1>
+              <a href="#backend">If not, please skip step and set later</a>
+            </div>
+            <div class="location-button">
+              <span class="fa fa-location-arrow"></span>
+              <p>Set Location</p>
+            </div>
+          </div>
+        <% } else { %>
+
+          <div class="current-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Last Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></div>
+          <div class="current-location">
+            <div class="location-button">
+              <span class="fa fa-location-arrow"></span>
+              <p>Set Location</p>
+            </div>
+            <div class="set-location-warning">
+                <a href="#dashboard">Cancel and return to Dashboard</a>
+            </div>
+          </div>
+        <% } %>
+      </div>
+
+  </div>
 </script>
 
 
@@ -1625,61 +1690,6 @@
       <div class="bar-search-results"><ul></ul></div>
 
     </div>
-
-  </div>
-</script>
-
-<script type="text/template" id="location-view">
-
-
-  <div class="dashboard-container">
-      <% var user = Parse.User.current() %>
-
-      <div class="left-column"></div>
-
-      <div class="middle-column">
-        <a href="#location">
-          <div class="settings-location">
-            <aside><span class="entypo-location"></span></aside
-            ><section><h1>My Current Location</h1><p>Columbia, SC</p></section
-            ><div><span class="fa fa-chevron-right"></span></div>
-          </div>
-        </a>
-
-        <div class="settings-distance">
-          <li>
-            <section><h1>Maximum Distance</h1></section
-            ><aside><h1>23mi.</h1></aside>
-          </li>
-          <li>
-            <input type="range" value="50"/>
-          </li>
-        </div>
-        <% if (user.get('userType') === 'business') { %>
-          <div class="current-location">
-            <div class="set-location-warning">
-              <h1>Are you at your place of Business?</h1>
-              <a href="#backend">If not, please skip step and set later</a>
-            </div>
-            <div class="location-button">
-              <span class="fa fa-location-arrow"></span>
-              <p>Set Location</p>
-            </div>
-          </div>
-        <% } else { %>
-
-          <div class="current-location-info"><h1><%= user.get('city') %>, <%= user.get('state') %> (<%= user.get('zip') %>)</h1><p>Last Updated: <%= moment(user.get('lastUpdatedLocation')).format('MMMM Do, YYYY [at] h:mm a') %> </p></div>
-          <div class="current-location">
-            <div class="location-button">
-              <span class="fa fa-location-arrow"></span>
-              <p>Set Location</p>
-            </div>
-            <div class="set-location-warning">
-                <a href="#dashboard">Cancel and return to Dashboard</a>
-            </div>
-          </div>
-        <% } %>
-      </div>
 
   </div>
 </script>
