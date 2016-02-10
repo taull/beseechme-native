@@ -54,6 +54,7 @@ var Router = Backbone.Router.extend({
   },
 
   secondaryRouteHandler: function (routeName) {
+    /* Note: In this case, the \w* is unnecessary. We only need to match something AT ALL, not the whole word */
     if (!!routeName.match(/dashboard\w*/g)) { //if it is one of the dashboard routes
       this.dashboardGlobal();
     } else if (!!routeName.match(/settings\w*/g)) { // if it is one of the settings routes
@@ -236,6 +237,8 @@ var Router = Backbone.Router.extend({
 
   dashboardGlobal: function () {
     $('.header-left')[0].className = 'header-left header-left-1';
+    $('.dashboard-logo').addClass('dashboard-logo-active');
+    $('.settings-logo').removeClass('settings-logo-active');
   },
 
   settings: function () {
@@ -260,6 +263,8 @@ var Router = Backbone.Router.extend({
 
   settingsGlobal: function () {
     $('.header-left')[0].className = 'header-left header-left-3';
+    $('.dashboard-logo').removeClass('dashboard-logo-active');
+    $('.settings-logo').addClass('settings-logo-active');
   },
 
   settingsLocation: function () {
