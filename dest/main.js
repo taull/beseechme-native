@@ -31,6 +31,8 @@ var Router = Backbone.Router.extend({
     'dashboard/friends' : 'dashboardFriends',
 
     // 'search/:query' : 'search',
+
+    'search' : 'search',
 		
     'settings' : 'settings',
     'settings/basic' : 'settingsBasic',
@@ -238,7 +240,16 @@ var Router = Backbone.Router.extend({
   dashboardGlobal: function () {
     $('.header-left')[0].className = 'header-left header-left-1';
     $('.dashboard-logo').addClass('dashboard-logo-active');
+    $('.dashboard-head').addClass('dashboard-head-active');
+
     $('.settings-logo').removeClass('settings-logo-active');
+    $('.settings-head').removeClass('settings-head-active');
+
+  },
+
+  search: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Search();
   },
 
   settings: function () {
@@ -264,7 +275,11 @@ var Router = Backbone.Router.extend({
   settingsGlobal: function () {
     $('.header-left')[0].className = 'header-left header-left-3';
     $('.dashboard-logo').removeClass('dashboard-logo-active');
+    $('.dashboard-head').removeClass('dashboard-head-active');
+
     $('.settings-logo').addClass('settings-logo-active');
+    $('.settings-head').addClass('settings-head-active');
+
   },
 
   settingsLocation: function () {
@@ -576,10 +591,7 @@ BeMe.Views.Application = Parse.View.extend({
       $('.search-container').toggleClass('search-container-shift');
       $('.wrapper-dropdown-2').removeClass('active');
       $('.dashboard-container').toggleClass('dashboard-container-shift');
-      $('.search-results-wrap').toggleClass('search-results-fade');
-      // setTimeout(function() {
-      //   $('.search-results-wrap').toggleClass('search-results-shift');
-      // }, 250);
+
 
       if(self.opened == false) {
         //opened
@@ -2564,6 +2576,30 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
       alert('Passwords don\'t match');
     }
 	}
+});
+BeMe.Views.Search = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#search-view').text()),
+
+	render: function () {
+    var self = this;
+    var user = Parse.User.current();
+    user.fetch().then(function (i) {
+      console.log(i);
+      self.$el.html(self.template(i));
+      $('.body-container').append(self.el);
+    });
+		
+		BeMe.renderedViews.push(this);
+	},
+
+  events: {
+
+  }
+
 });
 BeMe.Views.SettingsAddress = Parse.View.extend({
 	initialize: function () {

@@ -31,6 +31,8 @@ var Router = Backbone.Router.extend({
     'dashboard/friends' : 'dashboardFriends',
 
     // 'search/:query' : 'search',
+
+    'search' : 'search',
 		
     'settings' : 'settings',
     'settings/basic' : 'settingsBasic',
@@ -238,7 +240,16 @@ var Router = Backbone.Router.extend({
   dashboardGlobal: function () {
     $('.header-left')[0].className = 'header-left header-left-1';
     $('.dashboard-logo').addClass('dashboard-logo-active');
+    $('.dashboard-head').addClass('dashboard-head-active');
+
     $('.settings-logo').removeClass('settings-logo-active');
+    $('.settings-head').removeClass('settings-head-active');
+
+  },
+
+  search: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Search();
   },
 
   settings: function () {
@@ -264,7 +275,11 @@ var Router = Backbone.Router.extend({
   settingsGlobal: function () {
     $('.header-left')[0].className = 'header-left header-left-3';
     $('.dashboard-logo').removeClass('dashboard-logo-active');
+    $('.dashboard-head').removeClass('dashboard-head-active');
+
     $('.settings-logo').addClass('settings-logo-active');
+    $('.settings-head').addClass('settings-head-active');
+
   },
 
   settingsLocation: function () {
