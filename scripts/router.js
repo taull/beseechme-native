@@ -57,11 +57,13 @@ var Router = Backbone.Router.extend({
 
   secondaryRouteHandler: function (routeName) {
     /* Note: In this case, the \w* is unnecessary. We only need to match something AT ALL, not the whole word */
-    if (!!routeName.match(/dashboard\w*/g)) { //if it is one of the dashboard routes
+    if (!!routeName.match(/dashboard/g) || !!routeName.match(/backend/g)) { // on dashboard or backend routes
       this.dashboardGlobal();
-    } else if (!!routeName.match(/settings\w*/g)) { // if it is one of the settings routes
+    } else if (!!routeName.match(/settings/g)) { // if it is one of the settings routes
       this.settingsGlobal();
-    } 
+    } else if (!!routeName.match(/search/g)) {
+      this.searchGlobal();
+    }
   },
 
 	registerBusiness: function () {
@@ -245,11 +247,24 @@ var Router = Backbone.Router.extend({
     $('.settings-logo').removeClass('settings-logo-active');
     $('.settings-head').removeClass('settings-head-active');
 
+    $('.search-logo').removeClass('search-logo-active');
+
   },
 
   search: function () {
     BeMe.removeAllViews();
     new BeMe.Views.Search();
+  },
+
+  searchGlobal: function () {
+    $('.header-left')[0].className = 'header-left header-left-2';
+    $('.search-logo').addClass('search-logo-active');
+
+    $('.dashboard-logo').removeClass('dashboard-logo-active');
+    $('.dashboard-head').removeClass('dashboard-head-active');
+
+    $('.settings-logo').removeClass('settings-logo-active');
+    $('.settings-head').removeClass('settings-head-active');
   },
 
   settings: function () {
@@ -280,6 +295,7 @@ var Router = Backbone.Router.extend({
     $('.settings-logo').addClass('settings-logo-active');
     $('.settings-head').addClass('settings-head-active');
 
+    $('.search-logo').removeClass('search-logo-active');
   },
 
   settingsLocation: function () {
