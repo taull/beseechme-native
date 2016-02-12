@@ -184,30 +184,30 @@ var Router = Backbone.Router.extend({
     });
   },
 
-  search: function (queryString) {
-    BeMe.removeAllViews();
-    var queryString = decodeURIComponent(queryString);
-    new BeMe.Views.BarSearch({query:queryString});
-    var queryString = queryString.toLowerCase();
+  // search: function (queryString) {
+  //   BeMe.removeAllViews();
+  //   var queryString = decodeURIComponent(queryString);
+  //   new BeMe.Views.BarSearch({query:queryString});
+  //   var queryString = queryString.toLowerCase();
 
-    var businessQuery = new Parse.Query('User');
-    businessQuery.contains('businessNameLowercase', queryString);
-    businessQuery.equalTo('userType', 'business');
+  //   var businessQuery = new Parse.Query('User');
+  //   businessQuery.contains('businessNameLowercase', queryString);
+  //   businessQuery.equalTo('userType', 'business');
 
-    var handleQuery = new Parse.Query('User');
-    handleQuery.contains('handle', queryString);
+  //   var handleQuery = new Parse.Query('User');
+  //   handleQuery.contains('handle', queryString);
 
-    var consumerQuery = new Parse.Query('User');
-    consumerQuery.contains('fullNameLowercase', queryString);
-    consumerQuery.equalTo('userType', 'consumer');
+  //   var consumerQuery = new Parse.Query('User');
+  //   consumerQuery.contains('fullNameLowercase', queryString);
+  //   consumerQuery.equalTo('userType', 'consumer');
 
-    var query = Parse.Query.or(businessQuery, consumerQuery, handleQuery);
-    query.find().then(function (i) {
-      console.log(i);
-      var collection = new Parse.Collection(i);
-      BeMe.Search.BarSearchResults = new BeMe.Views.BarSearchResults({collection:collection});
-    });
-  }, 
+  //   var query = Parse.Query.or(businessQuery, consumerQuery, handleQuery);
+  //   query.find().then(function (i) {
+  //     console.log(i);
+  //     var collection = new Parse.Collection(i);
+  //     BeMe.Search.BarSearchResults = new BeMe.Views.BarSearchResults({collection:collection});
+  //   });
+  // }, 
 
   dashboardHome: function () {
     BeMe.removeAllViews();
