@@ -53,7 +53,13 @@ BeMe.Views.Search = Parse.View.extend({
 	},
 
   events: {
-    'submit .bar-search' : 'search'
+    'submit .bar-search' : 'search',
+    'click .bar-search .fa-times-circle' : 'clear'
+  },
+
+  clear: function () {
+    this.$el.find('.bar-search input').val('');
+    this.barSearchResultsView.removeRenderedView();
   },
 
   search: function(e) {

@@ -11,7 +11,6 @@ BeMe.Views.Application = Parse.View.extend({
   events: {
     'click #logout' : 'logOut',
     'click #sign-in' : 'signIn',
-    'click .bar-search .fa-times-circle' : 'clear'
   },
 
   logOut: function () {

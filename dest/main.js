@@ -578,7 +578,6 @@ BeMe.Views.Application = Parse.View.extend({
   events: {
     'click #logout' : 'logOut',
     'click #sign-in' : 'signIn',
-    'click .bar-search .fa-times-circle' : 'clear'
   },
 
   logOut: function () {
@@ -2547,7 +2546,13 @@ BeMe.Views.Search = Parse.View.extend({
 	},
 
   events: {
-    'submit .bar-search' : 'search'
+    'submit .bar-search' : 'search',
+    'click .bar-search .fa-times-circle' : 'clear'
+  },
+
+  clear: function () {
+    this.$el.find('.bar-search input').val('');
+    this.barSearchResultsView.removeRenderedView();
   },
 
   search: function(e) {
