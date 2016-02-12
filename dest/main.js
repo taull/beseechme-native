@@ -248,6 +248,7 @@ var Router = Backbone.Router.extend({
     $('.settings-head').removeClass('settings-head-active');
 
     $('.search-logo').removeClass('search-logo-active');
+    $('.search-head').removeClass('search-head-active');
 
   },
 
@@ -259,6 +260,7 @@ var Router = Backbone.Router.extend({
   searchGlobal: function () {
     $('.header-left')[0].className = 'header-left header-left-2';
     $('.search-logo').addClass('search-logo-active');
+    $('.search-head').addClass('search-head-active');
 
     $('.dashboard-logo').removeClass('dashboard-logo-active');
     $('.dashboard-head').removeClass('dashboard-head-active');
