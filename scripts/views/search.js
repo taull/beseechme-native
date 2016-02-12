@@ -33,7 +33,7 @@ BeMe.Views.Search = Parse.View.extend({
         }
     }
 
-    var dd = new DropDown( $('#dd') );
+    this.dd = new DropDown( $('#dd') );
 
     $(document).click(function() {
       // all dropdowns
@@ -42,48 +42,48 @@ BeMe.Views.Search = Parse.View.extend({
 
     var self = this;
     //The search overlay feature
-    $('.bar-search').submit(function(e) {
-      e.preventDefault();
+    // $('.bar-search').submit(function(e) {
+    //   e.preventDefault();
 
-      if (self.barSearchResultsView) {
-        self.barSearchResultsView.removeRenderedView();
-      }
+    //   if (self.barSearchResultsView) {
+    //     self.barSearchResultsView.removeRenderedView();
+    //   }
 
-      var userType;
-      if (dd.getValue() === 'Business') {
-        userType = 'business';
-      } else if (dd.getValue() === 'Friends') {
-        userType = 'consumer';
-      } else {
-        alert('Please select a userType');
-        return;
-      }
+    //   var userType;
+    //   if (dd.getValue() === 'Business') {
+    //     userType = 'business';
+    //   } else if (dd.getValue() === 'Friends') {
+    //     userType = 'consumer';
+    //   } else {
+    //     alert('Please select a userType');
+    //     return;
+    //   }
 
-      var queryString = $('.bar-search input').val().toLowerCase();
+    //   var queryString = $('.bar-search input').val().toLowerCase();
 
-      var lowercaseField;
-      if (userType === 'business') {
-        lowerCaseField = 'businessNameLowercase';
-      } else {
-        lowerCaseField = 'fullNameLowercase';
-      }
+    //   var lowercaseField;
+    //   if (userType === 'business') {
+    //     lowerCaseField = 'businessNameLowercase';
+    //   } else {
+    //     lowerCaseField = 'fullNameLowercase';
+    //   }
 
-      var nameQuery = new Parse.Query('User');
-      nameQuery.contains(lowerCaseField, queryString);
-      nameQuery.equalTo('userType', userType);
+    //   var nameQuery = new Parse.Query('User');
+    //   nameQuery.contains(lowerCaseField, queryString);
+    //   nameQuery.equalTo('userType', userType);
 
-      var handleQuery = new Parse.Query('User');
-      handleQuery.contains('handle', queryString);
-      handleQuery.equalTo('userType', userType);
+    //   var handleQuery = new Parse.Query('User');
+    //   handleQuery.contains('handle', queryString);
+    //   handleQuery.equalTo('userType', userType);
 
-      var query = Parse.Query.or(nameQuery, handleQuery);
+    //   var query = Parse.Query.or(nameQuery, handleQuery);
 
-      query.find().then(function (i) {
-        console.log(i);
-        var collection = new Parse.Collection(i);
-        self.barSearchResultsView = new BeMe.Views.BarSearchResults({collection:collection});
-      });
-    });
+    //   query.find().then(function (i) {
+    //     console.log(i);
+    //     var collection = new Parse.Collection(i);
+    //     self.barSearchResultsView = new BeMe.Views.BarSearchResults({collection:collection});
+    //   });
+    // });
 	},
 
 	template: _.template($('#search-view').text()),
@@ -98,7 +98,50 @@ BeMe.Views.Search = Parse.View.extend({
 	},
 
   events: {
+    'submit .bar-search' : 'search'
+  },
 
-  }
+  search: function(e) {
+    e.preventDefault();
+    var dd = this.dd;
 
+    if (this.barSearchResultsView) {
+      this.barSearchResultsView.removeRenderedView();
+    }
+
+    var userType;
+    if (dd.getValue() === 'Business') {
+      userType = 'business';
+    } else if (dd.getValue() === 'Friends') {
+      userType = 'consumer';
+    } else {
+      alert('Please select a userType');
+      return;
+    }
+
+    var queryString = $('.bar-search input').val().toLowerCase();
+
+    var lowercaseField;
+    if (userType === 'business') {
+      lowerCaseField = 'businessNameLowercase';
+    } else {
+      lowerCaseField = 'fullNameLowercase';
+    }
+
+    var nameQuery = new Parse.Query('User');
+    nameQuery.contains(lowerCaseField, queryString);
+    nameQuery.equalTo('userType', userType);
+
+    var handleQuery = new Parse.Query('User');
+    handleQuery.contains('handle', queryString);
+    handleQuery.equalTo('userType', userType);
+
+    var query = Parse.Query.or(nameQuery, handleQuery);
+
+    query.find().then(function (i) {
+      console.log(i);
+      var collection = new Parse.Collection(i);
+      this.barSearchResultsView = new BeMe.Views.BarSearchResults({collection:collection});
+    });
+  },
 });
