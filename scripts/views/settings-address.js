@@ -27,5 +27,6 @@ BeMe.Views.SettingsAddress = Parse.View.extend({
 		user.set('city', city);
 		user.set('state', state);
 		user.save();
+		BeMe.Router.navigate('settings', true);
 	}
 });
