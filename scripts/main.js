@@ -95,7 +95,7 @@ BeMe.createImageFile = function ($fileContainer) {
 };
 
 //Pass 'true' to redirect to dashboard
-BeMe.setCurrentLocation = function (boolean) {
+BeMe.setCurrentLocation = function (shouldRedirect) {
   var user = Parse.User.current();
 
 
@@ -129,8 +129,12 @@ BeMe.setCurrentLocation = function (boolean) {
           user.set('state', state);
           user.set('zip', zip);
           user.save();
-          if (boolean) {
-            BeMe.Router.navigate('dashboard', true);
+          if (shouldRedirect) {
+            if(Parse.User.current().get('userType') === 'consumer') {
+              BeMe.Router.navigate('settings', true);
+            } else {
+              BeMe.Router.navigate('settings/location/address', true);
+            }
           }
         } else {
           alert("Error: " + status);
