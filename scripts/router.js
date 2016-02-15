@@ -36,7 +36,7 @@ var Router = Backbone.Router.extend({
 
     'settings' : 'settings',
     'settings/basic' : 'settingsBasic',
-    'settings/address' : 'settingsAddress',
+    'settings/location/address' : 'settingsAddress',
     'settings/logos' : 'settingsLogos',
     'settings/location' : 'settingsLocation',
 
@@ -290,6 +290,11 @@ var Router = Backbone.Router.extend({
     new BeMe.Views.SettingsLogos();
   },
 
+  settingsLocation: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsLocation();
+  },
+
   settingsGlobal: function () {
     $('.header-left')[0].className = 'header-left header-left-3';
     $('.dashboard-logo').removeClass('dashboard-logo-active');
@@ -300,9 +305,4 @@ var Router = Backbone.Router.extend({
 
     $('.search-logo').removeClass('search-logo-active');
   },
-
-  settingsLocation: function () {
-    BeMe.removeAllViews();
-    new BeMe.Views.SettingsLocation();
-  }
 });

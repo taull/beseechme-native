@@ -36,7 +36,7 @@ var Router = Backbone.Router.extend({
 
     'settings' : 'settings',
     'settings/basic' : 'settingsBasic',
-    'settings/address' : 'settingsAddress',
+    'settings/location/address' : 'settingsAddress',
     'settings/logos' : 'settingsLogos',
     'settings/location' : 'settingsLocation',
 
@@ -290,6 +290,11 @@ var Router = Backbone.Router.extend({
     new BeMe.Views.SettingsLogos();
   },
 
+  settingsLocation: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsLocation();
+  },
+
   settingsGlobal: function () {
     $('.header-left')[0].className = 'header-left header-left-3';
     $('.dashboard-logo').removeClass('dashboard-logo-active');
@@ -300,11 +305,6 @@ var Router = Backbone.Router.extend({
 
     $('.search-logo').removeClass('search-logo-active');
   },
-
-  settingsLocation: function () {
-    BeMe.removeAllViews();
-    new BeMe.Views.SettingsLocation();
-  }
 });
 
 // 'use strict';
@@ -2631,8 +2631,27 @@ BeMe.Views.SettingsAddress = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
+	},
+
+	events: {
+		"submit form" : "save"
+	},
+
+	save: function (e) {
+		e.preventDefault();
+
+		var address = $('input[name="address"]').val();
+		var city = $('input[name="city"]').val();
+		var state = $('input[name="state"]').val();
+
+		var user = Parse.User.current();
+		user.set('address', address);
+		user.set('city', city);
+		user.set('state', state);
+		user.save();
 	}
 });
+
 BeMe.Views.SettingsBasic = Parse.View.extend({
 	initialize: function () {
 		this.render();

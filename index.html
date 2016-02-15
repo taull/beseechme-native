@@ -34,11 +34,11 @@
 
         </div
         ><div class="header-center">
-   
+
         </div
         ><div class="header-right">
 
-        </div>  
+        </div>
 
       </div>
     </div>
@@ -68,7 +68,7 @@
     <div class="login-container">
 
       <div class="login-form">
-    
+
         <form action="">
 
           <li>
@@ -235,7 +235,7 @@
         <div class="copyright-info">
           <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
           <p>Beseech Me®, LLC</p>
-        </div> 
+        </div>
 
       </div>
 
@@ -352,7 +352,7 @@
       </section>
 
     <% } %>
-    
+
     <section class="feed-statistics">
       <p><%= moment(createdAt).fromNow(true) %> ago</p><span class='likes'></span> <p>Likes</p>
     </section>
@@ -627,7 +627,7 @@
             ><button id="bar-submit"><i class="fa fa-search"></i></button>
           </aside>
         </form>
-      </div> 
+      </div>
       <div class="search-results-wrap">
         <div class="search-results-container">
         </div>
@@ -824,7 +824,7 @@
           <ul>
               <li><input type="text" name="address" value="<%=  user.get('address') %>" placeholder="Address"></li>
               <li><input type="text" name="city" value="<%=  user.get('city') %>" placeholder="City"></li>
-              <li><input type="text" name="city" value="<%=  user.get('state') %>" placeholder="State"></li>
+              <li><input type="text" name="state" value="<%=  user.get('state') %>" placeholder="State"></li>
 
               <li><button type="submit" class="save-button">Save</button></li>
           </ul>
@@ -1061,7 +1061,7 @@
       <section class="likes-results"></section>
       <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
     </section>
-    <footer><i class="fa fa-chevron-right"></i></footer>    
+    <footer><i class="fa fa-chevron-right"></i></footer>
   </section>
 
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
@@ -1128,7 +1128,7 @@
       <section class="likes-results"></section>
       <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
     </section>
-    <footer><i class="fa fa-chevron-right"></i></footer>    
+    <footer><i class="fa fa-chevron-right"></i></footer>
   </section>
 
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
@@ -1183,8 +1183,8 @@
       <p><%= attributes.content %></p>
     </aside>
   </section>
-  
-  
+
+
   <section class="feed-likes">
     <aside>
     </aside
@@ -1201,7 +1201,7 @@
       <section class="likes-results"></section>
       <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
     </section>
-    <footer><i class="fa fa-chevron-right"></i></footer>    
+    <footer><i class="fa fa-chevron-right"></i></footer>
   </section>
 
   <section class="feed-controls">
@@ -1215,7 +1215,7 @@
 <!-- CHECKIN STATUS -->
 
 <script type='text/template' id='status-checkin-view'>
- 
+
   <% var user = attributes.createdBy %>
   <section class="feed-info">
       <aside>
@@ -1255,7 +1255,7 @@
       <section class="likes-results"></section>
       <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
     </section>
-    <footer><i class="fa fa-chevron-right"></i></footer>    
+    <footer><i class="fa fa-chevron-right"></i></footer>
   </section>
 
 </script>
@@ -1316,10 +1316,10 @@
           <img src=<%= user.get('avatar')._url %> >
         <% } else { %>
           <img src="images/default-avatar.png">
-        <% } %>    
+        <% } %>
     </aside
     ><section>
-      <h1>Taylor Aull</h1> 
+      <h1>Taylor Aull</h1>
       <p>had a</p>
       <a>Westbrook IPA</a>
       <p>at</p>
@@ -1464,7 +1464,7 @@
             <section class="following-results"></section>
             <section class="following-results-background"><li></li><li></li><li></li><li></li><li></li></section>
           </section
-          ><footer><i class="fa fa-plus"></i></footer>    
+          ><footer><i class="fa fa-plus"></i></footer>
         </section>
       </section>
 
@@ -1704,7 +1704,7 @@
 
       </div
       ><div class="header-center">
- 
+
       </div
       ><div class="header-right">
 
@@ -1713,9 +1713,9 @@
           ><li><h1>32</h1><p>Following</p></li
           ><li><h1>24</h1><p>Beers</p></li>
         </div>
-        
 
-      </div>  
+
+      </div>
 
     </div>
   </header>
@@ -1727,7 +1727,7 @@
           ><input type="text" placeholder="Search for Bars, Restaurants or Friends"
           ><button id="bar-submit"></button>
         </form>
-      </div> 
+      </div>
     </div>
   </div>
 
@@ -1846,7 +1846,7 @@
         <div class="copyright-info">
           <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
           <p>Beseech Me®, LLC</p>
-        </div> 
+        </div>
       </div>
   </div>
 <% } else { %>
