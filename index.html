@@ -29,7 +29,7 @@
       <div class="header-container">
         <div class="header-left">
           <a href="#search" class="search-head"><span class="entypo-cloud search-logo" ></span></a
-          ><% if (user.get('userType') === 'consumer') { %><a href="#dashboard" class="dashboard-head"><% } else { %><a href="#backend/feed" class="dashboard-head"><% } %><span class="entypo-twitter dashboard-logo"></span></a
+          ><% if (user.get('userType') === 'consumer') { %><a href="#dashboard" class="dashboard-head"><% } else { %><a href="#backend" class="dashboard-head"><% } %><span class="entypo-twitter dashboard-logo"></span></a
           ><a href="#settings" class="settings-head"><span class="entypo-cog settings-logo"></span></a>
 
         </div
@@ -208,17 +208,6 @@
             ><div><span class="fa fa-chevron-right"></span></div>
           </a>
 
-          <a href="#backend/listing">
-            <aside><span class="entypo-list"></span></aside
-            ><section><h1>Listing</h1><p>Local Listing</p></section
-            ><div><span class="fa fa-chevron-right"></span></div>
-          </a>
-
-          <a href="#backend/map">
-            <aside><span class="entypo-map"></span></aside
-            ><section><h1>Map</h1><p>Find Your Bar</p></section
-            ><div><span class="fa fa-chevron-right"></span></div>
-          </a>
         </div>
 
         <div class="copyright-info">
@@ -252,7 +241,11 @@
 
       <div class="middle-column">
 
-
+        <div class="backend-header">
+          <a href="#backend"><span class="fa fa-chevron-left"></span></a
+          ><section><h1><%= user.get('businessName') %></h1><p>My Feed</p></section
+          ><div></div>
+        </div>
 
         <div class="post-status-text">
           <form action="">
@@ -394,84 +387,85 @@
 
 
 
-      <div class="narrow-container">
-        <% var user = Parse.User.current(); %>
+      <% var user = Parse.User.current(); %>
 
-        <div class="profile-beer-tabs">
-          <li id="backend-draft-tab" class="active-beer-type tabs-loading">
-            <h1>Draft Beer</h1>
-          </li
+      <div class="backend-header">
+        <a href="#backend"><span class="fa fa-chevron-left"></span></a
+        ><section><h1><%= user.get('businessName') %></h1><p>My Beer List</p></section
+        ><div></div>
+      </div>
 
-          ><li id="backend-add-beer" >
-            <i class="fa fa-plus-circle"></i>
-          </li
+      <div class="profile-beer-tabs">
+        <li id="backend-draft-tab" class="active-beer-type tabs-loading">
+          <h1>Draft Beer</h1>
+        </li
 
-          ><li id="backend-bottle-tab" class="active-beer-type tabs-loading">
-            <h1>Bottled Beer</h1>
-          </li>
-        </div
-        ><div class="beer-search-container">
-          <div class="beer-search">
-            <form action>
-              <section>
-                <span class="fa fa-search"></span
-                ><input type="text" placeholder="Search by Name or Brewery"
-                ><i class="fa fa-times-circle"></i>
-              </section
-              ><aside>
-                <button id="beer-submit">Search</button>
-              </aside>
-            </form>
-          </div>
+        ><li id="backend-add-beer" >
+          <i class="fa fa-plus-circle"></i>
+        </li
+
+        ><li id="backend-bottle-tab" class="active-beer-type tabs-loading">
+          <h1>Bottled Beer</h1>
+        </li>
+      </div
+      ><div class="beer-search-container">
+        <div class="beer-search">
+          <form action>
+            <section>
+              <span class="fa fa-search"></span
+              ><input type="text" placeholder="Search by Name or Brewery"
+              ><i class="fa fa-times-circle"></i>
+            </section
+            ><aside>
+              <button id="beer-submit">Search</button>
+            </aside>
+          </form>
+        </div>
+      </div>
+
+
+      <a href="#backend/beer" class="beer-results-cancel">
+        <div>
+          <h1>Cancel</h1>
+        </div>
+      </a
+
+      ><div class="beer-loading hidden">
+        <!-- 1 -->
+        <div class="loader" title="0">
+          <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           width="30px" height="30px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+          <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+            s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+            c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+          <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+            C22.32,8.481,24.301,9.057,26.013,10.047z">
+            <animateTransform attributeType="xml"
+              attributeName="transform"
+              type="rotate"
+              from="0 20 20"
+              to="360 20 20"
+              dur="0.5s"
+              repeatCount="indefinite"/>
+            </path>
+          </svg>
         </div>
 
       </div
 
-      ><div class="wide-container">
-
-        <a href="#backend/beer" class="beer-results-cancel">
-          <div>
-            <h1>Cancel</h1>
-          </div>
-        </a
-
-        ><div class="beer-loading hidden">
-          <!-- 1 -->
-          <div class="loader" title="0">
-            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             width="30px" height="30px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-            <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
-              s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
-              c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
-            <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
-              C22.32,8.481,24.301,9.057,26.013,10.047z">
-              <animateTransform attributeType="xml"
-                attributeName="transform"
-                type="rotate"
-                from="0 20 20"
-                to="360 20 20"
-                dur="0.5s"
-                repeatCount="indefinite"/>
-              </path>
-            </svg>
-          </div>
-
-        </div
-
-        ><div class="profile-beer-list">
-          <ul>
-          </ul>
-          <div class='load-more-button hidden'>
-            <h1>Load More</h1>
-          </div>
-        </div
-
-        ><div class="copyright-info">
-          <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-          <p>Beseech Me®, LLC</p>
+      ><div class="profile-beer-list">
+        <ul>
+        </ul>
+        <div class='load-more-button hidden'>
+          <h1>Load More</h1>
         </div>
+      </div
 
+      ><div class="copyright-info">
+        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
+        <p>Beseech Me®, LLC</p>
       </div>
+
 
     </div
     ><div class="right-column">
@@ -506,8 +500,12 @@
   <div class="dashboard-container">
       <div class="middle-column">
 
-        <div class="wide-container">
           <% var user = Parse.User.current(); %>
+          <div class="backend-header">
+            <a href="#backend"><span class="fa fa-chevron-left"></span></a
+            ><section><h1><%= user.get('businessName') %></h1><p>Calendar</p></section
+            ><div></div>
+          </div>
 
           <div class="add-weekly-comment">
             <form action="">
@@ -579,7 +577,6 @@
             <p>Beseech Me®, LLC</p>
           </div>
 
-        </div>
       </div>
 
   </div>
