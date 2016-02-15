@@ -445,7 +445,8 @@ header {
       font-size: 1.8em;
       display: none; }
 
-.dashboard-header {
+.dashboard-header,
+.backend-header {
   position: relative;
   background: #fff;
   width: 480px;
@@ -454,38 +455,49 @@ header {
   margin-bottom: 15px; }
   .dashboard-header a,
   .dashboard-header section,
-  .dashboard-header div {
+  .dashboard-header div,
+  .backend-header a,
+  .backend-header section,
+  .backend-header div {
     display: inline-block;
     vertical-align: top; }
-  .dashboard-header a {
+  .dashboard-header a,
+  .backend-header a {
     width: 15%;
     text-align: center;
     padding-top: 10px; }
-    .dashboard-header a span {
+    .dashboard-header a span,
+    .backend-header a span {
       color: #2196F3;
       font-size: 1.8em; }
-  .dashboard-header section h1 {
+  .dashboard-header section h1,
+  .backend-header section h1 {
     font-size: 1.2em;
     color: #555;
     font-weight: 400; }
-  .dashboard-header section p {
+  .dashboard-header section p,
+  .backend-header section p {
     font-size: 1em;
     color: #999;
     font-weight: 300;
     margin-top: 4px; }
-  .dashboard-header div {
+  .dashboard-header div,
+  .backend-header div {
     float: right;
     padding: 0px 30px 5px 0; }
-    .dashboard-header div span {
+    .dashboard-header div span,
+    .backend-header div span {
       color: #ddd;
       font-size: 1.2em; }
-    .dashboard-header div h1 {
+    .dashboard-header div h1,
+    .backend-header div h1 {
       font-size: 1.2em;
       color: #555;
       font-weight: 400;
       /*border-bottom: 1px solid #555;*/
       /*padding: 0 2px 1px;*/ }
-    .dashboard-header div i {
+    .dashboard-header div i,
+    .backend-header div i {
       color: #555;
       font-size: 1.8em;
       display: none; }
