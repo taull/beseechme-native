@@ -330,6 +330,10 @@ header {
       .menu-light a aside span {
         color: #2196F3;
         font-size: 1.8em; }
+      .menu-light a aside i {
+        font-size: 1.6em;
+        color: #ddd;
+        margin-top: 5px; }
     .menu-light a section h1 {
       font-size: 1.2em;
       color: #555;
@@ -1486,23 +1490,26 @@ header {
 .current-location {
   background: #fff;
   width: 100%;
-  padding: 0 30px 30px;
-  text-align: center; }
+  padding: 15px 0;
+  border-top: 1px solid #f8f8f8; }
+  .current-location aside {
+    display: inline-block;
+    width: 15%; }
 
 .location-button {
   display: inline-block;
-  background: #01579B;
+  background: #1976D2;
   text-align: center;
   border-radius: 3px;
-  padding: 15px 50px;
+  padding: 10px 30px;
   cursor: pointer; }
   .location-button i,
   .location-button p {
     display: inline-block;
     vertical-align: top; }
   .location-button p {
-    color: #ECEFF1;
-    font-size: 1.3em;
+    color: #fff;
+    font-size: 1.2em;
     font-weight: 400; }
 
 .dashboard-current-location {

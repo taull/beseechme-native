@@ -476,6 +476,12 @@ header {
 				color: $blue-500;
 				font-size: 1.8em;
 			}
+
+			i {
+				font-size:1.6em;
+				color: #ddd;
+				margin-top: 5px;
+			}
 		}
 
 		section {
@@ -2031,16 +2037,21 @@ header {
 .current-location {
     background: #fff;
     width: 100%;
-    padding: 0 30px 30px;
-    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #f8f8f8;
+
+    aside {
+    	display: inline-block;
+    	width: 15%;
+    }
 }
 
 .location-button {
     display: inline-block;
-	background: $secondary-color-dark;
+	background: $blue-700;
     text-align: center;
     border-radius: 3px;
-    padding: 15px 50px;
+    padding: 10px 30px;
     cursor: pointer;
 
     i,
@@ -2050,8 +2061,8 @@ header {
     }
 	
 	p {
-		color: $primary-color-50;
-		font-size: 1.3em;
+		color: #fff;
+		font-size: 1.2em;
 		font-weight: 400;
 	}
 
