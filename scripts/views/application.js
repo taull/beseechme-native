@@ -1,7 +1,8 @@
-BeMe.Views.Application = Parse.View.extend({
+BeMe.Views.Application = Backbone.View.extend({
 	initialize: function () {
 		this.render();
-    this.on('route', this.render, this);
+		// May be useful when routing from login or registration route
+    // this.listenTo(BeMe.Router, "route" , this.render);
 	},
 
 	el: "#application",
