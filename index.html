@@ -1380,28 +1380,10 @@
 
 <script type="text/template" id="business-view">
   <% var user = Parse.User.current() %>
-  <div class="header-info-wrap">
-    <div class="header-info-container">
-      <section class="header-info">
-
-          <aside>
-            <a href="#dashboard"><i class="fa fa-chevron-left"></i></a>
-          </aside
-
-          ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= attributes.businessName %></h1></a></section
-
-          ><footer>
-            <h1>0.9</h1><p>mi</p>
-          </footer>
-
-      </section>
-
-    </div>
-  </div>
 
   <div class="business-header">
     <div class="settings-basic">
-      <a href="#dashboard"><span class="fa fa-chevron-left"></span></a
+        <% if (Parse.User.current().get('userType') === 'consumer') { %><a href="#dashboard"><% } else { %><a href="#backend"><% } %><span class="fa fa-chevron-left"></span></a
       ><section><h1><%= attributes.businessName %></h1><p><%= attributes.address%></p></section
       ><div></div>
     </div>
