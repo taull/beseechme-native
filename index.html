@@ -5,7 +5,7 @@
   <title>Beseech Me</title>
   <meta name="description" content="Beseech Me">
   <meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1, user-scalable=0/">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" type='text/css' href="styles/main.css">
   <link rel="stylesheet" type='text/css' href="CustomDropDownListStyling/css/style.css">
   <link rel="stylesheet" type='text/css' href="bower_components/pickadate/lib/themes/default.css">
@@ -51,42 +51,31 @@
 <!-- Index Route -->
 <script type='text/template' id='index-route'>
   <% var user = Parse.User.current() %>
-  <div class="user-info-wrap">
-    <div class="user-info-container">
-      <section class="user-info">
-          <section><h1>NEXTAP</h1></a><span class="fa fa-check-circle"></span><h3>@nextap</h3></section
-          ><footer>
-            <h1>0.9</h1><p>mi</p>
-          </footer>
-      </section>
-      <section class="user-functions"></section>
+  <div class="homepage-wrap">
+    <div class="homepage-container">
+      <div class="login-container">
 
-    </div>
-  </div>
+        <div class="login-form">
 
-  <div class="dashboard-container">
-    <div class="login-container">
+          <form action="">
 
-      <div class="login-form">
+            <li>
+              <input type="text" name="email" placeholder="Email Address">
+            </li>
+            <li>
+              <input type="password" name="password" placeholder="Password">
+            </li>
+            <input type="checkbox" value="signedIn"><p>Remember Me?</p>
+            <button>Sign In</button>
 
-        <form action="">
+          </form>
+        </div>
+        <div class="register-link">
+          <li><a href="#forgot">Forget your email or password?</a></li>
+          <button>Register</button>
+        </div>
 
-          <li>
-            <input type="text" name="email" placeholder="Email Address">
-          </li>
-          <li>
-            <input type="password" name="password" placeholder="Password">
-          </li>
-          <input type="checkbox" value="signedIn"><p>Remember Me?</p>
-          <button>Sign In</button>
-
-        </form>
       </div>
-      <div class="register-link">
-        <li><a href="#forgot">Forget your email or password?</a></li>
-        <button>Register</button>
-      </div>
-
     </div>
   </div>
 
@@ -720,25 +709,6 @@
 <script type="text/template" id="settings-basic-view">
   <% var user = Parse.User.current() %>
 
-  <div class="header-info-wrap">
-    <div class="header-info-container">
-      <section class="header-info">
-
-          <aside>
-            <a href="#settings"><span class="fa fa-chevron-left"></span><h1>Back</h1></a>
-          </aside
-
-          ><section><h1>User Information</h1></section
-
-          ><footer>
-            <h1>Save</h1>
-          </footer>
-
-      </section>
-
-    </div>
-  </div>
-
   <div class="dashboard-container">
 
     <div class="middle-column">
@@ -765,17 +735,17 @@
         <form action="">
           <ul>
             <% if (user.get('userType') == 'business') { %>
-              <li><input type="text" name="business-name" value="<%=  user.get('businessName') %>" placeholder="Business Name"></li>
+              <li><aside><i class="fa fa-bookmark"></i></aside><input type="text" name="business-name" value="<%=  user.get('businessName') %>" placeholder="Business Name"></li>
             <% } else { %>
-              <li><input type="text" name="business-name" value="<%=  user.get('firstName') %>" placeholder="First Name"></li>
+              <li><aside><i class="fa fa-bookmark"></i><input type="text" name="business-name" value="<%=  user.get('firstName') %>" placeholder="First Name"></li>
 
             <% } %>
 
-            <li><input type="text" name= "handle" value="<%=  user.get('handle') %>"></li>
-            <li><input type="text" name="phone-number" value="<%= user.get('phoneNumber') %>" placeholder="Phone Number"></li>
-            <li><input type="text" name="website" value="<%= user.get('website') %>" placeholder="Website"></li>
+            <li><aside><i class="fa fa-at"></i></aside><input type="text" name= "handle" value="<%=  user.get('handle') %>"></li>
+            <li><aside><i class="fa fa-phone"></i></aside><input type="text" name="phone-number" value="<%= user.get('phoneNumber') %>" placeholder="Phone Number"></li>
+            <li><aside><i class="fa fa-google"></i></aside><input type="text" name="website" value="<%= user.get('website') %>" placeholder="Website"></li>
 
-            <li><button type="submit" class="save-button">Save</button></li>
+            <li><aside></aside><button type="submit" class="save-button">Save</button></li>
           </ul>
         </form>
       </div>
