@@ -10,7 +10,7 @@ var Router = Backbone.Router.extend({
 		'register/business' : 'registerBusiness',
 		'register/consumer' : 'registerConsumer',
 
-		'backend' : 'backend',
+		'backend' : 'backendHome',
 		'backend/feed' : 'backendFeed',
 		'backend/beer' : 'backendBeerList',
 		'backend/competition' : 'backendCompetition',
@@ -33,7 +33,7 @@ var Router = Backbone.Router.extend({
     // 'search/:query' : 'search',
 
     'search' : 'search',
-		
+
     'settings' : 'settings',
     'settings/basic' : 'settingsBasic',
     'settings/address' : 'settingsAddress',
@@ -57,7 +57,7 @@ var Router = Backbone.Router.extend({
 
   secondaryRouteHandler: function (routeName) {
     /* Note: In this case, the \w* is unnecessary. We only need to match something AT ALL, not the whole word */
-    if (!!routeName.match(/dashboard/g) || !!routeName.match(/backend/g)) { // on dashboard or backend routes
+    if (!!routeName.match(/dashboard|backend|business|consumer/g)) { // on dashboard or backend routes
       this.dashboardGlobal();
     } else if (!!routeName.match(/settings/g)) { // if it is one of the settings routes
       this.settingsGlobal();
@@ -81,9 +81,10 @@ var Router = Backbone.Router.extend({
 		new BeMe.Views.Index();
 	},
 
-	backend: function () {
+	backendHome: function () {
 		BeMe.removeAllViews();
 		new BeMe.Views.Backend();
+    new BeMe.Views.BackendHome()
 	},
 
 	backendFeed: function () {
@@ -207,7 +208,7 @@ var Router = Backbone.Router.extend({
   //     var collection = new Parse.Collection(i);
   //     BeMe.Search.BarSearchResults = new BeMe.Views.BarSearchResults({collection:collection});
   //   });
-  // }, 
+  // },
 
   dashboardHome: function () {
     BeMe.removeAllViews();
