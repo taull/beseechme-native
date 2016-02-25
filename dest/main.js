@@ -1,6 +1,7 @@
 var Router = Backbone.Router.extend({
   initialize: function () {
     BeMe.ApplicationView = new BeMe.Views.Application();
+    new BeMe.Views.AppHeader();
     this.listenTo(this, 'route', this.secondaryRouteHandler);
   },
 
@@ -60,6 +61,12 @@ var Router = Backbone.Router.extend({
   },
 
   secondaryRouteHandler: function (routeName) {
+    console.log(routeName);
+    if(routeName == 'home') {
+      $('.app-header').hide();
+    } else {
+      $('.app-header').show();
+    }
     this.resetLogos();
     if (routeName.match(/dashboard|backend/g)) { // on dashboard or backend routes
       this.dashboardGlobal();
@@ -2462,17 +2469,21 @@ BeMe.Views.Dashboard = Parse.View.extend({
     BeMe.searchUsers(searchString);
   }
 });
-BeMe.Views.Header = Parse.View.extend({
+BeMe.Views.AppHeader = Parse.View.extend({
 	initialize: function () {
 		this.render();
 	},
+
+  tagName:'header',
+
+  className:'app-header',
 
 	template: _.template($('#header-view').text()),
 
 	render: function () {
 		this.$el.html(this.template(this.model));
 		$('.body-container').append(this.el);
-		BeMe.renderedViews.push(this);
+		// BeMe.renderedViews.push(this); don't include because it will get removed
 	}
 });
 
