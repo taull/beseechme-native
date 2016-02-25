@@ -33,6 +33,13 @@
 
   <% var user = Parse.User.current() %> 
 
+  <div class="body-container"></div>
+</script>
+
+<!-- Header View -->
+<script type="text/template" id="header-view">
+
+  <% var user = Parse.User.current() %>
   <header>
     <div class="header-window">
       <div class="header-container">
@@ -52,9 +59,8 @@
       </div>
     </div>
   </header>
-
-  <div class="body-container"></div>
 </script>
+
 
 
 <!-- Index Route -->
@@ -63,8 +69,18 @@
   <div class="index-banner-wrap">
     <div class="index-banner">
       <img src="images/wolf-logo-alt6.png">
-      <h1>Welcome Back, <%= user.get('firstName') %></h1>
-      <a href="#dashboard">Dashboard</a>
+      <% if (user) { %>
+        <h1>Welcome Back, <%= user.get('firstName') %></h1>
+        <a href="#dashboard">Dashboard</a>
+      <% } else { %>
+        <div class="login-form">
+          <form action="">
+            <li><input type="text" name="email" placeholder="Email Address"></li>
+            <li><input type="password" name="password" placeholder="Password"><button class="password-incorrect"><span class="fa fa-arrow-circle-right"></span></button></li>
+            <input type="checkbox" value="signedIn"><p>Remember Me?</p>
+          </form>
+        </div>
+      <% } %>
 
     </div>
   </div>
@@ -80,13 +96,7 @@
     </div>
   </div>
 
-        <div class="login-form">
-          <form action="">
-            <li><input type="text" name="email" placeholder="Email Address"></li>
-            <li><input type="password" name="password" placeholder="Password"><button class="password-incorrect"><span class="fa fa-arrow-circle-right"></span></button></li>
-            <input type="checkbox" value="signedIn"><p>Remember Me?</p>
-          </form>
-        </div>
+
 
 
 </script>
