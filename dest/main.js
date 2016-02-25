@@ -61,7 +61,6 @@ var Router = Backbone.Router.extend({
   },
 
   secondaryRouteHandler: function (routeName) {
-    /* Note: In this case, the \w* is unnecessary. We only need to match something AT ALL, not the whole word */
     if (routeName.match(/dashboard|backend/g)) { // on dashboard or backend routes
       this.dashboardGlobal();
     } else if (routeName.match(/settings/g)) { // if it is one of the settings routes
@@ -2628,44 +2627,7 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
 BeMe.Views.Search = Parse.View.extend({
 	initialize: function () {
 		this.render();
-    function DropDown(el) {
-        this.dd = el;
-        this.placeholder = this.dd.children('span');
-        this.opts = this.dd.find('ul.dropdown > li');
-        this.val = '';
-        this.index = -1;
-        this.initEvents();
-    }
-    DropDown.prototype = {
-        initEvents : function() {
-            var obj = this;
-
-            obj.dd.on('click', function(event){
-                $(this).toggleClass('active');
-                return false;
-            });
-
-            obj.opts.on('click',function(){
-                var opt = $(this);
-                obj.val = opt.text();
-                obj.index = opt.index();
-                obj.placeholder.text(obj.val);
-            });
-        },
-        getValue : function() {
-            return this.val;
-        },
-        getIndex : function() {
-            return this.index;
-        }
-    }
-
-    this.dd = new DropDown( $('#dd') );
-
-    $(document).click(function() {
-      // all dropdowns
-      $('.wrapper-dropdown-1').removeClass('active');
-    });
+		this.userType = "Business";
 	},
 
 	template: _.template($('#search-view').text()),
@@ -2675,14 +2637,24 @@ BeMe.Views.Search = Parse.View.extend({
     var user = Parse.User.current();
     self.$el.html(self.template());
     $('.body-container').append(self.el);
-		
+
 		BeMe.renderedViews.push(this);
 	},
 
   events: {
     'submit .bar-search' : 'search',
-    'click .bar-search .fa-times-circle' : 'clear'
+    'click .bar-search .fa-times-circle' : 'clear',
+		'click .user-select li' : 'toggleUserType'
   },
+
+	toggleUserType: function (e) {
+		$currentTarget = $(e.currentTarget);
+		if (!$currentTarget.hasClass('active-user')) { // if it's not the currently selected element
+			$currentTarget.siblings().removeClass('active-user');
+			$currentTarget.addClass('active-user');
+			this.userType = $currentTarget.text();
+		}
+	},
 
   clear: function () {
     this.$el.find('.bar-search input').val('');
@@ -2698,15 +2670,7 @@ BeMe.Views.Search = Parse.View.extend({
       this.barSearchResultsView.removeRenderedView();
     }
 
-    var userType;
-    if (dd.getValue() === 'Business') {
-      userType = 'business';
-    } else if (dd.getValue() === 'Friends') {
-      userType = 'consumer';
-    } else {
-      alert('Please select a userType');
-      return;
-    }
+    var userType = this.userType.toLowerCase();
 
     var queryString = $('.bar-search input').val().toLowerCase();
 
@@ -2728,12 +2692,12 @@ BeMe.Views.Search = Parse.View.extend({
     var query = Parse.Query.or(nameQuery, handleQuery);
 
     query.find().then(function (i) {
-      console.log(i);
       var collection = new Parse.Collection(i);
       self.barSearchResultsView = new BeMe.Views.BarSearchResults({collection:collection});
     });
   },
 });
+
 BeMe.Views.SettingsAddress = Parse.View.extend({
 	initialize: function () {
 		this.render();
