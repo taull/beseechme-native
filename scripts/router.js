@@ -7,14 +7,19 @@ var Router = Backbone.Router.extend({
 	routes: {
 		'' : 'home',
 
+    'register' : 'register',
+
 		'register/business' : 'registerBusiness',
 		'register/consumer' : 'registerConsumer',
 
 		'backend' : 'backendHome',
 		'backend/feed' : 'backendFeed',
+    'backend/feed/post' : 'backendPost',
 		'backend/beer' : 'backendBeerList',
 		'backend/competition' : 'backendCompetition',
 		'backend/calendar' : 'backendCalendar',
+    'backend/calendar/comment' : 'backendComment',
+
 
     'business/:handle' : 'businessHome',
     'business/:handle/feed' : 'businessFeed',
@@ -65,6 +70,11 @@ var Router = Backbone.Router.extend({
     }
   },
 
+  register: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Register();
+  },
+
 	registerBusiness: function () {
 		BeMe.removeAllViews();
 		new BeMe.Views.BusinessRegister();
@@ -85,6 +95,12 @@ var Router = Backbone.Router.extend({
 		new BeMe.Views.Backend();
     new BeMe.Views.BackendHome()
 	},
+
+  backendPost: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Backend();
+    new BeMe.Views.BackendPost()
+  },
 
 	backendFeed: function () {
 		BeMe.removeAllViews();
@@ -109,6 +125,12 @@ var Router = Backbone.Router.extend({
 		new BeMe.Views.Backend();
 		BeMe.Calendar.CalendarView = new BeMe.Views.BackendCalendar();
 	},
+
+  backendComment: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Backend();
+    new BeMe.Views.BackendComment();
+  },
 
   businessHome: function (handle) {
     BeMe.removeAllViews();

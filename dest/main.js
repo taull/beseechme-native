@@ -7,14 +7,19 @@ var Router = Backbone.Router.extend({
 	routes: {
 		'' : 'home',
 
+    'register' : 'register',
+
 		'register/business' : 'registerBusiness',
 		'register/consumer' : 'registerConsumer',
 
 		'backend' : 'backendHome',
 		'backend/feed' : 'backendFeed',
+    'backend/feed/post' : 'backendPost',
 		'backend/beer' : 'backendBeerList',
 		'backend/competition' : 'backendCompetition',
 		'backend/calendar' : 'backendCalendar',
+    'backend/calendar/comment' : 'backendComment',
+
 
     'business/:handle' : 'businessHome',
     'business/:handle/feed' : 'businessFeed',
@@ -66,6 +71,11 @@ var Router = Backbone.Router.extend({
     }
   },
 
+  register: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Register();
+  },
+
 	registerBusiness: function () {
 		BeMe.removeAllViews();
 		new BeMe.Views.BusinessRegister();
@@ -86,6 +96,12 @@ var Router = Backbone.Router.extend({
 		new BeMe.Views.Backend();
     new BeMe.Views.BackendHome()
 	},
+
+  backendPost: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Backend();
+    new BeMe.Views.BackendPost()
+  },
 
 	backendFeed: function () {
 		BeMe.removeAllViews();
@@ -110,6 +126,12 @@ var Router = Backbone.Router.extend({
 		new BeMe.Views.Backend();
 		BeMe.Calendar.CalendarView = new BeMe.Views.BackendCalendar();
 	},
+
+  backendComment: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.Backend();
+    new BeMe.Views.BackendComment();
+  },
 
   businessHome: function (handle) {
     BeMe.removeAllViews();
@@ -514,7 +536,7 @@ BeMe.showConfirmation = function (string, isBad) {
   var $confirmMessageContainer = $('.confirm-message-container');
 
   function closeConfirmation () {
-    $confirmMessageContainer.css('top','0px');
+    $confirmMessageContainer.css('margin-top','0px');
     BeMe.confirmationMessage.isActive = false;
   };
 
@@ -540,7 +562,7 @@ BeMe.showConfirmation = function (string, isBad) {
     //update the text and move the notification into view
     $confirmMessageContainer.css('background-color', backgroundColor);
     $('.confirm-message h1').text(string);
-    $confirmMessageContainer.css('top', '60px');
+    $confirmMessageContainer.css('margin-top', '60px');
 
     //set up a timeout for 2 seconds to automatically close
     BeMe.confirmationMessage.timerId = setTimeout(function () {
@@ -1180,6 +1202,20 @@ BeMe.Collections.WeeklyComments = Parse.Collection.extend({
     console.log("New weekly comments collection");
   },
 });
+BeMe.Views.BackendComment = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#backend-comment-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+
 BeMe.Views.BackendCompetition = Parse.View.extend({
 	initialize: function () {
 		this.render();
@@ -1219,14 +1255,6 @@ BeMe.Views.BackendFeed = Parse.View.extend({
       $('#backend-myfeed-tab').addClass('active-feed-type');
       $('.profile-tools').toggleClass('profile-tools-shift');
 
-    });
-
-    $('#standalone').popup({
-      color: '#dfdfdf',
-      opacity: 1,
-      transition: '0.3s',
-      scrolllock: true,
-      autozindex: true
     });
 	},
 
@@ -1298,6 +1326,12 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
 BeMe.Views.BackendHome = Parse.View.extend({
 	initialize: function () {
 		this.render();
+
+	    if (Parse.User.current().get('userType') == 'business') {
+	      this.loadFollowers();
+	    } else {
+	      this.loadFollowing();
+	    }
 	},
 
 	template: _.template($('#backend-home-view').text()),
@@ -1306,6 +1340,45 @@ BeMe.Views.BackendHome = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 		$('.body-container').append(this.el);
 		BeMe.renderedViews.push(this);
+	},
+
+	loadFollowers: function () {
+		var query = new Parse.Query('User');
+		query.equalTo('barsFollowing', Parse.User.current());
+		query.count().then(function (followerCount) {
+		  $('.follow-number').text(followerCount);
+		  $('.follow-text').text('Followers');
+		});
+	},
+
+	loadFollowing: function () {
+		var query = Parse.User.current().relation('barsFollowing').query();
+		query.count().then(function (followingCount) {
+		  $('.follow-number').text(followingCount);
+		  $('.follow-text').text('Following');
+		})
+	}
+
+});
+
+BeMe.Views.BackendPost = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#backend-post-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+
+		// $('#business-status').emojiPicker({
+		//   height: '300px',
+		//   width:  '450px',
+		//   button: true,
+		//   iconBackgroundColor: '#fff'
+		// });
 	}
 });
 
@@ -1976,6 +2049,18 @@ BeMe.Views.DashboardFeed = BeMe.Views.DashboardBaseView.extend({
     this.render();
     new BeMe.Views.DashboardFeedList();
   },
+
+  render: function () {
+    var self = this;
+    this.$el.html(this.template(this.model));
+    $('.body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+
+    // $('.dashboard-header').addClass('animated slideInDown');
+
+
+
+  },
 });
 
 BeMe.Views.DashboardFeedList = Parse.View.extend({
@@ -2134,6 +2219,7 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
       this.loadFollowing();
     }
   },
+
 
   loadListings: function () {
     var user = Parse.User.current();
@@ -2332,7 +2418,7 @@ BeMe.Views.Dashboard = Parse.View.extend({
       self.userSearch(e);
     });
 
-
+    $('.dashboard-container').addClass('animated bounceOutLeft');
 
     $(function() {
 
@@ -2393,6 +2479,12 @@ BeMe.Views.Index = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 		$('#application').append(this.el);
 		BeMe.renderedViews.push(this);
+
+		$('.password-incorrect').click(function(){
+			$('.login-container').addClass('animated shake');
+		});
+
+
 	},
 
 	events: {
@@ -2405,7 +2497,7 @@ BeMe.Views.Index = Parse.View.extend({
 		var email = $('input[name="email"]').val();
 		var password = $('input[name="password"]').val();
 		var stayLoggedIn = $('input[type="checkbox"]')[0].checked;
-    var self = this;
+	    var self = this;
 
 		Parse.User.logIn(email,password, {
 			success: function  (userObject) {
@@ -2413,7 +2505,7 @@ BeMe.Views.Index = Parse.View.extend({
         if (userObject.get('userType') == 'consumer') {
           BeMe.Router.navigate('dashboard', true);
         } else {
-          BeMe.Router.navigate('backend/feed', true);
+          BeMe.Router.navigate('backend', true);
         }
 			},
 			error: function (error) {
@@ -2422,6 +2514,24 @@ BeMe.Views.Index = Parse.View.extend({
 		});
 	}
 });
+BeMe.Views.Register = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#register-view').text()),
+  
+  render: function () {
+    var self = this;
+    var user = Parse.User.current();
+    self.$el.html(self.template());
+    $('.body-container').append(self.el);
+    
+    BeMe.renderedViews.push(this);
+  },
+
+});
+
 BeMe.Views.BusinessRegister = Parse.View.extend({
 	initialize: function () {
 		this.render();
