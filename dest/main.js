@@ -45,7 +45,6 @@ var Router = Backbone.Router.extend({
     'settings/logos' : 'settingsLogos',
     'settings/location' : 'settingsLocation',
 
-
     'test' : 'test',
 	},
 
@@ -278,13 +277,6 @@ var Router = Backbone.Router.extend({
     $('.header-left')[0].className = 'header-left header-left-1';
     $('.dashboard-logo').addClass('dashboard-logo-active');
     $('.dashboard-head').addClass('dashboard-head-active');
-
-    // $('.settings-logo').removeClass('settings-logo-active');
-    // $('.settings-head').removeClass('settings-head-active');
-    //
-    // $('.search-logo').removeClass('search-logo-active');
-    // $('.search-head').removeClass('search-head-active');
-
   },
 
   search: function () {
@@ -296,12 +288,6 @@ var Router = Backbone.Router.extend({
     $('.header-left')[0].className = 'header-left header-left-2';
     $('.search-logo').addClass('search-logo-active');
     $('.search-head').addClass('search-head-active');
-
-  //   $('.dashboard-logo').removeClass('dashboard-logo-active');
-  //   $('.dashboard-head').removeClass('dashboard-head-active');
-  //
-  //   $('.settings-logo').removeClass('settings-logo-active');
-  //   $('.settings-head').removeClass('settings-head-active');
   },
 
   settings: function () {
@@ -331,13 +317,9 @@ var Router = Backbone.Router.extend({
 
   settingsGlobal: function () {
     $('.header-left')[0].className = 'header-left header-left-3';
-    // $('.dashboard-logo').removeClass('dashboard-logo-active');
-    // $('.dashboard-head').removeClass('dashboard-head-active');
 
     $('.settings-logo').addClass('settings-logo-active');
     $('.settings-head').addClass('settings-head-active');
-
-    // $('.search-logo').removeClass('search-logo-active');
   },
 });
 
@@ -2480,6 +2462,20 @@ BeMe.Views.Dashboard = Parse.View.extend({
     BeMe.searchUsers(searchString);
   }
 });
+BeMe.Views.Header = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#header-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+
 BeMe.Views.Index = Parse.View.extend({
 	initialize: function () {
 		this.render();
