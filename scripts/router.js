@@ -45,7 +45,6 @@ var Router = Backbone.Router.extend({
     'settings/logos' : 'settingsLogos',
     'settings/location' : 'settingsLocation',
 
-
     'test' : 'test',
 	},
 

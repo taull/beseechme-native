@@ -31,7 +31,7 @@
 
 <script type="text/template" id="application-view">
 
-  <% var user = Parse.User.current() %>
+  <% var user = Parse.User.current() %> 
 
   <header>
     <div class="header-window">
@@ -1266,13 +1266,13 @@
         <% var user = Parse.User.current() %>
 
         <div class="user-header">
-          <aside>        
+          <aside>
             <% if (typeof attributes.avatar != 'undefined') { %>
               <img src="<%= attributes.avatar.url() %>">
             <% } else { %>
               <img src="images/default-avatar.png">
             <% } %>
-          </aside   
+          </aside
           ><section><h1><%= attributes.firstName + ' ' + attributes.lastName%></h1><span class="fa fa-check-circle"></span><p>@<%= attributes.handle%></p></section
           ><div></div>
         </div>
