@@ -61,6 +61,7 @@ var Router = Backbone.Router.extend({
   },
 
   secondaryRouteHandler: function (routeName) {
+    this.resetLogos();
     if (routeName.match(/dashboard|backend/g)) { // on dashboard or backend routes
       this.dashboardGlobal();
     } else if (routeName.match(/settings/g)) { // if it is one of the settings routes
@@ -68,6 +69,18 @@ var Router = Backbone.Router.extend({
     } else if (routeName.match(/search|business|consumer/g)) {
       this.searchGlobal();
     }
+  },
+
+  resetLogos: function () {
+    $('.settings-logo').removeClass('settings-logo-active');
+    $('.settings-head').removeClass('settings-head-active');
+
+    $('.search-logo').removeClass('search-logo-active');
+    $('.search-head').removeClass('search-head-active');
+
+    $('.dashboard-logo').removeClass('dashboard-logo-active');
+    $('.dashboard-head').removeClass('dashboard-head-active');
+
   },
 
   register: function () {
@@ -266,11 +279,11 @@ var Router = Backbone.Router.extend({
     $('.dashboard-logo').addClass('dashboard-logo-active');
     $('.dashboard-head').addClass('dashboard-head-active');
 
-    $('.settings-logo').removeClass('settings-logo-active');
-    $('.settings-head').removeClass('settings-head-active');
-
-    $('.search-logo').removeClass('search-logo-active');
-    $('.search-head').removeClass('search-head-active');
+    // $('.settings-logo').removeClass('settings-logo-active');
+    // $('.settings-head').removeClass('settings-head-active');
+    //
+    // $('.search-logo').removeClass('search-logo-active');
+    // $('.search-head').removeClass('search-head-active');
 
   },
 
@@ -284,11 +297,11 @@ var Router = Backbone.Router.extend({
     $('.search-logo').addClass('search-logo-active');
     $('.search-head').addClass('search-head-active');
 
-    $('.dashboard-logo').removeClass('dashboard-logo-active');
-    $('.dashboard-head').removeClass('dashboard-head-active');
-
-    $('.settings-logo').removeClass('settings-logo-active');
-    $('.settings-head').removeClass('settings-head-active');
+  //   $('.dashboard-logo').removeClass('dashboard-logo-active');
+  //   $('.dashboard-head').removeClass('dashboard-head-active');
+  //
+  //   $('.settings-logo').removeClass('settings-logo-active');
+  //   $('.settings-head').removeClass('settings-head-active');
   },
 
   settings: function () {
@@ -318,13 +331,13 @@ var Router = Backbone.Router.extend({
 
   settingsGlobal: function () {
     $('.header-left')[0].className = 'header-left header-left-3';
-    $('.dashboard-logo').removeClass('dashboard-logo-active');
-    $('.dashboard-head').removeClass('dashboard-head-active');
+    // $('.dashboard-logo').removeClass('dashboard-logo-active');
+    // $('.dashboard-head').removeClass('dashboard-head-active');
 
     $('.settings-logo').addClass('settings-logo-active');
     $('.settings-head').addClass('settings-head-active');
 
-    $('.search-logo').removeClass('search-logo-active');
+    // $('.search-logo').removeClass('search-logo-active');
   },
 });
 
