@@ -1,3 +1,21 @@
+BeMe.Views.Register = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#register-view').text()),
+  
+  render: function () {
+    var self = this;
+    var user = Parse.User.current();
+    self.$el.html(self.template());
+    $('.body-container').append(self.el);
+    
+    BeMe.renderedViews.push(this);
+  },
+
+});
+
 BeMe.Views.BusinessRegister = Parse.View.extend({
 	initialize: function () {
 		this.render();

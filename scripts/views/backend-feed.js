@@ -25,14 +25,6 @@ BeMe.Views.BackendFeed = Parse.View.extend({
       $('.profile-tools').toggleClass('profile-tools-shift');
 
     });
-
-    $('#standalone').popup({
-      color: '#dfdfdf',
-      opacity: 1,
-      transition: '0.3s',
-      scrolllock: true,
-      autozindex: true
-    });
 	},
 
 	events: {

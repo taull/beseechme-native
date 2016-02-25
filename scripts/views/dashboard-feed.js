@@ -4,6 +4,18 @@ BeMe.Views.DashboardFeed = BeMe.Views.DashboardBaseView.extend({
     this.render();
     new BeMe.Views.DashboardFeedList();
   },
+
+  render: function () {
+    var self = this;
+    this.$el.html(this.template(this.model));
+    $('.body-container').append(this.el);
+    BeMe.renderedViews.push(this);
+
+    // $('.dashboard-header').addClass('animated slideInDown');
+
+
+
+  },
 });
 
 BeMe.Views.DashboardFeedList = Parse.View.extend({

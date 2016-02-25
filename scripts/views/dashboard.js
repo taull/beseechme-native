@@ -38,7 +38,7 @@ BeMe.Views.Dashboard = Parse.View.extend({
       self.userSearch(e);
     });
 
-
+    $('.dashboard-container').addClass('animated bounceOutLeft');
 
     $(function() {
 
