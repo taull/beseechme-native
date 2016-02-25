@@ -56,7 +56,6 @@ var Router = Backbone.Router.extend({
   },
 
   secondaryRouteHandler: function (routeName) {
-    /* Note: In this case, the \w* is unnecessary. We only need to match something AT ALL, not the whole word */
     if (routeName.match(/dashboard|backend/g)) { // on dashboard or backend routes
       this.dashboardGlobal();
     } else if (routeName.match(/settings/g)) { // if it is one of the settings routes
