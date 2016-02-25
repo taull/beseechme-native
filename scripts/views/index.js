@@ -9,6 +9,12 @@ BeMe.Views.Index = Parse.View.extend({
 		this.$el.html(this.template(this.model));
 		$('#application').append(this.el);
 		BeMe.renderedViews.push(this);
+
+		$('.password-incorrect').click(function(){
+			$('.login-container').addClass('animated shake');
+		});
+
+
 	},
 
 	events: {
@@ -21,7 +27,7 @@ BeMe.Views.Index = Parse.View.extend({
 		var email = $('input[name="email"]').val();
 		var password = $('input[name="password"]').val();
 		var stayLoggedIn = $('input[type="checkbox"]')[0].checked;
-    var self = this;
+	    var self = this;
 
 		Parse.User.logIn(email,password, {
 			success: function  (userObject) {
@@ -29,7 +35,7 @@ BeMe.Views.Index = Parse.View.extend({
         if (userObject.get('userType') == 'consumer') {
           BeMe.Router.navigate('dashboard', true);
         } else {
-          BeMe.Router.navigate('backend/feed', true);
+          BeMe.Router.navigate('backend', true);
         }
 			},
 			error: function (error) {

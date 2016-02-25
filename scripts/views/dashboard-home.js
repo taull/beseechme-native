@@ -11,6 +11,7 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
     }
   },
 
+
   loadListings: function () {
     var user = Parse.User.current();
 
