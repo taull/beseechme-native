@@ -1670,11 +1670,17 @@
             ><div><span class="fa fa-chevron-right"></span></div>
           </a>
 
-          <a href="#dashboard/listing">
+          <a href="#dashboard/following">
             <aside><img src="images/bookmark-logo-1.png"></aside
-            ><section><h1>Listing</h1><p>Local Listing</p></section
+            ><section><h1>Following</h1><p>You follow 9 businesses</p></section
             ><div><span class="fa fa-chevron-right"></span></div>
           </a>
+
+          <a href="#dashboard/friends">
+            <aside><img src="images/location-logo.png"></aside
+            ><section><h1>Friends</h1><p>You have 15 friends</p></section
+            ><div><span class="fa fa-chevron-right"></span></div>
+          </a>        
 
           <a href="#dashboard/map">
             <aside><img src="images/location-logo.png"></aside
@@ -1711,15 +1717,13 @@
 
       <div class="dashboard-header">
         <aside><a href="#dashboard"><span class="fa fa-chevron-left"></span></a></aside
-        ><section><h1>Activity</h1></section
+        ><section><h1><%= user.get('city') %>, <%= user.get('state') %></h1></section
         ><div></div>
       </div>
 
       <div class="tab-select">
-        <li class="active-tab"><h1><%= user.get('city') %>, <%= user.get('state') %></h1></li
-        ><li><h1>Following</h1></li
-        ><li><h1>Friends</h1></li>
-
+        <li class="active-tab"><h1>Local Feed</h1></li
+        ><li><h1>Listing</h1></li>
       </div>
 
       <div class="bar-feed"><ul></ul></div>
@@ -1806,6 +1810,11 @@
         ><div></div>
       </div>
 
+      <div class="tab-select">
+        <li class="active-tab"><h1>Feed</h1></li
+        ><li><h1>List</h1></li>
+      </div>
+
       <div class="bar-feed"><ul></ul></div>
 
     </div>
@@ -1826,7 +1835,10 @@
         ><section><h1>Friends</h1></section
         ><div></div>
       </div>
-
+      <div class="tab-select">
+        <li class="active-tab"><h1>Feed</h1></li
+        ><li><h1>List</h1></li>
+      </div>
       <div class="friends-feed"></div>
     </div>
 
