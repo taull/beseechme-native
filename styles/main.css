@@ -327,25 +327,23 @@ header {
       .menu-light a aside h2 {
         font-size: 1.4em;
         font-weight: 900; }
-    .menu-light a section {
-      padding-left: 10px; }
-      .menu-light a section h1 {
-        font-size: 1.2em;
-        color: #333;
-        font-weight: 400;
-        display: block; }
-      .menu-light a section p {
-        font-size: 1em;
-        color: #333;
-        font-weight: 300;
-        margin-top: 4px;
-        display: inline-block; }
-      .menu-light a section h2 {
-        display: inline-block;
-        font-size: 1em;
-        color: #333;
-        font-weight: 300;
-        padding: 4px 2px 0; }
+    .menu-light a section h1 {
+      font-size: 1.2em;
+      color: #333;
+      font-weight: 400;
+      display: block; }
+    .menu-light a section p {
+      font-size: 1em;
+      color: #333;
+      font-weight: 300;
+      margin-top: 4px;
+      display: inline-block; }
+    .menu-light a section h2 {
+      display: inline-block;
+      font-size: 1em;
+      color: #333;
+      font-weight: 300;
+      padding: 4px 2px 0; }
     .menu-light a div {
       float: right;
       padding: 5px 30px 5px 0;
@@ -609,7 +607,7 @@ header {
   position: relative;
   background: #f8f8f8;
   width: 480px;
-  margin: 20px auto;
+  margin: 15px auto;
   padding: 10px 0; }
   .dashboard-header a,
   .dashboard-header section,
@@ -1980,71 +1978,84 @@ header {
   top: 60px; }
 
 /* Search Input*/
-.user-select {
-  display: inline-block;
-  margin: 20px auto 0;
-  position: relative;
-  text-align: center; }
-  .user-select li {
-    display: inline-block;
-    background: #fff;
-    width: 120px;
-    margin-right: 5px;
-    text-align: center;
-    padding: 10px 0;
-    position: relative; }
-    .user-select li h1 {
-      color: #999;
-      font-weight: 300;
-      font-size: 1em; }
-
-.active-user {
-  background: #f8f8f8 !important; }
-  .active-user h1 {
-    color: #333 !important;
-    font-weight: 400 !important; }
-  .active-user::after {
-    background: #d8d8d8;
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: -3px;
-    right: 0;
-    z-index: -1; }
+.tab-select-container {
+  text-align: center;
+  width: 100%;
+  padding: 0 15px; }
 
 .tab-select {
   display: inline-block;
-  margin: 0 auto;
+  margin: 20px auto 0;
   position: relative;
-  text-align: center; }
+  text-align: center;
+  border-radius: 3px;
+  width: 100%;
+  border: 1px solid #2196F3; }
   .tab-select li {
     display: inline-block;
     background: #fff;
-    width: 120px;
-    margin-right: 5px;
+    width: 33.33333%;
     text-align: center;
     padding: 10px 0;
     position: relative; }
     .tab-select li h1 {
-      color: #999;
-      font-weight: 300;
+      color: #2196F3;
+      font-weight: 400;
       font-size: 1em; }
+  .tab-select li:first-child {
+    border-radius: 3px 0 0 3px;
+    border-right: 1px solid #2196F3; }
+  .tab-select li:last-child {
+    border-radius: 0 3px 3px 0;
+    border-left: 1px solid #2196F3; }
 
-.active-tab {
-  background: #f8f8f8 !important; }
-  .active-tab h1 {
-    color: #333 !important;
+.active-user {
+  background: #2196F3 !important; }
+  .active-user h1 {
+    color: #fff !important;
     font-weight: 400 !important; }
-  .active-tab::after {
-    background: #d8d8d8;
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: -3px;
-    right: 0;
-    z-index: -1; }
+
+.user-select {
+  display: inline-block;
+  margin: 20px auto 0;
+  position: relative;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid #2196F3; }
+  .user-select li {
+    display: inline-block;
+    background: #fff;
+    width: 120px;
+    text-align: center;
+    padding: 10px 0;
+    position: relative; }
+    .user-select li h1 {
+      color: #2196F3;
+      font-weight: 400;
+      font-size: 1em; }
+  .user-select li:first-child {
+    border-radius: 3px 0 0 3px;
+    border-right: 1px solid #2196F3; }
+  .user-select li:last-child {
+    border-radius: 0 3px 3px 0;
+    border-left: 1px solid #2196F3; }
+
+.active-user {
+  background: #2196F3 !important;
+  /*	&::after {
+  		background: #d8d8d8;
+  		position: absolute;
+  		content: "";
+  		top: 0 ;
+  		left: 0;
+  		bottom: -3px;
+  		right: 0;
+  		z-index:-1;
+  
+  	}*/ }
+  .active-user h1 {
+    color: #fff !important;
+    font-weight: 400 !important; }
 
 .bar-search {
   display: inline-block;

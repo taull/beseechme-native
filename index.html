@@ -14,10 +14,10 @@
   <link rel="stylesheet" type="text/css" href="bower_components/jquery-emoji-picker/css/jquery.emojipicker.css">
   <link rel="stylesheet" type="text/css" href="bower_components/jquery-emoji-picker/css/jquery.emojipicker.a.css">
 
-  <link rel="apple-touch-icon" sizes="57x57" href="images/wolf-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="images/wolf-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="images/wolf-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="images/wolf-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="images/wolf-logo-114x114.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="images/wolf-logo-114x114.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="images/wolf-logo-114x114.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="images/wolf-logo-114x114.png" />
 
 
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900,100italic,300italic,400italic,500italic,700italic,900italic" rel="stylesheet" type="text/css">
@@ -66,7 +66,7 @@
   <% var user = Parse.User.current() %>
   <div class="index-banner-wrap">
     <div class="index-banner">
-      <img src="images/wolf-logo-blue.png">
+      <img src="images/wolf-logo-blue3.png">
       <% if (user) { %>
         <h1>Welcome Back, <%= user.get('firstName') %></h1>
         <a href="#dashboard">Dashboard</a>
@@ -1661,6 +1661,16 @@
             </footer>
           </section>
         </div>
+        
+        <div class="tab-select-container">
+          <div class="tab-select">
+            <li class="active-user"><h1>Local</h1></li
+            ><li><h1>Following</h1></li
+            ><li><h1>Friends</h1></li>
+          </div>
+        </div>
+
+        <div class="bar-feed"></div>
 
         <div class="menu-light">
 
