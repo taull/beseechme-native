@@ -30,11 +30,11 @@ var Router = Backbone.Router.extend({
     'consumer/:handle' : 'consumerHome',
 
     'dashboard' : 'dashboardHome',
-    'dashboard/feed' : 'dashboardFeed',
-    'dashboard/listing' : 'dashboardListing',
-    'dashboard/map' : 'dashboardMap',
-    'dashboard/following' : 'dashboardfollowing',
-    'dashboard/friends' : 'dashboardFriends',
+    // 'dashboard/feed' : 'dashboardFeed',
+    // 'dashboard/listing' : 'dashboardListing',
+    // 'dashboard/map' : 'dashboardMap',
+    // 'dashboard/following' : 'dashboardfollowing',
+    // 'dashboard/friends' : 'dashboardFriends',
 
     // 'search/:query' : 'search',
 
@@ -61,12 +61,14 @@ var Router = Backbone.Router.extend({
   },
 
   secondaryRouteHandler: function (routeName) {
-    console.log(routeName);
+    //make sure the header doesn't show up on the home route
     if(routeName == 'home') {
       $('.app-header').hide();
     } else {
       $('.app-header').show();
     }
+
+    //control the logos at the top of the page
     this.resetLogos();
     if (routeName.match(/dashboard|backend/g)) { // on dashboard or backend routes
       this.dashboardGlobal();
@@ -86,7 +88,25 @@ var Router = Backbone.Router.extend({
 
     $('.dashboard-logo').removeClass('dashboard-logo-active');
     $('.dashboard-head').removeClass('dashboard-head-active');
+  },
 
+  dashboardGlobal: function () {
+    $('.header-left')[0].className = 'header-left header-left-1';
+    $('.dashboard-logo').addClass('dashboard-logo-active');
+    $('.dashboard-head').addClass('dashboard-head-active');
+  },
+
+  settingsGlobal: function () {
+    $('.header-left')[0].className = 'header-left header-left-3';
+
+    $('.settings-logo').addClass('settings-logo-active');
+    $('.settings-head').addClass('settings-head-active');
+  },
+
+  searchGlobal: function () {
+    $('.header-left')[0].className = 'header-left header-left-2';
+    $('.search-logo').addClass('search-logo-active');
+    $('.search-head').addClass('search-head-active');
   },
 
   register: function () {
@@ -280,21 +300,9 @@ var Router = Backbone.Router.extend({
     new BeMe.Views.DashboardFriends();
   },
 
-  dashboardGlobal: function () {
-    $('.header-left')[0].className = 'header-left header-left-1';
-    $('.dashboard-logo').addClass('dashboard-logo-active');
-    $('.dashboard-head').addClass('dashboard-head-active');
-  },
-
   search: function () {
     BeMe.removeAllViews();
     new BeMe.Views.Search();
-  },
-
-  searchGlobal: function () {
-    $('.header-left')[0].className = 'header-left header-left-2';
-    $('.search-logo').addClass('search-logo-active');
-    $('.search-head').addClass('search-head-active');
   },
 
   settings: function () {
@@ -320,12 +328,5 @@ var Router = Backbone.Router.extend({
   settingsLocation: function () {
     BeMe.removeAllViews();
     new BeMe.Views.SettingsLocation();
-  },
-
-  settingsGlobal: function () {
-    $('.header-left')[0].className = 'header-left header-left-3';
-
-    $('.settings-logo').addClass('settings-logo-active');
-    $('.settings-head').addClass('settings-head-active');
   },
 });
