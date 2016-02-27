@@ -12,18 +12,13 @@ BeMe.Views.DashboardFeed = BeMe.Views.DashboardBaseView.extend({
     BeMe.renderedViews.push(this);
 
     // $('.dashboard-header').addClass('animated slideInDown');
-
-
-
   },
 });
 
 BeMe.Views.DashboardFeedList = Parse.View.extend({
   initialize: function () {
     this.collection = new Parse.Collection();
-    this.views = [];
     this.pullNearStatuses();
-    BeMe.Dashboard.FeedList = this;
   },
 
   pullNearStatuses: function () {
@@ -37,7 +32,6 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
     query.containedIn('statusType', ['Text', 'Photo', 'Event']);
     query.limit(20);
     query.find().then(function (statuses) {
-      console.log(statuses);
       self.collection.add(statuses);
       self.render();
     });
@@ -45,24 +39,6 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
 
   render: function () {
     new BeMe.Views.StatusListView({collection:this.collection, container:'.bar-feed'})
-  },
-
-  updateFollowButtons: function () {
-    var self = this;
-    console.log("updateFollowButtons is running");
-
-    var user = Parse.User.current();
-    user.relation('barsFollowing').query().find().then(function (barsFollowing) {
-      var barsFollowingIds = barsFollowing.map(function (i) {return i.id});
-
-      _.each(self.views, function (view) {
-        if (barsFollowingIds.some(function (i) {return i === view.model.get('createdBy').id}) ) {
-          view.isFollowing();
-        } else {
-          view.isNotFollowing();
-        }
-      });
-    });
   }
-  
+
 });

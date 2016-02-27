@@ -3,10 +3,10 @@ BeMe.Views.DashboardFriends = BeMe.Views.DashboardBaseView.extend({
 		this.template = _.template($('#dashboard-friends-view').text());
 		this.render();
 		this.usersFollowing = null;
-		this.loadFollowers();
+		this.loadFollowing();
 	},
 
-	loadFollowers: function () {
+	loadFollowing: function () {
 		var self = this;
 		var query = Parse.User.current().relation('barsFollowing').query();
 		query.equalTo('userType', 'consumer');

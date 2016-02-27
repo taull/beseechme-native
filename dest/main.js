@@ -30,7 +30,7 @@ var Router = Backbone.Router.extend({
     'consumer/:handle' : 'consumerHome',
 
     'dashboard' : 'dashboardHome',
-    // 'dashboard/feed' : 'dashboardFeed',
+    'dashboard/feed' : 'dashboardFeed',
     // 'dashboard/listing' : 'dashboardListing',
     // 'dashboard/map' : 'dashboardMap',
     // 'dashboard/following' : 'dashboardfollowing',
@@ -2059,18 +2059,13 @@ BeMe.Views.DashboardFeed = BeMe.Views.DashboardBaseView.extend({
     BeMe.renderedViews.push(this);
 
     // $('.dashboard-header').addClass('animated slideInDown');
-
-
-
   },
 });
 
 BeMe.Views.DashboardFeedList = Parse.View.extend({
   initialize: function () {
     this.collection = new Parse.Collection();
-    this.views = [];
     this.pullNearStatuses();
-    BeMe.Dashboard.FeedList = this;
   },
 
   pullNearStatuses: function () {
@@ -2084,7 +2079,6 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
     query.containedIn('statusType', ['Text', 'Photo', 'Event']);
     query.limit(20);
     query.find().then(function (statuses) {
-      console.log(statuses);
       self.collection.add(statuses);
       self.render();
     });
@@ -2092,36 +2086,19 @@ BeMe.Views.DashboardFeedList = Parse.View.extend({
 
   render: function () {
     new BeMe.Views.StatusListView({collection:this.collection, container:'.bar-feed'})
-  },
-
-  updateFollowButtons: function () {
-    var self = this;
-    console.log("updateFollowButtons is running");
-
-    var user = Parse.User.current();
-    user.relation('barsFollowing').query().find().then(function (barsFollowing) {
-      var barsFollowingIds = barsFollowing.map(function (i) {return i.id});
-
-      _.each(self.views, function (view) {
-        if (barsFollowingIds.some(function (i) {return i === view.model.get('createdBy').id}) ) {
-          view.isFollowing();
-        } else {
-          view.isNotFollowing();
-        }
-      });
-    });
   }
-  
+
 });
+
 BeMe.Views.Dashboardfollowing = BeMe.Views.DashboardBaseView.extend({
   initialize: function () {
     this.template = _.template($('#dashboard-following-view').text());
     this.render();
-    new BeMe.Views.DashboardfollowingListing();
+    new BeMe.Views.DashboardFollowingListing();
   }
 });
 
-BeMe.Views.DashboardfollowingListing = Parse.View.extend({
+BeMe.Views.DashboardFollowingListing = Parse.View.extend({
   initialize: function () {
     this.views = [];
     this.beginLoadingStatuses();
@@ -2179,15 +2156,16 @@ BeMe.Views.IndividualDashboardfollowing = Parse.View.extend({
     $('.following-container').append(this.el);
   }
 });
+
 BeMe.Views.DashboardFriends = BeMe.Views.DashboardBaseView.extend({
 	initialize: function () {
 		this.template = _.template($('#dashboard-friends-view').text());
 		this.render();
 		this.usersFollowing = null;
-		this.loadFollowers();
+		this.loadFollowing();
 	},
 
-	loadFollowers: function () {
+	loadFollowing: function () {
 		var self = this;
 		var query = Parse.User.current().relation('barsFollowing').query();
 		query.equalTo('userType', 'consumer');
@@ -2209,17 +2187,134 @@ BeMe.Views.DashboardFriends = BeMe.Views.DashboardBaseView.extend({
 		});
 	}
 });
+
 BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
   initialize: function () {
     this.template = _.template($('#dashboard-home-view').text());
     this.render();
-    // new BeMe.Views.DashboardFeedList();
+
+    this.loadLocalFeed();
+
+    this.localFeedCollection;
+    this.followingFeedCollection;
+    this.friendsFeedCollection;
+
+    this.feedContainer = '.bar-feed';
 
     if (Parse.User.current().get('userType') == 'business') {
       this.loadFollowers();
     } else {
       this.loadFollowing();
     }
+  },
+
+  events: {
+    'click .tab-select li' : 'toggleActiveFeed'
+  },
+
+  toggleActiveFeed: function (e) {
+    $currentTarget = $(e.currentTarget);
+      if (!$currentTarget.hasClass('active-user')) { // if it's not the currently selected $currentTarget
+			$currentTarget.siblings().removeClass('active-user');
+			$currentTarget.addClass('active-user');
+      var activeTabVal = $currentTarget.text(); // The value is determined by the HTML text! Watch for changes if errors occur
+
+      // this object will match the proper view to be posted when
+      var feedMatchObject = {
+        Local: "loadLocalFeed",
+        Following: "loadFollowingFeed",
+        Friends: "loadFriendsFeed"
+      }
+
+      this.activeFeedView.removeViews();
+      this.activeFeedView.removeRenderedView();
+      var functionToCall = feedMatchObject[activeTabVal];
+      this[functionToCall]();
+    }
+  },
+
+  loadLocalFeed: function () {
+    var self = this;
+    if(!this.localFeedCollection) { // if we don't have the info, query for it
+      var collection = new Parse.Collection();
+      var query = new Parse.Query('status');
+      query.withinMiles('location', Parse.User.current().get('location') ,100);
+      query.descending('createdAt');
+      query.include('createdBy');
+      query.containedIn('statusType', ['Text', 'Photo', 'Event']);
+      query.limit(20);
+      query.find().then(function (statuses) {
+        collection.add(statuses);
+        self.localFeedCollection = collection;
+        self.activeFeedView = new BeMe.Views.StatusListView({collection: collection, container: self.feedContainer});
+      });
+    } else {
+      this.activeFeedView = new BeMe.Views.StatusListView({
+        collection: this.localFeedCollection,
+        container: self.feedContainer
+      });
+    }
+
+  },
+
+  loadFollowingFeed: function () {
+    var self = this;
+
+    if (!this.followingFeedCollection) { // if we don't have the info, query for it
+      Parse.User.current().relation('barsFollowing').query().find().then(function (barsFollowing) {
+        loadFollowerFeed(barsFollowing);
+      });
+
+      function loadFollowerFeed(barsFollowing) {
+        console.log(barsFollowing);
+        var query = new Parse.Query('status');
+        query.containedIn('createdBy', barsFollowing);
+        query.containedIn('statusType', ['Text', 'Photo', 'Video', 'Event']);
+        query.include('createdBy');
+        query.descending('createdAt');
+
+        query.find().then(function(statuses) {
+          var collection = new Parse.Collection(statuses);
+          self.followingFeedCollection = collection;
+          self.activeFeedView = new BeMe.Views.StatusListView({collection:collection, container:self.feedContainer});
+        });
+      }
+    } else {
+      this.activeFeedView = new BeMe.Views.StatusListView({
+        collection: this.followingFeedCollection,
+        container: self.feedContainer
+      });
+    }
+  },
+
+  loadFriendsFeed: function () {
+    var self = this;
+
+    if (!this.friendsFeedCollection) { //if we don't have the info, query for it
+      var query = Parse.User.current().relation('barsFollowing').query();
+      query.equalTo('userType', 'consumer');
+      query.find().then(function (usersFollowing) {
+        loadFriendsFeed(usersFollowing);
+      });
+
+      function loadFriendsFeed(usersFollowing) {
+        var query = new Parse.Query('status');
+        query.containedIn('createdBy', usersFollowing);
+        query.include('createdBy');
+        query.descending('createdAt');
+        query.find().then(function (statuses) {
+          var collection = new Parse.Collection(statuses);
+          self.friendsFeedCollection = collection;
+          self.activeFeedView = new BeMe.Views.StatusListView({collection:collection,container: self.feedContainer});
+        });
+      }
+    } else {
+      this.activeFeedView = new BeMe.Views.StatusListView({
+        collection: this.friendsFeedCollection,
+        container: self.feedContainer
+      });
+    }
+
   },
 
   loadFollowers: function () {
@@ -2879,7 +2974,7 @@ BeMe.Views.Settings = Parse.View.extend({
 });
 
 //accepts a collection of status models and a container
-//renders them 
+//renders them (not inside this actual views el)
 
 BeMe.Views.StatusListView = Parse.View.extend({
 	initialize: function () {
@@ -2891,13 +2986,17 @@ BeMe.Views.StatusListView = Parse.View.extend({
 
 	render: function (container) {
 		var self = this;
-		BeMe.removeGroup(this.views);
+		this.removeViews();
 		this.collection.each(function (status) {
 			var statusView = new BeMe.Views.Status({model:status,container:container});
 			self.views.push(statusView);
 			statusView.on('follow', self.follow, self);
 			statusView.on('unfollow', self.unfollow, self);
 		});
+	},
+
+	removeViews: function () {
+		BeMe.removeGroup(this.views);
 	},
 
 	follow: function (e) {
@@ -2927,6 +3026,7 @@ BeMe.Views.StatusListView = Parse.View.extend({
     });
   },
 
+	// UI updates for following or unfollowing a user. Applies to the whole list
   unfollowUsers: function (user) {
   	_.each(this.views, function (view) {
   		if( view.model.get('createdBy').id === user.id) {
@@ -2943,6 +3043,7 @@ BeMe.Views.StatusListView = Parse.View.extend({
   	});
   },
 });
+
 BeMe.Views.Status = Parse.View.extend({
 	initialize: function () {
 		this.render();

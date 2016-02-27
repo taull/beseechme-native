@@ -1,5 +1,5 @@
 //accepts a collection of status models and a container
-//renders them 
+//renders them (not inside this actual views el)
 
 BeMe.Views.StatusListView = Parse.View.extend({
 	initialize: function () {
@@ -11,13 +11,17 @@ BeMe.Views.StatusListView = Parse.View.extend({
 
 	render: function (container) {
 		var self = this;
-		BeMe.removeGroup(this.views);
+		this.removeViews();
 		this.collection.each(function (status) {
 			var statusView = new BeMe.Views.Status({model:status,container:container});
 			self.views.push(statusView);
 			statusView.on('follow', self.follow, self);
 			statusView.on('unfollow', self.unfollow, self);
 		});
+	},
+
+	removeViews: function () {
+		BeMe.removeGroup(this.views);
 	},
 
 	follow: function (e) {
@@ -47,6 +51,7 @@ BeMe.Views.StatusListView = Parse.View.extend({
     });
   },
 
+	// UI updates for following or unfollowing a user. Applies to the whole list
   unfollowUsers: function (user) {
   	_.each(this.views, function (view) {
   		if( view.model.get('createdBy').id === user.id) {

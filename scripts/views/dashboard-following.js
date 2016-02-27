@@ -2,11 +2,11 @@ BeMe.Views.Dashboardfollowing = BeMe.Views.DashboardBaseView.extend({
   initialize: function () {
     this.template = _.template($('#dashboard-following-view').text());
     this.render();
-    new BeMe.Views.DashboardfollowingListing();
+    new BeMe.Views.DashboardFollowingListing();
   }
 });
 
-BeMe.Views.DashboardfollowingListing = Parse.View.extend({
+BeMe.Views.DashboardFollowingListing = Parse.View.extend({
   initialize: function () {
     this.views = [];
     this.beginLoadingStatuses();
