@@ -30,7 +30,7 @@ var Router = Backbone.Router.extend({
     'consumer/:handle' : 'consumerHome',
 
     'dashboard' : 'dashboardHome',
-    'dashboard/feed' : 'dashboardFeed',
+    // 'dashboard/feed' : 'dashboardFeed',
     // 'dashboard/listing' : 'dashboardListing',
     // 'dashboard/map' : 'dashboardMap',
     // 'dashboard/following' : 'dashboardfollowing',

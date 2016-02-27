@@ -30,7 +30,7 @@ var Router = Backbone.Router.extend({
     'consumer/:handle' : 'consumerHome',
 
     'dashboard' : 'dashboardHome',
-    'dashboard/feed' : 'dashboardFeed',
+    // 'dashboard/feed' : 'dashboardFeed',
     // 'dashboard/listing' : 'dashboardListing',
     // 'dashboard/map' : 'dashboardMap',
     // 'dashboard/following' : 'dashboardfollowing',
@@ -2227,7 +2227,6 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
       }
 
       this.activeFeedView.removeViews();
-      this.activeFeedView.removeRenderedView();
       var functionToCall = feedMatchObject[activeTabVal];
       this[functionToCall]();
     }
