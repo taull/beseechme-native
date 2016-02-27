@@ -37,7 +37,6 @@ BeMe.Views.DashboardHome = BeMe.Views.DashboardBaseView.extend({
       }
 
       this.activeFeedView.removeViews();
-      this.activeFeedView.removeRenderedView();
       var functionToCall = feedMatchObject[activeTabVal];
       this[functionToCall]();
     }
