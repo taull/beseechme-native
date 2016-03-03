@@ -66,11 +66,10 @@
   <% var user = Parse.User.current() %>
   <div class="index-banner-wrap">
     <div class="index-banner">
-      <img src="images/wolf-logo-blue3.png">
+      <img src="images/wolf-logo-v3.png">
       <% if (user) { %>
         <h1>Welcome Back, <%= user.get('firstName') %></h1>
-        <a href="#dashboard">Dashboard</a>
-      <% } else { %>
+        <a href="#dashboard">Dashboard</a>        
         <div class="login-form">
           <form action="">
             <li><input type="text" name="email" placeholder="Email Address"></li>
@@ -78,6 +77,8 @@
             <input type="checkbox" value="signedIn"><p>Remember Me?</p>
           </form>
         </div>
+      <% } else { %>
+
       <% } %>
 
     </div>
@@ -89,7 +90,7 @@
       <li><img src="images/comment-logo-1.png"><h1>Activity</h1><p>Use your current location to create a feed designed to give you a live lookin to the bars around you</p></li
 
       ><li><img src="images/fire-logo-1.png"><h1>Follow</h1><p>Only interested in your favorite locations? Follow bars to create your own custom feed</p></li
-      ><li><img src="images/beer-logo-1.png"><h1>Draft Beer</h1><p>Follow your favorite bars without having to deal with the rif raf</p></li>
+      ><li><img src="images/beer-logo-1.png"><h1>Draft Beer</h1><p>Quickly find out the draft list of your current location. Just pull up our app and let the magic happen</p></li>
 
     </div>
   </div>
@@ -174,7 +175,7 @@
 
 <script type="text/template" id="backend-view">
 
-  <% var user = Parse.User.current() %>
+<% var user = Parse.User.current() %>
 
 <% if (user.get('userType') === 'business') { %>
 
@@ -205,6 +206,26 @@
   <div class="dashboard-container">
 
       <div class="middle-column">
+        <div class="business-info">
+          <div class="user-cover">
+            <% if (typeof user.get('coverPhoto') !=='undefined') { %>
+              <img src=<%= user.get('coverPhoto')._url %> >
+            <% } else { %>
+              <img src="images/default-avatar.png">
+            <% } %>
+          </div>
+          <div class="user-header">
+            <aside>
+              <% if (typeof user.get('avatar') !=='undefined') { %>
+                <img src=<%= user.get('avatar')._url %> >
+              <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+            </aside
+            ><section><h1><%= user.get('businessName') %></h1><span class="fa fa-check-circle"></span><p>@<%= user.get('handle') %></p></section
+            ><div><img src="images/fire-logo-1.png"><h1>1,638</h1></div>
+          </div>
+        </div>
 
         <div class="menu-stats">
 
@@ -436,7 +457,13 @@
       <% if (typeof breweries !== 'undefined') { %>
       <p><%= breweries[0].name %> | <%= abv %>% abv</p>
       <% } %>
-    </div>
+    </div
+
+    ><section>
+      <input type="checkbox" id="box-1">
+      <label for="box-1"></label>
+
+    </section>
 
 </script>
 
@@ -601,10 +628,11 @@
 <script type="text/template" id="search-view">
   <div class="dashboard-container">
     <div class="middle-column">
-
-      <div class="user-select">
-        <li class="active-user"><h1>Business</h1></li
-        ><li><h1>Consumer</h1></li>
+      <div class="user-select-container">
+        <div class="user-select">
+          <li class="active-user"><h1>Business</h1></li
+          ><li><h1>Consumer</h1></li>
+        </div>
       </div>
 
       <div class="bar-search">
@@ -648,11 +676,52 @@
 
       <% var user = Parse.User.current() %>
 
-      <div class="user-select">
-        <li class="active-user"><h1>Name</h1></li
-        ><li><h1>Location</h1></li
-        ><li><h1>Following</h1></li>
-      </div>
+        <div class="user-info-wrap">
+          <section class="user-info">
+            <aside>
+              <% if (typeof user.get('avatar') !=='undefined') { %>
+                <img src=<%= user.get('avatar')._url %> >
+              <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+            </aside
+
+            ><section><h1><% if (user.get('userType') === 'business') { %><%= user.get('businessName') %><% } else { %><%= user.get('firstName') %> <%= user.get('lastName') %><% } %></h1><p>@<%= user.get('handle') %></p></section
+
+            ><footer>
+              <a href="#settings/friends">
+                <span class="fa fa-check-circle"></span>
+                <h2>15</h2>
+              </a>
+              <a href="#settings/following">
+                <img src="images/fire-logo-1.png">
+                <h2 class='follow-number'></h2>
+              </a>
+            </footer>
+          </section>
+        </div>
+
+
+        <div class="menu-light">
+          <a href="#settings/following">
+            <aside><img src="images/bookmark-logo-1.png"></aside
+            ><section><h1>Following</h1><p>You follow 9 businesses</p></section
+            ><div><span class="fa fa-chevron-right"></span></div>
+          </a>
+
+          <a href="#settings/friends">
+            <aside><img src="images/location-logo.png"></aside
+            ><section><h1>Friends</h1><p>You have 15 friends</p></section
+            ><div><span class="fa fa-chevron-right"></span></div>
+          </a>        
+
+          <a href="#settings/beer">
+            <aside><img src="images/location-logo.png"></aside
+            ><section><h1>Beer</h1><p>You enjoy 24 beers</p></section
+            ><div><span class="fa fa-chevron-right"></span></div>
+          </a>
+        </div>
+
 
       <div class="menu-light-alt">
         <% if (attributes.userType == 'business') { %>
@@ -743,7 +812,7 @@
 
             <% } %>
 
-            <li><aside></aside><input type="text" name= "handle" value="<%=  user.get('handle') %>"></li>
+            <li><aside></aside><input type="text" name="handle" value="<%=  user.get('handle') %>"></li>
             <li><aside></aside><input type="text" name="phone-number" value="<%= user.get('phoneNumber') %>" placeholder="Phone Number"></li>
             <li><aside></aside><input type="text" name="website" value="<%= user.get('website') %>" placeholder="Website"></li>
 
@@ -916,12 +985,64 @@
   </div>
 </script>
 
+<!-- Settings Following -->
 
+<script type="text/template" id="settings-following-view">
+
+  <% var user = Parse.User.current() %>
+  <div class="dashboard-container">
+    <div class="middle-column">
+    </div>
+  </div>
+</script>
+
+<!--  Following List -->
+
+<script type="text/template" id="individual-following-view">
+  <aside>
+    <% if (typeof attributes.avatar !== 'undefined') {  %>
+    <img src="<%= attributes.avatar._url %>">
+    <% } else { %>
+    <img src="images/default-avatar.png">
+    <% } %>
+  </aside
+  ><section>
+    <h1><%= attributes.businessName %></h1>
+    <p><%= attributes.address %></p>
+  </section
+  ><article>
+    <p class='follow'>Unfollow</p>
+  </article>
+</script>
+
+
+<!-- Settings Friends -->
+
+<script type="text/template" id="settings-friends-view">
+
+  <% var user = Parse.User.current() %>
+  <div class="dashboard-container">
+    <div class="middle-column">
+    </div>
+  </div>
+</script>
+
+
+
+<!-- Settings Beer -->
+
+<script type="text/template" id="settings-beer-view">
+
+  <% var user = Parse.User.current() %>
+  <div class="dashboard-container">
+    <div class="middle-column">
+    </div>
+  </div>
+</script>
 
 <!-- backend Competition View -->
 
 <script type="text/template" id="backend-competition-view">
-
 
 </script>
 <!-- END BACKEND TEMPLATES -->
@@ -960,7 +1081,7 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (Parse.User.current().get('userType') === 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><%= user.attributes.businessName %></a><% if (Parse.User.current().get('userType') === 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <i class="fa fa-chevron-up like-button"></i>
@@ -986,12 +1107,13 @@
   </section>
 
   <section class="likes-results-container">
-    <aside><i class="fa fa-chevron-left"></i></aside>
     <section class="likes-module">
       <section class="likes-results"></section>
       <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
     </section>
-    <footer><i class="fa fa-chevron-right"></i></footer>
+
+    <section class="checkin-button"><h1 class="check-in">Check In</h1></section>
+
   </section>
 
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
@@ -1020,7 +1142,7 @@
       </aside
 
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (Parse.User.current().get('userType') === 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><%= user.attributes.businessName %></a><% if (Parse.User.current().get('userType') === 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <i class="fa fa-chevron-up like-button"></i>
@@ -1053,12 +1175,12 @@
   </section>
 
   <section class="likes-results-container">
-    <aside><i class="fa fa-chevron-left"></i></aside>
     <section class="likes-module">
       <section class="likes-results"></section>
       <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
     </section>
-    <footer><i class="fa fa-chevron-right"></i></footer>
+
+    <section class="checkin-button"><h1 class="check-in">Check In</h1></section>
   </section>
 
   <% if (Parse.User.current().get('userType') === 'consumer') { %>
@@ -1076,7 +1198,6 @@
 
 <script type='text/template' id='status-video-view'>
   <% var user = attributes.createdBy %>
-
 </script>
 
 
@@ -1095,7 +1216,7 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><% if (Parse.User.current().get('userType') === 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><%= user.attributes.businessName %></a><% if (Parse.User.current().get('userType') === 'consumer') { %><span class="fa fa-star follow"></span><% } else { %><% } %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <i class="fa fa-chevron-up like-button"></i>
@@ -1156,8 +1277,7 @@
         <% } %>
       </aside
 
-
-      ><section><a href='#consumer/<%= user.attributes.handle %>'><h1><%= user.attributes.firstName %> <%= user.attributes.lastName %></h1></a><span class="fa fa-star follow"></span><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
+      ><section><a href='#consumer/<%= user.attributes.handle %>'><%= user.attributes.firstName %> <%= user.attributes.lastName %></a><%= attributes.content %><h3><%= moment(createdAt).fromNow(true) %> ago</h3></section
 
       ><footer>
         <i class="fa fa-chevron-up like-button"></i>
@@ -1167,25 +1287,6 @@
   </section>
   <section class="feed-checkin-content">
     <section><p><%= attributes.content %></p></section>
-  </section>
-
-  <section class="feed-likes">
-    <aside>
-    </aside
-
-    ><section class="likes-trigger">
-      <span class="entypo-dot-3"></span>
-    </section
-    ><aside></aside>
-  </section>
-
-  <section class="likes-results-container">
-    <aside><i class="fa fa-chevron-left"></i></aside>
-    <section class="likes-module">
-      <section class="likes-results"></section>
-      <section class="likes-results-background"><li></li><li></li><li></li><li></li><li></li></section>
-    </section>
-    <footer><i class="fa fa-chevron-right"></i></footer>
   </section>
 
 </script>
@@ -1284,12 +1385,11 @@
           ><section><h1><%= attributes.firstName + ' ' + attributes.lastName%></h1><span class="fa fa-check-circle"></span><p>@<%= attributes.handle%></p></section
           ><div></div>
         </div>
+
+      </div
+      ><div class="right-column">
+
       </div>
-
-    </div
-    ><div class="right-column">
-
-    </div>
   </div>
 
 </script>
@@ -1300,10 +1400,6 @@
 
 <script type="text/template" id="business-view">
   <% var user = Parse.User.current() %>
-
-
-
-
 </script>
 
 
@@ -1322,24 +1418,24 @@
               <img src="images/default-avatar.png">
             <% } %>
           </div>
-          <div class="user-logo">
-            <% if (typeof attributes.avatar != 'undefined') { %>
-              <img src="<%= attributes.avatar.url() %>">
-            <% } else { %>
-              <img src="images/default-avatar.png">
-            <% } %>
-
-            <h1><%= attributes.businessName %></h1>
-            <a>@<%= attributes.handle %></a>
+          <div class="user-header">
+            <aside>
+              <% if (typeof attributes.avatar != 'undefined') { %>
+                <img src="<%= attributes.avatar.url() %>">
+              <% } else { %>
+                <img src="images/default-avatar.png">
+              <% } %>
+            </aside
+            ><section><h1><%= attributes.businessName%></h1><span class="fa fa-check-circle"></span><p>@<%= attributes.handle%></p></section
+            ><div><img src="images/fire-logo-1.png"><h1>1,638</h1></div>
           </div>
         </div>
-
-      <div class="user-address">
-        <li><span class="fa fa-location-arrow"></span><h1><%= attributes.address %>,</h1> <h2><%= attributes.city %> <%= attributes.state %>, <%= attributes.zip %></h2></li
-        ><li><span class="fa fa-globe"></span><h1><%= attributes.website %></h1></li>
-      </div>
-
-
+        <div class="profile-beer-list"><ul></ul></div>
+        <div class="seven-day-nav">
+          <ul>
+            <!-- Appended DayViews go here -->
+          </ul>
+        </div>
         <div class="menu-light">
 
           <a href="#business/<%= attributes.handle %>/feed">
@@ -1434,29 +1530,6 @@
           </li>
         </div>
 
-          <div class="beer-loading hidden">
-            <!-- 1 -->
-            <div class="loader" title="0">
-              <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-               width="30px" height="30px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-              <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
-                s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
-                c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
-              <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
-                C22.32,8.481,24.301,9.057,26.013,10.047z">
-                <animateTransform attributeType="xml"
-                  attributeName="transform"
-                  type="rotate"
-                  from="0 20 20"
-                  to="360 20 20"
-                  dur="0.5s"
-                  repeatCount="indefinite"/>
-                </path>
-              </svg>
-            </div>
-          </div>
-
-
         <div class="profile-beer-list">
           <ul>
 
@@ -1535,7 +1608,6 @@
 <!-- Bar Search View -->
 
 <script type="text/template" id="bar-search-results-view">
-  <% if (typeof attributes.userType === 'business') { %><a href="#business/<%= attributes.handle %>"><% } else { %><a href="#consumer/<%= attributes.handle %>"><% } %>
     <aside>
       <% if (typeof attributes.avatar != 'undefined') { %>
         <img src="<%= attributes.avatar.url() %>">
@@ -1545,15 +1617,14 @@
     </aside>
     <section>
       <% if (attributes.userType == 'business') { %>
-        <h1><%= attributes.businessName %></h1><span class="fa fa-star follow"></span>
+        <a href="#business/<%= attributes.handle %>"><h1><%= attributes.businessName %></h1></a>
       <% } else { %>
-        <h1><%= attributes.firstName + ' ' + attributes.lastName %></h1><span class="fa fa-star follow"></span>
+        <a href="#consumer/<%= attributes.handle %>"><h1><%= attributes.firstName + ' ' + attributes.lastName %></h1></a>
       <% } %>
       <p>@<%= attributes.handle %></p>
 
     </section>
-    <div></div>
-  </a>
+    <div><span class="fa fa-star follow"></span></div>
 
 </script>
 
@@ -1634,76 +1705,25 @@
 <% if (user.get('userType') === 'consumer') { %>
 
   <div class="dashboard-container">
+      <div class="left-column">
+      </div
 
-      <div class="middle-column">
+      ><div class="middle-column">
 
-        <div class="user-info-wrap">
-          <section class="user-info">
-            <aside>
-              <% if (typeof user.get('avatar') !=='undefined') { %>
-                <img src=<%= user.get('avatar')._url %> >
-              <% } else { %>
-                <img src="images/default-avatar.png">
-              <% } %>
-            </aside
-
-            ><section><h1><% if (user.get('userType') === 'business') { %><%= user.get('businessName') %><% } else { %><%= user.get('firstName') %> <%= user.get('lastName') %><% } %></h1><p>@<%= user.get('handle') %></p></section
-
-            ><footer>
-              <a href="#dashboard/friends">
-                <span class="fa fa-check-circle"></span>
-                <h2>15</h2>
-              </a>
-              <a href="#dashboard/following">
-                <img src="images/fire-logo-1.png">
-                <h2 class='follow-number'></h2>
-              </a>
-            </footer>
-          </section>
-        </div>
-        
-        <div class="tab-select-container">
-          <div class="tab-select">
-            <li class="active-user"><h1>Local</h1></li
-            ><li><h1>Following</h1></li
-            ><li><h1>Friends</h1></li>
+        <div class="tab-select-wrap">
+          <div class="tab-select-container">
+            <div class="tab-select">
+              <li class="active-user"><h1>Local</h1></li
+              ><li><h1>Following</h1></li
+              ><li><h1>Friends</h1></li>
+            </div>
           </div>
         </div>
-
         <div class="bar-feed"></div>
-
-        <div class="menu-light">
-
-          <a href="#dashboard/feed">
-            <aside><img src="images/comment-logo-1.png"></aside
-            ><section><h1><%= user.get('city') %>, <%= user.get('state') %></h1><p><%= user.get('maxDistance') %> mile radius</p></section
-            ><div><span class="fa fa-chevron-right"></span></div>
-          </a>
-
-          <a href="#dashboard/following">
-            <aside><img src="images/bookmark-logo-1.png"></aside
-            ><section><h1>Following</h1><p>You follow 9 businesses</p></section
-            ><div><span class="fa fa-chevron-right"></span></div>
-          </a>
-
-          <a href="#dashboard/friends">
-            <aside><img src="images/location-logo.png"></aside
-            ><section><h1>Friends</h1><p>You have 15 friends</p></section
-            ><div><span class="fa fa-chevron-right"></span></div>
-          </a>        
-
-          <a href="#dashboard/map">
-            <aside><img src="images/location-logo.png"></aside
-            ><section><h1>Map</h1><p>Find Your Bar</p></section
-            ><div><span class="fa fa-chevron-right"></span></div>
-          </a>
-        </div>
-
 
         <div class="feed-header-wrap">
           <section class="feed-header"><h1>Dashboard</h1><span class="fa fa-caret-down"></span></section>
         </div>
-
 
         <div class="copyright-info">
           <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
@@ -1719,36 +1739,24 @@
 <% } %>
 </script>
 
-<script type="text/template" id="dashboard-feed-view">
-<% var user = Parse.User.current() %>
+<!-- Dashboard Listing View -->
+
+<script type="text/template" id="dashboard-listing-view">
+  <% var user = Parse.User.current() %>
 
   <div class="dashboard-container">
     <div class="middle-column">
 
       <div class="dashboard-header">
-        <aside><a href="#dashboard"><span class="fa fa-chevron-left"></span></a></aside
-        ><section><h1><%= user.get('city') %>, <%= user.get('state') %></h1></section
+        <aside><img src="images/bookmark-logo-1.png"></aside
+        ><section><h1>Listing</h1></section
         ><div></div>
       </div>
 
-      <div class="tab-select">
-        <li class="active-tab"><h1>Local Feed</h1></li
-        ><li><h1>Listing</h1></li>
-      </div>
-
-      <div class="bar-feed"><ul></ul></div>
-
-      <div class="copyright-info">
-        <h1>English (US) · Privacy · Terms · Cookies · Advertising</h1>
-        <p>Beseech Me®, LLC</p>
-      </div>
-
+      <div class="listing-container"></div>
     </div>
-
   </div>
 </script>
-
-
 
 <script type="text/template" id="individual-listing-view">
 
@@ -1769,91 +1777,7 @@
   </div>
 </script>
 
-<script type="text/template" id="dashboard-listing-view">
-  <% var user = Parse.User.current() %>
 
-  <div class="dashboard-container">
-    <div class="middle-column">
-
-      <div class="dashboard-header">
-        <aside><img src="images/bookmark-logo-1.png"></aside
-        ><section><h1>Listing</h1></section
-        ><div></div>
-      </div>
-
-      <div class="listing-container"></div>
-    </div>
-  </div>
-</script>
-
-<!-- Dashboard Following List -->
-
-<script type="text/template" id="individual-following-view">
-
-  <aside>
-    <% if (typeof attributes.avatar !== 'undefined') {  %>
-    <img src="<%= attributes.avatar._url %>">
-    <% } else { %>
-    <img src="images/default-avatar.png">
-    <% } %>
-  </aside
-  ><section>
-    <h1><%= attributes.businessName %></h1>
-    <p><%= attributes.address %></p>
-  </section
-  ><article>
-    <p class='follow'>Unfollow</p>
-  </article>
-
-</script>
-
-<script type="text/template" id="dashboard-following-view">
-  <% var user = Parse.User.current() %>
-
-  <div class="dashboard-container">
-
-    <div class="middle-column">
-
-      <div class="dashboard-header">
-        <aside><a href="#dashboard"><span class="fa fa-chevron-left"></span></a></aside
-        ><section><h1>Following</h1></section
-        ><div></div>
-      </div>
-
-      <div class="tab-select">
-        <li class="active-tab"><h1>Feed</h1></li
-        ><li><h1>List</h1></li>
-      </div>
-
-      <div class="bar-feed"><ul></ul></div>
-
-    </div>
-
-  </div>
-</script>
-
-
-<script type="text/template" id="dashboard-friends-view">
-  <% var user = Parse.User.current() %>
-
-  <div class="dashboard-container">
-
-    <div class="middle-column">
-
-      <div class="dashboard-header">
-        <aside><a href="#dashboard"><span class="fa fa-chevron-left"></span></a></aside
-        ><section><h1>Friends</h1></section
-        ><div></div>
-      </div>
-      <div class="tab-select">
-        <li class="active-tab"><h1>Feed</h1></li
-        ><li><h1>List</h1></li>
-      </div>
-      <div class="friends-feed"></div>
-    </div>
-
-  </div>
-</script>
 
 <!-- Dashboard Map View -->
 
@@ -1880,6 +1804,8 @@
     ><section><a href='#business/<%= attributes.handle %>'><h1><%= attributes.businessName %></h1></a><p><%= attributes.address %></p></section>
   </div>
 </script>
+
+<!-- Friend Request Inbox -->
 
 <script type="text/template" id="friend-inbox-view">
 
@@ -1912,6 +1838,8 @@
   </section>
 
 </script>
+
+<!-- Error Page -->
 
 <script type="text/template" id="error-page-view">
 

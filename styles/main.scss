@@ -4,6 +4,7 @@
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700);
 
+
 /* entypo */
 [class*="entypo-"]:before {
   font-family: 'entypo', sans-serif;
@@ -46,6 +47,13 @@ $blue-900: #0D47A1;
 
 $text-color: #f0f0f0;
 
+$checked-color: #34b93d;
+$unchecked-color: #000;
+$checkbox-height: 100px;
+$background-color:#667788;
+$font-color:#efefef;
+$duration: .4s;
+  
 
 /* Global Variables */
 
@@ -82,8 +90,8 @@ body {
 }
 
 .dashboard-container {
-	width: 480px;
-    margin: 0 auto 60px;
+	width: 480px; 
+    margin: 75px auto;
     position: relative;
     z-index: 1;
 }
@@ -147,7 +155,9 @@ body {
 	z-index: 10;
 	padding: 0;
 	transition: 250ms;
-	padding: 0px 0px 0 0;
+	padding: 0px;
+	width: 100%;
+	display: none;
 }
 
 .middle-column {
@@ -177,42 +187,16 @@ body {
 	transition: 250ms;
 }
 
+/* Header */
+
 header {
 	width: 100%;
     margin: 0px auto 0;
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 500;
-    background: $primary-color-900;
-}
-
-
-
-.one-column-header {
-	width: 540px;
-	height: 75px;
-	margin: 0 auto;
-	position:relative;
-	padding: 15px 0 0;
-}
-
-
-.header-logo {
-	display: inline-block;
-	padding-top:0px;
-	margin: 0 auto;
-	text-align: center;
-	padding-left:0px;
-
-
-	img {
-		display: inline-block;
-		vertical-align: top;
-		height: auto;
-		width: 35px;
-	}
-
+    background: #fff;
 }
 
 .header-right,
@@ -242,7 +226,7 @@ header {
 	width: 480px;
 	margin: 0 auto;
 	height: 60px;
-	background: $primary-color-900;
+	background: #fff;
 }
 
 .header-left {
@@ -340,7 +324,7 @@ header {
 }
 
 .confirm-message-container {
-	width: 480px;
+	width: 100%;
 	height: 60px;
 	margin: 0 auto;
 	position: relative;
@@ -951,7 +935,8 @@ header {
 	div, 
 	aside, 
 	h1,
-	span {
+	span, 
+	img {
 		display: inline-block;
 		vertical-align: top;
 	}
@@ -1003,7 +988,7 @@ header {
 
 	div {
 		float: right;
-		padding: 0px 30px 5px 0;
+		padding: 9px 30px 5px 0;
 
 		span {
 			color: #ddd;
@@ -1014,9 +999,15 @@ header {
 			font-size: 1.2em;
 			color: #333;
 			font-weight: 400;
+			padding-left: 5px;
 			/*border-bottom: 1px solid #333;*/
 			/*padding: 0 2px 1px;*/
 		}	
+
+		img {
+			width: 15px;
+			height: auto;
+		}
 
 		i {
 			color: #333;
@@ -2048,7 +2039,7 @@ header {
 	width: 100%;
 	position: relative;
 	display: inline-block;
-	background: $primary-color-900;
+	background: $blue-800;
 	z-index:0;
 }
 
@@ -2349,8 +2340,8 @@ header {
 		height: auto;
 		/*top: -50px;*/
 
-		-webkit-filter: blur(3px);
-		filter: blur(3px);
+/*		-webkit-filter: blur(3px);
+		filter: blur(3px);*/
 	}
 }
 
@@ -2465,14 +2456,12 @@ header {
 
 .beer-search {	
 	width: 100%;
-    background: #fff;
     position: relative;
     transition: 250ms;
     z-index: 50;
-    margin: 15px 0 0;
-    padding: 20px;
-    border-bottom: 1px solid #f8f8f8;
-    display: none;
+    margin: 15px 0;
+    height: 50px;
+    overflow: hidden;
 
     section, 
     aside, 
@@ -2485,19 +2474,20 @@ header {
     }
 
     section {
-    	width: 80%;
+    	width: 100%;
     	background: #f8f8f8;
+    	height: 50px;
 
 		input {
 			color: #333;
 			background: #f8f8f8;
-			height: 40px;
+			height: 50px;
 			width: 70%;
 			border: 0;
 			background: transparent;
 			outline: 0;
 			border-radius: 0;
-			font-size: 1.1em;
+			font-size: 1.2em;
 			font-weight: 300;
 			text-indent: 20px;
 		}
@@ -2511,8 +2501,8 @@ header {
 			font-size: 1.4em;
 			color: #ddd;
 			text-align: center;
-			padding-top: 13px;
-			height: 40px;
+			padding-top: 18px;
+			height: 50px;
 			cursor: pointer;
 			float: right;
 		}
@@ -2563,7 +2553,6 @@ header {
 	z-index: 999999999999;
 	z-index: 0;
 	transition: 250ms;
-	margin-top: 20px;
 
 }
 
@@ -2672,35 +2661,14 @@ header {
 
 	}
 
-	footer {
+	div {
 		float: right;
-		padding: 15px 20px;
+		padding: 20px 20px 0;
 
-		h1, 
-		span, 
-		div, 
-		h2, 
-		i {
-			display: inline-block;
-			vertical-align: top;
+	    span {
+		    font-size: 2em;
+		    color: #ddd;
 		}
-
-		i {
-			height: 25px;
-			width: 25px;
-			padding-top: 4px;
-	    	font-size: 1.3em;
-	    	color: #ddd;
-	    	cursor: pointer;
-	    	text-align: center;
-	    }
-
-	    h1 {
-		    font-size: 1em;
-		    font-weight: 400;
-		    padding-top: 12px;
-		    padding-right: 10px;
-	    }
 
 	}
 
@@ -2728,113 +2696,72 @@ header {
 
 /* Search Input*/
 
+.tab-select-wrap {
+	width: 100%;
+	background: #fff;
+	text-align: center;
+}
+
 .tab-select-container {
-	text-align: center;
-	width: 100%;
-	padding: 0 15px;
+	position: relative;
+	margin: 0 auto;
+	width: 480px;
+	padding: 0;
+	background: #fff;
 }
 
-.tab-select {
+.tab-select, 
+.user-select {
 	display: inline-block;
-	margin: 20px auto 0;
+	margin: 0 auto;
 	position: relative;
 	text-align: center;
-	border-radius: 3px;
-	width: 100%;
-	border: 1px solid $blue-500;
-
+	width: 480px;
 
 	li {
 		display: inline-block;
 		background: #fff;
-		width: 33.33333%;
+		width: 33.3333%;
 		text-align: center;
-		padding: 10px 0;
+		padding: 15px 0;
 		position: relative;
+		cursor: pointer;
 
 		h1 {
-			color: $blue-500;
+			color: #999;
 			font-weight: 400;
 			font-size: 1em;
 		}
 	}
 
 	li:first-child {
-		border-radius: 3px 0 0 3px;
-		border-right: 1px solid $blue-500;
+		/*border-radius: 3px 0 0 3px;*/
+		/*border-right: 1px solid $blue-500;*/
 	}
 
 	li:last-child {
-		border-radius: 0 3px 3px 0;
-		border-left: 1px solid $blue-500;
+		/*border-radius: 0 3px 3px 0;*/
+		/*border-left: 1px solid $blue-500;*/
 	}
 }
 
-.active-user {
-	background: $blue-500 !important;
-
-	h1 {
-		color: #fff !important;
-		font-weight: 400 !important;
-	}
-}
-
-.user-select{
-	display: inline-block;
-	margin: 20px auto 0;
-	position: relative;
-	text-align: center;
-	border-radius: 3px;
-	border: 1px solid $blue-500;
-
+.user-select {
 
 	li {
-		display: inline-block;
-		background: #fff;
-		width: 120px;
-		text-align: center;
-		padding: 10px 0;
-		position: relative;
-
-		h1 {
-			color: $blue-500;
-			font-weight: 400;
-			font-size: 1em;
-		}
-	}
-
-	li:first-child {
-		border-radius: 3px 0 0 3px;
-		border-right: 1px solid $blue-500;
-	}
-
-	li:last-child {
-		border-radius: 0 3px 3px 0;
-		border-left: 1px solid $blue-500;
+		width: 50%;
 	}
 }
 
 .active-user {
-	background: $blue-500 !important;
+    background: #f8f8f8 !important;
+    box-shadow: 0 0 20px -10px #ddd inset;
 
 	h1 {
-		color: #fff !important;
-		font-weight: 400 !important;
+		color: #333 !important;
 	}
-
-
-/*	&::after {
-		background: #d8d8d8;
-		position: absolute;
-		content: "";
-		top: 0 ;
-		left: 0;
-		bottom: -3px;
-		right: 0;
-		z-index:-1;
-
-	}*/
 }
+
+
 
 
 
@@ -2845,7 +2772,7 @@ header {
 	width: 480px;
 	transition: 250ms;
 	height: 50px;
-	margin: 10px auto;
+	margin: 15px auto;
 	text-align: center;
 	border-radius: 3px;
 
@@ -3142,17 +3069,20 @@ header {
 .profile-beer-list {
 	width: 100%;
 	margin-top:0px;
-	background: #fff;
 	border-radius: 3px;
 
 	li {
 		display: inline-block;
 		width: 100%;
-		padding: 20px 0;
+		padding: 15px 0;
 		cursor:auto;
 		position: relative;
 		background: #fff;
 		border-bottom: 1px solid #f8f8f8;
+	}
+
+	li:last-child {
+		border-bottom: 0;
 	}
 
 	div {
@@ -3250,14 +3180,70 @@ header {
 
 	section {
 		float: right;
+		padding: 10px 10px 0 0;
 
 		h1 {
 			font-size: 1.2em;
 			color: #333;
 		}
+
+		i {
+			font-size: 1.4em;
+			color: #f0f0f0;
+		}
 	}
 
 }
+
+
+/*Checkbox*/
+
+/*Checkboxes styles*/
+input[type="checkbox"] { display: none; }
+
+input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  font: 14px/20px 'Open Sans', Arial, sans-serif;
+  color: #ddd;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ddd;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  border:2px solid $blue-700;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*END CHECKBOX*/
 
 
 .loader{
@@ -3372,10 +3358,12 @@ svg rect{
 }
 
 .load-more-button {
-	width: 100% !important;
+	position: relative;
+	margin: 10px auto;
 	text-align: center;
-	padding: 15px;
+	padding: 10px 15px;
 	background: #fff;
+	border-radius: 3px;
 }
 
 .profile-beer-tabs, 
@@ -3590,33 +3578,10 @@ svg rect{
 			color: $secondary-color-700;
 		}
 
-		/*nav {
-			width: 200px;
-			position: absolute;
-			background: #fff;
+		span {
+			font-size: 1.2em;
+		}
 
-			ul {
-				list-style:none;
-				padding-left: 0;
-			}
-
-			li {
-				width: 50%;
-				display: inline-block;
-				padding: 5px;
-
-				p {
-					font-size: 1em;
-				}
-			}
-		}*/
-	}
-
-	span {
-		font-size: 18px;
-		display: inline-block;
-		vertical-align: top;
-		color: $secondary-color-500;
 	}
 
 }
@@ -4152,7 +4117,6 @@ svg rect{
     width: 480px;
     height: 50px;
     position: relative;
-    /* margin-top: -40px; */
     text-align: center;
     transition: 250ms;
     border-radius: 0 0 3px 3px !important;
@@ -4189,11 +4153,14 @@ svg rect{
 
 }
 
+
+
 .likes-module {
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
-	width: 170px;
+	width: 180px;
+	padding: 0 10px;
 }
 
 .likes-results {
@@ -4204,7 +4171,7 @@ svg rect{
 	z-index: 20;
 	position: relative;
 	text-align: left;
-	width: 170px;
+	width: 180px;
 
 	a { 
 		display: inline-block;
@@ -4275,6 +4242,19 @@ svg rect{
 	margin-top: 0px;
 }
 
+
+.checkin-button {
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	cursor: pointer;
+
+	h1 {
+		font-size: 1.2em;
+		color: #999;
+		font-weight: 400;
+	}
+}
 /* Following Results */
 
 .following-results-container {
@@ -4851,14 +4831,20 @@ svg rect{
 		div,
 		a {
 			display: inline-block;
-			vertical-align: top;
+			vertical-align: middle;
 		}
 
-		h1 {
+		a {
 			color: #333;
 			font-size:1.1em;
 			font-weight: 500;
 			margin-top: 0;
+		}
+
+		p {
+			font-size: 1.1em;
+			font-weight: 300;
+			padding: 1px 0 0 2px;		
 		}
 
 		h3 {
@@ -4950,8 +4936,8 @@ svg rect{
 
 .user-info {
 	display: inline-block;
-	width: 480px;
-	margin: 20px auto 0;
+	width: 100%;
+	margin: 0 auto;
     position: relative;
     z-index: 1;
     background: #f8f8f8;
@@ -5227,7 +5213,7 @@ svg rect{
 .feed-content {
 	width: 100%;
 	display: inline-block;
-	padding: 0 15px 15px;	
+	padding: 0 15px 15px 70px;	
 	background: #fff;
 
 	aside {
@@ -5280,8 +5266,9 @@ svg rect{
 .feed-checkin-content {
 	width: 100%;
 	display: inline-block;
-	padding: 0px 15px 10px 10px;	
+	padding: 0px 15px 10px 70px;	
 	background: #fff;
+	display: none;
 
 	section, 
 	aside, 
@@ -5293,7 +5280,6 @@ svg rect{
 	section {
 		text-align: left;
 		display: inline-block;
-		padding-left: 10px;
 		width: 75%;
 
 		p, 
@@ -5693,7 +5679,7 @@ svg rect{
 .feed-event {
 	width: 100%;
 	display: inline-block;
-	padding: 0px 15px 10px;	
+	padding: 0px 15px 10px 70px;	
 	background: #fff;
 
 	aside {

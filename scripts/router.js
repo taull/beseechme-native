@@ -45,6 +45,9 @@ var Router = Backbone.Router.extend({
     'settings/location/address' : 'settingsAddress',
     'settings/logos' : 'settingsLogos',
     'settings/location' : 'settingsLocation',
+    'settings/following' : 'settingsFollowing',
+    'settings/friends' : 'settingsFriends',
+    'settings/beer' : 'settingsBeer',
 
     'test' : 'test',
 	},
@@ -328,5 +331,20 @@ var Router = Backbone.Router.extend({
   settingsLocation: function () {
     BeMe.removeAllViews();
     new BeMe.Views.SettingsLocation();
+  },
+
+  settingsFollowing: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsFollowing();
+  },
+
+  settingsFriends: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsFriends();
+  },
+
+  settingsBeer: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsBeer();
   },
 });
