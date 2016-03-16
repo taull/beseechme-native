@@ -39,6 +39,9 @@ var Router = Backbone.Router.extend({
     'settings/location/address' : 'settingsAddress',
     'settings/logos' : 'settingsLogos',
     'settings/location' : 'settingsLocation',
+    'settings/following' : 'settingsFollowing',
+    'settings/friends' : 'settingsFriends',
+    'settings/beer' : 'settingsBeer',
 
     'test' : 'test',
 	},
@@ -323,6 +326,21 @@ var Router = Backbone.Router.extend({
     BeMe.removeAllViews();
     new BeMe.Views.SettingsLocation();
   },
+
+  settingsFollowing: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsFollowing();
+  },
+
+  settingsFriends: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsFriends();
+  },
+
+  settingsBeer: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.SettingsBeer();
+  },
 });
 
 // 'use strict';
@@ -492,7 +510,7 @@ BeMe.CheckIn = function (user, business) {
     var thisMoment = new moment(new Date());
     var dateFormatted = thisMoment.format('h:mma [on] MMMM Do, YYYY');
 
-    var content = '<p>' + 'Checked into' + '</p>' + ' ' + '<a>' + business.get('businessName') + '</a>';
+    var content = '<p>' + 'checked into' + '</p>' + ' ' + '<a>' + business.get('businessName') + '</a>';
 
     checkInStatus.set('location', user.get('location'));
     checkInStatus.set('content', content);
@@ -2927,6 +2945,45 @@ BeMe.Views.SettingsBasic = Parse.View.extend({
 		BeMe.renderedViews.push(this);
 	}
 });
+BeMe.Views.SettingsBeer = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#settings-beer-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+BeMe.Views.SettingsFollowing = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#settings-following-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
+BeMe.Views.SettingsFriends = Parse.View.extend({
+	initialize: function () {
+		this.render();
+	},
+
+	template: _.template($('#settings-friends-view').text()),
+
+	render: function () {
+		this.$el.html(this.template(this.model));
+		$('.body-container').append(this.el);
+		BeMe.renderedViews.push(this);
+	}
+});
 BeMe.Views.SettingsLocation = Parse.View.extend({
   initialize: function () {
     this.render();
@@ -3218,6 +3275,8 @@ BeMe.Views.Status = Parse.View.extend({
 	        $(likeButton).addClass('dislike-button');
 	      	$(likeButton).removeClass('like-button');
 	      	likeButton.style.color = '#66BB6A';
+	      	// likeButton.style.border = '2px solid #66BB6A';
+
 	      }
 	    });
   	},
@@ -3247,6 +3306,8 @@ BeMe.Views.Status = Parse.View.extend({
 	      this.likeCount -=1;
 	      //Update the UI
 	      currentTarget.style.color = '#ddd';
+	      // currentTarget.style.border = '2px solid #ddd';
+
 	      $(currentTarget).removeClass('dislike-button');
 	      $(currentTarget).addClass('like-button');
 	      $likeCount.text(this.likeCount);
@@ -3259,6 +3320,7 @@ BeMe.Views.Status = Parse.View.extend({
 	      this.likeCount += 1;
 	      //Update the UI
 	      currentTarget.style.color = '#66BB6A';
+	      // currentTarget.style.border = '2px solid #66BB6A';
 	      $(currentTarget).removeClass('like-button');
 	      $(currentTarget).addClass('dislike-button');
 	      $likeCount.text(this.likeCount);
