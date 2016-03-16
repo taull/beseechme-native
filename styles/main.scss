@@ -4,13 +4,10 @@
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700);
 
-
 /* entypo */
 [class*="entypo-"]:before {
   font-family: 'entypo', sans-serif;
 }
-
-
 
 /* Colors */
 
@@ -76,7 +73,7 @@ input [file] {
 body {
 	font-size: 12px;
 	position: relative;
-	background: $primary-color-50;
+	background: #f8f8f8;
 	width: 100%;
 	margin: 0 auto;
 	transition: 250ms;
@@ -91,7 +88,14 @@ body {
 
 .dashboard-container {
 	width: 480px; 
-    margin: 75px auto;
+    margin: 120px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.business-container {
+	width: 480px; 
+    margin: 0 auto;
     position: relative;
     z-index: 1;
 }
@@ -153,19 +157,16 @@ body {
 
 .left-column {
 	z-index: 10;
-	padding: 0;
+	padding: 0 10px 0 0;
+	width: 360px;
 	transition: 250ms;
-	padding: 0px;
-	width: 100%;
 	display: none;
 }
 
 .middle-column {
 	position: relative;
-	width: 100%;
+	width: 480px;
 	transition: 250ms;
-	padding: 0 0 0px; 
-	background: transparent;
 }
 
 .right-column {
@@ -196,8 +197,12 @@ header {
     top: 0;
     left: 0;
     z-index: 500;
-    background: #fff;
-}
+    height: 120px;
+  background: url(../images/bluebkgd.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
 
 .header-right,
 .header-left, 
@@ -212,6 +217,69 @@ header {
 	background: rgba(255,255,255,.1);
 }
 
+.native-header-wrap {
+	width: 100%;
+	display: none;
+} 
+
+.native-header {
+	width: 480px;
+	margin: 0 auto;
+	padding: 5px;
+
+	aside, 
+	section, 
+	div, 
+	span, 
+	i, 
+	h1 {
+		display: inline-block;
+	}
+
+	aside {
+		width: 30%;
+
+		span {
+			font-size: .7em;
+			color: #fff;
+		}
+
+		h1 {
+			font-size: 1em;
+			font-weight: 300;
+			color: #fff;
+			padding: 0 5px 0 2px;
+		}
+
+		i {
+			font-size: 1em;
+			color: #fff;
+		}
+	}
+
+	section {
+		width: 40%;
+		text-align: center;
+
+		h1 {
+			font-size: 1em;
+			color: #fff;
+			font-weight: 400;
+			text-transform: uppercase;
+		}
+	}
+
+	div {
+		width: 30%;
+		text-align: right;
+
+		span {
+			font-size: 1.3em;
+			color: #fff;
+		}
+	}
+}
+
 .header-container {
 	width: 200%;
 	height: 60px;
@@ -221,12 +289,59 @@ header {
 	left:-50%;
 }
 
+.header-logo {
+	width: 480px;
+	margin: 0 auto;
+	height: 60px;
+	padding-top: 20px;
+	display: none;
+
+	aside, 
+	section, 
+	div {
+		display: inline-block;
+	}
+
+	aside {
+		width: 20%;
+		text-align: left;
+		padding: 0 0 0 15px;
+		span {
+			font-size: 1.4em;
+			color: #fff;
+		}
+	}
+
+	section {
+		width: 60%;
+		text-align: center;
+
+		h1 {
+			font-size: 1.4em;
+			color: #fff;
+			font-weight: 300;
+		}
+	}
+
+	div {
+		width: 20%;
+		padding: 0 15px 0 0;
+		text-align: right;
+
+		span {
+			font-size: 1.4em;
+			color: #fff;		
+		}
+	}
+
+
+}
+
 .header-window {
 	overflow: hidden;
 	width: 480px;
 	margin: 0 auto;
 	height: 60px;
-	background: #fff;
 }
 
 .header-left {
@@ -927,7 +1042,6 @@ header {
 	width: 480px;
 	margin: 0 auto 0;
 	padding: 20px 0;
-	margin-bottom: 15px;
 
 
 	a, 
@@ -1081,6 +1195,57 @@ header {
 			/*box-shadow:0 0 5px 0 rgba(0,0,0,0.3);*/
 		}
 	}
+}
+
+.header-tabs-wrap {
+	width: 480px;
+	margin: 0 auto;
+	position: relative;
+	display: none;
+}
+
+.header-tabs {
+	width: 480px;
+	margin: 0 auto;
+	position: relative;
+
+	li {
+		display: inline-block;
+		width: 20%;
+		/*border-right: 1px solid #f0f0f0;
+		border-left: 1px solid #fff;*/
+		text-align: center;
+		padding: 0;
+
+		span {
+			width: 100%;
+			font-size: 1.6em;
+			color: rgba(255,255,255,.3);
+			border-top: 2px solid rgba(255,255,255,.3);
+			padding: 15px 0;
+		}
+
+		h1 {
+			font-size: .6em;
+			text-transform: uppercase;
+			margin-top: 5px;
+			font-weight: 400;
+			display: none;
+		}
+	}
+
+	li:first-child {
+		border-left: 0;
+	}
+
+	li:last-child {
+		border-right: 0;
+	}
+}
+
+.active-header-tab {
+	color: #fff !important;
+	border-top: 2px solid #fff !important;
 }
 
 
@@ -2697,51 +2862,65 @@ header {
 /* Search Input*/
 
 .tab-select-wrap {
-	width: 100%;
-	background: #fff;
+	position: fixed;
+	top: 60px;
+	z-index: 500;
 	text-align: center;
+	width: 100%;
 }
 
-.tab-select-container {
+.tab-select-container, 
+.user-select-container {
 	position: relative;
 	margin: 0 auto;
 	width: 480px;
 	padding: 0;
-	background: #fff;
+ 
 }
 
 .tab-select, 
 .user-select {
 	display: inline-block;
-	margin: 0 auto;
 	position: relative;
-	text-align: center;
-	width: 480px;
+	width: 100%;
+	text-align: left;
+	background: #123455;
+	border-radius: 3px;
+	padding: 15px;
+
+	li, 
+	span {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	span {
+		font-size: 1.4em;
+		color: #fff;
+		padding: 0 15px;
+	}
 
 	li {
-		display: inline-block;
-		background: #fff;
-		width: 33.3333%;
-		text-align: center;
-		padding: 15px 0;
+		padding:0 15px;
 		position: relative;
 		cursor: pointer;
+		/*border-bottom: 3px solid $primary-color-300;*/
 
 		h1 {
-			color: #999;
-			font-weight: 400;
-			font-size: 1em;
+			color: #f5f5f5;
+			font-weight: 300;
+			font-size: 1.1em;
 		}
 	}
 
 	li:first-child {
-		/*border-radius: 3px 0 0 3px;*/
-		/*border-right: 1px solid $blue-500;*/
+		border-radius: 3px 0 0 3px;
+		/*border-right: 1px solid $blue-700;*/
 	}
 
 	li:last-child {
-		/*border-radius: 0 3px 3px 0;*/
-		/*border-left: 1px solid $blue-500;*/
+		border-radius: 0 3px 3px 0;
+		/*border-left: 1px solid $blue-700;*/
 	}
 }
 
@@ -2753,11 +2932,9 @@ header {
 }
 
 .active-user {
-    background: #f8f8f8 !important;
-    box-shadow: 0 0 20px -10px #ddd inset;
 
 	h1 {
-		color: #333 !important;
+		color: #fff !important;
 	}
 }
 
@@ -2775,6 +2952,7 @@ header {
 	margin: 15px auto;
 	text-align: center;
 	border-radius: 3px;
+	background: #fff;
 
 	aside,
 	section,
@@ -2793,7 +2971,6 @@ header {
 		width: 100%;
 		padding: 0;
 		height: 50px;
-		background: #f8f8f8;
 
 		span {
 		    width: 15%;
@@ -3963,7 +4140,6 @@ svg rect{
 
 .bar-feed {
     width: 100%;
-    margin-top: 15px;
 
 	ul {
 		list-style: none;
@@ -3980,15 +4156,14 @@ svg rect{
 
 	li, 
 	div {
-		/*border-radius: 3px;*/
-		margin-bottom: 15px;
 		position: relative;	
 		overflow: hidden; 
+		background: #f5f5f5;
 	}
 
 	li:nth-child(odd), 
 	div:nth-child(odd) {
-		/*background: #f0f0f0;*/
+		background: #f8f8f8;
 	}
 }
 
@@ -4038,7 +4213,7 @@ svg rect{
 	width: 100%;
 	overflow: hidden;
 	position: relative;
-	background: #fff;
+	background: #f8f8f8;
 	z-index: 600;
 
 	aside, 
@@ -4098,6 +4273,10 @@ svg rect{
 	}
 }
 
+.feed-likes:nth-child(odd) {
+	background: #f8f8f8;
+}
+
 .likes {
 	font-size: 1.4em;
 	font-weight: 400;
@@ -4115,15 +4294,14 @@ svg rect{
 
 .likes-results-container {
     width: 480px;
-    height: 50px;
+    height: 0px;
     position: relative;
     text-align: center;
     transition: 250ms;
     border-radius: 0 0 3px 3px !important;
     margin-bottom: 0 !important;
-    background: #f8f8f8;
+    background: #fff;
     box-shadow: 0px 10px 30px -10px #f0f0f0 inset;
-    margin-top: -50px;
 
     aside, 
     footer {
@@ -4239,7 +4417,7 @@ svg rect{
 }
 
 .likes-results-shift {
-	margin-top: 0px;
+	height: 50px;
 }
 
 
@@ -4769,32 +4947,12 @@ svg rect{
 
 /* Feed Info */
 
-.feed-info-shift {
-	right: -50%;
-	transition: 250ms;
-}
-
-.feed-info-details {
-	position: absolute;
-	width: 50%;
-	left: -50%;
-	background: #f8f8f8;
-	height: 70px;
-	transition: 250ms;
-	display: none;
-}
-
-.feed-info-details-shift {
-	left: 0;
-}
-
 .feed-info{
 	width: 100%;
     position: relative;
     z-index: 1;
-    background: #fff;
     overflow: hidden;
-    padding: 15px 0;
+    padding: 20px 0;
     transition: 250ms;
 
 	aside, 
@@ -4803,65 +4961,122 @@ svg rect{
 	div, 
 	h4, 
 	footer, 
-	h1 {
+	h1, 
+	span, 
+	i,
+	article {
 		display: inline-block;
 		vertical-align: top;
 	}
 
+	article {
+		width: 60px;
+		text-align: right;
+		padding-top: 8px;
+
+		span {
+			display: none;
+		}
+
+		i {
+			height: 15px;
+			width: 15px;
+			border-radius: 20px;
+	    	font-size: 1.4em;
+	    	color: #ddd;
+	    	cursor: pointer;
+	    	text-align: center;
+	    	display: none;
+	    	/*background: #fff;*/
+	    	/*border:2px solid #ddd;*/
+		}
+
+		h1 {
+			font-size: 1.2em;
+			font-weight: 500;
+			color: #666;
+			display: block;
+			text-transform: lowercase;
+		}
+
+		h2 {
+			display:block;
+			font-size: .9em;
+			font-weight: 300;
+			color: #666;
+			text-transform: lowercase;
+		}
+	}
+
 	aside {
 		position: relative;
-		padding: 0 0 0 15px;
+		padding: 0 15px;
+		text-align: center;
+
+		span {
+		    font-size: 16px;
+		    color: #2196F3;
+		    margin-top: 20px;
+		    margin-right: -12px;
+		    background: #fff;
+		    /* padding-right: 10px; */
+		    border-radius: 25px;
+		    width: 16px;
+		    height: 16px;
+		    text-align: center;
+		    padding-top: 2px;
+		    position: relative;
+		    display: none;
+		}
 
 		img {
-			width: 40px;
-			height: 40px;
-			border-radius: 25px;
+			width: 50px;
+			height: 50px;
+			border-radius: 32px;
 		}
 
 	}
 
 	section {
 		text-align: left;
-		padding-left: 15px;
+		width: 300px;
 
 		p, 
 		i, 
 		h1,
-		h2, 
-		div,
-		a {
+		h3,  
+		div, 
+		span {
 			display: inline-block;
 			vertical-align: middle;
 		}
 
-		a {
+
+		h1 {
 			color: #333;
-			font-size:1.1em;
-			font-weight: 500;
-			margin-top: 0;
+			font-size:1.4em;
+			font-weight: 400;
+			margin-bottom: 5px;
 		}
 
-		p {
+		p, 
+		h2, 
+		h3, 
+		h4 {
 			font-size: 1.1em;
+			line-height: 1.6em;
 			font-weight: 300;
-			padding: 1px 0 0 2px;		
+			color: #666;	
 		}
 
-		h3 {
+		h4 {
 			display: block;
-			color: #555;
-			font-size:.9em;
-			font-weight: 300;
-			padding-top: 3px;
 		}
 
 		span {
 			font-size: 1.3em;
-			color: #ddd;			
-			text-align: center;
-			width: 20px;
-			height: 20px;
-			padding-top: 2px;
+			color: #ddd;
+			padding: 0 10px;
 			cursor: pointer;
 		}
 
@@ -4877,6 +5092,7 @@ svg rect{
 	footer {
 		float: right;
 		padding: 0 20px;
+		display: none;
 
 		h1, 
 		span, 
@@ -5154,67 +5370,26 @@ svg rect{
 	width: 100%;
 	padding: 0; 
 	position: relative;
+	padding: 0;
 	transition: 250ms;
 
-	img {
-		width: 100%;
-		height: auto;
-		vertical-align: top;
-	}
+	section {
 
-	footer {
-		position: absolute;
-		background: rgba(0,0,0,.6);
-		opacity: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		text-align: center;
-		width: 100%;
-		height: 100%;
-		padding-top: 100px;
-		transition: 250ms;
-
-
-		aside, 
-		section {
-			display: inline-block;
+		img {
+			width: 100%;
+			height: auto;
 			vertical-align: top;
 		}
-
-		aside {
-			width: 20%;
-			position: absolute;
-			bottom: 10px;
-			left: 10px;
-			display: none;
-
-			img {
-				width: 30px;
-				height: 30px;
-				border-radius: 25px;
-			}
-		}
-
-		section {
-			width: 100%;
-			position: relative;
-			text-align: center;
-			p {
-				color: #fff;
-				font-weight: 300;
-				font-size: 1.2em;
-			}
-		}
 	}
+
+
 }
 
 
 .feed-content {
 	width: 100%;
 	display: inline-block;
-	padding: 0 15px 15px 70px;	
-	background: #fff;
+	padding: 0 15px 15px 90px;	
 
 	aside {
 		width: 100%;
@@ -5241,14 +5416,14 @@ svg rect{
 			font-size: 1.2em;
 		    line-height: 1.6em;
 		    font-weight: 300;
-		    color: #333;
+		    color: #666;
 		}
 
 		h1 {
 			font-weight: 400;
 			font-size: 1.3em;
 			line-height: 1.4em;
-			color: #333;
+			color: #666;
 			margin-left: 5px;
 			/*border-bottom: 1px solid #333;*/
 			/*padding-bottom: 1px;*/
@@ -5261,128 +5436,6 @@ svg rect{
 		}
 	}
 
-}
-
-.feed-checkin-content {
-	width: 100%;
-	display: inline-block;
-	padding: 0px 15px 10px 70px;	
-	background: #fff;
-	display: none;
-
-	section, 
-	aside, 
-	footer {
-		display: inline-block;
-		vertical-align: top;
-	}
-
-	section {
-		text-align: left;
-		display: inline-block;
-		width: 75%;
-
-		p, 
-		h1,
-		span, 
-		li, 
-		h3, 
-		a {
-			display: inline-block;
-			vertical-align: bottom;
-		}
-
-		li {
-			width: 100%;
-			margin-bottom: 0;
-
-			h3 {
-				font-size: .8em;
-			    line-height: 1.6em;
-			    font-weight: 300;
-			    color: #ccc;
-			    padding-right: 10px;
-			}
-		}
-
-		p {
-			font-size: 1.2em;
-		    font-weight: 300;
-		    color: #333;
-		}
-
-		h1 {
-			font-weight: 400;
-			font-size: 1.2em;
-			color: #333;
-		}
-
-		h2 {
-			font-size: 1.2em;
-			font-weight: 500;
-			color: #333;
-		}
-
-		span {
-			font-size: .8em;
-		    line-height: 2em;
-		    font-weight: 400;
-		    color: #ccc;
-		    padding: 0 0 0 10px; 
-		}
-
-		a {
-			font-size: 1.2em;
-			border-bottom: 0px solid $secondary-color-500;
-			color: #333;
-			padding: 0;
-			font-weight: 400;
-		}
-	}
-
-	aside {
-		width: 10%;
-		text-align: right;
-
-		h1 {
-			font-size: .8em;
-			color: #ccc;
-			font-weight: 400;
-		}
-
-		img {
-			width: 25px;
-			height: 25px;
-			border-radius: 25px;
-			margin-top: 5px;
-		}
-	}
-
-	footer {
-		padding-top: 5px;
-		width: 15%;
-		text-align: right;
-
-		h1, 
-		span {
-			display: inline-block;
-			vertical-align: top;
-		}
-
-		h1 {
-			color: $green-light;
-			font-size: 1.2em;
-			font-weight: 400;
-
-		}
-
-		span {
-			font-size: 1.6em;
-			font-weight: 700;
-			color: $green-light;
-			padding-left: 2px;
-		}
-	}
 }
 
 .standalone_open {
@@ -6687,7 +6740,7 @@ svg rect{
 		border-right: 1px solid #fff;*/
 
 		text-align: center;
-		padding:10px 5px 15px;
+		padding:10px 0 15px;
 		cursor: pointer;
 		height: 80px;
 	}
@@ -6704,12 +6757,16 @@ svg rect{
 		background: #fafafa;
 	}
 
-	aside {
-		/*display: none;*/
+	footer {
 		vertical-align: top;
 		width: 100%;
 		text-align: center;
 		padding-top:5px;
+
+		span {
+			font-size: 1.2em;
+			color: $green-light;
+		}
 	}
 
 	section {
@@ -6718,12 +6775,27 @@ svg rect{
 		width: 100%;
 		color: #f0f0f0;
 
+		h1 {
+			font-size: 1em;
+			display: inline-block;
+			vertical-align: top;
+			padding: 5px 0;
+			color: #666;
+			font-weight: 700;
+			text-align: left;
+		}
+
+		p {
+			font-size: 1em;
+			font-weight: 300;
+			display: block;
+			vertical-align: top;
+			color: #333;
+			text-align: center;
+		}
+
 	}
 
-	span {
-		font-size: 1.2em;
-		color: $green-light;
-	}
 }
 
 .active-day {
@@ -6732,36 +6804,6 @@ svg rect{
 	text-align: right;
 }
 
-#seven-day-1, 
-#seven-day-2, 
-#seven-day-3, 
-#seven-day-4, 
-#seven-day-5, 
-#seven-day-6, 
-#seven-day-7 {
-	font-size: 1em;
-	display: inline-block;
-	vertical-align: top;
-	padding: 5px 0;
-	color: #666;
-	font-weight: 700;
-	text-align: left;
-}
-
-#seven-month-1, 
-#seven-month-2, 
-#seven-month-3, 
-#seven-month-4, 
-#seven-month-5, 
-#seven-month-6, 
-#seven-month-7 {
-	font-size: 1em;
-	font-weight: 300;
-	display: block;
-	vertical-align: top;
-	color: #333;
-	text-align: center;
-}
 #current-day-heading {
 	font-size: 1em;
 	font-weight: 300;

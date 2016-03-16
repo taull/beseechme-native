@@ -3188,6 +3188,8 @@ BeMe.Views.Status = Parse.View.extend({
 	        $(likeButton).addClass('dislike-button');
 	      	$(likeButton).removeClass('like-button');
 	      	likeButton.style.color = '#66BB6A';
+	      	// likeButton.style.border = '2px solid #66BB6A';
+
 	      }
 	    });
   	},
@@ -3217,6 +3219,8 @@ BeMe.Views.Status = Parse.View.extend({
 	      this.likeCount -=1;
 	      //Update the UI
 	      currentTarget.style.color = '#ddd';
+	      // currentTarget.style.border = '2px solid #ddd';
+
 	      $(currentTarget).removeClass('dislike-button');
 	      $(currentTarget).addClass('like-button');
 	      $likeCount.text(this.likeCount);
@@ -3229,6 +3233,7 @@ BeMe.Views.Status = Parse.View.extend({
 	      this.likeCount += 1;
 	      //Update the UI
 	      currentTarget.style.color = '#66BB6A';
+	      // currentTarget.style.border = '2px solid #66BB6A';
 	      $(currentTarget).removeClass('like-button');
 	      $(currentTarget).addClass('dislike-button');
 	      $likeCount.text(this.likeCount);
