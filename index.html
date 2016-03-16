@@ -176,7 +176,7 @@
 
   <% var user = Parse.User.current() %>
 
-<% if (user.get('userType') === 'business') { %>
+  <% if (user.get('userType') === 'business') { %>
 
 
   <div class="breadcrumbs-wrap">
@@ -1661,7 +1661,7 @@
             </footer>
           </section>
         </div>
-        
+
         <div class="tab-select-container">
           <div class="tab-select">
             <li class="active-user"><h1>Local</h1></li
@@ -1690,7 +1690,7 @@
             <aside><img src="images/location-logo.png"></aside
             ><section><h1>Friends</h1><p>You have 15 friends</p></section
             ><div><span class="fa fa-chevron-right"></span></div>
-          </a>        
+          </a>
 
           <a href="#dashboard/map">
             <aside><img src="images/location-logo.png"></aside
@@ -1929,7 +1929,6 @@
 <script src='bower_components/jquery-ui/jquery-ui.min.js'></script>
 <script src='bower_components/pickadate/lib/picker.js'></script>
 <script src='bower_components/pickadate/lib/picker.date.js'></script>
-<script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 <script src='jquery-accordion.js'></script>
 
 <script type="text/javascript" src="bower_components/jquery-emoji-picker/js/jquery.emojipicker.js"></script>
@@ -1938,6 +1937,10 @@
 <script src='bower_components/autosize/dist/autosize.min.js'></script>
 <script src="bower_components/moment/min/moment.min.js"></script>
 <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBHDpVSzA0WKfRHqi45stay7gkiBk7TdMI'></script>
+
+<script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
 
 <script src='dest/main.js'></script>
 

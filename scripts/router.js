@@ -21,7 +21,6 @@ var Router = Backbone.Router.extend({
 		'backend/calendar' : 'backendCalendar',
     'backend/calendar/comment' : 'backendComment',
 
-
     'business/:handle' : 'businessHome',
     'business/:handle/feed' : 'businessFeed',
     'business/:handle/beer' : 'businessBeerList',
@@ -30,11 +29,6 @@ var Router = Backbone.Router.extend({
     'consumer/:handle' : 'consumerHome',
 
     'dashboard' : 'dashboardHome',
-    // 'dashboard/feed' : 'dashboardFeed',
-    // 'dashboard/listing' : 'dashboardListing',
-    // 'dashboard/map' : 'dashboardMap',
-    // 'dashboard/following' : 'dashboardfollowing',
-    // 'dashboard/friends' : 'dashboardFriends',
 
     // 'search/:query' : 'search',
 
@@ -62,7 +56,7 @@ var Router = Backbone.Router.extend({
 
   secondaryRouteHandler: function (routeName) {
     //make sure the header doesn't show up on the home route
-    if(routeName == 'home') {
+    if(routeName == 'home' || routeName.includes('register')) {
       $('.app-header').hide();
     } else {
       $('.app-header').show();

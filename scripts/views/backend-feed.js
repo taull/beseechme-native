@@ -39,14 +39,13 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 
     var fileIsChosen = !!$fileContainer[0].files.length;
 
+		//conditional where we check to see if there was a file chosen && it was processed correctly
     if (fileIsChosen) { //if there is a file chosen
       var image = BeMe.createImageFile($fileContainer); //create the image file
       if(image == undefined) {
         return false;
       }
     }
-
-    //conditional where we check to see if there was a file chosen && it was processed correctly
 
     var user = Parse.User.current();
 
@@ -67,12 +66,19 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 });
 
 BeMe.Collections.Feeds = Parse.Collection.extend({
+	model: BeMe.Models.Status,
   initialize: function () {
     var self = this;
     this.views = [];
     this.on('add remove', this.render);
+		// FirebaseRef.child('statuses').orderByChild('createdBy').equalTo(BeMe.currentUser.id).once('value', function (snapshot) {
+		// 	console.log(snapshot.val());
+		// 	self.add(snapshot.val());
+		// 	self.render();
+		// });
     this.fetch(this.query).then(function (e) {
       console.log(e);
+			console.log(self);
       self.render();
     });
   },

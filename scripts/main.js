@@ -18,6 +18,9 @@ $('#backend-settings [data-accordion]').accordion();
 
 
 
+// Initialize Firebase
+var FirebaseRef = new Firebase("https://nextap.firebaseio.com");
+
 //Initialize Parse
 
 Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50F9ddlQqx5hH6AkpWvPlQL9");
@@ -38,6 +41,15 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
   BeMe.Dashboard = {};
 
   //misc objects
+  BeMe.currentUser = {
+    attributes:null,
+    authData:null,
+
+    get: function (attr) {
+      return this.attributes[attr];
+    },
+  };
+  
   BeMe.confirmationMessage = {};
 })();
 
@@ -257,9 +269,27 @@ Parse.View.prototype.removeRenderedView = _.wrap(
   }
 );
 
-
-
 $(document).ready(function () {
-	BeMe.Router = new Router();
-	Backbone.history.start();
+  var authCount = 0;
+
+  function authCallback(authData) {
+    console.log("Auth has changed");
+    authCount += 1;
+    if(authData) {
+      console.log('User is now logged in');
+      FirebaseRef.child('users/' + authData.uid).on('value', function (snapshot) {
+        BeMe.currentUser.attributes = snapshot.val();
+        if(authCount == 1) { // only fire the first time
+          BeMe.Router = new Router();
+          Backbone.history.start();
+        }
+      });
+      BeMe.currentUser.authData = authData;
+    } else {
+      console.log('User is no longer logged in');
+      BeMe.currentUser.attributes = null;
+      BeMe.currentUser.authData = null;
+    }
+  }
+  FirebaseRef.onAuth(authCallback);
 });

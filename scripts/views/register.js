@@ -4,13 +4,13 @@ BeMe.Views.Register = Parse.View.extend({
   },
 
   template: _.template($('#register-view').text()),
-  
+
   render: function () {
     var self = this;
     var user = Parse.User.current();
     self.$el.html(self.template());
     $('.body-container').append(self.el);
-    
+
     BeMe.renderedViews.push(this);
   },
 
@@ -44,22 +44,48 @@ BeMe.Views.BusinessRegister = Parse.View.extend({
      lastName = $('input[name="last-name"]').val();
 
 
-    if (password == confirmPassword) {
-      Parse.User.signUp(email, password, {
-        businessName: businessName,
-        firstName: firstName,
-        lastName: lastName,
-        userType:"business"
-      }, {
-        success: function (e) {
-          BeMe.Router.navigate('location', true);
-        }, error: function (obj, error) {
-          alert("Error " + error.code + ": " + error.message);
+    // if (password == confirmPassword) {
+      FirebaseRef.createUser({
+        email:email,
+        password: password
+      }, function (error, authData) {
+        if(!error) {
+          //Login
+          FirebaseRef.authWithPassword({
+            email:email,
+            password:password
+          }, function (error) {
+            if(!error) {
+              BeMe.Router.navigate('location', true);
+            } else {
+              alert(error);
+            }
+          });
+          //Create and store info on user object
+          FirebaseRef.child('users/' + authData.uid).set({
+            businessName: businessName,
+            businessType: 'business'
+          });
+
+        } else {
+          console.log(error);
         }
       });
-    } else {
-      alert('Passwords don\'t match');
-    }
+      // Parse.User.signUp(email, password, {
+      //   businessName: businessName,
+      //   firstName: firstName,
+      //   lastName: lastName,
+      //   userType:"business"
+      // }, {
+      //   success: function (e) {
+      //     BeMe.Router.navigate('location', true);
+      //   }, error: function (obj, error) {
+      //     alert("Error " + error.code + ": " + error.message);
+      //   }
+      // });
+    // } else {
+    //   alert('Passwords don\'t match');
+    // }
 	}
 });
 
