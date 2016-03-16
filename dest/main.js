@@ -2697,7 +2697,8 @@ BeMe.Views.BusinessRegister = Parse.View.extend({
         password: password
       }, function (error, authData) {
         if(!error) {
-          //Login
+
+          //Login!
           FirebaseRef.authWithPassword({
             email:email,
             password:password
@@ -2708,28 +2709,18 @@ BeMe.Views.BusinessRegister = Parse.View.extend({
               alert(error);
             }
           });
+
           //Create and store info on user object
           FirebaseRef.child('users/' + authData.uid).set({
             businessName: businessName,
-            businessType: 'business'
+            businessType: 'business',
+            email:email
           });
 
         } else {
           console.log(error);
         }
       });
-      // Parse.User.signUp(email, password, {
-      //   businessName: businessName,
-      //   firstName: firstName,
-      //   lastName: lastName,
-      //   userType:"business"
-      // }, {
-      //   success: function (e) {
-      //     BeMe.Router.navigate('location', true);
-      //   }, error: function (obj, error) {
-      //     alert("Error " + error.code + ": " + error.message);
-      //   }
-      // });
     // } else {
     //   alert('Passwords don\'t match');
     // }
@@ -2762,24 +2753,57 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
      firstName = $('input[name="first-name"]').val(),
      lastName = $('input[name="last-name"]').val();
 
-     console.log(email, password, confirmPassword, firstName, lastName);
+    //  console.log(email, password, confirmPassword, firstName, lastName);
 
 
-    if(password == confirmPassword) {
-      Parse.User.signUp(email, password, {
-        firstName: firstName,
-        lastName: lastName,
-        userType:"consumer"
-      }, {
-        success: function (e) {
-          BeMe.Router.navigate('location', true);
-        }, error: function (obj, error) {
-          alert("Error " + error.code + ": " + error.message);
-        }
-      });
-    } else {
-      alert('Passwords don\'t match');
-    }
+    // if(password == confirmPassword) {
+
+    FirebaseRef.createUser({
+      email:email,
+      password: password
+    }, function (error, authData) {
+      if(!error) {
+
+        //Login!
+        FirebaseRef.authWithPassword({
+          email:email,
+          password:password
+        }, function (error) {
+          if(!error) {
+            BeMe.Router.navigate('location', true);
+          } else {
+            alert(error);
+          }
+        });
+
+        //Create and store info on user object
+        FirebaseRef.child('users/' + authData.uid).set({
+          firstName: firstName,
+          businessType: 'consumer',
+          email:email
+        });
+
+      } else {
+        console.log(error);
+      }
+    });
+
+
+      // Parse.User.signUp(email, password, {
+      //   firstName: firstName,
+      //   lastName: lastName,
+      //   userType:"consumer"
+      // }, {
+      //   success: function (e) {
+      //     BeMe.Router.navigate('location', true);
+      //   }, error: function (obj, error) {
+      //     alert("Error " + error.code + ": " + error.message);
+      //   }
+      // });
+
+    // } else {
+    //   alert('Passwords don\'t match');
+    // }
 	}
 });
 
