@@ -44,7 +44,7 @@ BeMe.Views.BusinessRegister = Parse.View.extend({
      lastName = $('input[name="last-name"]').val();
 
 
-    // if (password == confirmPassword) {
+    if (password == confirmPassword) {
       FirebaseRef.createUser({
         email:email,
         password: password
@@ -57,7 +57,7 @@ BeMe.Views.BusinessRegister = Parse.View.extend({
             password:password
           }, function (error) {
             if(!error) {
-              BeMe.Router.navigate('location', true);
+              BeMe.Router.navigate('backend', true);
             } else {
               alert(error);
             }
@@ -66,7 +66,7 @@ BeMe.Views.BusinessRegister = Parse.View.extend({
           //Create and store info on user object
           FirebaseRef.child('users/' + authData.uid).set({
             businessName: businessName,
-            businessType: 'business',
+            userType: 'business',
             email:email
           });
 
@@ -74,9 +74,9 @@ BeMe.Views.BusinessRegister = Parse.View.extend({
           console.log(error);
         }
       });
-    // } else {
-    //   alert('Passwords don\'t match');
-    // }
+    } else {
+      alert('Passwords don\'t match');
+    }
 	}
 });
 
@@ -109,7 +109,7 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
     //  console.log(email, password, confirmPassword, firstName, lastName);
 
 
-    // if(password == confirmPassword) {
+    if(password == confirmPassword) {
 
     FirebaseRef.createUser({
       email:email,
@@ -123,7 +123,7 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
           password:password
         }, function (error) {
           if(!error) {
-            BeMe.Router.navigate('location', true);
+            BeMe.Router.navigate('dashboard', true);
           } else {
             alert(error);
           }
@@ -132,7 +132,8 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
         //Create and store info on user object
         FirebaseRef.child('users/' + authData.uid).set({
           firstName: firstName,
-          businessType: 'consumer',
+          lastName: lastName,
+          userType: 'consumer',
           email:email
         });
 
@@ -141,21 +142,8 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
       }
     });
 
-
-      // Parse.User.signUp(email, password, {
-      //   firstName: firstName,
-      //   lastName: lastName,
-      //   userType:"consumer"
-      // }, {
-      //   success: function (e) {
-      //     BeMe.Router.navigate('location', true);
-      //   }, error: function (obj, error) {
-      //     alert("Error " + error.code + ": " + error.message);
-      //   }
-      // });
-
-    // } else {
-    //   alert('Passwords don\'t match');
-    // }
+    } else {
+      alert('Passwords don\'t match');
+    }
 	}
 });

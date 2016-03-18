@@ -48,8 +48,15 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
     get: function (attr) {
       return this.attributes[attr];
     },
+
+    fetch: function () {
+      var self = this;
+      FirebaseRef.child('users/' + authData.uid).once('value', function (snapshot) {
+        self.attributes = snapshot.val();
+      });
+    }
   };
-  
+
   BeMe.confirmationMessage = {};
 })();
 
@@ -277,7 +284,7 @@ $(document).ready(function () {
     authCount += 1;
     if(authData) {
       console.log('User is now logged in');
-      FirebaseRef.child('users/' + authData.uid).on('value', function (snapshot) {
+      FirebaseRef.child('users/' + authData.uid).once('value', function (snapshot) {
         BeMe.currentUser.attributes = snapshot.val();
         if(authCount == 1) { // only fire the first time
           BeMe.Router = new Router();
@@ -289,6 +296,8 @@ $(document).ready(function () {
       console.log('User is no longer logged in');
       BeMe.currentUser.attributes = null;
       BeMe.currentUser.authData = null;
+      BeMe.Router = new Router();
+      Backbone.history.start();
     }
   }
   FirebaseRef.onAuth(authCallback);
