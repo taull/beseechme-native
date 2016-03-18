@@ -236,9 +236,9 @@
 
 <script type="text/template" id="backend-home-view">
 
-<% var user = Parse.User.current() %>
+<% var user = BeMe.currentUser %>
 
-<% if (user.get('userType') === 'business') { %>
+<% if (user.get('userType') == 'business') { %>
 
   <div class="dashboard-container">
 

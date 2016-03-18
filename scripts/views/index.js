@@ -36,8 +36,8 @@ BeMe.Views.Index = Parse.View.extend({
 		}, function (error, authData) {
 			if (!error) {
 				FirebaseRef.child('users/' + authData.uid).once('value', function(snapshot) {
-					var user = snapshot.val();
-					if (user.userType == 'consumer') {
+					BeMe.currentUser.attributes = snapshot.val();
+					if (BeMe.currentUser.get('userType') == 'consumer') {
 	          BeMe.Router.navigate('dashboard', true);
 	        } else {
 	          BeMe.Router.navigate('backend', true);

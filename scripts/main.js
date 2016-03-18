@@ -294,10 +294,14 @@ $(document).ready(function () {
       BeMe.currentUser.authData = authData;
     } else {
       console.log('User is no longer logged in');
+
+      if(authCount == 1) { // only fire the first time
+        BeMe.Router = new Router();
+        Backbone.history.start();
+      }
+      
       BeMe.currentUser.attributes = null;
       BeMe.currentUser.authData = null;
-      BeMe.Router = new Router();
-      Backbone.history.start();
     }
   }
   FirebaseRef.onAuth(authCallback);
