@@ -77,7 +77,7 @@
 
 
 
-    <div class="header-logo"><aside></aside><section><h1>Dashboard</h1></section><div><span class="fa fa-search"></span></div></div>
+    <div class="header-logo"><aside></aside><section><h1>Backend</h1></section><div><span class="fa fa-search"></span></div></div>
     <div class="header-tabs-wrap">
       <div class="header-tabs">
         <li><span class="fa fa-home active-header-tab"></span><h1>Discover</h1></li
@@ -243,10 +243,11 @@
     <div class="post-modal">
 
       <div class="post-modal-tabs">
-        <li><span class="fa fa-comment"></span></li>
-        <li><span class="fa fa-image"></span></li>
-        <li><span class="fa fa-calendar"></span></li>
-        <li><span class="fa fa-beer"></span></li>
+        <li id="postText"><span class="fa fa-comment"></span></li>
+        <li id="postPhoto"><span class="fa fa-image"></span></li>
+        <li id="postVideo"><span class="fa fa-video-camera"></span></li>
+        <li id="postComment"><span class="fa fa-calendar"></span></li>
+        <li id="postBeer"><span class="fa fa-beer"></span></li>
       </div>
 
       <div id="post-modal-close">
@@ -326,13 +327,7 @@
 
       <div class="middle-column">
         <div class="business-info">
-          <div class="user-cover">
-            <% if (typeof user.get('coverPhoto') !=='undefined') { %>
-              <img src=<%= user.get('coverPhoto')._url %> >
-            <% } else { %>
-              <img src="images/default-avatar.png">
-            <% } %>
-          </div>
+
           <div class="user-header">
             <aside>
               <% if (typeof user.get('avatar') !=='undefined') { %>
@@ -344,6 +339,14 @@
             ><section><h1><%= user.get('businessName') %></h1><span class="fa fa-check-circle"></span><p>@<%= user.get('handle') %></p></section
             ><div><img src="images/fire-logo-1.png"><h1>1,638</h1></div>
           </div>
+          <div class="user-cover">
+            <% if (typeof user.get('coverPhoto') !=='undefined') { %>
+              <img src=<%= user.get('coverPhoto')._url %> >
+            <% } else { %>
+              <img src="images/default-avatar.png">
+            <% } %>
+          </div>
+
         </div>
 
         <div class="menu-stats">
