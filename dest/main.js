@@ -644,7 +644,7 @@ $(document).ready(function () {
         BeMe.Router = new Router();
         Backbone.history.start();
       }
-      
+
       BeMe.currentUser.attributes = null;
       BeMe.currentUser.authData = null;
     }
@@ -1358,7 +1358,6 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
 BeMe.Views.BackendHome = Parse.View.extend({
 	initialize: function () {
 		this.render();
-
 		//Change to Firebase before un-commenting
     // if (BeMe.currentUser.get('userType') == 'business') {
     //   this.loadFollowers();
@@ -1481,8 +1480,13 @@ BeMe.Views.Backend = Parse.View.extend({
 	},
 
   events: {
-    'submit form[name="bar-search"]' : 'search'
+    'submit form[name="bar-search"]' : 'search',
+		'click #post-modal-trigger' : 'openModal'
   },
+
+	openModal: function () {
+		$('.post-modal-dest').append(new BeMe.Views.Modal().el); // create overlay modal
+	},
 
   search: function (e) {
     e.preventDefault();
@@ -1490,6 +1494,7 @@ BeMe.Views.Backend = Parse.View.extend({
     BeMe.searchBars(searchString);
   }
 });
+
 BeMe.Views.BarSearch = Parse.View.extend({
   initialize: function () {
     this.render();
@@ -2695,6 +2700,30 @@ BeMe.Views.Index = Parse.View.extend({
 		// 	}
 		// });
 	}
+});
+
+BeMe.Views.Modal = Backbone.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#post-modal-view').text()),
+
+  render: function () {
+    this.$el.html(this.template);
+  },
+
+  events: {
+    'click .post-modal-close' : 'close'
+  },
+
+  close: function () {
+    this.remove();
+  },
+
+  update: function (content) {
+
+  }
 });
 
 BeMe.Views.Register = Parse.View.extend({

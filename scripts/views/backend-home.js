@@ -1,7 +1,6 @@
 BeMe.Views.BackendHome = Parse.View.extend({
 	initialize: function () {
 		this.render();
-
 		//Change to Firebase before un-commenting
     // if (BeMe.currentUser.get('userType') == 'business') {
     //   this.loadFollowers();

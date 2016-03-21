@@ -299,7 +299,7 @@ $(document).ready(function () {
         BeMe.Router = new Router();
         Backbone.history.start();
       }
-      
+
       BeMe.currentUser.attributes = null;
       BeMe.currentUser.authData = null;
     }

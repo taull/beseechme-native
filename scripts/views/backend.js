@@ -27,8 +27,13 @@ BeMe.Views.Backend = Parse.View.extend({
 	},
 
   events: {
-    'submit form[name="bar-search"]' : 'search'
+    'submit form[name="bar-search"]' : 'search',
+		'click #post-modal-trigger' : 'openModal'
   },
+
+	openModal: function () {
+		$('.post-modal-dest').append(new BeMe.Views.Modal().el); // create overlay modal
+	},
 
   search: function (e) {
     e.preventDefault();
