@@ -234,15 +234,77 @@
 </div>
 <div class="post-modal-wrap">
   <div class="post-modal">
-    <div class="post-modal-header">
-      <textarea id="text-status" rows="1" autoresize=true required=true placeholder="Your text here"></textarea
-      ><button>Submit</button>
-      <span class="fa fa-close"></span>
+
+    <div class="post-modal-tabs">
+      <li><span class="fa fa-comment"></span></li>
+      <li><span class="fa fa-image"></span></li>
+      <li><span class="fa fa-calendar"></span></li>
+      <li><span class="fa fa-beer"></span></li>
     </div>
-    <div class="post-modal-body"></div>
+
+    <div class="post-modal-close">
+      <span class="fa fa-close"></span>
+    <div>
   </div>
 </div>
 </script>
+
+<script type="text/template" id="post-status-text-view">
+  <div class="post-status-text">
+    <form action="">
+      <textarea id="text-status" rows="1" autoresize=true required=true placeholder="Your text here"></textarea
+      ><button>Post Text</button>
+    </form>
+  </div>
+</script>
+
+<script type="text/template" id="post-status-photo-view">
+
+  <div class="post-status-photo">
+    <form action="">
+      <input id="text-photo" type="file">
+      <button>Post Photo</button>
+    </form>
+  </div>
+</script>
+
+<script type="text/template" id="post-status-calendar-view">
+  <div class="add-weekly-comment">
+    <form action="">
+
+      <li><input type="text" class="input-comment" name="content" placeholder="Add Comment..."></li
+
+      ><li>
+        <label class="radio-label" for="checkbox-date">
+          <input type="radio" name="select-comment" id="checkbox-date">
+          <input class="datepicker input-date" name="date" type="text" placeholder="Choose a Date">
+        </label>
+      </li
+
+      ><li><p>Or</p></li
+
+      ><li>
+        <label class="radio-label" for="checkbox-standing">
+          <input type="radio" name="select-comment" value="standingComment" id="checkbox-standing">
+          <select class="select-standing">
+            <option value=0>Every Sunday</option>
+            <option value=1>Every Monday</option>
+            <option value=2>Every Tuesday</option>
+            <option value=3>Every Wednesday</option>
+            <option value=4>Every Thursday</option>
+            <option value=5>Every Friday</option>
+            <option value=6>Every Saturday</option>
+          </select>
+        </label>
+      </li
+
+      ><li><button type="submit" class="submit-comment">Comment</button></li>
+
+    </form>
+  </div>
+</script>
+
+
 
 
 <!-- Backend Home View -->

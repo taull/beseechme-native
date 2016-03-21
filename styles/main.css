@@ -5304,8 +5304,7 @@ svg rect {
     font-size: 1.2em;
     font-weight: 400; }
 
-.user-modal-wrap,
-.post-modal-wrap {
+.user-modal-wrap {
   position: fixed;
   width: 100%;
   z-index: 9999999999999999999999;
@@ -5316,12 +5315,27 @@ svg rect {
   height: 100%;
   padding-top: 100px; }
 
-.user-modal,
-.post-modal {
+.post-modal-wrap {
+  position: fixed;
+  width: 100%;
+  z-index: 9999999999999999999999;
+  background: rgba(0, 0, 0, 0.9);
+  top: 0;
+  left: 0;
+  text-align: center;
+  height: 100%;
+  padding-top: 100px; }
+
+.user-modal {
   position: relative;
   margin: 0 auto;
   background: #fff;
   width: 400px; }
+
+.post-modal {
+  position: relative;
+  margin: 0 auto;
+  width: 600px; }
 
 .user-modal-header,
 .post-modal-header {
@@ -5359,6 +5373,47 @@ svg rect {
     padding: 10px 30px 10px 10px;
     color: #333;
     font-weight: 300; }
+
+.post-modal-close {
+  text-align: center;
+  position: absolute;
+  right: 15px;
+  top: 15px; }
+  .post-modal-close span {
+    font-size: 1.6em;
+    color: #ddd; }
+
+.post-status-text {
+  text-align: center;
+  position: relative;
+  padding: 20px 0; }
+  .post-status-text textarea {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    background: transparent;
+    font-size: 1.2em;
+    line-height: 24px;
+    resize: none;
+    padding: 10px 30px 10px 10px;
+    color: #333;
+    font-weight: 300; }
+
+.post-modal-tabs {
+  position: relative; }
+  .post-modal-tabs li {
+    display: inline-block;
+    padding-top: 40px;
+    background: #2196F3;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    text-align: center;
+    margin: 0 10px; }
+    .post-modal-tabs li span {
+      font-size: 2.6em;
+      color: #fff; }
 
 .show {
   display: inline-block; }
