@@ -20,7 +20,7 @@
 body {
   font-size: 12px;
   position: relative;
-  background: #f8f8f8;
+  background: #fff;
   width: 100%;
   margin: 0 auto;
   transition: 250ms; }
@@ -39,7 +39,7 @@ body {
 
 .business-container {
   width: 480px;
-  margin: 0 auto;
+  margin: 60px auto 0;
   position: relative;
   z-index: 1; }
 
@@ -116,7 +116,7 @@ header {
   top: 0;
   left: 0;
   z-index: 500;
-  height: 120px;
+  height: 60px;
   background: url(../images/bluebkgd.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -2082,7 +2082,7 @@ header {
   z-index: 500;
   text-align: center;
   width: 100%;
-  margin-top: 120px; }
+  margin-top: 60px; }
 
 .tab-select-container,
 .user-select-container {
@@ -2099,7 +2099,7 @@ header {
   text-align: left;
   background: #fff;
   /*border-radius: 3px;*/
-  padding: 15px; }
+  padding: 0; }
   .tab-select li,
   .tab-select span,
   .user-select li,
@@ -2113,12 +2113,12 @@ header {
     padding: 0 15px; }
   .tab-select li,
   .user-select li {
-    padding: 0 15px;
+    padding: 15px;
     width: 33.3333333%;
     position: relative;
     cursor: pointer;
     text-align: center;
-    /*border-bottom: 3px solid $primary-color-300;*/ }
+    border-bottom: 3px solid #ddd; }
     .tab-select li h1,
     .user-select li h1 {
       color: #ddd;
@@ -2126,18 +2126,20 @@ header {
       font-size: 1.1em; }
   .tab-select li:first-child,
   .user-select li:first-child {
-    border-radius: 3px 0 0 3px;
+    /*border-radius: 3px 0 0 3px;*/
     /*border-right: 1px solid $blue-700;*/ }
   .tab-select li:last-child,
   .user-select li:last-child {
-    border-radius: 0 3px 3px 0;
+    /*border-radius: 0 3px 3px 0;*/
     /*border-left: 1px solid $blue-700;*/ }
 
 .user-select li {
   width: 50%; }
 
-.active-user h1 {
-  color: #333 !important; }
+.active-user {
+  border-bottom: 3px solid #2196F3 !important; }
+  .active-user h1 {
+    color: #333 !important; }
 
 .bar-search {
   display: inline-block;
@@ -3063,10 +3065,11 @@ svg rect {
   .bar-feed div {
     position: relative;
     overflow: hidden;
-    background: #f5f5f5; }
+    border-bottom: 1px solid #f5f5f5;
+    background: #fff; }
   .bar-feed li:nth-child(odd),
   .bar-feed div:nth-child(odd) {
-    background: #f8f8f8; }
+    /*background: #f8f8f8;*/ }
 
 .business-feed {
   margin-top: 0; }
@@ -3662,7 +3665,8 @@ svg rect {
   .feed-info article {
     width: 60px;
     text-align: right;
-    padding-top: 8px; }
+    padding-top: 8px;
+    display: none; }
     .feed-info article span {
       display: none; }
     .feed-info article i {
@@ -3704,8 +3708,7 @@ svg rect {
       height: 16px;
       text-align: center;
       padding-top: 2px;
-      position: relative;
-      display: none; }
+      position: relative; }
     .feed-info aside img {
       width: 40px;
       height: 40px;
@@ -5287,6 +5290,45 @@ svg rect {
 .bar-avatar-back {
   cursor: pointer; }
 
+/* USER MODAL */
+.user-modal-wrap {
+  position: fixed;
+  width: 100%;
+  z-index: 9999999999999999999999;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  text-align: center;
+  height: 100%;
+  padding-top: 100px;
+  display: none; }
+
+.user-modal {
+  position: relative;
+  margin: 0 auto;
+  background: #fff;
+  width: 400px; }
+
+.user-modal-header {
+  text-align: center;
+  position: relative;
+  padding: 20px 0; }
+  .user-modal-header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px; }
+  .user-modal-header h1 {
+    font-size: 1.1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 5px; }
+  .user-modal-header span {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 1.6em;
+    color: #ddd; }
+
 .show {
   display: inline-block; }
 
@@ -5427,7 +5469,7 @@ svg rect {
 
 
 }*/
-@media screen and (min-width: 0px) and (max-width: 480px) {
+@media screen and (min-width: 0px) and (max-width: 450px) {
   .dashboard-container,
   .backend-container,
   .middle-column,

@@ -75,9 +75,7 @@
       </div>
     </div>
 
-    <div class="header-search-wrap">
-      <div class="header-search"><span class="fa fa-search"></span></div>
-    </div>
+
 
     <div class="header-logo"><aside></aside><section><h1>Dashboard</h1></section><div><span class="fa fa-search"></span></div></div>
     <div class="header-tabs-wrap">
@@ -1125,7 +1123,7 @@
         <% } %>
       </aside
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><span class="fa fa-ellipsis-h likes-trigger"></span><h4><%= attributes.content %></h4></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><span class="fa fa-star follow"></span><h4><%= attributes.content %></h4></section
 
       ><footer>
         <i class="fa fa-chevron-up like-button"></i>
@@ -1171,7 +1169,7 @@
       </aside
 
 
-      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><span class="fa fa-ellipsis-h likes-trigger"></span><h4>Posted a photo</h4></section
+      ><section><a href='#business/<%= user.attributes.handle %>'><h1><%= user.attributes.businessName %></h1></a><span class="fa fa-star follow"></span><h4>Posted a photo</h4></section
 
       ><footer>
         <i class="fa fa-chevron-up like-button"></i>
@@ -1423,13 +1421,7 @@
     <div class="middle-column">
 
         <div class="business-info">
-          <div class="user-cover">
-            <% if (typeof attributes.coverPhoto != 'undefined') { %>
-              <img src="<%= attributes.coverPhoto.url() %>">
-            <% } else { %>
-              <img src="images/default-avatar.png">
-            <% } %>
-          </div>
+
           <div class="user-header">
             <aside>
               <% if (typeof attributes.avatar != 'undefined') { %>
@@ -1440,6 +1432,14 @@
             </aside
             ><section><h1><%= attributes.businessName%></h1><span class="fa fa-check-circle"></span><p>@<%= attributes.handle%></p></section
             ><div><img src="images/fire-logo-1.png"><h1>1,638</h1></div>
+          </div>
+
+          <div class="user-cover">
+            <% if (typeof attributes.coverPhoto != 'undefined') { %>
+              <img src="<%= attributes.coverPhoto.url() %>">
+            <% } else { %>
+              <img src="images/default-avatar.png">
+            <% } %>
           </div>
         </div>
 
@@ -1781,6 +1781,18 @@
     <a href="#backend/feed"><h1>Back to Backend</h1></a>
   </div>
 <% } %>
+  <div class="user-modal-wrap">
+    <div class="user-modal">
+      <div class="user-modal-header">
+        <img src="images/default-avatar.png">
+        <h1>Craft and Draft</h1>
+        <span class="fa fa-close"></span>
+      </div>
+      <div class="user-modal-body">
+      </div>
+      <div class="user-modal-footer"></div>
+    </div>
+  </div>
 </script>
 
 <!-- Dashboard Listing View -->
