@@ -21,7 +21,6 @@ var Router = Backbone.Router.extend({
 		'backend/calendar' : 'backendCalendar',
     'backend/calendar/comment' : 'backendComment',
 
-
     'business/:handle' : 'businessHome',
     'business/:handle/feed' : 'businessFeed',
     'business/:handle/beer' : 'businessBeerList',
@@ -30,11 +29,6 @@ var Router = Backbone.Router.extend({
     'consumer/:handle' : 'consumerHome',
 
     'dashboard' : 'dashboardHome',
-    // 'dashboard/feed' : 'dashboardFeed',
-    // 'dashboard/listing' : 'dashboardListing',
-    // 'dashboard/map' : 'dashboardMap',
-    // 'dashboard/following' : 'dashboardfollowing',
-    // 'dashboard/friends' : 'dashboardFriends',
 
     // 'search/:query' : 'search',
 
@@ -65,7 +59,7 @@ var Router = Backbone.Router.extend({
 
   secondaryRouteHandler: function (routeName) {
     //make sure the header doesn't show up on the home route
-    if(routeName == 'home') {
+    if(routeName == 'home' || routeName.includes('register')) {
       $('.app-header').hide();
     } else {
       $('.app-header').show();
@@ -369,6 +363,9 @@ $('#backend-settings [data-accordion]').accordion();
 
 
 
+// Initialize Firebase
+var FirebaseRef = new Firebase("https://nextap.firebaseio.com");
+
 //Initialize Parse
 
 Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50F9ddlQqx5hH6AkpWvPlQL9");
@@ -389,6 +386,22 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
   BeMe.Dashboard = {};
 
   //misc objects
+  BeMe.currentUser = {
+    attributes:null,
+    authData:null,
+
+    get: function (attr) {
+      return this.attributes[attr];
+    },
+
+    fetch: function () {
+      var self = this;
+      FirebaseRef.child('users/' + authData.uid).once('value', function (snapshot) {
+        self.attributes = snapshot.val();
+      });
+    }
+  };
+
   BeMe.confirmationMessage = {};
 })();
 
@@ -608,11 +621,41 @@ Parse.View.prototype.removeRenderedView = _.wrap(
   }
 );
 
-
-
 $(document).ready(function () {
-	BeMe.Router = new Router();
-	Backbone.history.start();
+  var authCount = 0;
+
+  function authCallback(authData) {
+    console.log("Auth has changed");
+    authCount += 1;
+    if(authData) {
+      console.log('User is now logged in');
+      FirebaseRef.child('users/' + authData.uid).once('value', function (snapshot) {
+        BeMe.currentUser.attributes = snapshot.val();
+        if(authCount == 1) { // only fire the first time
+          BeMe.Router = new Router();
+          Backbone.history.start();
+        }
+      });
+      BeMe.currentUser.authData = authData;
+    } else {
+      console.log('User is no longer logged in');
+
+      if(authCount == 1) { // only fire the first time
+        BeMe.Router = new Router();
+        Backbone.history.start();
+      }
+      
+      BeMe.currentUser.attributes = null;
+      BeMe.currentUser.authData = null;
+    }
+  }
+  FirebaseRef.onAuth(authCallback);
+});
+
+BeMe.Models.Status = Backbone.Model.extend({
+  defaults: {
+    userName: "Hi"
+  }
 });
 
 BeMe.Views.Application = Backbone.View.extend({
@@ -1277,53 +1320,22 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 
     });
 	},
-
-	events: {
-		'submit form': 'postStatus',
-	},
-
-	postStatus: function (e) {
-		e.preventDefault();
-    var self = this;
-    var $fileContainer = $("#camera-file");
-    var contentHolder = $("#business-status");
-
-    var fileIsChosen = !!$fileContainer[0].files.length;
-
-    if (fileIsChosen) { //if there is a file chosen
-      var image = BeMe.createImageFile($fileContainer); //create the image file
-      if(image == undefined) {
-        return false;
-      }
-    }
-
-    //conditional where we check to see if there was a file chosen && it was processed correctly
-
-    var user = Parse.User.current();
-
-		var content = contentHolder.val();
-		var status = new Parse.Object('status');
-		status.set('content', content);
-		status.set('image', image);
-		status.set('createdBy', user);
-    status.set('location', user.get('location'));
-    status.set('statusType', 'Text');
-		status.save().then(function (e){
-			contentHolder.val('');
-			$('#camera-file').val('');
-      console.log(e);
-      self.collectionReference.add(e, {at:0});
-		});
-	}
 });
 
 BeMe.Collections.Feeds = Parse.Collection.extend({
+	model: BeMe.Models.Status,
   initialize: function () {
     var self = this;
     this.views = [];
     this.on('add remove', this.render);
+		// FirebaseRef.child('statuses').orderByChild('createdBy').equalTo(BeMe.currentUser.authData.uid).once('value', function (snapshot) {
+		// 	console.log(snapshot.val());
+		// 	self.add(snapshot.val());
+		// 	self.render();
+		// });
     this.fetch(this.query).then(function (e) {
       console.log(e);
+			console.log(self);
       self.render();
     });
   },
@@ -1347,11 +1359,12 @@ BeMe.Views.BackendHome = Parse.View.extend({
 	initialize: function () {
 		this.render();
 
-	    if (Parse.User.current().get('userType') == 'business') {
-	      this.loadFollowers();
-	    } else {
-	      this.loadFollowing();
-	    }
+		//Change to Firebase before un-commenting
+    // if (BeMe.currentUser.get('userType') == 'business') {
+    //   this.loadFollowers();
+    // } else {
+    //   this.loadFollowing();
+    // }
 	},
 
 	template: _.template($('#backend-home-view').text()),
@@ -1399,6 +1412,43 @@ BeMe.Views.BackendPost = Parse.View.extend({
 		//   button: true,
 		//   iconBackgroundColor: '#fff'
 		// });
+	},
+
+	events: {
+		'submit form': 'postStatus',
+	},
+
+	postStatus: function (e) {
+		e.preventDefault();
+    var self = this;
+    var $fileContainer = $("#camera-file");
+    var contentHolder = $("#business-status");
+
+    var fileIsChosen = !!$fileContainer[0].files.length;
+
+		//conditional where we check to see if there was a file chosen && it was processed correctly
+    if (fileIsChosen) { //if there is a file chosen
+      var image = BeMe.createImageFile($fileContainer); //create the image file
+      if(image == undefined) {
+        return false;
+      }
+    }
+
+    var user = Parse.User.current();
+
+		var content = contentHolder.val();
+		var status = new Parse.Object('status');
+		status.set('content', content);
+		status.set('image', image);
+		status.set('createdBy', user);
+    status.set('location', user.get('location'));
+    status.set('statusType', 'Text');
+		status.save().then(function (e){
+			contentHolder.val('');
+			$('#camera-file').val('');
+      console.log(e);
+      self.collectionReference.add(e, {at:0});
+		});
 	}
 });
 
@@ -2610,36 +2660,56 @@ BeMe.Views.Index = Parse.View.extend({
 		var email = $('input[name="email"]').val();
 		var password = $('input[name="password"]').val();
 		var stayLoggedIn = $('input[type="checkbox"]')[0].checked;
-	    var self = this;
+    var self = this;
 
-		Parse.User.logIn(email,password, {
-			success: function  (userObject) {
-        BeMe.ApplicationView.render();
-        if (userObject.get('userType') == 'consumer') {
-          BeMe.Router.navigate('dashboard', true);
-        } else {
-          BeMe.Router.navigate('backend', true);
-        }
-			},
-			error: function (error) {
-				console.log(error);
+
+		FirebaseRef.authWithPassword({
+			email:email,
+			password:password
+		}, function (error, authData) {
+			if (!error) {
+				FirebaseRef.child('users/' + authData.uid).once('value', function(snapshot) {
+					BeMe.currentUser.attributes = snapshot.val();
+					if (BeMe.currentUser.get('userType') == 'consumer') {
+	          BeMe.Router.navigate('dashboard', true);
+	        } else {
+	          BeMe.Router.navigate('backend', true);
+	        }
+				});
+			} else {
+				alert(error);
 			}
 		});
+
+		// Parse.User.logIn(email,password, {
+		// 	success: function  (userObject) {
+    //     BeMe.ApplicationView.render();
+    //     if (userObject.get('userType') == 'consumer') {
+    //       BeMe.Router.navigate('dashboard', true);
+    //     } else {
+    //       BeMe.Router.navigate('backend', true);
+    //     }
+		// 	},
+		// 	error: function (error) {
+		// 		console.log(error);
+		// 	}
+		// });
 	}
 });
+
 BeMe.Views.Register = Parse.View.extend({
   initialize: function () {
     this.render();
   },
 
   template: _.template($('#register-view').text()),
-  
+
   render: function () {
     var self = this;
     var user = Parse.User.current();
     self.$el.html(self.template());
     $('.body-container').append(self.el);
-    
+
     BeMe.renderedViews.push(this);
   },
 
@@ -2674,16 +2744,33 @@ BeMe.Views.BusinessRegister = Parse.View.extend({
 
 
     if (password == confirmPassword) {
-      Parse.User.signUp(email, password, {
-        businessName: businessName,
-        firstName: firstName,
-        lastName: lastName,
-        userType:"business"
-      }, {
-        success: function (e) {
-          BeMe.Router.navigate('location', true);
-        }, error: function (obj, error) {
-          alert("Error " + error.code + ": " + error.message);
+      FirebaseRef.createUser({
+        email:email,
+        password: password
+      }, function (error, authData) {
+        if(!error) {
+
+          //Login!
+          FirebaseRef.authWithPassword({
+            email:email,
+            password:password
+          }, function (error) {
+            if(!error) {
+              BeMe.Router.navigate('backend', true);
+            } else {
+              alert(error);
+            }
+          });
+
+          //Create and store info on user object
+          FirebaseRef.child('users/' + authData.uid).set({
+            businessName: businessName,
+            userType: 'business',
+            email:email
+          });
+
+        } else {
+          console.log(error);
         }
       });
     } else {
@@ -2718,26 +2805,48 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
      firstName = $('input[name="first-name"]').val(),
      lastName = $('input[name="last-name"]').val();
 
-     console.log(email, password, confirmPassword, firstName, lastName);
+    //  console.log(email, password, confirmPassword, firstName, lastName);
 
 
     if(password == confirmPassword) {
-      Parse.User.signUp(email, password, {
-        firstName: firstName,
-        lastName: lastName,
-        userType:"consumer"
-      }, {
-        success: function (e) {
-          BeMe.Router.navigate('location', true);
-        }, error: function (obj, error) {
-          alert("Error " + error.code + ": " + error.message);
-        }
-      });
+
+    FirebaseRef.createUser({
+      email:email,
+      password: password
+    }, function (error, authData) {
+      if(!error) {
+
+        //Login!
+        FirebaseRef.authWithPassword({
+          email:email,
+          password:password
+        }, function (error) {
+          if(!error) {
+            BeMe.Router.navigate('dashboard', true);
+          } else {
+            alert(error);
+          }
+        });
+
+        //Create and store info on user object
+        FirebaseRef.child('users/' + authData.uid).set({
+          firstName: firstName,
+          lastName: lastName,
+          userType: 'consumer',
+          email:email
+        });
+
+      } else {
+        console.log(error);
+      }
+    });
+
     } else {
       alert('Passwords don\'t match');
     }
 	}
 });
+
 BeMe.Views.Search = Parse.View.extend({
 	initialize: function () {
 		this.render();

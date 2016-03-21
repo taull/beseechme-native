@@ -102,7 +102,7 @@
       <img src="images/wolf-logo-v3.png">
       <% if (user) { %>
         <h1>Welcome Back, <%= user.get('firstName') %></h1>
-        <a href="#dashboard">Dashboard</a>        
+        <a href="#dashboard">Dashboard</a>
         <div class="login-form">
           <form action="">
             <li><input type="text" name="email" placeholder="Email Address"></li>
@@ -216,7 +216,7 @@
 
 <% var user = Parse.User.current() %>
 
-<% if (user.get('userType') === 'business') { %>
+  <% if (user.get('userType') === 'business') { %>
 
 
   <div class="breadcrumbs-wrap">
@@ -238,9 +238,9 @@
 
 <script type="text/template" id="backend-home-view">
 
-<% var user = Parse.User.current() %>
+<% var user = BeMe.currentUser %>
 
-<% if (user.get('userType') === 'business') { %>
+<% if (user.get('userType') == 'business') { %>
 
   <div class="dashboard-container">
 
@@ -756,7 +756,7 @@
             <aside><img src="images/location-logo.png"></aside
             ><section><h1>Friends</h1><p>You have 15 friends</p></section
             ><div><span class="fa fa-chevron-right"></span></div>
-          </a>        
+          </a>
 
           <a href="#settings/beer">
             <aside><img src="images/location-logo.png"></aside
@@ -1733,6 +1733,7 @@
     </div>
   </div>
   <div class="dashboard-container">
+
       <div class="left-column">
 
         <div class="menu-light">
@@ -1747,9 +1748,9 @@
             <aside><h2><%= moment().date() %></h2></aside
             ><section><h1>Discover</h1><p>Specials, Events & More</p></section
             ><div><span class="fa fa-chevron-right"></span></div>
-          </a
+          </a>
 
-          ><a href="#settings">
+          <a href="#settings">
             <aside><img src="images/icon-beer.png"></aside
             ><section><h1>Settings</h1><p>You have 11 beers on tap</p></section
             ><div><span class="fa fa-chevron-right"></span></div>
@@ -1757,7 +1758,7 @@
 
         </div>
 
-   
+
       </div
 
       ><div class="middle-column">
@@ -1901,7 +1902,6 @@
 <script src='bower_components/jquery-ui/jquery-ui.min.js'></script>
 <script src='bower_components/pickadate/lib/picker.js'></script>
 <script src='bower_components/pickadate/lib/picker.date.js'></script>
-<script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 <script src='jquery-accordion.js'></script>
 
 <script type="text/javascript" src="bower_components/jquery-emoji-picker/js/jquery.emojipicker.js"></script>
@@ -1910,6 +1910,10 @@
 <script src='bower_components/autosize/dist/autosize.min.js'></script>
 <script src="bower_components/moment/min/moment.min.js"></script>
 <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBHDpVSzA0WKfRHqi45stay7gkiBk7TdMI'></script>
+
+<script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
 
 <script src='dest/main.js'></script>
 
