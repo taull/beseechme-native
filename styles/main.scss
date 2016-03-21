@@ -88,7 +88,7 @@ body {
 
 .dashboard-container {
 	width: 480px; 
-    margin: 0 auto;
+    margin: 60px auto 0;
     position: relative;
     z-index: 1;
 }
@@ -198,11 +198,13 @@ header {
     left: 0;
     z-index: 500;
     height: 60px;
-  background: url(../images/bluebkgd.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;}
+    background: #222;
+	/*background: url(../images/bluebkgd.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;*/
+}
 
 .header-right,
 .header-left, 
@@ -2919,12 +2921,13 @@ header {
 		position: relative;
 		cursor: pointer;
 		text-align: center;
-		border-bottom: 3px solid #ddd;
+		border-bottom: 3px solid #f0f0f0;
 
 		h1 {
 			color: #ddd;
-			font-weight: 300;
-			font-size: 1.1em;
+			font-weight: 500;
+			font-size: 1em;
+			text-transform: uppercase;
 		}
 	}
 
@@ -2947,7 +2950,6 @@ header {
 }
 
 .active-user {
-
 	border-bottom: 3px solid $blue-500 !important;
 
 	h1 {
@@ -7167,9 +7169,10 @@ svg rect{
 	margin: 0 auto;
 	background: $blue-500;
 	position: relative;
-	margin-top: 60px;
+	margin-top: 75px;
 	text-align: center;
 	padding: 15px 0;
+	border-radius: 3px;
 
 	h1 {
 		color: #fff;
@@ -7189,6 +7192,7 @@ svg rect{
 	height: 100%;
 	padding-top: 100px;
 	transition: 250ms;
+	visibility: hidden;
 }
 
 .post-modal-wrap {
@@ -7201,7 +7205,6 @@ svg rect{
 	text-align: center;
 	height: 100%;
 	padding-top: 100px;
-	visibility: hidden;
 }
 
 .show-post-modal {
