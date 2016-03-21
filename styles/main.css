@@ -5291,7 +5291,21 @@ svg rect {
   cursor: pointer; }
 
 /* USER MODAL */
-.user-modal-wrap {
+#post-modal-trigger {
+  width: 480px;
+  margin: 0 auto;
+  background: #2196F3;
+  position: relative;
+  margin-top: 60px;
+  text-align: center;
+  padding: 15px 0; }
+  #post-modal-trigger h1 {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 400; }
+
+.user-modal-wrap,
+.post-modal-wrap {
   position: fixed;
   width: 100%;
   z-index: 9999999999999999999999;
@@ -5300,34 +5314,51 @@ svg rect {
   left: 0;
   text-align: center;
   height: 100%;
-  padding-top: 100px;
-  display: none; }
+  padding-top: 100px; }
 
-.user-modal {
+.user-modal,
+.post-modal {
   position: relative;
   margin: 0 auto;
   background: #fff;
   width: 400px; }
 
-.user-modal-header {
+.user-modal-header,
+.post-modal-header {
   text-align: center;
   position: relative;
   padding: 20px 0; }
-  .user-modal-header img {
+  .user-modal-header img,
+  .post-modal-header img {
     width: 60px;
     height: 60px;
     border-radius: 30px; }
-  .user-modal-header h1 {
+  .user-modal-header h1,
+  .post-modal-header h1 {
     font-size: 1.1em;
     font-weight: 500;
     text-transform: uppercase;
     margin-top: 5px; }
-  .user-modal-header span {
+  .user-modal-header span,
+  .post-modal-header span {
     position: absolute;
     right: 15px;
     top: 15px;
     font-size: 1.6em;
     color: #ddd; }
+  .user-modal-header textarea,
+  .post-modal-header textarea {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    background: transparent;
+    font-size: 1.2em;
+    line-height: 24px;
+    resize: none;
+    padding: 10px 30px 10px 10px;
+    color: #333;
+    font-weight: 300; }
 
 .show {
   display: inline-block; }
