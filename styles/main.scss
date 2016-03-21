@@ -4085,8 +4085,8 @@ svg rect{
 }
 
 #business-status, 
-#business-status1 {
-    width: 100%;
+#business-status1,{    
+	width: 100%;
     border: 0;
     border-radius: 0;
     outline: none;
@@ -7162,7 +7162,24 @@ svg rect{
 /* USER MODAL */
 
 
-.user-modal-wrap {
+#post-modal-trigger {
+	width: 480px;
+	margin: 0 auto;
+	background: $blue-500;
+	position: relative;
+	margin-top: 60px;
+	text-align: center;
+	padding: 15px 0;
+
+	h1 {
+		color: #fff;
+		font-size: 1.2em;
+		font-weight: 400;
+	}
+}
+
+.user-modal-wrap, 
+.post-modal-wrap {
 	position: fixed;
 	width: 100%;
 	z-index: 9999999999999999999999;
@@ -7172,10 +7189,10 @@ svg rect{
 	text-align: center;
 	height: 100%;
 	padding-top: 100px;
-	display: none;
 }
 
-.user-modal {
+.user-modal, 
+.post-modal {
 	position: relative;
 	margin: 0 auto;
 	background: #fff;
@@ -7183,7 +7200,8 @@ svg rect{
 
 }
 
-.user-modal-header {
+.user-modal-header, 
+.post-modal-header {
 	text-align: center;
 	position: relative;
 	padding: 20px 0;
@@ -7207,6 +7225,20 @@ svg rect{
 		top: 15px;
 		font-size: 1.6em;
 		color: #ddd;
+	}
+
+	textarea {
+		width: 100%;
+		border: 0;
+		border-radius: 0;
+		outline: none;
+		background: transparent;
+		font-size: 1.2em;
+		line-height: 24px;
+		resize: none;
+		padding: 10px 30px 10px 10px;
+		color: #333;
+		font-weight: 300;
 	}
 }
 
