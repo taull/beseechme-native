@@ -5313,7 +5313,8 @@ svg rect {
   left: 0;
   text-align: center;
   height: 100%;
-  padding-top: 100px; }
+  padding-top: 100px;
+  transition: 250ms; }
 
 .post-modal-wrap {
   position: fixed;
@@ -5324,7 +5325,11 @@ svg rect {
   left: 0;
   text-align: center;
   height: 100%;
-  padding-top: 100px; }
+  padding-top: 100px;
+  visibility: hidden; }
+
+.show-post-modal {
+  visibility: visible; }
 
 .user-modal {
   position: relative;
@@ -5374,12 +5379,12 @@ svg rect {
     color: #333;
     font-weight: 300; }
 
-.post-modal-close {
+#post-modal-close {
   text-align: center;
   position: absolute;
   right: 15px;
   top: 15px; }
-  .post-modal-close span {
+  #post-modal-close span {
     font-size: 1.6em;
     color: #ddd; }
 

@@ -7188,6 +7188,7 @@ svg rect{
 	text-align: center;
 	height: 100%;
 	padding-top: 100px;
+	transition: 250ms;
 }
 
 .post-modal-wrap {
@@ -7200,6 +7201,11 @@ svg rect{
 	text-align: center;
 	height: 100%;
 	padding-top: 100px;
+	visibility: hidden;
+}
+
+.show-post-modal {
+	visibility: visible;
 }
 
 .user-modal {
@@ -7258,7 +7264,7 @@ svg rect{
 	}
 }
 
-.post-modal-close {
+#post-modal-close {
 	text-align: center;
 	position: absolute;
 	right: 15px;
@@ -7310,6 +7316,7 @@ svg rect{
 		}
 	}
 }
+
 .user-modal-body {
 
 }
