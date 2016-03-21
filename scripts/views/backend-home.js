@@ -2,11 +2,12 @@ BeMe.Views.BackendHome = Parse.View.extend({
 	initialize: function () {
 		this.render();
 
-	    if (Parse.User.current().get('userType') == 'business') {
-	      this.loadFollowers();
-	    } else {
-	      this.loadFollowing();
-	    }
+		//Change to Firebase before un-commenting
+    // if (BeMe.currentUser.get('userType') == 'business') {
+    //   this.loadFollowers();
+    // } else {
+    //   this.loadFollowing();
+    // }
 	},
 
 	template: _.template($('#backend-home-view').text()),

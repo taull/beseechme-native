@@ -1320,43 +1320,6 @@ BeMe.Views.BackendFeed = Parse.View.extend({
 
     });
 	},
-
-	events: {
-		'submit form': 'postStatus',
-	},
-
-	postStatus: function (e) {
-		e.preventDefault();
-    var self = this;
-    var $fileContainer = $("#camera-file");
-    var contentHolder = $("#business-status");
-
-    var fileIsChosen = !!$fileContainer[0].files.length;
-
-		//conditional where we check to see if there was a file chosen && it was processed correctly
-    if (fileIsChosen) { //if there is a file chosen
-      var image = BeMe.createImageFile($fileContainer); //create the image file
-      if(image == undefined) {
-        return false;
-      }
-    }
-
-    var user = Parse.User.current();
-
-		var content = contentHolder.val();
-		var status = new Parse.Object('status');
-		status.set('content', content);
-		status.set('image', image);
-		status.set('createdBy', user);
-    status.set('location', user.get('location'));
-    status.set('statusType', 'Text');
-		status.save().then(function (e){
-			contentHolder.val('');
-			$('#camera-file').val('');
-      console.log(e);
-      self.collectionReference.add(e, {at:0});
-		});
-	}
 });
 
 BeMe.Collections.Feeds = Parse.Collection.extend({
@@ -1365,7 +1328,7 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
     var self = this;
     this.views = [];
     this.on('add remove', this.render);
-		// FirebaseRef.child('statuses').orderByChild('createdBy').equalTo(BeMe.currentUser.id).once('value', function (snapshot) {
+		// FirebaseRef.child('statuses').orderByChild('createdBy').equalTo(BeMe.currentUser.authData.uid).once('value', function (snapshot) {
 		// 	console.log(snapshot.val());
 		// 	self.add(snapshot.val());
 		// 	self.render();
@@ -1396,11 +1359,12 @@ BeMe.Views.BackendHome = Parse.View.extend({
 	initialize: function () {
 		this.render();
 
-	    if (Parse.User.current().get('userType') == 'business') {
-	      this.loadFollowers();
-	    } else {
-	      this.loadFollowing();
-	    }
+		//Change to Firebase before un-commenting
+    // if (BeMe.currentUser.get('userType') == 'business') {
+    //   this.loadFollowers();
+    // } else {
+    //   this.loadFollowing();
+    // }
 	},
 
 	template: _.template($('#backend-home-view').text()),
@@ -1448,6 +1412,43 @@ BeMe.Views.BackendPost = Parse.View.extend({
 		//   button: true,
 		//   iconBackgroundColor: '#fff'
 		// });
+	},
+
+	events: {
+		'submit form': 'postStatus',
+	},
+
+	postStatus: function (e) {
+		e.preventDefault();
+    var self = this;
+    var $fileContainer = $("#camera-file");
+    var contentHolder = $("#business-status");
+
+    var fileIsChosen = !!$fileContainer[0].files.length;
+
+		//conditional where we check to see if there was a file chosen && it was processed correctly
+    if (fileIsChosen) { //if there is a file chosen
+      var image = BeMe.createImageFile($fileContainer); //create the image file
+      if(image == undefined) {
+        return false;
+      }
+    }
+
+    var user = Parse.User.current();
+
+		var content = contentHolder.val();
+		var status = new Parse.Object('status');
+		status.set('content', content);
+		status.set('image', image);
+		status.set('createdBy', user);
+    status.set('location', user.get('location'));
+    status.set('statusType', 'Text');
+		status.save().then(function (e){
+			contentHolder.val('');
+			$('#camera-file').val('');
+      console.log(e);
+      self.collectionReference.add(e, {at:0});
+		});
 	}
 });
 
