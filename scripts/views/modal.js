@@ -3,6 +3,8 @@ BeMe.Views.Modal = Backbone.View.extend({
     this.render();
   },
 
+  className: 'post-modal-wrap',
+
   template: _.template($('#post-modal-view').text()),
 
   render: function () {
@@ -10,14 +12,10 @@ BeMe.Views.Modal = Backbone.View.extend({
   },
 
   events: {
-    'click .post-modal-close' : 'close'
+    'click #post-modal-close' : 'close'
   },
 
   close: function () {
     this.remove();
   },
-
-  update: function (content) {
-
-  }
 });
