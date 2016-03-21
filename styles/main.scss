@@ -88,7 +88,7 @@ body {
 
 .dashboard-container {
 	width: 480px; 
-    margin: 120px auto;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
 }
@@ -287,6 +287,20 @@ header {
 	position:relative;
 	text-align: center;
 	left:-50%;
+}
+
+.header-search {
+	width: 480px;
+	margin: 0 auto;
+	background: rgba(0,0,0,.2);
+	padding: 15px 0;
+	text-align: center;
+	border-radius: 3px;
+
+	span {
+		color: rgba(255,255,255,.3);
+		font-size: 1.6em;
+	}
 }
 
 .header-logo {
@@ -2862,11 +2876,10 @@ header {
 /* Search Input*/
 
 .tab-select-wrap {
-	position: fixed;
-	top: 60px;
 	z-index: 500;
 	text-align: center;
 	width: 100%;
+	margin-top: 120px;
 }
 
 .tab-select-container, 
@@ -2884,8 +2897,8 @@ header {
 	position: relative;
 	width: 100%;
 	text-align: left;
-	background: #123455;
-	border-radius: 3px;
+	background: #fff;
+	/*border-radius: 3px;*/
 	padding: 15px;
 
 	li, 
@@ -2902,12 +2915,14 @@ header {
 
 	li {
 		padding:0 15px;
+		width: 33.3333333%;
 		position: relative;
 		cursor: pointer;
+		text-align: center;
 		/*border-bottom: 3px solid $primary-color-300;*/
 
 		h1 {
-			color: #f5f5f5;
+			color: #ddd;
 			font-weight: 300;
 			font-size: 1.1em;
 		}
@@ -2934,7 +2949,7 @@ header {
 .active-user {
 
 	h1 {
-		color: #fff !important;
+		color: #333 !important;
 	}
 }
 
@@ -5030,8 +5045,8 @@ svg rect{
 		}
 
 		img {
-			width: 50px;
-			height: 50px;
+			width: 40px;
+			height: 40px;
 			border-radius: 32px;
 		}
 
@@ -5039,7 +5054,7 @@ svg rect{
 
 	section {
 		text-align: left;
-		width: 300px;
+		width: 250px;
 
 		p, 
 		i, 
@@ -5053,10 +5068,11 @@ svg rect{
 
 
 		h1 {
-			color: #333;
-			font-size:1.4em;
-			font-weight: 400;
-			margin-bottom: 5px;
+		    color: #333;
+		    font-size: 1.1em;
+		    font-weight: 500;
+		    margin-bottom: 5px;
+		    text-transform: uppercase;
 		}
 
 		p, 
@@ -5092,7 +5108,6 @@ svg rect{
 	footer {
 		float: right;
 		padding: 0 20px;
-		display: none;
 
 		h1, 
 		span, 
