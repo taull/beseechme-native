@@ -199,8 +199,7 @@ header {
   width: 480px;
   margin: 0 auto;
   height: 60px;
-  padding-top: 20px;
-  display: none; }
+  padding-top: 20px; }
   .header-logo aside,
   .header-logo section,
   .header-logo div {
@@ -231,7 +230,8 @@ header {
   overflow: hidden;
   width: 480px;
   margin: 0 auto;
-  height: 60px; }
+  height: 60px;
+  display: none; }
 
 .header-left {
   display: inline-block;
