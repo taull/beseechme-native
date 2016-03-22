@@ -2716,12 +2716,34 @@ BeMe.Views.Modal = Backbone.View.extend({
   },
 
   events: {
-    'click #post-modal-close' : 'close'
+    'click #post-modal-close' : 'close',
+    'click' : 'closeHandler',
+    'click .post-modal-tabs li' : 'openStatusEditor'
+  },
+
+  closeHandler: function (e) {
+    if (e.target == this.el) {
+      this.close();
+    }
   },
 
   close: function () {
     this.remove();
   },
+
+  openStatusEditor: function (event) {
+    var id = event.currentTarget.id;
+    console.log(id);
+
+    var matchObject = {
+      postText: '#post-status-text-view',
+      postPhoto: '#post-status-photo-view',
+      postComment: '#post-status-calendar-view',
+    };
+
+    var compiledTemplate = _.template($(matchObject[id]).text())();
+    $('.post-modal').html(compiledTemplate);
+  }
 });
 
 BeMe.Views.Register = Parse.View.extend({
