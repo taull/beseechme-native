@@ -842,12 +842,14 @@ header {
 
 
 .register-select {
-	background: #fff;
 	padding: 15px;
+	text-align: center;
 
 	a {
 		display: inline-block;
 		vertical-align: top;
+		font-size: 1.6em;
+		color: #f0f0f0;
 	}
 }
 /* Login/Register */
@@ -1398,10 +1400,11 @@ header {
 	}
 
 	p {
-		padding-top:2px;
+		padding-top:10px;
 		font-size: 1.4em;
 		font-weight: 300;
 		color: #333;
+		display: block;
 	}
 }
 
@@ -2220,12 +2223,12 @@ header {
 	width: 100%;
 	position: relative;
 	display: inline-block;
-	background: $blue-800;
+	background: #222;
 	z-index:0;
 }
 
 .index-banner {
-	width: 960px;
+	width: 480px;
 	margin: 0 auto;
 	position: relative;
 	transition: 250ms;
@@ -2235,6 +2238,7 @@ header {
 	img {
 		width: 150px;
 		margin-bottom: 50px;
+		display: none;
 	}
 
 	h1 {
@@ -2242,33 +2246,6 @@ header {
 		font-weight: 100;
 		color: #fff;
 	}
-
-	a {
-		position: relative;
-		padding: 15px 30px;
-		background: $secondary-color-500;
-		border-radius: 3px;
-		color: #fff;
-		font-size: 1.2em;
-		font-weight: 400;
-		display: inline-block;
-		margin-top: 30px;
-
-		&::after {
-			position: absolute;
-			content: "";
-			top: 0;
-			left: 0;
-			bottom: -5px;
-			right: 0;
-			background: $secondary-color-700;
-			z-index: -1;
-			border-radius:3px;
-		}
-	}
-
-
-
 
 }
 
@@ -2315,27 +2292,26 @@ header {
 	width: 360px;
 	padding: 30px;
 	margin: 0 auto;
+	text-align: center;
 
 	li {
 		margin-bottom: 15px;
 		width: 100%;
-		background: rgba(255,255,255,.8);
-		border-radius: 3px;
+		border-bottom: 1px solid #333;
 		position: relative;
-		/*border: 1px solid #ddd;*/
 
 		input[type="text"], 
 		input[type="password"] {
 			display: inline-block;
 			font-size: 1.2em;
-			color: #333;
+			color: #fff;
 			border: 0;
 			outline: 0;
 			background: transparent;
 			border-radius: 3px;
 			font-weight: 300;
-			text-indent: 15px;
 			height: 40px;
+			text-align: center;
 		}
 
 		input[type="text"] {
@@ -2348,7 +2324,7 @@ header {
 		}
 
 		input::-webkit-input-placeholder {
-			color: #333;
+			color: #f0f0f0;
 		}
 
 	}
@@ -2359,12 +2335,12 @@ header {
 
 	a {
 		font-size: 1em;
-		color: #333;
-		display: inline-block;
+		color: #f0f0f0;
+		display: block;
 		vertical-align: top;
 		text-decoration: none;
 		cursor: pointer;
-		margin-top: 15px;
+		margin-top: 30px;
 		text-align: center;
 	}
 
@@ -2381,9 +2357,6 @@ header {
 
 	button {
 		display: inline-block;
-		position: absolute;
-		top: 3px;
-		right: 5px;
 		padding: 0 10px;
 		border: 0;
 		background: transparent;
@@ -2394,14 +2367,29 @@ header {
 
 		span {
 			font-size: 1.6em;
-			color: #333;
+			color: #f0f0f0;
+			display: none;
+		}
+
+		h1 {
+			padding: 15px 30px;
+			border-radius: 50px;
+			color: #fff;
+			background: $blue-500;
+			font-size: 1.2em;
+			font-weight: 300;
+			width: 150px;
+			position: relative;
+			margin: 20px auto;
 		}
 
 	}
 
+
+
 }
 
-/*Business Error Page*/
+/* Business Error Page */
 
 .business-error {
 	width: 100%;
@@ -4586,17 +4574,17 @@ svg rect{
 
 .step-nav {
 	width: 100%;
-	text-align: left;
+	text-align: center;
 	padding: 5px 0 0;
 
 	li {
 		display: inline-block;
 		vertical-align: middle;
 		background: #ddd;
-		height: 4px;
-		border-radius: 3px;
+		height: 10px;
+		width: 10px;
+		border-radius: 5px;
 		margin: 0 2px;
-		padding: 0 15px;
 	}
 }
 
