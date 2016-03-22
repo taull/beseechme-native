@@ -565,11 +565,13 @@ header {
     border-bottom: 0; }
 
 .register-select {
-  background: #fff;
-  padding: 15px; }
+  padding: 15px;
+  text-align: center; }
   .register-select a {
     display: inline-block;
-    vertical-align: top; }
+    vertical-align: top;
+    font-size: 1.6em;
+    color: #f0f0f0; }
 
 /* Login/Register */
 .location-container {
@@ -1013,10 +1015,11 @@ header {
     font-weight: 400;
     color: #333; }
   .login-welcome p {
-    padding-top: 2px;
+    padding-top: 10px;
     font-size: 1.4em;
     font-weight: 300;
-    color: #333; }
+    color: #333;
+    display: block; }
 
 .register-link {
   width: 100%;
@@ -1607,11 +1610,11 @@ header {
   width: 100%;
   position: relative;
   display: inline-block;
-  background: #1565C0;
+  background: #222;
   z-index: 0; }
 
 .index-banner {
-  width: 960px;
+  width: 480px;
   margin: 0 auto;
   position: relative;
   transition: 250ms;
@@ -1619,31 +1622,12 @@ header {
   text-align: center; }
   .index-banner img {
     width: 150px;
-    margin-bottom: 50px; }
+    margin-bottom: 50px;
+    display: none; }
   .index-banner h1 {
     font-size: 3em;
     font-weight: 100;
     color: #fff; }
-  .index-banner a {
-    position: relative;
-    padding: 15px 30px;
-    background: #8BC34A;
-    border-radius: 3px;
-    color: #fff;
-    font-size: 1.2em;
-    font-weight: 400;
-    display: inline-block;
-    margin-top: 30px; }
-    .index-banner a::after {
-      position: absolute;
-      content: "";
-      top: 0;
-      left: 0;
-      bottom: -5px;
-      right: 0;
-      background: #689F38;
-      z-index: -1;
-      border-radius: 3px; }
 
 .index-features-wrap {
   background: #f8f8f8;
@@ -1676,42 +1660,41 @@ header {
   width: 100%;
   width: 360px;
   padding: 30px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  text-align: center; }
   .login-form li {
     margin-bottom: 15px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 3px;
-    position: relative;
-    /*border: 1px solid #ddd;*/ }
+    border-bottom: 1px solid #333;
+    position: relative; }
     .login-form li input[type="text"],
     .login-form li input[type="password"] {
       display: inline-block;
       font-size: 1.2em;
-      color: #333;
+      color: #fff;
       border: 0;
       outline: 0;
       background: transparent;
       border-radius: 3px;
       font-weight: 300;
-      text-indent: 15px;
-      height: 40px; }
+      height: 40px;
+      text-align: center; }
     .login-form li input[type="text"] {
       width: 100%; }
     .login-form li input[type="password"] {
       width: 100%; }
     .login-form li input::-webkit-input-placeholder {
-      color: #333; }
+      color: #f0f0f0; }
   .login-form li:last-child {
     margin-bottom: 0; }
   .login-form a {
     font-size: 1em;
-    color: #333;
-    display: inline-block;
+    color: #f0f0f0;
+    display: block;
     vertical-align: top;
     text-decoration: none;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 30px;
     text-align: center; }
   .login-form input[type="checkbox"] {
     width: auto;
@@ -1721,9 +1704,6 @@ header {
     display: none; }
   .login-form button {
     display: inline-block;
-    position: absolute;
-    top: 3px;
-    right: 5px;
     padding: 0 10px;
     border: 0;
     background: transparent;
@@ -1733,9 +1713,20 @@ header {
     text-align: center; }
     .login-form button span {
       font-size: 1.6em;
-      color: #333; }
+      color: #f0f0f0;
+      display: none; }
+    .login-form button h1 {
+      padding: 15px 30px;
+      border-radius: 50px;
+      color: #fff;
+      background: #2196F3;
+      font-size: 1.2em;
+      font-weight: 300;
+      width: 150px;
+      position: relative;
+      margin: 20px auto; }
 
-/*Business Error Page*/
+/* Business Error Page */
 .business-error {
   width: 100%; }
   .business-error section {
@@ -3365,16 +3356,16 @@ svg rect {
 /* Step Navigation */
 .step-nav {
   width: 100%;
-  text-align: left;
+  text-align: center;
   padding: 5px 0 0; }
   .step-nav li {
     display: inline-block;
     vertical-align: middle;
     background: #ddd;
-    height: 4px;
-    border-radius: 3px;
-    margin: 0 2px;
-    padding: 0 15px; }
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    margin: 0 2px; }
 
 .active-step {
   background: #2196F3 !important; }

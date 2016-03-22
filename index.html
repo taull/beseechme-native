@@ -99,13 +99,15 @@
     <div class="index-banner">
       <img src="images/wolf-logo-v3.png">
       <% if (user) { %>
-        <h1>Welcome Back, <%= user.get('firstName') %></h1>
-        <a href="#dashboard">Dashboard</a>
+        <h1>Nextap</h1>
         <div class="login-form">
           <form action="">
             <li><input type="text" name="email" placeholder="Email Address"></li>
-            <li><input type="password" name="password" placeholder="Password"><button class="password-incorrect"><span class="fa fa-arrow-circle-right"></span></button></li>
+            <li><input type="password" name="password" placeholder="Password"></li>
             <input type="checkbox" value="signedIn"><p>Remember Me?</p>
+            <button class="password-incorrect"><h1>Sign In</h1><span class="fa fa-arrow-circle-right"></span></button>
+            <a href="#register">Register</a>
+
           </form>
         </div>
       <% } else { %>
@@ -133,78 +135,57 @@
 
 <!-- Register Route -->
 <script type='text/template' id='register-view'>
-  <div class="dashboard-container">
-    <div class="middle-column">
+  <div class="index-banner-wrap">
+
+    <div class="index-banner">
       <div class="register-select">
         <a href="#register/consumer">Consumer</a>
         <a href="#register/business">Business</a>
       </div>
     </div>
+
   </div>
 </script>
 
 <!-- Business Register Route -->
 <script type='text/template' id='business-register-route'>
   <% var user = BeMe.currentUser %>
-  <div class="user-info-wrap">
-    <div class="user-info-container">
-      <section class="user-info">
-          <section><h1>Register</h1></a><div class="step-nav"><li></li><li class="active-step"></li><li></li></div></section
-          ><footer>
-          </footer>
-      </section>
-      <section class="user-functions"></section>
 
-    </div>
-  </div>
+  <div class="index-banner-wrap">
 
-  <div class="index-container">
-    <div class="login-form">
-      <form action="">
-        <li><input type="text" name="business-name" placeholder="Business Name"></li>
-        <li><input type="text" name="email" placeholder="Email"></li>
-        <li><input type="password" name="password" placeholder="Password"></li>
-        <li><input type="password" name="confirm-password" placeholder="Password"></li>
-        <button>Register</button>
-      </form>
+    <div class="index-banner">
+      <div class="login-form">
+        <form action="">
+          <li><input type="text" name="business-name" placeholder="Business Name"></li>
+          <li><input type="text" name="email" placeholder="Email"></li>
+          <li><input type="password" name="password" placeholder="Password"></li>
+          <li><input type="password" name="confirm-password" placeholder="Password"></li>
+          <button>Register</button>
+        </form>
+      </div>
     </div>
   </div>
 </script>
 
 <!-- Consumer Register Route -->
 <script type='text/template' id='consumer-register-route'>
-  <div class="index-container">
-    <div class="login-welcome"><h1>Welcome.</h1> <p>Please register your personal account.</p></div>
+  <div class="index-banner-wrap">
 
-    <div class="login-container">
-      <form action="">
+    <div class="index-banner">
+      <div class="login-welcome"><h1>Welcome.</h1> <p>Please register your personal account.</p></div>
 
-        <li>
-          <span class="fa fa-user"></span
-          ><input type="text" name="first-name" placeholder="First Name">
-        </li>
-
-        <li>
-          <span class="fa fa-user"></span
-          ><input type="text" name="last-name" placeholder="Last Name">
-        </li>
-        <li>
-          <span class="fa fa-envelope"></span
-          ><input type="text" name="email" placeholder="Email Address">
-        </li>
-        <li>
-          <span class="fa fa-lock"></span
-          ><input type="password" name="password" placeholder="Password">
-        </li>
-        <li>
-          <span class="fa fa-lock"></span
-          ><input type="password" name="confirm-password" placeholder="Confirm Password">
-        </li>
-
-        <button>Register</button>
-      </form>
+      <div class="login-form">
+        <form action="">
+          <li><input type="text" name="first-name" placeholder="First Name"></li>
+          <li><input type="text" name="last-name" placeholder="Last Name"></li>
+          <li><input type="text" name="email" placeholder="Email Address"></li>
+          <li><input type="password" name="password" placeholder="Password"></li>
+          <li><input type="password" name="confirm-password" placeholder="Confirm Password"></li>
+          <button>Register</button>
+        </form>
+      </div>
+      <div class="step-nav"><li></li><li class="active-step"></li><li></li></div>
     </div>
-
   </div>
 </script>
 
