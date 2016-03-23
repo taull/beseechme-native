@@ -56,7 +56,7 @@ BeMe.Views.Modal = Backbone.View.extend({
     var self = this;
 
     FirebaseRef.child('statuses').push({
-      statusType: 'text',
+      statusType: 'Text',
       content:content,
       createdBy:BeMe.currentUser.authData.uid
     }, function (err) {
