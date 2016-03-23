@@ -211,82 +211,136 @@
 <% } else { %>
 <% } %>
 
-<div id="post-modal-trigger">
-  <h1>Post</h1>
-</div>
+  <div class="backend-header">
 
-<div class="post-modal-dest"></div>
+    <div class="backend-header-container">
+      <aside><span class="fa fa-bars" id="slideout-trigger"></span></aside>
+      <section><h1>Backend</h1></section>
+      <div id="post-modal-trigger">
+        <h1>+</h1>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="post-modal-dest"></div>
+
+  <div class="backend-slideout-wrap">
+    <div class="backend-slideout">
+
+      <div class="user-header">
+        <aside>
+          <% if (typeof user.get('avatar') !=='undefined') { %>
+            <img src=<%= user.get('avatar')._url %> >
+          <% } else { %>
+            <img src="images/henrysbar.jpg">
+          <% } %>
+        </aside
+        ><section><h1><%= user.get('businessName') %></h1><span class="fa fa-check-circle"></span><p>@<%= user.get('handle') %></p></section
+        ><div><img src="images/fire-logo-1.png"><h1>1,638</h1></div>
+      </div>
+      
+      <div class="menu-dark">
+
+        <a href="#backend/feed">
+          <aside><img src="images/comment-logo-1.png"></aside
+          ><section><h1>Activity</h1><p>My Feed</p></section
+          ><div></div>
+        </a
+
+        ><a href="#backend/calendar">
+          <aside><h2><%= moment().date() %></h2></aside
+          ><section><h1>Calendar</h1><p>Specials, Events & More</p></section
+          ><div><span class="fa fa-chevron-right"></span></div>
+        </a
+
+        ><a href="#backend/beer">
+          <aside><img src="images/icon-beer.png"></aside
+          ><section><h1>Draft Beer</h1><p>You have 11 beers on tap</p></section
+          ><div><span class="fa fa-chevron-right"></span></div>
+        </a>
+
+      </div>  
+    </div>
+  </div>
 
 </script>
 
 <script type="text/template" id="post-modal-view">
   <div class="post-modal">
-
+    <div class="post-modal-header">
+      <h1>What do you want to post?</h1>
+    </div>
     <div class="post-modal-tabs">
-      <li id="postText"><span class="fa fa-comment"></span></li>
-      <li id="postPhoto"><span class="fa fa-image"></span></li>
-      <li id="postVideo"><span class="fa fa-video-camera"></span></li>
-      <li id="postComment"><span class="fa fa-calendar"></span></li>
-      <li id="postBeer"><span class="fa fa-beer"></span></li>
+      <li id="postText"><span class="fa fa-comment"></span><h1>Text</h1></li>
+      <li id="postPhoto"><span class="fa fa-image"></span><h1>Photo</h1></li>
+      <li id="postVideo"><span class="fa fa-video-camera"></span><h1>Video</h1></li>
+      <li id="postComment"><span class="fa fa-calendar"></span><h1>Event</h1></li>
     </div>
 
-    <div id="post-modal-close">
-      <span class="fa fa-close"></span>
-    </div>
+  </div>
+  <div id="post-modal-close">
+    <span class="fa fa-close"></span>
   </div>
 </script>
 
 <script type="text/template" id="post-status-text-view">
+  <div class="post-status-header">
+    <span class="fa fa-comment text-header"></span>
+    <h1>Text</h1>
+  </div>
   <div class="post-status-text">
     <form action="">
-      <textarea id="text-status" rows="1" autoresize=true required=true placeholder="Your text here"></textarea
-      ><button>Post Text</button>
+      <textarea id="text-status" rows="1" autoresize=true required=true placeholder="Your text here"></textarea>
+      <button>Post</button>
     </form>
   </div>
 </script>
 
 <script type="text/template" id="post-status-photo-view">
-
+  <div class="post-status-header">
+    <span class="fa fa-image photo-header"></span>
+    <h1>Photo</h1>
+  </div>
   <div class="post-status-photo">
     <form action="">
       <input id="text-photo" type="file">
-      <button>Post Photo</button>
+      <textarea id="photo-caption" rows="1" autoresize=true required=true placeholder="Your caption here"></textarea>
+      <button>Upload</button>
+    </form>
+  </div>
+</script>
+
+<script type="text/template" id="post-status-video-view">
+  <div class="post-status-header">
+    <span class="fa fa-video-camera video-header"></span>
+    <h1>Video</h1>
+  </div>
+  <div class="post-status-video">
+    <form action="">
+      <input id="text-photo" type="file">
+      <textarea id="photo-caption" rows="1" autoresize=true required=true placeholder="Your caption here"></textarea>
+
+      <button>Upload</button>
     </form>
   </div>
 </script>
 
 <script type="text/template" id="post-status-calendar-view">
-  <div class="add-weekly-comment">
+
+  <div class="post-status-header">
+    <span class="fa fa-calendar event-header"></span>
+    <h1>Event</h1>
+  </div>
+
+  <div class="post-status-event">
     <form action="">
-
-      <li><input type="text" class="input-comment" name="content" placeholder="Add Comment..."></li
-
-      ><li>
-        <label class="radio-label" for="checkbox-date">
-          <input type="radio" name="select-comment" id="checkbox-date">
-          <input class="datepicker input-date" name="date" type="text" placeholder="Choose a Date">
-        </label>
-      </li
-
-      ><li><p>Or</p></li
-
-      ><li>
-        <label class="radio-label" for="checkbox-standing">
-          <input type="radio" name="select-comment" value="standingComment" id="checkbox-standing">
-          <select class="select-standing">
-            <option value=0>Every Sunday</option>
-            <option value=1>Every Monday</option>
-            <option value=2>Every Tuesday</option>
-            <option value=3>Every Wednesday</option>
-            <option value=4>Every Thursday</option>
-            <option value=5>Every Friday</option>
-            <option value=6>Every Saturday</option>
-          </select>
-        </label>
-      </li
-
-      ><li><button type="submit" class="submit-comment">Comment</button></li>
-
+      <input type="text" placeholder="Title">
+      <textarea id="event-status" rows="1" autoresize=true required=true placeholder="Event description here"></textarea>
+      <button>Post</button>
     </form>
   </div>
 </script>
@@ -302,60 +356,22 @@
 
 <% if (user.get('userType') == 'business') { %>
 
-  <div class="dashboard-container">
+  <div class="backend-container">
 
       <div class="middle-column">
-        <div class="business-info">
 
-          <div class="user-header">
-            <aside>
-              <% if (typeof user.get('avatar') !=='undefined') { %>
-                <img src=<%= user.get('avatar')._url %> >
-              <% } else { %>
-                <img src="images/default-avatar.png">
-              <% } %>
-            </aside
-            ><section><h1><%= user.get('businessName') %></h1><span class="fa fa-check-circle"></span><p>@<%= user.get('handle') %></p></section
-            ><div><img src="images/fire-logo-1.png"><h1>1,638</h1></div>
-          </div>
-          <div class="user-cover">
-            <% if (typeof user.get('coverPhoto') !=='undefined') { %>
-              <img src=<%= user.get('coverPhoto')._url %> >
-            <% } else { %>
-              <img src="images/default-avatar.png">
-            <% } %>
-          </div>
 
+        <div class="user-cover">
+          <% if (typeof user.get('coverPhoto') !=='undefined') { %>
+            <img src=<%= user.get('coverPhoto')._url %> >
+          <% } else { %>
+            <img src="images/henrysbar.jpg">
+          <% } %>
         </div>
-
         <div class="menu-stats">
-
           <a href="#backend/followers">
             <section><img src="images/fire-logo-1.png"><h2 class='follow-number'></h2><p>followers</p></section>
           </a>
-
-        </div>
-
-        <div class="menu-light">
-
-          <a href="#backend/feed">
-            <aside><img src="images/comment-logo-1.png"></aside
-            ><section><h1>Activity</h1><p>My Feed</p></section
-            ><div></div>
-          </a
-
-          ><a href="#backend/calendar">
-            <aside><h2><%= moment().date() %></h2></aside
-            ><section><h1>Calendar</h1><p>Specials, Events & More</p></section
-            ><div><span class="fa fa-chevron-right"></span></div>
-          </a
-
-          ><a href="#backend/beer">
-            <aside><img src="images/icon-beer.png"></aside
-            ><section><h1>Draft Beer</h1><p>You have 11 beers on tap</p></section
-            ><div><span class="fa fa-chevron-right"></span></div>
-          </a>
-
         </div>
 
         <div class="copyright-info">
@@ -366,6 +382,7 @@
       </div>
 
   </div>
+
 
 <% } else { %>
 
@@ -386,7 +403,7 @@
 
 <% if (user.get('userType') === 'business') { %>
 
-  <div class="dashboard-container">
+  <div class="backend-container">
 
       <div class="middle-column">
 
@@ -423,7 +440,7 @@
 
 <script type="text/template" id="backend-post-view">
   <% var user = BeMe.currentUser %>
-  <div class="dashboard-container">
+  <div class="backend-container">
     <div class="middle-column">
 
       <div class="backend-header">
@@ -480,7 +497,7 @@
 
   </div>
 
-  <div class="dashboard-container">
+  <div class="backend-container">
     <div class="middle-column">
 
       <div class="backend-header">
@@ -620,7 +637,7 @@
 
   <% var user = BeMe.currentUser; %>
 
-  <div class="dashboard-container">
+  <div class="backend-container">
       <div class="middle-column">
 
         <div class="backend-header">
@@ -678,7 +695,7 @@
 <script type="text/template" id="backend-calendar-view">
   <% var user = BeMe.currentUser; %>
 
-  <div class="dashboard-container">
+  <div class="backend-container">
       <div class="middle-column">
 
         <div class="backend-header">
