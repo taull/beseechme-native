@@ -40,8 +40,6 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
 		// 	self.render();
 		// });
     this.fetch(this.query).then(function (e) {
-      console.log(e);
-			console.log(self);
       self.render();
     });
   },
