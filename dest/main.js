@@ -1477,6 +1477,10 @@ BeMe.Views.Backend = Parse.View.extend({
 
     });
 
+    $('#slideout-trigger').click(function(){
+      $('.backend-slideout-wrap').toggleClass('backend-slideout-shift');
+    });
+
 	},
 
   events: {
@@ -2713,6 +2717,7 @@ BeMe.Views.Modal = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template);
+
   },
 
   events: {
@@ -2739,11 +2744,14 @@ BeMe.Views.Modal = Backbone.View.extend({
       postText: '#post-status-text-view',
       postPhoto: '#post-status-photo-view',
       postComment: '#post-status-calendar-view',
+      postVideo: '#post-status-video-view',
+
     };
 
     var compiledTemplate = _.template($(matchObject[id]).text())();
     $('.post-modal').html(compiledTemplate);
   }
+
 });
 
 BeMe.Views.Register = Parse.View.extend({

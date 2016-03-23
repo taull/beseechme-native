@@ -24,6 +24,10 @@ BeMe.Views.Backend = Parse.View.extend({
 
     });
 
+    $('#slideout-trigger').click(function(){
+      $('.backend-slideout-wrap').toggleClass('backend-slideout-shift');
+    });
+
 	},
 
   events: {

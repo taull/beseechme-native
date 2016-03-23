@@ -9,6 +9,7 @@ BeMe.Views.Modal = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template);
+
   },
 
   events: {
@@ -35,9 +36,12 @@ BeMe.Views.Modal = Backbone.View.extend({
       postText: '#post-status-text-view',
       postPhoto: '#post-status-photo-view',
       postComment: '#post-status-calendar-view',
+      postVideo: '#post-status-video-view',
+
     };
 
     var compiledTemplate = _.template($(matchObject[id]).text())();
     $('.post-modal').html(compiledTemplate);
   }
+
 });
