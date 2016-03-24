@@ -419,7 +419,7 @@ BeMe.removeGroup = function (group) {
   _.each(group, function (i) {
     i.remove();
   });
-  group = [];
+  group.length = 0;
 }
 
 BeMe.removeAllViews = function () {
@@ -654,7 +654,7 @@ $(document).ready(function () {
 
 BeMe.Models.Status = Backbone.Model.extend({
   defaults: {
-    userName: "Hi"
+  
   }
 });
 
@@ -1328,14 +1328,16 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
     var self = this;
     this.views = [];
     this.on('add remove', this.render);
-		// FirebaseRef.child('statuses').orderByChild('createdBy').equalTo(BeMe.currentUser.authData.uid).once('value', function (snapshot) {
-		// 	console.log(snapshot.val());
-		// 	self.add(snapshot.val());
-		// 	self.render();
-		// });
-    this.fetch(this.query).then(function (e) {
-      self.render();
-    });
+		FirebaseRef.child('statuses').orderByChild('createdBy').equalTo(BeMe.currentUser.authData.uid).once('value', function (snapshot) {
+			snapshot.forEach(function (i) {
+				self.add(i.val());
+			});
+			self.render();
+		});
+    // this.fetch(this.query).then(function (e) {
+		// 	console.log(e);
+    //   self.render();
+    // });
   },
 
   query: new Parse.Query('status')
@@ -2762,6 +2764,7 @@ BeMe.Views.Modal = Backbone.View.extend({
     var self = this;
 
     FirebaseRef.child('statuses').push({
+      createdAt: new Date().toISOString(),
       statusType: 'Text',
       content:content,
       createdBy:BeMe.currentUser.authData.uid
@@ -3302,11 +3305,12 @@ BeMe.Views.StatusListView = Parse.View.extend({
 
 BeMe.Views.Status = Parse.View.extend({
 	initialize: function () {
+		console.log(this.model);
 		this.render();
 		this.likeCount;
-	    this.getLikes();
-	    this.doesUserLike();
-	    this.isFollowingStatus;
+    // this.getLikes();
+    // this.doesUserLike();
+    this.isFollowingStatus;
 	},
 
 	template: function (model) {
@@ -3328,7 +3332,7 @@ BeMe.Views.Status = Parse.View.extend({
 	render: function () {
 		this.$el.html(this.template(this.model));
 		$(this.options.container).append(this.el);
-		BeMe.renderedViews.push(this); 
+		BeMe.renderedViews.push(this);
 	},
 
 	events: {
@@ -3358,7 +3362,7 @@ BeMe.Views.Status = Parse.View.extend({
 	      $followButton.addClass('unfollow');
 		}
 	},
- 
+
   	isNotFollowing: function () {
 	    var $unfollowButton = this.$el.find('.unfollow');
 	    if ($unfollowButton.length) {
@@ -3441,7 +3445,7 @@ BeMe.Views.Status = Parse.View.extend({
 	      likedBy.add(user);
 	      this.model.save().then(function () {
 	      	/*var createdBy = self.model.get('createdBy');
-	      	if (createdBy.get('userType') == 'consumer') { 
+	      	if (createdBy.get('userType') == 'consumer') {
 	      		BeMe.showConfirmation('You liked ' + createdBy.get('firstName') + " " + createdBy.get('lastName') + "'s post!");
 	      	} else {
 	      		BeMe.showConfirmation('You liked ' + createdBy.get('businessName') + "'s post");

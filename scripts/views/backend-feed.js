@@ -34,14 +34,16 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
     var self = this;
     this.views = [];
     this.on('add remove', this.render);
-		// FirebaseRef.child('statuses').orderByChild('createdBy').equalTo(BeMe.currentUser.authData.uid).once('value', function (snapshot) {
-		// 	console.log(snapshot.val());
-		// 	self.add(snapshot.val());
-		// 	self.render();
-		// });
-    this.fetch(this.query).then(function (e) {
-      self.render();
-    });
+		FirebaseRef.child('statuses').orderByChild('createdBy').equalTo(BeMe.currentUser.authData.uid).once('value', function (snapshot) {
+			snapshot.forEach(function (i) {
+				self.add(i.val());
+			});
+			self.render();
+		});
+    // this.fetch(this.query).then(function (e) {
+		// 	console.log(e);
+    //   self.render();
+    // });
   },
 
   query: new Parse.Query('status')

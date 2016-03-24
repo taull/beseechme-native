@@ -242,7 +242,7 @@
         ><section><h1><%= user.get('businessName') %></h1><span class="fa fa-check-circle"></span><p>@<%= user.get('handle') %></p></section
         ><div><img src="images/fire-logo-1.png"><h1>1,638</h1></div>
       </div>
-      
+
       <div class="menu-dark">
 
         <a href="#backend/feed">
@@ -263,7 +263,7 @@
           ><div><span class="fa fa-chevron-right"></span></div>
         </a>
 
-      </div>  
+      </div>
     </div>
   </div>
 
@@ -1191,10 +1191,12 @@
 <!-- TEXT VIEW -->
 
 <script type='text/template' id='status-text-view'>
-  <% var user = attributes.createdBy %>
+  <%
+    var user = BeMe.currentUser;
+  %>
 
   <section class="feed-info">
-      <article><i class="fa fa-check-circle like-button"></i><span class='likes'></span><h1><%= moment(createdAt).format("h:mm") %></h1><h2><%= moment(createdAt).format("A") %></h2></article
+      <article><i class="fa fa-check-circle like-button"></i><span class='likes'></span><h1><%= moment(attributes.createdAt).format("h:mm") %></h1><h2><%= moment(attributes.createdAt).format("A") %></h2></article
 
       ><aside>
         <% if (typeof user.get('avatar') !=='undefined') { %>

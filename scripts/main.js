@@ -74,7 +74,7 @@ BeMe.removeGroup = function (group) {
   _.each(group, function (i) {
     i.remove();
   });
-  group = [];
+  group.length = 0;
 }
 
 BeMe.removeAllViews = function () {

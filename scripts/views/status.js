@@ -1,10 +1,11 @@
 BeMe.Views.Status = Parse.View.extend({
 	initialize: function () {
+		console.log(this.model);
 		this.render();
 		this.likeCount;
-	    this.getLikes();
-	    this.doesUserLike();
-	    this.isFollowingStatus;
+    // this.getLikes();
+    // this.doesUserLike();
+    this.isFollowingStatus;
 	},
 
 	template: function (model) {
@@ -26,7 +27,7 @@ BeMe.Views.Status = Parse.View.extend({
 	render: function () {
 		this.$el.html(this.template(this.model));
 		$(this.options.container).append(this.el);
-		BeMe.renderedViews.push(this); 
+		BeMe.renderedViews.push(this);
 	},
 
 	events: {
@@ -56,7 +57,7 @@ BeMe.Views.Status = Parse.View.extend({
 	      $followButton.addClass('unfollow');
 		}
 	},
- 
+
   	isNotFollowing: function () {
 	    var $unfollowButton = this.$el.find('.unfollow');
 	    if ($unfollowButton.length) {
@@ -139,7 +140,7 @@ BeMe.Views.Status = Parse.View.extend({
 	      likedBy.add(user);
 	      this.model.save().then(function () {
 	      	/*var createdBy = self.model.get('createdBy');
-	      	if (createdBy.get('userType') == 'consumer') { 
+	      	if (createdBy.get('userType') == 'consumer') {
 	      		BeMe.showConfirmation('You liked ' + createdBy.get('firstName') + " " + createdBy.get('lastName') + "'s post!");
 	      	} else {
 	      		BeMe.showConfirmation('You liked ' + createdBy.get('businessName') + "'s post");
