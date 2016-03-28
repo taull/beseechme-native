@@ -637,8 +637,16 @@ header {
   .register-select a {
     display: inline-block;
     vertical-align: top;
-    font-size: 1.6em;
-    color: #f0f0f0; }
+    padding: 0px 30px;
+    text-align: center; }
+    .register-select a h1 {
+      font-size: 1.2em;
+      font-weight: 300;
+      color: #f0f0f0;
+      margin-top: 10px; }
+    .register-select a span {
+      font-size: 3em;
+      color: #FFC107; }
 
 /* Login/Register */
 .location-container {
@@ -1566,10 +1574,6 @@ header {
     width: 150px;
     margin-bottom: 50px;
     display: none; }
-  .index-banner h1 {
-    font-size: 3em;
-    font-weight: 100;
-    color: #fff; }
 
 .index-features-wrap {
   background: #f8f8f8;
