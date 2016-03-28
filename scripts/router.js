@@ -27,12 +27,10 @@ var Router = Backbone.Router.extend({
 		'backend/calendar' : 'backendCalendar',
     'backend/calendar/comment' : 'backendComment',
 
-    'business/:handle' : 'businessHome',
-    'business/:handle/feed' : 'businessFeed',
-    'business/:handle/beer' : 'businessBeerList',
-    'business/:handle/calendar' : 'businessCalendar',
-
-    'consumer/:handle' : 'consumerHome',
+    ':handle' : 'userHome',
+    ':handle/feed' : 'userFeed',
+    ':handle/beer' : 'userBeerList',
+    ':handle/calendar' : 'userCalendar',
 
     'dashboard' : 'dashboardHome',
 
