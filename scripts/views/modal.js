@@ -19,9 +19,11 @@ BeMe.Views.Modal = Backbone.View.extend({
   },
 
   closeHandler: function (e) {
+
     if (e.target == this.el) {
       this.close();
-    }
+    }    
+
   },
 
   close: function () {
@@ -42,6 +44,12 @@ BeMe.Views.Modal = Backbone.View.extend({
 
     var compiledTemplate = _.template($(matchObject[id]).text())();
     $('.post-modal').html(compiledTemplate);
+    // $('.post-status-text').addClass('animated zoomIn');
+    // $('.post-status-header').addClass('animated zoomIn');
+
+    // $('.post-modal-tabs').addClass('animated bounceOutUp');
+    // $('.post-modal-header').addClass('animated bounceOutUp');
+
   }
 
 });

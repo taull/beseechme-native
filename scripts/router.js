@@ -10,8 +10,14 @@ var Router = Backbone.Router.extend({
 
     'register' : 'register',
 
-		'register/business' : 'registerBusiness',
-		'register/consumer' : 'registerConsumer',
+		'register/business/1' : 'registerBusiness',
+		'register/consumer/1' : 'registerConsumer',
+
+    'register/business/2' : 'registerBusinessAvatar',
+    'register/consumer/2' : 'registerConsumerAvatar',
+
+    'register/business/3' : 'registerBusinessLocation',
+    'register/consumer/3' : 'registerConsumerLocation',
 
 		'backend' : 'backendHome',
 		'backend/feed' : 'backendFeed',
@@ -120,6 +126,26 @@ var Router = Backbone.Router.extend({
 		BeMe.removeAllViews();
 		new BeMe.Views.ConsumerRegister();
 	},
+
+  registerBusinessAvatar: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.BusinessRegisterAvatar();
+  },
+
+  registerConsumerAvatar: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.ConsumerRegisterAvatar();
+  },
+
+  registerBusinessLocation: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.BusinessRegisterLocation();
+  },
+
+  registerConsumerLocation: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.ConsumerRegisterLocation();
+  },
 
 	home: function () {
 		BeMe.removeAllViews();

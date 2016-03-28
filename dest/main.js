@@ -10,8 +10,14 @@ var Router = Backbone.Router.extend({
 
     'register' : 'register',
 
-		'register/business' : 'registerBusiness',
-		'register/consumer' : 'registerConsumer',
+		'register/business/1' : 'registerBusiness',
+		'register/consumer/1' : 'registerConsumer',
+
+    'register/business/2' : 'registerBusinessAvatar',
+    'register/consumer/2' : 'registerConsumerAvatar',
+
+    'register/business/3' : 'registerBusinessLocation',
+    'register/consumer/3' : 'registerConsumerLocation',
 
 		'backend' : 'backendHome',
 		'backend/feed' : 'backendFeed',
@@ -120,6 +126,26 @@ var Router = Backbone.Router.extend({
 		BeMe.removeAllViews();
 		new BeMe.Views.ConsumerRegister();
 	},
+
+  registerBusinessAvatar: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.BusinessRegisterAvatar();
+  },
+
+  registerConsumerAvatar: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.ConsumerRegisterAvatar();
+  },
+
+  registerBusinessLocation: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.BusinessRegisterLocation();
+  },
+
+  registerConsumerLocation: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.ConsumerRegisterLocation();
+  },
 
 	home: function () {
 		BeMe.removeAllViews();
@@ -1477,8 +1503,14 @@ BeMe.Views.Backend = Parse.View.extend({
 
     });
 
-    $('#slideout-trigger').click(function(){
+    $('.navToggle').click(function(){
       $('.backend-slideout-wrap').toggleClass('backend-slideout-shift');
+    });
+
+        // On icon click...
+    $(".navToggle").on("click", function(){
+      $(this).toggleClass("open");
+      $("#menu").toggleClass("active");
     });
 
 	},
@@ -1490,6 +1522,10 @@ BeMe.Views.Backend = Parse.View.extend({
 
 	openModal: function () {
 		$('.post-modal-dest').append(new BeMe.Views.Modal().el); // create overlay modal
+    $('.post-modal-tabs').addClass('animated bounceInUp');
+    $('.post-modal-header').addClass('animated bounceInUp');
+
+
 	},
 
   search: function (e) {
@@ -2727,9 +2763,11 @@ BeMe.Views.Modal = Backbone.View.extend({
   },
 
   closeHandler: function (e) {
+
     if (e.target == this.el) {
       this.close();
-    }
+    }    
+
   },
 
   close: function () {
@@ -2750,6 +2788,12 @@ BeMe.Views.Modal = Backbone.View.extend({
 
     var compiledTemplate = _.template($(matchObject[id]).text())();
     $('.post-modal').html(compiledTemplate);
+    // $('.post-status-text').addClass('animated zoomIn');
+    // $('.post-status-header').addClass('animated zoomIn');
+
+    // $('.post-modal-tabs').addClass('animated bounceOutUp');
+    // $('.post-modal-header').addClass('animated bounceOutUp');
+
   }
 
 });
@@ -2903,6 +2947,80 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
     }
 	}
 });
+
+
+BeMe.Views.ConsumerRegisterAvatar = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#consumer-register-avatar-route').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('#application').append(this.el);
+    BeMe.renderedViews.push(this);
+  },
+
+  events: {
+  },
+
+});
+
+BeMe.Views.ConsumerRegisterLocation = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#consumer-register-location-route').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('#application').append(this.el);
+    BeMe.renderedViews.push(this);
+  },
+
+  events: {
+  },
+
+});
+
+BeMe.Views.BusinessRegisterAvatar = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#business-register-avatar-route').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('#application').append(this.el);
+    BeMe.renderedViews.push(this);
+  },
+
+  events: {
+  },
+
+});
+
+BeMe.Views.BusinessRegisterLocation = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#business-register-location-route').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('#application').append(this.el);
+    BeMe.renderedViews.push(this);
+  },
+
+  events: {
+  },
+
+});
+
 
 BeMe.Views.Search = Parse.View.extend({
 	initialize: function () {
