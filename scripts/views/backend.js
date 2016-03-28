@@ -24,8 +24,14 @@ BeMe.Views.Backend = Parse.View.extend({
 
     });
 
-    $('#slideout-trigger').click(function(){
+    $('.navToggle').click(function(){
       $('.backend-slideout-wrap').toggleClass('backend-slideout-shift');
+    });
+
+        // On icon click...
+    $(".navToggle").on("click", function(){
+      $(this).toggleClass("open");
+      $("#menu").toggleClass("active");
     });
 
 	},
@@ -37,6 +43,10 @@ BeMe.Views.Backend = Parse.View.extend({
 
 	openModal: function () {
 		$('.post-modal-dest').append(new BeMe.Views.Modal().el); // create overlay modal
+    $('.post-modal-tabs').addClass('animated bounceInUp');
+    $('.post-modal-header').addClass('animated bounceInUp');
+
+
 	},
 
   search: function (e) {

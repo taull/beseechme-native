@@ -147,3 +147,77 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
     }
 	}
 });
+
+
+BeMe.Views.ConsumerRegisterAvatar = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#consumer-register-avatar-route').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('#application').append(this.el);
+    BeMe.renderedViews.push(this);
+  },
+
+  events: {
+  },
+
+});
+
+BeMe.Views.ConsumerRegisterLocation = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#consumer-register-location-route').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('#application').append(this.el);
+    BeMe.renderedViews.push(this);
+  },
+
+  events: {
+  },
+
+});
+
+BeMe.Views.BusinessRegisterAvatar = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#business-register-avatar-route').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('#application').append(this.el);
+    BeMe.renderedViews.push(this);
+  },
+
+  events: {
+  },
+
+});
+
+BeMe.Views.BusinessRegisterLocation = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#business-register-location-route').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('#application').append(this.el);
+    BeMe.renderedViews.push(this);
+  },
+
+  events: {
+  },
+
+});
+
