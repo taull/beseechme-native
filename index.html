@@ -138,9 +138,12 @@
   <div class="index-banner-wrap">
 
     <div class="index-banner">
+
+      <div class="login-header"><h1>User Select</h1></div>
+
       <div class="register-select">
-        <a href="#register/consumer">Consumer</a>
-        <a href="#register/business">Business</a>
+        <a href="#register/consumer/1"><span class="fa fa-user"></span><h1>Consumer</h1></a>
+        <a href="#register/business/1"><span class="fa fa-building"></span><h1>Business</h1></a>
       </div>
     </div>
 
@@ -154,17 +157,19 @@
   <div class="index-banner-wrap">
 
     <div class="index-banner">
-      <div class="login-header"><h1>Welcome.</h1><p>Please register your personal account.</p></div>
+      <div class="login-header"><h1>Welcome.</h1><p>Please register your business account.</p></div>
 
       <div class="login-form">
         <form action="">
           <li><input type="text" name="business-name" placeholder="Business Name"></li>
           <li><input type="text" name="email" placeholder="Email"></li>
+          <li><input type="text" name="handle" placeholder="Handle"></li>
           <li><input type="password" name="password" placeholder="Password"></li>
-          <li><input type="password" name="confirm-password" placeholder="Password"></li>
+          <li><input type="password" name="confirm-password" placeholder="Confirm Password"></li>
           <button>Register</button>
         </form>
       </div>
+
       <div class="step-nav"><li class="active-step"></li><li></li><li></li></div>
 
     </div>
@@ -200,6 +205,26 @@
       <div class="step-nav"><li></li><li></li><li class="active-step"></li></div>
     </div>
   </div>
+  <div class="location-loading-wrap hidden">
+    <div class="location-loading">
+      <i class="fa fa-location-arrow location-button"></i>
+    </div>
+  </div>
+</script>
+
+<!-- Business Register Location Step -->
+
+<script type='text/template' id='business-register-confirm-route'>
+  <div class="index-banner-wrap">
+
+    <div class="index-banner">
+      <div class="login-header">
+        <i class="fa fa-location-arrow location-button"></i><h1>Confirm Address</h1>
+        <section><h3>2615 Wheat St.</h3><h3>Columbia, SC 29205</h3><a href="#backend">Yes that is my address</a></section>
+      </div>
+      <div class="step-nav"><li></li><li></li><li></li><li class="active-step"></li></div>
+    </div>
+  </div>
 </script>
 
 <!-- Consumer Register Route -->
@@ -215,6 +240,7 @@
           <li><input type="text" name="first-name" placeholder="First Name"></li>
           <li><input type="text" name="last-name" placeholder="Last Name"></li>
           <li><input type="text" name="email" placeholder="Email Address"></li>
+          <li><input type="text" name="handle" placeholder="Handle"></li>
           <li><input type="password" name="password" placeholder="Password"></li>
           <li><input type="password" name="confirm-password" placeholder="Confirm Password"></li>
           <button>Next Step</button>
@@ -249,7 +275,7 @@
     <div class="index-banner">
       <div class="login-header">
         <i class="fa fa-location-arrow location-button"></i><h1>Set Location</h1>
-        <section><h2>If you are not at your place of business, please </h2> <a href="#backend">skip step</a></section>
+        <section><a href="#dashboard">Skip step</a></section>
       </div>
       <div class="step-nav"><li></li><li></li><li class="active-step"></li></div>
     </div>

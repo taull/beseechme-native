@@ -19,6 +19,8 @@ var Router = Backbone.Router.extend({
     'register/business/3' : 'registerBusinessLocation',
     'register/consumer/3' : 'registerConsumerLocation',
 
+    'register/business/4' : 'registerBusinessConfirm',
+
 		'backend' : 'backendHome',
 		'backend/feed' : 'backendFeed',
     'backend/feed/post' : 'backendPost',
@@ -143,6 +145,11 @@ var Router = Backbone.Router.extend({
   registerConsumerLocation: function () {
     BeMe.removeAllViews();
     new BeMe.Views.ConsumerRegisterLocation();
+  },
+
+  registerBusinessConfirm: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.BusinessRegisterConfirm();
   },
 
 	home: function () {
@@ -3044,6 +3051,24 @@ BeMe.Views.BusinessRegisterLocation = Parse.View.extend({
   },
 
   template: _.template($('#business-register-location-route').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('#application').append(this.el);
+    BeMe.renderedViews.push(this);
+  },
+
+  events: {
+  },
+
+});
+
+BeMe.Views.BusinessRegisterConfirm = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#business-register-confirm-route').text()),
 
   render: function () {
     this.$el.html(this.template(this.model));
