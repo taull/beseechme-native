@@ -2894,7 +2894,7 @@ BeMe.Views.BusinessRegister = Parse.View.extend({
             password:password
           }, function (error) {
             if(!error) {
-              BeMe.Router.navigate('backend', true);
+              BeMe.Router.navigate('register/business/2', true);
             } else {
               alert(error);
             }
@@ -2960,7 +2960,7 @@ BeMe.Views.ConsumerRegister = Parse.View.extend({
           password:password
         }, function (error) {
           if(!error) {
-            BeMe.Router.navigate('dashboard', true);
+            BeMe.Router.navigate('register/consumer/2', true);
           } else {
             alert(error);
           }
@@ -3057,7 +3057,6 @@ BeMe.Views.BusinessRegisterLocation = Parse.View.extend({
   },
 
 });
-
 
 BeMe.Views.Search = Parse.View.extend({
 	initialize: function () {
