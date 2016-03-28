@@ -221,3 +221,21 @@ BeMe.Views.BusinessRegisterLocation = Parse.View.extend({
 
 });
 
+BeMe.Views.BusinessRegisterConfirm = Parse.View.extend({
+  initialize: function () {
+    this.render();
+  },
+
+  template: _.template($('#business-register-confirm-route').text()),
+
+  render: function () {
+    this.$el.html(this.template(this.model));
+    $('#application').append(this.el);
+    BeMe.renderedViews.push(this);
+  },
+
+  events: {
+  },
+
+});
+

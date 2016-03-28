@@ -19,6 +19,8 @@ var Router = Backbone.Router.extend({
     'register/business/3' : 'registerBusinessLocation',
     'register/consumer/3' : 'registerConsumerLocation',
 
+    'register/business/4' : 'registerBusinessConfirm',
+
 		'backend' : 'backendHome',
 		'backend/feed' : 'backendFeed',
     'backend/feed/post' : 'backendPost',
@@ -145,6 +147,11 @@ var Router = Backbone.Router.extend({
   registerConsumerLocation: function () {
     BeMe.removeAllViews();
     new BeMe.Views.ConsumerRegisterLocation();
+  },
+
+  registerBusinessConfirm: function () {
+    BeMe.removeAllViews();
+    new BeMe.Views.BusinessRegisterConfirm();
   },
 
 	home: function () {
