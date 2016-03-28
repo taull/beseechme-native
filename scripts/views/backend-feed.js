@@ -36,7 +36,9 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
     this.on('add remove', this.render);
 		FirebaseRef.child('statuses').orderByChild('createdBy').equalTo(BeMe.currentUser.authData.uid).once('value', function (snapshot) {
 			snapshot.forEach(function (i) {
-				self.add(i.val());
+				var model = i.val();
+				model.createdBy = BeMe.currentUser;
+				self.add(model);
 			});
 			self.render();
 		});

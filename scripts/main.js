@@ -51,7 +51,7 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
 
     fetch: function () {
       var self = this;
-      FirebaseRef.child('users/' + authData.uid).once('value', function (snapshot) {
+      FirebaseRef.child('users/' + this.authData.uid).once('value', function (snapshot) {
         self.attributes = snapshot.val();
       });
     }

@@ -396,7 +396,7 @@ Parse.initialize("oRWDYma9bXbBAgiTuvhh0n4xOtJU4mO5ifF1PuBH", "iNmHdD8huWDsHhtc50
 
     fetch: function () {
       var self = this;
-      FirebaseRef.child('users/' + authData.uid).once('value', function (snapshot) {
+      FirebaseRef.child('users/' + this.authData.uid).once('value', function (snapshot) {
         self.attributes = snapshot.val();
       });
     }
@@ -1330,7 +1330,9 @@ BeMe.Collections.Feeds = Parse.Collection.extend({
     this.on('add remove', this.render);
 		FirebaseRef.child('statuses').orderByChild('createdBy').equalTo(BeMe.currentUser.authData.uid).once('value', function (snapshot) {
 			snapshot.forEach(function (i) {
-				self.add(i.val());
+				var model = i.val();
+				model.createdBy = BeMe.currentUser;
+				self.add(model);
 			});
 			self.render();
 		});
