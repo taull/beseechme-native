@@ -88,14 +88,14 @@ body {
 
 .dashboard-container {
 	width: 480px; 
-    margin: 60px auto 0;
+    margin: 20px auto 0;
     position: relative;
     z-index: 1;
 }
 
 .backend-container {
 	width: 480px; 
-    margin: 60px auto 0;
+    margin: 135px auto 0;
     position: relative;
     z-index: 1;
 }
@@ -203,9 +203,9 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 500;
+    z-index: 1500;
     height: 60px;
-    background: #222;
+    background: #fff;
 	/*background: url(../images/bluebkgd.jpg) no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -221,7 +221,7 @@ header {
     left: 0;
     z-index: 600;
     height: 60px;
-    background: #222;
+    background: #fff;
 
 
 }
@@ -234,17 +234,19 @@ header {
 	aside, 
     section {
     	display: inline-block;
+    	vertical-align: top;
     }
 
     aside {
     	width: 25%;
+    	padding: 0 0 0 20px;
 
     	span {
     		width: 60px;
     		height: 60px;
     		padding: 20px 20px 0;
     		font-size: 1.6em;
-    		color: #fff;
+    		color: #333;
     	}
     }
 
@@ -253,9 +255,10 @@ header {
     	text-align: center;
 
     	h1 {
-    		color: #fff;
+    		color: #333;
     		font-size: 1.4em;
-    		font-weight: 400;
+    		font-weight: 300;
+    		display: none;
     	}
     }
 }
@@ -343,6 +346,7 @@ header {
 	position:relative;
 	text-align: center;
 	left:-50%;
+	background: #222;
 }
 
 .header-search {
@@ -364,6 +368,7 @@ header {
 	margin: 0 auto;
 	height: 60px;
 	padding-top: 20px;
+	display: none; 
 
 	aside, 
 	section, 
@@ -409,9 +414,10 @@ header {
 .header-window {
 	overflow: hidden;
 	width: 480px;
-	margin: 0 auto;
+	margin: 60px auto;
 	height: 60px;
-	display: none;
+	position: relative;
+	z-index: 500;
 }
 
 .header-left {
@@ -504,7 +510,7 @@ header {
 	width: 100%;
 	position: fixed;
 	top: 0px;
-	z-index: 200;
+	z-index: 1000;
 
 }
 
@@ -627,7 +633,7 @@ header {
 	width: 480px;
 	margin: 0 auto;
 	height: 100%;
-	background: #333;
+	background: #fff;
 }
 
 .menu-light {
@@ -1360,31 +1366,7 @@ header {
 	padding: 20px;
 }
 
-.login-welcome {
-	width: 480px;
-	margin: 0 auto;
-	padding: 20px 0;
 
-	h1, 
-	p {
-		display: inline-block;
-		vertical-align: top;
-	}
-
-	h1 {
-		font-size: 1.4em;
-		font-weight: 400;
-		color: #333;
-	}
-
-	p {
-		padding-top:10px;
-		font-size: 1.4em;
-		font-weight: 300;
-		color: #333;
-		display: block;
-	}
-}
 
 .register-link {
 	width: 100%;
@@ -2085,28 +2067,6 @@ header {
     }
 }
 
-.location-button {
-    display: inline-block;
-	background: $blue-700;
-    text-align: center;
-    border-radius: 3px;
-    padding: 10px 30px;
-    cursor: pointer;
-
-    i,
-    p {
-    	display: inline-block;
-		vertical-align: top;
-    }
-	
-	p {
-		color: #fff;
-		font-size: 1.2em;
-		font-weight: 400;
-	}
-
-}
-
 .dashboard-current-location {
 	padding: 10px;
 }
@@ -2264,6 +2224,87 @@ header {
 	}
 }
 
+.login-header {
+	width: 480px;
+	margin: 0 auto;
+	padding: 20px 0;
+
+	h1, 
+	p {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	h1 {
+		font-size: 3em;
+		font-weight: 100;
+		color: #fff;
+	}
+
+	section {
+		display: block;
+		text-align: center;
+		padding: 0 30px;
+
+		a, 
+		h2 {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		a {
+			font-size: 1.2em;
+			font-weight: 300;
+			color: $gold-medium;
+			margin-top: 20px;
+		}
+
+		h2 {
+			font-size: 1.2em;
+			font-weight: 300;
+			color: #999;
+			margin-top: 20px;
+		}
+	}
+
+
+
+	p {
+		padding-top:10px;
+		font-size: 1.4em;
+		font-weight: 300;
+		color: #333;
+		display: block;
+	}
+
+	span {
+	    width: 100px;
+	    height: 100px;
+	    color: #FFC107;
+	    display: block;
+	    margin: 0 auto 30px;
+	    font-size: 6em;
+	    border-radius: 50px;
+	    border: 4px solid #FFC107;
+	    padding-top: 5px;
+	    font-weight: 100;
+	}
+
+	i {
+	    width: 100px;
+	    height: 100px;
+	    color: #FFC107;
+	    display: block;
+	    margin: 0 auto 30px;
+	    font-size: 4em;
+	    border-radius: 50px;
+	    border: 4px solid #FFC107;
+	    padding-top: 25px;
+	    font-weight: 100;
+	}
+
+}
+
 
 .login-form {
 	width: 100%;
@@ -2340,27 +2381,10 @@ header {
 		background: transparent;
 		outline: 0;
 		height: 40px;
-		font-weight: 400;
+		font-weight: 300;
 		text-align: center;
-
-		span {
-			font-size: 1.6em;
-			color: #f0f0f0;
-			display: none;
-		}
-
-		h1 {
-			padding: 15px 30px;
-			border-radius: 50px;
-			color: #fff;
-			background: $blue-500;
-			font-size: 1.2em;
-			font-weight: 300;
-			width: 150px;
-			position: relative;
-			margin: 20px auto;
-		}
-
+		color: $gold-medium;
+		font-size: 1.2em;
 	}
 
 
@@ -2455,6 +2479,7 @@ header {
 	position: relative;
 	overflow: hidden;
 	background: #333;
+	display: none;
 
 	section {
 		position: absolute;
@@ -2846,8 +2871,8 @@ header {
 .tab-select-wrap {
 	z-index: 500;
 	text-align: center;
-	width: 100%;
-	margin-top: 60px;
+	width: 100%; 
+	margin-top: 135px; 
 }
 
 .tab-select-container, 
@@ -3975,7 +4000,8 @@ svg rect{
 	div {
 		position: relative;	
 		overflow: hidden; 
-		border-bottom: 1px solid #f5f5f5;
+		margin-bottom:15px;
+		/*border-bottom: 1px solid #f5f5f5;*/
 		background: #fff;
 	}
 
@@ -6971,10 +6997,10 @@ svg rect{
     text-align: center;
     float: right;
     cursor: pointer;
-    padding-top: 8px;
+    padding-top:8px;
 
 	h1 {
-		color: #fff;
+		color: #333;
 		font-size: 3em;
 		font-weight: 100;
 	}
@@ -6996,7 +7022,7 @@ svg rect{
 	position: fixed;
 	width: 100%;
 	z-index: 9999999999999999999999;
-	background: rgba(0,0,0,.9);
+	background: #f0f0f0;
 	top: 0;
 	left: 0;
 	height: 100%;
@@ -7013,9 +7039,10 @@ svg rect{
 
 .post-modal-header, 
 .post-status-header {
-	padding: 0 0 30px;
+	padding: 0;
 	width: 420px;
 	margin: 0 auto;
+	text-align: center;
 
 	h1, 
 	span {
@@ -7026,12 +7053,13 @@ svg rect{
 	h1 {
 		font-size: 2.2em;
 		font-weight: 100;
-		color: #fff;
+		color: #333;
 	}
 
 	span {
 		font-size: 3em;
 		margin: 5px 10px 0 0;
+		display: none;
 	}
 }
 
@@ -7191,22 +7219,23 @@ svg rect{
 
 .post-status-text {
     position: relative;
-    padding: 20px;
+    /*padding: 20px;*/
     width: 420px;
     margin: 0 auto;
-    background: #fff;
     text-align: left !important;
 
 	textarea {
 		width: 100%;
 		border: 0;
-		border-radius: 0;
+		border-radius: 3px;
 		outline: none;
-		background: transparent;
+		background: #fff;
 		font-size: 1.2em;
 		line-height: 24px;
 		resize: none;
-		padding: 20px 0px;
+		padding: 15px 0px;
+		margin: 10px 0;
+		text-indent: 15px;
 		color: #333;
 		font-weight: 300;
 	}
@@ -7226,21 +7255,22 @@ svg rect{
 .post-status-photo, 
 .post-status-video {
     position: relative;
-    padding: 20px;
+    padding: 20px 0;
     width: 420px;
     margin: 0 auto;
-    background: #fff;
 
     textarea {
 		width: 100%;
 		border: 0;
-		border-radius: 0;
+		border-radius: 3px;
 		outline: none;
-		background: transparent;
+		background: #fff;
 		font-size: 1.2em;
 		line-height: 24px;
 		resize: none;
-		padding: 20px 0px;
+		padding: 10px 0px;
+		margin: 15px 0;
+		text-indent: 15px;
 		color: #333;
 		font-weight: 300;
 	}
@@ -7339,6 +7369,77 @@ input[type="file"] {
 		display:none;
 	}
 }
+
+/* Hamburger Icon */
+
+.navToggle{
+  z-index: 111;
+  position: relative;
+  width: 20px;
+  height: 60px;
+  cursor: pointer;
+  
+  .icon{
+    -webkit-transition: all 0.4s ease-out;
+	position: absolute;
+	top: 30px;
+	left: 0;
+    right: 0;
+    margin: 0 auto;
+	width: 20px;
+	height: 2px;
+	background-color: #333;
+
+    &:before, &:after{
+      -webkit-transition: all 0.25s ease-out;
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background-color: #333;
+      content:'';
+    }
+  &:before{
+    top: -5px;
+    left: 0;
+  }
+  &:after{
+    top: 5px;
+    left: 0;
+  }
+  
+  }
+  &:hover{
+    .icon{
+      background-color: #555;
+      &:before{
+        top: -5px;
+        background-color: #555;
+      }
+      &:after{
+        top: 5px;
+        background-color:#555;
+      }
+    }
+  }
+  &.open{
+    .icon{
+      -webkit-transition: all 0.4s ease-out;
+      background-color: transparent;
+      -webkit-transform: rotate(180deg);
+      &:before{
+        top:0;
+        -webkit-transform: rotate(45deg);
+      }
+      &:after{
+        top:0;
+        -webkit-transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+
+
 
 /*Loading Icon*/
 

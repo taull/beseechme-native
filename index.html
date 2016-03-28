@@ -154,6 +154,8 @@
   <div class="index-banner-wrap">
 
     <div class="index-banner">
+      <div class="login-header"><h1>Welcome.</h1><p>Please register your personal account.</p></div>
+
       <div class="login-form">
         <form action="">
           <li><input type="text" name="business-name" placeholder="Business Name"></li>
@@ -163,16 +165,50 @@
           <button>Register</button>
         </form>
       </div>
+      <div class="step-nav"><li class="active-step"></li><li></li><li></li></div>
+
+    </div>
+  </div>
+</script>
+
+<!-- Business Register Avatar Step -->
+<script type='text/template' id='business-register-avatar-route'>
+  <div class="index-banner-wrap">
+
+    <div class="index-banner">
+
+      <div class="login-header">
+        <span>+</span><h1>Upload Avatar</h1>
+        <section><a href="#register/business/3">Next Step</a></section>
+      </div>
+
+      <div class="step-nav"><li></li><li class="active-step"></li><li></li></div>
+    </div>
+  </div>
+</script>
+
+<!-- Business Register Location Step -->
+
+<script type='text/template' id='business-register-location-route'>
+  <div class="index-banner-wrap">
+
+    <div class="index-banner">
+      <div class="login-header">
+        <i class="fa fa-location-arrow location-button"></i><h1>Set Location</h1>
+        <section><h2>If you are not at your place of business, please </h2> <a href="#backend">skip step</a></section>
+      </div>
+      <div class="step-nav"><li></li><li></li><li class="active-step"></li></div>
     </div>
   </div>
 </script>
 
 <!-- Consumer Register Route -->
+
 <script type='text/template' id='consumer-register-route'>
   <div class="index-banner-wrap">
 
     <div class="index-banner">
-      <div class="login-welcome"><h1>Welcome.</h1> <p>Please register your personal account.</p></div>
+      <div class="login-header"><h1>Welcome.</h1> <p>Please register your personal account.</p></div>
 
       <div class="login-form">
         <form action="">
@@ -181,13 +217,47 @@
           <li><input type="text" name="email" placeholder="Email Address"></li>
           <li><input type="password" name="password" placeholder="Password"></li>
           <li><input type="password" name="confirm-password" placeholder="Confirm Password"></li>
-          <button>Register</button>
+          <button>Next Step</button>
         </form>
       </div>
+      <div class="step-nav"><li class="active-step"></li><li></li><li></li></div>
+    </div>
+  </div>
+</script>
+
+<!-- Consumer Register Avatar Step -->
+<script type='text/template' id='consumer-register-avatar-route'>
+  <div class="index-banner-wrap">
+
+    <div class="index-banner">
+
+      <div class="login-header">
+        <span>+</span><h1>Upload Avatar</h1>
+        <section><a href="#register/business/3">Next Step</a></section>
+      </div>
+
       <div class="step-nav"><li></li><li class="active-step"></li><li></li></div>
     </div>
   </div>
 </script>
+
+<!-- Consumer Register Location Step -->
+
+<script type='text/template' id='consumer-register-location-route'>
+  <div class="index-banner-wrap">
+
+    <div class="index-banner">
+      <div class="login-header">
+        <i class="fa fa-location-arrow location-button"></i><h1>Set Location</h1>
+        <section><h2>If you are not at your place of business, please </h2> <a href="#backend">skip step</a></section>
+      </div>
+      <div class="step-nav"><li></li><li></li><li class="active-step"></li></div>
+    </div>
+  </div>
+</script>
+
+
+
 
 <!-- Bar Backend View -->
 
@@ -214,7 +284,9 @@
   <div class="backend-header">
 
     <div class="backend-header-container">
-      <aside><span class="fa fa-bars" id="slideout-trigger"></span></aside>
+      <aside>
+       <div class="navToggle"><div class="icon"></div></div>
+      </aside>
       <section><h1>Backend</h1></section>
       <div id="post-modal-trigger">
         <h1>+</h1>
@@ -223,14 +295,12 @@
 
   </div>
 
-
-
-
   <div class="post-modal-dest"></div>
 
   <div class="backend-slideout-wrap">
     <div class="backend-slideout">
 
+<<<<<<< HEAD
       <div class="user-header">
         <aside>
           <% if (typeof user.get('avatar') !=='undefined') { %>
@@ -244,6 +314,9 @@
       </div>
 
       <div class="menu-dark">
+=======
+      <div class="menu-light">
+>>>>>>> e2503bc9a5db288a8ce0b5092d1f09dd76ec482c
 
         <a href="#backend/feed">
           <aside><img src="images/comment-logo-1.png"></aside
@@ -360,8 +433,18 @@
 
       <div class="middle-column">
 
-
-        <div class="user-cover">
+        <div class="user-header">
+          <aside>
+            <% if (typeof user.get('avatar') !=='undefined') { %>
+              <img src=<%= user.get('avatar')._url %> >
+            <% } else { %>
+              <img src="images/henrysbar.jpg">
+            <% } %>
+          </aside
+          ><section><h1><%= user.get('businessName') %></h1><span class="fa fa-check-circle"></span><p>@<%= user.get('handle') %></p></section
+          ><div><img src="images/fire-logo-1.png"><h1>1,638</h1></div>
+        </div>
+          <div class="user-cover">
           <% if (typeof user.get('coverPhoto') !=='undefined') { %>
             <img src=<%= user.get('coverPhoto')._url %> >
           <% } else { %>

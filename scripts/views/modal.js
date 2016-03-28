@@ -21,6 +21,7 @@ BeMe.Views.Modal = Backbone.View.extend({
   closeHandler: function (e) {
     // if we click on the actual modal view as a whole instead of a nested element
     // close the modal (remove it);
+
     if (e.target == this.el) {
       this.close();
     }
@@ -79,6 +80,11 @@ BeMe.Views.Modal = Backbone.View.extend({
 
   postVideo: function () {
     console.log('postVideo');
+    // $('.post-status-text').addClass('animated zoomIn');
+    // $('.post-status-header').addClass('animated zoomIn');
+
+    // $('.post-modal-tabs').addClass('animated bounceOutUp');
+    // $('.post-modal-header').addClass('animated bounceOutUp');
   }
 
 });
