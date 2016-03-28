@@ -2267,13 +2267,11 @@ header {
 		}
 	}
 
-
-
 	p {
 		padding-top:10px;
-		font-size: 1.4em;
+		font-size: 1.2em;
 		font-weight: 300;
-		color: #333;
+		color: #999;
 		display: block;
 	}
 
@@ -4416,16 +4414,16 @@ svg rect{
 	li {
 		display: inline-block;
 		vertical-align: middle;
-		background: #ddd;
+		background: #333;
 		height: 10px;
 		width: 10px;
 		border-radius: 5px;
-		margin: 0 2px;
+		margin: 0 5px;
 	}
 }
 
 .active-step {
-	background: $blue-500 !important;
+	background: $gold-medium !important;
 
 }
 /* Breadcrumbs */
