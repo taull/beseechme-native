@@ -185,9 +185,10 @@
       <div class="step-nav"><li></li><li class="active-step"></li><li></li><li></li></div>
 
       <div class="login-header confirm-header">
-        <span>+</span><h1>Upload Avatar</h1>
-        <section><h2>You can change it at anytime.</h2></section>
-        <footer><a href="#register/business/3">Next Step</a></footer>
+        <input type="file" name="file" id="file" class="inputfile" id="upload-avatar"/>
+        <label for="file"><h1>+</h1><p>Upload Avatar</p></label>
+        <section><h2>You can change it at anytime from settings</h2></section>
+        <footer><a href="#register/business/3">Continue</a></footer>
       </div>
 
     </div>
@@ -225,7 +226,7 @@
       <div class="step-nav"><li></li><li></li><li></li><li class="active-step"></li></div>
 
       <div class="login-header confirm-header">
-        <i class="fa fa-check"></i><h1>Confirm Address</h1>
+        <a href="#backend"><i class="fa fa-check"></i></a><h1>Confirm Address</h1>
         <section><h2>2615 Wheat St., Columbia, SC 29205</h2></section>
         <footer><a href="#backend">No, enter manually</a></footer>
       </div>
@@ -266,8 +267,9 @@
       <div class="step-nav"><li></li><li class="active-step"></li><li></li></div>
 
       <div class="login-header confirm-header">
-        <span>+</span><h1>Upload Avatar</h1>
-        <section><h2>You can change it at anytime.</h2></section>
+        <input type="file" name="file" id="file" class="inputfile" id="upload-avatar"/>
+        <label for="file"><h1>+</h1><p>Upload Avatar</p></label>
+        <section><h2>You can change it at anytime from your settings</h2></section>
         <footer><a href="#register/consumer/3">Next Step</a></footer>
       </div>
 
@@ -371,13 +373,15 @@
 <script type="text/template" id="post-modal-view">
   <div class="post-modal">
     <div class="post-modal-header">
-      <h1>What do you want to post?</h1>
+      <h1>What do you want to do?</h1>
     </div>
     <div class="post-modal-tabs">
-      <li id="postText"><span class="fa fa-comment"></span><h1>Text</h1></li>
-      <li id="postPhoto"><span class="fa fa-image"></span><h1>Photo</h1></li>
-      <li id="postVideo"><span class="fa fa-video-camera"></span><h1>Video</h1></li>
-      <li id="postComment"><span class="fa fa-calendar"></span><h1>Event</h1></li>
+      <li id="postText"><span class="fa fa-comment"></span><h1>Post Status</h1></li>
+      <li id="postPhoto"><span class="fa fa-image"></span><h1>Upload Photo</h1></li>
+      <li id="postVideo"><span class="fa fa-video-camera"></span><h1>Upload Video</h1></li>
+      <li id="postComment"><span class="fa fa-calendar"></span><h1>Create Event</h1></li>
+      <li id="postBeer"><span class="fa fa-plus"></span><h1>Add Beer</h1></li>
+      <li id="postSpecial"><span class="fa fa-tag"></span><h1>Weekly Special</h1></li>
     </div>
 
   </div>
@@ -400,13 +404,11 @@
 </script>
 
 <script type="text/template" id="post-status-photo-view">
-  <div class="post-status-header">
-    <span class="fa fa-image photo-header"></span>
-    <h1>Photo</h1>
-  </div>
+
   <div class="post-status-photo">
     <form action="">
-      <input id="text-photo" type="file">
+      <input type="file" name="file" id="file" class="inputfile" id="text-photo"/>
+      <label for="file"><h1>+</h1><p>Upload Photo</p></label>
       <textarea id="photo-caption" rows="1" autoresize=true required=true placeholder="Your caption here"></textarea>
       <button>Upload</button>
     </form>
@@ -414,15 +416,12 @@
 </script>
 
 <script type="text/template" id="post-status-video-view">
-  <div class="post-status-header">
-    <span class="fa fa-video-camera video-header"></span>
-    <h1>Video</h1>
-  </div>
+
   <div class="post-status-video">
     <form action="">
-      <input id="text-photo" type="file">
+      <input type="file" name="file" id="file" class="inputfile" id="text-photo"/>
+      <label for="file"><h1>+</h1><p>Upload Video</p></label>
       <textarea id="photo-caption" rows="1" autoresize=true required=true placeholder="Your caption here"></textarea>
-
       <button>Upload</button>
     </form>
   </div>
@@ -713,7 +712,7 @@
     </div
 
     ><section>
-      <h1 id="draft-select">Add</h1>
+      <i class="fa fa-check-circle" id="draft-select"></i>
     </section>
 
 </script>
