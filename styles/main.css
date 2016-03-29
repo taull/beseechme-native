@@ -225,7 +225,7 @@ header {
   position: relative;
   text-align: center;
   left: -50%;
-  background: #222; }
+  background: #333; }
 
 .header-search {
   width: 480px;
@@ -1635,7 +1635,8 @@ header {
 .login-header {
   width: 480px;
   margin: 0 auto;
-  padding: 0; }
+  padding: 0;
+  text-align: center; }
   .login-header p,
   .login-header i {
     display: inline-block;
@@ -1675,6 +1676,29 @@ header {
       font-size: 1.2em;
       font-weight: 300;
       color: #FFC107; }
+  .login-header label {
+    cursor: pointer; }
+    .login-header label h1 {
+      width: 100px;
+      height: 100px;
+      border: 6px solid #333;
+      border-radius: 50px;
+      color: #333;
+      font-size: 6em;
+      font-weight: 300;
+      margin: 0 auto; }
+    .login-header label p {
+      font-size: 2.4em;
+      color: #ddd;
+      font-weight: 100;
+      padding: 30px 0 0; }
+  .login-header label h1:hover {
+    color: #8BC34A;
+    border: 6px solid #8BC34A;
+    transition: 250ms; }
+  .login-header label:focus h1 {
+    color: #8BC34A;
+    border: 6px solid #8BC34A; }
   .login-header span {
     width: 100px;
     height: 100px;
@@ -1940,8 +1964,8 @@ header {
   position: relative;
   transition: 250ms;
   z-index: 50;
-  margin: 15px 0;
-  height: 50px;
+  margin: 0;
+  height: 60px;
   overflow: hidden; }
   .beer-search section,
   .beer-search aside,
@@ -1953,12 +1977,12 @@ header {
     vertical-align: top; }
   .beer-search section {
     width: 100%;
-    background: #f8f8f8;
-    height: 50px; }
+    background: #333;
+    height: 60px; }
     .beer-search section input {
-      color: #333;
+      color: #ddd;
       background: #f8f8f8;
-      height: 50px;
+      height: 60px;
       width: 70%;
       border: 0;
       background: transparent;
@@ -1968,14 +1992,14 @@ header {
       font-weight: 300;
       text-indent: 20px; }
     .beer-search section input::-webkit-input-placeholder {
-      color: #333; }
+      color: #999; }
     .beer-search section i {
       width: 15%;
       font-size: 1.4em;
-      color: #ddd;
+      color: #999;
       text-align: center;
-      padding-top: 18px;
-      height: 50px;
+      padding-top: 23px;
+      height: 60px;
       cursor: pointer;
       float: right; }
   .beer-search aside {
@@ -2489,11 +2513,18 @@ header {
     float: right;
     padding: 10px 10px 0 0; }
     .profile-beer-list section h1 {
-      font-size: 1.2em;
-      color: #333; }
+      font-size: 1.6em;
+      font-weight: 300;
+      text-align: center;
+      padding-top: 5px;
+      width: 30px;
+      height: 30px;
+      border-radius: 20px;
+      border: 1px solid #689F38;
+      color: #689F38; }
     .profile-beer-list section i {
-      font-size: 1.4em;
-      color: #f0f0f0; }
+      font-size: 1.6em;
+      color: #8BC34A; }
 
 /*Checkbox*/
 /*Checkboxes styles*/
@@ -2563,7 +2594,7 @@ svg rect {
   height: 100vh;
   padding: 25px;
   text-align: center;
-  background: #ECEFF1;
+  background: #222;
   opacity: 1;
   transition: 250ms;
   position: absolute;
@@ -2808,15 +2839,6 @@ svg rect {
 #bottle-select,
 #draft-select {
   cursor: pointer; }
-
-.beer-results-add {
-  width: 20%;
-  display: inline-block;
-  vertical-align: top;
-  text-align: center; }
-  .beer-results-add span {
-    color: #8BC34A;
-    font-size: 28px; }
 
 .profile-right-shift {
   margin-top: 156px; }
@@ -5163,7 +5185,7 @@ svg rect {
 .post-modal {
   position: relative;
   margin: 0 auto;
-  width: 600px; }
+  width: 480px; }
 
 .post-modal-header,
 .post-status-header {
@@ -5179,9 +5201,9 @@ svg rect {
     vertical-align: middle; }
   .post-modal-header h1,
   .post-status-header h1 {
-    font-size: 2.2em;
+    font-size: 1.8em;
     font-weight: 100;
-    color: #999; }
+    color: #ddd; }
   .post-modal-header span,
   .post-status-header span {
     font-size: 3em;
@@ -5209,39 +5231,46 @@ svg rect {
 /* POST MODAL TABS */
 .post-modal-tabs {
   position: relative;
-  text-align: center; }
+  text-align: center;
+  padding-top: 40px; }
   .post-modal-tabs li {
     display: inline-block;
-    padding-top: 40px;
-    /*border:2px solid #f0f0f0;*/
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     border-radius: 50px;
     text-align: center;
     margin: 0 20px;
-    cursor: pointer; }
+    cursor: pointer;
+    margin-bottom: 30px; }
     .post-modal-tabs li span {
-      font-size: 6em;
-      color: #f0f0f0; }
+      font-size: 5em;
+      color: #1565C0; }
     .post-modal-tabs li h1 {
       font-size: 1em;
       font-weight: 300;
-      opacity: 0;
+      color: #999;
       transition: 250ms; }
-  .post-modal-tabs li:first-child span,
-  .post-modal-tabs li:first-child h1 {
+  .post-modal-tabs li:first-child span {
     color: #2196F3; }
-  .post-modal-tabs li:nth-child(2) span,
-  .post-modal-tabs li:nth-child(2) h1 {
+  .post-modal-tabs li:nth-child(2) span {
     color: #EF5350; }
-  .post-modal-tabs li:nth-child(3) span,
-  .post-modal-tabs li:nth-child(3) h1 {
+  .post-modal-tabs li:nth-child(3) span {
     color: #8BC34A; }
-  .post-modal-tabs li:nth-child(4) span,
-  .post-modal-tabs li:nth-child(4) h1 {
+  .post-modal-tabs li:nth-child(4) span {
     color: #FFC107; }
+  .post-modal-tabs li:nth-child(5) span {
+    color: #689F38; }
   .post-modal-tabs li:hover h1 {
     opacity: 1; }
+
+/* Custom Input */
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
 
 /* USER MODAL */
 .user-modal-wrap {
@@ -5331,10 +5360,11 @@ svg rect {
   position: relative;
   padding: 20px 0;
   width: 420px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  text-align: center; }
   .post-status-photo textarea,
   .post-status-video textarea {
-    width: 100%;
+    width: 85%;
     border: 0;
     border-radius: 3px;
     outline: none;
@@ -5343,7 +5373,7 @@ svg rect {
     line-height: 24px;
     resize: none;
     padding: 10px 0px;
-    margin: 15px 0;
+    margin: 30px 0;
     text-indent: 15px;
     color: #333;
     font-weight: 300; }
@@ -5357,6 +5387,34 @@ svg rect {
     font-weight: 300;
     border-radius: 3px;
     outline: 0; }
+  .post-status-photo label,
+  .post-status-video label {
+    cursor: pointer; }
+    .post-status-photo label h1,
+    .post-status-video label h1 {
+      width: 100px;
+      height: 100px;
+      border: 6px solid #333;
+      border-radius: 50px;
+      color: #333;
+      font-size: 6em;
+      font-weight: 300;
+      margin: 0 auto; }
+    .post-status-photo label p,
+    .post-status-video label p {
+      font-size: 1.6em;
+      color: #ddd;
+      font-weight: 100;
+      padding: 20px 0; }
+  .post-status-photo label h1:hover,
+  .post-status-video label h1:hover {
+    color: #8BC34A;
+    border: 6px solid #8BC34A;
+    transition: 250ms; }
+  .post-status-photo label:focus h1,
+  .post-status-video label:focus h1 {
+    color: #8BC34A;
+    border: 6px solid #8BC34A; }
 
 .post-status-event {
   position: relative;
@@ -5407,7 +5465,8 @@ input[type="file"] {
   padding: 20px;
   border-top: 0;
   text-align: center;
-  background: transparent; }
+  background: transparent;
+  display: none; }
   .copyright-info h1 {
     font-size: 1em;
     color: #999;
