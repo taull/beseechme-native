@@ -44,7 +44,7 @@ BeMe.Views.Backend = Parse.View.extend({
 	openModal: function () {
 		$('.post-modal-dest').append(new BeMe.Views.Modal().el); // create overlay modal
     $('.post-modal-tabs').addClass('animated bounceInUp');
-    $('.post-modal-header').addClass('animated bounceInUp');
+    $('.post-modal-header').addClass('animated fadeIn');
 
 
 	},
