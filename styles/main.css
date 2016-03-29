@@ -20,7 +20,7 @@
 body {
   font-size: 12px;
   position: relative;
-  background: #f0f0f0;
+  background: #222;
   width: 100%;
   margin: 0 auto;
   transition: 250ms; }
@@ -39,7 +39,7 @@ body {
 
 .backend-container {
   width: 480px;
-  margin: 135px auto 0;
+  margin: 60px auto 0;
   position: relative;
   z-index: 1; }
 
@@ -119,11 +119,11 @@ header {
   width: 100%;
   margin: 0px auto 0;
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   z-index: 1500;
-  height: 60px;
-  background: #fff;
+  height: 80px;
+  background: #222;
   /*background: url(../images/bluebkgd.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -138,7 +138,7 @@ header {
   left: 0;
   z-index: 600;
   height: 60px;
-  background: #fff; }
+  background: #222; }
 
 .backend-header-container {
   width: 480px;
@@ -225,7 +225,7 @@ header {
   position: relative;
   text-align: center;
   left: -50%;
-  background: #222; }
+  background: #333; }
 
 .header-search {
   width: 480px;
@@ -273,7 +273,7 @@ header {
 .header-window {
   overflow: hidden;
   width: 480px;
-  margin: 60px auto;
+  margin: 0 auto;
   height: 60px;
   position: relative;
   z-index: 500; }
@@ -1607,7 +1607,7 @@ header {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 20px;
+  top: 0;
   left: 0;
   display: inline-block;
   background: #222;
@@ -1635,9 +1635,10 @@ header {
 .login-header {
   width: 480px;
   margin: 0 auto;
-  padding: 20px 0; }
-  .login-header h1,
-  .login-header p {
+  padding: 0;
+  text-align: center; }
+  .login-header p,
+  .login-header i {
     display: inline-block;
     vertical-align: top; }
   .login-header h1 {
@@ -1647,19 +1648,15 @@ header {
   .login-header section {
     display: block;
     text-align: center;
-    padding: 0 30px; }
-    .login-header section a,
+    padding: 0 100px 5px; }
     .login-header section h2 {
-      display: inline-block;
-      vertical-align: middle; }
+      display: inline-block; }
     .login-header section a {
-      font-size: 1.2em;
-      font-weight: 300;
-      color: #FFC107;
-      margin-top: 20px; }
+      color: #FFC107; }
     .login-header section h2 {
       font-size: 1.2em;
       font-weight: 300;
+      line-height: 1.8em;
       color: #999;
       margin-top: 20px; }
     .login-header section h3 {
@@ -1673,28 +1670,71 @@ header {
     font-weight: 300;
     color: #999;
     display: block; }
+  .login-header footer {
+    padding: 0px 0; }
+    .login-header footer a {
+      font-size: 1.2em;
+      font-weight: 300;
+      color: #FFC107; }
+  .login-header label {
+    cursor: pointer; }
+    .login-header label h1 {
+      width: 100px;
+      height: 100px;
+      border: 6px solid #333;
+      border-radius: 50px;
+      color: #333;
+      font-size: 6em;
+      font-weight: 300;
+      margin: 0 auto; }
+    .login-header label p {
+      font-size: 2.4em;
+      color: #ddd;
+      font-weight: 100;
+      padding: 30px 0 0; }
+  .login-header label h1:hover {
+    color: #8BC34A;
+    border: 6px solid #8BC34A;
+    transition: 250ms; }
+  .login-header label:focus h1 {
+    color: #8BC34A;
+    border: 6px solid #8BC34A; }
   .login-header span {
     width: 100px;
     height: 100px;
-    color: #FFC107;
+    color: #333;
     display: block;
     margin: 0 auto 30px;
     font-size: 6em;
     border-radius: 50px;
-    border: 4px solid #FFC107;
-    padding-top: 5px;
-    font-weight: 100; }
+    border: 6px solid #333;
+    padding-top: 3px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: 250ms; }
   .login-header i {
     width: 100px;
     height: 100px;
-    color: #FFC107;
-    display: block;
-    margin: 0 auto 30px;
+    color: #333;
+    margin: 0 15px 30px;
     font-size: 4em;
     border-radius: 50px;
-    border: 4px solid #FFC107;
+    border: 6px solid #333;
     padding-top: 25px;
-    font-weight: 100; }
+    font-weight: 100;
+    cursor: pointer;
+    transition: 250ms; }
+
+.confirm-header span:hover,
+.location-header span:hover {
+  color: #689F38;
+  border: 6px solid #689F38;
+  transition: 250ms; }
+.confirm-header i:hover,
+.location-header i:hover {
+  color: #689F38;
+  border: 6px solid #689F38;
+  transition: 250ms; }
 
 .login-form {
   width: 100%;
@@ -1924,8 +1964,8 @@ header {
   position: relative;
   transition: 250ms;
   z-index: 50;
-  margin: 15px 0;
-  height: 50px;
+  margin: 0;
+  height: 60px;
   overflow: hidden; }
   .beer-search section,
   .beer-search aside,
@@ -1937,12 +1977,12 @@ header {
     vertical-align: top; }
   .beer-search section {
     width: 100%;
-    background: #f8f8f8;
-    height: 50px; }
+    background: #333;
+    height: 60px; }
     .beer-search section input {
-      color: #333;
+      color: #ddd;
       background: #f8f8f8;
-      height: 50px;
+      height: 60px;
       width: 70%;
       border: 0;
       background: transparent;
@@ -1952,14 +1992,14 @@ header {
       font-weight: 300;
       text-indent: 20px; }
     .beer-search section input::-webkit-input-placeholder {
-      color: #333; }
+      color: #999; }
     .beer-search section i {
       width: 15%;
       font-size: 1.4em;
-      color: #ddd;
+      color: #999;
       text-align: center;
-      padding-top: 18px;
-      height: 50px;
+      padding-top: 23px;
+      height: 60px;
       cursor: pointer;
       float: right; }
   .beer-search aside {
@@ -2103,7 +2143,7 @@ header {
   z-index: 500;
   text-align: center;
   width: 100%;
-  margin-top: 135px; }
+  margin-top: 50px; }
 
 .tab-select-container,
 .user-select-container {
@@ -2118,7 +2158,7 @@ header {
   position: relative;
   width: 100%;
   text-align: left;
-  background: #fff;
+  background: #333;
   /*border-radius: 3px;*/
   padding: 0; }
   .tab-select li,
@@ -2139,7 +2179,7 @@ header {
     position: relative;
     cursor: pointer;
     text-align: center;
-    border-bottom: 3px solid #f0f0f0; }
+    border-bottom: 3px solid #333; }
     .tab-select li h1,
     .user-select li h1 {
       color: #ddd;
@@ -2161,7 +2201,7 @@ header {
 .active-user {
   border-bottom: 3px solid #2196F3 !important; }
   .active-user h1 {
-    color: #333 !important; }
+    color: #2196F3 !important; }
 
 .bar-search {
   display: inline-block;
@@ -2473,11 +2513,18 @@ header {
     float: right;
     padding: 10px 10px 0 0; }
     .profile-beer-list section h1 {
-      font-size: 1.2em;
-      color: #333; }
+      font-size: 1.6em;
+      font-weight: 300;
+      text-align: center;
+      padding-top: 5px;
+      width: 30px;
+      height: 30px;
+      border-radius: 20px;
+      border: 1px solid #689F38;
+      color: #689F38; }
     .profile-beer-list section i {
-      font-size: 1.4em;
-      color: #f0f0f0; }
+      font-size: 1.6em;
+      color: #8BC34A; }
 
 /*Checkbox*/
 /*Checkboxes styles*/
@@ -2547,7 +2594,7 @@ svg rect {
   height: 100vh;
   padding: 25px;
   text-align: center;
-  background: #ECEFF1;
+  background: #222;
   opacity: 1;
   transition: 250ms;
   position: absolute;
@@ -2793,15 +2840,6 @@ svg rect {
 #draft-select {
   cursor: pointer; }
 
-.beer-results-add {
-  width: 20%;
-  display: inline-block;
-  vertical-align: top;
-  text-align: center; }
-  .beer-results-add span {
-    color: #8BC34A;
-    font-size: 28px; }
-
 .profile-right-shift {
   margin-top: 156px; }
 
@@ -2962,8 +3000,8 @@ svg rect {
   .bar-feed div {
     position: relative;
     overflow: hidden;
-    margin-bottom: 15px;
-    /*border-bottom: 1px solid #f5f5f5;*/
+    /*margin-bottom:15px;*/
+    border-bottom: 1px solid #f5f5f5;
     background: #fff; }
   .bar-feed li:nth-child(odd),
   .bar-feed div:nth-child(odd) {
@@ -3262,7 +3300,7 @@ svg rect {
 .step-nav {
   width: 100%;
   text-align: center;
-  padding: 5px 0 0; }
+  padding: 0 0 75px; }
   .step-nav li {
     display: inline-block;
     vertical-align: middle;
@@ -4379,88 +4417,8 @@ svg rect {
   right: 0px;
   transition: 250ms; }
 
-/* Animated Hamburger Toggle */
-/* Icon 1 */
-#nav-toggle {
-  display: inline-block;
-  vertical-align: top;
-  width: 14%;
-  height: 50px;
-  cursor: pointer;
-  padding-top: 20px;
-  padding-left: 5px;
-  /*background: $primary-color-900;*/
-  border-radius: 3px;
-  /*margin-left:10px;*/ }
-
-#nav-icon1 {
-  float: left;
-  width: 15%;
-  height: 42px;
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-  cursor: pointer; }
-
-#nav-icon1 span {
-  display: block;
-  position: absolute;
-  height: 4px;
-  width: 25px;
-  background: #f0f0f0;
-  border-radius: 1px;
-  opacity: 1;
-  left: 10px;
-  top: 10px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: .25s ease-in-out;
-  -moz-transition: .25s ease-in-out;
-  -o-transition: .25s ease-in-out;
-  transition: .25s ease-in-out; }
-
-#nav-icon1 span:nth-child(1) {
-  top: 0px; }
-
-#nav-icon1 span:nth-child(2) {
-  top: 9px; }
-
-#nav-icon1 span:nth-child(3) {
-  top: 18px; }
-
-#nav-icon1.open span {
-  background: #F44336; }
-
-#nav-icon1.open span:nth-child(1) {
-  top: 9px;
-  -webkit-transform: rotate(135deg);
-  -moz-transform: rotate(135deg);
-  -o-transform: rotate(135deg);
-  transform: rotate(135deg); }
-
-#nav-icon1.open span:nth-child(2) {
-  opacity: 0;
-  left: -60px; }
-
-#nav-icon1.open span:nth-child(3) {
-  top: 9px;
-  -webkit-transform: rotate(-135deg);
-  -moz-transform: rotate(-135deg);
-  -o-transform: rotate(-135deg);
-  transform: rotate(-135deg); }
-
 .hidden {
-  opacity: 0;
+  display: none;
   z-index: 0; }
 
 #backend-settings aside {
@@ -5200,7 +5158,7 @@ svg rect {
   cursor: pointer;
   padding-top: 8px; }
   #post-modal-trigger h1 {
-    color: #333;
+    color: #FFC107;
     font-size: 3em;
     font-weight: 100; }
 
@@ -5217,7 +5175,7 @@ svg rect {
   position: fixed;
   width: 100%;
   z-index: 9999999999999999999999;
-  background: #f0f0f0;
+  background: #222;
   top: 0;
   left: 0;
   height: 100%;
@@ -5227,7 +5185,7 @@ svg rect {
 .post-modal {
   position: relative;
   margin: 0 auto;
-  width: 600px; }
+  width: 480px; }
 
 .post-modal-header,
 .post-status-header {
@@ -5243,9 +5201,9 @@ svg rect {
     vertical-align: middle; }
   .post-modal-header h1,
   .post-status-header h1 {
-    font-size: 2.2em;
+    font-size: 1.8em;
     font-weight: 100;
-    color: #333; }
+    color: #ddd; }
   .post-modal-header span,
   .post-status-header span {
     font-size: 3em;
@@ -5273,39 +5231,46 @@ svg rect {
 /* POST MODAL TABS */
 .post-modal-tabs {
   position: relative;
-  text-align: center; }
+  text-align: center;
+  padding-top: 40px; }
   .post-modal-tabs li {
     display: inline-block;
-    padding-top: 40px;
-    /*border:2px solid #f0f0f0;*/
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     border-radius: 50px;
     text-align: center;
     margin: 0 20px;
-    cursor: pointer; }
+    cursor: pointer;
+    margin-bottom: 30px; }
     .post-modal-tabs li span {
-      font-size: 6em;
-      color: #f0f0f0; }
+      font-size: 5em;
+      color: #1565C0; }
     .post-modal-tabs li h1 {
       font-size: 1em;
       font-weight: 300;
-      opacity: 0;
+      color: #999;
       transition: 250ms; }
-  .post-modal-tabs li:first-child span,
-  .post-modal-tabs li:first-child h1 {
+  .post-modal-tabs li:first-child span {
     color: #2196F3; }
-  .post-modal-tabs li:nth-child(2) span,
-  .post-modal-tabs li:nth-child(2) h1 {
+  .post-modal-tabs li:nth-child(2) span {
     color: #EF5350; }
-  .post-modal-tabs li:nth-child(3) span,
-  .post-modal-tabs li:nth-child(3) h1 {
+  .post-modal-tabs li:nth-child(3) span {
     color: #8BC34A; }
-  .post-modal-tabs li:nth-child(4) span,
-  .post-modal-tabs li:nth-child(4) h1 {
+  .post-modal-tabs li:nth-child(4) span {
     color: #FFC107; }
+  .post-modal-tabs li:nth-child(5) span {
+    color: #689F38; }
   .post-modal-tabs li:hover h1 {
     opacity: 1; }
+
+/* Custom Input */
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
 
 /* USER MODAL */
 .user-modal-wrap {
@@ -5395,10 +5360,11 @@ svg rect {
   position: relative;
   padding: 20px 0;
   width: 420px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  text-align: center; }
   .post-status-photo textarea,
   .post-status-video textarea {
-    width: 100%;
+    width: 85%;
     border: 0;
     border-radius: 3px;
     outline: none;
@@ -5407,7 +5373,7 @@ svg rect {
     line-height: 24px;
     resize: none;
     padding: 10px 0px;
-    margin: 15px 0;
+    margin: 30px 0;
     text-indent: 15px;
     color: #333;
     font-weight: 300; }
@@ -5421,6 +5387,34 @@ svg rect {
     font-weight: 300;
     border-radius: 3px;
     outline: 0; }
+  .post-status-photo label,
+  .post-status-video label {
+    cursor: pointer; }
+    .post-status-photo label h1,
+    .post-status-video label h1 {
+      width: 100px;
+      height: 100px;
+      border: 6px solid #333;
+      border-radius: 50px;
+      color: #333;
+      font-size: 6em;
+      font-weight: 300;
+      margin: 0 auto; }
+    .post-status-photo label p,
+    .post-status-video label p {
+      font-size: 1.6em;
+      color: #ddd;
+      font-weight: 100;
+      padding: 20px 0; }
+  .post-status-photo label h1:hover,
+  .post-status-video label h1:hover {
+    color: #8BC34A;
+    border: 6px solid #8BC34A;
+    transition: 250ms; }
+  .post-status-photo label:focus h1,
+  .post-status-video label:focus h1 {
+    color: #8BC34A;
+    border: 6px solid #8BC34A; }
 
 .post-status-event {
   position: relative;
@@ -5471,15 +5465,16 @@ input[type="file"] {
   padding: 20px;
   border-top: 0;
   text-align: center;
-  background: transparent; }
+  background: transparent;
+  display: none; }
   .copyright-info h1 {
     font-size: 1em;
-    color: #333;
+    color: #999;
     font-weight: 300; }
   .copyright-info p {
     display: block;
     font-size: 1em;
-    color: #333;
+    color: #999;
     font-weight: 400;
     padding-top: 10px;
     display: none; }
@@ -5500,13 +5495,13 @@ input[type="file"] {
     margin: 0 auto;
     width: 20px;
     height: 2px;
-    background-color: #333; }
+    background-color: #ddd; }
     .navToggle .icon:before, .navToggle .icon:after {
       -webkit-transition: all 0.25s ease-out;
       position: absolute;
       width: 20px;
       height: 2px;
-      background-color: #333;
+      background-color: #ddd;
       content: ''; }
     .navToggle .icon:before {
       top: -5px;
@@ -5515,15 +5510,15 @@ input[type="file"] {
       top: 5px;
       left: 0; }
   .navToggle:hover .icon {
-    background-color: #555; }
+    background-color: #ddd; }
     .navToggle:hover .icon:before {
       top: -5px;
-      background-color: #555; }
+      background-color: #ddd; }
     .navToggle:hover .icon:after {
       top: 5px;
-      background-color: #555; }
+      background-color: #ddd; }
   .navToggle.open .icon {
-    -webkit-transition: all 0.4s ease-out;
+    -webkit-transition: all .25s ease-out;
     background-color: transparent;
     -webkit-transform: rotate(180deg); }
     .navToggle.open .icon:before {
