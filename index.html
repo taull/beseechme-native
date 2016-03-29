@@ -157,6 +157,8 @@
   <div class="index-banner-wrap">
 
     <div class="index-banner">
+      <div class="step-nav"><li class="active-step"></li><li></li><li></li><li></li></div>
+
       <div class="login-header"><h1>Welcome.</h1><p>Please register your business account.</p></div>
 
       <div class="login-form">
@@ -170,7 +172,6 @@
         </form>
       </div>
 
-      <div class="step-nav"><li class="active-step"></li><li></li><li></li></div>
 
     </div>
   </div>
@@ -181,13 +182,14 @@
   <div class="index-banner-wrap">
 
     <div class="index-banner">
+      <div class="step-nav"><li></li><li class="active-step"></li><li></li><li></li></div>
 
-      <div class="login-header">
+      <div class="login-header confirm-header">
         <span>+</span><h1>Upload Avatar</h1>
-        <section><a href="#register/business/3">Next Step</a></section>
+        <section><h2>You can change it at anytime.</h2></section>
+        <footer><a href="#register/business/3">Next Step</a></footer>
       </div>
 
-      <div class="step-nav"><li></li><li class="active-step"></li><li></li></div>
     </div>
   </div>
 </script>
@@ -198,16 +200,18 @@
   <div class="index-banner-wrap">
 
     <div class="index-banner">
-      <div class="login-header">
+      <div class="step-nav"><li></li><li></li><li class="active-step"></li><li></li></div>
+      <div class="login-header confirm-header">
         <i class="fa fa-location-arrow location-button"></i><h1>Set Location</h1>
-        <section><h2>If you are not at your place of business, please </h2> <a href="#backend">skip step</a></section>
+        <section><h2>If you are not at your place of business, please <a href="#backend">skip step</a> and set later.</h2></section>
       </div>
-      <div class="step-nav"><li></li><li></li><li class="active-step"></li></div>
     </div>
   </div>
   <div class="location-loading-wrap hidden">
     <div class="location-loading">
-      <i class="fa fa-location-arrow location-button"></i>
+      <div class="step-nav"><li></li><li></li><li class="active-step"></li><li></li></div>
+
+      <i class="fa fa-location-arrow fa-spin location-button"></i>
     </div>
   </div>
 </script>
@@ -217,12 +221,14 @@
 <script type='text/template' id='business-register-confirm-route'>
   <div class="index-banner-wrap">
 
-    <div class="index-banner">
-      <div class="login-header">
-        <i class="fa fa-location-arrow location-button"></i><h1>Confirm Address</h1>
-        <section><h3>2615 Wheat St.</h3><h3>Columbia, SC 29205</h3><a href="#backend">Yes that is my address</a></section>
-      </div>
+    <div class="index-banner">      
       <div class="step-nav"><li></li><li></li><li></li><li class="active-step"></li></div>
+
+      <div class="login-header confirm-header">
+        <i class="fa fa-check"></i><h1>Confirm Address</h1>
+        <section><h2>2615 Wheat St., Columbia, SC 29205</h2></section>
+        <footer><a href="#backend">No, enter manually</a></footer>
+      </div>
     </div>
   </div>
 </script>
@@ -233,6 +239,8 @@
   <div class="index-banner-wrap">
 
     <div class="index-banner">
+      <div class="step-nav"><li class="active-step"></li><li></li><li></li></div>
+
       <div class="login-header"><h1>Welcome.</h1> <p>Please register your personal account.</p></div>
 
       <div class="login-form">
@@ -246,7 +254,6 @@
           <button>Next Step</button>
         </form>
       </div>
-      <div class="step-nav"><li class="active-step"></li><li></li><li></li></div>
     </div>
   </div>
 </script>
@@ -256,13 +263,14 @@
   <div class="index-banner-wrap">
 
     <div class="index-banner">
+      <div class="step-nav"><li></li><li class="active-step"></li><li></li></div>
 
-      <div class="login-header">
+      <div class="login-header confirm-header">
         <span>+</span><h1>Upload Avatar</h1>
-        <section><a href="#register/business/3">Next Step</a></section>
+        <section><h2>You can change it at anytime.</h2></section>
+        <footer><a href="#register/consumer/3">Next Step</a></footer>
       </div>
 
-      <div class="step-nav"><li></li><li class="active-step"></li><li></li></div>
     </div>
   </div>
 </script>
@@ -273,11 +281,19 @@
   <div class="index-banner-wrap">
 
     <div class="index-banner">
-      <div class="login-header">
-        <i class="fa fa-location-arrow location-button"></i><h1>Set Location</h1>
-        <section><a href="#dashboard">Skip step</a></section>
-      </div>
       <div class="step-nav"><li></li><li></li><li class="active-step"></li></div>
+      <div class="login-header confirm-header">
+        <i class="fa fa-location-arrow location-button"></i><h1>Set Location</h1>
+        <section></section>
+        <footer><a href="#backend">Skip step</a></footer>
+      </div>
+    </div>
+  </div>
+  <div class="location-loading-wrap hidden">
+    <div class="location-loading">
+      <div class="step-nav"><li></li><li></li><li class="active-step"></li><li></li></div>
+
+      <i class="fa fa-location-arrow fa-spin location-button"></i>
     </div>
   </div>
 </script>

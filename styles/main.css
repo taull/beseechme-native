@@ -20,7 +20,7 @@
 body {
   font-size: 12px;
   position: relative;
-  background: #f0f0f0;
+  background: #222;
   width: 100%;
   margin: 0 auto;
   transition: 250ms; }
@@ -39,7 +39,7 @@ body {
 
 .backend-container {
   width: 480px;
-  margin: 135px auto 0;
+  margin: 60px auto 0;
   position: relative;
   z-index: 1; }
 
@@ -119,11 +119,11 @@ header {
   width: 100%;
   margin: 0px auto 0;
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   z-index: 1500;
-  height: 60px;
-  background: #fff;
+  height: 80px;
+  background: #222;
   /*background: url(../images/bluebkgd.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -138,7 +138,7 @@ header {
   left: 0;
   z-index: 600;
   height: 60px;
-  background: #fff; }
+  background: #222; }
 
 .backend-header-container {
   width: 480px;
@@ -273,7 +273,7 @@ header {
 .header-window {
   overflow: hidden;
   width: 480px;
-  margin: 60px auto;
+  margin: 0 auto;
   height: 60px;
   position: relative;
   z-index: 500; }
@@ -1607,7 +1607,7 @@ header {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 20px;
+  top: 0;
   left: 0;
   display: inline-block;
   background: #222;
@@ -1635,9 +1635,9 @@ header {
 .login-header {
   width: 480px;
   margin: 0 auto;
-  padding: 20px 0; }
-  .login-header h1,
-  .login-header p {
+  padding: 0; }
+  .login-header p,
+  .login-header i {
     display: inline-block;
     vertical-align: top; }
   .login-header h1 {
@@ -1647,19 +1647,15 @@ header {
   .login-header section {
     display: block;
     text-align: center;
-    padding: 0 30px; }
-    .login-header section a,
+    padding: 0 100px 5px; }
     .login-header section h2 {
-      display: inline-block;
-      vertical-align: middle; }
+      display: inline-block; }
     .login-header section a {
-      font-size: 1.2em;
-      font-weight: 300;
-      color: #FFC107;
-      margin-top: 20px; }
+      color: #FFC107; }
     .login-header section h2 {
       font-size: 1.2em;
       font-weight: 300;
+      line-height: 1.8em;
       color: #999;
       margin-top: 20px; }
     .login-header section h3 {
@@ -1673,28 +1669,48 @@ header {
     font-weight: 300;
     color: #999;
     display: block; }
+  .login-header footer {
+    padding: 0px 0; }
+    .login-header footer a {
+      font-size: 1.2em;
+      font-weight: 300;
+      color: #FFC107; }
   .login-header span {
     width: 100px;
     height: 100px;
-    color: #FFC107;
+    color: #333;
     display: block;
     margin: 0 auto 30px;
     font-size: 6em;
     border-radius: 50px;
-    border: 4px solid #FFC107;
-    padding-top: 5px;
-    font-weight: 100; }
+    border: 6px solid #333;
+    padding-top: 3px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: 250ms; }
   .login-header i {
     width: 100px;
     height: 100px;
-    color: #FFC107;
-    display: block;
-    margin: 0 auto 30px;
+    color: #333;
+    margin: 0 15px 30px;
     font-size: 4em;
     border-radius: 50px;
-    border: 4px solid #FFC107;
+    border: 6px solid #333;
     padding-top: 25px;
-    font-weight: 100; }
+    font-weight: 100;
+    cursor: pointer;
+    transition: 250ms; }
+
+.confirm-header span:hover,
+.location-header span:hover {
+  color: #689F38;
+  border: 6px solid #689F38;
+  transition: 250ms; }
+.confirm-header i:hover,
+.location-header i:hover {
+  color: #689F38;
+  border: 6px solid #689F38;
+  transition: 250ms; }
 
 .login-form {
   width: 100%;
@@ -2103,7 +2119,7 @@ header {
   z-index: 500;
   text-align: center;
   width: 100%;
-  margin-top: 135px; }
+  margin-top: 50px; }
 
 .tab-select-container,
 .user-select-container {
@@ -2118,7 +2134,7 @@ header {
   position: relative;
   width: 100%;
   text-align: left;
-  background: #fff;
+  background: #333;
   /*border-radius: 3px;*/
   padding: 0; }
   .tab-select li,
@@ -2139,7 +2155,7 @@ header {
     position: relative;
     cursor: pointer;
     text-align: center;
-    border-bottom: 3px solid #f0f0f0; }
+    border-bottom: 3px solid #333; }
     .tab-select li h1,
     .user-select li h1 {
       color: #ddd;
@@ -2161,7 +2177,7 @@ header {
 .active-user {
   border-bottom: 3px solid #2196F3 !important; }
   .active-user h1 {
-    color: #333 !important; }
+    color: #2196F3 !important; }
 
 .bar-search {
   display: inline-block;
@@ -2962,8 +2978,8 @@ svg rect {
   .bar-feed div {
     position: relative;
     overflow: hidden;
-    margin-bottom: 15px;
-    /*border-bottom: 1px solid #f5f5f5;*/
+    /*margin-bottom:15px;*/
+    border-bottom: 1px solid #f5f5f5;
     background: #fff; }
   .bar-feed li:nth-child(odd),
   .bar-feed div:nth-child(odd) {
@@ -3262,7 +3278,7 @@ svg rect {
 .step-nav {
   width: 100%;
   text-align: center;
-  padding: 5px 0 0; }
+  padding: 0 0 75px; }
   .step-nav li {
     display: inline-block;
     vertical-align: middle;
@@ -4379,88 +4395,8 @@ svg rect {
   right: 0px;
   transition: 250ms; }
 
-/* Animated Hamburger Toggle */
-/* Icon 1 */
-#nav-toggle {
-  display: inline-block;
-  vertical-align: top;
-  width: 14%;
-  height: 50px;
-  cursor: pointer;
-  padding-top: 20px;
-  padding-left: 5px;
-  /*background: $primary-color-900;*/
-  border-radius: 3px;
-  /*margin-left:10px;*/ }
-
-#nav-icon1 {
-  float: left;
-  width: 15%;
-  height: 42px;
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-  cursor: pointer; }
-
-#nav-icon1 span {
-  display: block;
-  position: absolute;
-  height: 4px;
-  width: 25px;
-  background: #f0f0f0;
-  border-radius: 1px;
-  opacity: 1;
-  left: 10px;
-  top: 10px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: .25s ease-in-out;
-  -moz-transition: .25s ease-in-out;
-  -o-transition: .25s ease-in-out;
-  transition: .25s ease-in-out; }
-
-#nav-icon1 span:nth-child(1) {
-  top: 0px; }
-
-#nav-icon1 span:nth-child(2) {
-  top: 9px; }
-
-#nav-icon1 span:nth-child(3) {
-  top: 18px; }
-
-#nav-icon1.open span {
-  background: #F44336; }
-
-#nav-icon1.open span:nth-child(1) {
-  top: 9px;
-  -webkit-transform: rotate(135deg);
-  -moz-transform: rotate(135deg);
-  -o-transform: rotate(135deg);
-  transform: rotate(135deg); }
-
-#nav-icon1.open span:nth-child(2) {
-  opacity: 0;
-  left: -60px; }
-
-#nav-icon1.open span:nth-child(3) {
-  top: 9px;
-  -webkit-transform: rotate(-135deg);
-  -moz-transform: rotate(-135deg);
-  -o-transform: rotate(-135deg);
-  transform: rotate(-135deg); }
-
 .hidden {
-  opacity: 0;
+  display: none;
   z-index: 0; }
 
 #backend-settings aside {
@@ -5200,7 +5136,7 @@ svg rect {
   cursor: pointer;
   padding-top: 8px; }
   #post-modal-trigger h1 {
-    color: #333;
+    color: #FFC107;
     font-size: 3em;
     font-weight: 100; }
 
@@ -5217,7 +5153,7 @@ svg rect {
   position: fixed;
   width: 100%;
   z-index: 9999999999999999999999;
-  background: #f0f0f0;
+  background: #222;
   top: 0;
   left: 0;
   height: 100%;
@@ -5245,7 +5181,7 @@ svg rect {
   .post-status-header h1 {
     font-size: 2.2em;
     font-weight: 100;
-    color: #333; }
+    color: #999; }
   .post-modal-header span,
   .post-status-header span {
     font-size: 3em;
@@ -5474,12 +5410,12 @@ input[type="file"] {
   background: transparent; }
   .copyright-info h1 {
     font-size: 1em;
-    color: #333;
+    color: #999;
     font-weight: 300; }
   .copyright-info p {
     display: block;
     font-size: 1em;
-    color: #333;
+    color: #999;
     font-weight: 400;
     padding-top: 10px;
     display: none; }
@@ -5500,13 +5436,13 @@ input[type="file"] {
     margin: 0 auto;
     width: 20px;
     height: 2px;
-    background-color: #333; }
+    background-color: #ddd; }
     .navToggle .icon:before, .navToggle .icon:after {
       -webkit-transition: all 0.25s ease-out;
       position: absolute;
       width: 20px;
       height: 2px;
-      background-color: #333;
+      background-color: #ddd;
       content: ''; }
     .navToggle .icon:before {
       top: -5px;
@@ -5515,15 +5451,15 @@ input[type="file"] {
       top: 5px;
       left: 0; }
   .navToggle:hover .icon {
-    background-color: #555; }
+    background-color: #ddd; }
     .navToggle:hover .icon:before {
       top: -5px;
-      background-color: #555; }
+      background-color: #ddd; }
     .navToggle:hover .icon:after {
       top: 5px;
-      background-color: #555; }
+      background-color: #ddd; }
   .navToggle.open .icon {
-    -webkit-transition: all 0.4s ease-out;
+    -webkit-transition: all .25s ease-out;
     background-color: transparent;
     -webkit-transform: rotate(180deg); }
     .navToggle.open .icon:before {
